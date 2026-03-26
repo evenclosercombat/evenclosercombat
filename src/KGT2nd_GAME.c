@@ -5564,7 +5564,7 @@ void setup_stage_spawn_scripts(void)
           pActionscript = UNK_STAGE_FILES_00445740.kgt_core.p_actionscripts_alloc + this_0x20;
           _x20_diff = *(ushort *)(pActionsAlloc[1].action_name + offset + 0x20) - this_0x20;
           do {
-            if (pActionscript->skill_step_type == '\f') {
+            if (pActionscript->skill_step_type == 0xc) {
               bVar2 = true;
             }
             pActionscript = pActionscript + 1;
@@ -5594,7 +5594,7 @@ void setup_stage_spawn_scripts(void)
       pActionscript = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc + this_0x20;
       _x20_diff2 = (ushort)pActionsAlloc[uVar4 + 1].starting_step_idx - this_0x20;
       do {
-        if (pActionscript->skill_step_type == '\f') {
+        if (pActionscript->skill_step_type == 0xc) {
           bVar2 = true;
         }
         pActionscript = pActionscript + 1;
@@ -5650,7 +5650,7 @@ void spawn_scriptread_obj_for_each_demo_skill(void)
           step_count = *(ushort *)(pActionsAlloc[1].action_name + offset + 0x20) -
                        skillscript_offset;
           do {
-            if (skillscript->skill_step_type == '\f') {
+            if (skillscript->skill_step_type == 0xc) {
               is_valid_skill = true;
             }
             skillscript = skillscript + 1;
@@ -8589,7 +8589,7 @@ void FUN_0040ab10(void)
     PTR_POSS_CURRENT_OBJ->obj_ptr_a = pOVar3;
     pOVar3->unk_bitmask = uVar7 | 0x40000000;
     bVar1 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc
-            [(ushort)pkVar2[1].starting_step_idx].sk_level;
+            [(ushort)pkVar2[1].starting_step_idx]._2;
     iVar9 = 0;
     uVar7 = pOVar5->player_file_buffer;
     for (uVar6 = uVar7; 9 < uVar6; uVar6 = uVar6 / 10) {
@@ -10464,11 +10464,11 @@ LAB_0040d43d:
             local_38 = iVar32 + UNK_STAGE_FILES_00445740.script_data_array_unk[6];
             pkVar15 = (local_58->kgt_core).p_actionscripts_alloc;
             if ((pkVar15[iVar12].field_0x1 & 8) != 0) {
-              uVar25 = (uint)*(short *)&pkVar15[iVar12].sk_level;
+              uVar25 = (uint)*(short *)&pkVar15[iVar12]._2;
               iVar32 = (int)((ulonglong)((longlong)(int)(uVar25 * unk_y_position) * -0x51eb851f) >>
                             0x20);
               iVar31 = iVar31 + ((iVar32 >> 5) - (iVar32 >> 0x1f));
-              if (*(short *)&pkVar15[iVar12].sk_level < 0) {
+              if (*(short *)&pkVar15[iVar12]._2 < 0) {
                 iVar31 = iVar31 + (int)(((uVar25 ^ (int)uVar25 >> 0x1f) - ((int)uVar25 >> 0x1f)) *
                                        -0x40) / 10;
               }
@@ -10732,10 +10732,10 @@ switchD_0040d56f_caseD_3:
              ((int)(pOVar->param_4 + (pOVar->param_4 >> 0x1f & 0xffffU)) >> 0x10);
     pkVar15 = (local_58->kgt_core).p_actionscripts_alloc;
     if ((pkVar15[iVar19].field_0x1 & 8) != 0) {
-      uVar18 = (uint)*(short *)&pkVar15[iVar19].sk_level;
+      uVar18 = (uint)*(short *)&pkVar15[iVar19]._2;
       iVar29 = (int)((ulonglong)((longlong)(int)(uVar18 * unk_y_position) * -0x51eb851f) >> 0x20);
       iVar35 = iVar35 + ((iVar29 >> 5) - (iVar29 >> 0x1f));
-      if (*(short *)&pkVar15[iVar19].sk_level < 0) {
+      if (*(short *)&pkVar15[iVar19]._2 < 0) {
         iVar35 = iVar35 + (int)(((uVar18 ^ (int)uVar18 >> 0x1f) - ((int)uVar18 >> 0x1f)) * -0x40) /
                           10;
       }
@@ -11323,13 +11323,14 @@ void FUN_0040eb60(void)
                         }
                         else {
                           if (ADJ(pObj_param3)->case2_var_e != 0) {
-                            ADJ(pObj_param3)->related_to_reaction_1 = ADJ(pObj_param3)->case2_var_e;
+                            ADJ(pObj_param3)->related_to_reaction_skill_idx =
+                                 ADJ(pObj_param3)->case2_var_e;
                             ADJ(pObj_param3)->case2_var_e = 0;
                             memzero(ADJ(pObj_param3)->mystery_array_a,0x50);
                             memzero(next_obj->mystery_array_a,0x50);
                           }
                           if (next_obj->case2_var_e != 0) {
-                            next_obj->related_to_reaction_1 = next_obj->case2_var_e;
+                            next_obj->related_to_reaction_skill_idx = next_obj->case2_var_e;
                             next_obj->case2_var_e = 0;
                             memzero(ADJ(pObj_param3)->mystery_array_a,0x50);
                             memzero(next_obj->mystery_array_a,0x50);
@@ -11371,13 +11372,14 @@ void FUN_0040eb60(void)
                             kVar2 = ADJ(pObj_param3)->obj_type;
                             *(undefined1 *)mys_val = 0;
                             if ((kVar2 != 0) && (ADJ(pObj_param3)->stage_skillscript_idx != 0)) {
-                              ADJ(pObj_param3)->related_to_reaction_1 =
+                              ADJ(pObj_param3)->related_to_reaction_skill_idx =
                                    ADJ(pObj_param3)->stage_skillscript_idx;
                               ADJ(pObj_param3)->stage_skillscript_idx = 0;
                             }
                             if ((next_obj->obj_type != 0) && (next_obj->stage_skillscript_idx != 0))
                             {
-                              next_obj->related_to_reaction_1 = next_obj->stage_skillscript_idx;
+                              next_obj->related_to_reaction_skill_idx =
+                                   next_obj->stage_skillscript_idx;
                               next_obj->stage_skillscript_idx = 0;
                             }
                           }
@@ -11537,7 +11539,7 @@ void FUN_0040f010(void)
                       }
                       if (piVar21->obj_type != 0) {
                         if ((piVar21->obj_type == 1) && (pOVar21->case2_var_b != 0)) {
-                          pOVar21->related_to_reaction_1 = pOVar21->case2_var_b;
+                          pOVar21->related_to_reaction_skill_idx = pOVar21->case2_var_b;
                           pOVar21->case2_var_b = 0;
                         }
                         break;
@@ -11638,7 +11640,7 @@ LAB_0040f657:
                           uVar16 = (uint)*(ushort *)(new_ivar + 3);
                         }
                         if (uVar16 == 0) goto LAB_0040f657;
-                        piVar21->related_to_reaction_1 =
+                        piVar21->related_to_reaction_skill_idx =
                              (uint)(ushort)pkVar1->hit_junctions[uVar16].allottment_idx;
                         if ((DAT_KGT_FILE_BUFFER_00433240.command_structs[0x14].
                              command_input_timings[uVar16 * 0x12 + 6] & 1) != 0) {
@@ -11664,7 +11666,7 @@ LAB_0040f657:
                                              [uVar16].starting_step_idx;
                           pOVar13->unk_bitmask = pOVar13->unk_bitmask | 0x40000000;
                         }
-                        if ((piVar21->related_to_reaction_1 == 0) && (uVar17 != 0)) {
+                        if ((piVar21->related_to_reaction_skill_idx == 0) && (uVar17 != 0)) {
                           SET_DEBUG_INFO(s_reaction_error_1_0041f1d0,0xff);
                           break;
                         }
@@ -11687,7 +11689,7 @@ LAB_0040f657:
                           }
                         }
                         if (pOVar21->stage_skillscript_idx != 0) {
-                          pOVar21->related_to_reaction_1 = pOVar21->stage_skillscript_idx;
+                          pOVar21->related_to_reaction_skill_idx = pOVar21->stage_skillscript_idx;
                           pOVar21->stage_skillscript_idx = 0;
                         }
                       }
@@ -11745,7 +11747,7 @@ LAB_0040f657:
                                *(int *)&PLAYER_KGT_BUFFER[iVar5].field_0xdf31 + 1;
                         }
                         else if (pOVar21->case2_var_b != 0) {
-                          pOVar21->related_to_reaction_1 = pOVar21->case2_var_b;
+                          pOVar21->related_to_reaction_skill_idx = pOVar21->case2_var_b;
                           pOVar21->case2_var_b = 0;
                         }
                       }
@@ -11917,7 +11919,7 @@ LAB_0040fca7:
           local_38->param_3 = 0x4ce0000;
         }
         if (local_38->case2_var_d != 0) {
-          local_38->related_to_reaction_1 = local_38->case2_var_d;
+          local_38->related_to_reaction_skill_idx = local_38->case2_var_d;
           local_38->case2_var_d = 0;
         }
       }
@@ -12825,7 +12827,7 @@ int switch_current_object_action(int action_offset)
 
 
 
-void some_reset_on_diff_action(int offset)
+void assign_action_and_reset_some_data(int offset)
 
 {
   OBJ_STRUCT *pOVar1;
@@ -12877,22 +12879,22 @@ OBJ_STRUCT * FUN_00410dc0(void)
   if (uVar5 != 0) {
     if (uVar5 == 1) {
       if ((uVar8 == 0) && (iVar6 = FUN_0040e580(), iVar6 != 0)) {
-        some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x10);
+        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x10);
       }
       if (PTR_POSS_CURRENT_OBJ->param_4 < PTR_POSS_CURRENT_OBJ->compare_to_param_4) {
         PTR_POSS_CURRENT_OBJ->obj_ptr_b =
              (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffe | 2);
-        some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x9);
+        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x9);
         return (OBJ_STRUCT *)0x0;
       }
       if ((uVar2 & 8) == 0) {
         PTR_POSS_CURRENT_OBJ->obj_ptr_b =
              (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffc);
-        some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xc);
+        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xc);
         return (OBJ_STRUCT *)0x0;
       }
       if (((uVar2 & 2) != 0) && (PLAYER_KGT_BUFFER[iVar1].has_crouch_advance != 0)) {
-        some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_advance);
+        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_advance);
         if (uVar8 == 0) {
           return (OBJ_STRUCT *)0x0;
         }
@@ -12901,13 +12903,13 @@ OBJ_STRUCT * FUN_00410dc0(void)
       }
       if (((uVar2 & 1) != 0) && ((PLAYER_KGT_BUFFER[iVar1].has_crouch_retreat != 0 && (uVar8 != 0)))
          ) {
-        some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_advance);
+        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_advance);
         PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag = 1;
         return (OBJ_STRUCT *)0x0;
       }
       if ((((uVar2 & 1) != 0) && (PLAYER_KGT_BUFFER[iVar1].has_crouch_retreat != 0)) && (uVar8 == 0)
          ) {
-        some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_retreat);
+        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_retreat);
         return (OBJ_STRUCT *)0x0;
       }
       if (PTR_POSS_CURRENT_OBJ->action_idx ==
@@ -12920,10 +12922,10 @@ OBJ_STRUCT * FUN_00410dc0(void)
       }
       if (((PLAYER_KGT_BUFFER[iVar1].guard_button_bool & 8U) != 0) &&
          ((uVar2 & 1 << (PLAYER_KGT_BUFFER[iVar1].guard_button + 4U & 0x1f)) != 0)) {
-        some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x12);
+        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x12);
         return (OBJ_STRUCT *)0x0;
       }
-      some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xb);
+      assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xb);
       return (OBJ_STRUCT *)0x0;
     }
     if (uVar5 != 2) {
@@ -12938,7 +12940,7 @@ OBJ_STRUCT * FUN_00410dc0(void)
     if ((uVar2 & 1 << (PLAYER_KGT_BUFFER[iVar1].guard_button + 4U & 0x1f)) == 0) {
       return (OBJ_STRUCT *)0x0;
     }
-    some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x13);
+    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x13);
     return (OBJ_STRUCT *)0x0;
   }
   iVar6 = PLAYER_KGT_BUFFER[iVar1].w_ko_unk_var;
@@ -12947,7 +12949,7 @@ OBJ_STRUCT * FUN_00410dc0(void)
       PTR_POSS_CURRENT_OBJ->action_idx = -1;
       sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x2c;
 LAB_00411015:
-      some_reset_on_diff_action(sVar9);
+      assign_action_and_reset_some_data(sVar9);
       pOVar7 = PTR_POSS_CURRENT_OBJ;
       PTR_POSS_CURRENT_OBJ->obj_ptr_b =
            (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffff7 | 4);
@@ -12965,17 +12967,17 @@ LAB_00411015:
     }
   }
   if ((uVar8 == 0) && (iVar6 = FUN_0040e580(), iVar6 != 0)) {
-    some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xf);
+    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xf);
   }
   pOVar7 = PTR_POSS_CURRENT_OBJ;
   if (PTR_POSS_CURRENT_OBJ->param_4 < PTR_POSS_CURRENT_OBJ->compare_to_param_4) {
-    some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x9);
+    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x9);
     PTR_POSS_CURRENT_OBJ->obj_ptr_b =
          (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffe | 2);
     return (OBJ_STRUCT *)0x0;
   }
   if ((uVar2 & 8) != 0) {
-    some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xa);
+    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xa);
     PTR_POSS_CURRENT_OBJ->obj_ptr_b =
          (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffd | 1);
     return (OBJ_STRUCT *)0x0;
@@ -12987,16 +12989,16 @@ LAB_00411015:
       }
       else {
         if (uVar8 != 0) {
-          some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x5);
+          assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x5);
           PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag = 1;
           goto LAB_0041116a;
         }
         sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x6;
       }
-      some_reset_on_diff_action(sVar9);
+      assign_action_and_reset_some_data(sVar9);
     }
     else {
-      some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x5);
+      assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x5);
       if (uVar8 != 0) {
         PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag = 0;
       }
@@ -13040,7 +13042,7 @@ LAB_0041116a:
   else {
     sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x11;
   }
-  some_reset_on_diff_action(sVar9);
+  assign_action_and_reset_some_data(sVar9);
 LAB_00411248:
   if (((DAT_00424710 != 0) && ((uVar2 & 0x100) != 0)) &&
      ((*(uint *)&PTR_POSS_CURRENT_OBJ->__or_3 & 2) == 0)) {
@@ -13303,7 +13305,7 @@ void FUN_00411810(void)
   if ((((GAME_STATE.round_start_is0 == 2) && (((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xc) == 0))
       && (PTR_POSS_CURRENT_OBJ->param_4 == PTR_POSS_CURRENT_OBJ->compare_to_param_4)) &&
      ((PTR_POSS_CURRENT_OBJ->field10_0x1c == 0 && (PLAYER_KGT_BUFFER[iVar3].health != 0)))) {
-    some_reset_on_diff_action(PLAYER_KGT_BUFFER[iVar3].SectionE_default_0x2c);
+    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar3].SectionE_default_0x2c);
     return;
   }
   FUN_00411270();
@@ -13340,7 +13342,7 @@ void FUN_00411810(void)
   if (uVar4 == 0) {
     iVar3 = FUN_00410060(0);
     if (iVar3 != 0) {
-      some_reset_on_diff_action(iVar3);
+      assign_action_and_reset_some_data(iVar3);
       pOVar2 = PTR_POSS_CURRENT_OBJ;
       if (((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 3) < 2) {
         PTR_POSS_CURRENT_OBJ->field11_0x20 = 0;
@@ -13367,7 +13369,7 @@ void FUN_00411810(void)
       if (uVar5 == 0) {
         bVar1 = PLAYER_KGT_BUFFER[iVar3].kgt_core.p_actionscripts_alloc
                 [(ushort)PLAYER_KGT_BUFFER[iVar3].kgt_core.p_actions_alloc[uVar4].starting_step_idx]
-                .sk_level;
+                ._2;
         if (((byte)PLAYER_KGT_BUFFER[iVar3].field_0xdf93 <= bVar1) &&
            (bVar1 <= (byte)PLAYER_KGT_BUFFER[iVar3].field_0xdf96)) goto LAB_004119e1;
       }
@@ -13377,7 +13379,7 @@ void FUN_00411810(void)
 LAB_004119e1:
         PTR_POSS_CURRENT_OBJ->obj_ptr_b =
              (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xffffffef);
-        some_reset_on_diff_action(uVar4);
+        assign_action_and_reset_some_data(uVar4);
         *(undefined4 *)&PLAYER_KGT_BUFFER[iVar3].field_0xdf85 = 0;
         return;
       }
@@ -13445,7 +13447,7 @@ void FUN_00411a80(void)
     PTR_POSS_CURRENT_OBJ->action_idx = -1;
     sVar6 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x30;
   }
-  some_reset_on_diff_action(sVar6);
+  assign_action_and_reset_some_data(sVar6);
   PTR_POSS_CURRENT_OBJ->obj_ptr_b =
        (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffff7 | 4);
   return;
@@ -13481,10 +13483,11 @@ void script_reading_logic(void)
   int _650_size_offset;
   OBJ_STRUCT *pOVar17;
   kgt_pal_color kVar18;
+  int i20;
   kgt_character_struct *object_addy;
   OBJ_STRUCT *current_obj;
   undefined4 *puVar19;
-  kgt_skill_step_struct *pkVar20;
+  kgt_skill_step_struct *skill;
   bool is_1p_story;
   uint local_11c;
   int local_114;
@@ -13498,8 +13501,10 @@ void script_reading_logic(void)
   int current_time;
   int initial_y_val;
   int player_file_buff_idx2;
+  int *unk_mystery_array_var;
   int player_file_buff_idx3;
   int temp_5f04860c28;
+  int current_skill_idx;
   uint game_round;
   int stage_unk_poss_action_idx;
   int unk_actionscript_final_0x10;
@@ -13817,6 +13822,7 @@ void script_reading_logic(void)
   else if (PTR_POSS_CURRENT_OBJ->object_process_step != 1) {
     return;
   }
+                    // Everything after this is after the initial frame
   if ((current_obj->__or_3 & 1) == 0) {
     current_obj->compare_to_param_4 = 0x3980000;
   }
@@ -13832,6 +13838,8 @@ void script_reading_logic(void)
       return;
     }
   }
+                    // I can't find anywhere where this variable is assigned to something other than
+                    // 0
   if (current_obj->_x650_index != 0) {
     uVar14 = (uint)(byte)current_obj->_x650_index;
     _650_size_offset = uVar14 * 0x650;
@@ -13869,14 +13877,14 @@ void script_reading_logic(void)
       }
     }
   }
-  if (current_obj->related_to_reaction_1 != 0) {
+  if (current_obj->related_to_reaction_skill_idx != 0) {
     current_obj->action_idx = -1;
-    some_reset_on_diff_action(current_obj->related_to_reaction_1 & 0xffff);
+    assign_action_and_reset_some_data(current_obj->related_to_reaction_skill_idx & 0xffff);
     current_obj = PTR_POSS_CURRENT_OBJ;
     *(uint *)&PTR_POSS_CURRENT_OBJ->actionscript_idx =
          *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx +
-         ((uint)PTR_POSS_CURRENT_OBJ->related_to_reaction_1 >> 0x10);
-    current_obj->related_to_reaction_1 = 0;
+         ((uint)PTR_POSS_CURRENT_OBJ->related_to_reaction_skill_idx >> 0x10);
+    current_obj->related_to_reaction_skill_idx = 0;
     current_obj->field_0x7c = 0;
     FUN_0040e510();
     obj_0x129_to_0(PTR_POSS_CURRENT_OBJ);
@@ -13979,36 +13987,78 @@ LAB_00412564:
     return;
   }
   local_108 = 1;
-  other_player_poss_relating = current_obj->mystery_array_a + 0x13;
-  special_stock_gauge_max = 20;
+  unk_mystery_array_var = current_obj->mystery_array_a + 0x13;
+  i20 = 20;
   do {
-    if ((*other_player_poss_relating != 0) &&
-       ((*(byte *)(*other_player_poss_relating + 10) & 2) != 0)) {
+    if ((*unk_mystery_array_var != 0) && ((*(byte *)(*unk_mystery_array_var + 10) & 2) != 0)) {
       current_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj->obj_ptr_b & 0xffffffef);
     }
-    special_stock_gauge_max = special_stock_gauge_max + -1;
-    other_player_poss_relating = other_player_poss_relating + -1;
-  } while (special_stock_gauge_max != 0);
+    i20 = i20 + -1;
+    unk_mystery_array_var = unk_mystery_array_var + -1;
+  } while (i20 != 0);
 Pre_Script_reading_switch_statement:
                     // *** WHERE READING THE ACTIONSCRIPT SEEMS TO BEGIN ***
-  special_stock_gauge_max = current_obj->action_idx;
+  current_skill_idx = current_obj->action_idx;
   local_108 = local_108 + 1;
   if (local_108 < 301) {
-    if ((int)(uint)(ushort)(object_addy->kgt_core).p_actions_alloc[special_stock_gauge_max + 1].
+    if ((int)(uint)(ushort)(object_addy->kgt_core).p_actions_alloc[current_skill_idx + 1].
                            starting_step_idx <= *(int *)&current_obj->actionscript_idx)
     goto script_switch_statement_case_0x29;
 Script_reading_switch_statement:
-    pkVar20 = (object_addy->kgt_core).p_actionscripts_alloc + *(int *)&current_obj->actionscript_idx
-    ;
+    skill = (object_addy->kgt_core).p_actionscripts_alloc + *(int *)&current_obj->actionscript_idx;
                     // First byte is type of script
-    switch(pkVar20->skill_step_type) {
-    case '\x01':
+                    // 
+                    // 01 - M
+                    // 02 - DS
+                    // 03 - S
+                    // 04 - O
+                    // 05 - E
+                    // 07 - RC
+                    // 09 - SF
+                    // 0A - SG
+                    // 0B - SC
+                    // 0C - I
+                    // 0E - EB
+                    // 10 - GS
+                    // 11 - GL
+                    // 14 - RP
+                    // 15 - GC
+                    // 16 - DB
+                    // 17 - REACTION
+                    // 18 - FA
+                    // 19 - FD
+                    // 1A - PS
+                    // 1E - C
+                    // 1F - V
+                    // 20 - RANDOM
+                    // 23 COL OBJ
+                    // 24 - COMMAND DIVERGENCE
+                    // 25 - AI
+    switch(skill->skill_step_type) {
+    case 1:
       goto switchD_00412610_next_actionscript;
-    case '\x02':
-      if (pkVar20->field_0x1 == '\0') goto switchD_00412610_caseD_6;
-      special_stock_gauge_max =
-           (uint)(byte)pkVar20->field_0x4 * 0x10000 + (uint)*(ushort *)&pkVar20->sk_level;
-      switch(pkVar20->field_0x1) {
+    case 2:
+                    // ----------------------------------
+                    // - DS - Conditional Branch -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Condition (UNSIGNED)
+                    // 2 - Skill ID (low, UNSIGNED)
+                    // 3 - Skill ID (high, UNSIGNED)
+                    // 4 - Command ID (UNSIGNED)
+                    // 
+                    // - Conditions -
+                    // 0 - not
+                    // 1 - Landing
+                    // 2 - Attack hits
+                    // 3 - Defending
+                    // 4 - Hit to wall
+                    // 5 - in offset
+                    // 6 - while throw do
+      if (skill->field_0x1 == '\0') goto switchD_00412610_caseD_6;
+      special_stock_gauge_max = (uint)(byte)skill->field_0x4 * 0x10000 + (uint)*(ushort *)&skill->_2
+      ;
+      switch(skill->field_0x1) {
       case 1:
         current_obj->stage_action_idx = special_stock_gauge_max;
         *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
@@ -14037,22 +14087,63 @@ Script_reading_switch_statement:
         goto switchD_00412610_caseD_6;
       }
       goto LAB_004125ae;
-    case '\x03':
-      FUN_00403430((object_addy->kgt_core).p_sound_structs + *(ushort *)&pkVar20->sk_level);
+    case 3:
+                    // ----------------------------------
+                    // - S - Sound -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - unk
+                    // 2 - Sound ID (low)
+                    // 3 - Sound ID (high)
+      FUN_00403430((object_addy->kgt_core).p_sound_structs + *(ushort *)&skill->_2);
       current_obj = PTR_POSS_CURRENT_OBJ;
       *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx =
            *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\x04':
-      if ((1 < (int)current_obj->obj_type) || ((pkVar20->field_0x1 & 4) != 0)) goto LAB_00412b0a;
-      life_recover_number = pkVar20->field_0xc;
+    case 4:
+                    // ----------------------------------
+                    // - O - Object -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Flags
+                    // 2 - Skill ID (low)
+                    // 3 - Skill ID (high)
+                    // 4 - Command ID
+                    // 5 - It's out skill ID (low)
+                    // 6 - It's out skill ID (high)
+                    // 7 - It's out command ID
+                    // 8 - X position (low)
+                    // 9 - X position (high)
+                    // A - Y position (low)
+                    // B - Y position (high)
+                    // C - M. value
+                    // D - Depth apin
+                    // 
+                    // - Flags -
+                    // 0 - DEPTH_MASK
+                    // 1 - DEPTH_MASK
+                    // 2 - UnCond
+                    // 3 - Shadow
+                    // 4 - unk
+                    // 5 - Parent
+                    // 6 - Pic. X Y
+                    // 
+                    // - Depths -
+                    // 0 - IN
+                    // 1 - Fore
+                    // 2 - P()
+      if ((1 < (int)current_obj->obj_type) || ((skill->field_0x1 & 4) != 0)) goto LAB_00412b0a;
+      life_recover_number = skill->field_0xc;
       if (*(OBJ_STRUCT **)(&object_addy->field_0xdfbf + (uint)life_recover_number * 4) ==
           (OBJ_STRUCT *)0x0) goto LAB_00412b0a;
       special_stock_gauge_max = 0;
       pOVar17 = OBJ_ARRAY;
       goto LAB_00412aac;
-    case '\x05':
-    case ')':
+    case 5:
+    case 0x29:
+                    // 05 is END
+                    // 29 in editor is SB (Super background) which seems unused. Code is interpreted
+                    // as END?
       if (current_obj->obj_type != 0) goto switchD_0041270c_default;
 script_switch_statement_case_0x29:
       if (current_obj->field55_0x85 == 0) {
@@ -14136,11 +14227,29 @@ LAB_004127c3:
       goto Script_reading_switch_statement;
     default:
       goto switchD_00412610_caseD_6;
-    case '\a':
-      if (((current_obj->obj_type != 0) || (*(short *)&pkVar20->sk_level == 0)) ||
+    case 7:
+                    // ----------------------------------
+                    // - RC - Coor.*picture -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Flags
+                    // 2 - Throwing reaction (low)
+                    // 3 - Throwing reaction (high)
+                    // 4 - X (low)
+                    // 5 - X (high)
+                    // 6 - Y (low)
+                    // 7 - Y (high)
+                    // 
+                    // - Flags -
+                    // 0 - Depth add (if unset, use forw)
+                    // 1 - unk
+                    // 2 - X turn
+                    // 3 - Y turn
+                    // 4 - same
+      if (((current_obj->obj_type != 0) || (*(short *)&skill->_2 == 0)) ||
          (pOVar17 = (OBJ_STRUCT *)object_addy->field6356_0xdef9, pOVar17 == (OBJ_STRUCT *)0x0))
       goto switchD_00412610_caseD_6;
-      life_recover_number = pkVar20->field_0x1;
+      life_recover_number = skill->field_0x1;
       if ((life_recover_number & 1) == 0) {
         uVar14 = *(uint *)&pOVar17->__or_3;
         current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + -1
@@ -14155,12 +14264,12 @@ LAB_004127c3:
       player_file_buff_idx = current_obj->pos_player_ignore_flag;
       pOVar17->param2_maybe_50_or_46 = special_stock_gauge_max;
       if ((player_file_buff_idx & 1) == 0) {
-        pOVar17->param_3 = *(short *)&pkVar20->field_0x4 * 0x10000 + current_obj->param_3;
+        pOVar17->param_3 = *(short *)&skill->field_0x4 * 0x10000 + current_obj->param_3;
         if ((life_recover_number & 4) == 0) goto LAB_00412f3d;
         pOVar17->pos_player_ignore_flag = 0;
       }
       else {
-        pOVar17->param_3 = current_obj->param_3 + *(short *)&pkVar20->field_0x4 * -0x10000;
+        pOVar17->param_3 = current_obj->param_3 + *(short *)&skill->field_0x4 * -0x10000;
         if ((life_recover_number & 4) == 0) {
           pOVar17->pos_player_ignore_flag = 0;
         }
@@ -14169,7 +14278,7 @@ LAB_00412f3d:
           pOVar17->pos_player_ignore_flag = 1;
         }
       }
-      pOVar17->param_4 = *(short *)&pkVar20->field_0x6 * 0x10000 + current_obj->param_4;
+      pOVar17->param_4 = *(short *)&skill->field_0x6 * 0x10000 + current_obj->param_4;
       FUN_0040e550(current_obj);
       pOVar17->field9_0x18 = 0;
       pOVar17->field10_0x1c = 0;
@@ -14177,14 +14286,14 @@ LAB_00412f3d:
       pOVar17->field12_0x24 = 0;
       if (pOVar17->obj_type == 0) {
         special_stock_gauge_max = pOVar17->player_file_buffer;
-        uVar5 = *(ushort *)&pkVar20->sk_level;
+        uVar5 = *(ushort *)&skill->_2;
         pkVar6 = PLAYER_KGT_BUFFER[special_stock_gauge_max].kgt_core.p_actionscripts_alloc;
         pOVar17->drawing_flag = -1;
         *(ushort *)&pkVar6->field_0x3 =
              *(ushort *)(special_stock_gauge_max * 0xe03f + 0x4d8e4a + (uint)uVar5 * 6) & 0x1fff |
-             (ushort)(pkVar20->field_0x1 & 0xc) << 0xc;
-        uVar5 = *(ushort *)&pkVar20->sk_level;
-        pkVar6->skill_step_type = '\f';
+             (ushort)(skill->field_0x1 & 0xc) << 0xc;
+        uVar5 = *(ushort *)&skill->_2;
+        pkVar6->skill_step_type = 0xc;
         pOVar17->action_idx = 0;
         *(undefined4 *)&pOVar17->actionscript_idx = 1;
         sVar2 = PLAYER_KGT_BUFFER[special_stock_gauge_max].common_images[uVar5].y_movement;
@@ -14193,9 +14302,9 @@ LAB_00412f3d:
         *(short *)&pkVar6->field_0x7 = sVar2;
         FUN_0040e550(pOVar17);
         obj_0x129_to_0(pOVar17);
-        sVar2 = *(short *)&pkVar20->field_0x4;
-        sVar3 = *(short *)&pkVar20->field_0x6;
-        object_addy->field6487_0xdfef = (byte)pkVar20->field_0x1 | 0x20;
+        sVar2 = *(short *)&skill->field_0x4;
+        sVar3 = *(short *)&skill->field_0x6;
+        object_addy->field6487_0xdfef = (byte)skill->field_0x1 | 0x20;
         current_obj = pOVar17->obj_ptr_b;
         *(int *)((int)&object_addy->script_obj_var_d + 2) = (int)sVar2 << 0x10;
         *(int *)&object_addy->field_0xdffb = (int)sVar3 << 0x10;
@@ -14205,16 +14314,24 @@ LAB_00412f3d:
       *(undefined4 *)&pOVar17->time_method_number_in_frames = 0xffffffff;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\t':
-      if ((pkVar20->field_0x1 == '\0') || (uVar5 = *(ushort *)&pkVar20->sk_level, uVar5 == 0))
+    case 9:
+                    // ----------------------------------
+                    // - SF - Loop -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Frequency
+                    // 2 - Skill ID (low)
+                    // 3 - Skill ID (high)
+                    // 4 - Command ID
+      if ((skill->field_0x1 == '\0') || (uVar5 = *(ushort *)&skill->_2, uVar5 == 0))
       goto switchD_00412610_caseD_6;
       pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-      life_recover_number = pkVar20->field_0x4;
+      life_recover_number = skill->field_0x4;
       *(uint *)&current_obj->field_0x81 =
            (*(int *)&current_obj->actionscript_idx -
            (uint)(ushort)pActionAlloc[current_obj->action_idx].starting_step_idx) * 0x10000 +
            current_obj->action_idx;
-      current_obj->field_0x7c = pkVar20->field_0x1;
+      current_obj->field_0x7c = skill->field_0x1;
       uVar14 = (uint)uVar5;
       *(uint *)&current_obj->field_0x7d = (uint)life_recover_number * 0x10000 + uVar14;
       current_obj->action_idx = uVar14;
@@ -14223,34 +14340,72 @@ LAB_00412f3d:
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
-    case '\n':
-      if (*(ushort *)&pkVar20->field_0x1 != 0) {
+    case 10:
+                    // ----------------------------------
+                    // - SG - GoTo -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Skill ID (low)
+                    // 2 - Skill ID (high)
+                    // 3 - Command ID
+      if (*(ushort *)&skill->field_0x1 != 0) {
         pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-        uVar14 = (uint)*(ushort *)&pkVar20->field_0x1;
+        uVar14 = (uint)*(ushort *)&skill->field_0x1;
         current_obj->action_idx = uVar14;
         goto LAB_0041298b;
       }
       goto switchD_00412610_caseD_6;
-    case '\v':
-      if (*(short *)&pkVar20->field_0x1 == 0) goto switchD_00412610_caseD_6;
+    case 0xb:
+                    // ----------------------------------
+                    // - SC - Call -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Skill ID (low)
+                    // 2 - Skill ID (high)
+                    // 3 - Command ID
+      if (*(short *)&skill->field_0x1 == 0) goto switchD_00412610_caseD_6;
       pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
       current_obj->field55_0x85 =
            (*(int *)&current_obj->actionscript_idx -
            (uint)(ushort)pActionAlloc[current_obj->action_idx].starting_step_idx) * 0x10000 +
            current_obj->action_idx;
-      uVar14 = (uint)*(ushort *)&pkVar20->field_0x1;
+      uVar14 = (uint)*(ushort *)&skill->field_0x1;
       current_obj->action_idx = uVar14;
 LAB_0041298b:
       special_stock_gauge_max =
-           ((ushort)pActionAlloc[uVar14].starting_step_idx - 1) + (uint)(byte)pkVar20->field_0x3;
+           ((ushort)pActionAlloc[uVar14].starting_step_idx - 1) + (uint)(byte)skill->field_0x3;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
-    case '\f':
+    case 0xc:
+                    // ----------------------------------
+                    // - I - Image -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Wait (low)
+                    // 2 - Wait (high)
+                    // 3 - Image ID (low)
+                    // 4 - Image ID (high), Flags
+                    // 5 - X offset (low)
+                    // 6 - X offset (high)
+                    // 7 - Y offset (low)
+                    // 8 - Y offset (high)
+                    // 9 - Ignore direction (bool)
+                    // 
+                    // - Flags -
+                    // 0 - Image ID high byte
+                    // 1 - Image ID high byte
+                    // 2 - Image ID high byte
+                    // 3 - Image ID high byte
+                    // 4 - Image ID high byte
+                    // 5 - Image ID high byte
+                    // 6 - X flip
+                    // 7 - Y flip
+                    // 
       if (current_obj->obj_type == 0) {
         object_addy->field6504_0xe00f = 1;
       }
-      uVar5 = *(ushort *)&pkVar20->field_0x1;
+      uVar5 = *(ushort *)&skill->field_0x1;
       special_stock_gauge_max = -1;
       current_obj->drawing_flag = -1;
       if (uVar5 != 0) {
@@ -14260,20 +14415,58 @@ LAB_0041298b:
       local_108 = 0;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\x0e':
-      life_recover_number = pkVar20->field_0x1;
+    case 0xe:
+                    // ----------------------------------
+                    // - EB - Pallet Animation*sway -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Palette flash
+                    // 2 - Red (SIGNED)
+                    // 3 - Green (SIGNED)
+                    // 4 - Blue (SIGNED)
+                    // 5 - Alpha (UNSIGNED)
+                    // 6 - Duration (low, UNSIGNED)
+                    // 7 - Duration (high, UNSIGNED)
+                    // 8 - Flags
+                    // 9 - Pic Sway X
+                    // A - X shak
+                    // B - X Duration
+                    // C - Pic Sway Y
+                    // D - Y shak
+                    // E - Y Duration
+                    // 
+                    // - Palette flash -
+                    // 0 - unused
+                    // 1 - Smooth fading
+                    // 2 - Chika chika fading
+                    // 3 - Random
+                    // 
+                    // - Flags -
+                    // 0 - ownside
+                    // 1 - oppside
+                    // 2 - BG
+                    // 3 - System
+                    // 
+                    // - Pic Sway -
+                    // 0 - unused
+                    // 1 - Shaky fading out
+                    // 2 - Shaky fading in
+                    // 3 - Shaky fix
+                    // 4 - Random
+                    // 
+      life_recover_number = skill->field_0x1;
       if (life_recover_number != 0) {
-        if ((pkVar20->field_0x8 & 1) != 0) {
+        if ((skill->field_0x8 & 1) != 0) {
           special_stock_gauge_max = current_obj->player_file_buffer;
           *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].start_of_0x2c =
                (uint)life_recover_number;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe017 = (int)pkVar20->sk_level;
+          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe017 = (int)skill->_2;
           *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe01b =
-               (int)(char)pkVar20->field_0x3;
+               (int)(char)skill->field_0x3;
           *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe01f =
-               (int)(char)pkVar20->field_0x4;
+               (int)(char)skill->field_0x4;
           *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe023 =
-               (int)(char)pkVar20->field_0x5;
+               (int)(char)skill->field_0x5;
           *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe02b =
                current_obj->field26_0x44;
           *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe02f =
@@ -14282,49 +14475,49 @@ LAB_0041298b:
                current_obj->field28_0x4c;
           *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe037 =
                *(undefined4 *)&current_obj->field_0x50;
-          uVar5 = *(ushort *)&pkVar20->field_0x6;
+          uVar5 = *(ushort *)&skill->field_0x6;
           *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe03b = (uint)uVar5;
           *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe027 = (uint)uVar5;
         }
-        if (((pkVar20->field_0x8 & 2) != 0) && (object_addy->field6356_0xdef9 != 0)) {
+        if (((skill->field_0x8 & 2) != 0) && (object_addy->field6356_0xdef9 != 0)) {
           special_stock_gauge_max = *(int *)(object_addy->field6356_0xdef9 + 0x156);
           *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].start_of_0x2c =
                (uint)life_recover_number;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe017 = (int)pkVar20->sk_level;
+          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe017 = (int)skill->_2;
           *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe01b =
-               (int)(char)pkVar20->field_0x3;
+               (int)(char)skill->field_0x3;
           *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe01f =
-               (int)(char)pkVar20->field_0x4;
+               (int)(char)skill->field_0x4;
           *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe023 =
-               (int)(char)pkVar20->field_0x5;
+               (int)(char)skill->field_0x5;
           *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe02b = 0;
           *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe02f = 0;
           *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe033 = 0;
           *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe037 = 0;
-          uVar5 = *(ushort *)&pkVar20->field_0x6;
+          uVar5 = *(ushort *)&skill->field_0x6;
           *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe03b = (uint)uVar5;
           *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe027 = (uint)uVar5;
         }
-        if ((pkVar20->field_0x8 & 4) != 0) {
+        if ((skill->field_0x8 & 4) != 0) {
           UNK_STAGE_FILES_00445740.script_byte_2 = (int)life_recover_number;
           UNK_STAGE_FILES_00445740.script_read_var_a = 0;
           UNK_STAGE_FILES_00445740.script_read_var_b = 0;
-          UNK_STAGE_FILES_00445740.script_byte_3 = (int)pkVar20->sk_level;
+          UNK_STAGE_FILES_00445740.script_byte_3 = (int)skill->_2;
           UNK_STAGE_FILES_00445740.script_read_var_c = 0;
-          UNK_STAGE_FILES_00445740.script_byte_4 = (int)(char)pkVar20->field_0x3;
+          UNK_STAGE_FILES_00445740.script_byte_4 = (int)(char)skill->field_0x3;
           UNK_STAGE_FILES_00445740.script_read_var_d = 0;
-          UNK_STAGE_FILES_00445740.script_byte_5 = (int)(char)pkVar20->field_0x4;
-          UNK_STAGE_FILES_00445740.script_byte_6 = (int)(char)pkVar20->field_0x5;
-          UNK_STAGE_FILES_00445740.script_byte_7_a = (int)*(ushort *)&pkVar20->field_0x6;
+          UNK_STAGE_FILES_00445740.script_byte_5 = (int)(char)skill->field_0x4;
+          UNK_STAGE_FILES_00445740.script_byte_6 = (int)(char)skill->field_0x5;
+          UNK_STAGE_FILES_00445740.script_byte_7_a = (int)*(ushort *)&skill->field_0x6;
           UNK_STAGE_FILES_00445740.script_byte_7_b = UNK_STAGE_FILES_00445740.script_byte_7_a;
         }
-        if ((pkVar20->field_0x8 & 8) != 0) {
-          _DAT_004456d4 = (int)pkVar20->sk_level;
-          _DAT_004456dc = (int)(char)pkVar20->field_0x4;
+        if ((skill->field_0x8 & 8) != 0) {
+          _DAT_004456d4 = (int)skill->_2;
+          _DAT_004456dc = (int)(char)skill->field_0x4;
           _DAT_004456d0 = (uint)life_recover_number;
-          _DAT_004456e0 = (int)(char)pkVar20->field_0x5;
-          _DAT_004456d8 = (int)(char)pkVar20->field_0x3;
-          _DAT_004456e4 = (uint)*(ushort *)&pkVar20->field_0x6;
+          _DAT_004456e0 = (int)(char)skill->field_0x5;
+          _DAT_004456d8 = (int)(char)skill->field_0x3;
+          _DAT_004456e4 = (uint)*(ushort *)&skill->field_0x6;
           _DAT_004456e8 = 0;
           _DAT_004456ec = 0;
           _DAT_004456f0 = 0;
@@ -14332,28 +14525,39 @@ LAB_0041298b:
           _DAT_004456f8 = _DAT_004456e4;
         }
       }
-      if (pkVar20->field_0x9 != 0) {
-        UNK_STAGE_FILES_00445740.script_data_array_unk[0] = (int)(byte)pkVar20->field_0x9;
-        UNK_STAGE_FILES_00445740.script_data_array_unk[2] = (int)(byte)pkVar20->field_0xa;
+      if (skill->field_0x9 != 0) {
+        UNK_STAGE_FILES_00445740.script_data_array_unk[0] = (int)(byte)skill->field_0x9;
+        UNK_STAGE_FILES_00445740.script_data_array_unk[2] = (int)(byte)skill->field_0xa;
         UNK_STAGE_FILES_00445740.script_data_array_unk[1] = 0;
-        UNK_STAGE_FILES_00445740.script_data_array_unk[3] = (int)(byte)pkVar20->field_0xb;
+        UNK_STAGE_FILES_00445740.script_data_array_unk[3] = (int)(byte)skill->field_0xb;
         UNK_STAGE_FILES_00445740.script_data_array_unk[4] =
              UNK_STAGE_FILES_00445740.script_data_array_unk[3];
       }
-      if (pkVar20->field_0xc == 0) goto switchD_00412610_caseD_6;
-      UNK_STAGE_FILES_00445740.script_data_array_unk[5] = (int)(byte)pkVar20->field_0xc;
+      if (skill->field_0xc == 0) goto switchD_00412610_caseD_6;
+      UNK_STAGE_FILES_00445740.script_data_array_unk[5] = (int)(byte)skill->field_0xc;
       UNK_STAGE_FILES_00445740.script_data_array_unk[6] = 0;
-      UNK_STAGE_FILES_00445740.script_data_array_unk[7] = (int)(byte)pkVar20->field_0xd;
-      UNK_STAGE_FILES_00445740.script_data_array_unk[8] = (int)(byte)pkVar20->field_0xe;
+      UNK_STAGE_FILES_00445740.script_data_array_unk[7] = (int)(byte)skill->field_0xd;
+      UNK_STAGE_FILES_00445740.script_data_array_unk[8] = (int)(byte)skill->field_0xe;
       UNK_STAGE_FILES_00445740.script_data_array_unk[9] =
            UNK_STAGE_FILES_00445740.script_data_array_unk[8];
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\x10':
-      if ((pkVar20->field_0x5 & 1) == 0) {
+    case 0x10:
+                    // ----------------------------------
+                    // - GS - Special life gauge check -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - unk
+                    // 2 - Skill ID (low, UNSIGNED)
+                    // 3 - Skill ID (high, UNSIGNED)
+                    // 4 - Command ID
+                    // 5 - when Alot (if unset, when Little)
+                    // 6 - from (SIGNED)
+                    // 7 - add to advance
+      if ((skill->field_0x5 & 1) == 0) {
         if ((PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6364_0xdf15 <
-             (int)(uint)(byte)pkVar20->field_0x6) ||
-           (uVar5 = *(ushort *)&pkVar20->sk_level, uVar5 == 0)) goto switchD_00412610_caseD_6;
+             (int)(uint)(byte)skill->field_0x6) || (uVar5 = *(ushort *)&skill->_2, uVar5 == 0))
+        goto switchD_00412610_caseD_6;
         current_obj->action_idx = (uint)uVar5;
         if (uVar5 == 0) {
           special_stock_gauge_max =
@@ -14367,12 +14571,11 @@ LAB_004135a7:
         }
       }
       else {
-        if ((int)(uint)(byte)pkVar20->field_0x6 <
+        if ((int)(uint)(byte)skill->field_0x6 <
             PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6364_0xdf15) {
           special_stock_gauge_max = current_obj->player_file_buffer;
           player_file_buff_idx =
-               FUN_00414860(CONCAT31((int3)((byte)pkVar20->skill_step_type - 1 >> 8),
-                                     pkVar20->field_0x7));
+               FUN_00414860(CONCAT31((int3)(skill->skill_step_type - 1 >> 8),skill->field_0x7));
           player_file_buff_idx =
                PLAYER_KGT_BUFFER[special_stock_gauge_max].field6364_0xdf15 + player_file_buff_idx;
           PLAYER_KGT_BUFFER[special_stock_gauge_max].field6364_0xdf15 = player_file_buff_idx;
@@ -14393,7 +14596,7 @@ LAB_004135a7:
                *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx + 1;
           goto LAB_004125ae;
         }
-        uVar5 = *(ushort *)&pkVar20->sk_level;
+        uVar5 = *(ushort *)&skill->_2;
         current_obj->action_idx = (uint)uVar5;
         if (uVar5 == 0) {
           special_stock_gauge_max =
@@ -14403,18 +14606,29 @@ LAB_004135a7:
       }
       uVar14 = current_obj->action_idx;
       goto LAB_004135bf;
-    case '\x11':
-      if ((pkVar20->field_0x5 & 1) == 0) {
-        if ((object_addy->health < (int)(uint)*(ushort *)&pkVar20->field_0x6) ||
-           (*(short *)&pkVar20->sk_level == 0)) goto switchD_00412610_caseD_6;
+    case 0x11:
+                    // ----------------------------------
+                    // - GL - Life Gauge Check -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - unk
+                    // 2 - Skill ID (low, UNSIGNED)
+                    // 3 - Skill ID (high, UNSIGNED)
+                    // 4 - Command ID
+                    // 5 - when Alot (if unset, when Little)
+                    // 6 - from (low, UNSIGNED)
+                    // 7 - from (high, UNSIGNED)
+      if ((skill->field_0x5 & 1) == 0) {
+        if ((object_addy->health < (int)(uint)*(ushort *)&skill->field_0x6) ||
+           (*(short *)&skill->_2 == 0)) goto switchD_00412610_caseD_6;
       }
-      else if ((int)(uint)*(ushort *)&pkVar20->field_0x6 < object_addy->health)
+      else if ((int)(uint)*(ushort *)&skill->field_0x6 < object_addy->health)
       goto switchD_00412610_caseD_6;
       pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-      uVar5 = *(ushort *)&pkVar20->sk_level;
+      uVar5 = *(ushort *)&skill->_2;
       current_obj->action_idx = (uint)uVar5;
       *(uint *)&current_obj->actionscript_idx =
-           ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)pkVar20->field_0x4;
+           ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x4;
       if ((current_obj->action_idx != 0) ||
          (special_stock_gauge_max = FUN_00410060(object_addy->field6393_0xdf55),
          current_obj = PTR_POSS_CURRENT_OBJ, special_stock_gauge_max == 0))
@@ -14425,11 +14639,28 @@ LAB_004135a7:
       *(uint *)&current_obj->actionscript_idx = uVar14 - 1;
       *(uint *)&current_obj->actionscript_idx = uVar14;
       goto LAB_004125ae;
-    case '\x14':
+    case 0x14:
+                    // ----------------------------------
+                    // - RP - Partner:script mod.
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Flags
+                    // 2 - Hit junction ID (low...?, UNSIGNED)
+                    // 3 - unk
+                    // 4 - X (low, SIGNED)
+                    // 5 - X (high, SIGNED)
+                    // 6 - Y (low, SIGNED)
+                    // 7 - Y (high, SIGNED)
+                    // 
+                    // - Flags -
+                    // 0 - In (if unset, depth is Forw)
+                    // 1 - unk
+                    // 2 - L.R reverse
+                    // 
       if ((current_obj->obj_type != 0) ||
          (special_stock_gauge_max = object_addy->field6356_0xdef9, special_stock_gauge_max == 0))
       goto switchD_00412610_caseD_6;
-      life_recover_number = pkVar20->field_0x1;
+      life_recover_number = skill->field_0x1;
       if ((life_recover_number & 1) == 0) {
         uVar14 = *(uint *)(special_stock_gauge_max + 0x14);
         current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + -1
@@ -14445,13 +14676,13 @@ LAB_004135a7:
       *(int *)(special_stock_gauge_max + 4) = player_file_buff_idx;
       if ((iVar9 & 1) == 0) {
         *(int *)(special_stock_gauge_max + 8) =
-             *(short *)&pkVar20->field_0x4 * 0x10000 + current_obj->param_3;
+             *(short *)&skill->field_0x4 * 0x10000 + current_obj->param_3;
         if ((life_recover_number & 4) == 0) goto LAB_004130e8;
         *(undefined4 *)(special_stock_gauge_max + 0x5c) = 0;
       }
       else {
         *(int *)(special_stock_gauge_max + 8) =
-             current_obj->param_3 + *(short *)&pkVar20->field_0x4 * -0x10000;
+             current_obj->param_3 + *(short *)&skill->field_0x4 * -0x10000;
         if ((life_recover_number & 4) == 0) {
           *(undefined4 *)(special_stock_gauge_max + 0x5c) = 0;
         }
@@ -14461,15 +14692,15 @@ LAB_004130e8:
         }
       }
       *(int *)(special_stock_gauge_max + 0xc) =
-           *(short *)&pkVar20->field_0x6 * 0x10000 + current_obj->param_4;
+           *(short *)&skill->field_0x6 * 0x10000 + current_obj->param_4;
       FUN_0040e550(current_obj);
       current_obj = PTR_POSS_CURRENT_OBJ;
       if (*(int *)(special_stock_gauge_max + 0x15a) != 0) goto switchD_00412610_caseD_6;
-      if ((byte)pkVar20->sk_level != 0) {
+      if ((byte)skill->_2 != 0) {
         *(uint *)(special_stock_gauge_max + 0x38) =
              (uint)*(ushort *)
                     (*(int *)(special_stock_gauge_max + 0x156) * 0xe03f + 0x4d8b2a +
-                    (uint)(byte)pkVar20->sk_level * 4);
+                    (uint)(byte)skill->_2 * 4);
       }
       current_obj = PTR_POSS_CURRENT_OBJ;
       uVar14 = *(uint *)(special_stock_gauge_max + 0x15e);
@@ -14478,15 +14709,28 @@ LAB_004130e8:
       *(uint *)(special_stock_gauge_max + 0x15e) = uVar14 & 0xfffffffa | 10;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\x15':
+    case 0x15:
+                    // ----------------------------------
+                    // - GC - Gauge MOD.
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - unk
+                    // 2 - Life, self (low, SIGNED)
+                    // 3 - Life, self (high, SIGNED)
+                    // 4 - Special, self (low, SIGNED)
+                    // 5 - Special, self (high, SIGNED)
+                    // 6 - Life, part (low, SIGNED)
+                    // 7 - Life, part (high, SIGNED)
+                    // 8 - Special, part (low, SIGNED)
+                    // 9 - Special, part (high, SIGNED)
       special_stock_gauge_max = current_obj->player_file_buffer;
-      sVar2 = *(short *)&pkVar20->field_0x6;
-      if (*(short *)&pkVar20->sk_level != 0) {
-        FUN_0040e7c0(PLAYER_KGT_BUFFER + special_stock_gauge_max,(int)*(short *)&pkVar20->sk_level);
+      sVar2 = *(short *)&skill->field_0x6;
+      if (*(short *)&skill->_2 != 0) {
+        FUN_0040e7c0(PLAYER_KGT_BUFFER + special_stock_gauge_max,(int)*(short *)&skill->_2);
         current_obj = PTR_POSS_CURRENT_OBJ;
       }
-      assign_player_0x42_0x4a_0x46
-                (current_obj->player_file_buffer,(int)*(short *)&pkVar20->field_0x4);
+      assign_player_0x42_0x4a_0x46(current_obj->player_file_buffer,(int)*(short *)&skill->field_0x4)
+      ;
       current_obj = PTR_POSS_CURRENT_OBJ;
       if (PLAYER_KGT_BUFFER[special_stock_gauge_max].field6356_0xdef9 == 0) {
         if (PLAYER_KGT_BUFFER[special_stock_gauge_max].field6401_0xdf69 == 0)
@@ -14504,16 +14748,37 @@ LAB_004130e8:
         }
         assign_player_0x42_0x4a_0x46
                   (*(undefined4 *)(PLAYER_KGT_BUFFER[special_stock_gauge_max].CPU + 0x156),
-                   (int)*(short *)&pkVar20->field_0x8);
+                   (int)*(short *)&skill->field_0x8);
         current_obj = PTR_POSS_CURRENT_OBJ;
       }
       goto switchD_00412610_caseD_6;
-    case '\x16':
-      life_recover_number = pkVar20->field_0x1 & 1;
-      if ((pkVar20->field_0x1 & 2) != 0) goto switchD_00412de4_default;
+    case 0x16:
+                    // ----------------------------------
+                    // - DB - Cond. Branching
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - If fail (otherwise, Formed)
+                    // 2 - Skill ID (low, UNSIGNED)
+                    // 3 - Skill ID (high, UNSIGNED)
+                    // 4 - Command ID (UNSIGNED)
+                    // 5 - unk
+                    // 6 - unk
+                    // 7 - Condition
+                    // 
+                    // - Conditions -
+                    // 0 - "its not"
+                    // 1 - On the ground
+                    // 2 - Standing
+                    // 3 - Squating.
+                    // 4 - Front surface.
+                    // 5 - Rear surface.
+                    // 6 - Upper Part Surface.
+                    // 7 - Lower Part Surfae
+      life_recover_number = skill->field_0x1 & 1;
+      if ((skill->field_0x1 & 2) != 0) goto switchD_00412de4_default;
       special_stock_gauge_max = current_obj->player_file_buffer;
       uVar14 = INPUT_BUFFER_A[special_stock_gauge_max][INPUT_BUFFER_POS];
-      switch(pkVar20->field_0x7) {
+      switch(skill->field_0x7) {
       case 1:
         if (current_obj->param_4 < current_obj->compare_to_param_4) break;
         goto LAB_00412e5f;
@@ -14561,27 +14826,69 @@ joined_r0x00412e5d:
 switchD_00412de4_default:
       if (life_recover_number == 0) goto switchD_00412610_caseD_6;
 LAB_00412e79:
-      if (*(ushort *)&pkVar20->sk_level == 0) goto switchD_00412610_caseD_6;
-      uVar14 = (uint)*(ushort *)&pkVar20->sk_level;
+      if (*(ushort *)&skill->_2 == 0) goto switchD_00412610_caseD_6;
+      uVar14 = (uint)*(ushort *)&skill->_2;
       current_obj->action_idx = uVar14;
 LAB_004135bf:
       special_stock_gauge_max =
            ((ushort)(object_addy->kgt_core).p_actions_alloc[uVar14].starting_step_idx - 1) +
-           (uint)(byte)pkVar20->field_0x4;
+           (uint)(byte)skill->field_0x4;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
-    case '\x17':
-      current_obj->field58_0x129 = (int)pkVar20;
+    case 0x17:
+                    // ----------------------------------
+                    // - R - Reaction
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Hit, Stand (low, UNSIGNED)
+                    // 2 - Hit, Stand (high, UNSIGNED)
+                    // 3 - Hit, Crouched (low, UNSIGNED)
+                    // 4 - Hit, Crouched (high, UNSIGNED)
+                    // 5 - Hit, Sky (low, UNSIGNED)
+                    // 6 - Hit, Sky (high, UNSIGNED)
+                    // 7 - Guard, Stand (low, UNSIGNED)
+                    // 8 - Guard, Stand (high, UNSIGNED)
+                    // 9 - Guard, Crouched (low, UNSIGNED)
+                    // A - Guard, Crouched (high, UNSIGNED)
+                    // B - Guard, Sky (low, UNSIGNED)
+                    // C - Guard, Sky (high, UNSIGNED)
+      current_obj->field58_0x129 = (int)skill;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\x18':
-      sVar2 = *(short *)&pkVar20->field_0x5;
-      other_player_poss_relating = current_obj->mystery_array_a + (byte)pkVar20->field_0x9;
-      *other_player_poss_relating = (int)pkVar20;
-      if ((sVar2 == 0) || (*(short *)&pkVar20->field_0x7 == 0)) goto LAB_00412d83;
+    case 0x18:
+                    // ----------------------------------
+                    // - FA - Attack
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - X position (low, SIGNED)
+                    // 2 - X position (high, SIGNED)
+                    // 3 - Y position (low, SIGNED)
+                    // 4 - Y position (high, SIGNED)
+                    // 5 - Width (low, SIGNED)
+                    // 6 - Width (high, SIGNED)
+                    // 7 - Height (low, SIGNED)
+                    // 8 - Height (high, SIGNED)
+                    // 9 - M number (UNSIGNED)
+                    // A - Flags
+                    // B - unk
+                    // C - Power (UNSIGNED)
+                    // 
+                    // - Flags -
+                    // 0 - Cancel
+                    // 1 - Cont. Hit
+                    // 2 - Shav
+                    // 3 - While Guard
+                    // 4 - No Decision
+                    // 5 - No Sky Decision
+                    // 6 - Guard Fail
+                    // 7 - While Receiving
+      sVar2 = *(short *)&skill->field_0x5;
+      other_player_poss_relating = current_obj->mystery_array_a + (byte)skill->field_0x9;
+      *other_player_poss_relating = (int)skill;
+      if ((sVar2 == 0) || (*(short *)&skill->field_0x7 == 0)) goto LAB_00412d83;
       if (current_obj->obj_type != 0) goto switchD_00412610_caseD_6;
-      life_recover_number = pkVar20->field_0xa;
+      life_recover_number = skill->field_0xa;
       if ((life_recover_number & 1) == 0) {
         *(undefined4 *)&object_addy->field_0xdf85 = 0;
       }
@@ -14592,18 +14899,44 @@ LAB_004135bf:
       current_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj->obj_ptr_b & 0xffffffef);
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\x19':
-      sVar2 = *(short *)&pkVar20->field_0x5;
-      other_player_poss_relating = current_obj->mystery_array_b + (byte)pkVar20->field_0x9;
-      *other_player_poss_relating = (int)pkVar20;
-      if ((sVar2 != 0) && (*(short *)&pkVar20->field_0x7 != 0)) goto switchD_00412610_caseD_6;
+    case 0x19:
+                    // ----------------------------------
+                    // - FD - Defense
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - X position (low, SIGNED)
+                    // 2 - X position (high, SIGNED)
+                    // 3 - Y position (low, SIGNED)
+                    // 4 - Y position (high, SIGNED)
+                    // 5 - Width (low, SIGNED)
+                    // 6 - Width (high, SIGNED)
+                    // 7 - Height (low, SIGNED)
+                    // 8 - Height (high, SIGNED)
+                    // 9 - M number (UNSIGNED)
+                    // A - Flags
+                    // B - Damage ratio (UNSIGNED)
+                    // 
+                    // - Flags -
+                    // 0 - Striking
+                    // 1 - Doing
+                    // 2 - Throwing
+      sVar2 = *(short *)&skill->field_0x5;
+      other_player_poss_relating = current_obj->mystery_array_b + (byte)skill->field_0x9;
+      *other_player_poss_relating = (int)skill;
+      if ((sVar2 != 0) && (*(short *)&skill->field_0x7 != 0)) goto switchD_00412610_caseD_6;
 LAB_00412d83:
       *other_player_poss_relating = 0;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\x1a':
+    case 0x1a:
+                    // ----------------------------------
+                    // - PS - Player: Stop
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Your Down Time (UNSIGNED)
+                    // 2 - Part Down Time (UNSIGNED)
       if ((current_obj->obj_type == 0) &&
-         (life_recover_number = pkVar20->field_0x1, life_recover_number != 0)) {
+         (life_recover_number = skill->field_0x1, life_recover_number != 0)) {
         *(uint *)&current_obj->time_method_number_in_frames =
              *(int *)&current_obj->time_method_number_in_frames + (uint)life_recover_number;
         special_stock_gauge_max = current_obj->player_file_buffer;
@@ -14622,7 +14955,7 @@ LAB_00412d83:
           player_file_buff_idx = player_file_buff_idx + -1;
         } while (player_file_buff_idx != 0);
       }
-      life_recover_number = pkVar20->sk_level;
+      life_recover_number = skill->_2;
       if (life_recover_number == 0) goto switchD_00412610_caseD_6;
       local_110 = 0;
       other_player_poss_relating = &PLAYER_KGT_BUFFER[0].CPU;
@@ -14652,20 +14985,80 @@ LAB_00412d83:
       } while ((int)other_player_poss_relating < 0x54fe6d);
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\x1e':
-      uVar10 = pkVar20->field_0x1;
-      cVar12 = pkVar20->sk_level;
-      uVar11 = pkVar20->field_0x3;
-      uVar4 = *(undefined2 *)&pkVar20->field_0x4;
-      object_addy->start_of_0x6 = pkVar20->skill_step_type;
+    case 0x1e:
+                    // ----------------------------------
+                    // - C - Cancel Cond. -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Cancel, flags
+                    // 2 - mpty (UNSIGNED)
+                    // 3 - Skill ID (low, UNSIGNED)
+                    // 4 - Skill ID (high, UNSIGNED)
+                    // 5 - ween (UNSIGNED)
+                    // 
+                    // - Cancels -
+                    // 0 - Fail
+                    // 1 - Hit
+                    // 2 - UnCond
+                    // 
+                    // - Flags -
+                    // 0 - CANCEL_MASK 
+                    // 1 - CANCEL_MASK
+                    // 2 - CANCEL_MASK
+                    // 3 - Skill
+      uVar10 = skill->field_0x1;
+      cVar12 = skill->_2;
+      uVar11 = skill->field_0x3;
+      uVar4 = *(undefined2 *)&skill->field_0x4;
+      object_addy->start_of_0x6 = skill->skill_step_type;
       object_addy->field_0xdf92 = uVar10;
       object_addy->field_0xdf93 = cVar12;
       object_addy->field_0xdf94 = uVar11;
       *(undefined2 *)&object_addy->field_0xdf95 = uVar4;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
-    case '\x1f':
-      life_recover_number = pkVar20->field_0x4;
+    case 0x1f:
+                    // ----------------------------------
+                    // - V - Variable -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Branch skill ID (low, UNSIGNED)
+                    // 2 - Branch skill ID (high, UNSIGNED)
+                    // 3 - Branch Command ID (UNSIGNED)
+                    // 4 - Var. LHS
+                    // 5 - Operation, branch condition, operation flags
+                    // 6 - Var. RHS 
+                    // 7 - Value (low, SIGNED)
+                    // 8 - Value (high, SIGNED)
+                    // 9 - Compare (low, SIGNED)
+                    // A - Compare (high, SIGNED)
+                    // 
+                    // - Variables -
+                    // 0x - Variable index (A - P)
+                    // x0 - Source (0 is Task, 4 is Character, 8 is System. Only players may access
+                    // character variables.)
+                    // 
+                    // - Operations -
+                    // 0 - Nothing
+                    // 1 - Set
+                    // 2 - Add
+                    // 
+                    // - Branch conditions -
+                    // 0 - No Cond branch
+                    // 1 - It's the same
+                    // 2 - It's Above
+                    // 3 - It's Below
+                    // 
+                    // - Operation flags
+                    // 0 - OPERATION_MASK
+                    // 1 - OPERATION_MASK
+                    // 2 - BRANCH_CONDITION_MASK
+                    // 3 - BRANCH_CONDITION_MASK
+                    // 4 - unk
+                    // 5 - unk
+                    // 6 - unk
+                    // 7 - Use Var
+      life_recover_number = skill->field_0x4;
       bVar16 = life_recover_number >> 6;
       if (bVar16 == 0) {
         char_i = (short *)((int)current_obj->mystery_array_b +
@@ -14677,12 +15070,12 @@ LAB_00412d83:
       else if (bVar16 == 2) {
         char_i = (short *)(&DAT_004456b0 + (life_recover_number & 0x3f) * 2);
       }
-      life_recover_number = pkVar20->field_0x5;
+      life_recover_number = skill->field_0x5;
       if ((life_recover_number & 0x80) == 0) {
-        local_11c = (uint)*(ushort *)&pkVar20->field_0x7;
+        local_11c = (uint)*(ushort *)&skill->field_0x7;
         goto switchD_0041380c_default;
       }
-      bVar16 = pkVar20->field_0x6;
+      bVar16 = skill->field_0x6;
       switch(bVar16 >> 6) {
       case 0:
         local_11c = (uint)*(ushort *)
@@ -14742,45 +15135,74 @@ switchD_0041380c_default:
       }
       life_recover_number = life_recover_number >> 2 & 3;
       if (life_recover_number == 1) {
-        if (*char_i != *(short *)&pkVar20->field_0x9) goto switchD_00412610_caseD_6;
+        if (*char_i != *(short *)&skill->field_0x9) goto switchD_00412610_caseD_6;
       }
       else if (life_recover_number == 2) {
-        if (*char_i <= *(short *)&pkVar20->field_0x9) goto switchD_00412610_caseD_6;
+        if (*char_i <= *(short *)&skill->field_0x9) goto switchD_00412610_caseD_6;
       }
-      else if ((life_recover_number != 3) || (*(short *)&pkVar20->field_0x9 <= *char_i))
+      else if ((life_recover_number != 3) || (*(short *)&skill->field_0x9 <= *char_i))
       goto switchD_00412610_caseD_6;
-      uVar5 = *(ushort *)&pkVar20->field_0x1;
+      uVar5 = *(ushort *)&skill->field_0x1;
       if (uVar5 == 0) goto switchD_00412610_caseD_6;
       pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
       current_obj->action_idx = (uint)uVar5;
       special_stock_gauge_max =
-           ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)pkVar20->field_0x3;
+           ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x3;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
-    case ' ':
+    case 0x20:
+                    // ----------------------------------
+                    // - R - Random -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Var (low, UNSIGNED)
+                    // 2 - Var (high, UNSIGNED)
+                    // 3 - When its above (low, UNSIGNED)
+                    // 4 - When its above (high, UNSIGNED)
+                    // 5 - unk
+                    // 6 - Skill ID (low, UNSIGNED)
+                    // 7 - Skill ID (high, UNSIGNED)
+                    // 8 - Command ID
+                    // 
       special_stock_gauge_max = _rand();
       current_obj = PTR_POSS_CURRENT_OBJ;
-      if ((special_stock_gauge_max % (int)(*(ushort *)&pkVar20->field_0x1 + 1) <=
-           (int)(uint)*(ushort *)&pkVar20->field_0x3) ||
-         (uVar5 = *(ushort *)&pkVar20->field_0x6, uVar5 == 0)) goto switchD_00412610_caseD_6;
+      if ((special_stock_gauge_max % (int)(*(ushort *)&skill->field_0x1 + 1) <=
+           (int)(uint)*(ushort *)&skill->field_0x3) ||
+         (uVar5 = *(ushort *)&skill->field_0x6, uVar5 == 0)) goto switchD_00412610_caseD_6;
       pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
       PTR_POSS_CURRENT_OBJ->action_idx = (uint)uVar5;
       special_stock_gauge_max =
-           ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)pkVar20->field_0x8;
+           ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x8;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
-    case '#':
-      cVar12 = pkVar20->sk_level;
-      cVar1 = pkVar20->field_0x3;
-      *(uint *)&current_obj->field_0x54 = (uint)(byte)pkVar20->field_0x1;
+    case 0x23:
+                    // ----------------------------------
+                    // - COLOR - Color -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Blend type
+                    // 2 - Red (SIGNED)
+                    // 3 - Green (SIGNED)
+                    // 4 - Blue (SIGNED)
+                    // 5 - Alpha (UNSIGNED)
+                    // 
+                    // - Blend types -
+                    // 0 - 0% transparent
+                    // 1 - 50% transparent
+                    // 2 - Additive
+                    // 3 - Subtractive
+                    // 4 - Transparent (with custom alpha this time)
+      cVar12 = skill->_2;
+      cVar1 = skill->field_0x3;
+      *(uint *)&current_obj->field_0x54 = (uint)(byte)skill->field_0x1;
       current_obj->field26_0x44 = (int)cVar12;
-      cVar12 = pkVar20->field_0x4;
+      cVar12 = skill->field_0x4;
       current_obj->field27_0x48 = (int)cVar1;
       current_obj->field28_0x4c = (int)cVar12;
       if (*(int *)&current_obj->field_0x54 == 4) {
-        *(int *)&current_obj->field_0x50 = (int)(char)pkVar20->field_0x5;
+        *(int *)&current_obj->field_0x50 = (int)(char)skill->field_0x5;
         *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       }
       else {
@@ -14788,26 +15210,105 @@ switchD_0041380c_default:
         *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       }
       goto LAB_004125ae;
-    case '$':
-      special_stock_gauge_max = FUN_00410a50(pkVar20);
+    case 0x24:
+                    // ----------------------------------
+                    // - COM - Command input -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - Skill ID (low, UNSIGNED)
+                    // 2 - Skill ID (low, UNSIGNED)
+                    // 3 - Command ID (UNSIGNED)
+                    // 4 - Command Time (UNSIGNED)
+                    // 5 - Input 1 Data (low)
+                    // 6 - Input 1 Data (high)
+                    // 7 - Input 2 Data (low)
+                    // 8 - Input 2 Data (high)
+                    // 9 - Input 3 Data (low)
+                    // A - Input 3 Data (high)
+                    // B - Input 4 Data (low)
+                    // C - Input 4 Data (high)
+                    // D - Input 5 Data (low)
+                    // E - Input 5 Data (high)
+                    // 
+                    // - Motions -
+                    // 0 - Free
+                    // 1 - 5
+                    // 2 - 6
+                    // 3 - 3
+                    // 4 - 2
+                    // 5 - 1
+                    // 6 - 4
+                    // 7 - 7
+                    // 8 - 8
+                    // 9 - 9
+                    // A - 1 | 4 | 7
+                    // B - 7 | 8 | 9
+                    // C - 3 | 6 | 9
+                    // D - 1 | 2 | 3
+                    // 
+                    // - Types -
+                    // 0 - Standard
+                    // 1 - Repeat (?)
+                    // 2 - Hold (?)
+                    // 3 - 360 (?)
+                    // 
+                    // - COMMAND DATA -
+                    // 0 - MOTION_MASK
+                    // 1 - MOTION_MASK
+                    // 2 - MOTION_MASK
+                    // 3 - MOTION_MASK
+                    // 4 - A button
+                    // 5 - B button
+                    // 6 - C button
+                    // 7 - D button
+                    // 8 - E button
+                    // 9 - F button
+                    // A - unk
+                    // B - unk
+                    // C - Continue flag (if unset, this is the end of the input step)
+                    // D - Editable flag (if unset, this input step is greyed out in editor...)
+                    // E - TYPE_MASK (not used by skills)
+                    // F - TYPE_MASK (not used by skills)
+      special_stock_gauge_max = FUN_00410a50(skill);
       current_obj = PTR_POSS_CURRENT_OBJ;
       if (special_stock_gauge_max == 0) goto switchD_00412610_caseD_6;
-      uVar5 = *(ushort *)&pkVar20->field_0x1;
+      uVar5 = *(ushort *)&skill->field_0x1;
       PTR_POSS_CURRENT_OBJ->action_idx = (uint)uVar5;
       special_stock_gauge_max =
            ((ushort)(object_addy->kgt_core).p_actions_alloc[uVar5].starting_step_idx - 1) +
-           (uint)(byte)pkVar20->field_0x3;
+           (uint)(byte)skill->field_0x3;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
-    case '%':
+    case 0x25:
+                    // ----------------------------------
+                    // - AI - AfterI -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - unk
+                    // 2 - unk
+                    // 3 - Quantity (UNSIGNED)
+                    // 4 - Interval (UNSIGNED)
+                    // 5 - Blend type
+                    // 6 - Fade type
+                    // 7 - Red (SIGNED)
+                    // 8 - Green (SIGNED)
+                    // 9 - Blue (SIGNED)
+                    // A - Alpha (SIGNED)
+                    // 
+                    // - Fade type -
+                    // 0 - Unused
+                    // 1 - Fixing
+                    // 2 - Smooth fadng
+                    // 3 - Chika Chika fading
+                    // 4 - Random
       if (current_obj->_x650_index == 0) {
         special_stock_gauge_max = 0;
         other_player_poss_relating = &DAT_00447f80;
         goto LAB_00413aed;
       }
       special_stock_gauge_max = (byte)current_obj->_x650_index - 1;
-      if ((pkVar20->field_0x3 != '\0') && (pkVar20->field_0x4 != '\0')) goto LAB_00413b28;
+      if ((skill->field_0x3 != '\0') && (skill->field_0x4 != '\0')) goto LAB_00413b28;
       current_obj->_x650_index = 0;
       player_file_buff_idx = *(int *)&current_obj->actionscript_idx;
       (&DAT_00447f80)[special_stock_gauge_max * 0x194] = 0;
@@ -14816,9 +15317,9 @@ switchD_0041380c_default:
     }
   }
   _sprintf(local_100,s_ScriptMainLoopError__d__d___nd___0041f230,current_obj->player_file_buffer,
-           current_obj->obj_type,special_stock_gauge_max,
+           current_obj->obj_type,current_skill_idx,
            *(int *)&current_obj->actionscript_idx -
-           (uint)(ushort)(object_addy->kgt_core).p_actions_alloc[special_stock_gauge_max + 1].
+           (uint)(ushort)(object_addy->kgt_core).p_actions_alloc[current_skill_idx + 1].
                          starting_step_idx);
   SET_DEBUG_INFO(local_100,0x8080ff);
   goto switchD_0041270c_default;
@@ -14836,7 +15337,7 @@ LAB_00413aed:
 LAB_00413b28:
   if (special_stock_gauge_max != 100) {
     (&INT_00447f84)[special_stock_gauge_max * 0x194] = 0;
-    (&INT_00447f88)[special_stock_gauge_max * 0x194] = (int)pkVar20;
+    (&INT_00447f88)[special_stock_gauge_max * 0x194] = (int)skill;
     (&INT_00447f8c)[special_stock_gauge_max * 0x194] = 0;
     other_player_poss_relating = &INT_00447f90 + special_stock_gauge_max * 0x194;
     for (player_file_buff_idx = 400; player_file_buff_idx != 0;
@@ -14856,12 +15357,12 @@ LAB_00413b28:
     if (0x3ff < special_stock_gauge_max) break;
 LAB_00412aac:
     if (pOVar17 == *(OBJ_STRUCT **)(&object_addy->field_0xdfbf + (uint)life_recover_number * 4)) {
-      uVar5 = *(ushort *)&pkVar20->field_0x5;
+      uVar5 = *(ushort *)&skill->field_0x5;
       if (uVar5 != 0) {
         pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
         current_obj->action_idx = (uint)uVar5;
         special_stock_gauge_max =
-             ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)pkVar20->field_0x7;
+             ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x7;
         *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
         *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
         goto LAB_004125ae;
@@ -14872,21 +15373,20 @@ LAB_00412aac:
     }
   }
 LAB_00412b0a:
-  if (*(ushort *)&pkVar20->sk_level != 0) {
+  if (*(ushort *)&skill->_2 != 0) {
     curr_obj_type = current_obj->obj_type;
-    life_recover_number = pkVar20->field_0x1;
+    life_recover_number = skill->field_0x1;
     bVar16 = life_recover_number & 0x40;
     if (curr_obj_type == main_kgt_file) {
-      if (((object_addy->kgt_core).p_actions_alloc[*(ushort *)&pkVar20->sk_level].field_0x23 & 9) !=
-          0) {
+      if (((object_addy->kgt_core).p_actions_alloc[*(ushort *)&skill->_2].field_0x23 & 9) != 0) {
         bVar16 = 0;
         goto LAB_00412b9c;
       }
 LAB_00412b66:
       bVar16 = 1;
 LAB_00412b6e:
-      special_stock_gauge_max = (int)*(short *)&pkVar20->field_0x8 << 0x10;
-      player_file_buff_idx = (int)*(short *)&pkVar20->field_0xa << 0x10;
+      special_stock_gauge_max = (int)*(short *)&skill->field_0x8 << 0x10;
+      player_file_buff_idx = (int)*(short *)&skill->field_0xa << 0x10;
     }
     else {
       if (curr_obj_type == demo_file) goto LAB_00412b66;
@@ -14897,12 +15397,12 @@ LAB_00412b6e:
       bVar16 = 0;
 LAB_00412b9c:
       if ((current_obj->pos_player_ignore_flag & 1) == 0) {
-        special_stock_gauge_max = *(short *)&pkVar20->field_0x8 * 0x10000 + current_obj->param_3;
-        player_file_buff_idx = *(short *)&pkVar20->field_0xa * 0x10000 + current_obj->param_4;
+        special_stock_gauge_max = *(short *)&skill->field_0x8 * 0x10000 + current_obj->param_3;
+        player_file_buff_idx = *(short *)&skill->field_0xa * 0x10000 + current_obj->param_4;
       }
       else {
-        special_stock_gauge_max = current_obj->param_3 + *(short *)&pkVar20->field_0x8 * -0x10000;
-        player_file_buff_idx = *(short *)&pkVar20->field_0xa * 0x10000 + current_obj->param_4;
+        special_stock_gauge_max = current_obj->param_3 + *(short *)&skill->field_0x8 * -0x10000;
+        player_file_buff_idx = *(short *)&skill->field_0xa * 0x10000 + current_obj->param_4;
       }
     }
     uVar14 = current_obj->param2_maybe_50_or_46;
@@ -14919,7 +15419,7 @@ LAB_00412b9c:
       }
     }
     else if ((life_recover_number & 3) == 2) {
-      uVar14 = (uint)(byte)pkVar20->field_0xd;
+      uVar14 = (uint)(byte)skill->field_0xd;
     }
     pOVar17 = FIND_EMPTY_OBJ(current_obj->jmp_idx,uVar14,special_stock_gauge_max,
                              player_file_buff_idx);
@@ -14945,28 +15445,28 @@ LAB_00412b9c:
     special_stock_gauge_max = current_obj->pos_player_ignore_flag;
     pOVar17->__or_3 = current_obj->__or_3;
     *(undefined3 *)&pOVar17->field_0x15 = uVar8;
-    uVar5 = *(ushort *)&pkVar20->sk_level;
+    uVar5 = *(ushort *)&skill->_2;
     pOVar17->pos_player_ignore_flag = special_stock_gauge_max;
     pOVar17->action_idx = (uint)uVar5;
     *(uint *)&pOVar17->actionscript_idx =
          (uint)(ushort)(object_addy->kgt_core).p_actions_alloc[uVar5].starting_step_idx +
-         (uint)(byte)pkVar20->field_0x4;
+         (uint)(byte)skill->field_0x4;
     if (bVar16 == 0) {
       pOVar17->unk_bitmask = pOVar17->unk_bitmask | 0x40000000;
     }
     if ((int)current_obj->obj_type < 2) {
-      life_recover_number = pkVar20->field_0x1;
+      life_recover_number = skill->field_0x1;
       if ((life_recover_number & 4) == 0) {
-        *(OBJ_STRUCT **)(&object_addy->field_0xdfbf + (uint)(byte)pkVar20->field_0xc * 4) = pOVar17;
+        *(OBJ_STRUCT **)(&object_addy->field_0xdfbf + (uint)(byte)skill->field_0xc * 4) = pOVar17;
       }
       if ((life_recover_number & 8) != 0) {
         pOVar17->unk_bitmask = pOVar17->unk_bitmask | 0x80000000;
       }
     }
-    if ((pkVar20->field_0x1 & 0x20) != 0) {
-      *(undefined2 *)&pOVar17->field_0x12f = *(undefined2 *)&pkVar20->field_0xa;
+    if ((skill->field_0x1 & 0x20) != 0) {
+      *(undefined2 *)&pOVar17->field_0x12f = *(undefined2 *)&skill->field_0xa;
       pOVar17->unk_bitmask = pOVar17->unk_bitmask | 0x20000000;
-      *(undefined2 *)&pOVar17->field_0x12d = *(undefined2 *)&pkVar20->field_0x8;
+      *(undefined2 *)&pOVar17->field_0x12d = *(undefined2 *)&skill->field_0x8;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
     }
@@ -14983,9 +15483,9 @@ switchD_00412610_next_actionscript:
   if (current_obj->pos_player_ignore_flag != 0) {
     special_stock_gauge_max = -1;
   }
-  life_recover_number = pkVar20->field_0x9;
+  life_recover_number = skill->field_0x9;
   is_1p_story = (life_recover_number & 1) == 0;
-  player_file_buff_idx = *(short *)&pkVar20->field_0x3 * INT_00541f78 * special_stock_gauge_max;
+  player_file_buff_idx = *(short *)&skill->field_0x3 * INT_00541f78 * special_stock_gauge_max;
   if ((life_recover_number & 2) == 0) {
     if (is_1p_story) {
       current_obj->field9_0x18 = player_file_buff_idx;
@@ -14994,7 +15494,7 @@ switchD_00412610_next_actionscript:
       current_obj->field9_0x18 = current_obj->field9_0x18 + player_file_buff_idx;
     }
   }
-  player_file_buff_idx = *(short *)&pkVar20->field_0x5 * INT_00541f78;
+  player_file_buff_idx = *(short *)&skill->field_0x5 * INT_00541f78;
   if ((life_recover_number & 4) == 0) {
     if (is_1p_story) {
       current_obj->field10_0x1c = player_file_buff_idx;
@@ -15003,7 +15503,7 @@ switchD_00412610_next_actionscript:
       current_obj->field10_0x1c = current_obj->field10_0x1c + player_file_buff_idx;
     }
   }
-  special_stock_gauge_max = *(short *)&pkVar20->field_0x1 * INT_00445700 * special_stock_gauge_max;
+  special_stock_gauge_max = *(short *)&skill->field_0x1 * INT_00445700 * special_stock_gauge_max;
   if ((life_recover_number & 8) == 0) {
     if (is_1p_story) {
       current_obj->field11_0x20 = special_stock_gauge_max;
@@ -15012,7 +15512,7 @@ switchD_00412610_next_actionscript:
       current_obj->field11_0x20 = current_obj->field11_0x20 + special_stock_gauge_max;
     }
   }
-  special_stock_gauge_max = *(short *)&pkVar20->field_0x7 * INT_00445700;
+  special_stock_gauge_max = *(short *)&skill->field_0x7 * INT_00445700;
   if ((life_recover_number & 0x10) == 0) {
     if (is_1p_story) {
       current_obj->field12_0x24 = special_stock_gauge_max;
