@@ -84,7 +84,7 @@ string s_HAN_HIRAGANA_KATAKANA#[%s]_0041e8d0;
 string s_Player_Open_error[%s]_0041e8f4;
 string s_Player_Read_error[%s]_0041e90c;
 APP_MODE APPMODE;
-kgt_character_struct DAT_KGT_FILE_BUFFER_00433240;
+kgt_mainKGT DAT_KGT_FILE_BUFFER_00433240;
 string s_GameSystem_Read_error[%s]_0041e9c8;
 string s_%s.t_0041e93c;
 string s_KGT2nd_EDITOR.exe_0041e944;
@@ -132,7 +132,6 @@ HDC HDC_DIP_A;
 int DAT_0042476c;
 UINT UINT_GAME_WINDOW_SIZE_X;
 UINT UINT_GAME_WINDOW_SIZE_Y;
-undefined DAT_004456e4;
 POSS_0x8_struct[128] POSS_0x8_struct_ARRAY_00430240;
 OBJ_STRUCT *PTR_POSS_CURRENT_OBJ;
 OBJ_STRUCT *[2048] UNK_OBJ_ARRAY;
@@ -140,7 +139,7 @@ undefined4 INT_JUMP_ACTIVATED_COUNT_004246fc;
 int INT_UNK_ITER_004259a4;
 OBJ_STRUCT[95] OBJ_ARRAY;
 OBJ_STRUCT *PTR_OBJ_PARAM_1_ARRAY;
-byte DAT_004438a4;
+undefined system_flash_duration;
 int DAT_0041e7f4;
 int DAT_0041e7e8;
 int DAT_0041e7e4;
@@ -160,8 +159,8 @@ string s_Terminal_0041ec44;
 string s_%s_0041ec50;
 string s_Terminal_0041ec54;
 string s_FPS:%3d_SkipFrame:%3d_Object:%3d_0041ec60;
-UINT UINT_TESTPLAY_HITJUDGE_2_0042470c;
 string s_WinPoint:%3d_0041ec84;
+UINT UINT_TESTPLAY_HITJUDGE_2_0042470c;
 int timer_iter_skipframe;
 undefined4 unk_x_position;
 undefined4 unk_y_position;
@@ -212,12 +211,11 @@ string s_HAN_HIRAGANA#_0041ed0c;
 string s_HAN_KATAKANA#_0041ed28;
 string s_HAN_KATAKANA#_0041ed40;
 undefined4 MCI_OPEN_FLAG;
-int INT_00541f78;
-int INT_00445700;
+int player_momentum_scalar;
 int DAT_LIKELY_FPS;
 UINT UINT_TESTPLAY_GAMESPEED;
+int gravity_scalar;
 string s_OBJ_OVER_0041edb0;
-undefined DAT_0044521a;
 int UNK_FLAG_00424f04;
 int UNK_FLAG_00424f08;
 string s_demo:%s_wait:%d_0041edbc;
@@ -232,76 +230,36 @@ string s_KATAKANA#%d_-_%d_-_%d_0041ee6c;
 string s_story_script_End;
 string s_HAN_KATAKANA#_0041eea0;
 string s_HAN_HIRAGANA_KATAKANA#_0041eeb0;
-undefined DAT_004452cc;
 int STORY_MODE_IDX;
 undefined4 LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME;
-undefined DAT_004451da;
-undefined DAT_004451c6;
 string s_HAN_HIRAGANA_KATAKANA#Error:_0041eedc;
 string s_HAN_HIRAGANA_KATAKANA#Error:_0041ef04;
-undefined DAT_char_height_or_width_unknown_004452ba;
-undefined DAT_char_height_or_width_unknown_004452b8;
-undefined DAT_004452b4;
-undefined DAT_004452b0;
-undefined DAT_004452b6;
-undefined DAT_004452b2;
-undefined DAT_004452be;
-undefined DAT_004452bc;
-undefined DAT_00445254;
-undefined DAT_00445256;
-undefined DAT_004452c2;
-undefined DAT_004452c0;
-undefined4 UINT_TESTPLAY_VSMODE;
-undefined DAT_004452ca;
-undefined DAT_004452c6;
-undefined DAT_004452c8;
-undefined DAT_004452c4;
-byte DAT_0044389f;
-undefined DAT_00445250;
-undefined DAT_00445252;
-byte DAT_0044389e;
-byte DAT_0044389d;
 int[5] INT_ARRAY_00424e7a;
 int[4] INT_ARRAY_00424e90;
-UINT UINT_#_OF_ROUNDS_00430124;
-UINT UINT_#_OF_ROUNDS_TEAM_VS_00430128;
-int[8] LAST_INPUT_BITWISE_TESTED;
-kgt_grid Char_Select_VS_Col_1;
-int UNK_KGT_PLAYER_BUFFER_IDX;
-int[8] LAST_INPUT_DIFFERENCE;
+undefined4 UINT_TESTPLAY_VSMODE;
 kgt_grid Char_Select_VS_Col_0;
 kgt_grid story_mode_grid;
+UINT UINT_#_OF_ROUNDS_00430124;
 int UNK_CHAR_SELECT_GLOBAL_A;
+UINT UINT_#_OF_ROUNDS_TEAM_VS_00430128;
 string s_Character_Script_P1_Not_found_error_0041ef2c;
 string s_Character_Script_VS_Single_Demo_not_found_error_0041ef64;
+int[8] LAST_INPUT_BITWISE_TESTED;
 string s_Character_select_team_demo_not_found_error_0041efa4;
+kgt_grid Char_Select_VS_Col_1;
 string s_Character_setting_error_height_or_width_0_0041efe4;
-undefined DAT_00445248;
-undefined DAT_00445258;
-byte DAT_004438a1;
+int UNK_KGT_PLAYER_BUFFER_IDX;
+int[8] LAST_INPUT_DIFFERENCE;
 sdword SDWORD_00424f2c;
-undefined DAT_00445244;
-undefined DAT_0044389c;
 int is_story_mode;
 undefined4 GAME_MODE_ASSIGNMENT?;
 undefined4 GAME_MODE_ASSIGNMENT_IDX?;
 undefined4 GAME_MODE_ASSIGNMENT_UPPER;
 dword LAST_INPUT_OR_VALUE_EVERY_FRAME;
 undefined4 story_mode_p0_unk_var;
-undefined DAT_0044524c;
 undefined4 story_mode_p1_unk_var;
-undefined DAT_004438a0;
-undefined DAT_0044524a;
 undefined4 story_mode_current_round;
 undefined4 UINT_TESTPLAY_TIME;
-undefined DAT_0044525a;
-undefined DAT_004451e8;
-undefined DAT_004451c4;
-UINT UINT_TESTPLAY_STAGENB;
-undefined DAT_004451c2;
-undefined DAT_004451e0;
-undefined DAT_004451dc;
-undefined DAT_004451e4;
 string s_HAN_HIRAGANA_KATAKANA#_0041f014;
 string s_HAN_HIRAGANA#Error_0041f044;
 string s_KATAKANA#_0041f05c;
@@ -309,6 +267,7 @@ string s_HAN_KATAKANA#_0041f070;
 string s_HAN_KATAKANA#_0041f080;
 string s_w_ko_0041f0a0;
 string s_draw_0041f0a8;
+UINT UINT_TESTPLAY_STAGENB;
 string s_1p_win_0041f0b0;
 string s_2p_win_0041f0b8;
 int INT_00424708;
@@ -322,16 +281,6 @@ string s_RC_BMP_text_0041f0cc;
 string s_%s_0041f0d8;
 string s_%s.kgt_0041f0dc;
 undefined lpReturnedString_0043012c;
-undefined DAT_00445216;
-undefined DAT_0044522e;
-undefined DAT_00445230;
-undefined DAT_00445234;
-undefined DAT_00445218;
-undefined DAT_00445202;
-undefined DAT_004451ec;
-undefined DAT_004451ee;
-undefined DAT_004451ac;
-undefined DAT_START_OF_ONE_UP_SERIES_004451aa;
 string s_1.bmp_0041f0e4;
 string s_RC_BMP_01_0041f0ec;
 string s_2.bmp_0041f0f8;
@@ -345,9 +294,8 @@ POSS_VTABLE_GAME_STATE PTR_POSS_GAMESTATE_JUMPTABLE;
 undefined INT_004456fc;
 undefined *PTR_SecondLinkerMember_16_29_000003e4.string[4]+8_0041eda4;
 undefined4 DAT_0041eda0;
-undefined DAT_004456d0;
+undefined system_flash;
 undefined DAT_004d1cfc;
-undefined DAT_004451c0;
 int INT_0041f130;
 string s_reaction_error_1_0041f1d0;
 string s_reaction_error_2_0041f1e4;
@@ -356,24 +304,22 @@ int DAT_00424710;
 undefined DAT_0041f138;
 undefined DAT_0041f178;
 string s_%s_%d_0041f210;
-undefined DAT_004456d4;
-undefined DAT_004456dc;
-undefined DAT_004456d8;
-undefined DAT_004456e0;
 undefined DAT_004456e8;
 undefined DAT_004456ec;
 undefined DAT_004456f0;
 undefined DAT_004456f4;
-undefined DAT_004456f8;
 string s_ScriptMainLoopError_%d_%d_-_nd:%_0041f230;
 string s_HAN_KATAKANA#_0041f274;
-undefined DAT_004444ff;
-undefined DAT_004456b0;
 undefined4 DAT_00447f80;
 int INT_00447f84;
 int INT_00447f88;
 int INT_00447f8c;
 int INT_00447f90;
+undefined system_flash_red;
+undefined system_flash_blue;
+undefined system_flash_green;
+undefined system_flash_alpha;
+undefined system_flash_2;
 char *DAT_00424e30;
 int DAT_00424788;
 undefined1 *DAT_00424e30;
@@ -3408,38 +3354,38 @@ void ___vdecl_acos2(void)
 
 
 
-void FUN_00403430(HGLOBAL pallette)
+void Handle_Sound_Skillscript_block(kgt_sound_struct *sound)
 
 {
   byte bVar1;
-  undefined4 uVar2;
-  int *piVar3;
+  int *piVar2;
+  int buffer_size;
   
-  bVar1 = *(byte *)((int)pallette + 0x28);
+  bVar1 = sound->field_0x28;
   switch(bVar1 & 0xf) {
   case 0:
     FUN_004034d0(0);
     return;
   case 1:
     if (DSOUND_INITIALIZED_FLAG_0042474c != 0) {
-      uVar2 = *(undefined4 *)((int)pallette + 0x24);
-      FUN_00415f00(uVar2);
-      piVar3 = (int *)FUN_00415df0(uVar2);
-      if (piVar3 != (int *)0x0) {
+      buffer_size = sound->buffer_size;
+      FUN_00415f00(buffer_size);
+      piVar2 = (int *)FUN_00415df0(buffer_size);
+      if (piVar2 != (int *)0x0) {
         if ((bVar1 & 0x10) != 0) {
-          (**(code **)(*piVar3 + 0x30))(piVar3,0,0,1);
+          (**(code **)(*piVar2 + 0x30))(piVar2,0,0,1);
           return;
         }
-        (**(code **)(*piVar3 + 0x30))(piVar3,0,0,0);
+        (**(code **)(*piVar2 + 0x30))(piVar2,0,0,0);
         return;
       }
     }
     break;
   case 2:
-    write_mid_file(pallette);
+    write_mid_file(&sound->buffer);
     return;
   case 3:
-    FUN_00415570(*(undefined1 *)((int)pallette + 0x29),(bVar1 & 0x10) != 0);
+    FUN_00415570(sound->field_0x29,(bVar1 & 0x10) != 0);
   }
   return;
 }
@@ -3850,9 +3796,9 @@ int FUN_Opens__kgt_file(LPCSTR program_name)
   SetFilePointer(hFile,0,(PLONG)0x0,0);
   BVar1 = ReadFile(hFile,&DAT_KGT_FILE_BUFFER_00433240,0x10,&local_408,(LPOVERLAPPED)0x0);
   if (BVar1 != 0) {
-    iVar2 = enumerate_from_kgt_file(&DAT_KGT_FILE_BUFFER_00433240,hFile);
+    iVar2 = enumerate_from_kgt_file((kgt_character_struct *)&DAT_KGT_FILE_BUFFER_00433240,hFile);
     if (iVar2 == 0) {
-      BVar1 = ReadFile(hFile,&DAT_KGT_FILE_BUFFER_00433240.field_0x2234,0x1023c,&local_408,
+      BVar1 = ReadFile(hFile,DAT_KGT_FILE_BUFFER_00433240.character_names,0x1023c,&local_408,
                        (LPOVERLAPPED)0x0);
       if (BVar1 != 0) {
         CloseHandle(hFile);
@@ -3993,8 +3939,7 @@ joined_r0x0040435e:
     }
   }
   else {
-    stage_t_filename =
-         (char *)((int)DAT_KGT_FILE_BUFFER_00433240.common_images + idx * 0x100 + -0x6e);
+    stage_t_filename = DAT_KGT_FILE_BUFFER_00433240.stage_names[idx].str;
     _sprintf(stage_filename,s__s_stage_t_0041eaa8,stage_t_filename);
     hFile = CreateFileA(stage_filename,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
     if (hFile == (HANDLE)0xffffffff) {
@@ -4440,7 +4385,7 @@ void FUN_00404cd0(void)
   int **ppiVar2;
   OBJ_STRUCT **ppOVar3;
   OBJ_STRUCT *pOVar4;
-  kgt_0xe03f_struct_ptr_57383_undefined piVar5;
+  kgt_0xe03f_struct_ptr_57383_undefined flash_duration;
   POSS_0x8_struct *pPVar5;
   int i;
   
@@ -4489,20 +4434,21 @@ void FUN_00404cd0(void)
     }
     pPVar5 = pPVar5 + 1;
   } while ((int)pPVar5 < 0x430640);
-  FUN_0040ffc0();
+  deal_with_hitboxes_and_other_stuff();
                     // This variable initializes at 0
-  piVar5 = &PLAYER_KGT_BUFFER[0].field_0xe027;
+  flash_duration = &PLAYER_KGT_BUFFER[0].flash_duration_b;
   do {
-    if (*(int *)piVar5 != 0) {
-      *(int *)piVar5 = *(int *)piVar5 + -1;
+    if (*(int *)flash_duration != 0) {
+      *(int *)flash_duration = *(int *)flash_duration + -1;
     }
-    piVar5 = piVar5 + 0xe03f;
-  } while ((int)piVar5 < 0x54ff9f);
-  if (_DAT_004456e4 != 0) {
-    _DAT_004456e4 = _DAT_004456e4 + -1;
+    flash_duration = flash_duration + 0xe03f;
+  } while ((int)flash_duration < 0x54ff9f);
+  if (_system_flash_duration != 0) {
+    _system_flash_duration = _system_flash_duration + -1;
   }
-  if (UNK_STAGE_FILES_00445740.script_byte_7_a != 0) {
-    UNK_STAGE_FILES_00445740.script_byte_7_a = UNK_STAGE_FILES_00445740.script_byte_7_a + -1;
+  if (UNK_STAGE_FILES_00445740.pallette_flash_duration != 0) {
+    UNK_STAGE_FILES_00445740.pallette_flash_duration =
+         UNK_STAGE_FILES_00445740.pallette_flash_duration + -1;
   }
   return;
 }
@@ -4525,7 +4471,7 @@ void handle_drawing(void)
   astruct_4 *piVar10;
   int *piVar1;
   int *ddraw_desc_mem_region;
-  int *local_21c;
+  OBJ_STRUCT **local_21c;
   char local_214 [2];
   undefined1 local_212 [2];
   undefined1 local_210 [2];
@@ -4541,8 +4487,8 @@ void handle_drawing(void)
   HDC pHVar1;
   IDirectDrawSurface7 p_DDRAW_desc1;
   
-  psuedo_rand(UNK_STAGE_FILES_00445740.script_data_array_unk);
-  psuedo_rand(UNK_STAGE_FILES_00445740.script_data_array_unk + 5);
+  psuedo_rand(&UNK_STAGE_FILES_00445740.pic_sway_x);
+  psuedo_rand(&UNK_STAGE_FILES_00445740.pic_sway_y);
   _ppiVar1 = POSS_0x8_struct_ARRAY_00430240;
   do {
     if (_ppiVar1->B != (int *)0x0) {
@@ -4576,7 +4522,7 @@ void handle_drawing(void)
         draw_func_a(iVar9,iVar6 + 1,iVar3,8,0,(iVar3 / 0x143) * 0x400 + 0x3e0);
         draw_func_a(iVar9 + iVar3,iVar6 + 1,(piVar10->field18_0x18 * 0x32) / piVar10->field1_0x4,8,0
                     ,0x7c00);
-        if ((DAT_004438a4 & 0x20) != 0) {
+        if ((DAT_KGT_FILE_BUFFER_00433240.system_bitmask & 0x20U) != 0) {
           FUN_0040bed0(*(undefined4 *)&piVar10[-1].field_0xfe,iVar8 + -0x2b,iVar6,0,0,0,0);
           FUN_0040bed0(piVar10->field18_0x18,iVar8 + 0xf,iVar6,0,0x20,0,0);
         }
@@ -4615,11 +4561,11 @@ void handle_drawing(void)
           draw_func_a(iVar9 + 0x40,iVar3,(piVar1[5] * 200) / *piVar1,8,0,0x7c00);
           FUN_0040bed0(piVar1[-3],0x2e,iVar8,0,0,0,0);
           FUN_0040bed0(piVar1[5],0xfe,iVar8,0,0x20,0,0);
-          local_21c = (int *)((int)piVar1 + 0xae);
+          local_21c = (OBJ_STRUCT **)((int)piVar1 + 0xae);
           iVar8 = 0;
           str = local_214;
           do {
-            if (*local_21c == 0) {
+            if (*local_21c == (OBJ_STRUCT *)0x0) {
               _sprintf(str,s___0041ebf8);
             }
             else {
@@ -5074,8 +5020,8 @@ int wWinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,char *pCmdLine,int nCmd
   char *puVar2;
   uint extraout_EDX;
   uint uVar2;
-  char *pcVar3;
-  short *psVar4;
+  char (*pacVar3) [256];
+  c_256_buffer *pcVar4;
   int iVar5;
   int local_214;
   char *file_name;
@@ -5166,31 +5112,30 @@ switchD_00405da0_caseD_45:
       iVar1 = i + 253;
       i = i + -1;
     } while (-1 < iVar1);
-    pcVar3 = &DAT_KGT_FILE_BUFFER_00433240.field_0x2234;
+    pacVar3 = DAT_KGT_FILE_BUFFER_00433240.character_names;
     do {
-      if (*pcVar3 != '\0') {
-        _sprintf((char *)&file_name,s__s_s_player_t_0041ecc8,local_100,pcVar3);
+      if ((*pacVar3)[0] != '\0') {
+        _sprintf((char *)&file_name,s__s_s_player_t_0041ecc8,local_100,pacVar3);
         DeleteFileA((LPCSTR)&file_name);
       }
-      pcVar3 = pcVar3 + 0x100;
-    } while ((int)pcVar3 < 0x438674);
-    psVar4 = &DAT_KGT_FILE_BUFFER_00433240.hit_junctions[0xac].spark_idx;
+      pacVar3 = pacVar3 + 1;
+    } while ((int)pacVar3 < 0x438674);
+    pcVar4 = DAT_KGT_FILE_BUFFER_00433240.stage_names;
     do {
-      if ((char)*psVar4 != '\0') {
-        _sprintf((char *)&file_name,s__s_s_stage_t_0041ecd8,local_100,psVar4);
+      if (pcVar4->str[0] != '\0') {
+        _sprintf((char *)&file_name,s__s_s_stage_t_0041ecd8,local_100,pcVar4);
         DeleteFileA((LPCSTR)&file_name);
       }
-      psVar4 = psVar4 + 0x80;
-    } while ((int)psVar4 < 0x43d49c);
-    pcVar3 = &DAT_KGT_FILE_BUFFER_00433240.character_story_entries[0x2e].
-              character_story_entry_cpu_array[4].victory_points_amount;
+      pcVar4 = pcVar4 + 1;
+    } while ((int)pcVar4 < 0x43d49c);
+    pcVar4 = DAT_KGT_FILE_BUFFER_00433240.demo_names;
     do {
-      if (*pcVar3 != '\0') {
-        _sprintf((char *)&file_name,s__s_s_demo_t_0041ece8,local_100,pcVar3);
+      if (pcVar4->str[0] != '\0') {
+        _sprintf((char *)&file_name,s__s_s_demo_t_0041ece8,local_100,pcVar4);
         DeleteFileA((LPCSTR)&file_name);
       }
-      pcVar3 = pcVar3 + 0x100;
-    } while ((int)pcVar3 < 0x44389c);
+      pcVar4 = pcVar4 + 1;
+    } while ((int)pcVar4 < 0x44389c);
   }
   UNK_GRACEFUL_EXIT();
   return 0;
@@ -5422,8 +5367,8 @@ void RESET_OBJECTS_AND_SET_GAME_SPEED(void)
   else {
     DAT_LIKELY_FPS = UINT_TESTPLAY_GAMESPEED * 10;
   }
-  INT_00541f78 = (int)(65536 / (longlong)DAT_LIKELY_FPS);
-  INT_00445700 = (int)(3932160 / (longlong)(DAT_LIKELY_FPS * DAT_LIKELY_FPS));
+  player_momentum_scalar = (int)(65536 / (longlong)DAT_LIKELY_FPS);
+  gravity_scalar = (int)(3932160 / (longlong)(DAT_LIKELY_FPS * DAT_LIKELY_FPS));
   return;
 }
 
@@ -5454,7 +5399,7 @@ void reset_all_objects_for_player(int param_1)
 {
   OBJ_STRUCT *pOVar1;
   int iVar2;
-  undefined4 *puVar3;
+  OBJ_STRUCT **ppOVar3;
   
   pOVar1 = OBJ_ARRAY;
   iVar2 = 0x400;
@@ -5466,10 +5411,10 @@ void reset_all_objects_for_player(int param_1)
     pOVar1 = pOVar1 + 1;
     iVar2 = iVar2 + -1;
   } while (iVar2 != 0);
-  puVar3 = (undefined4 *)&PLAYER_KGT_BUFFER[param_1].field_0xdfbf;
+  ppOVar3 = PLAYER_KGT_BUFFER[param_1].object_mNumbers;
   for (iVar2 = 10; iVar2 != 0; iVar2 = iVar2 + -1) {
-    *puVar3 = 0;
-    puVar3 = puVar3 + 1;
+    *ppOVar3 = (OBJ_STRUCT *)0x0;
+    ppOVar3 = ppOVar3 + 1;
   }
   return;
 }
@@ -5544,12 +5489,12 @@ void setup_stage_spawn_scripts(void)
   int idx;
   int offset;
   uint uVar4;
-  ushort *new_obj_param_2;
+  short *new_obj_param_2;
   int offset2;
   kgt_skill_struct *pActionsAlloc;
   
   idx = 1;
-  new_obj_param_2 = (ushort *)12;
+  new_obj_param_2 = (short *)12;
   if (1 < UNK_STAGE_FILES_00445740.kgt_core.i_actions_amount + -1) {
     offset = 0x27;
     pActionsAlloc = UNK_STAGE_FILES_00445740.kgt_core.p_actions_alloc;
@@ -5557,7 +5502,7 @@ void setup_stage_spawn_scripts(void)
       if (pActionsAlloc->action_name[offset] != '\0') {
         bVar2 = false;
         if (*(int *)(pActionsAlloc->action_name + offset + 0x23) == 3) {
-          new_obj_param_2 = (ushort *)100;
+          new_obj_param_2 = (short *)100;
         }
         this_0x20 = (uint)*(ushort *)(pActionsAlloc->action_name + offset + 0x20);
         if (this_0x20 < *(ushort *)(pActionsAlloc[1].action_name + offset + 0x20)) {
@@ -5584,10 +5529,10 @@ void setup_stage_spawn_scripts(void)
       offset = offset + 0x27;
     } while (idx < UNK_STAGE_FILES_00445740.kgt_core.i_actions_amount + -1);
   }
-  new_obj_param_2 = (ushort *)&DAT_0044521a;
+  new_obj_param_2 = &DAT_KGT_FILE_BUFFER_00433240.skill_idx_stage_layout_1;
   pActionsAlloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
   do {
-    uVar4 = (uint)*new_obj_param_2;
+    uVar4 = (uint)(ushort)*new_obj_param_2;
     bVar2 = false;
     this_0x20 = (uint)(ushort)pActionsAlloc[uVar4].starting_step_idx;
     if (this_0x20 < (ushort)pActionsAlloc[uVar4 + 1].starting_step_idx) {
@@ -5611,8 +5556,9 @@ void setup_stage_spawn_scripts(void)
     }
     new_obj_param_2 = new_obj_param_2 + 1;
   } while ((int)new_obj_param_2 < 0x44522e);
-  FUN_00403430(UNK_STAGE_FILES_00445740.kgt_core.p_sound_structs +
-               (UNK_STAGE_FILES_00445740._8756_4_ & 0xffff));
+  Handle_Sound_Skillscript_block
+            (UNK_STAGE_FILES_00445740.kgt_core.p_sound_structs +
+             (UNK_STAGE_FILES_00445740._8756_4_ & 0xffff));
   return;
 }
 
@@ -5671,8 +5617,9 @@ void spawn_scriptread_obj_for_each_demo_skill(void)
     } while (i < UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.i_actions_amount + -1);
   }
                     // Loads BGM
-  FUN_00403430(UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.p_sound_structs +
-               (UNK_DEMO_FILE_BUFFER_00425a60._8756_4_ & 0xffff));
+  Handle_Sound_Skillscript_block
+            (UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.p_sound_structs +
+             (UNK_DEMO_FILE_BUFFER_00425a60._8756_4_ & 0xffff));
   UNK_FLAG_00424f08 = UNK_DEMO_FILE_BUFFER_00425a60._8761_4_;
   UNK_FLAG_00424f04._0_1_ = UNK_DEMO_FILE_BUFFER_00425a60._8758_1_;
   return;
@@ -5767,7 +5714,8 @@ void HANDLE_STORY_MODE(void)
   int *pbVar3;
   int story_step;
   
-  if (((&DAT_004452cc)[STORY_MODE_IDX] & 1) == 0) {
+  if ((DAT_KGT_FILE_BUFFER_00433240.story_mode_setting_check_array[STORY_MODE_IDX + -2] & 1U) == 0)
+  {
     debug_str = s_HAN_HIRAGANA_KATAKANA__0041edcc;
 LAB_00406bbb:
     SET_DEBUG_INFO(debug_str,0xdfffff);
@@ -5924,8 +5872,6 @@ void initiate_story_mode(void)
 
 
 
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
-
 void HANDLE_ROUND_START(void)
 
 {
@@ -5936,10 +5882,12 @@ void HANDLE_ROUND_START(void)
   if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
     PTR_POSS_CURRENT_OBJ->object_process_step = 1;
     kVar1 = new_kgt_scriptread_obj_with_action_idx
-                      (*(short *)(&DAT_004451c6 + GAME_STATE.poss_current_round_count * 2),0x65,0,0)
-    ;
+                      ((&DAT_KGT_FILE_BUFFER_00433240.skill_idx_round_1)
+                       [GAME_STATE.poss_current_round_count],0x65,0,0);
     PTR_POSS_CURRENT_OBJ->obj_type = kVar1;
-    pOVar2 = (OBJ_STRUCT *)new_kgt_scriptread_obj_with_action_idx(_DAT_004451da,0x65,0,0);
+    pOVar2 = (OBJ_STRUCT *)
+             new_kgt_scriptread_obj_with_action_idx
+                       (DAT_KGT_FILE_BUFFER_00433240.skill_idx_spirits,0x65,0,0);
     pOVar3 = PTR_POSS_CURRENT_OBJ;
     PTR_POSS_CURRENT_OBJ->obj_ptr_b = pOVar2;
   }
@@ -5985,8 +5933,7 @@ void FUN_00406db0(int *param_1)
     if (iVar1 + -1 < 0) {
       *param_1 = 0x31;
     }
-    if (*(char *)((int)DAT_KGT_FILE_BUFFER_00433240.CPU_commands + *param_1 * 0x100 + -8) != '\0')
-    break;
+    if (DAT_KGT_FILE_BUFFER_00433240.character_names[*param_1][0] != '\0') break;
     bVar3 = iVar2 == 0;
     iVar2 = iVar2 + -1;
     if (bVar3) {
@@ -6013,8 +5960,7 @@ void FUN_00406e00(int *param_1)
     if (iVar1 + 1 == 0x32) {
       *param_1 = 0;
     }
-    if (*(char *)((int)DAT_KGT_FILE_BUFFER_00433240.CPU_commands + *param_1 * 0x100 + -8) != '\0')
-    break;
+    if (DAT_KGT_FILE_BUFFER_00433240.character_names[*param_1][0] != '\0') break;
     bVar3 = iVar2 == 0;
     iVar2 = iVar2 + -1;
     if (bVar3) {
@@ -6038,8 +5984,6 @@ void also_set_obj_flag_a(void)
 
 
 
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
-
 void CHAR_SELECT_CHANGE_SELECTION(kgt_grid *grid,int y,int x)
 
 {
@@ -6052,13 +5996,13 @@ void CHAR_SELECT_CHANGE_SELECTION(kgt_grid *grid,int y,int x)
   grid->col = new_col;
   new_row = grid->row + x;
   grid->row = new_row;
-  max_col = _DAT_char_height_or_width_unknown_004452b8;
+  max_col = DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y;
   if (new_col < 0) {
-    grid->col = _DAT_char_height_or_width_unknown_004452b8 + -1;
+    grid->col = DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y + -1;
   }
-  max_row = _DAT_char_height_or_width_unknown_004452ba;
+  max_row = DAT_KGT_FILE_BUFFER_00433240.columns_in_select_screen;
   if (new_row < 0) {
-    grid->row = _DAT_char_height_or_width_unknown_004452ba + -1;
+    grid->row = DAT_KGT_FILE_BUFFER_00433240.columns_in_select_screen + -1;
   }
   if ((int)max_col <= grid->col) {
     grid->col = 0;
@@ -6147,7 +6091,6 @@ void pick_player_color(int idx,int last_input_difference)
 
 
 
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // For VS mode - Exits to jumptable idx 14, param_2 is 127
 
 void POSS_CHAR_SELECT_SCREEN_VERSUS_00406fc0(void)
@@ -6224,7 +6167,8 @@ void POSS_CHAR_SELECT_SCREEN_VERSUS_00406fc0(void)
     } while ((int)piVar8 < 0x54ff83);
                     // OPEN APPROPRIATE DEMO FILE BASED ON GAME MODE
     if (GAME_STATE.GAME_MODE == 1P_story) {
-      err = FUN_open_demo_file_00403fc0((uint)DAT_0044389d);
+      err = FUN_open_demo_file_00403fc0((uint)(byte)DAT_KGT_FILE_BUFFER_00433240._p_demo_script_idx)
+      ;
       if (err != 0) {
         SET_DEBUG_INFO(s_Character_Script_P1_Not_found_error_0041ef2c,0x4040ff);
         PTR_POSS_CURRENT_OBJ->object_process_step = 4;
@@ -6232,30 +6176,37 @@ void POSS_CHAR_SELECT_SCREEN_VERSUS_00406fc0(void)
       }
     }
     else if (GAME_STATE.GAME_MODE == VS_single) {
-      err2 = FUN_open_demo_file_00403fc0((uint)DAT_0044389e);
+      err2 = FUN_open_demo_file_00403fc0
+                       ((uint)(byte)DAT_KGT_FILE_BUFFER_00433240.VS_single_demo_idx);
       if (err2 != 0) {
         debug_str = s_Character_Script_VS_Single_Demo_not_found_error_0041ef64;
         goto LAB_00407133;
       }
     }
     else if ((GAME_STATE.GAME_MODE == VS_team) &&
-            (err3 = FUN_open_demo_file_00403fc0((uint)DAT_0044389f), err3 != 0)) {
+            (err3 = FUN_open_demo_file_00403fc0
+                              ((uint)(byte)DAT_KGT_FILE_BUFFER_00433240.VS_team_demo_idx), err3 != 0
+            )) {
       SET_DEBUG_INFO(s_Character_select_team_demo_not_found_error_0041efa4,0x4040ff);
       PTR_POSS_CURRENT_OBJ->object_process_step = 4;
       return;
     }
     spawn_scriptread_obj_for_each_demo_skill();
     if (GAME_STATE.GAME_MODE == 1P_story) {
-      new_kgt = (OBJ_STRUCT *)new_kgt_scriptread_obj_with_action_idx((short)_DAT_00445250,0x65,0,0);
+      new_kgt = (OBJ_STRUCT *)
+                new_kgt_scriptread_obj_with_action_idx
+                          (DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_vs_screen_cursor,0x65,0,0);
       pOVar4 = PTR_POSS_CURRENT_OBJ;
       PTR_POSS_CURRENT_OBJ->timer_mod_10 = (int)new_kgt;
     }
     else {
       pOVar4 = PTR_POSS_CURRENT_OBJ;
       if ((0 < (int)GAME_STATE.GAME_MODE) && ((int)GAME_STATE.GAME_MODE < 3)) {
-        new_kgt2 = new_kgt_scriptread_obj_with_action_idx((short)_DAT_00445250,0x65,0,0);
+        new_kgt2 = new_kgt_scriptread_obj_with_action_idx
+                             (DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_vs_screen_cursor,0x65,0,0);
         PTR_POSS_CURRENT_OBJ->timer_mod_10 = new_kgt2;
-        new_kgt3 = new_kgt_scriptread_obj_with_action_idx(_DAT_00445252,0x65,0,0);
+        new_kgt3 = new_kgt_scriptread_obj_with_action_idx
+                             (DAT_KGT_FILE_BUFFER_00433240.skill_idx_2p_vs_screen_cursor,0x65,0,0);
         pOVar4 = PTR_POSS_CURRENT_OBJ;
         PTR_POSS_CURRENT_OBJ->timer_div_ten_mod_10 = new_kgt3;
         piVar8 = INT_ARRAY_00424e90;
@@ -6267,8 +6218,8 @@ void POSS_CHAR_SELECT_SCREEN_VERSUS_00406fc0(void)
       }
     }
     GAME_STATE.over3kunder4kcheck = 2000;
-    if ((int)_DAT_char_height_or_width_unknown_004452ba *
-        (int)_DAT_char_height_or_width_unknown_004452b8 == 0) {
+    if ((int)DAT_KGT_FILE_BUFFER_00433240.columns_in_select_screen *
+        (int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y == 0) {
       debug_str = s_Character_setting_error_height_or_width_0_0041efe4;
 LAB_00407133:
       SET_DEBUG_INFO(debug_str,0x4040ff);
@@ -6304,9 +6255,11 @@ LAB_00407133:
   if (GAME_STATE.GAME_MODE == 1P_story) {
     hovered_character_story = pOVar4->timer_mod_10;
     *(int *)(hovered_character_story + 8) =
-         (_DAT_004452b4 * story_mode_grid.col + (int)_DAT_004452b0) * 0x10000;
+         (DAT_KGT_FILE_BUFFER_00433240.character_select_start_y * story_mode_grid.col +
+         (int)(short)DAT_KGT_FILE_BUFFER_00433240._73840_2_) * 0x10000;
     *(int *)(hovered_character_story + 0xc) =
-         (_DAT_004452b6 * story_mode_grid.row + (int)_DAT_004452b2) * 0x10000;
+         (DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_x * story_mode_grid.row +
+         (int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_x) * 0x10000;
     if (GAME_STATE.character_chosen_flag_player_0 == 0) {
       if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + UNK_KGT_PLAYER_BUFFER_IDX) & 4) != 0) {
         CHAR_SELECT_CHANGE_SELECTION(&story_mode_grid,0,-1);
@@ -6325,7 +6278,8 @@ LAB_00407133:
         pOVar4 = PTR_POSS_CURRENT_OBJ;
       }
       hovered_character_story =
-           _DAT_char_height_or_width_unknown_004452b8 * story_mode_grid.row + story_mode_grid.col;
+           DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y * story_mode_grid.row +
+           story_mode_grid.col;
       if (GAME_STATE.CHAR_SELECT[0] != hovered_character_story) {
         if (GAME_STATE.CHAR_SELECT[0] != -1) {
           reset_all_objects_for_player(0);
@@ -6335,17 +6289,18 @@ LAB_00407133:
         if (49 < hovered_character_story) {
           return;
         }
-        if (*(char *)((int)DAT_KGT_FILE_BUFFER_00433240.CPU_commands +
-                     hovered_character_story * 0x100 + -8) == '\0') {
+        if (DAT_KGT_FILE_BUFFER_00433240.character_names[hovered_character_story][0] == '\0') {
           return;
         }
-        if (((&DAT_004452cc)[hovered_character_story] & 1) == 0) {
+        if ((DAT_KGT_FILE_BUFFER_00433240.story_mode_setting_check_array
+             [hovered_character_story + -2] & 1U) == 0) {
           return;
         }
         GAME_STATE.CHAR_SELECT[0] = hovered_character_story;
         READ_CHARACTER_FILE(0,hovered_character_story);
-        pOVar7 = FIND_EMPTY_OBJ(4,0x50,(int)_DAT_004452bc << 0x10,(_DAT_004452be + 0x1e0) * 0x10000)
-        ;
+        pOVar7 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.rows_in_select_screen <<
+                                       0x10,
+                                (DAT_KGT_FILE_BUFFER_00433240.player1_cursor_x + 0x1e0) * 0x10000);
         p0skillalloc = PLAYER_KGT_BUFFER[0].kgt_core.p_actions_alloc;
         default0x32 = PLAYER_KGT_BUFFER[0]._30116_4_ & 0xffff;
         pOVar7->obj_type = 1;
@@ -6357,7 +6312,7 @@ LAB_00407133:
              (uint)(ushort)p0skillalloc[default0x32].starting_step_idx;
         pOVar7->unk_bitmask = pOVar7->unk_bitmask | 0x40000000;
       }
-      uVar3 = _DAT_00445254;
+      uVar3 = DAT_KGT_FILE_BUFFER_00433240._73748_4_;
       if ((-1 < GAME_STATE.CHAR_SELECT[0]) &&
          ((LAST_INPUT_DIFFERENCE[UNK_KGT_PLAYER_BUFFER_IDX] & 0x3f0U) != 0)) {
         GAME_STATE.character_chosen_flag_player_0 = 1;
@@ -6402,12 +6357,14 @@ LAB_00407133:
         local_8 = pkVar11;
       }
       pkVar11[1].col =
-           ((int)_DAT_004452b4 * ((OBJ_STRUCT *)char_sel_col)->jmp_idx + (int)_DAT_004452b0) *
-           0x10000;
+           ((int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_y *
+            ((OBJ_STRUCT *)char_sel_col)->jmp_idx +
+           (int)(short)DAT_KGT_FILE_BUFFER_00433240._73840_2_) * 0x10000;
       player_has_chosen = (&GAME_STATE.character_chosen_flag_player_0)[player_idx];
       pkVar11[1].row =
-           ((int)_DAT_004452b6 * ((OBJ_STRUCT *)char_sel_col)->param2_maybe_50_or_46 +
-           (int)_DAT_004452b2) * 0x10000;
+           ((int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_x *
+            ((OBJ_STRUCT *)char_sel_col)->param2_maybe_50_or_46 +
+           (int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_x) * 0x10000;
       if (player_has_chosen == 0) {
         if ((GAME_STATE.CHAR_SELECT[player_idx] < 0) ||
            ((LAST_INPUT_DIFFERENCE[player_idx] & 0x3f0U) == 0)) {
@@ -6428,28 +6385,32 @@ LAB_00407133:
             pOVar4 = PTR_POSS_CURRENT_OBJ;
           }
           hovered_character_vs =
-               (int)_DAT_char_height_or_width_unknown_004452b8 *
+               (int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y *
                ((OBJ_STRUCT *)char_sel_col)->param2_maybe_50_or_46 +
                ((OBJ_STRUCT *)char_sel_col)->jmp_idx;
           if (GAME_STATE.CHAR_SELECT[player_idx] != hovered_character_vs) {
             if (GAME_STATE.CHAR_SELECT[player_idx] == -1) {
               if (((hovered_character_vs < 0x32) &&
-                  (*(char *)((int)DAT_KGT_FILE_BUFFER_00433240.CPU_commands +
-                            hovered_character_vs * 0x100 + -8) != '\0')) &&
-                 (((&DAT_004452cc)[hovered_character_vs] & 2) != 0)) {
+                  (DAT_KGT_FILE_BUFFER_00433240.character_names[hovered_character_vs][0] != '\0'))
+                 && ((DAT_KGT_FILE_BUFFER_00433240.story_mode_setting_check_array
+                      [hovered_character_vs + -2] & 2U) != 0)) {
                 GAME_STATE.CHAR_SELECT[player_idx] = hovered_character_vs;
                 READ_CHARACTER_FILE(player_idx,hovered_character_vs);
                 if (player_idx == 0) {
-                  pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)_DAT_004452bc << 0x10,
-                                          (_DAT_004452be + 0x1e0) * 0x10000);
+                  pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.
+                                                      rows_in_select_screen << 0x10,
+                                          (DAT_KGT_FILE_BUFFER_00433240.player1_cursor_x + 0x1e0) *
+                                          0x10000);
                 }
                 else {
-                  pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)_DAT_004452c4 << 0x10,
-                                          (_DAT_004452c6 + 0x1e0) * 0x10000);
-                  pOVar4->pos_player_ignore_flag = 1;
+                  pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.
+                                                      player1_selection_height << 0x10,
+                                          (DAT_KGT_FILE_BUFFER_00433240.player2_cursor_x + 0x1e0) *
+                                          0x10000);
+                  pOVar4->pos_player_direction = 1;
                 }
                 local_4->jmp_idx = (Jumptable_A_endpoints)pOVar4;
-                uVar1 = PLAYER_KGT_BUFFER[player_idx].SectionE_default_0x32;
+                uVar1 = PLAYER_KGT_BUFFER[player_idx].character_select_pic_skill_idx;
                 p0skillalloc = PLAYER_KGT_BUFFER[player_idx].kgt_core.p_actions_alloc;
                 pOVar4->action_idx = (uint)uVar1;
                 pOVar4->obj_type = 1;
@@ -6472,12 +6433,16 @@ LAB_00407133:
           pkVar11->col = 1;
           if (player_idx == 0) {
             hovered_character_story =
-                 new_kgt_scriptread_obj_with_action_idx((short)_DAT_00445254,0x65,0,0);
+                 new_kgt_scriptread_obj_with_action_idx
+                           (DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_vs_cursor_after_input,0x65,0,0
+                           );
             PTR_POSS_CURRENT_OBJ->timer_mod_10 = hovered_character_story;
           }
           else {
-            hovered_character_story = new_kgt_scriptread_obj_with_action_idx(_DAT_00445256,0x65,0,0)
-            ;
+            hovered_character_story =
+                 new_kgt_scriptread_obj_with_action_idx
+                           (DAT_KGT_FILE_BUFFER_00433240.skill_idx_2p_vs_cursor_after_input,0x65,0,0
+                           );
             PTR_POSS_CURRENT_OBJ->timer_div_ten_mod_10 = hovered_character_story;
           }
           default0x32 = LAST_INPUT_DIFFERENCE[player_idx];
@@ -6521,10 +6486,12 @@ LAB_00407133:
         piVar11 = &Char_Select_VS_Col_1.col;
         local_8 = &Char_Select_VS_Col_1;
       }
-      local_10[2] = ((int)_DAT_004452b4 * ((kgt_grid *)piVar11)->col + (int)_DAT_004452b0) * 0x10000
-      ;
-      local_10[3] = ((int)_DAT_004452b6 * ((kgt_grid *)piVar11)->row + (int)_DAT_004452b2) * 0x10000
-      ;
+      local_10[2] = ((int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_y *
+                     ((kgt_grid *)piVar11)->col + (int)(short)DAT_KGT_FILE_BUFFER_00433240._73840_2_
+                    ) * 0x10000;
+      local_10[3] = ((int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_x *
+                     ((kgt_grid *)piVar11)->row +
+                    (int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_x) * 0x10000;
       if ((&GAME_STATE.character_chosen_flag_player_0)[local_14] == 0) {
         if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + local_14) & 4) != 0) {
           CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,0,-1);
@@ -6542,8 +6509,8 @@ LAB_00407133:
           CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,1,0);
           pOVar4 = PTR_POSS_CURRENT_OBJ;
         }
-        iVar10 = (int)_DAT_char_height_or_width_unknown_004452b8 * ((kgt_grid *)piVar11)->row +
-                 ((kgt_grid *)piVar11)->col;
+        iVar10 = (int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y *
+                 ((kgt_grid *)piVar11)->row + ((kgt_grid *)piVar11)->col;
         if (GAME_STATE.CHAR_SELECT[local_14] == iVar10) {
 LAB_0040752f:
           GAME_STATE.CHAR_SELECT
@@ -6562,23 +6529,30 @@ LAB_0040752f:
               READ_CHARACTER_FILE(iVar9,iVar10);
               if (local_14 == 0) {
                 pOVar7 = FIND_EMPTY_OBJ(4,iVar5 + 0x4f,
-                                        (_DAT_004452c0 * iVar6 + (int)_DAT_004452bc) * 0x10000,
-                                        (_DAT_004452c2 * iVar6 + 0x1e0 + (int)_DAT_004452be) *
-                                        0x10000);
+                                        (DAT_KGT_FILE_BUFFER_00433240.player1_cursor_y * iVar6 +
+                                        (int)DAT_KGT_FILE_BUFFER_00433240.rows_in_select_screen) *
+                                        0x10000,(DAT_KGT_FILE_BUFFER_00433240.
+                                                 player1_selection_width * iVar6 + 0x1e0 +
+                                                (int)DAT_KGT_FILE_BUFFER_00433240.player1_cursor_x)
+                                                * 0x10000);
               }
               else {
                 pOVar7 = FIND_EMPTY_OBJ(4,iVar5 + 0x4f,
-                                        (_DAT_004452c8 * iVar6 + (int)_DAT_004452c4) * 0x10000,
-                                        (_DAT_004452ca * iVar6 + 0x1e0 + (int)_DAT_004452c6) *
+                                        (DAT_KGT_FILE_BUFFER_00433240.player2_cursor_y * iVar6 +
+                                        (int)DAT_KGT_FILE_BUFFER_00433240.player1_selection_height)
+                                        * 0x10000,
+                                        (DAT_KGT_FILE_BUFFER_00433240.player2_selection_width *
+                                         iVar6 + 0x1e0 +
+                                        (int)DAT_KGT_FILE_BUFFER_00433240.player2_cursor_x) *
                                         0x10000);
-                pOVar7->pos_player_ignore_flag = 1;
+                pOVar7->pos_player_direction = 1;
               }
               iVar10 = (&GAME_STATE.char_select_var_a)[local_14];
               pOVar7->obj_type = 1;
               *(OBJ_STRUCT **)((int)INT_ARRAY_00424e7a + (iVar10 + hovered_character_story) * 4 + 6)
                    = pOVar7;
               pOVar7->player_file_buffer = iVar9;
-              uVar1 = PLAYER_KGT_BUFFER[iVar9].SectionE_default_0x32;
+              uVar1 = PLAYER_KGT_BUFFER[iVar9].character_select_pic_skill_idx;
               pOVar7->action_idx = (uint)uVar1;
               uVar1 = PLAYER_KGT_BUFFER[iVar9].kgt_core.p_actions_alloc[uVar1].starting_step_idx;
               pOVar7->unk_bitmask = pOVar7->unk_bitmask | 0x40000000;
@@ -6591,14 +6565,18 @@ LAB_0040752f:
               *local_10 = 1;
               if (local_14 == 0) {
                 hovered_character_story =
-                     new_kgt_scriptread_obj_with_action_idx((short)_DAT_00445254,0x65,0,0);
+                     new_kgt_scriptread_obj_with_action_idx
+                               (DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_vs_cursor_after_input,0x65
+                                ,0,0);
                 pOVar4 = PTR_POSS_CURRENT_OBJ;
                 GAME_STATE.character_chosen_flag_player_0 = 1;
                 PTR_POSS_CURRENT_OBJ->timer_mod_10 = hovered_character_story;
               }
               else {
                 hovered_character_story =
-                     new_kgt_scriptread_obj_with_action_idx(_DAT_00445256,0x65,0,0);
+                     new_kgt_scriptread_obj_with_action_idx
+                               (DAT_KGT_FILE_BUFFER_00433240.skill_idx_2p_vs_cursor_after_input,0x65
+                                ,0,0);
                 pOVar4 = PTR_POSS_CURRENT_OBJ;
                 (&GAME_STATE.character_chosen_flag_player_0)[local_14] = 1;
                 pOVar4->timer_div_ten_mod_10 = hovered_character_story;
@@ -6610,23 +6588,28 @@ LAB_0040752f:
           iVar5 = hovered_character_story + 3;
           if (GAME_STATE.CHAR_SELECT[local_14] == -1) {
             if (((iVar10 < 0x32) &&
-                (*(char *)((int)DAT_KGT_FILE_BUFFER_00433240.CPU_commands + iVar10 * 0x100 + -8) !=
-                 '\0')) && (((&DAT_004452cc)[iVar10] & 2) != 0)) {
+                (DAT_KGT_FILE_BUFFER_00433240.character_names[iVar10][0] != '\0')) &&
+               ((DAT_KGT_FILE_BUFFER_00433240.story_mode_setting_check_array[iVar10 + -2] & 2U) != 0
+               )) {
               GAME_STATE.CHAR_SELECT[local_14] = iVar10;
               READ_CHARACTER_FILE(iVar5,iVar10);
               if (local_14 == 0) {
-                pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)_DAT_004452bc << 0x10,
-                                        (_DAT_004452be + 0x1e0) * 0x10000);
+                pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.
+                                                    rows_in_select_screen << 0x10,
+                                        (DAT_KGT_FILE_BUFFER_00433240.player1_cursor_x + 0x1e0) *
+                                        0x10000);
               }
               else {
-                pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)_DAT_004452c4 << 0x10,
-                                        (_DAT_004452c6 + 0x1e0) * 0x10000);
-                pOVar4->pos_player_ignore_flag = 1;
+                pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.
+                                                    player1_selection_height << 0x10,
+                                        (DAT_KGT_FILE_BUFFER_00433240.player2_cursor_x + 0x1e0) *
+                                        0x10000);
+                pOVar4->pos_player_direction = 1;
               }
               pOVar4->player_file_buffer = iVar5;
               pOVar4->obj_type = 1;
               local_4->jmp_idx = (Jumptable_A_endpoints)pOVar4;
-              uVar1 = PLAYER_KGT_BUFFER[iVar5].SectionE_default_0x32;
+              uVar1 = PLAYER_KGT_BUFFER[iVar5].character_select_pic_skill_idx;
               pOVar4->action_idx = (uint)uVar1;
                     // initially setting the obj bitmask here
               *(uint *)&pOVar4->actionscript_idx =
@@ -6677,7 +6660,8 @@ void __fastcall FUN_00407d70(OBJ_STRUCT *param_1)
   iVar8 = 0;
   if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
     PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    iVar3 = FUN_open_demo_file_00403fc0((uint)DAT_0044389d);
+    iVar3 = FUN_open_demo_file_00403fc0((uint)(byte)DAT_KGT_FILE_BUFFER_00433240._p_demo_script_idx)
+    ;
     if (iVar3 == 0) {
       spawn_scriptread_obj_for_each_demo_skill();
     }
@@ -6789,7 +6773,6 @@ LAB_00407e49:
 
 
 
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // Step 3 for initial object cycle, after displaying title screens an obj of idx 12 and param_2 of
 // 127 will spawn. Spawns multiple idx 4 objects when opening demo files, at the end will spawn idx
 // 10 param_2 127 object to move on from this.
@@ -6807,21 +6790,21 @@ void Poss_Menu_traversal(void)
   bool has_story_mode;
   kgt_skill_step_struct *local_c [3];
   kgt_obj_type newObj;
-  byte sys_bitmask;
+  char sys_bitmask;
   
   pOVar4 = PTR_POSS_CURRENT_OBJ;
-  sys_bitmask = DAT_004438a4;
+  sys_bitmask = DAT_KGT_FILE_BUFFER_00433240.system_bitmask;
   switch(PTR_POSS_CURRENT_OBJ->object_process_step) {
   case 0:
     PTR_POSS_CURRENT_OBJ->object_process_step = 1;
     GAME_STATE.over3kunder4kcheck = 1000;
     GAME_STATE.poss_current_round_count = 0;
     RESET_OBJECTS_AND_SET_GAME_SPEED();
-    if (DAT_004438a1 == 0) {
+    if (DAT_KGT_FILE_BUFFER_00433240.opening_demo_idx == '\0') {
       PTR_POSS_CURRENT_OBJ->object_process_step = 2;
       return;
     }
-    iVar2 = FUN_open_demo_file_00403fc0((uint)DAT_004438a1);
+    iVar2 = FUN_open_demo_file_00403fc0((uint)(byte)DAT_KGT_FILE_BUFFER_00433240.opening_demo_idx);
     if (iVar2 == 0) {
       spawn_scriptread_obj_for_each_demo_skill();
       return;
@@ -6852,13 +6835,13 @@ void Poss_Menu_traversal(void)
     break;
   case 2:
     RESET_OBJECTS_AND_SET_GAME_SPEED();
-    iVar2 = FUN_open_demo_file_00403fc0(_DAT_0044389c & 0xff);
+    iVar2 = FUN_open_demo_file_00403fc0(DAT_KGT_FILE_BUFFER_00433240._67164_4_ & 0xff);
     if (iVar2 == 0) {
       spawn_scriptread_obj_for_each_demo_skill();
     }
     pOVar4 = PTR_POSS_CURRENT_OBJ;
     PTR_POSS_CURRENT_OBJ->obj_ptr_b = (OBJ_STRUCT *)UNK_FLAG_00424f08;
-    if ((DAT_004438a4 & 0x40) == 0) {
+    if ((DAT_KGT_FILE_BUFFER_00433240.system_bitmask & 0x40U) == 0) {
                     // Triggers if system_bitmask shows cursor stays
       pOVar4->object_process_step = 4;
       return;
@@ -6870,7 +6853,8 @@ void Poss_Menu_traversal(void)
       PTR_POSS_CURRENT_OBJ->object_process_step = 4;
       return;
     }
-    if (((DAT_004438a1 != 0) && (PTR_POSS_CURRENT_OBJ->obj_ptr_b != (OBJ_STRUCT *)0x0)) &&
+    if (((DAT_KGT_FILE_BUFFER_00433240.opening_demo_idx != '\0') &&
+        (PTR_POSS_CURRENT_OBJ->obj_ptr_b != (OBJ_STRUCT *)0x0)) &&
        (pOVar4 = (OBJ_STRUCT *)((int)&PTR_POSS_CURRENT_OBJ->obj_ptr_b[-1].parent_obj + 3),
        PTR_POSS_CURRENT_OBJ->obj_ptr_b = pOVar4, pOVar4 == (OBJ_STRUCT *)0x0)) {
       RESET_OBJECTS_AND_SET_GAME_SPEED();
@@ -6882,16 +6866,16 @@ void Poss_Menu_traversal(void)
     POSS_STORY_ARRAY = -1;
     SDWORD_00424f2c = -1;
     PTR_POSS_CURRENT_OBJ->object_process_step = 5;
-    has_story_mode = (sys_bitmask & 0x4) != 0;
+    has_story_mode = (sys_bitmask & 0x4U) != 0;
     if (has_story_mode) {
       GAME_MODE_ASSIGNMENT_ = 0;
     }
     uVar3 = (uint)has_story_mode;
-    if ((sys_bitmask & 0x8) != 0) {
+    if ((sys_bitmask & 0x8U) != 0) {
       (&GAME_MODE_ASSIGNMENT_)[uVar3] = 1;
       uVar3 = uVar3 + 1;
     }
-    if ((sys_bitmask & 0x10) != 0) {
+    if ((sys_bitmask & 0x10U) != 0) {
       (&GAME_MODE_ASSIGNMENT_)[uVar3] = 2;
       uVar3 = uVar3 + 1;
     }
@@ -6900,7 +6884,8 @@ void Poss_Menu_traversal(void)
       return;
     }
     GAME_MODE_ASSIGNMENT_UPPER = uVar3 - 1;
-    newObj = new_kgt_scriptread_obj_with_action_idx((short)_DAT_00445244,0x65,0,0);
+    newObj = new_kgt_scriptread_obj_with_action_idx
+                       (DAT_KGT_FILE_BUFFER_00433240.skill_idx_title_cursor,0x65,0,0);
     pOVar4 = PTR_POSS_CURRENT_OBJ;
     PLAYER_KGT_BUFFER[0].story_mode_unk_var_a = 0;
     PLAYER_KGT_BUFFER[1].story_mode_unk_var_a = 0;
@@ -6954,20 +6939,21 @@ LAB_0040830b:
     }
     local_c[0] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
                  (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [_DAT_00445244 >> 0x10].starting_step_idx;
+                         [(uint)DAT_KGT_FILE_BUFFER_00433240._73732_4_ >> 0x10].starting_step_idx;
     local_c[1] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
                  (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [_DAT_00445248 & 0xffff].starting_step_idx;
+                         [DAT_KGT_FILE_BUFFER_00433240._73736_4_ & 0xffff].starting_step_idx;
     local_c[2] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
                  (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [_DAT_00445258 & 0xffff].starting_step_idx;
+                         [DAT_KGT_FILE_BUFFER_00433240._73752_4_ & 0xffff].starting_step_idx;
     newObj = pOVar4->obj_type;
     sVar1 = *(short *)&local_c[(&GAME_MODE_ASSIGNMENT_)[GAME_MODE_ASSIGNMENT_IDX_]]->field_0x3;
     *(int *)(newObj + 8) =
          (int)*(short *)&local_c[(&GAME_MODE_ASSIGNMENT_)[GAME_MODE_ASSIGNMENT_IDX_]]->field_0x1 <<
          0x10;
     *(int *)(newObj + 0xc) = (int)sVar1 << 0x10;
-    if ((((DAT_004438a1 != 0) || ((DAT_004438a4 & 0x40) != 0)) &&
+    if ((((DAT_KGT_FILE_BUFFER_00433240.opening_demo_idx != '\0') ||
+         ((DAT_KGT_FILE_BUFFER_00433240.system_bitmask & 0x40U) != 0)) &&
         (pOVar4->obj_ptr_b != (OBJ_STRUCT *)0x0)) &&
        (pOVar5 = (int *)((int)&pOVar4->obj_ptr_b[-1].parent_obj + 3),
        pOVar4->obj_ptr_b = (OBJ_STRUCT *)pOVar5, pOVar5 == (int *)0x0)) {
@@ -6984,7 +6970,6 @@ LAB_0040830b:
 
 
 
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // Vaguely looks like it might be a story-mode failstate?
 
 void Jump_13(void)
@@ -7001,11 +6986,12 @@ void Jump_13(void)
     PTR_POSS_CURRENT_OBJ->object_process_step = 1;
     RESET_OBJECTS_AND_SET_GAME_SPEED();
                     // opens game over demo here
-    iVar2 = FUN_open_demo_file_00403fc0(_DAT_004438a0 & 0xff);
+    iVar2 = FUN_open_demo_file_00403fc0(DAT_KGT_FILE_BUFFER_00433240._67168_4_ & 0xff);
     if (iVar2 == 0) {
       spawn_scriptread_obj_for_each_demo_skill();
     }
-    kVar3 = new_kgt_scriptread_obj_with_action_idx(_DAT_0044524a,0x65,0,0);
+    kVar3 = new_kgt_scriptread_obj_with_action_idx
+                      (DAT_KGT_FILE_BUFFER_00433240.skill_idx_continue_cursor,0x65,0,0);
     GAME_STATE.over3kunder4kcheck = 4000;
     PTR_POSS_CURRENT_OBJ->obj_type = kVar3;
   }
@@ -7038,11 +7024,11 @@ void Jump_13(void)
     }
     local_8[0] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
                  (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [_DAT_0044524c & 0xffff].starting_step_idx;
+                         [DAT_KGT_FILE_BUFFER_00433240._73740_4_ & 0xffff].starting_step_idx;
     kVar3 = pOVar4->obj_type;
     local_8[1] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
                  (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [_DAT_0044524c >> 0x10].starting_step_idx;
+                         [(uint)DAT_KGT_FILE_BUFFER_00433240._73740_4_ >> 0x10].starting_step_idx;
     sVar1 = *(short *)&local_8[(int)pOVar4->obj_ptr_b]->field_0x3;
     *(int *)(kVar3 + 8) = (int)*(short *)&local_8[(int)pOVar4->obj_ptr_b]->field_0x1 << 0x10;
     *(int *)(kVar3 + 0xc) = (int)sVar1 << 0x10;
@@ -7054,7 +7040,6 @@ void Jump_13(void)
 
 
 // WARNING: Removing unreachable block (ram,0x00408bca)
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
 // New objects spawned after setting up initial battle state:
 // 
 //           FIND_EMPTY_OBJ(15,0xf,0,0);
@@ -7098,7 +7083,7 @@ void Handle_Battle_State(void)
   int player_file_idx2;
   OBJ_STRUCT *current_obj;
   uint skill_idx_draw;
-  undefined2 skill_idx_round_startTime;
+  short skill_idx_round_startTime;
   
   current_obj = PTR_POSS_CURRENT_OBJ;
                     // If paused, check for unpause (via start) case, a+b+c -> return to menu case,
@@ -7114,7 +7099,7 @@ void Handle_Battle_State(void)
     if ((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0b0000010000000000) == 0) {
       return;
     }
-    reset_all_objects_with_action(_DAT_0044525a);
+    reset_all_objects_with_action(DAT_KGT_FILE_BUFFER_00433240.skill_idx_pause);
     GAME_STATE.pause_flag = 0;
     return;
   }
@@ -7122,13 +7107,13 @@ void Handle_Battle_State(void)
                     // If start button then pause
   if ((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 1024) != 0) {
     GAME_STATE.pause_flag = 1;
-    new_kgt_scriptread_obj_with_action_idx(_DAT_0044525a,0x78,0,0);
+    new_kgt_scriptread_obj_with_action_idx(DAT_KGT_FILE_BUFFER_00433240.skill_idx_pause,0x78,0,0);
     return;
   }
   obj_step = PTR_POSS_CURRENT_OBJ->object_process_step;
   if (obj_step < 511) {
     if (obj_step == 510) {
-      one_up = _DAT_004451e8 & 0xffff;
+      one_up = DAT_KGT_FILE_BUFFER_00433240._73640_4_ & 0xffff;
       PTR_POSS_CURRENT_OBJ->object_process_step = 511;
       i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc(one_up,0x65,0,0);
       current_obj = PTR_POSS_CURRENT_OBJ;
@@ -7319,7 +7304,7 @@ LAB_00409394:
                     // player entry
               cpu_start_pos = cpu_start_pos + 0xd;
             } while ((int)piVar8 < 0x54fed9);
-            GAME_STATE.poss_player_file_buffer = -1;
+            GAME_STATE.hit_player_buffer = -1;
             unk_y_position = (int)story_step_starting_x_pos / local_8 + -0x140;
                     // BUG: Story fights receive one less second of time than they should
             GAME_STATE.gameTimerInFrames =
@@ -7368,20 +7353,20 @@ LAB_00409394:
           current_obj = FIND_EMPTY_OBJ(3,13,0,0);
           current_obj->object_process_step = 14;
           current_obj = PTR_POSS_CURRENT_OBJ;
-          skill_idx_round_startTime = _DAT_004451c2;
+          skill_idx_round_startTime = DAT_KGT_FILE_BUFFER_00433240.skill_idx_round_ani_starttime;
           PTR_POSS_CURRENT_OBJ->param_3 = 0x140;
           current_obj->param_4 = 150;
           current_obj->player_file_buffer = 100;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[0] = 0;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[1] = 0;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[2] = 0;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[3] = 0;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[4] = 0;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[5] = 0;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[6] = 0;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[7] = 0;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[8] = 0;
-          UNK_STAGE_FILES_00445740.script_data_array_unk[9] = 0;
+          UNK_STAGE_FILES_00445740.pic_sway_x = 0;
+          UNK_STAGE_FILES_00445740.field1046_0x266d = 0;
+          UNK_STAGE_FILES_00445740.x_shake = 0;
+          UNK_STAGE_FILES_00445740.pic_sway_x_duration = 0;
+          UNK_STAGE_FILES_00445740.pic_sway_x_duration_2 = 0;
+          UNK_STAGE_FILES_00445740.pic_sway_y = 0;
+          UNK_STAGE_FILES_00445740.field1051_0x2681 = 0;
+          UNK_STAGE_FILES_00445740.y_shake = 0;
+          UNK_STAGE_FILES_00445740.pic_sway_y_duration = 0;
+          UNK_STAGE_FILES_00445740.pic_sway_y_duration_2 = 0;
           current_obj->object_process_step = 110;
           i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
                         (skill_idx_round_startTime,0x65,0,0);
@@ -7405,8 +7390,8 @@ LAB_00409394:
           }
           if (GAME_STATE.poss_current_round_count < 10) {
             i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                          (*(undefined2 *)(&DAT_004451c4 + GAME_STATE.poss_current_round_count * 2),
-                           0x65,0,0);
+                          ((&DAT_KGT_FILE_BUFFER_00433240.skill_idx_round_ani_endtime)
+                           [GAME_STATE.poss_current_round_count],0x65,0,0);
             current_obj = PTR_POSS_CURRENT_OBJ;
             PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
           }
@@ -7429,7 +7414,8 @@ LAB_00409394:
             current_obj->player_file_buffer = 0;
             return;
           }
-          i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc(_DAT_004451da,0x65,0,0);
+          i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
+                        (DAT_KGT_FILE_BUFFER_00433240.skill_idx_spirits,0x65,0,0);
           current_obj = PTR_POSS_CURRENT_OBJ;
           PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
         case 0x70:
@@ -7557,7 +7543,7 @@ LAB_00409394:
       case 0x19a:
         PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
         iVar3 = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                          (_DAT_004451e0 & 0xffff,0x65,0,0);
+                          (DAT_KGT_FILE_BUFFER_00433240._73632_4_ & 0xffff,0x65,0,0);
         current_obj = PTR_POSS_CURRENT_OBJ;
         obj_step = GAME_STATE.gameTimerInFrames;
         i = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
@@ -7583,7 +7569,7 @@ LAB_00409394:
       case 0x1a4:
         PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
         i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                      (_DAT_004451e0 >> 0x10,0x65,0,0);
+                      ((uint)DAT_KGT_FILE_BUFFER_00433240._73632_4_ >> 0x10,0x65,0,0);
         current_obj = PTR_POSS_CURRENT_OBJ;
         is_1p_story = GAME_STATE.gameTimerInFrames != 0;
         PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
@@ -7605,7 +7591,7 @@ LAB_00409394:
       case 0x1ae:
         PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
         i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                      (_DAT_004451e8 & 0xffff,0x65,0,0);
+                      (DAT_KGT_FILE_BUFFER_00433240._73640_4_ & 0xffff,0x65,0,0);
         current_obj = PTR_POSS_CURRENT_OBJ;
         PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
         PLAYER_KGT_BUFFER[2].w_ko_unk_var = 3;
@@ -7635,7 +7621,7 @@ switchD_00408f61_caseD_19b:
                     // Called 'W KO'?
                     // 
                     // this grabs the draw skill idx.
-            skill_idx_draw = _DAT_004451e8 >> 0x10;
+            skill_idx_draw = (uint)DAT_KGT_FILE_BUFFER_00433240._73640_4_ >> 0x10;
             PTR_POSS_CURRENT_OBJ->object_process_step = 541;
             i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
                           (skill_idx_draw,0x65,0,0);
@@ -7660,7 +7646,7 @@ switchD_00408f61_caseD_19b:
         current_obj->object_process_step = 900;
         return;
       }
-      skill_round_ani_endtime = _DAT_004451c4 & 0xffff;
+      skill_round_ani_endtime = DAT_KGT_FILE_BUFFER_00433240._73604_4_ & 0xffff;
       PTR_POSS_CURRENT_OBJ->object_process_step = 901;
       i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
                     (skill_round_ani_endtime,0x65,0,0);
@@ -7717,8 +7703,8 @@ LAB_0040978a:
       GAME_STATE.field163_0xec =
            (int)(PLAYER_KGT_BUFFER[0].wins_accumulated <= PLAYER_KGT_BUFFER[1].wins_accumulated);
       GAME_STATE.field164_0xf0 = PLAYER_KGT_BUFFER[GAME_STATE.field163_0xec].health;
-      GAME_STATE.field165_0xf4 = PLAYER_KGT_BUFFER[GAME_STATE.field163_0xec].field6364_0xdf15;
-      GAME_STATE.field166_0xf8 = PLAYER_KGT_BUFFER[GAME_STATE.field163_0xec].field6366_0xdf1d;
+      GAME_STATE.field165_0xf4 = PLAYER_KGT_BUFFER[GAME_STATE.field163_0xec].special_gauge_tokens;
+      GAME_STATE.field166_0xf8 = PLAYER_KGT_BUFFER[GAME_STATE.field163_0xec].special_gauge;
     }
     else {
       if (PLAYER_KGT_BUFFER[0].wins_accumulated != PLAYER_KGT_BUFFER[1].wins_accumulated)
@@ -7751,7 +7737,7 @@ LAB_00409825:
   case 0x208:
     PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
     i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                  (_DAT_004451dc & 0xffff,0x65,0,0);
+                  (DAT_KGT_FILE_BUFFER_00433240._73628_4_ & 0xffff,0x65,0,0);
     current_obj = PTR_POSS_CURRENT_OBJ;
     PLAYER_KGT_BUFFER[0].w_ko_unk_var = 1;
     is_1p_story = GAME_STATE.gameTimerInFrames != 0;
@@ -7762,7 +7748,7 @@ LAB_00409825:
     i = current_obj->player_file_buffer;
     current_obj->player_file_buffer = i + -1;
     if (i < 1) {
-      skill_idx_draw = _DAT_004451e4 & 0xffff;
+      skill_idx_draw = DAT_KGT_FILE_BUFFER_00433240._73636_4_ & 0xffff;
       current_obj->object_process_step = current_obj->object_process_step + 1;
       i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc(skill_idx_draw,0x65,0,0);
       current_obj = PTR_POSS_CURRENT_OBJ;
@@ -7778,7 +7764,7 @@ switchD_00409414_caseD_20a:
 LAB_004095e8:
         current_obj->object_process_step = current_obj->object_process_step + 1;
         i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                      (_DAT_004451dc >> 0x10,0x65,0,0);
+                      ((uint)DAT_KGT_FILE_BUFFER_00433240._73628_4_ >> 0x10,0x65,0,0);
         PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
         return;
       }
@@ -7789,7 +7775,7 @@ LAB_004095e8:
   case 0x212:
     PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
     i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                  (_DAT_004451dc & 0xffff,0x65,0,0);
+                  (DAT_KGT_FILE_BUFFER_00433240._73628_4_ & 0xffff,0x65,0,0);
     current_obj = PTR_POSS_CURRENT_OBJ;
     PLAYER_KGT_BUFFER[1].w_ko_unk_var = 1;
     is_1p_story = GAME_STATE.gameTimerInFrames != 0;
@@ -7802,7 +7788,7 @@ LAB_004095e8:
     if (i < 1) {
       current_obj->object_process_step = current_obj->object_process_step + 1;
       i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                    (_DAT_004451e4 >> 0x10,0x65,0,0);
+                    ((uint)DAT_KGT_FILE_BUFFER_00433240._73636_4_ >> 0x10,0x65,0,0);
       current_obj = PTR_POSS_CURRENT_OBJ;
       PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
 LAB_004095b0:
@@ -7967,12 +7953,11 @@ LAB_00409ce3:
 
 
 
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
-
 void handle_battle_UI(void)
 
 {
-  int iVar1;
+  short sVar1;
+  int iVar2;
   kgt_character_struct_ptr_57121_short psVar5;
   OBJ_STRUCT *new_obj;
   int action_alloc_offset;
@@ -7980,12 +7965,12 @@ void handle_battle_UI(void)
   OBJ_STRUCT *new_object_c;
   OBJ_STRUCT *new_jump4_obj;
   Offset_57119 piVar6;
-  OBJ_STRUCT *pOVar2;
+  OBJ_STRUCT *pOVar3;
   short uVar10;
   uint one_up0x37;
   kgt_skill_struct *actions_alloc;
   int i;
-  sdword sVar3;
+  sdword sVar4;
   int script_0x1;
   int script_0x3;
   sdword local_4;
@@ -7998,7 +7983,7 @@ void handle_battle_UI(void)
   
   if ((GAME_STATE.jump_15_var_a != 0) &&
      (GAME_STATE.jump_15_var_a = GAME_STATE.jump_15_var_a + -1, GAME_STATE.jump_15_var_a == 0)) {
-    GAME_STATE.poss_player_file_buffer = -1;
+    GAME_STATE.hit_player_buffer = -1;
   }
   if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
     psVar5 = &PLAYER_KGT_BUFFER[0].special_stock_gauge_max2;
@@ -8027,23 +8012,23 @@ void handle_battle_UI(void)
     if (0 < GAME_STATE.poss_wins_needed) {
       do {
         new_obj = FIND_EMPTY_OBJ(4,0x65,script_0x1,script_0x3);
-        iVar1 = PLAYER_KGT_BUFFER[0].story_mode_unk_var_a;
+        iVar2 = PLAYER_KGT_BUFFER[0].story_mode_unk_var_a;
         new_obj->obj_type = main_kgt_file;
-        if (i < iVar1) {
-          one_up0x37 = (uint)_DAT_00445216;
+        if (i < iVar2) {
+          one_up0x37 = (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.skill_idx_victory_mark_on;
           new_obj->skill_idx_2 = one_up0x37;
           new_obj->action_idx = one_up0x37;
         }
         else {
                     // 56
-          one_up0x37 = _DAT_00445218 & 0xffff;
+          one_up0x37 = DAT_KGT_FILE_BUFFER_00433240._73688_4_ & 0xffff;
           new_obj->skill_idx_2 = one_up0x37;
           new_obj->action_idx = one_up0x37;
           current_obj = PTR_POSS_CURRENT_OBJ;
           if (!b) {
             b = true;
             PTR_POSS_CURRENT_OBJ->player_file_buffer = (int)new_obj;
-            current_obj->obj_type = iVar1;
+            current_obj->obj_type = iVar2;
           }
         }
         actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
@@ -8068,22 +8053,22 @@ void handle_battle_UI(void)
     if (0 < GAME_STATE.poss_wins_needed) {
       do {
         current_obj = FIND_EMPTY_OBJ(4,0x65,script_0x1,script_0x3);
-        iVar1 = PLAYER_KGT_BUFFER[1].story_mode_unk_var_a;
+        iVar2 = PLAYER_KGT_BUFFER[1].story_mode_unk_var_a;
         current_obj->obj_type = main_kgt_file;
-        if (i < iVar1) {
-          one_up0x37 = (uint)_DAT_00445216;
+        if (i < iVar2) {
+          one_up0x37 = (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.skill_idx_victory_mark_on;
           current_obj->skill_idx_2 = one_up0x37;
           current_obj->action_idx = one_up0x37;
         }
         else {
-          one_up0x37 = _DAT_00445218 & 0xffff;
+          one_up0x37 = DAT_KGT_FILE_BUFFER_00433240._73688_4_ & 0xffff;
           current_obj->skill_idx_2 = one_up0x37;
           current_obj->action_idx = one_up0x37;
-          pOVar2 = PTR_POSS_CURRENT_OBJ;
+          pOVar3 = PTR_POSS_CURRENT_OBJ;
           if (!b) {
             b = true;
             PTR_POSS_CURRENT_OBJ->obj_ptr_b = current_obj;
-            pOVar2->obj_ptr_a = (OBJ_STRUCT *)iVar1;
+            pOVar3->obj_ptr_a = (OBJ_STRUCT *)iVar2;
           }
         }
         actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
@@ -8154,13 +8139,13 @@ void handle_battle_UI(void)
       new_object_c->action_idx = one_up0x37;
       new_object_c->player_file_buffer = 1;
       new_object_c->obj_type = 1;
-      new_object_c->pos_player_ignore_flag = 1;
+      new_object_c->pos_player_direction = 1;
       *(uint *)&new_object_c->actionscript_idx =
            (uint)(ushort)actions_alloc[one_up0x37].starting_step_idx;
     }
     new_jump4_obj = FIND_EMPTY_OBJ(4,0x65,0,0);
     actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    one_up0x37 = (uint)_DAT_0044522e;
+    one_up0x37 = (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_life_gauge;
     new_jump4_obj->skill_idx_2 = one_up0x37;
     new_jump4_obj->action_idx = one_up0x37;
     script_idx = actions_alloc[one_up0x37].starting_step_idx;
@@ -8169,7 +8154,7 @@ void handle_battle_UI(void)
     new_jump4_obj->player_file_buffer = 10;
     current_obj = FIND_EMPTY_OBJ(4,0x65,0,0);
     actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    one_up0x37 = _DAT_00445230 & 0xffff;
+    one_up0x37 = DAT_KGT_FILE_BUFFER_00433240._73712_4_ & 0xffff;
     current_obj->skill_idx_2 = one_up0x37;
     current_obj->action_idx = one_up0x37;
     script_idx = actions_alloc[one_up0x37].starting_step_idx;
@@ -8178,7 +8163,7 @@ void handle_battle_UI(void)
     current_obj->player_file_buffer = 0xb;
     current_obj = FIND_EMPTY_OBJ(4,0x65,0,0);
     actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    one_up0x37 = _DAT_00445230 >> 0x10;
+    one_up0x37 = (uint)DAT_KGT_FILE_BUFFER_00433240._73712_4_ >> 0x10;
     current_obj->skill_idx_2 = one_up0x37;
     current_obj->action_idx = one_up0x37;
     script_idx = actions_alloc[one_up0x37].starting_step_idx;
@@ -8186,7 +8171,7 @@ void handle_battle_UI(void)
     *(uint *)&current_obj->actionscript_idx = (uint)script_idx;
     current_obj->player_file_buffer = 0x14;
     current_obj = FIND_EMPTY_OBJ(4,0x65,0,0);
-    one_up0x37 = _DAT_00445234 & 0xffff;
+    one_up0x37 = DAT_KGT_FILE_BUFFER_00433240._73716_4_ & 0xffff;
     current_obj->obj_type = main_kgt_file;
     current_obj->skill_idx_2 = one_up0x37;
     current_obj->action_idx = one_up0x37;
@@ -8195,7 +8180,7 @@ void handle_battle_UI(void)
     *(uint *)&current_obj->actionscript_idx =
          (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc[one_up0x37].
                        starting_step_idx;
-    pOVar2 = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
+    pOVar3 = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
                                                    p_actionscripts_alloc
                                                    [(ushort)actions_alloc[0x4a].starting_step_idx].
                                                    field_0x1 << 0x10,
@@ -8204,9 +8189,9 @@ void handle_battle_UI(void)
                                             [(ushort)actions_alloc[0x4a].starting_step_idx].
                                             field_0x3 << 0x10);
     current_obj = PTR_POSS_CURRENT_OBJ;
-    pOVar2->obj_type = main_kgt_file;
-    current_obj->timer_mod_10 = (int)pOVar2;
-    pOVar2 = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
+    pOVar3->obj_type = main_kgt_file;
+    current_obj->timer_mod_10 = (int)pOVar3;
+    pOVar3 = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
                                                    p_actionscripts_alloc
                                                    [(ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.
                                                             p_actions_alloc[0x4b].starting_step_idx]
@@ -8217,20 +8202,20 @@ void handle_battle_UI(void)
                                                      p_actions_alloc[0x4b].starting_step_idx].
                                             field_0x3 << 0x10);
     current_obj = PTR_POSS_CURRENT_OBJ;
-    sVar3 = GAME_STATE.poss_player_file_buffer;
-    pOVar2->obj_type = main_kgt_file;
-    current_obj->timer_div_100_mod_10 = (int)pOVar2;
-    current_obj->field104_0x172 = -1;
+    sVar4 = GAME_STATE.hit_player_buffer;
+    pOVar3->obj_type = main_kgt_file;
+    current_obj->timer_div_100_mod_10 = (int)pOVar3;
+    current_obj->field88_0x172 = -1;
     current_obj->timer_div_ten_mod_10 = -1;
   }
   else {
     current_obj = PTR_POSS_CURRENT_OBJ;
-    sVar3 = GAME_STATE.poss_player_file_buffer;
+    sVar4 = GAME_STATE.hit_player_buffer;
     if (PTR_POSS_CURRENT_OBJ->object_process_step != 1) {
       return;
     }
   }
-  i = PLAYER_KGT_BUFFER[0].field6364_0xdf15;
+  i = PLAYER_KGT_BUFFER[0].special_gauge_tokens;
   actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
   if (GAME_STATE.GAME_MODE == 1P_story) {
     script_0x1 = 0;
@@ -8245,14 +8230,14 @@ void handle_battle_UI(void)
       i = i + 1;
     } while ((int)piVar6 < 0x54fe7d);
     if (script_0x1 == 1) {
-      sVar3 = local_4;
-      GAME_STATE.poss_player_file_buffer = local_4;
+      sVar4 = local_4;
+      GAME_STATE.hit_player_buffer = local_4;
     }
     if ((*(int **)&current_obj->field_0x176 != (int *)0x0) &&
        (**(int **)&current_obj->field_0x176 == 1)) {
       *(undefined4 *)&current_obj->field_0x176 = 0;
     }
-    if (sVar3 == -1) {
+    if (sVar4 == -1) {
       if (*(undefined4 **)&current_obj->field_0x176 != (undefined4 *)0x0) {
         **(undefined4 **)&current_obj->field_0x176 = 1;
         *(undefined4 *)&current_obj->field_0x176 = 0;
@@ -8261,7 +8246,7 @@ void handle_battle_UI(void)
     else {
       i = *(int *)&current_obj->field_0x176;
       if (i == 0) {
-        pOVar2 = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
+        pOVar3 = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
                                                        p_actionscripts_alloc
                                                        [(ushort)DAT_KGT_FILE_BUFFER_00433240.
                                                                 kgt_core.p_actions_alloc[0x49].
@@ -8272,35 +8257,35 @@ void handle_battle_UI(void)
                                                           p_actions_alloc[0x49].starting_step_idx].
                                                  field_0x3 << 0x10);
         current_obj = PTR_POSS_CURRENT_OBJ;
-        sVar3 = GAME_STATE.poss_player_file_buffer;
-        *(OBJ_STRUCT **)&PTR_POSS_CURRENT_OBJ->field_0x176 = pOVar2;
-        one_up0x37 = (uint)(ushort)PLAYER_KGT_BUFFER[sVar3].SectionE_default_0x19;
-        pOVar2->obj_type = 1;
-        pOVar2->skill_idx_2 = one_up0x37;
-        pOVar2->action_idx = one_up0x37;
-        pOVar2->player_file_buffer = sVar3;
-        actions_alloc = PLAYER_KGT_BUFFER[sVar3].kgt_core.p_actions_alloc;
-        pOVar2->pos_player_ignore_flag = 1;
+        sVar4 = GAME_STATE.hit_player_buffer;
+        *(OBJ_STRUCT **)&PTR_POSS_CURRENT_OBJ->field_0x176 = pOVar3;
+        one_up0x37 = (uint)(ushort)PLAYER_KGT_BUFFER[sVar4].SectionE_default_0x19;
+        pOVar3->obj_type = 1;
+        pOVar3->skill_idx_2 = one_up0x37;
+        pOVar3->action_idx = one_up0x37;
+        pOVar3->player_file_buffer = sVar4;
+        actions_alloc = PLAYER_KGT_BUFFER[sVar4].kgt_core.p_actions_alloc;
+        pOVar3->pos_player_direction = 1;
         script_idx = actions_alloc[one_up0x37].starting_step_idx;
         current_obj->param_3 = 1;
-        *(uint *)&pOVar2->actionscript_idx = (uint)script_idx;
+        *(uint *)&pOVar3->actionscript_idx = (uint)script_idx;
       }
-      else if (*(int *)(i + 0x156) != sVar3) {
-        *(sdword *)(i + 0x156) = sVar3;
-        one_up0x37 = (uint)(ushort)PLAYER_KGT_BUFFER[sVar3].SectionE_default_0x19;
+      else if (*(int *)(i + 0x156) != sVar4) {
+        *(sdword *)(i + 0x156) = sVar4;
+        one_up0x37 = (uint)(ushort)PLAYER_KGT_BUFFER[sVar4].SectionE_default_0x19;
         *(uint *)(i + 0x34) = one_up0x37;
         *(uint *)(i + 0x30) = one_up0x37;
-        script_idx = PLAYER_KGT_BUFFER[sVar3].kgt_core.p_actions_alloc[one_up0x37].starting_step_idx
+        script_idx = PLAYER_KGT_BUFFER[sVar4].kgt_core.p_actions_alloc[one_up0x37].starting_step_idx
         ;
         *(undefined4 *)(i + 0x10) = 0;
         *(uint *)(i + 0x2c) = (uint)script_idx;
       }
     }
-    i = PLAYER_KGT_BUFFER[0].field6364_0xdf15;
+    i = PLAYER_KGT_BUFFER[0].special_gauge_tokens;
     actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    if (current_obj->timer_div_ten_mod_10 != PLAYER_KGT_BUFFER[0].field6364_0xdf15) {
-      current_obj->timer_div_ten_mod_10 = PLAYER_KGT_BUFFER[0].field6364_0xdf15;
-      script_idx = *(ushort *)(&DAT_00445202 + i * 2);
+    if (current_obj->timer_div_ten_mod_10 != PLAYER_KGT_BUFFER[0].special_gauge_tokens) {
+      current_obj->timer_div_ten_mod_10 = PLAYER_KGT_BUFFER[0].special_gauge_tokens;
+      script_idx = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_special_stock_number_0)[i];
       i = current_obj->timer_mod_10;
       *(uint *)(i + 0x34) = (uint)script_idx;
       *(uint *)(i + 0x30) = (uint)script_idx;
@@ -8308,16 +8293,16 @@ void handle_battle_UI(void)
       *(uint *)(i + 0x2c) = (uint)(ushort)actions_alloc[*(int *)(i + 0x30)].starting_step_idx;
     }
     i = 1;
-    if ((GAME_STATE.GAME_MODE == 1P_story) && (i = sVar3, sVar3 == -1)) {
-      current_obj->field104_0x172 = -1;
+    if ((GAME_STATE.GAME_MODE == 1P_story) && (i = sVar4, sVar4 == -1)) {
+      current_obj->field88_0x172 = -1;
       *(undefined4 *)(current_obj->timer_div_100_mod_10 + 0x10) = 0;
       *(undefined4 *)(current_obj->timer_div_100_mod_10 + 0x3c) = 0xffffffff;
       goto LAB_0040a584;
     }
-    i = PLAYER_KGT_BUFFER[i].field6364_0xdf15;
-    if (current_obj->field104_0x172 == i) goto LAB_0040a584;
-    current_obj->field104_0x172 = i;
-    script_idx = *(ushort *)(&DAT_00445202 + i * 2);
+    i = PLAYER_KGT_BUFFER[i].special_gauge_tokens;
+    if (current_obj->field88_0x172 == i) goto LAB_0040a584;
+    current_obj->field88_0x172 = i;
+    script_idx = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_special_stock_number_0)[i];
     i = current_obj->timer_div_100_mod_10;
     *(uint *)(i + 0x34) = (uint)script_idx;
     *(uint *)(i + 0x30) = (uint)script_idx;
@@ -8325,19 +8310,19 @@ void handle_battle_UI(void)
   }
   else {
     if (((int)GAME_STATE.GAME_MODE < 1) || (2 < (int)GAME_STATE.GAME_MODE)) goto LAB_0040a584;
-    if (current_obj->timer_div_ten_mod_10 != PLAYER_KGT_BUFFER[0].field6364_0xdf15) {
-      current_obj->timer_div_ten_mod_10 = PLAYER_KGT_BUFFER[0].field6364_0xdf15;
-      script_idx = *(ushort *)(&DAT_00445202 + i * 2);
+    if (current_obj->timer_div_ten_mod_10 != PLAYER_KGT_BUFFER[0].special_gauge_tokens) {
+      current_obj->timer_div_ten_mod_10 = PLAYER_KGT_BUFFER[0].special_gauge_tokens;
+      script_idx = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_special_stock_number_0)[i];
       i = current_obj->timer_mod_10;
       *(uint *)(i + 0x34) = (uint)script_idx;
       *(uint *)(i + 0x30) = (uint)script_idx;
       *(undefined4 *)(i + 0x3c) = 0;
       *(uint *)(i + 0x2c) = (uint)(ushort)actions_alloc[*(int *)(i + 0x30)].starting_step_idx;
     }
-    i = PLAYER_KGT_BUFFER[1].field6364_0xdf15;
-    if (current_obj->field104_0x172 == PLAYER_KGT_BUFFER[1].field6364_0xdf15) goto LAB_0040a584;
-    current_obj->field104_0x172 = PLAYER_KGT_BUFFER[1].field6364_0xdf15;
-    script_idx = *(ushort *)(&DAT_00445202 + i * 2);
+    i = PLAYER_KGT_BUFFER[1].special_gauge_tokens;
+    if (current_obj->field88_0x172 == PLAYER_KGT_BUFFER[1].special_gauge_tokens) goto LAB_0040a584;
+    current_obj->field88_0x172 = PLAYER_KGT_BUFFER[1].special_gauge_tokens;
+    script_idx = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_special_stock_number_0)[i];
     i = current_obj->timer_div_100_mod_10;
     *(uint *)(i + 0x34) = (uint)script_idx;
     *(uint *)(i + 0x30) = (uint)script_idx;
@@ -8345,11 +8330,11 @@ void handle_battle_UI(void)
   }
   *(uint *)(i + 0x2c) = (uint)(ushort)actions_alloc[*(int *)(i + 0x30)].starting_step_idx;
 LAB_0040a584:
-  script_idx = _DAT_00445216;
+  sVar1 = DAT_KGT_FILE_BUFFER_00433240.skill_idx_victory_mark_on;
   if (current_obj->obj_type != PLAYER_KGT_BUFFER[0].story_mode_unk_var_a) {
     current_obj->obj_type = PLAYER_KGT_BUFFER[0].story_mode_unk_var_a;
     i = current_obj->player_file_buffer;
-    one_up0x37 = (uint)script_idx;
+    one_up0x37 = (uint)(ushort)sVar1;
     *(uint *)(i + 0x34) = one_up0x37;
     *(uint *)(i + 0x30) = one_up0x37;
     *(uint *)(i + 0x2c) = (uint)(ushort)actions_alloc[one_up0x37].starting_step_idx;
@@ -8358,19 +8343,17 @@ LAB_0040a584:
   if (current_obj->obj_ptr_a != (OBJ_STRUCT *)PLAYER_KGT_BUFFER[1].story_mode_unk_var_a) {
     current_obj->obj_ptr_a = (OBJ_STRUCT *)PLAYER_KGT_BUFFER[1].story_mode_unk_var_a;
     current_obj = current_obj->obj_ptr_b;
-    one_up0x37 = (uint)script_idx;
+    one_up0x37 = (uint)(ushort)sVar1;
     current_obj->skill_idx_2 = one_up0x37;
     current_obj->action_idx = one_up0x37;
     *(uint *)&current_obj->actionscript_idx =
          (uint)(ushort)actions_alloc[one_up0x37].starting_step_idx;
-    current_obj->jump_6_var_a = 0;
+    current_obj->image_wait_frames = 0;
   }
   return;
 }
 
 
-
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
 
 void update_timer_and_ui(void)
 
@@ -8416,10 +8399,10 @@ void update_timer_and_ui(void)
     pOVar6->obj_type = main_kgt_file;
     pOVar6->param_3 = 0x27100000;
     pCurrObj->obj_type = (kgt_obj_type)pOVar6;
-    pOVar6->jump_6_var_a = 1000000;
+    pOVar6->image_wait_frames = 1000000;
     skillAlloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    pCurrObj->obj_ptr_b->jump_6_var_a = 1000000;
-    pCurrObj->obj_ptr_a->jump_6_var_a = 1000000;
+    pCurrObj->obj_ptr_b->image_wait_frames = 1000000;
+    pCurrObj->obj_ptr_a->image_wait_frames = 1000000;
     pCurrObj->timer_div_100_mod_10 = -1;
                     // GLITCH: Direct reference of built-in system skill.
                     // 
@@ -8456,7 +8439,7 @@ void update_timer_and_ui(void)
       sVar1 = *(short *)&scriptAlloc[_x47starting_step].field_0x3;
       pOVar6->param_3 = (int)*(short *)&scriptAlloc[_x47starting_step].field_0x1 << 0x10;
       pOVar6->param_4 = (int)sVar1 << 0x10;
-      unlimited_sign = _DAT_004451ec & 0xffff;
+      unlimited_sign = DAT_KGT_FILE_BUFFER_00433240._73644_4_ & 0xffff;
       pOVar6->skill_idx_2 = unlimited_sign;
       pOVar6->action_idx = unlimited_sign;
       *(uint *)&pOVar6->actionscript_idx =
@@ -8479,10 +8462,11 @@ void update_timer_and_ui(void)
         kVar3 = (OBJ_STRUCT *)pCurrObj->obj_type;
         timer_seconds = pCurrObj->player_file_buffer;
         kVar3->param_3 = *(int *)&pCurrObj->field_0x176 + pCurrObj->param_3;
-        _x47starting_step = *(ushort *)(&DAT_004451ee + (timer_seconds % 10) * 2);
+        _x47starting_step =
+             (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[timer_seconds % 10];
         kVar3->skill_idx_2 = (uint)_x47starting_step;
         kVar3->action_idx = (uint)_x47starting_step;
-        kVar3->jump_6_var_a = 0;
+        kVar3->image_wait_frames = 0;
         *(uint *)&kVar3->actionscript_idx =
              (uint)(ushort)skillAlloc[kVar3->action_idx].starting_step_idx;
       }
@@ -8493,10 +8477,11 @@ void update_timer_and_ui(void)
         pOVar6 = pCurrObj->obj_ptr_b;
         timer_seconds = pCurrObj->player_file_buffer;
         pOVar6->param_3 = pCurrObj->param_3;
-        _x47starting_step = *(ushort *)(&DAT_004451ee + ((timer_seconds / 10) % 10) * 2);
+        _x47starting_step =
+             (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[(timer_seconds / 10) % 10];
         pOVar6->skill_idx_2 = (uint)_x47starting_step;
         pOVar6->action_idx = (uint)_x47starting_step;
-        pOVar6->jump_6_var_a = 0;
+        pOVar6->image_wait_frames = 0;
         *(uint *)&pOVar6->actionscript_idx =
              (uint)(ushort)skillAlloc[pOVar6->action_idx].starting_step_idx;
       }
@@ -8506,10 +8491,11 @@ void update_timer_and_ui(void)
         pOVar6 = pCurrObj->obj_ptr_a;
         current_step = pCurrObj->player_file_buffer;
         pOVar6->param_3 = pCurrObj->param_3 - *(int *)&pCurrObj->field_0x176;
-        _x47starting_step = *(ushort *)(&DAT_004451ee + ((current_step / 100) % 10) * 2);
+        _x47starting_step =
+             (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[(current_step / 100) % 10];
         pOVar6->skill_idx_2 = (uint)_x47starting_step;
         pOVar6->action_idx = (uint)_x47starting_step;
-        pOVar6->jump_6_var_a = 0;
+        pOVar6->image_wait_frames = 0;
         *(uint *)&pOVar6->actionscript_idx =
              (uint)(ushort)skillAlloc[pOVar6->action_idx].starting_step_idx;
       }
@@ -8520,10 +8506,11 @@ void update_timer_and_ui(void)
       kVar2 = (OBJ_STRUCT *)pCurrObj->obj_type;
       timer_seconds = pCurrObj->player_file_buffer;
       kVar2->param_3 = *(int *)&pCurrObj->field_0x176 / 2 + pCurrObj->param_3;
-      _x47starting_step = *(ushort *)(&DAT_004451ee + (timer_seconds % 10) * 2);
+      _x47starting_step =
+           (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[timer_seconds % 10];
       kVar2->skill_idx_2 = (uint)_x47starting_step;
       kVar2->action_idx = (uint)_x47starting_step;
-      kVar2->jump_6_var_a = 0;
+      kVar2->image_wait_frames = 0;
       *(uint *)&kVar2->actionscript_idx =
            (uint)(ushort)skillAlloc[kVar2->action_idx].starting_step_idx;
     }
@@ -8533,10 +8520,11 @@ void update_timer_and_ui(void)
       pOVar6 = pCurrObj->obj_ptr_b;
       pOVar6->param_3 = pCurrObj->param_3 - *(int *)&pCurrObj->field_0x176 / 2;
       _x47starting_step =
-           *(ushort *)(&DAT_004451ee + ((pCurrObj->player_file_buffer / 10) % 10) * 2);
+           (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)
+           [(pCurrObj->player_file_buffer / 10) % 10];
       pOVar6->skill_idx_2 = (uint)_x47starting_step;
       pOVar6->action_idx = (uint)_x47starting_step;
-      pOVar6->jump_6_var_a = 0;
+      pOVar6->image_wait_frames = 0;
       *(uint *)&pOVar6->actionscript_idx =
            (uint)(ushort)skillAlloc[pOVar6->action_idx].starting_step_idx;
     }
@@ -8548,7 +8536,7 @@ void update_timer_and_ui(void)
     kVar4 = pCurrObj->obj_type;
     current_step = pCurrObj->player_file_buffer;
     *(int *)(kVar4 + 8) = pCurrObj->param_3;
-    _x47starting_step = *(ushort *)(&DAT_004451ee + (current_step % 10) * 2);
+    _x47starting_step = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[current_step % 10];
     *(uint *)(kVar4 + 0x34) = (uint)_x47starting_step;
     *(uint *)(kVar4 + 0x30) = (uint)_x47starting_step;
     *(undefined4 *)(kVar4 + 0x3c) = 0;
@@ -8561,8 +8549,6 @@ void update_timer_and_ui(void)
 }
 
 
-
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
 
 void FUN_0040ab10(void)
 
@@ -8582,7 +8568,8 @@ void FUN_0040ab10(void)
     PTR_POSS_CURRENT_OBJ->object_process_step = 1;
     pOVar3 = (OBJ_STRUCT *)
              new_kgt_scriptread_obj_with_action_idx
-                       (_DAT_START_OF_ONE_UP_SERIES_004451aa,0x65,pOVar5->param_3,pOVar5->param_4);
+                       (DAT_KGT_FILE_BUFFER_00433240.skill_idx_hit_letter_hit,0x65,pOVar5->param_3,
+                        pOVar5->param_4);
     pOVar5 = PTR_POSS_CURRENT_OBJ;
     pkVar2 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
     uVar7 = pOVar3->unk_bitmask;
@@ -8601,8 +8588,8 @@ void FUN_0040ab10(void)
     }
     for (iVar9 = iVar9 + 1; iVar9 != 0; iVar9 = iVar9 + -1) {
       iVar4 = new_kgt_scriptread_obj_with_action_idx
-                        (*(short *)(&DAT_004451ac + (uVar7 % 10) * 2),0x65,pOVar5->param_3,
-                         pOVar5->param_4);
+                        ((&DAT_KGT_FILE_BUFFER_00433240.skill_idx_hit_number_0)[uVar7 % 10],0x65,
+                         pOVar5->param_3,pOVar5->param_4);
       pOVar5 = PTR_POSS_CURRENT_OBJ;
       *(uint *)(iVar4 + 0x28) = *(uint *)(iVar4 + 0x28) | 0x40000000;
       uVar7 = uVar7 / 10;
@@ -8636,34 +8623,34 @@ void set_unk_obj_vars(void)
     PTR_POSS_CURRENT_OBJ->object_process_step = 1;
     pOVar1->drawing_flag = -3;
     if (pOVar1->obj_type == 1) {
-      pOVar1->field9_0x18 = 3;
-      if (pOVar1->pos_player_ignore_flag != 0) {
-        pOVar1->field9_0x18 = -3;
+      pOVar1->x_momentum = 3;
+      if (pOVar1->pos_player_direction != 0) {
+        pOVar1->x_momentum = -3;
       }
     }
     else if ((pOVar1->obj_type == main_kgt_file) &&
-            (pOVar1->field9_0x18 = -1, pOVar1->pos_player_ignore_flag != 0)) {
-      pOVar1->field9_0x18 = -1;
+            (pOVar1->x_momentum = -1, pOVar1->pos_player_direction != 0)) {
+      pOVar1->x_momentum = -1;
     }
   }
   else if (PTR_POSS_CURRENT_OBJ->object_process_step != 1) {
     return;
   }
   if (pOVar1->obj_type == 1) {
-    pOVar1->field28_0x4c = pOVar1->field28_0x4c + -1;
+    pOVar1->color_blue = pOVar1->color_blue + -1;
   }
   else {
     if (pOVar1->obj_type != main_kgt_file) goto LAB_0040accc;
-    pOVar1->field26_0x44 = pOVar1->field26_0x44 + -1;
+    pOVar1->color_red = pOVar1->color_red + -1;
   }
-  pOVar1->field27_0x48 = pOVar1->field27_0x48 + -1;
+  pOVar1->color_green = pOVar1->color_green + -1;
 LAB_0040accc:
   iVar2 = pOVar1->player_file_buffer + 1;
   pOVar1->player_file_buffer = iVar2;
   if (30 < iVar2) {
     pOVar1->jmp_idx = reset_index;
   }
-  pOVar1->param_3 = pOVar1->param_3 + pOVar1->field9_0x18;
+  pOVar1->param_3 = pOVar1->param_3 + pOVar1->x_momentum;
   return;
 }
 
@@ -8691,31 +8678,31 @@ void FUN_PROB_DISPLAY_TITLE_SCREENS_0040ad00(void)
     pOVar1 = PTR_POSS_CURRENT_OBJ;
     PTR_POSS_CURRENT_OBJ->object_process_step = PTR_POSS_CURRENT_OBJ->object_process_step + 1;
     pOVar1->drawing_flag = 3;
-    pOVar1->field28_0x4c = 0;
-    pOVar1->field27_0x48 = 0;
-    pOVar1->field26_0x44 = 0;
+    pOVar1->color_blue = 0;
+    pOVar1->color_green = 0;
+    pOVar1->color_red = 0;
     Load_external_image((kgtBMPINFO *)(&UNK_STRUCT_A_00424f60.field0_0x0 + pOVar1->drawing_flag * 5)
                         ,s_RC_BMP_01_0041f0ec,s_1_bmp_0041f0e4,0);
     pOVar1 = PTR_POSS_CURRENT_OBJ;
     PTR_POSS_CURRENT_OBJ->player_file_buffer = 300;
-    *(undefined4 *)&pOVar1->field_0x54 = 5;
+    *(undefined4 *)&pOVar1->color_blendtype = 5;
     return;
   case 1:
   case 3:
     goto joined_r0x0040ae88;
   case 2:
-    PTR_POSS_CURRENT_OBJ->field26_0x44 = PTR_POSS_CURRENT_OBJ->field26_0x44 + -2;
-    pOVar1->field27_0x48 = pOVar1->field27_0x48 + -2;
-    pOVar1->field28_0x4c = pOVar1->field28_0x4c + -1;
+    PTR_POSS_CURRENT_OBJ->color_red = PTR_POSS_CURRENT_OBJ->color_red + -2;
+    pOVar1->color_green = pOVar1->color_green + -2;
+    pOVar1->color_blue = pOVar1->color_blue + -1;
     iVar2 = pOVar1->player_file_buffer + -1;
     pOVar1->player_file_buffer = iVar2;
     if (iVar2 < 1) {
       lpFileName = s_2_bmp_0041f0f8;
       pOVar1->object_process_step = pOVar1->object_process_step + 1;
       pOVar1->drawing_flag = 3;
-      pOVar1->field28_0x4c = 0;
-      pOVar1->field27_0x48 = 0;
-      pOVar1->field26_0x44 = 0;
+      pOVar1->color_blue = 0;
+      pOVar1->color_green = 0;
+      pOVar1->color_red = 0;
       resource_name = s_RC_BMP_02_0041f100;
 LAB_0040ae57:
       Load_external_image((kgtBMPINFO *)
@@ -8726,18 +8713,18 @@ LAB_0040ae57:
     }
     break;
   case 4:
-    PTR_POSS_CURRENT_OBJ->field26_0x44 = PTR_POSS_CURRENT_OBJ->field26_0x44 + -2;
-    pOVar1->field27_0x48 = pOVar1->field27_0x48 + -2;
-    pOVar1->field28_0x4c = pOVar1->field28_0x4c + -1;
+    PTR_POSS_CURRENT_OBJ->color_red = PTR_POSS_CURRENT_OBJ->color_red + -2;
+    pOVar1->color_green = pOVar1->color_green + -2;
+    pOVar1->color_blue = pOVar1->color_blue + -1;
     iVar2 = pOVar1->player_file_buffer + -1;
     pOVar1->player_file_buffer = iVar2;
     if (iVar2 < 1) {
       lpFileName = s_3_bmp_0041f10c;
       pOVar1->object_process_step = pOVar1->object_process_step + 1;
       pOVar1->drawing_flag = 3;
-      pOVar1->field28_0x4c = 0;
-      pOVar1->field27_0x48 = 0;
-      pOVar1->field26_0x44 = 0;
+      pOVar1->color_blue = 0;
+      pOVar1->color_green = 0;
+      pOVar1->color_red = 0;
       resource_name = s_RC_BMP_03_0041f114;
       goto LAB_0040ae57;
     }
@@ -8752,16 +8739,16 @@ joined_r0x0040ae88:
     if (iVar2 < 1) {
       pOVar1->object_process_step = pOVar1->object_process_step + 1;
       pOVar1->player_file_buffer = 10;
-      pOVar1->field28_0x4c = -0x14;
-      pOVar1->field27_0x48 = -0x14;
-      pOVar1->field26_0x44 = -0x14;
+      pOVar1->color_blue = -0x14;
+      pOVar1->color_green = -0x14;
+      pOVar1->color_red = -0x14;
       return;
     }
     break;
   case 6:
-    PTR_POSS_CURRENT_OBJ->field26_0x44 = PTR_POSS_CURRENT_OBJ->field26_0x44 + -2;
-    pOVar1->field27_0x48 = pOVar1->field27_0x48 + -2;
-    pOVar1->field28_0x4c = pOVar1->field28_0x4c + -1;
+    PTR_POSS_CURRENT_OBJ->color_red = PTR_POSS_CURRENT_OBJ->color_red + -2;
+    pOVar1->color_green = pOVar1->color_green + -2;
+    pOVar1->color_blue = pOVar1->color_blue + -1;
     iVar2 = pOVar1->player_file_buffer + -1;
     pOVar1->player_file_buffer = iVar2;
     if (iVar2 < 1) {
@@ -8899,7 +8886,7 @@ switchD_0040af51_caseD_d:
         iVar3 = 0;
         piVar4 = &PLAYER_KGT_BUFFER[0].pos_x_pos;
         do {
-          if (*(int *)((int)ADJ(piVar4)->mystery_array_b + 0x41) != 0) {
+          if (*(int *)((int)ADJ(piVar4)->hitbox_guard_array + 0x41) != 0) {
             next_pbuffer = next_pbuffer +
                            ((int)(ADJ(piVar4)->player_file_buffer +
                                  (ADJ(piVar4)->player_file_buffer >> 0x1f & 0xffffU)) >> 0x10);
@@ -8952,14 +8939,14 @@ switchD_0040af51_caseD_d:
     rand = current_obj->player_file_buffer + 1;
     current_obj->player_file_buffer = rand;
     if ((rand & 3) == 0) {
-      next_pbuffer = current_obj->field26_0x44 + current_obj->obj_type;
-      current_obj->field26_0x44 = next_pbuffer;
+      next_pbuffer = current_obj->color_red + current_obj->obj_type;
+      current_obj->color_red = next_pbuffer;
       if ((0x1e < next_pbuffer) || (next_pbuffer < 0)) {
         current_obj->obj_type = -current_obj->obj_type;
       }
     }
-    current_obj->field28_0x4c = current_obj->field26_0x44;
-    current_obj->field27_0x48 = current_obj->field26_0x44;
+    current_obj->color_blue = current_obj->color_red;
+    current_obj->color_green = current_obj->color_red;
     return;
   case 0x14:
     PTR_POSS_CURRENT_OBJ->object_process_step = 0x15;
@@ -9600,7 +9587,7 @@ void draw_func_c(int param_1,byte *param_2,int param_3,int param_4,int param_5,i
       param_4 = param_6 - *(int *)(param_1 + 4);
     }
     param_8 = param_7;
-    switch(*(undefined4 *)&PTR_POSS_CURRENT_OBJ->field_0x54) {
+    switch(*(undefined4 *)&PTR_POSS_CURRENT_OBJ->color_blendtype) {
     case 0:
       iVar5 = param_6;
       pbVar13 = param_2;
@@ -9775,7 +9762,7 @@ void draw_func_c(int param_1,byte *param_2,int param_3,int param_4,int param_5,i
       } while (param_8 != 0);
       return;
     case 4:
-      uVar1 = *(ushort *)&PTR_POSS_CURRENT_OBJ->field_0x50;
+      uVar1 = *(ushort *)&PTR_POSS_CURRENT_OBJ->color_alpha;
       iVar5 = CONCAT22((short)((uint)iVar14 >> 0x10),uVar1);
       uVar15 = 0x20 - iVar5;
       if (UINT_GAME_SCREEN_MODE_2 != 0) {
@@ -9955,31 +9942,31 @@ void FUN_0040ca90(int *param_1)
         rand = rand % 100;
         iVar4 = 100 - rand;
         iVar1 = param_1[7];
-        PTR_POSS_CURRENT_OBJ->field26_0x44 = (param_1[1] * iVar4 + param_1[6] * rand) / 100;
+        PTR_POSS_CURRENT_OBJ->color_red = (param_1[1] * iVar4 + param_1[6] * rand) / 100;
         iVar3 = param_1[8];
-        pOVar2->field27_0x48 = (param_1[2] * iVar4 + iVar1 * rand) / 100;
-        pOVar2->field28_0x4c = (param_1[3] * iVar4 + iVar3 * rand) / 100;
-        *(int *)&pOVar2->field_0x50 = (param_1[4] * iVar4 + param_1[9] * rand) / 100;
+        pOVar2->color_green = (param_1[2] * iVar4 + iVar1 * rand) / 100;
+        pOVar2->color_blue = (param_1[3] * iVar4 + iVar3 * rand) / 100;
+        *(int *)&pOVar2->color_alpha = (param_1[4] * iVar4 + param_1[9] * rand) / 100;
         return;
       }
       if (((byte)INT_004456fc & 1) != 0) {
         iVar1 = param_1[7];
-        PTR_POSS_CURRENT_OBJ->field26_0x44 = param_1[6];
+        PTR_POSS_CURRENT_OBJ->color_red = param_1[6];
         iVar3 = param_1[8];
-        pOVar2->field27_0x48 = iVar1;
+        pOVar2->color_green = iVar1;
         iVar1 = param_1[9];
-        pOVar2->field28_0x4c = iVar3;
-        *(int *)&pOVar2->field_0x50 = iVar1;
+        pOVar2->color_blue = iVar3;
+        *(int *)&pOVar2->color_alpha = iVar1;
         return;
       }
     }
     iVar1 = param_1[2];
-    PTR_POSS_CURRENT_OBJ->field26_0x44 = (param_1[1] * rand + param_1[6] * iVar3) / 100;
+    PTR_POSS_CURRENT_OBJ->color_red = (param_1[1] * rand + param_1[6] * iVar3) / 100;
     iVar4 = param_1[3];
-    pOVar2->field27_0x48 = (iVar1 * rand + param_1[7] * iVar3) / 100;
+    pOVar2->color_green = (iVar1 * rand + param_1[7] * iVar3) / 100;
     iVar1 = param_1[4];
-    pOVar2->field28_0x4c = (iVar4 * rand + param_1[8] * iVar3) / 100;
-    *(int *)&pOVar2->field_0x50 = (iVar1 * rand + param_1[9] * iVar3) / 100;
+    pOVar2->color_blue = (iVar4 * rand + param_1[8] * iVar3) / 100;
+    *(int *)&pOVar2->color_alpha = (iVar1 * rand + param_1[9] * iVar3) / 100;
   }
   return;
 }
@@ -10032,7 +10019,7 @@ void draw_func_d(void)
   bool bVar37;
   kgt_pal_color *local_68;
   uint local_60;
-  kgt_character_struct *local_58;
+  kgt_mainKGT *local_58;
   uint local_48;
   kgt_pal_color *local_44;
   int local_38;
@@ -10054,51 +10041,51 @@ void draw_func_d(void)
         return;
       case -8:
         draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + -0x100,PTR_POSS_CURRENT_OBJ->param_4,
-                    0xc0,0x40,0x200,0x240,0,PTR_POSS_CURRENT_OBJ->field26_0x44,
-                    PTR_POSS_CURRENT_OBJ->field27_0x48,PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                    0xc0,0x40,0x200,0x240,0,PTR_POSS_CURRENT_OBJ->color_red,
+                    PTR_POSS_CURRENT_OBJ->color_green,PTR_POSS_CURRENT_OBJ->color_blue);
         return;
       case -7:
         draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + -0xc0,PTR_POSS_CURRENT_OBJ->param_4,
-                    0x100,0x40,0,0x240,0,PTR_POSS_CURRENT_OBJ->field26_0x44,
-                    PTR_POSS_CURRENT_OBJ->field27_0x48,PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                    0x100,0x40,0,0x240,0,PTR_POSS_CURRENT_OBJ->color_red,
+                    PTR_POSS_CURRENT_OBJ->color_green,PTR_POSS_CURRENT_OBJ->color_blue);
         if (GAME_STATE.poss_current_round_count / 10 != 0) {
           draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + 0x40,PTR_POSS_CURRENT_OBJ->param_4,
                       0x40,0x40,(GAME_STATE.poss_current_round_count / 10) * 0x40,0x200,0,
-                      PTR_POSS_CURRENT_OBJ->field26_0x44,PTR_POSS_CURRENT_OBJ->field27_0x48,
-                      PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                      PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
+                      PTR_POSS_CURRENT_OBJ->color_blue);
         }
         draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + 0x80,PTR_POSS_CURRENT_OBJ->param_4,0x40
                     ,0x40,GAME_STATE.poss_current_round_count % 10 << 6,0x200,0,
-                    PTR_POSS_CURRENT_OBJ->field26_0x44,PTR_POSS_CURRENT_OBJ->field27_0x48,
-                    PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                    PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
+                    PTR_POSS_CURRENT_OBJ->color_blue);
         draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + -0x80,
                     PTR_POSS_CURRENT_OBJ->param_4 + 0x40,0x100,0x5c,0x100,0x240,0,
-                    PTR_POSS_CURRENT_OBJ->field26_0x44,PTR_POSS_CURRENT_OBJ->field27_0x48,
-                    PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                    PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
+                    PTR_POSS_CURRENT_OBJ->color_blue);
         return;
       case -6:
         FUN_0040bfb0(PTR_POSS_CURRENT_OBJ->player_file_buffer,
                      PTR_POSS_CURRENT_OBJ->param_3 - unk_y_position,
                      PTR_POSS_CURRENT_OBJ->param_4 - unk_x_position,4,
-                     PTR_POSS_CURRENT_OBJ->field26_0x44,PTR_POSS_CURRENT_OBJ->field27_0x48,
-                     PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                     PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
+                     PTR_POSS_CURRENT_OBJ->color_blue);
         draw_func_b(0x424f74,(PTR_POSS_CURRENT_OBJ->param_3 - unk_y_position) + 0x20,
                     PTR_POSS_CURRENT_OBJ->param_4 - unk_x_position,0x60,0x20,0,0x40,4,
-                    PTR_POSS_CURRENT_OBJ->field26_0x44,PTR_POSS_CURRENT_OBJ->field27_0x48,
-                    PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                    PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
+                    PTR_POSS_CURRENT_OBJ->color_blue);
         return;
       case -5:
         FUN_0040bed0(PTR_POSS_CURRENT_OBJ->player_file_buffer,PTR_POSS_CURRENT_OBJ->param_3,
-                     PTR_POSS_CURRENT_OBJ->param_4,0,PTR_POSS_CURRENT_OBJ->field26_0x44,
-                     PTR_POSS_CURRENT_OBJ->field27_0x48,PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                     PTR_POSS_CURRENT_OBJ->param_4,0,PTR_POSS_CURRENT_OBJ->color_red,
+                     PTR_POSS_CURRENT_OBJ->color_green,PTR_POSS_CURRENT_OBJ->color_blue);
         return;
       case -4:
         draw_func_b(0x424f74,(int)(PTR_POSS_CURRENT_OBJ->param_3 +
                                   (PTR_POSS_CURRENT_OBJ->param_3 >> 0x1f & 0xffffU)) >> 0x10,
                     (int)(PTR_POSS_CURRENT_OBJ->param_4 +
                          (PTR_POSS_CURRENT_OBJ->param_4 >> 0x1f & 0xffffU)) >> 0x10,0x200,0x200,0,0,
-                    4,PTR_POSS_CURRENT_OBJ->field26_0x44,PTR_POSS_CURRENT_OBJ->field27_0x48,
-                    PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                    4,PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
+                    PTR_POSS_CURRENT_OBJ->color_blue);
         return;
       case -3:
         draw_func_b(0x424f74,(PTR_POSS_CURRENT_OBJ->param_3 - unk_y_position) + -0x40,
@@ -10106,9 +10093,9 @@ void draw_func_d(void)
                     ((int)(PTR_POSS_CURRENT_OBJ->player_file_buffer +
                           (PTR_POSS_CURRENT_OBJ->player_file_buffer >> 0x1f & 7U)) >> 3) << 7,
                     PTR_POSS_CURRENT_OBJ->obj_type << 7,
-                    PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag * 0x40000000 + 2,
-                    PTR_POSS_CURRENT_OBJ->field26_0x44,PTR_POSS_CURRENT_OBJ->field27_0x48,
-                    PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                    PTR_POSS_CURRENT_OBJ->pos_player_direction * 0x40000000 + 2,
+                    PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
+                    PTR_POSS_CURRENT_OBJ->color_blue);
         return;
       case -2:
         puVar32 = &OBJ_ARRAY[0].unk_bitmask;
@@ -10119,15 +10106,14 @@ void draw_func_d(void)
             draw_flag = ADJ(puVar32)->compare_to_param_4;
             iVar23 = ADJ(puVar32)->param_4 - draw_flag;
             iVar23 = (int)(iVar23 + (iVar23 >> 0x1f & 0xfffffU)) >> 0x14;
-            pOVar->field28_0x4c = iVar23;
-            pOVar->field27_0x48 = iVar23;
-            pOVar->field26_0x44 = iVar23;
+            pOVar->color_blue = iVar23;
+            pOVar->color_green = iVar23;
+            pOVar->color_red = iVar23;
             draw_func_b(0x424f74,(((int)(ADJ(puVar32)->param_3 +
                                         (ADJ(puVar32)->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
                                  unk_y_position) + -0x38,
                         (((int)(draw_flag + (draw_flag >> 0x1f & 0xffffU)) >> 0x10) - unk_x_position
-                        ) + -0x10,0x80,0x20,0,0x60,3,iVar23,pOVar->field27_0x48,pOVar->field28_0x4c)
-            ;
+                        ) + -0x10,0x80,0x20,0,0x60,3,iVar23,pOVar->color_green,pOVar->color_blue);
             pOVar = PTR_POSS_CURRENT_OBJ;
           }
           puVar32 = (OBJ_STRUCT_ptr_40_undefined)((int)puVar32 + 0x17e);
@@ -10202,24 +10188,25 @@ void draw_func_d(void)
                      (PTR_POSS_CURRENT_OBJ->param_4 >> 0x1f & 0xffffU)) >> 0x10,
                 *(undefined4 *)(&UNK_STRUCT_A_00424f60.field_0x4 + iVar23),
                 *(undefined4 *)(&UNK_STRUCT_A_00424f60.field_0x8 + iVar23),0,0,
-                *(undefined4 *)&PTR_POSS_CURRENT_OBJ->field_0x54,PTR_POSS_CURRENT_OBJ->field26_0x44,
-                PTR_POSS_CURRENT_OBJ->field27_0x48,PTR_POSS_CURRENT_OBJ->field28_0x4c);
+                *(undefined4 *)&PTR_POSS_CURRENT_OBJ->color_blendtype,
+                PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
+                PTR_POSS_CURRENT_OBJ->color_blue);
     return;
   }
   switch(PTR_POSS_CURRENT_OBJ->obj_type) {
   case 0:
   case 1:
   case player_file:
-    local_58 = PLAYER_KGT_BUFFER + PTR_POSS_CURRENT_OBJ->player_file_buffer;
+    local_58 = (kgt_mainKGT *)(PLAYER_KGT_BUFFER + PTR_POSS_CURRENT_OBJ->player_file_buffer);
     break;
   case main_kgt_file:
     local_58 = &DAT_KGT_FILE_BUFFER_00433240;
     break;
   case demo_file:
-    local_58 = (kgt_character_struct *)&UNK_DEMO_FILE_BUFFER_00425a60;
+    local_58 = (kgt_mainKGT *)&UNK_DEMO_FILE_BUFFER_00425a60;
     break;
   case stage_file:
-    local_58 = (kgt_character_struct *)&UNK_STAGE_FILES_00445740;
+    local_58 = (kgt_mainKGT *)&UNK_STAGE_FILES_00445740;
   }
   draw_flag = *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx;
   pkVar7 = (local_58->kgt_core).p_actionscripts_alloc;
@@ -10232,11 +10219,11 @@ void draw_func_d(void)
   iVar8 = pKVar1->width;
   local_60 = (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0x4000) >> 0xe;
   if ((int)PTR_POSS_CURRENT_OBJ->obj_type < 2) {
-    if (local_58->poss_relating_to_player_idx < 0) {
+    if (*(int *)(local_58->empty_e + 0xbaf) < 0) {
       local_44 = (local_58->kgt_core).pallette_1;
     }
     else {
-      local_44 = (local_58->kgt_core).pallette_1 + local_58->poss_relating_to_player_idx * 0x108;
+      local_44 = (local_58->kgt_core).pallette_1 + *(int *)(local_58->empty_e + 0xbaf) * 0x108;
     }
   }
   else {
@@ -10247,13 +10234,13 @@ void draw_func_d(void)
     iVar35 = uVar18 * 0x650;
     if (*(char *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37]
                  + 4) != '\0') {
-      iVar33 = *(int *)&PTR_POSS_CURRENT_OBJ->field_0x54;
+      iVar33 = *(int *)&PTR_POSS_CURRENT_OBJ->color_blendtype;
       kVar9 = UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37];
-      *(uint *)&PTR_POSS_CURRENT_OBJ->field_0x54 = (uint)*(byte *)((int)kVar9 + 5);
-      iVar29 = pOVar->field26_0x44;
-      iVar26 = pOVar->field27_0x48;
-      iVar10 = pOVar->field28_0x4c;
-      iVar11 = *(int *)&pOVar->field_0x50;
+      *(uint *)&PTR_POSS_CURRENT_OBJ->color_blendtype = (uint)*(byte *)((int)kVar9 + 5);
+      iVar29 = pOVar->color_red;
+      iVar26 = pOVar->color_green;
+      iVar10 = pOVar->color_blue;
+      iVar11 = *(int *)&pOVar->color_alpha;
       uVar25 = (uint)*(byte *)((int)kVar9 + 3);
       local_18 = (KGT_IMG_HEADER *)0x0;
       local_34 = 0;
@@ -10296,9 +10283,9 @@ LAB_0040ce6d:
           kVar9 = UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37];
           switch(*(undefined1 *)((int)kVar9 + 6)) {
           case 0:
-            pOVar->field26_0x44 = iVar29;
-            pOVar->field27_0x48 = iVar26;
-            pOVar->field28_0x4c = iVar10;
+            pOVar->color_red = iVar29;
+            pOVar->color_green = iVar26;
+            pOVar->color_blue = iVar10;
             iVar21 = iVar11;
             break;
           case 2:
@@ -10309,20 +10296,20 @@ switchD_0040ce8e_caseD_2:
                      (int)((uint)*(byte *)((int)kVar9 + 3) * (uint)*(byte *)((int)kVar9 + 4));
             rand = 100 - iVar21;
             cVar2 = *(char *)((int)kVar9 + 8);
-            pOVar->field26_0x44 = (*(char *)((int)kVar9 + 7) * rand + iVar21 * iVar29) / 100;
+            pOVar->color_red = (*(char *)((int)kVar9 + 7) * rand + iVar21 * iVar29) / 100;
             cVar3 = *(char *)((int)kVar9 + 9);
-            pOVar->field27_0x48 = (cVar2 * rand + iVar21 * iVar26) / 100;
-            pOVar->field28_0x4c = (cVar3 * rand + iVar21 * iVar10) / 100;
+            pOVar->color_green = (cVar2 * rand + iVar21 * iVar26) / 100;
+            pOVar->color_blue = (cVar3 * rand + iVar21 * iVar10) / 100;
             rand = *(char *)((int)kVar9 + 10) * rand;
             goto LAB_0040d031;
           case 3:
             if (((byte)INT_004456fc & 1) == 0) goto switchD_0040ce8e_caseD_2;
           case 1:
             cVar2 = *(char *)((int)kVar9 + 8);
-            pOVar->field26_0x44 = (int)*(char *)((int)kVar9 + 7);
-            pOVar->field27_0x48 = (int)cVar2;
+            pOVar->color_red = (int)*(char *)((int)kVar9 + 7);
+            pOVar->color_green = (int)cVar2;
             cVar2 = *(char *)((int)kVar9 + 10);
-            pOVar->field28_0x4c = (int)*(char *)((int)kVar9 + 9);
+            pOVar->color_blue = (int)*(char *)((int)kVar9 + 9);
             iVar21 = (int)cVar2;
             break;
           case 4:
@@ -10331,10 +10318,10 @@ switchD_0040ce8e_caseD_2:
             rand = rand % 100;
             iVar21 = 100 - rand;
             kVar9 = UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37];
-            PTR_POSS_CURRENT_OBJ->field26_0x44 =
+            PTR_POSS_CURRENT_OBJ->color_red =
                  (*(char *)((int)kVar9 + 7) * rand + iVar21 * iVar29) / 100;
-            pOVar->field27_0x48 = (*(char *)((int)kVar9 + 8) * rand + iVar21 * iVar26) / 100;
-            pOVar->field28_0x4c = (*(char *)((int)kVar9 + 9) * rand + iVar21 * iVar10) / 100;
+            pOVar->color_green = (*(char *)((int)kVar9 + 8) * rand + iVar21 * iVar26) / 100;
+            pOVar->color_blue = (*(char *)((int)kVar9 + 9) * rand + iVar21 * iVar10) / 100;
             rand = *(char *)((int)kVar9 + 10) * rand;
 LAB_0040d031:
             iVar21 = (rand + iVar21 * iVar11) / 100;
@@ -10342,7 +10329,7 @@ LAB_0040d031:
           default:
             goto switchD_0040ce8e_default;
           }
-          *(int *)&pOVar->field_0x50 = iVar21;
+          *(int *)&pOVar->color_alpha = iVar21;
 switchD_0040ce8e_default:
           psVar36 = &DAT_004d1a20;
           local_18 = (KGT_IMG_HEADER *)0x100;
@@ -10353,7 +10340,7 @@ switchD_0040ce8e_default:
               *psVar36 = 0;
             }
             else {
-              iVar21 = (((uint)kVar9 >> 0x10 & 0xff) >> 3) + pOVar->field26_0x44;
+              iVar21 = (((uint)kVar9 >> 0x10 & 0xff) >> 3) + pOVar->color_red;
               if (iVar21 < 0x20) {
                 if (iVar21 < 0) {
                   iVar21 = 0;
@@ -10362,7 +10349,7 @@ switchD_0040ce8e_default:
               else {
                 iVar21 = 0x1f;
               }
-              rand = (((uint)kVar9 >> 8 & 0xff) >> 3) + pOVar->field27_0x48;
+              rand = (((uint)kVar9 >> 8 & 0xff) >> 3) + pOVar->color_green;
               if (rand < 0x20) {
                 if (rand < 0) {
                   rand = 0;
@@ -10371,7 +10358,7 @@ switchD_0040ce8e_default:
               else {
                 rand = 0x1f;
               }
-              iVar28 = (uint)((byte)pkVar20->b >> 3) + pOVar->field28_0x4c;
+              iVar28 = (uint)((byte)pkVar20->b >> 3) + pOVar->color_blue;
               if (iVar28 < 0x20) {
                 if (iVar28 < 0) {
                   iVar28 = 0;
@@ -10414,9 +10401,8 @@ switchD_0040ce8e_default:
                      ((int)(*(int *)(iVar32 + 0x14) + (*(int *)(iVar32 + 0x14) >> 0x1f & 0xffffU))
                      >> 0x10)) - pKVar17->width;
             if ((pOVar->unk_bitmask & 0x40000000U) == 0) goto LAB_0040d43d;
-            iVar31 = (iVar31 - unk_y_position) + UNK_STAGE_FILES_00445740.script_data_array_unk[1];
-            local_38 = (iVar32 - unk_x_position) + UNK_STAGE_FILES_00445740.script_data_array_unk[6]
-            ;
+            iVar31 = (iVar31 - unk_y_position) + UNK_STAGE_FILES_00445740.field1046_0x266d;
+            local_38 = (iVar32 - unk_x_position) + UNK_STAGE_FILES_00445740.field1051_0x2681;
             break;
           case main_kgt_file:
           case demo_file:
@@ -10438,8 +10424,8 @@ switchD_0040ce8e_default:
               iVar32 = iVar32 - unk_x_position;
             }
 LAB_0040d43d:
-            iVar31 = iVar31 + UNK_STAGE_FILES_00445740.script_data_array_unk[1];
-            local_38 = iVar32 + UNK_STAGE_FILES_00445740.script_data_array_unk[6];
+            iVar31 = iVar31 + UNK_STAGE_FILES_00445740.field1046_0x266d;
+            local_38 = iVar32 + UNK_STAGE_FILES_00445740.field1051_0x2681;
             break;
           case stage_file:
             if ((*(byte *)(iVar32 + 0x18) & 4) == 0) {
@@ -10459,9 +10445,9 @@ LAB_0040d43d:
               iVar31 = iVar31 - unk_y_position;
               iVar32 = iVar32 - unk_x_position;
             }
-            iVar31 = iVar31 + UNK_STAGE_FILES_00445740.script_data_array_unk[1];
+            iVar31 = iVar31 + UNK_STAGE_FILES_00445740.field1046_0x266d;
             iVar12 = pOVar->stage_skillscript_idx;
-            local_38 = iVar32 + UNK_STAGE_FILES_00445740.script_data_array_unk[6];
+            local_38 = iVar32 + UNK_STAGE_FILES_00445740.field1051_0x2681;
             pkVar15 = (local_58->kgt_core).p_actionscripts_alloc;
             if ((pkVar15[iVar12].field_0x1 & 8) != 0) {
               uVar25 = (uint)*(short *)&pkVar15[iVar12]._2;
@@ -10496,11 +10482,11 @@ LAB_0040d4a6:
                  (int)(uint)*(byte *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes
                                            [uVar18 * 0x194 + 0x37] + 3));
       }
-      *(int *)&pOVar->field_0x54 = iVar33;
-      pOVar->field26_0x44 = iVar29;
-      pOVar->field27_0x48 = iVar26;
-      pOVar->field28_0x4c = iVar10;
-      *(int *)&pOVar->field_0x50 = iVar11;
+      *(int *)&pOVar->color_blendtype = iVar33;
+      pOVar->color_red = iVar29;
+      pOVar->color_green = iVar26;
+      pOVar->color_blue = iVar10;
+      *(int *)&pOVar->color_alpha = iVar11;
     }
   }
   local_24 = local_44;
@@ -10530,7 +10516,7 @@ LAB_0040d4a6:
     puVar22 = (undefined *)(pOVar->player_file_buffer * 0xe03f + 0x4dfd93);
     break;
   case main_kgt_file:
-    puVar22 = &DAT_004456d0;
+    puVar22 = &system_flash;
     break;
   default:
     goto switchD_0040d56f_caseD_3;
@@ -10548,7 +10534,7 @@ switchD_0040d56f_caseD_3:
       *psVar36 = 0;
     }
     else {
-      iVar35 = (((uint)kVar9 >> 0x10 & 0xff) >> 3) + pOVar->field26_0x44;
+      iVar35 = (((uint)kVar9 >> 0x10 & 0xff) >> 3) + pOVar->color_red;
       if (iVar35 < 0x20) {
         if (iVar35 < 0) {
           iVar35 = 0;
@@ -10557,7 +10543,7 @@ switchD_0040d56f_caseD_3:
       else {
         iVar35 = 0x1f;
       }
-      iVar19 = (((uint)kVar9 >> 8 & 0xff) >> 3) + pOVar->field27_0x48;
+      iVar19 = (((uint)kVar9 >> 8 & 0xff) >> 3) + pOVar->color_green;
       if (iVar19 < 0x20) {
         if (iVar19 < 0) {
           iVar19 = 0;
@@ -10566,7 +10552,7 @@ switchD_0040d56f_caseD_3:
       else {
         iVar19 = 0x1f;
       }
-      iVar33 = (uint)((byte)local_24->b >> 3) + pOVar->field28_0x4c;
+      iVar33 = (uint)((byte)local_24->b >> 3) + pOVar->color_blue;
       if (iVar33 < 0x20) {
         if (iVar33 < 0) {
           iVar33 = 0;
@@ -10596,7 +10582,7 @@ switchD_0040d56f_caseD_3:
   case 1:
   case player_file:
     if (*(int *)&pOVar->time_method_number_in_frames != -1) {
-      if ((pOVar->pos_player_ignore_flag == 0) || ((pkVar7[draw_flag + -1].field_0x9 & 1) != 0)) {
+      if ((pOVar->pos_player_direction == 0) || ((pkVar7[draw_flag + -1].field_0x9 & 1) != 0)) {
         iVar35 = ((int)*(short *)&pkVar7[draw_flag + -1].field_0x5 - ((uint)pKVar1->height >> 1)) +
                  ((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10);
       }
@@ -10610,13 +10596,13 @@ switchD_0040d56f_caseD_3:
                ((int)(pOVar->param_4 + (pOVar->param_4 >> 0x1f & 0xffffU)) >> 0x10)) - pKVar1->width
       ;
       if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
-        iVar35 = iVar35 - (UNK_STAGE_FILES_00445740.script_data_array_unk[1] + unk_y_position);
-        iVar19 = iVar19 - (UNK_STAGE_FILES_00445740.script_data_array_unk[6] + unk_x_position);
+        iVar35 = iVar35 - (UNK_STAGE_FILES_00445740.field1046_0x266d + unk_y_position);
+        iVar19 = iVar19 - (UNK_STAGE_FILES_00445740.field1051_0x2681 + unk_x_position);
       }
       if (UINT_TESTPLAY_HITJUDGE_2_0042470c != 0) {
         iVar33 = 0x4c;
         do {
-          FUN_0040c860(*(undefined4 *)((int)pOVar->mystery_array_b + iVar33),
+          FUN_0040c860(*(undefined4 *)((int)pOVar->hitbox_guard_array + iVar33),
                        PTR_SecondLinkerMember_16_29_000003e4_string_4__8_0041eda4,local_60);
           bVar37 = iVar33 != 0;
           pOVar = PTR_POSS_CURRENT_OBJ;
@@ -10624,7 +10610,7 @@ switchD_0040d56f_caseD_3:
         } while (bVar37);
         iVar33 = 0x4c;
         do {
-          FUN_0040c860(*(undefined4 *)((int)PTR_POSS_CURRENT_OBJ->mystery_array_a + iVar33),
+          FUN_0040c860(*(undefined4 *)((int)PTR_POSS_CURRENT_OBJ->hitbox_attack_array + iVar33),
                        DAT_0041eda0,local_60);
           bVar37 = iVar33 != 0;
           iVar33 = iVar33 + -4;
@@ -10637,14 +10623,14 @@ switchD_0040d56f_caseD_3:
       }
       draw_flag = 0x4c;
       do {
-        FUN_0040c900(*(undefined4 *)((int)PTR_POSS_CURRENT_OBJ->mystery_array_b + draw_flag),
+        FUN_0040c900(*(undefined4 *)((int)PTR_POSS_CURRENT_OBJ->hitbox_guard_array + draw_flag),
                      PTR_SecondLinkerMember_16_29_000003e4_string_4__8_0041eda4,local_60);
         bVar37 = draw_flag != 0;
         draw_flag = draw_flag + -4;
       } while (bVar37);
       draw_flag = 0x4c;
       do {
-        FUN_0040c900(*(undefined4 *)((int)PTR_POSS_CURRENT_OBJ->mystery_array_a + draw_flag),
+        FUN_0040c900(*(undefined4 *)((int)PTR_POSS_CURRENT_OBJ->hitbox_attack_array + draw_flag),
                      DAT_0041eda0,local_60);
         bVar37 = draw_flag != 0;
         draw_flag = draw_flag + -4;
@@ -10669,7 +10655,7 @@ switchD_0040d56f_caseD_3:
       return;
     }
     uVar5 = *(ushort *)&pkVar7[draw_flag + -1].field_0x3;
-    local_60 = *(uint *)(local_58->field6356_0xdef9 + 0x5c);
+    local_60 = (*(OBJ_STRUCT **)(local_58->empty_e + 0xa9d))->pos_player_direction;
     if ((uVar5 & 0x4000) != 0) {
       local_60 = local_60 ^ 1;
     }
@@ -10693,13 +10679,13 @@ switchD_0040d56f_caseD_3:
       iVar19 = iVar19 - unk_y_position;
       iVar33 = iVar33 - unk_x_position;
     }
-    iVar33 = iVar33 + UNK_STAGE_FILES_00445740.script_data_array_unk[6];
+    iVar33 = iVar33 + UNK_STAGE_FILES_00445740.field1051_0x2681;
     local_60 = uVar5 & 0xc000 | local_60;
-    iVar19 = iVar19 + UNK_STAGE_FILES_00445740.script_data_array_unk[1];
+    iVar19 = iVar19 + UNK_STAGE_FILES_00445740.field1046_0x266d;
     goto LAB_0040d790;
   case main_kgt_file:
   case demo_file:
-    if (pOVar->pos_player_ignore_flag == 0) {
+    if (pOVar->pos_player_direction == 0) {
       iVar19 = ((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10) +
                (int)*(short *)&pkVar7[draw_flag + -1].field_0x5;
     }
@@ -10711,12 +10697,12 @@ switchD_0040d56f_caseD_3:
     iVar33 = ((int)(pOVar->param_4 + (pOVar->param_4 >> 0x1f & 0xffffU)) >> 0x10) +
              (int)*(short *)&pkVar7[draw_flag + -1].field_0x7;
     if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
-      iVar19 = iVar19 - (UNK_STAGE_FILES_00445740.script_data_array_unk[1] + unk_y_position);
-      iVar33 = iVar33 - (UNK_STAGE_FILES_00445740.script_data_array_unk[6] + unk_x_position);
+      iVar19 = iVar19 - (UNK_STAGE_FILES_00445740.field1046_0x266d + unk_y_position);
+      iVar33 = iVar33 - (UNK_STAGE_FILES_00445740.field1051_0x2681 + unk_x_position);
     }
     break;
   case stage_file:
-    if (pOVar->pos_player_ignore_flag == 0) {
+    if (pOVar->pos_player_direction == 0) {
       iVar35 = ((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10) +
                (int)*(short *)&pkVar7[draw_flag + -1].field_0x5;
     }
@@ -10725,10 +10711,10 @@ switchD_0040d56f_caseD_3:
                (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pKVar1->height;
       local_60 = local_60 ^ 1;
     }
-    iVar35 = iVar35 + UNK_STAGE_FILES_00445740.script_data_array_unk[1];
+    iVar35 = iVar35 + UNK_STAGE_FILES_00445740.field1046_0x266d;
     iVar19 = pOVar->stage_skillscript_idx;
     iVar33 = (int)*(short *)&pkVar7[draw_flag + -1].field_0x7 +
-             UNK_STAGE_FILES_00445740.script_data_array_unk[6] +
+             UNK_STAGE_FILES_00445740.field1051_0x2681 +
              ((int)(pOVar->param_4 + (pOVar->param_4 >> 0x1f & 0xffffU)) >> 0x10);
     pkVar15 = (local_58->kgt_core).p_actionscripts_alloc;
     if ((pkVar15[iVar19].field_0x1 & 8) != 0) {
@@ -10811,7 +10797,7 @@ switchD_0040d56f_caseD_3:
   case 0xb:
     iVar29 = 1;
     if ((GAME_STATE.GAME_MODE == 1P_story) &&
-       (iVar29 = GAME_STATE.poss_player_file_buffer, GAME_STATE.poss_player_file_buffer == -1)) {
+       (iVar29 = GAME_STATE.hit_player_buffer, GAME_STATE.hit_player_buffer == -1)) {
       return;
     }
     iVar26 = PLAYER_KGT_BUFFER[iVar29].life_gauge_max2;
@@ -10823,7 +10809,7 @@ LAB_0040de77:
     break;
   case 0x14:
     if (PLAYER_KGT_BUFFER[0].special_stock_gauge_max2 != 0) {
-      iVar35 = (PLAYER_KGT_BUFFER[0].field6366_0xdf1d * iVar23) /
+      iVar35 = (PLAYER_KGT_BUFFER[0].special_gauge * iVar23) /
                PLAYER_KGT_BUFFER[0].special_stock_gauge_max2;
       local_68 = (kgt_pal_color *)((int)local_68 + (iVar23 - iVar35));
       iVar19 = iVar19 + (iVar23 - iVar35);
@@ -10832,12 +10818,12 @@ LAB_0040de77:
   case 0x15:
     iVar29 = 1;
     if ((GAME_STATE.GAME_MODE == 1P_story) &&
-       (iVar29 = GAME_STATE.poss_player_file_buffer, GAME_STATE.poss_player_file_buffer == -1)) {
+       (iVar29 = GAME_STATE.hit_player_buffer, GAME_STATE.hit_player_buffer == -1)) {
       return;
     }
     iVar26 = PLAYER_KGT_BUFFER[iVar29].special_stock_gauge_max2;
     if (iVar26 != 0) {
-      iVar35 = PLAYER_KGT_BUFFER[iVar29].field6366_0xdf1d;
+      iVar35 = PLAYER_KGT_BUFFER[iVar29].special_gauge;
       goto LAB_0040de77;
     }
   }
@@ -10854,18 +10840,18 @@ void FUN_0040e4a0(void)
 {
   kgt_pal_color *pkVar1;
   OBJ_STRUCT *pOVar2;
-  int *piVar3;
+  OBJ_STRUCT **ppOVar3;
   int iVar4;
   
   pOVar2 = PTR_POSS_CURRENT_OBJ;
   if (PTR_POSS_CURRENT_OBJ->obj_type == 1) {
     iVar4 = 10;
-    piVar3 = (int *)&PLAYER_KGT_BUFFER[PTR_POSS_CURRENT_OBJ->player_file_buffer].field_0xdfbf;
+    ppOVar3 = PLAYER_KGT_BUFFER[PTR_POSS_CURRENT_OBJ->player_file_buffer].object_mNumbers;
     do {
-      if ((OBJ_STRUCT *)*piVar3 == pOVar2) {
-        *piVar3 = 0;
+      if (*ppOVar3 == pOVar2) {
+        *ppOVar3 = (OBJ_STRUCT *)0x0;
       }
-      piVar3 = piVar3 + 1;
+      ppOVar3 = ppOVar3 + 1;
       iVar4 = iVar4 + -1;
     } while (iVar4 != 0);
   }
@@ -10883,7 +10869,7 @@ void FUN_0040e4a0(void)
 
 
 
-void FUN_0040e510(void)
+void obj_reset_values(void)
 
 {
   OBJ_STRUCT *pOVar1;
@@ -10905,17 +10891,17 @@ void FUN_0040e510(void)
 void obj_0x129_to_0(OBJ_STRUCT *obj)
 
 {
-  obj->field58_0x129 = 0;
+  obj->reaction_skillblock = (kgt_skill_step_struct *)0x0;
   return;
 }
 
 
 
-void FUN_0040e550(OBJ_STRUCT *param_1)
+void memzero_mystery_arrays(OBJ_STRUCT *param_1)
 
 {
-  memzero(param_1->mystery_array_b,0x50);
-  memzero(param_1->mystery_array_a,0x50);
+  memzero(param_1->hitbox_guard_array,0x50);
+  memzero(param_1->hitbox_attack_array,0x50);
   return;
 }
 
@@ -10925,20 +10911,20 @@ undefined4 FUN_0040e580(void)
 
 {
   int iVar1;
-  int iVar2;
-  OBJ_STRUCT *pOVar3;
+  OBJ_STRUCT *curr_obj;
+  int player_buffer;
   
-  pOVar3 = PTR_POSS_CURRENT_OBJ;
-  iVar1 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  if ((PLAYER_KGT_BUFFER[iVar1].guard_button_bool & 8U) != 0) {
+  curr_obj = PTR_POSS_CURRENT_OBJ;
+  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+  if ((PLAYER_KGT_BUFFER[player_buffer].guard_button_flag & 0b00001000U) != 0) {
     return 0;
   }
-  iVar2 = *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf51;
-  if (PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag == iVar2) {
+  iVar1 = *(int *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf51;
+  if (PTR_POSS_CURRENT_OBJ->pos_player_direction == iVar1) {
     return 0;
   }
-  *(int *)&PLAYER_KGT_BUFFER[iVar1].player_buff_idx_is_not_0 = iVar2;
-  pOVar3->pos_player_ignore_flag = iVar2;
+  *(int *)&PLAYER_KGT_BUFFER[player_buffer].player_buff_idx_is_not_0 = iVar1;
+  curr_obj->pos_player_direction = iVar1;
   return 1;
 }
 
@@ -10965,7 +10951,7 @@ void FUN_0040e5c0(void)
   iVar3 = 0x19000000;
   first_obj_player_idx = &OBJ_ARRAY[0].player_file_buffer;
   i = 1024;
-  PLAYER_KGT_BUFFER[iVar1].field6401_0xdf69 = 0;
+  PLAYER_KGT_BUFFER[iVar1].poss_opponent_obj_ptr_2_ = (OBJ_STRUCT *)0x0;
   do {
     if ((((ADJ(first_obj_player_idx).jmp_idx == 4) && (ADJ(first_obj_player_idx) != curr_obj)) &&
         (ADJ(first_obj_player_idx)->obj_type == 0)) &&
@@ -10973,7 +10959,7 @@ void FUN_0040e5c0(void)
       iVar2 = ADJ(first_obj_player_idx)->player_file_buffer;
       if (((PLAYER_KGT_BUFFER[iVar2].health != 0) &&
           (PLAYER_KGT_BUFFER[iVar2].script_reading_01_field5 != 0)) &&
-         ((PLAYER_KGT_BUFFER[iVar2].field6504_0xe00f != 0 &&
+         ((PLAYER_KGT_BUFFER[iVar2].unk_image_wait_flag != 0 &&
           ((*(uint *)&PLAYER_KGT_BUFFER[iVar1].enemy_bitmask & 1 << ((byte)iVar2 & 0x1f)) != 0)))) {
         first_obj_param_3 = ADJ(first_obj_player_idx)->param_3;
         param_3_diff = curr_obj->param_3 - first_obj_param_3;
@@ -10981,7 +10967,7 @@ void FUN_0040e5c0(void)
         param_3_diff_again = (param_3_diff ^ param_3_neg_check) - param_3_neg_check;
         curr_obj = PTR_POSS_CURRENT_OBJ;
         if (param_3_diff_again < iVar3) {
-          PLAYER_KGT_BUFFER[iVar1].field6401_0xdf69 = (int)ADJ(first_obj_player_idx);
+          PLAYER_KGT_BUFFER[iVar1].poss_opponent_obj_ptr_2_ = ADJ(first_obj_player_idx);
           curr_obj = PTR_POSS_CURRENT_OBJ;
           iVar3 = param_3_diff_again;
           local_4 = first_obj_param_3;
@@ -10992,7 +10978,7 @@ void FUN_0040e5c0(void)
     first_obj_player_idx = (OBJ_STRUCT_ptr_342_int)((int)first_obj_player_idx + 0x17e);
     i = i + -1;
   } while (i != 0);
-  if ((((PLAYER_KGT_BUFFER[iVar1].guard_button_bool & 8U) == 0) && (iVar3 < 0x19000000)) &&
+  if ((((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 8U) == 0) && (iVar3 < 0x19000000)) &&
      (param_3_diff = (uint)(local_4 <= curr_obj->param_3),
      param_3_diff != *(uint *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf51)) {
     *(uint *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf51 = param_3_diff;
@@ -11006,50 +10992,51 @@ void FUN_0040e5c0(void)
 
 
 
-void assign_player_0x42_0x4a_0x46(int player_idx,int param_2)
+void add_to_special_gauge(int player_idx,int special_increase)
 
 {
   int iVar1;
   int iVar2;
   
   if (PLAYER_KGT_BUFFER[player_idx].special_stock_max2 != 0) {
-    param_2 = PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d + param_2;
-    PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d = param_2;
-    while (param_2 < 0) {
-      if (PLAYER_KGT_BUFFER[player_idx].field6364_0xdf15 == 0) {
-        PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d = 0;
+    special_increase = PLAYER_KGT_BUFFER[player_idx].special_gauge + special_increase;
+    PLAYER_KGT_BUFFER[player_idx].special_gauge = special_increase;
+    while (special_increase < 0) {
+                    // Subtracting special gauge
+      if (PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens == 0) {
+        PLAYER_KGT_BUFFER[player_idx].special_gauge = 0;
       }
       else {
-        PLAYER_KGT_BUFFER[player_idx].field6364_0xdf15 =
-             PLAYER_KGT_BUFFER[player_idx].field6364_0xdf15 + -1;
-        PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d =
-             PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d +
+        PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens =
+             PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens + -1;
+        PLAYER_KGT_BUFFER[player_idx].special_gauge =
+             PLAYER_KGT_BUFFER[player_idx].special_gauge +
              PLAYER_KGT_BUFFER[player_idx].special_stock_gauge_max2;
       }
-      param_2 = PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d;
+      special_increase = PLAYER_KGT_BUFFER[player_idx].special_gauge;
     }
-    iVar1 = PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d;
+    iVar1 = PLAYER_KGT_BUFFER[player_idx].special_gauge;
     iVar2 = PLAYER_KGT_BUFFER[player_idx].special_stock_gauge_max2;
     if (iVar2 <= iVar1) {
       do {
-        if (PLAYER_KGT_BUFFER[player_idx].field6364_0xdf15 <
+        if (PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens <
             PLAYER_KGT_BUFFER[player_idx].special_stock_max2) {
-          PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d = iVar1 - iVar2;
-          PLAYER_KGT_BUFFER[player_idx].field6364_0xdf15 =
-               PLAYER_KGT_BUFFER[player_idx].field6364_0xdf15 + 1;
+          PLAYER_KGT_BUFFER[player_idx].special_gauge = iVar1 - iVar2;
+          PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens =
+               PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens + 1;
         }
         else {
-          PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d = 0;
+          PLAYER_KGT_BUFFER[player_idx].special_gauge = 0;
         }
-        iVar1 = PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d;
+        iVar1 = PLAYER_KGT_BUFFER[player_idx].special_gauge;
         iVar2 = PLAYER_KGT_BUFFER[player_idx].special_stock_gauge_max2;
       } while (iVar2 <= iVar1);
     }
     if (PLAYER_KGT_BUFFER[player_idx].special_stock_max2 <=
-        PLAYER_KGT_BUFFER[player_idx].field6364_0xdf15) {
-      PLAYER_KGT_BUFFER[player_idx].field6364_0xdf15 =
+        PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens) {
+      PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens =
            PLAYER_KGT_BUFFER[player_idx].special_stock_max2;
-      PLAYER_KGT_BUFFER[player_idx].field6366_0xdf1d = 0;
+      PLAYER_KGT_BUFFER[player_idx].special_gauge = 0;
     }
   }
   return;
@@ -11059,7 +11046,7 @@ void assign_player_0x42_0x4a_0x46(int player_idx,int param_2)
 
 // WARNING: Removing unreachable block (ram,0x0040ea44)
 
-void FUN_0040e7c0(int param_1,int param_2)
+void add_to_health(kgt_character_struct *player,int life_add)
 
 {
   uint *puVar1;
@@ -11075,48 +11062,48 @@ void FUN_0040e7c0(int param_1,int param_2)
   int iVar11;
   bool bVar12;
   
-  iVar4 = *(int *)(param_1 + 0xdf11);
-  if ((*(int *)(param_1 + 0xdf05) <= (int)((uint)*(byte *)(param_1 + 0x7ca6) * iVar4) / 100) &&
-     (param_2 < 0)) {
+  iVar4 = player->life_gauge_max2;
+  if ((player->health <= (int)((uint)(byte)player->life_rev_y_start_pos * iVar4) / 100) &&
+     (life_add < 0)) {
     iVar10 = (int)((ulonglong)
-                   ((longlong)(int)((uint)*(byte *)(param_1 + 0x7ca7) * param_2) * -0x51eb851f) >>
-                  0x20);
-    param_2 = (iVar10 >> 5) - (iVar10 >> 0x1f);
-    if (param_2 == 0) {
-      param_2 = 1;
+                   ((longlong)(int)((uint)(byte)player->life_rev_correction * life_add) *
+                   -0x51eb851f) >> 0x20);
+    iVar10 = (iVar10 >> 5) - (iVar10 >> 0x1f);
+    if (iVar10 == 0) {
+      iVar10 = 1;
     }
-    param_2 = -param_2;
+    life_add = -iVar10;
   }
   iVar11 = 0;
-  iVar10 = *(int *)(param_1 + 0xdf05) + param_2;
+  iVar10 = player->health + life_add;
   if (0 < iVar10) {
-    *(int *)(param_1 + 0xdf05) = iVar10;
-    param_2 = *(int *)(param_1 + 0xdf25) - param_2;
-    *(undefined4 *)(param_1 + 0xdf29) = 0x14;
-    *(int *)(param_1 + 0xdf25) = param_2;
-    if (param_2 < 0) {
-      *(undefined4 *)(param_1 + 0xdf25) = 0;
+    player->health = iVar10;
+    iVar11 = player->field6367_0xdf25 - life_add;
+    player->field6368_0xdf29 = 0x14;
+    player->field6367_0xdf25 = iVar11;
+    if (iVar11 < 0) {
+      player->field6367_0xdf25 = 0;
     }
     if (iVar10 <= iVar4) {
       return;
     }
-    *(int *)(param_1 + 0xdf05) = iVar4;
+    player->health = iVar4;
     return;
   }
-  puVar5 = *(undefined4 **)(param_1 + 0xdef5);
-  *(undefined4 *)(param_1 + 0xdf05) = 0;
-  puVar5[0xe] = (uint)*(ushort *)(param_1 + 0x75a0);
+  puVar5 = (undefined4 *)player->CPU;
+  player->health = 0;
+  puVar5[0xe] = (uint)(ushort)player->loss_skill_idx;
   bVar12 = GAME_STATE.GAME_MODE != 1P_story;
-  *(undefined4 *)(param_1 + 0xdf25) = 0;
-  *(undefined4 *)(param_1 + 0xdf29) = 0;
+  player->field6367_0xdf25 = 0;
+  player->field6368_0xdf29 = 0;
   if (bVar12) goto LAB_0040e8b7;
   iVar4 = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
   iVar10 = *(int *)((int)puVar5 + 0x156);
   if (iVar10 == 0) {
     bVar2 = PLAYER_KGT_BUFFER[0].character_story_entries[iVar4].cpu_winpns;
     if (bVar2 == 0) {
-      if (*(int *)(param_1 + 0xdef9) == 0) goto LAB_0040e8b7;
-      piVar6 = &PLAYER_KGT_BUFFER[*(int *)(*(int *)(param_1 + 0xdef9) + 0x156)].
+      if (player->poss_opponent_obj_ptr == (OBJ_STRUCT *)0x0) goto LAB_0040e8b7;
+      piVar6 = &PLAYER_KGT_BUFFER[player->poss_opponent_obj_ptr->player_file_buffer].
                 something_to_do_with_starting_health2;
     }
     else {
@@ -11130,8 +11117,8 @@ void FUN_0040e7c0(int param_1,int param_2)
   puVar1 = (uint *)(iVar4 * 0xce + 0x4d9a47 + iVar10 * 0x1a);
   bVar2 = *(byte *)(iVar4 * 0xce + 0x4d9a59 + iVar10 * 0x1a);
   if (bVar2 == 0) {
-    if (*(int *)(param_1 + 0xdef9) != 0) {
-      piVar6 = &PLAYER_KGT_BUFFER[*(int *)(*(int *)(param_1 + 0xdef9) + 0x156)].
+    if (player->poss_opponent_obj_ptr != (OBJ_STRUCT *)0x0) {
+      piVar6 = &PLAYER_KGT_BUFFER[player->poss_opponent_obj_ptr->player_file_buffer].
                 something_to_do_with_starting_health2;
       goto LAB_0040e93c;
     }
@@ -11143,14 +11130,14 @@ LAB_0040e93c:
   }
   uVar7 = *puVar1 >> 7 & 3;
   if (uVar7 == 1) {
-    FUN_0040e7c0(PLAYER_KGT_BUFFER,(int)(char)puVar1[4]);
+    add_to_health(PLAYER_KGT_BUFFER,(int)(char)puVar1[4]);
     cVar3 = *(char *)((int)puVar1 + 0x11);
 LAB_0040e998:
-    assign_player_0x42_0x4a_0x46(iVar11,(int)cVar3);
+    add_to_special_gauge(iVar11,(int)cVar3);
   }
-  else if ((uVar7 == 2) && (*(int *)(param_1 + 0xdef9) != 0)) {
-    iVar11 = *(int *)(*(int *)(param_1 + 0xdef9) + 0x156);
-    FUN_0040e7c0(PLAYER_KGT_BUFFER + iVar11,(int)(char)puVar1[4]);
+  else if ((uVar7 == 2) && (player->poss_opponent_obj_ptr != (OBJ_STRUCT *)0x0)) {
+    iVar11 = player->poss_opponent_obj_ptr->player_file_buffer;
+    add_to_health(PLAYER_KGT_BUFFER + iVar11,(int)(char)puVar1[4]);
     cVar3 = *(char *)((int)puVar1 + 0x11);
     goto LAB_0040e998;
   }
@@ -11179,8 +11166,8 @@ LAB_0040e998:
     return;
   }
 LAB_0040e8b7:
-  if (*(int *)(param_1 + 0xdef1) == 0) {
-    *(undefined4 *)(param_1 + 0xdef1) = 1;
+  if (player->field6353_0xdef1 == 0) {
+    player->field6353_0xdef1 = 1;
   }
   puVar5[1] = 0x3c;
   return;
@@ -11188,574 +11175,580 @@ LAB_0040e8b7:
 
 
 
-void FUN_0040eab0(int *param_1,int param_2,int param_3,int param_4,int param_5,int param_6,
-                 int param_7,int param_8,int param_9)
+void hitbox_calculation(int *out,int x_val,int y_val,int hitbox_width,int hitbox_height,
+                       int opp_x_val,int opp_y_val,int opp_hitbox_width,int opp_hitbox_height)
 
 {
   int iVar1;
   
-  if (param_8 + param_6 < param_2 + param_4) {
-    *param_1 = param_8 + param_6;
+  if (opp_hitbox_width + opp_x_val < x_val + hitbox_width) {
+    *out = opp_hitbox_width + opp_x_val;
   }
   else {
-    *param_1 = param_2 + param_4;
+    *out = x_val + hitbox_width;
   }
-  if (param_9 + param_7 < param_5 + param_3) {
-    param_1[1] = param_9 + param_7;
-  }
-  else {
-    param_1[1] = param_5 + param_3;
-  }
-  if (param_2 - param_4 < param_6 - param_8) {
-    iVar1 = *param_1 + (param_6 - param_8);
+  if (opp_hitbox_height + opp_y_val < hitbox_height + y_val) {
+    out[1] = opp_hitbox_height + opp_y_val;
   }
   else {
-    iVar1 = *param_1 + (param_2 - param_4);
+    out[1] = hitbox_height + y_val;
   }
-  *param_1 = iVar1;
-  if (param_3 - param_5 < param_7 - param_9) {
-    iVar1 = param_1[1] + (param_7 - param_9);
+  if (x_val - hitbox_width < opp_x_val - opp_hitbox_width) {
+    iVar1 = *out + (opp_x_val - opp_hitbox_width);
   }
   else {
-    iVar1 = param_1[1] + (param_3 - param_5);
+    iVar1 = *out + (x_val - hitbox_width);
   }
-  param_1[1] = iVar1;
-  *param_1 = *param_1 << 0xf;
-  param_1[1] = param_1[1] << 0xf;
+  *out = iVar1;
+  if (y_val - hitbox_height < opp_y_val - opp_hitbox_height) {
+    iVar1 = out[1] + (opp_y_val - opp_hitbox_height);
+  }
+  else {
+    iVar1 = out[1] + (y_val - hitbox_height);
+  }
+  out[1] = iVar1;
+  *out = *out << 0xf;
+  out[1] = out[1] << 0xf;
   return;
 }
 
 
 
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
-
-void FUN_0040eb60(void)
+void handle_hitboxes(void)
 
 {
-  undefined1 *puVar1;
-  kgt_obj_type kVar2;
-  kgt_skill_struct *pkVar3;
-  int mys_plus_5;
-  int iVar4;
+  kgt_obj_type kVar1;
+  kgt_skill_struct *pkVar2;
+  int y_val;
+  int hitbox_width;
+  int opp_hitbox_width;
   OBJ_STRUCT *iVar7;
-  int mys_plus_7;
-  uint uVar5;
-  int iVar6;
-  OBJ_STRUCT_ptr_8_intl pObj_param3;
-  int iVar8;
-  OBJ_STRUCT *next_obj;
-  int iVar9;
-  int local_3c;
-  int *local_24;
-  int *mystery;
+  int hitbox_height;
+  uint uVar3;
+  int opp_hitbox_height;
+  OBJ_STRUCT_ptr_8_int pObj_param3;
+  int opp_y_val;
+  OBJ_STRUCT *opponent_obj;
+  int opp_x_val;
+  int adjusted_x_val;
+  kgt_skill_step_struct **pOpp_hitbox;
+  kgt_skill_step_struct *pHitbox;
   int i4;
   int i3;
   int i2;
   int i;
   int local_8 [2];
-  int mys_val;
-  int obj_param3;
+  kgt_skill_step_struct *hitbox;
+  int x_val;
+  kgt_skill_step_struct *opp_hitbox;
   
   pObj_param3 = &OBJ_ARRAY[0].param_3;
   i = 0;
   do {
     if (ADJ(pObj_param3).jmp_idx == 4) {
-      mystery = ADJ(pObj_param3)->mystery_array_a + 0x13;
+      pHitbox = (kgt_skill_step_struct *)(ADJ(pObj_param3)->hitbox_attack_array + 0x13);
       i2 = 20;
       do {
-        mys_val = *mystery;
-        if (mys_val != 0) {
-          obj_param3 = ADJ(pObj_param3)->param_3;
-          if ((ADJ(pObj_param3)->pos_player_ignore_flag & 1) == 0) {
-            local_3c = (int)*(short *)(mys_val + 1) +
-                       ((int)(obj_param3 + (obj_param3 >> 31 & 0xffffU)) >> 0x10);
+        hitbox = *(kgt_skill_step_struct **)pHitbox;
+        if (hitbox != (kgt_skill_step_struct *)0x0) {
+                    // Figure out what is going on with the division? here
+          x_val = ADJ(pObj_param3)->param_3;
+          if ((ADJ(pObj_param3)->pos_player_direction & 1) == 0) {
+            adjusted_x_val =
+                 (int)*(short *)&hitbox->field_0x1 +
+                 ((int)(x_val + (x_val >> 31 & 0xffffU)) >> 0x10);
           }
           else {
-            local_3c = ((int)(obj_param3 + (obj_param3 >> 31 & 0xffffU)) >> 0x10) -
-                       (int)*(short *)(mys_val + 1);
+            adjusted_x_val =
+                 ((int)(x_val + (x_val >> 31 & 0xffffU)) >> 0x10) -
+                 (int)*(short *)&hitbox->field_0x1;
           }
-          obj_param3 = ((int)(ADJ(pObj_param3)->param_4 +
-                             (ADJ(pObj_param3)->param_4 >> 0x1f & 0xffffU)) >> 0x10) +
-                       (int)*(short *)(mys_val + 3);
-          mys_plus_5 = (int)*(short *)(mys_val + 5);
-          mys_plus_7 = (int)*(short *)(mys_val + 7);
-          next_obj = OBJ_ARRAY + i + 1;
+          y_val = ((int)(ADJ(pObj_param3)->param_4 + (ADJ(pObj_param3)->param_4 >> 0x1f & 0xffffU))
+                  >> 0x10) + (int)*(short *)&hitbox->field_0x3;
+          hitbox_width = (int)*(short *)&hitbox->field_0x5;
+          hitbox_height = (int)*(short *)&hitbox->field_0x7;
+          opponent_obj = OBJ_ARRAY + i + 1;
           if (i + 1 < 0x400) {
             i3 = 0x400 - (i + 1);
             do {
-              if ((next_obj->jmp_idx == 4) &&
-                 (((*(uint *)&ADJ(pObj_param3)->__or_3 ^ *(uint *)&next_obj->__or_3) & 1) == 0)) {
-                if ((ADJ(pObj_param3)->player_file_buffer != next_obj->player_file_buffer) &&
-                   ((((uint)next_obj->obj_ptr_b & 8) == 0 &&
+              if ((opponent_obj->jmp_idx == 4) &&
+                 (((*(uint *)&ADJ(pObj_param3)->__or_3 ^ *(uint *)&opponent_obj->__or_3) & 1) == 0))
+              {
+                if ((ADJ(pObj_param3)->player_file_buffer != opponent_obj->player_file_buffer) &&
+                   ((((uint)opponent_obj->obj_ptr_b & 8) == 0 &&
                     ((*(uint *)&PLAYER_KGT_BUFFER[ADJ(pObj_param3)->player_file_buffer].
-                                enemy_bitmask & 1 << ((byte)next_obj->player_file_buffer & 0x1f)) !=
-                     0)))) {
-                  local_24 = next_obj->mystery_array_a + 0x13;
+                                enemy_bitmask & 1 << ((byte)opponent_obj->player_file_buffer & 0x1f)
+                     ) != 0)))) {
+                  pOpp_hitbox = (kgt_skill_step_struct **)(opponent_obj->hitbox_attack_array + 0x13)
+                  ;
                   i4 = 0x14;
                   do {
-                    puVar1 = (undefined1 *)*local_24;
-                    if (puVar1 != (undefined1 *)0x0) {
-                      if ((next_obj->pos_player_ignore_flag & 1) == 0) {
-                        iVar9 = (int)*(short *)(puVar1 + 1) +
-                                ((int)(next_obj->param_3 + (next_obj->param_3 >> 0x1f & 0xffffU)) >>
-                                0x10);
+                    opp_hitbox = *pOpp_hitbox;
+                    if (opp_hitbox != (kgt_skill_step_struct *)0x0) {
+                      if ((opponent_obj->pos_player_direction & 1) == 0) {
+                        opp_x_val = (int)*(short *)&opp_hitbox->field_0x1 +
+                                    ((int)(opponent_obj->param_3 +
+                                          (opponent_obj->param_3 >> 0x1f & 0xffffU)) >> 0x10);
                       }
                       else {
-                        iVar9 = ((int)(next_obj->param_3 + (next_obj->param_3 >> 0x1f & 0xffffU)) >>
-                                0x10) - (int)*(short *)(puVar1 + 1);
+                        opp_x_val = ((int)(opponent_obj->param_3 +
+                                          (opponent_obj->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
+                                    (int)*(short *)&opp_hitbox->field_0x1;
                       }
-                      iVar6 = (int)*(short *)(puVar1 + 7);
-                      iVar8 = (int)*(short *)(puVar1 + 3) +
-                              ((int)(next_obj->param_4 + (next_obj->param_4 >> 0x1f & 0xffffU)) >>
-                              0x10);
-                      iVar4 = (int)*(short *)(puVar1 + 5);
-                      if ((((iVar9 - iVar4 < mys_plus_5 + local_3c) &&
-                           (local_3c - mys_plus_5 < iVar4 + iVar9)) &&
-                          (iVar8 - iVar6 < mys_plus_7 + obj_param3)) &&
-                         (obj_param3 - mys_plus_7 < iVar6 + iVar8)) {
+                      opp_hitbox_height = (int)*(short *)&opp_hitbox->field_0x7;
+                      opp_y_val = (int)*(short *)&opp_hitbox->field_0x3 +
+                                  ((int)(opponent_obj->param_4 +
+                                        (opponent_obj->param_4 >> 0x1f & 0xffffU)) >> 0x10);
+                      opp_hitbox_width = (int)*(short *)&opp_hitbox->field_0x5;
+                      if ((((opp_x_val - opp_hitbox_width < hitbox_width + adjusted_x_val) &&
+                           (adjusted_x_val - hitbox_width < opp_hitbox_width + opp_x_val)) &&
+                          (opp_y_val - opp_hitbox_height < hitbox_height + y_val)) &&
+                         (y_val - hitbox_height < opp_hitbox_height + opp_y_val)) {
                         if (ADJ(pObj_param3)->player_file_buffer == 0) {
-                          GAME_STATE.poss_player_file_buffer = next_obj->player_file_buffer;
+                          GAME_STATE.hit_player_buffer = opponent_obj->player_file_buffer;
                           GAME_STATE.jump_15_var_a = 1000;
                         }
-                        if ((*(char *)(mys_val + 0xc) == '\0') && (puVar1[0xc] == '\0')) {
-                          memzero(ADJ(pObj_param3)->mystery_array_a,0x50);
-                          memzero(next_obj->mystery_array_a,0x50);
+                        if ((hitbox->field_0xc == '\0') && (opp_hitbox->field_0xc == '\0')) {
+                          memzero(ADJ(pObj_param3)->hitbox_attack_array,0x50);
+                          memzero(opponent_obj->hitbox_attack_array,0x50);
                         }
                         else {
                           if (ADJ(pObj_param3)->case2_var_e != 0) {
-                            ADJ(pObj_param3)->related_to_reaction_skill_idx =
-                                 ADJ(pObj_param3)->case2_var_e;
+                            ADJ(pObj_param3)->hit_junction_idx = ADJ(pObj_param3)->case2_var_e;
                             ADJ(pObj_param3)->case2_var_e = 0;
-                            memzero(ADJ(pObj_param3)->mystery_array_a,0x50);
-                            memzero(next_obj->mystery_array_a,0x50);
+                            memzero(ADJ(pObj_param3)->hitbox_attack_array,0x50);
+                            memzero(opponent_obj->hitbox_attack_array,0x50);
                           }
-                          if (next_obj->case2_var_e != 0) {
-                            next_obj->related_to_reaction_skill_idx = next_obj->case2_var_e;
-                            next_obj->case2_var_e = 0;
-                            memzero(ADJ(pObj_param3)->mystery_array_a,0x50);
-                            memzero(next_obj->mystery_array_a,0x50);
+                          if (opponent_obj->case2_var_e != 0) {
+                            opponent_obj->hit_junction_idx = opponent_obj->case2_var_e;
+                            opponent_obj->case2_var_e = 0;
+                            memzero(ADJ(pObj_param3)->hitbox_attack_array,0x50);
+                            memzero(opponent_obj->hitbox_attack_array,0x50);
                           }
-                          if ((DAT_004438a4 & 2) != 0) {
-                            if ((*(char *)(mys_val + 0xc) != '\0') || (puVar1[0xc] != '\0')) {
-                              FUN_0040eab0(local_8,local_3c,obj_param3,mys_plus_5,mys_plus_7,iVar9,
-                                           iVar8,iVar4,iVar6);
+                          if ((DAT_KGT_FILE_BUFFER_00433240.system_bitmask & 2U) != 0) {
+                            if ((hitbox->field_0xc != '\0') || (opp_hitbox->field_0xc != '\0')) {
+                              hitbox_calculation(local_8,adjusted_x_val,y_val,hitbox_width,
+                                                 hitbox_height,opp_x_val,opp_y_val,opp_hitbox_width,
+                                                 opp_hitbox_height);
                               iVar7 = FIND_EMPTY_OBJ(4,0x5d,local_8[0] + unk_y_position * -0x10000,
                                                      local_8[1] + unk_x_position * -0x10000);
-                              pkVar3 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-                              uVar5 = _DAT_004451c0 & 0xffff;
-                              iVar7->action_idx = uVar5;
+                              pkVar2 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
+                              uVar3 = DAT_KGT_FILE_BUFFER_00433240._73600_4_ & 0xffff;
+                              iVar7->action_idx = uVar3;
                               iVar7->obj_type = main_kgt_file;
                               *(uint *)&iVar7->actionscript_idx =
-                                   (uint)(ushort)pkVar3[uVar5].starting_step_idx;
+                                   (uint)(ushort)pkVar2[uVar3].starting_step_idx;
                             }
-                            iVar9 = next_obj->player_file_buffer;
+                            opp_x_val = opponent_obj->player_file_buffer;
                             if (*(int *)&PLAYER_KGT_BUFFER[ADJ(pObj_param3)->player_file_buffer].
-                                         field_0xdf85 != 0) {
+                                         currect_action_cancellable_flag != 0) {
                               *(undefined4 *)
-                               &PLAYER_KGT_BUFFER[ADJ(pObj_param3)->player_file_buffer].field_0xdf85
-                                   = 2;
+                               &PLAYER_KGT_BUFFER[ADJ(pObj_param3)->player_file_buffer].
+                                currect_action_cancellable_flag = 2;
                             }
-                            if (*(int *)&PLAYER_KGT_BUFFER[iVar9].field_0xdf85 != 0) {
-                              *(undefined4 *)&PLAYER_KGT_BUFFER[iVar9].field_0xdf85 = 2;
+                            if (*(int *)&PLAYER_KGT_BUFFER[opp_x_val].
+                                         currect_action_cancellable_flag != 0) {
+                              *(undefined4 *)
+                               &PLAYER_KGT_BUFFER[opp_x_val].currect_action_cancellable_flag = 2;
                             }
-                            memzero(ADJ(pObj_param3)->mystery_array_a,0x50);
-                            memzero(next_obj->mystery_array_a,0x50);
-                            uVar5 = (uint)DAT_KGT_FILE_BUFFER_00433240.hit_junctions[0xac].
-                                          allottment_idx._1_1_;
-                            *(uint *)&next_obj->time_method_number_in_frames = uVar5;
-                            *(uint *)&ADJ(pObj_param3)->time_method_number_in_frames = uVar5;
+                            memzero(ADJ(pObj_param3)->hitbox_attack_array,0x50);
+                            memzero(opponent_obj->hitbox_attack_array,0x50);
+                            uVar3 = (uint)(byte)DAT_KGT_FILE_BUFFER_00433240.stiff_time_offset;
+                            *(uint *)&opponent_obj->time_method_number_in_frames = uVar3;
+                            *(uint *)&ADJ(pObj_param3)->time_method_number_in_frames = uVar3;
                           }
-                          if (((*(char *)(mys_val + 0xc) == '\0') || (puVar1[0xc] == '\0')) &&
-                             (((*(byte *)(mys_val + 0xb) & 0x80) != 0 || ((puVar1[0xb] & 0x80) != 0)
-                              ))) {
-                            *puVar1 = 0;
-                            kVar2 = ADJ(pObj_param3)->obj_type;
-                            *(undefined1 *)mys_val = 0;
-                            if ((kVar2 != 0) && (ADJ(pObj_param3)->stage_skillscript_idx != 0)) {
-                              ADJ(pObj_param3)->related_to_reaction_skill_idx =
+                          if (((hitbox->field_0xc == '\0') || (opp_hitbox->field_0xc == '\0')) &&
+                             (((hitbox->field_0xb & 0x80) != 0 ||
+                              ((opp_hitbox->field_0xb & 0x80) != 0)))) {
+                            opp_hitbox->skill_step_type = 0;
+                            kVar1 = ADJ(pObj_param3)->obj_type;
+                            hitbox->skill_step_type = 0;
+                            if ((kVar1 != 0) && (ADJ(pObj_param3)->stage_skillscript_idx != 0)) {
+                              ADJ(pObj_param3)->hit_junction_idx =
                                    ADJ(pObj_param3)->stage_skillscript_idx;
                               ADJ(pObj_param3)->stage_skillscript_idx = 0;
                             }
-                            if ((next_obj->obj_type != 0) && (next_obj->stage_skillscript_idx != 0))
-                            {
-                              next_obj->related_to_reaction_skill_idx =
-                                   next_obj->stage_skillscript_idx;
-                              next_obj->stage_skillscript_idx = 0;
+                            if ((opponent_obj->obj_type != 0) &&
+                               (opponent_obj->stage_skillscript_idx != 0)) {
+                              opponent_obj->hit_junction_idx = opponent_obj->stage_skillscript_idx;
+                              opponent_obj->stage_skillscript_idx = 0;
                             }
                           }
                         }
                       }
                     }
                     i4 = i4 + -1;
-                    local_24 = local_24 + -1;
+                    pOpp_hitbox = pOpp_hitbox + -1;
                   } while (i4 != 0);
                 }
               }
-              next_obj = next_obj + 1;
+              opponent_obj = opponent_obj + 1;
               i3 = i3 + -1;
             } while (i3 != 0);
           }
         }
         i2 = i2 + -1;
-        mystery = mystery + -1;
+        pHitbox = (kgt_skill_step_struct *)&pHitbox[-1].field_0xc;
       } while (i2 != 0);
     }
     i = i + 1;
-    pObj_param3 = (OBJ_STRUCT_ptr_8_intl)((int)pObj_param3 + 0x17e);
+    pObj_param3 = (OBJ_STRUCT_ptr_8_int)((int)pObj_param3 + 0x17e);
   } while (i < 1024);
   return;
 }
 
 
 
-void FUN_0040f010(void)
+void handle_hitboxes_2(void)
 
 {
-  kgt_character_struct *pkVar1;
-  byte bVar2;
+  kgt_character_struct *player;
+  int iVar1;
+  uint uVar2;
   int iVar3;
-  int iVar4;
-  int iVar5;
-  uint uVar6;
-  int iVar7;
-  byte bVar8;
-  bool bVar9;
-  kgt_character_struct *pkVar10;
-  undefined3 uVar11;
-  int iVar12;
+  bool bVar4;
+  kgt_character_struct *pkVar5;
+  undefined3 uVar6;
+  int hitbox_height;
   int rand;
-  OBJ_STRUCT *pOVar13;
-  int iVar14;
-  int iVar15;
-  uint uVar16;
-  uint uVar17;
-  int iVar18;
-  int iVar19;
-  OBJ_STRUCT *piVar21;
-  int iVar20;
-  OBJ_STRUCT *pOVar21;
+  OBJ_STRUCT *pOVar7;
+  int hitbox_y_val;
+  int hitbox_width;
+  uint uVar8;
+  uint uVar9;
+  int iVar10;
+  int iVar11;
+  OBJ_STRUCT *opp_object;
+  int iVar12;
+  OBJ_STRUCT *object;
   uint local_3c;
   int *local_38;
-  int local_34;
+  int hitbox_x_val;
   int i;
   int local_14;
   int local_10;
   int local_8;
   int local_4;
+  kgt_skill_step_struct *hitbox;
   int new_ivar;
+  byte attack_no_decision;
+  byte hitbox_flags;
+  int player_buffer;
   
   local_10 = 0;
-  pOVar21 = OBJ_ARRAY;
+  object = OBJ_ARRAY;
   do {
-    if ((((pOVar21->__or_3 & 2) == 0) && (pOVar21->jmp_idx == 4)) &&
-       (((uint)pOVar21->obj_ptr_b & 0x10) == 0)) {
+    if ((((object->__or_3 & 2) == 0) && (object->jmp_idx == 4)) &&
+       (((uint)object->obj_ptr_b & 0x10) == 0)) {
       i = 0;
       do {
-        iVar3 = pOVar21->mystery_array_a[i];
-        if (iVar3 != 0) {
-          iVar12 = pOVar21->param_3;
-          if ((pOVar21->pos_player_ignore_flag & 1) == 0) {
-            local_34 = (int)*(short *)(iVar3 + 1) +
-                       ((int)(iVar12 + (iVar12 >> 0x1f & 0xffffU)) >> 0x10);
+        hitbox = (kgt_skill_step_struct *)object->hitbox_attack_array[i];
+        if (hitbox != (kgt_skill_step_struct *)0x0) {
+          hitbox_y_val = object->param_3;
+          if ((object->pos_player_direction & 1) == 0) {
+            hitbox_x_val = (int)*(short *)&hitbox->field_0x1 +
+                           ((int)(hitbox_y_val + (hitbox_y_val >> 0x1f & 0xffffU)) >> 0x10);
           }
           else {
-            local_34 = ((int)(iVar12 + (iVar12 >> 0x1f & 0xffffU)) >> 0x10) -
-                       (int)*(short *)(iVar3 + 1);
+            hitbox_x_val = ((int)(hitbox_y_val + (hitbox_y_val >> 0x1f & 0xffffU)) >> 0x10) -
+                           (int)*(short *)&hitbox->field_0x1;
           }
           local_14 = 0;
-          piVar21 = OBJ_ARRAY;
-          iVar15 = (int)*(short *)(iVar3 + 5);
-          iVar14 = (int)*(short *)(iVar3 + 3) +
-                   ((int)(pOVar21->param_4 + (pOVar21->param_4 >> 0x1f & 0xffffU)) >> 0x10);
-          iVar12 = (int)*(short *)(iVar3 + 7);
+          opp_object = OBJ_ARRAY;
+          hitbox_width = (int)*(short *)&hitbox->field_0x5;
+          hitbox_y_val = (int)*(short *)&hitbox->field_0x3 +
+                         ((int)(object->param_4 + (object->param_4 >> 0x1f & 0xffffU)) >> 0x10);
+          hitbox_height = (int)*(short *)&hitbox->field_0x7;
           do {
-            if (((piVar21->jmp_idx == 4) &&
-                (((*(uint *)&piVar21->__or_3 ^ *(uint *)&pOVar21->__or_3) & 1) == 0)) &&
-               (pOVar21->player_file_buffer_2 != piVar21->player_file_buffer_2)) {
-              iVar4 = pOVar21->player_file_buffer;
-              if (((*(uint *)&PLAYER_KGT_BUFFER[iVar4].enemy_bitmask &
-                   1 << ((byte)piVar21->player_file_buffer & 0x1f)) != 0) &&
-                 ((*(uint *)&piVar21->__or_3 & 2) == 0)) {
-                if (piVar21->obj_type == 0) {
-                  if ((piVar21->param_4 == piVar21->compare_to_param_4) &&
-                     (piVar21->field10_0x1c == 0)) {
-                    bVar2 = *(byte *)(iVar3 + 10);
-                    bVar8 = bVar2 & 0x10;
+            if (((opp_object->jmp_idx == 4) &&
+                (((*(uint *)&opp_object->__or_3 ^ *(uint *)&object->__or_3) & 1) == 0)) &&
+               (object->player_file_buffer_2 != opp_object->player_file_buffer_2)) {
+              player_buffer = object->player_file_buffer;
+              if (((*(uint *)&PLAYER_KGT_BUFFER[player_buffer].enemy_bitmask &
+                   1 << ((byte)opp_object->player_file_buffer & 0x1f)) != 0) &&
+                 ((*(uint *)&opp_object->__or_3 & 2) == 0)) {
+                if (opp_object->obj_type == 0) {
+                  if ((opp_object->param_4 == opp_object->compare_to_param_4) &&
+                     (opp_object->y_momentum == 0)) {
+                    hitbox_flags = hitbox->field_0xa;
+                    attack_no_decision = hitbox_flags & 0x10;
                   }
                   else {
-                    bVar2 = *(byte *)(iVar3 + 10);
-                    bVar8 = bVar2 & 0x20;
+                    hitbox_flags = hitbox->field_0xa;
+                    attack_no_decision = hitbox_flags & 0x20;
                   }
-                  if (((bVar8 != 0) ||
-                      (((bVar2 & 8) != 0 && (((byte)piVar21->obj_ptr_b & 0xc) == 0xc)))) ||
-                     (((bVar2 & 0x80) != 0 && (((byte)piVar21->obj_ptr_b & 0xc) == 8))))
-                  goto LAB_0040f8bf;
+                  if (((attack_no_decision != 0) ||
+                      (((hitbox_flags & 8) != 0 && (((byte)opp_object->obj_ptr_b & 0xc) == 0xc))))
+                     || (((hitbox_flags & 0x80) != 0 && (((byte)opp_object->obj_ptr_b & 0xc) == 8)))
+                     ) goto LAB_0040f8bf;
                 }
-                local_38 = piVar21->mystery_array_b;
+                local_38 = opp_object->hitbox_guard_array;
                 local_3c = 0;
                 do {
-                  iVar18 = *local_38;
-                  if ((iVar18 != 0) && ((*(byte *)(iVar18 + 10) & 6) != 0)) {
-                    if ((piVar21->pos_player_ignore_flag & 1) == 0) {
-                      iVar19 = (int)*(short *)(iVar18 + 1) +
-                               ((int)(piVar21->param_3 + (piVar21->param_3 >> 0x1f & 0xffffU)) >>
-                               0x10);
+                  iVar10 = *local_38;
+                  if ((iVar10 != 0) && ((*(byte *)(iVar10 + 10) & 6) != 0)) {
+                    if ((opp_object->pos_player_direction & 1) == 0) {
+                      iVar11 = (int)*(short *)(iVar10 + 1) +
+                               ((int)(opp_object->param_3 + (opp_object->param_3 >> 0x1f & 0xffffU))
+                               >> 0x10);
                     }
                     else {
-                      iVar19 = ((int)(piVar21->param_3 + (piVar21->param_3 >> 0x1f & 0xffffU)) >>
-                               0x10) - (int)*(short *)(iVar18 + 1);
+                      iVar11 = ((int)(opp_object->param_3 + (opp_object->param_3 >> 0x1f & 0xffffU))
+                               >> 0x10) - (int)*(short *)(iVar10 + 1);
                     }
-                    iVar20 = (int)*(short *)(iVar18 + 3) +
-                             ((int)(piVar21->param_4 + (piVar21->param_4 >> 0x1f & 0xffffU)) >> 0x10
-                             );
-                    if ((((iVar19 - *(short *)(iVar18 + 5) < iVar15 + local_34) &&
-                         (local_34 - iVar15 < *(short *)(iVar18 + 5) + iVar19)) &&
-                        (iVar20 - *(short *)(iVar18 + 7) < iVar12 + iVar14)) &&
-                       (iVar14 - iVar12 < *(short *)(iVar18 + 7) + iVar20)) {
-                      iVar5 = piVar21->player_file_buffer;
-                      bVar9 = false;
-                      uVar17 = (uint)*(byte *)(iVar3 + 0xc);
-                      local_3c = INPUT_BUFFER_A[iVar5][INPUT_BUFFER_POS];
-                      pkVar1 = PLAYER_KGT_BUFFER + iVar5;
-                      if (pOVar21->obj_type == 0) {
-                        PLAYER_KGT_BUFFER[iVar4].field6356_0xdef9 = (int)piVar21;
-                        PLAYER_KGT_BUFFER[iVar5].field6356_0xdef9 = (int)pOVar21;
+                    iVar12 = (int)*(short *)(iVar10 + 3) +
+                             ((int)(opp_object->param_4 + (opp_object->param_4 >> 0x1f & 0xffffU))
+                             >> 0x10);
+                    if ((((iVar11 - *(short *)(iVar10 + 5) < hitbox_width + hitbox_x_val) &&
+                         (hitbox_x_val - hitbox_width < *(short *)(iVar10 + 5) + iVar11)) &&
+                        (iVar12 - *(short *)(iVar10 + 7) < hitbox_height + hitbox_y_val)) &&
+                       (hitbox_y_val - hitbox_height < *(short *)(iVar10 + 7) + iVar12)) {
+                      iVar1 = opp_object->player_file_buffer;
+                      bVar4 = false;
+                      uVar9 = (uint)(byte)hitbox->field_0xc;
+                      local_3c = INPUT_BUFFER_A[iVar1][INPUT_BUFFER_POS];
+                      player = PLAYER_KGT_BUFFER + iVar1;
+                      if (object->obj_type == 0) {
+                        PLAYER_KGT_BUFFER[player_buffer].poss_opponent_obj_ptr = opp_object;
+                        PLAYER_KGT_BUFFER[iVar1].poss_opponent_obj_ptr = object;
                       }
-                      if (pOVar21->player_file_buffer == 0) {
+                      if (object->player_file_buffer == 0) {
                         GAME_STATE.jump_15_var_a = 1000;
-                        GAME_STATE.poss_player_file_buffer = iVar5;
+                        GAME_STATE.hit_player_buffer = iVar1;
                       }
-                      if (PLAYER_KGT_BUFFER[iVar5].field6497_0xdfff != 0) {
-                        local_3c = *(uint *)&PLAYER_KGT_BUFFER[iVar5].field_0xe003;
+                      if (PLAYER_KGT_BUFFER[iVar1].field6465_0xdfff != 0) {
+                        local_3c = *(uint *)&PLAYER_KGT_BUFFER[iVar1].input_storage;
                       }
-                      pOVar21->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar21->obj_ptr_b | 0x10);
-                      if (pOVar21->obj_type == 0) {
-                        pOVar21->param2_maybe_50_or_46 =
-                             (&INT_0041f130)[*(uint *)&pOVar21->__or_3 & 1] + 1;
+                      object->obj_ptr_b = (OBJ_STRUCT *)((uint)object->obj_ptr_b | 0x10);
+                      if (object->obj_type == 0) {
+                        object->param2_maybe_50_or_46 =
+                             (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + 1;
                       }
-                      if (piVar21->obj_type == 0) {
-                        piVar21->param2_maybe_50_or_46 =
-                             (&INT_0041f130)[*(uint *)&pOVar21->__or_3 & 1] + -1;
+                      if (opp_object->obj_type == 0) {
+                        opp_object->param2_maybe_50_or_46 =
+                             (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + -1;
                       }
-                      if (piVar21->obj_type != 0) {
-                        if ((piVar21->obj_type == 1) && (pOVar21->case2_var_b != 0)) {
-                          pOVar21->related_to_reaction_skill_idx = pOVar21->case2_var_b;
-                          pOVar21->case2_var_b = 0;
+                      if (opp_object->obj_type != 0) {
+                        if ((opp_object->obj_type == 1) && (object->case2_var_b != 0)) {
+                          object->hit_junction_idx = object->case2_var_b;
+                          object->case2_var_b = 0;
                         }
                         break;
                       }
-                      if (*(int *)&PLAYER_KGT_BUFFER[iVar4].field_0xdf85 != 0) {
-                        *(undefined4 *)&PLAYER_KGT_BUFFER[iVar4].field_0xdf85 = 2;
+                      if (*(int *)&PLAYER_KGT_BUFFER[player_buffer].currect_action_cancellable_flag
+                          != 0) {
+                        *(undefined4 *)
+                         &PLAYER_KGT_BUFFER[player_buffer].currect_action_cancellable_flag = 2;
                       }
-                      if ((*(int *)&PLAYER_KGT_BUFFER[iVar5].field_0xdf51 == 0) ||
-                         ((PLAYER_KGT_BUFFER[iVar5].guard_button_bool & 8U) == 0)) {
-                        uVar16 = 1;
+                      if ((*(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf51 == 0) ||
+                         ((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 8U) == 0)) {
+                        uVar8 = 1;
                       }
                       else {
-                        uVar16 = (pOVar21->param_3 <= piVar21->param_3) + 1;
+                        uVar8 = (object->param_3 <= opp_object->param_3) + 1;
                       }
-                      if (((uint)piVar21->obj_ptr_b & 0xc) == 0) {
-                        if (PLAYER_KGT_BUFFER[iVar5].unk_CPU_var_initial_1 == 0) {
-                          pkVar10 = PLAYER_KGT_BUFFER + iVar5;
-                          uVar6._0_1_ = pkVar10->guard_button_bool;
-                          uVar6._1_1_ = pkVar10->field1829_0x7cb7[0];
-                          uVar6._2_1_ = pkVar10->field1829_0x7cb7[1];
-                          uVar6._3_1_ = pkVar10->field1829_0x7cb7[2];
-                          if ((uVar6 & 8) == 0) {
-                            if ((local_3c & uVar16) == 0) {
-                              if ((uVar6 & 1) != 0) {
-                                uVar16 = local_3c & 0xfffffff7;
+                      if (((uint)opp_object->obj_ptr_b & 0xc) == 0) {
+                        if (PLAYER_KGT_BUFFER[iVar1].unk_CPU_var_initial_1 == 0) {
+                          pkVar5 = PLAYER_KGT_BUFFER + iVar1;
+                          uVar2._0_1_ = pkVar5->guard_button_flag;
+                          uVar2._1_1_ = pkVar5->field1828_0x7cb7[0];
+                          uVar2._2_1_ = pkVar5->field1828_0x7cb7[1];
+                          uVar2._3_1_ = pkVar5->field1828_0x7cb7[2];
+                          if ((uVar2 & 8) == 0) {
+                            if ((local_3c & uVar8) == 0) {
+                              if ((uVar2 & 1) != 0) {
+                                uVar8 = local_3c & 0xfffffff7;
                                 goto joined_r0x0040f43f;
                               }
                               goto LAB_0040f449;
                             }
                           }
-                          else if ((INPUT_BUFFER_A[piVar21->player_file_buffer][INPUT_BUFFER_POS] &
-                                   1 << (PLAYER_KGT_BUFFER[iVar5].guard_button + 4U & 0x1f)) == 0) {
-                            uVar16 = local_3c;
-                            if ((uVar6 & 1) != 0) {
+                          else if ((INPUT_BUFFER_A[opp_object->player_file_buffer][INPUT_BUFFER_POS]
+                                   & 1 << (PLAYER_KGT_BUFFER[iVar1].guard_button + 4U & 0x1f)) == 0)
+                          {
+                            uVar8 = local_3c;
+                            if ((uVar2 & 1) != 0) {
 joined_r0x0040f43f:
-                              if (uVar16 == 0) goto LAB_0040f441;
+                              if (uVar8 == 0) goto LAB_0040f441;
                             }
                             goto LAB_0040f449;
                           }
                         }
                         else {
                           rand = _rand();
-                          if (PLAYER_KGT_BUFFER[iVar5].cpu_level <= rand % 100) goto LAB_0040f449;
+                          if (PLAYER_KGT_BUFFER[iVar1].cpu_level <= rand % 100) goto LAB_0040f449;
                         }
 LAB_0040f441:
-                        bVar9 = true;
+                        bVar4 = true;
                       }
 LAB_0040f449:
-                      if (((byte)piVar21->obj_ptr_b & 0xc) == 0xc) {
-                        bVar9 = true;
+                      if (((byte)opp_object->obj_ptr_b & 0xc) == 0xc) {
+                        bVar4 = true;
                       }
-                      if ((*(byte *)(iVar3 + 10) & 0x40) != 0) {
-                        bVar9 = false;
+                      if ((hitbox->field_0xa & 0x40) != 0) {
+                        bVar4 = false;
                       }
-                      if (((PLAYER_KGT_BUFFER[iVar5].guard_button_bool & 2U) == 0) &&
-                         (piVar21->param_4 < piVar21->compare_to_param_4)) {
-                        bVar9 = false;
+                      if (((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 2U) == 0) &&
+                         (opp_object->param_4 < opp_object->compare_to_param_4)) {
+                        bVar4 = false;
                       }
-                      new_ivar = pOVar21->field58_0x129;
+                      new_ivar = (int)object->reaction_skillblock;
                       if (new_ivar == 0) {
 LAB_0040f657:
-                        if (uVar17 != 0) {
+                        if (uVar9 != 0) {
                           SET_DEBUG_INFO(s_reaction_error_2_0041f1e4,0xff);
                           break;
                         }
                       }
                       else {
-                        if (piVar21->param_4 < piVar21->compare_to_param_4) {
-                          if (bVar9) {
-                            uVar16 = (uint)*(ushort *)(new_ivar + 0xb);
+                        if (opp_object->param_4 < opp_object->compare_to_param_4) {
+                          if (bVar4) {
+                            uVar8 = (uint)*(ushort *)(new_ivar + 0xb);
                           }
                           else {
-                            uVar16 = (uint)*(ushort *)(new_ivar + 5);
+                            uVar8 = (uint)*(ushort *)(new_ivar + 5);
                           }
                         }
                         else if ((local_3c & 8) == 0) {
-                          if (bVar9) {
-                            uVar16 = (uint)*(ushort *)(new_ivar + 7);
-                            if ((PLAYER_KGT_BUFFER[iVar5].unk_CPU_var_initial_1 != 0) &&
-                               ((DAT_KGT_FILE_BUFFER_00433240.command_structs[0x14].
-                                 command_input_timings[uVar16 * 0x12 + 6] & 1) != 0)) {
-                              uVar16 = (uint)*(ushort *)(new_ivar + 9);
+                          if (bVar4) {
+                            uVar8 = (uint)*(ushort *)(new_ivar + 7);
+                            if ((PLAYER_KGT_BUFFER[iVar1].unk_CPU_var_initial_1 != 0) &&
+                               ((DAT_KGT_FILE_BUFFER_00433240.hit_junctions[uVar8].doing & 1U) != 0)
+                               ) {
+                              uVar8 = (uint)*(ushort *)(new_ivar + 9);
                             }
                           }
                           else {
-                            uVar16 = (uint)*(ushort *)(new_ivar + 1);
+                            uVar8 = (uint)*(ushort *)(new_ivar + 1);
                           }
                         }
-                        else if (bVar9) {
-                          uVar16 = (uint)*(ushort *)(new_ivar + 9);
-                          if ((PLAYER_KGT_BUFFER[iVar5].unk_CPU_var_initial_1 != 0) &&
-                             ((DAT_KGT_FILE_BUFFER_00433240.command_structs[0x14].
-                               command_input_timings[uVar16 * 0x12 + 6] & 1) != 0)) {
-                            uVar16 = (uint)*(ushort *)(new_ivar + 7);
+                        else if (bVar4) {
+                          uVar8 = (uint)*(ushort *)(new_ivar + 9);
+                          if ((PLAYER_KGT_BUFFER[iVar1].unk_CPU_var_initial_1 != 0) &&
+                             ((DAT_KGT_FILE_BUFFER_00433240.hit_junctions[uVar8].doing & 1U) != 0))
+                          {
+                            uVar8 = (uint)*(ushort *)(new_ivar + 7);
                           }
                         }
                         else {
-                          uVar16 = (uint)*(ushort *)(new_ivar + 3);
+                          uVar8 = (uint)*(ushort *)(new_ivar + 3);
                         }
-                        if (uVar16 == 0) goto LAB_0040f657;
-                        piVar21->related_to_reaction_skill_idx =
-                             (uint)(ushort)pkVar1->hit_junctions[uVar16].allottment_idx;
-                        if ((DAT_KGT_FILE_BUFFER_00433240.command_structs[0x14].
-                             command_input_timings[uVar16 * 0x12 + 6] & 1) != 0) {
-                          bVar9 = false;
+                        if (uVar8 == 0) goto LAB_0040f657;
+                        opp_object->hit_junction_idx =
+                             (uint)(ushort)player->hit_junctions[uVar8].allottment_idx;
+                        if ((DAT_KGT_FILE_BUFFER_00433240.hit_junctions[uVar8].doing & 1U) != 0) {
+                          bVar4 = false;
                         }
-                        if ((*(char *)(iVar3 + 0xc) != '\0') &&
-                           (*(short *)(uVar16 * 4 + 0x4d8b2c + iVar4 * 0xe03f) != 0)) {
-                          rand = pOVar21->player_file_buffer;
-                          FUN_0040eab0(&local_8,local_34,iVar14,iVar15,iVar12,iVar19,iVar20,
-                                       (int)*(short *)(iVar18 + 5),(int)*(short *)(iVar18 + 7));
-                          pOVar13 = FIND_EMPTY_OBJ(4,0x5d,local_8,local_4);
-                          iVar7 = pOVar21->pos_player_ignore_flag;
-                          pOVar13->player_file_buffer = pOVar21->player_file_buffer;
-                          uVar11 = *(undefined3 *)&pOVar21->field_0x15;
-                          pOVar13->__or_3 = pOVar21->__or_3;
-                          *(undefined3 *)&pOVar13->field_0x15 = uVar11;
-                          uVar16 = (uint)*(ushort *)(uVar16 * 4 + 0x4d8b2c + iVar4 * 0xe03f);
-                          pOVar13->pos_player_ignore_flag = iVar7;
-                          pOVar13->action_idx = uVar16;
-                          pOVar13->obj_type = 1;
-                          *(uint *)&pOVar13->actionscript_idx =
-                               (uint)(ushort)PLAYER_KGT_BUFFER[rand].kgt_core.p_actions_alloc
-                                             [uVar16].starting_step_idx;
-                          pOVar13->unk_bitmask = pOVar13->unk_bitmask | 0x40000000;
+                        if ((hitbox->field_0xc != '\0') &&
+                           (*(short *)(uVar8 * 4 + 0x4d8b2c + player_buffer * 0xe03f) != 0)) {
+                          rand = object->player_file_buffer;
+                          hitbox_calculation(&local_8,hitbox_x_val,hitbox_y_val,hitbox_width,
+                                             hitbox_height,iVar11,iVar12,(int)*(short *)(iVar10 + 5)
+                                             ,(int)*(short *)(iVar10 + 7));
+                          pOVar7 = FIND_EMPTY_OBJ(4,0x5d,local_8,local_4);
+                          iVar3 = object->pos_player_direction;
+                          pOVar7->player_file_buffer = object->player_file_buffer;
+                          uVar6 = *(undefined3 *)&object->field_0x15;
+                          pOVar7->__or_3 = object->__or_3;
+                          *(undefined3 *)&pOVar7->field_0x15 = uVar6;
+                          uVar8 = (uint)*(ushort *)(uVar8 * 4 + 0x4d8b2c + player_buffer * 0xe03f);
+                          pOVar7->pos_player_direction = iVar3;
+                          pOVar7->action_idx = uVar8;
+                          pOVar7->obj_type = 1;
+                          *(uint *)&pOVar7->actionscript_idx =
+                               (uint)(ushort)PLAYER_KGT_BUFFER[rand].kgt_core.p_actions_alloc[uVar8]
+                                             .starting_step_idx;
+                          pOVar7->unk_bitmask = pOVar7->unk_bitmask | 0x40000000;
                         }
-                        if ((piVar21->related_to_reaction_skill_idx == 0) && (uVar17 != 0)) {
+                        if ((opp_object->hit_junction_idx == 0) && (uVar9 != 0)) {
                           SET_DEBUG_INFO(s_reaction_error_1_0041f1d0,0xff);
                           break;
                         }
                       }
-                      if (bVar9) {
-                        piVar21->pos_player_ignore_flag = pOVar21->pos_player_ignore_flag ^ 1;
-                        if (uVar17 != 0) {
-                          uVar16 = (uint)(byte)DAT_KGT_FILE_BUFFER_00433240.hit_junctions[0xac].
-                                               allottment_idx;
-                          *(uint *)&piVar21->time_method_number_in_frames = uVar16;
-                          *(uint *)&pOVar21->time_method_number_in_frames = uVar16;
-                          bVar2 = *(byte *)(iVar3 + 10);
-                          piVar21->obj_ptr_b = (OBJ_STRUCT *)((uint)piVar21->obj_ptr_b | 0xc);
-                          if ((bVar2 & 4) != 0) {
-                            uVar17 = ((byte)PLAYER_KGT_BUFFER[iVar4].shave_ratio * uVar17) / 100;
-                            if (uVar17 == 0) {
-                              uVar17 = 1;
+                      if (bVar4) {
+                        opp_object->pos_player_direction = object->pos_player_direction ^ 1;
+                        if (uVar9 != 0) {
+                          uVar8 = (uint)(byte)DAT_KGT_FILE_BUFFER_00433240.stiff_time_guard;
+                          *(uint *)&opp_object->time_method_number_in_frames = uVar8;
+                          *(uint *)&object->time_method_number_in_frames = uVar8;
+                          hitbox_flags = hitbox->field_0xa;
+                          opp_object->obj_ptr_b = (OBJ_STRUCT *)((uint)opp_object->obj_ptr_b | 0xc);
+                          if ((hitbox_flags & 4) != 0) {
+                            uVar9 = ((byte)PLAYER_KGT_BUFFER[player_buffer].shave_ratio * uVar9) /
+                                    100;
+                            if (uVar9 == 0) {
+                              uVar9 = 1;
                             }
-                            FUN_0040e7c0(pkVar1,-uVar17);
+                            add_to_health(player,-uVar9);
                           }
                         }
-                        if (pOVar21->stage_skillscript_idx != 0) {
-                          pOVar21->related_to_reaction_skill_idx = pOVar21->stage_skillscript_idx;
-                          pOVar21->stage_skillscript_idx = 0;
+                        if (object->stage_skillscript_idx != 0) {
+                          object->hit_junction_idx = object->stage_skillscript_idx;
+                          object->stage_skillscript_idx = 0;
                         }
                       }
                       else {
-                        if ((*(byte *)(iVar18 + 10) & 4) != 0) {
-                          *(uint *)&PLAYER_KGT_BUFFER[iVar4].field_0xdf2d =
-                               *(uint *)&PLAYER_KGT_BUFFER[iVar4].field_0xdf2d | 3;
-                          *(int *)&PLAYER_KGT_BUFFER[iVar5].field_0xdf31 =
-                               *(int *)&PLAYER_KGT_BUFFER[iVar5].field_0xdf31 + 1;
+                        if ((*(byte *)(iVar10 + 10) & 4) != 0) {
+                          *(uint *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf2d =
+                               *(uint *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf2d | 3;
+                          *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf31 =
+                               *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf31 + 1;
                           SET_DEBUG_INFO(s_HAN_HIRAGANA__0041f1f8,0x8fffff);
                         }
-                        piVar21->pos_player_ignore_flag = pOVar21->pos_player_ignore_flag ^ 1;
-                        if (uVar17 != 0) {
-                          uVar16 = (uint)DAT_KGT_FILE_BUFFER_00433240.hit_junctions[0xab].spark_idx.
-                                         _1_1_;
-                          *(uint *)&piVar21->time_method_number_in_frames = uVar16;
-                          *(uint *)&pOVar21->time_method_number_in_frames = uVar16;
-                          assign_player_0x42_0x4a_0x46
-                                    (pOVar21->player_file_buffer,
-                                     (int)PLAYER_KGT_BUFFER[iVar4].special_gauge_increase_on_attack)
-                          ;
-                          assign_player_0x42_0x4a_0x46
-                                    (piVar21->player_file_buffer,
-                                     (int)PLAYER_KGT_BUFFER[iVar5].special_gauge_increase_on_hit);
-                          bVar2 = PLAYER_KGT_BUFFER[iVar4].character_rev;
-                          rand = PLAYER_KGT_BUFFER[iVar5].field6358_0xdf01;
-                          piVar21->obj_ptr_b =
-                               (OBJ_STRUCT *)((uint)piVar21->obj_ptr_b & 0xfffffffb | 8);
+                        opp_object->pos_player_direction = object->pos_player_direction ^ 1;
+                        if (uVar9 != 0) {
+                          uVar8 = (uint)(byte)DAT_KGT_FILE_BUFFER_00433240.stiff_time_hit;
+                          *(uint *)&opp_object->time_method_number_in_frames = uVar8;
+                          *(uint *)&object->time_method_number_in_frames = uVar8;
+                          add_to_special_gauge
+                                    (object->player_file_buffer,
+                                     (int)PLAYER_KGT_BUFFER[player_buffer].
+                                          special_gauge_increase_on_attack);
+                          add_to_special_gauge
+                                    (opp_object->player_file_buffer,
+                                     (int)PLAYER_KGT_BUFFER[iVar1].special_gauge_increase_on_hit);
+                          hitbox_flags = PLAYER_KGT_BUFFER[player_buffer].character_rev;
+                          rand = PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01;
+                          opp_object->obj_ptr_b =
+                               (OBJ_STRUCT *)((uint)opp_object->obj_ptr_b & 0xfffffffb | 8);
                           rand = (int)((ulonglong)
-                                       ((longlong)(int)((uint)bVar2 * rand * uVar17) * -0x51eb851f)
-                                      >> 0x20);
-                          rand = uVar17 + ((rand >> 5) - (rand >> 0x1f));
+                                       ((longlong)(int)((uint)hitbox_flags * rand * uVar9) *
+                                       -0x51eb851f) >> 0x20);
+                          rand = uVar9 + ((rand >> 5) - (rand >> 0x1f));
                           if (rand < 1) {
                             rand = 1;
                           }
-                          iVar18 = (int)((uint)*(byte *)(iVar18 + 0xb) * rand) / 100;
-                          if (iVar18 < 1) {
-                            iVar18 = 1;
+                          iVar10 = (int)((uint)*(byte *)(iVar10 + 0xb) * rand) / 100;
+                          if (iVar10 < 1) {
+                            iVar10 = 1;
                           }
-                          FUN_0040e7c0(pkVar1,-iVar18);
-                          PLAYER_KGT_BUFFER[iVar5].field6358_0xdf01 =
-                               PLAYER_KGT_BUFFER[iVar5].field6358_0xdf01 + 1;
+                          add_to_health(player,-iVar10);
+                          PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01 =
+                               PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01 + 1;
                         }
-                        if (1 < PLAYER_KGT_BUFFER[iVar5].field6358_0xdf01) {
-                          pOVar13 = FIND_EMPTY_OBJ(7,0x5e,iVar19 << 0x10,iVar20 * 0x10000);
-                          pOVar13->player_file_buffer = PLAYER_KGT_BUFFER[iVar5].field6358_0xdf01;
-                          pOVar13->obj_ptr_b =
-                               (OBJ_STRUCT *)&PLAYER_KGT_BUFFER[iVar5].field6358_0xdf01;
-                          pOVar13->unk_bitmask = pOVar13->unk_bitmask | 0x40000000;
+                        if (1 < PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01) {
+                          pOVar7 = FIND_EMPTY_OBJ(7,0x5e,iVar11 << 0x10,iVar12 * 0x10000);
+                          pOVar7->player_file_buffer = PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01;
+                          pOVar7->obj_ptr_b =
+                               (OBJ_STRUCT *)&PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01;
+                          pOVar7->unk_bitmask = pOVar7->unk_bitmask | 0x40000000;
                         }
-                        if (pOVar21->obj_type == 0) {
-                          *(uint *)&PLAYER_KGT_BUFFER[iVar4].field_0xdf2d =
-                               *(uint *)&PLAYER_KGT_BUFFER[iVar4].field_0xdf2d | 1;
-                          *(int *)&PLAYER_KGT_BUFFER[iVar5].field_0xdf31 =
-                               *(int *)&PLAYER_KGT_BUFFER[iVar5].field_0xdf31 + 1;
+                        if (object->obj_type == 0) {
+                          *(uint *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf2d =
+                               *(uint *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf2d | 1;
+                          *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf31 =
+                               *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf31 + 1;
                         }
-                        else if (pOVar21->case2_var_b != 0) {
-                          pOVar21->related_to_reaction_skill_idx = pOVar21->case2_var_b;
-                          pOVar21->case2_var_b = 0;
+                        else if (object->case2_var_b != 0) {
+                          object->hit_junction_idx = object->case2_var_b;
+                          object->case2_var_b = 0;
                         }
                       }
-                      if (pOVar21->obj_type == 0) {
-                        PLAYER_KGT_BUFFER[iVar5].field6357_0xdefd = (int)pOVar21;
+                      if (object->obj_type == 0) {
+                        PLAYER_KGT_BUFFER[iVar1].field6356_0xdefd = (int)object;
                       }
-                      else if ((pOVar21->unk_bitmask & 0x20000000U) != 0) {
-                        PLAYER_KGT_BUFFER[iVar5].field6357_0xdefd = (int)pOVar21;
+                      else if ((object->unk_bitmask & 0x20000000U) != 0) {
+                        PLAYER_KGT_BUFFER[iVar1].field6356_0xdefd = (int)object;
                       }
                       break;
                     }
@@ -11766,14 +11759,14 @@ LAB_0040f657:
               }
             }
 LAB_0040f8bf:
-            piVar21 = piVar21 + 1;
+            opp_object = opp_object + 1;
             local_14 = local_14 + 1;
           } while (local_14 < 0x400);
         }
         i = i + 1;
       } while (i < 0x14);
     }
-    pOVar21 = pOVar21 + 1;
+    object = object + 1;
     local_10 = local_10 + 1;
     if (0x3ff < local_10) {
       return;
@@ -11815,16 +11808,16 @@ void FUN_0040f910(void)
        (((GAME_STATE.pause_flag == 0 || (kVar2 = PTR_POSS_CURRENT_OBJ->obj_type, (int)kVar2 < 0)) ||
         ((1 < (int)kVar2 && (kVar2 != player_file)))))) {
       if (*(int *)&local_38->time_method_number_in_frames == 0) {
-        iVar5 = local_38->field9_0x18 + local_38->field11_0x20;
-        local_38->field9_0x18 = iVar5;
+        iVar5 = local_38->x_momentum + local_38->x_gravity;
+        local_38->x_momentum = iVar5;
         local_38->param_3 = local_38->param_3 + iVar5;
-        iVar5 = local_38->field10_0x1c + local_38->field12_0x24;
-        local_38->field10_0x1c = iVar5;
+        iVar5 = local_38->y_momentum + local_38->y_gravity;
+        local_38->y_momentum = iVar5;
         local_38->param_4 = local_38->param_4 + iVar5;
       }
       if ((local_38->unk_bitmask & 0x20000000U) != 0) {
         pOVar10 = local_38->parent_obj;
-        if ((pOVar10->pos_player_ignore_flag & 1) == 0) {
+        if ((pOVar10->pos_player_direction & 1) == 0) {
           local_38->param_3 = *(short *)&local_38->field_0x12d * 0x10000 + pOVar10->param_3;
         }
         else {
@@ -11837,13 +11830,13 @@ void FUN_0040f910(void)
         bVar3 = false;
         bVar13 = PLAYER_KGT_BUFFER[local_38->player_file_buffer].health == 0;
         local_38->param_3 =
-             local_38->param_3 + PLAYER_KGT_BUFFER[local_38->player_file_buffer].field6385_0xdf49;
+             local_38->param_3 + PLAYER_KGT_BUFFER[local_38->player_file_buffer].field6384_0xdf49;
         iVar5 = local_38->player_file_buffer;
-        PLAYER_KGT_BUFFER[iVar5].field6385_0xdf49 = 0;
-        if ((((PLAYER_KGT_BUFFER[iVar5].field6487_0xdfef & 0x10) != 0) &&
-            (iVar9 = PLAYER_KGT_BUFFER[iVar5].field6356_0xdef9, iVar9 != 0)) &&
-           (*(int *)(iVar9 + 0x15a) == 0)) {
-          if ((local_38->pos_player_ignore_flag & 1) == 0) {
+        PLAYER_KGT_BUFFER[iVar5].field6384_0xdf49 = 0;
+        if ((((PLAYER_KGT_BUFFER[iVar5].field6455_0xdfef & 0x10) != 0) &&
+            (pOVar10 = PLAYER_KGT_BUFFER[iVar5].poss_opponent_obj_ptr, pOVar10 != (OBJ_STRUCT *)0x0)
+            ) && (pOVar10->obj_type == 0)) {
+          if ((local_38->pos_player_direction & 1) == 0) {
             iVar8 = *(int *)((int)&PLAYER_KGT_BUFFER[iVar5].script_obj_var_d + 2) +
                     local_38->param_3;
           }
@@ -11851,11 +11844,11 @@ void FUN_0040f910(void)
             iVar8 = local_38->param_3 -
                     *(int *)((int)&PLAYER_KGT_BUFFER[iVar5].script_obj_var_d + 2);
           }
-          iVar11 = local_38->param_4;
-          *(int *)(iVar9 + 8) = iVar8;
-          *(int *)(iVar9 + 0xc) = *(int *)&PLAYER_KGT_BUFFER[iVar5].field_0xdffb + iVar11;
+          iVar9 = local_38->param_4;
+          pOVar10->param_3 = iVar8;
+          pOVar10->param_4 = *(int *)&PLAYER_KGT_BUFFER[iVar5].field_0xdffb + iVar9;
         }
-        iVar9 = unk_y_position;
+        iVar8 = unk_y_position;
         bVar4 = false;
         if (GAME_STATE.GAME_MODE == 1P_story) {
           if ((PLAYER_KGT_BUFFER[0].character_story_entries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
@@ -11870,27 +11863,27 @@ LAB_0040faab:
 LAB_0040fba2:
           if (local_38->param_3 + unk_y_position * -0x10000 < 0x320000) {
             if (((!bVar13) && (((uint)local_38->obj_ptr_b & 8) != 0)) &&
-               ((iVar5 = PLAYER_KGT_BUFFER[iVar5].field6357_0xdefd, iVar5 != 0 &&
+               ((iVar5 = PLAYER_KGT_BUFFER[iVar5].field6356_0xdefd, iVar5 != 0 &&
                 ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
-                 (iVar8 = (0x32 - unk_y_position) * 0x10000 - local_38->param_3, 0 < iVar8)))))) {
-              PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6385_0xdf49 =
-                   PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6385_0xdf49 + iVar8;
+                 (iVar9 = (0x32 - unk_y_position) * 0x10000 - local_38->param_3, 0 < iVar9)))))) {
+              PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 =
+                   PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 + iVar9;
             }
             bVar4 = true;
             local_38->param_3 = (unk_y_position + 0x32) * 0x10000;
           }
-          if (local_38->param_3 + iVar9 * -0x10000 < 0x24e0001) {
+          if (local_38->param_3 + iVar8 * -0x10000 < 0x24e0001) {
 LAB_0040fca7:
             if (!bVar4) goto LAB_0040fcbc;
           }
           else {
             if ((((!bVar13) && (((uint)local_38->obj_ptr_b & 8) != 0)) &&
-                (iVar5 = PLAYER_KGT_BUFFER[local_38->player_file_buffer].field6357_0xdefd,
+                (iVar5 = PLAYER_KGT_BUFFER[local_38->player_file_buffer].field6356_0xdefd,
                 iVar5 != 0)) &&
                ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
-                (iVar9 = local_38->param_3 + (unk_y_position + 0x24e) * -0x10000, 0 < iVar9)))) {
-              PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6385_0xdf49 =
-                   PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6385_0xdf49 - iVar9;
+                (iVar8 = local_38->param_3 + (unk_y_position + 0x24e) * -0x10000, 0 < iVar8)))) {
+              PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 =
+                   PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 - iVar8;
             }
             local_38->param_3 = (unk_y_position + 0x24e) * 0x10000;
           }
@@ -11899,46 +11892,46 @@ LAB_0040fca7:
           if (local_38->case2_var_d != 0) goto LAB_0040fba2;
           if (local_38->param_3 < 0x320000) {
             if (((!bVar13) && (((uint)local_38->obj_ptr_b & 8) != 0)) &&
-               ((iVar5 = PLAYER_KGT_BUFFER[iVar5].field6357_0xdefd, iVar5 != 0 &&
+               ((iVar5 = PLAYER_KGT_BUFFER[iVar5].field6356_0xdefd, iVar5 != 0 &&
                 ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
-                 (iVar9 = 0x320000 - local_38->param_3, 0 < iVar9)))))) {
-              PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6385_0xdf49 =
-                   PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6385_0xdf49 + iVar9;
+                 (iVar8 = 0x320000 - local_38->param_3, 0 < iVar8)))))) {
+              PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 =
+                   PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 + iVar8;
             }
             local_38->param_3 = 0x320000;
             bVar4 = true;
           }
           if (local_38->param_3 < 0x4ce0001) goto LAB_0040fca7;
           if ((((!bVar13) && (((uint)local_38->obj_ptr_b & 8) != 0)) &&
-              (iVar5 = PLAYER_KGT_BUFFER[local_38->player_file_buffer].field6357_0xdefd, iVar5 != 0)
+              (iVar5 = PLAYER_KGT_BUFFER[local_38->player_file_buffer].field6356_0xdefd, iVar5 != 0)
               ) && ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
-                    (iVar9 = local_38->param_3 + -0x4ce0000, 0 < iVar9)))) {
-            PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6385_0xdf49 =
-                 PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6385_0xdf49 - iVar9;
+                    (iVar8 = local_38->param_3 + -0x4ce0000, 0 < iVar8)))) {
+            PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 =
+                 PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 - iVar8;
           }
           local_38->param_3 = 0x4ce0000;
         }
         if (local_38->case2_var_d != 0) {
-          local_38->related_to_reaction_skill_idx = local_38->case2_var_d;
+          local_38->hit_junction_idx = local_38->case2_var_d;
           local_38->case2_var_d = 0;
         }
       }
 LAB_0040fcbc:
       if ((int)local_38->obj_type < 2) {
-        local_20 = local_38->mystery_array_b + 0x13;
+        local_20 = local_38->hitbox_guard_array + 0x13;
         local_8 = 0x14;
         do {
           iVar5 = *local_20;
           if ((iVar5 != 0) && ((*(byte *)(iVar5 + 10) & 1) != 0)) {
-            if ((local_38->pos_player_ignore_flag & 1) == 0) {
-              iVar9 = (int)*(short *)(iVar5 + 1) +
+            if ((local_38->pos_player_direction & 1) == 0) {
+              iVar8 = (int)*(short *)(iVar5 + 1) +
                       ((int)(local_38->param_3 + (local_38->param_3 >> 0x1f & 0xffffU)) >> 0x10);
             }
             else {
-              iVar9 = ((int)(local_38->param_3 + (local_38->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
+              iVar8 = ((int)(local_38->param_3 + (local_38->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
                       (int)*(short *)(iVar5 + 1);
             }
-            iVar8 = (int)*(short *)(iVar5 + 5);
+            iVar9 = (int)*(short *)(iVar5 + 5);
             iVar11 = (int)*(short *)(iVar5 + 3) +
                      ((int)(local_38->param_4 + (local_38->param_4 >> 0x1f & 0xffffU)) >> 0x10);
             sVar1 = *(short *)(iVar5 + 7);
@@ -11953,13 +11946,13 @@ LAB_0040fcbc:
                      (PLAYER_KGT_BUFFER[pOVar10->player_file_buffer].health == 0)) {
                     bVar3 = true;
                   }
-                  local_24 = pOVar10->mystery_array_b + 0x13;
+                  local_24 = pOVar10->hitbox_guard_array + 0x13;
                   local_10 = 0x14;
                   do {
                     iVar5 = *local_24;
                     if ((iVar5 != 0) && ((*(byte *)(iVar5 + 10) & 1) != 0)) {
                       iVar7 = pOVar10->param_3;
-                      if ((pOVar10->pos_player_ignore_flag & 1) == 0) {
+                      if ((pOVar10->pos_player_direction & 1) == 0) {
                         iVar7 = (int)*(short *)(iVar5 + 1) +
                                 ((int)(iVar7 + (iVar7 >> 0x1f & 0xffffU)) >> 0x10);
                       }
@@ -11971,15 +11964,15 @@ LAB_0040fcbc:
                                ((int)(pOVar10->param_4 + (pOVar10->param_4 >> 0x1f & 0xffffU)) >>
                                0x10);
                       iVar6 = (int)*(short *)(iVar5 + 5);
-                      if ((((iVar7 - iVar6 < iVar8 + iVar9) && (iVar9 - iVar8 < iVar6 + iVar7)) &&
+                      if ((((iVar7 - iVar6 < iVar9 + iVar8) && (iVar8 - iVar9 < iVar6 + iVar7)) &&
                           (iVar12 - *(short *)(iVar5 + 7) < sVar1 + iVar11)) &&
                          (iVar11 - sVar1 < *(short *)(iVar5 + 7) + iVar12)) {
-                        if (iVar7 < iVar9) {
-                          iVar5 = (iVar6 - iVar9) + iVar7 + iVar8;
+                        if (iVar7 < iVar8) {
+                          iVar5 = (iVar6 - iVar8) + iVar7 + iVar9;
                           iVar7 = -iVar5;
                         }
                         else {
-                          iVar7 = (iVar6 - iVar7) + iVar8 + iVar9;
+                          iVar7 = (iVar6 - iVar7) + iVar9 + iVar8;
                           iVar5 = -iVar7;
                         }
                         if (local_38->param_4 < local_38->compare_to_param_4) {
@@ -12029,48 +12022,49 @@ joined_r0x0040ff15:
 
 
 
-void FUN_0040ffc0(void)
+void deal_with_hitboxes_and_other_stuff(void)
 
 {
   int iVar2;
   uint uVar3;
-  unk_player_kgt_intern_struct_ptr_94_undefined puVar4;
+  kgt_character_struct_ptr_57137_undefined puVar4;
   int iVar4;
-  unk_player_kgt_intern_struct_ptr_38_undefined piVar5;
-  unk_player_kgt_intern_struct *iVar1;
+  kgt_character_struct_ptr_57081_OBJ_STRUCT__ player;
+  def5_offset iVar1;
   
   puVar4 = &PLAYER_KGT_BUFFER[0].field_0xdf31;
   iVar4 = 8;
   do {
-    *(undefined4 *)&ADJ(puVar4)->field_0x5a = 0;
+    *(undefined4 *)&ADJ(puVar4)->field_0xdf2d = 0;
     *(undefined4 *)puVar4 = 0;
     puVar4 = puVar4 + 0xe03f;
     iVar4 = iVar4 + -1;
   } while (iVar4 != 0);
-  FUN_0040eb60();
-  FUN_0040f010();
+  handle_hitboxes();
+  handle_hitboxes_2();
   FUN_0040f910();
-  piVar5 = (unk_player_kgt_intern_struct_ptr_38_undefined)&PLAYER_KGT_BUFFER[0].field6356_0xdef9;
+  player = &PLAYER_KGT_BUFFER[0].poss_opponent_obj_ptr;
   iVar4 = 8;
   do {
-    if (((*(int *)((int)piVar5 + -0xbcc1) != 0) &&
-        (iVar1 = *(unk_player_kgt_intern_struct **)((int)piVar5 + -4),
-        *(int *)((int)&iVar1->wins_accumulated + 2) == 0)) && (*(int *)piVar5 != 0)) {
-      iVar2 = *(int *)(*(int *)piVar5 + 0x156);
-      uVar3 = *(int *)((int)piVar5 + 0x34);
+    if (((ADJ(player)->script_reading_01_field5 != 0) &&
+        (iVar1 = (def5_offset)ADJ(player)->CPU, *(int *)(iVar1 + 0x38) == 0)) &&
+       (ADJ(player)->poss_opponent_obj_ptr != (OBJ_STRUCT *)0x0)) {
+      iVar2 = ADJ(player)->poss_opponent_obj_ptr->player_file_buffer;
+      uVar3 = *(uint *)&ADJ(player)->field_0xdf2d;
       if (((uVar3 != 0) && (*(int *)&PLAYER_KGT_BUFFER[iVar2].field_0xdf2d == 0)) &&
          (*(int *)&PLAYER_KGT_BUFFER[iVar2].field_0xdf31 != 0)) {
-        if (iVar1->field77_0x6c != 0) {
-          *(int *)((int)&iVar1->wins_accumulated + 2) = iVar1->field77_0x6c;
-          iVar1->field77_0x6c = 0;
+        if (*(int *)(iVar1 + 0x6c) != 0) {
+          *(int *)(iVar1 + 0x38) = *(int *)(iVar1 + 0x6c);
+                    // Resetting CPU level?
+          *(undefined4 *)(iVar1 + 0x6c) = 0;
         }
-        if (((uVar3 & 2) != 0) && (*(int *)&iVar1->field_0x78 != 0)) {
-          *(int *)((int)&iVar1->wins_accumulated + 2) = *(int *)&iVar1->field_0x78;
-          *(undefined4 *)&iVar1->field_0x78 = 0;
+        if (((uVar3 & 2) != 0) && (*(int *)(iVar1 + 0x78) != 0)) {
+          *(int *)(iVar1 + 0x38) = *(int *)(iVar1 + 0x78);
+          *(undefined4 *)(iVar1 + 0x78) = 0;
         }
       }
     }
-    piVar5 = (unk_player_kgt_intern_struct_ptr_38_undefined)((int)piVar5 + 0xe03f);
+    player = (kgt_character_struct_ptr_57081_OBJ_STRUCT__)((int)player + 0xe03f);
     iVar4 = iVar4 + -1;
   } while (iVar4 != 0);
   return;
@@ -12115,7 +12109,7 @@ short FUN_00410060(uint param_1)
   if (GAME_STATE.round_start_is0 == 1) {
     if ((((PTR_POSS_CURRENT_OBJ->compare_to_param_4 <= PTR_POSS_CURRENT_OBJ->param_4) ||
          (PTR_POSS_CURRENT_OBJ->param_4 + 0x320000 <= PTR_POSS_CURRENT_OBJ->compare_to_param_4)) ||
-        (PTR_POSS_CURRENT_OBJ->field10_0x1c < 1)) && (local_24 = param_1, (int)param_1 < 100)) {
+        (PTR_POSS_CURRENT_OBJ->y_momentum < 1)) && (local_24 = param_1, (int)param_1 < 100)) {
       do {
         iVar1 = iVar5 * 0xe03f + 0x4d6b22 + local_24 * 0x52;
         if (*(ushort *)(iVar1 + 0x20) != 0) {
@@ -12147,8 +12141,8 @@ short FUN_00410060(uint param_1)
               uVar8 = uVar16 & 0xf;
               switch(uVar3 >> 0xe) {
               case 0:
-                if ((PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag != 0) &&
-                   ((PLAYER_KGT_BUFFER[iVar5].guard_button_bool & 8U) != 0)) {
+                if ((PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) &&
+                   ((PLAYER_KGT_BUFFER[iVar5].guard_button_flag & 8U) != 0)) {
                   switch(uVar9 & 0xf) {
                   case 0:
                     goto switchD_004101d7_caseD_0;
@@ -12199,8 +12193,8 @@ short FUN_00410060(uint param_1)
                 }
                 uVar14 = 0;
                 uVar17 = uVar9 & 0x3f0;
-                if ((PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag != 0) &&
-                   ((PLAYER_KGT_BUFFER[iVar5].guard_button_bool & 8U) != 0)) {
+                if ((PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) &&
+                   ((PLAYER_KGT_BUFFER[iVar5].guard_button_flag & 8U) != 0)) {
                   switch(uVar9 & 0xf) {
                   case 0:
                     goto switchD_00410350_caseD_0;
@@ -12317,8 +12311,8 @@ switchD_00410350_default:
                     uVar13 = 0;
                     uVar17 = INPUT_BUFFER_A[iVar5][uVar14];
                     uVar10 = uVar17 & 0xf;
-                    if ((PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag != 0) &&
-                       ((PLAYER_KGT_BUFFER[iVar5].guard_button_bool & 8U) != 0)) {
+                    if ((PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) &&
+                       ((PLAYER_KGT_BUFFER[iVar5].guard_button_flag & 8U) != 0)) {
                       switch(uVar9 & 0xf) {
                       case 0:
                         goto switchD_004104f4_caseD_0;
@@ -12577,22 +12571,22 @@ LAB_00410728:
                     } while (iVar15 != 0);
                   }
                   iVar11 = pOVar7->param_4;
-                  PLAYER_KGT_BUFFER[pOVar7->player_file_buffer].field6393_0xdf55 = local_24 + 1;
+                  PLAYER_KGT_BUFFER[pOVar7->player_file_buffer].field6392_0xdf55 = local_24 + 1;
                   iVar15 = INPUT_BUFFER_POS;
-                  if (((iVar11 == pOVar7->compare_to_param_4) && (pOVar7->field12_0x24 == 0)) &&
-                     (pOVar7->field10_0x1c == 0)) {
-                    pOVar7->field12_0x24 = 0;
-                    pOVar7->field10_0x1c = 0;
+                  if (((iVar11 == pOVar7->compare_to_param_4) && (pOVar7->y_gravity == 0)) &&
+                     (pOVar7->y_momentum == 0)) {
+                    pOVar7->y_gravity = 0;
+                    pOVar7->y_momentum = 0;
                     if ((INPUT_BUFFER_A[iVar5][iVar15] & 8) == 0) {
                       iVar11 = pOVar7->player_file_buffer;
-                      if ((PLAYER_KGT_BUFFER[iVar11].field6401_0xdf69 == 0) ||
-                         (iVar15 = PLAYER_KGT_BUFFER[iVar11].pos_x_pos -
-                                   PLAYER_KGT_BUFFER
-                                   [*(int *)(PLAYER_KGT_BUFFER[iVar11].field6401_0xdf69 + 0x156)].
-                                   pos_x_pos, iVar15 = iVar15 + (iVar15 >> 0x1f & 0xffffU),
-                         uVar16 = iVar15 >> 0x1f,
-                         (int)PLAYER_KGT_BUFFER[iVar11].interv <
-                         (int)((iVar15 >> 0x10 ^ uVar16) - uVar16))) {
+                      if ((PLAYER_KGT_BUFFER[iVar11].poss_opponent_obj_ptr_2_ == (OBJ_STRUCT *)0x0)
+                         || (iVar15 = PLAYER_KGT_BUFFER[iVar11].pos_x_pos -
+                                      PLAYER_KGT_BUFFER
+                                      [(PLAYER_KGT_BUFFER[iVar11].poss_opponent_obj_ptr_2_)->
+                                       player_file_buffer].pos_x_pos,
+                            iVar15 = iVar15 + (iVar15 >> 0x1f & 0xffffU), uVar16 = iVar15 >> 0x1f,
+                            (int)PLAYER_KGT_BUFFER[iVar11].interv <
+                            (int)((iVar15 >> 0x10 ^ uVar16) - uVar16))) {
                         sVar4 = *(short *)(iVar1 + 0x26);
                       }
                       else {
@@ -12632,85 +12626,85 @@ switchD_004101a0_default:
 
 // WARNING: Type propagation algorithm not settling
 
-undefined4 FUN_00410a50(int param_1)
+undefined4 process_COM_skillblock(kgt_skill_step_struct *skill)
 
 {
   byte *pbVar1;
-  byte bVar2;
-  ushort uVar3;
-  int iVar4;
+  ushort uVar2;
+  uint uVar3;
+  uint uVar4;
   uint uVar5;
   int iVar6;
-  int iVar7;
-  uint uVar8;
-  uint uVar9;
-  uint uVar10;
-  int iVar11;
-  uint uVar12;
-  bool bVar13;
+  uint input_buffer_pos;
+  bool bVar7;
   ushort *local_c;
-  uint local_8;
+  uint also_com_time;
+  byte com_time;
+  uint current_player_input;
+  undefined1 *final_input;
+  int player_buffer;
+  kgt_skill_step_struct *skill_local;
   
-  iVar6 = param_1;
-  iVar4 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  bVar2 = *(byte *)(param_1 + 4);
-  if (bVar2 != 0) {
-    local_8 = (uint)bVar2;
-    pbVar1 = (byte *)(param_1 + 0xe);
-    param_1 = 4;
-    if ((*pbVar1 & 0x20) == 0) {
-      iVar7 = iVar6 + 0xd;
-      iVar11 = 4;
+  skill_local = skill;
+  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+  com_time = skill->field_0x4;
+  if (com_time != 0) {
+    also_com_time = (uint)com_time;
+    final_input = &skill->field_0xe;
+    skill = (kgt_skill_step_struct *)0x4;
+    if ((*final_input & 0x20) == 0) {
+      final_input = &skill_local->field_0xd;
+      iVar6 = 4;
       do {
-        param_1 = iVar11 + -1;
-        if (iVar11 == 0) {
+        skill = (kgt_skill_step_struct *)(iVar6 + -1);
+        if (iVar6 == 0) {
           return 0;
         }
-        pbVar1 = (byte *)(iVar7 + -1);
-        iVar7 = iVar7 + -2;
-        iVar11 = param_1;
+        pbVar1 = final_input + -1;
+        final_input = final_input + -2;
+        iVar6 = (int)skill;
       } while ((*pbVar1 & 0x20) == 0);
     }
-    if (bVar2 != 0) {
-      local_c = (ushort *)(iVar6 + 5 + param_1 * 2);
-      uVar12 = INPUT_BUFFER_POS;
+    if (com_time != 0) {
+      local_c = (ushort *)(&skill_local->field_0x5 + (int)skill * 2);
+      input_buffer_pos = INPUT_BUFFER_POS;
       do {
-        uVar5 = INPUT_BUFFER_A[iVar4][uVar12];
-        uVar3 = *local_c;
-        uVar9 = (uint)uVar3;
-        uVar10 = 0;
-        uVar8 = uVar5 & 0xf;
-        if ((uVar3 & 0xc000) != 0) goto LAB_00410c43;
-        if ((PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag != 0) &&
-           ((PLAYER_KGT_BUFFER[iVar4].guard_button_bool & 8U) != 0)) {
-          switch(uVar9 & 0xf) {
+        current_player_input = INPUT_BUFFER_A[player_buffer][input_buffer_pos];
+        uVar2 = *local_c;
+        uVar4 = (uint)uVar2;
+        uVar5 = 0;
+        uVar3 = current_player_input & 0xf;
+        if ((uVar2 & 0xc000) != 0) goto LAB_00410c43;
+        if ((PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) &&
+           ((PLAYER_KGT_BUFFER[player_buffer].guard_button_flag & 8U) != 0)) {
+          switch(uVar4 & 0xf) {
           case 0:
             goto switchD_00410b14_caseD_0;
           case 1:
             goto switchD_00410b14_caseD_1;
           case 2:
-            if (uVar8 == 1) goto switchD_00410b14_caseD_0;
+            if (uVar3 == 1) goto switchD_00410b14_caseD_0;
             break;
           case 3:
-            if (uVar8 == 9) goto switchD_00410b14_caseD_0;
+            if (uVar3 == 9) goto switchD_00410b14_caseD_0;
             break;
           case 4:
-            if (uVar8 == 8) goto switchD_00410b14_caseD_0;
+            if (uVar3 == 8) goto switchD_00410b14_caseD_0;
             break;
           case 5:
-            if (uVar8 == 10) goto switchD_00410b14_caseD_0;
+            if (uVar3 == 10) goto switchD_00410b14_caseD_0;
             break;
           case 6:
-            if (uVar8 == 2) goto switchD_00410b14_caseD_0;
+            if (uVar3 == 2) goto switchD_00410b14_caseD_0;
             break;
           case 7:
-            if (uVar8 == 6) goto switchD_00410b14_caseD_0;
+            if (uVar3 == 6) goto switchD_00410b14_caseD_0;
             break;
           case 8:
-            if (uVar8 == 4) goto switchD_00410b14_caseD_0;
+            if (uVar3 == 4) goto switchD_00410b14_caseD_0;
             break;
           case 9:
-            if (uVar8 == 5) goto switchD_00410b14_caseD_0;
+            if (uVar3 == 5) goto switchD_00410b14_caseD_0;
             break;
           case 10:
             goto switchD_00410b14_caseD_a;
@@ -12723,79 +12717,79 @@ undefined4 FUN_00410a50(int param_1)
           }
           goto switchD_00410b14_default;
         }
-        switch(uVar9 & 0xf) {
+        switch(uVar4 & 0xf) {
         case 0:
           goto switchD_00410b14_caseD_0;
         case 1:
 switchD_00410b14_caseD_1:
-          bVar13 = uVar8 == 0;
+          bVar7 = uVar3 == 0;
           break;
         case 2:
-          bVar13 = uVar8 == 2;
+          bVar7 = uVar3 == 2;
           break;
         case 3:
-          bVar13 = uVar8 == 10;
+          bVar7 = uVar3 == 10;
           break;
         case 4:
-          bVar13 = uVar8 == 8;
+          bVar7 = uVar3 == 8;
           break;
         case 5:
-          bVar13 = uVar8 == 9;
+          bVar7 = uVar3 == 9;
           break;
         case 6:
-          bVar13 = uVar8 == 1;
+          bVar7 = uVar3 == 1;
           break;
         case 7:
-          bVar13 = uVar8 == 5;
+          bVar7 = uVar3 == 5;
           break;
         case 8:
-          bVar13 = uVar8 == 4;
+          bVar7 = uVar3 == 4;
           break;
         case 9:
-          bVar13 = uVar8 == 6;
+          bVar7 = uVar3 == 6;
           break;
         case 10:
 switchD_00410b14_caseD_c:
-          uVar8 = uVar5 & 1;
+          uVar3 = current_player_input & 1;
           goto joined_r0x00410ba3;
         case 0xb:
 switchD_00410b14_caseD_b:
-          uVar8 = uVar5 & 4;
+          uVar3 = current_player_input & 4;
           goto joined_r0x00410ba3;
         case 0xc:
 switchD_00410b14_caseD_a:
-          uVar8 = uVar5 & 2;
+          uVar3 = current_player_input & 2;
           goto joined_r0x00410ba3;
         case 0xd:
 joined_r0x00410ba9:
-          uVar8 = uVar5 & 8;
+          uVar3 = current_player_input & 8;
 joined_r0x00410ba3:
-          if (uVar8 != 0) goto switchD_00410b14_caseD_0;
+          if (uVar3 != 0) goto switchD_00410b14_caseD_0;
         default:
           goto switchD_00410b14_default;
         }
-        if (bVar13) {
+        if (bVar7) {
 switchD_00410b14_caseD_0:
-          uVar10 = 1;
+          uVar5 = 1;
         }
 switchD_00410b14_default:
-        uVar9 = uVar9 & 0x3f0;
-        if (((uVar3 & 0x3f0) == 0) ||
-           (((uVar5 & uVar9) == uVar9 && ((INPUT_BUFFER_A[iVar4][uVar12 - 1 & 0x3ff] & uVar9) == 0))
-           )) {
-          uVar10 = uVar10 + 1;
+        uVar4 = uVar4 & 0x3f0;
+        if (((uVar2 & 0x3f0) == 0) ||
+           (((current_player_input & uVar4) == uVar4 &&
+            ((INPUT_BUFFER_A[player_buffer][input_buffer_pos - 1 & 0x3ff] & uVar4) == 0)))) {
+          uVar5 = uVar5 + 1;
         }
-        if (1 < uVar10) {
-          param_1 = param_1 + -1;
+        if (1 < uVar5) {
+          skill = (kgt_skill_step_struct *)&skill[-1].field_0xf;
           local_c = local_c + -1;
-          if (param_1 == -1) {
+          if (skill == (kgt_skill_step_struct *)0xffffffff) {
             return 1;
           }
         }
 LAB_00410c43:
-        uVar12 = uVar12 - 1 & 0x3ff;
-        local_8 = local_8 - 1;
-        if ((int)local_8 < 1) {
+        input_buffer_pos = input_buffer_pos - 1 & 0x3ff;
+        also_com_time = also_com_time - 1;
+        if ((int)also_com_time < 1) {
           return 0;
         }
       } while( true );
@@ -12812,7 +12806,7 @@ int switch_current_object_action(int action_offset)
   int *piVar1;
   OBJ_STRUCT *pOVar2;
   
-  FUN_0040e550(PTR_POSS_CURRENT_OBJ);
+  memzero_mystery_arrays(PTR_POSS_CURRENT_OBJ);
   pOVar2 = PTR_POSS_CURRENT_OBJ;
   if (action_offset != 0) {
     piVar1 = &PTR_POSS_CURRENT_OBJ->player_file_buffer;
@@ -12835,18 +12829,18 @@ void assign_action_and_reset_some_data(int offset)
   if (offset != PTR_POSS_CURRENT_OBJ->action_idx) {
     switch_current_object_action(offset);
     obj_0x129_to_0(PTR_POSS_CURRENT_OBJ);
-    FUN_0040e510();
+    obj_reset_values();
     pOVar1 = PTR_POSS_CURRENT_OBJ;
-    PTR_POSS_CURRENT_OBJ->jump_6_var_a = 0;
+    PTR_POSS_CURRENT_OBJ->image_wait_frames = 0;
     if (pOVar1->obj_type == 0) {
-      if ((pOVar1->param_4 == pOVar1->compare_to_param_4) && (pOVar1->field10_0x1c == 0)) {
-        pOVar1->field12_0x24 = 0;
-        pOVar1->field10_0x1c = 0;
-        pOVar1->field11_0x20 = 0;
-        pOVar1->field9_0x18 = 0;
+      if ((pOVar1->param_4 == pOVar1->compare_to_param_4) && (pOVar1->y_momentum == 0)) {
+        pOVar1->y_gravity = 0;
+        pOVar1->y_momentum = 0;
+        pOVar1->x_gravity = 0;
+        pOVar1->x_momentum = 0;
       }
-      pOVar1->field55_0x85 = 0;
-      pOVar1->field_0x7c = 0;
+      pOVar1->return_skill_idx = 0;
+      pOVar1->loop_frequency = 0;
     }
   }
   return;
@@ -12870,10 +12864,10 @@ OBJ_STRUCT * FUN_00410dc0(void)
   iVar1 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
   uVar2 = INPUT_BUFFER_A[iVar1][INPUT_BUFFER_POS];
   pkVar4 = PLAYER_KGT_BUFFER + iVar1;
-  uVar3._0_1_ = pkVar4->guard_button_bool;
-  uVar3._1_1_ = pkVar4->field1829_0x7cb7[0];
-  uVar3._2_1_ = pkVar4->field1829_0x7cb7[1];
-  uVar3._3_1_ = pkVar4->field1829_0x7cb7[2];
+  uVar3._0_1_ = pkVar4->guard_button_flag;
+  uVar3._1_1_ = pkVar4->field1828_0x7cb7[0];
+  uVar3._2_1_ = pkVar4->field1828_0x7cb7[1];
+  uVar3._3_1_ = pkVar4->field1828_0x7cb7[2];
   uVar5 = (uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 3;
   uVar8 = uVar3 & 8;
   if (uVar5 != 0) {
@@ -12884,7 +12878,7 @@ OBJ_STRUCT * FUN_00410dc0(void)
       if (PTR_POSS_CURRENT_OBJ->param_4 < PTR_POSS_CURRENT_OBJ->compare_to_param_4) {
         PTR_POSS_CURRENT_OBJ->obj_ptr_b =
              (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffe | 2);
-        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x9);
+        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].falling_skill_idx);
         return (OBJ_STRUCT *)0x0;
       }
       if ((uVar2 & 8) == 0) {
@@ -12898,13 +12892,13 @@ OBJ_STRUCT * FUN_00410dc0(void)
         if (uVar8 == 0) {
           return (OBJ_STRUCT *)0x0;
         }
-        PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag = 0;
+        PTR_POSS_CURRENT_OBJ->pos_player_direction = 0;
         return (OBJ_STRUCT *)0x0;
       }
       if (((uVar2 & 1) != 0) && ((PLAYER_KGT_BUFFER[iVar1].has_crouch_retreat != 0 && (uVar8 != 0)))
          ) {
         assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_advance);
-        PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag = 1;
+        PTR_POSS_CURRENT_OBJ->pos_player_direction = 1;
         return (OBJ_STRUCT *)0x0;
       }
       if ((((uVar2 & 1) != 0) && (PLAYER_KGT_BUFFER[iVar1].has_crouch_retreat != 0)) && (uVar8 == 0)
@@ -12920,7 +12914,7 @@ OBJ_STRUCT * FUN_00410dc0(void)
           (uint)(ushort)PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x10) {
         return (OBJ_STRUCT *)0x0;
       }
-      if (((PLAYER_KGT_BUFFER[iVar1].guard_button_bool & 8U) != 0) &&
+      if (((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 8U) != 0) &&
          ((uVar2 & 1 << (PLAYER_KGT_BUFFER[iVar1].guard_button + 4U & 0x1f)) != 0)) {
         assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x12);
         return (OBJ_STRUCT *)0x0;
@@ -12947,7 +12941,7 @@ OBJ_STRUCT * FUN_00410dc0(void)
   if (0 < iVar6) {
     if (iVar6 == 1) {
       PTR_POSS_CURRENT_OBJ->action_idx = -1;
-      sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x2c;
+      sVar9 = PLAYER_KGT_BUFFER[iVar1].victory_skill_idx;
 LAB_00411015:
       assign_action_and_reset_some_data(sVar9);
       pOVar7 = PTR_POSS_CURRENT_OBJ;
@@ -12957,12 +12951,12 @@ LAB_00411015:
     }
     if (iVar6 == 2) {
       PTR_POSS_CURRENT_OBJ->action_idx = -1;
-      sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x2f;
+      sVar9 = PLAYER_KGT_BUFFER[iVar1].loss_skill_idx;
       goto LAB_00411015;
     }
     if (iVar6 == 3) {
       PTR_POSS_CURRENT_OBJ->action_idx = -1;
-      sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x30;
+      sVar9 = PLAYER_KGT_BUFFER[iVar1].draw_skill_idx;
       goto LAB_00411015;
     }
   }
@@ -12971,7 +12965,7 @@ LAB_00411015:
   }
   pOVar7 = PTR_POSS_CURRENT_OBJ;
   if (PTR_POSS_CURRENT_OBJ->param_4 < PTR_POSS_CURRENT_OBJ->compare_to_param_4) {
-    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x9);
+    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].falling_skill_idx);
     PTR_POSS_CURRENT_OBJ->obj_ptr_b =
          (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffe | 2);
     return (OBJ_STRUCT *)0x0;
@@ -12990,7 +12984,7 @@ LAB_00411015:
       else {
         if (uVar8 != 0) {
           assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x5);
-          PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag = 1;
+          PTR_POSS_CURRENT_OBJ->pos_player_direction = 1;
           goto LAB_0041116a;
         }
         sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x6;
@@ -13000,7 +12994,7 @@ LAB_00411015:
     else {
       assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x5);
       if (uVar8 != 0) {
-        PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag = 0;
+        PTR_POSS_CURRENT_OBJ->pos_player_direction = 0;
       }
     }
 LAB_0041116a:
@@ -13008,7 +13002,7 @@ LAB_0041116a:
          (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffe | 2);
     return (OBJ_STRUCT *)0x0;
   }
-  if (((PLAYER_KGT_BUFFER[iVar1].guard_button_bool & 8U) == 0) ||
+  if (((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 8U) == 0) ||
      ((uVar2 & 1 << (PLAYER_KGT_BUFFER[iVar1].guard_button + 4U & 0x1f)) == 0)) {
     if ((uVar2 & 2) == 0) {
       if ((uVar2 & 1) == 0) {
@@ -13022,19 +13016,19 @@ LAB_0041116a:
         sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x3;
       }
       else {
-        if (PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag != 1) {
+        if (PTR_POSS_CURRENT_OBJ->pos_player_direction != 1) {
           PTR_POSS_CURRENT_OBJ->action_idx = -1;
         }
-        pOVar7->pos_player_ignore_flag = 1;
+        pOVar7->pos_player_direction = 1;
         sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x2;
       }
     }
     else {
       if (uVar8 != 0) {
-        if (PTR_POSS_CURRENT_OBJ->pos_player_ignore_flag != 0) {
+        if (PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) {
           PTR_POSS_CURRENT_OBJ->action_idx = -1;
         }
-        pOVar7->pos_player_ignore_flag = 0;
+        pOVar7->pos_player_direction = 0;
       }
       sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x2;
     }
@@ -13053,169 +13047,192 @@ LAB_00411248:
 
 
 
-void FUN_00411270(void)
+void handle_cpu_commands(void)
 
 {
   ushort uVar1;
-  uint uVar2;
+  int rand;
+  uint distance;
+  int normalized_distance;
+  int rand2;
+  int iVar2;
   int iVar3;
-  uint uVar4;
-  int iVar5;
-  int iVar6;
-  int iVar7;
-  uint uVar8;
-  short *psVar9;
-  int iVar10;
+  uint direction_;
+  short *cpu_interval_empty;
+  int i;
+  int final_distance;
   undefined *local_114;
   int local_10c;
   uint local_108;
   char local_100 [256];
+  int cpu_level;
+  int new_unk_1;
+  int other_player_new_unk_1;
+  int command_idx;
+  int input_buffer_pos;
+  uint player_buffer;
   
-  uVar2 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  if (PLAYER_KGT_BUFFER[uVar2].unk_CPU_var_initial_1 != 0) {
-    if (PLAYER_KGT_BUFFER[uVar2].field6401_0xdf69 == 0) {
-      memzero(INPUT_BUFFER_A + uVar2,0x1000);
+  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+  if (PLAYER_KGT_BUFFER[player_buffer].unk_CPU_var_initial_1 != 0) {
+    if (PLAYER_KGT_BUFFER[player_buffer].poss_opponent_obj_ptr_2_ == (OBJ_STRUCT *)0x0) {
+      memzero(INPUT_BUFFER_A + player_buffer,0x1000);
       return;
     }
-    iVar6 = *(int *)(PLAYER_KGT_BUFFER[uVar2].field6401_0xdf69 + 0x156);
-    switch(PLAYER_KGT_BUFFER[uVar2].TESTPLAY_PLAYER_CPU) {
+    iVar2 = (PLAYER_KGT_BUFFER[player_buffer].poss_opponent_obj_ptr_2_)->player_file_buffer;
+    switch(PLAYER_KGT_BUFFER[player_buffer].TESTPLAY_PLAYER_CPU) {
     case 1:
-      memzero(INPUT_BUFFER_A + uVar2,0x1000);
+      memzero(INPUT_BUFFER_A + player_buffer,0x1000);
       if (GAME_STATE.round_start_is0 == 1) {
-        if (PLAYER_KGT_BUFFER[uVar2].field6404_0xdf75 == 0) {
-          if (PLAYER_KGT_BUFFER[uVar2].cpu_level == 0) {
+        if (PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx == 0) {
+          if (PLAYER_KGT_BUFFER[player_buffer].cpu_level == 0) {
             return;
           }
-          iVar7 = *(int *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf7d + -1;
-          *(int *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf7d = iVar7;
-          if (0 < iVar7) {
+          rand = *(int *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf7d + -1;
+          *(int *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf7d = rand;
+          if (0 < rand) {
             return;
           }
-          iVar7 = PLAYER_KGT_BUFFER[uVar2].cpu_level;
-          iVar3 = _rand();
-          psVar9 = &PLAYER_KGT_BUFFER[uVar2].CPU_commands[0].interval_empty;
-          iVar10 = 0;
-          *(int *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf7d = (iVar3 % (0x65 - iVar7) - iVar7) + 0x32;
+          cpu_level = PLAYER_KGT_BUFFER[player_buffer].cpu_level;
+          rand = _rand();
+          cpu_interval_empty = &PLAYER_KGT_BUFFER[player_buffer].CPU_commands[0].interval_empty;
+          i = 0;
+          *(int *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf7d =
+               (rand % (101 - cpu_level) - cpu_level) + 50;
           do {
-            uVar4 = PLAYER_KGT_BUFFER[uVar2].pos_x_pos - PLAYER_KGT_BUFFER[iVar6].pos_x_pos;
-            uVar8 = (int)uVar4 >> 0x1f;
-            iVar7 = (uVar4 ^ uVar8) - uVar8;
-            iVar3 = (int)(iVar7 + (iVar7 >> 0x1f & 0xffffU)) >> 0x10;
-            iVar7 = _rand();
-            if (((iVar7 % 100 < (int)(uint)(byte)*(char *)((int)psVar9 + -1)) &&
-                ((int)(uint)(ushort)*psVar9 <= iVar3)) && (iVar3 <= (int)(uint)(ushort)psVar9[1])) {
-              iVar7 = *(int *)(PLAYER_KGT_BUFFER[uVar2].CPU + 0x58);
-              if ((*(byte *)(psVar9 + -1) & 1) == 0) {
-                if (iVar7 <= PLAYER_KGT_BUFFER[uVar2].pos_y_pos) goto LAB_004113e4;
+                    // Run through CPU commands and determine if they are in distance and under
+                    // random value
+            distance = PLAYER_KGT_BUFFER[player_buffer].pos_x_pos -
+                       PLAYER_KGT_BUFFER[iVar2].pos_x_pos;
+                    // TO-DO: Figure out what this math is doing.
+            direction_ = (int)distance >> 0x1f;
+            normalized_distance = (distance ^ direction_) - direction_;
+            final_distance =
+                 (int)(normalized_distance + (normalized_distance >> 0x1f & 0xffffU)) >> 0x10;
+            rand = _rand();
+            if (((rand % 100 < (int)(uint)(byte)*(char *)((int)cpu_interval_empty + -1)) &&
+                ((int)(uint)(ushort)*cpu_interval_empty <= final_distance)) &&
+               (final_distance <= (int)(uint)(ushort)cpu_interval_empty[1])) {
+              new_unk_1 = *(int *)(PLAYER_KGT_BUFFER[player_buffer].CPU + 0x58);
+              if ((*(byte *)(cpu_interval_empty + -1) & 1) == 0) {
+                if (new_unk_1 <= PLAYER_KGT_BUFFER[player_buffer].pos_y_pos) goto LAB_004113e4;
               }
-              else if (PLAYER_KGT_BUFFER[uVar2].pos_y_pos != iVar7) {
+              else if (PLAYER_KGT_BUFFER[player_buffer].pos_y_pos != new_unk_1) {
 LAB_004113e4:
-                iVar7 = *(int *)(PLAYER_KGT_BUFFER[iVar6].CPU + 0x58);
-                if ((*(byte *)(psVar9 + -1) & 2) == 0) {
-                  if (iVar7 <= PLAYER_KGT_BUFFER[iVar6].pos_y_pos) goto LAB_00411405;
+                other_player_new_unk_1 = *(int *)(PLAYER_KGT_BUFFER[iVar2].CPU + 0x58);
+                if ((*(byte *)(cpu_interval_empty + -1) & 2) == 0) {
+                  if (other_player_new_unk_1 <= PLAYER_KGT_BUFFER[iVar2].pos_y_pos)
+                  goto LAB_00411405;
                 }
-                else if (PLAYER_KGT_BUFFER[iVar6].pos_y_pos != iVar7) {
+                else if (PLAYER_KGT_BUFFER[iVar2].pos_y_pos != other_player_new_unk_1) {
 LAB_00411405:
-                  PLAYER_KGT_BUFFER[uVar2].field6404_0xdf75 = iVar10 + 1;
-                  PLAYER_KGT_BUFFER[uVar2].winpoint = 0;
-                  *(undefined4 *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf81 = 0xffffffff;
+                  PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx = i + 1;
+                  PLAYER_KGT_BUFFER[player_buffer].winpoint = 0;
+                  *(undefined4 *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx =
+                       0xffffffff;
                 }
               }
             }
-            iVar10 = iVar10 + 1;
-            psVar9 = (short *)((int)psVar9 + 0x6f);
-          } while (iVar10 < 100);
+            i = i + 1;
+            cpu_interval_empty = (short *)((int)cpu_interval_empty + 0x6f);
+          } while (i < 100);
         }
-        iVar7 = PLAYER_KGT_BUFFER[uVar2].field6404_0xdf75;
-        if ((iVar7 != 0) &&
-           (iVar3 = PLAYER_KGT_BUFFER[uVar2].winpoint + -1,
-           PLAYER_KGT_BUFFER[uVar2].winpoint = iVar3, iVar3 < 0)) {
-          iVar3 = *(int *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf81 + 1;
-          *(int *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf81 = iVar3;
-          if (9 < iVar3) {
-            PLAYER_KGT_BUFFER[uVar2].field6404_0xdf75 = 0;
+        command_idx = PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx;
+        if ((command_idx != 0) &&
+           (rand = PLAYER_KGT_BUFFER[player_buffer].winpoint + -1,
+           PLAYER_KGT_BUFFER[player_buffer].winpoint = rand, rand < 0)) {
+          rand = *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx + 1;
+          *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx = rand;
+          if (9 < rand) {
+            PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx = 0;
           }
-          if ((PLAYER_KGT_BUFFER[uVar2].CPU_commands[iVar7].name
-               [*(int *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf81 * 7 + -0x44] & 0x20U) == 0) {
-            PLAYER_KGT_BUFFER[uVar2].field6404_0xdf75 = 0;
+          if ((PLAYER_KGT_BUFFER[player_buffer].CPU_commands[command_idx].name
+               [*(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx * 7 + -0x44] & 0x20U
+              ) == 0) {
+                    // Testing for END SKILL flag
+            PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx = 0;
           }
-          iVar3 = _rand();
-          iVar7 = iVar3 % (0x65 - PLAYER_KGT_BUFFER[uVar2].cpu_level) +
-                  (uint)*(ushort *)
-                         (PLAYER_KGT_BUFFER[uVar2].CPU_commands[iVar7].name +
-                         *(int *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf81 * 7 + -0x41);
-          PLAYER_KGT_BUFFER[uVar2].winpoint = iVar7;
-          if (PLAYER_KGT_BUFFER[uVar2].field6404_0xdf75 != 0) {
+          rand2 = _rand();
+          rand = rand2 % (101 - PLAYER_KGT_BUFFER[player_buffer].cpu_level) +
+                 (uint)*(ushort *)
+                        (PLAYER_KGT_BUFFER[player_buffer].CPU_commands[command_idx].name +
+                        *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx * 7 + -0x41)
+          ;
+          PLAYER_KGT_BUFFER[player_buffer].winpoint = rand;
+          if (PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx != 0) {
             _sprintf(local_100,s__s__d_0041f210,
-                     uVar2 * 0xe03f + 0x4d6ad0 +
+                     player_buffer * 0xe03f + 0x4d6ad0 +
                      (uint)*(ushort *)
-                            (PLAYER_KGT_BUFFER[uVar2].CPU_commands
-                             [PLAYER_KGT_BUFFER[uVar2].field6404_0xdf75].name +
-                            *(int *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf81 * 7 + -0x43) * 0x52,iVar7
-                    );
+                            (PLAYER_KGT_BUFFER[player_buffer].CPU_commands
+                             [PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx].name +
+                            *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx * 7 +
+                            -0x43) * 0x52,rand);
           }
         }
-        iVar7 = PLAYER_KGT_BUFFER[uVar2].field6404_0xdf75;
-        if (iVar7 != 0) {
-          iVar3 = *(int *)&PLAYER_KGT_BUFFER[uVar2].field_0xdf81 * 7;
-          if (((PLAYER_KGT_BUFFER[uVar2].guard_button_bool & 8U) == 0) ||
+        rand = PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx;
+        if (rand != 0) {
+          i = *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx * 7;
+          if (((PLAYER_KGT_BUFFER[player_buffer].guard_button_flag & 8U) == 0) ||
              (local_114 = &DAT_0041f178,
-             PLAYER_KGT_BUFFER[uVar2].pos_x_pos <= PLAYER_KGT_BUFFER[iVar6].pos_x_pos)) {
+             PLAYER_KGT_BUFFER[player_buffer].pos_x_pos <= PLAYER_KGT_BUFFER[iVar2].pos_x_pos)) {
             local_114 = &DAT_0041f138;
           }
-          uVar1 = *(ushort *)(PLAYER_KGT_BUFFER[uVar2].CPU_commands[iVar7].name + iVar3 + -0x43);
+          uVar1 = *(ushort *)(PLAYER_KGT_BUFFER[player_buffer].CPU_commands[rand].name + i + -0x43);
           if (uVar1 != 0) {
             local_10c = 10;
-            psVar9 = PLAYER_KGT_BUFFER[uVar2].command_structs[uVar1 - 1].command_input_timings + 9;
-            iVar6 = INPUT_BUFFER_POS;
+            cpu_interval_empty =
+                 PLAYER_KGT_BUFFER[player_buffer].command_structs[uVar1 - 1].command_input_timings +
+                 9;
+            input_buffer_pos = INPUT_BUFFER_POS;
             do {
-              uVar1 = psVar9[-10];
-              local_108 = (uint)(ushort)*psVar9;
+              uVar1 = cpu_interval_empty[-10];
+              local_108 = (uint)(ushort)*cpu_interval_empty;
               if ((uVar1 & 0x2000) != 0) {
-                uVar4 = *(uint *)(local_114 + (uVar1 & 0xf) * 4);
+                distance = *(uint *)(local_114 + (uVar1 & 0xf) * 4);
                 if ((uVar1 & 0x10) != 0) {
-                  uVar4 = uVar4 | 0x10;
+                  distance = distance | 0x10;
                 }
                 if ((uVar1 & 0x20) != 0) {
-                  uVar4 = uVar4 | 0x20;
+                  distance = distance | 0x20;
                 }
                 if ((uVar1 & 0x40) != 0) {
-                  uVar4 = uVar4 | 0x40;
+                  distance = distance | 0x40;
                 }
                 if ((uVar1 & 0x80) != 0) {
-                  uVar4 = uVar4 | 0x80;
+                  distance = distance | 0x80;
                 }
                 if ((uVar1 & 0x100) != 0) {
-                  uVar4 = uVar4 | 0x100;
+                  distance = distance | 0x100;
                 }
                 if ((uVar1 & 0x200) != 0) {
-                  uVar4 = uVar4 | 0x200;
+                  distance = distance | 0x200;
                 }
-                uVar4 = uVar4 | *(uint *)(local_114 +
-                                         ((byte)PLAYER_KGT_BUFFER[uVar2].CPU_commands[iVar7].name
-                                                [iVar3 + -0x45] & 0xf) * 4);
+                distance = distance |
+                           *(uint *)(local_114 +
+                                    ((byte)PLAYER_KGT_BUFFER[player_buffer].CPU_commands[rand].name
+                                           [i + -0x45] & 0xf) * 4);
                 switch((int)(uint)uVar1 >> 0xe) {
                 case 0:
-                  iVar10 = iVar6 + -1;
-                  INPUT_BUFFER_A[PTR_POSS_CURRENT_OBJ->player_file_buffer][iVar6] = uVar4;
-                  iVar6 = iVar10;
-                  if (iVar10 < 0) {
-                    iVar6 = 0x3ff;
+                  iVar2 = input_buffer_pos + -1;
+                  INPUT_BUFFER_A[PTR_POSS_CURRENT_OBJ->player_file_buffer][input_buffer_pos] =
+                       distance;
+                  input_buffer_pos = iVar2;
+                  if (iVar2 < 0) {
+                    input_buffer_pos = 0x3ff;
                   }
                   break;
                 case 1:
                   if (local_108 != 0) {
-                    iVar10 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+                    iVar2 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
                     do {
-                      iVar5 = iVar6 + -1;
-                      INPUT_BUFFER_A[iVar10][iVar6] = 0;
-                      if (iVar5 < 0) {
-                        iVar5 = 0x3ff;
+                      final_distance = input_buffer_pos + -1;
+                      INPUT_BUFFER_A[iVar2][input_buffer_pos] = 0;
+                      if (final_distance < 0) {
+                        final_distance = 0x3ff;
                       }
-                      iVar6 = iVar5 + -1;
-                      INPUT_BUFFER_A[iVar10][iVar5] = uVar4;
-                      if (iVar6 < 0) {
-                        iVar6 = 0x3ff;
+                      input_buffer_pos = final_distance + -1;
+                      INPUT_BUFFER_A[iVar2][final_distance] = distance;
+                      if (input_buffer_pos < 0) {
+                        input_buffer_pos = 0x3ff;
                       }
                       local_108 = local_108 - 1;
                     } while (local_108 != 0);
@@ -13223,67 +13240,68 @@ LAB_00411405:
                   break;
                 case 2:
                   if (local_108 != 0) {
-                    iVar10 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-                    iVar5 = iVar6;
+                    iVar2 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+                    final_distance = input_buffer_pos;
                     do {
-                      iVar6 = iVar5 + -1;
-                      INPUT_BUFFER_A[iVar10][iVar5] = uVar4;
-                      if (iVar6 < 0) {
-                        iVar6 = 0x3ff;
+                      input_buffer_pos = final_distance + -1;
+                      INPUT_BUFFER_A[iVar2][final_distance] = distance;
+                      if (input_buffer_pos < 0) {
+                        input_buffer_pos = 0x3ff;
                       }
                       local_108 = local_108 - 1;
-                      iVar5 = iVar6;
+                      final_distance = input_buffer_pos;
                     } while (local_108 != 0);
                   }
                   break;
                 case 3:
                   if (local_108 != 0) {
-                    iVar10 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+                    iVar2 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
                     do {
-                      iVar5 = iVar6 + -1;
-                      INPUT_BUFFER_A[iVar10][iVar6] = uVar4 | 2;
-                      if (iVar5 < 0) {
-                        iVar5 = 0x3ff;
+                      final_distance = input_buffer_pos + -1;
+                      INPUT_BUFFER_A[iVar2][input_buffer_pos] = distance | 2;
+                      if (final_distance < 0) {
+                        final_distance = 0x3ff;
                       }
-                      iVar6 = iVar5 + -1;
-                      INPUT_BUFFER_A[iVar10][iVar5] = uVar4 | 8;
-                      if (iVar6 < 0) {
-                        iVar6 = 0x3ff;
+                      iVar3 = final_distance + -1;
+                      INPUT_BUFFER_A[iVar2][final_distance] = distance | 8;
+                      if (iVar3 < 0) {
+                        iVar3 = 0x3ff;
                       }
-                      iVar5 = iVar6 + -1;
-                      INPUT_BUFFER_A[iVar10][iVar6] = uVar4 | 1;
-                      if (iVar5 < 0) {
-                        iVar5 = 0x3ff;
+                      final_distance = iVar3 + -1;
+                      INPUT_BUFFER_A[iVar2][iVar3] = distance | 1;
+                      if (final_distance < 0) {
+                        final_distance = 0x3ff;
                       }
-                      iVar6 = iVar5 + -1;
-                      INPUT_BUFFER_A[iVar10][iVar5] = uVar4 | 4;
-                      if (iVar6 < 0) {
-                        iVar6 = 0x3ff;
+                      input_buffer_pos = final_distance + -1;
+                      INPUT_BUFFER_A[iVar2][final_distance] = distance | 4;
+                      if (input_buffer_pos < 0) {
+                        input_buffer_pos = 0x3ff;
                       }
                       local_108 = local_108 - 1;
                     } while (local_108 != 0);
                   }
                 }
               }
-              psVar9 = psVar9 + -1;
+              cpu_interval_empty = cpu_interval_empty + -1;
               local_10c = local_10c + -1;
             } while (local_10c != 0);
             return;
           }
           INPUT_BUFFER_A[PTR_POSS_CURRENT_OBJ->player_file_buffer][INPUT_BUFFER_POS] =
                *(int *)(local_114 +
-                       ((byte)PLAYER_KGT_BUFFER[uVar2].CPU_commands[iVar7].name[iVar3 + -0x45] & 0xf
-                       ) * 4);
+                       ((byte)PLAYER_KGT_BUFFER[player_buffer].CPU_commands[rand].name[i + -0x45] &
+                       0xf) * 4);
           return;
         }
       }
       break;
     case 2:
-      INPUT_BUFFER_A[uVar2][INPUT_BUFFER_POS] = INPUT_BUFFER_A[uVar2 ^ 1][INPUT_BUFFER_POS];
+      INPUT_BUFFER_A[player_buffer][INPUT_BUFFER_POS] =
+           INPUT_BUFFER_A[player_buffer ^ 1][INPUT_BUFFER_POS];
       return;
     case 4:
       if (GAME_STATE.round_start_is0 == 1) {
-        INPUT_BUFFER_A[uVar2][INPUT_BUFFER_POS] = 4;
+        INPUT_BUFFER_A[player_buffer][INPUT_BUFFER_POS] = 0b00000100;
       }
     }
   }
@@ -13296,91 +13314,91 @@ void FUN_00411810(void)
 
 {
   byte bVar1;
-  OBJ_STRUCT *pOVar2;
-  int iVar3;
-  uint uVar4;
-  uint uVar5;
+  uint uVar2;
+  uint uVar3;
+  OBJ_STRUCT *curr_obj;
+  int player_buffer;
   
-  iVar3 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
   if ((((GAME_STATE.round_start_is0 == 2) && (((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xc) == 0))
       && (PTR_POSS_CURRENT_OBJ->param_4 == PTR_POSS_CURRENT_OBJ->compare_to_param_4)) &&
-     ((PTR_POSS_CURRENT_OBJ->field10_0x1c == 0 && (PLAYER_KGT_BUFFER[iVar3].health != 0)))) {
-    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar3].SectionE_default_0x2c);
+     ((PTR_POSS_CURRENT_OBJ->y_momentum == 0 && (PLAYER_KGT_BUFFER[player_buffer].health != 0)))) {
+    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[player_buffer].victory_skill_idx);
     return;
   }
-  FUN_00411270();
-  pOVar2 = PTR_POSS_CURRENT_OBJ;
+  handle_cpu_commands();
+  curr_obj = PTR_POSS_CURRENT_OBJ;
   if ((PTR_POSS_CURRENT_OBJ->compare_to_param_4 <= PTR_POSS_CURRENT_OBJ->param_4) &&
-     (0 < PTR_POSS_CURRENT_OBJ->field10_0x1c)) {
+     (0 < PTR_POSS_CURRENT_OBJ->y_momentum)) {
     PTR_POSS_CURRENT_OBJ->param_4 = PTR_POSS_CURRENT_OBJ->compare_to_param_4;
-    pOVar2->field11_0x20 = 0;
-    pOVar2->field9_0x18 = 0;
-    pOVar2->field12_0x24 = 0;
-    pOVar2->field10_0x1c = 0;
-    pOVar2->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar2->obj_ptr_b & 0xfffffffc);
-    pOVar2->action_idx = -1;
-    if (pOVar2->stage_action_idx == 0) {
+    curr_obj->x_gravity = 0;
+    curr_obj->x_momentum = 0;
+    curr_obj->y_gravity = 0;
+    curr_obj->y_momentum = 0;
+    curr_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)curr_obj->obj_ptr_b & 0xfffffffc);
+    curr_obj->action_idx = -1;
+    if (curr_obj->stage_action_idx == 0) {
       FUN_0040e580();
-      pOVar2 = PTR_POSS_CURRENT_OBJ;
+      curr_obj = PTR_POSS_CURRENT_OBJ;
       PTR_POSS_CURRENT_OBJ->obj_ptr_b =
            (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xffffffe3);
     }
     else {
-      uVar4 = pOVar2->stage_action_idx & 0xffff;
-      pOVar2->action_idx = uVar4;
-      *(uint *)&pOVar2->actionscript_idx =
-           (uint)(ushort)PLAYER_KGT_BUFFER[pOVar2->player_file_buffer].kgt_core.p_actions_alloc
-                         [uVar4].starting_step_idx + ((uint)pOVar2->stage_action_idx >> 0x10);
-      pOVar2->stage_action_idx = 0;
-      pOVar2->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar2->obj_ptr_b & 0xfffffff7 | 4);
-      pOVar2->jump_6_var_a = 0;
-      FUN_0040e550(pOVar2);
-      pOVar2 = PTR_POSS_CURRENT_OBJ;
+      uVar2 = curr_obj->stage_action_idx & 0xffff;
+      curr_obj->action_idx = uVar2;
+      *(uint *)&curr_obj->actionscript_idx =
+           (uint)(ushort)PLAYER_KGT_BUFFER[curr_obj->player_file_buffer].kgt_core.p_actions_alloc
+                         [uVar2].starting_step_idx + ((uint)curr_obj->stage_action_idx >> 0x10);
+      curr_obj->stage_action_idx = 0;
+      curr_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)curr_obj->obj_ptr_b & 0xfffffff7 | 4);
+      curr_obj->image_wait_frames = 0;
+      memzero_mystery_arrays(curr_obj);
+      curr_obj = PTR_POSS_CURRENT_OBJ;
     }
   }
-  uVar4 = (uint)pOVar2->obj_ptr_b & 0xc;
-  if (uVar4 == 0) {
-    iVar3 = FUN_00410060(0);
-    if (iVar3 != 0) {
-      assign_action_and_reset_some_data(iVar3);
-      pOVar2 = PTR_POSS_CURRENT_OBJ;
+  uVar2 = (uint)curr_obj->obj_ptr_b & 0xc;
+  if (uVar2 == 0) {
+    player_buffer = FUN_00410060(0);
+    if (player_buffer != 0) {
+      assign_action_and_reset_some_data(player_buffer);
+      curr_obj = PTR_POSS_CURRENT_OBJ;
       if (((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 3) < 2) {
-        PTR_POSS_CURRENT_OBJ->field11_0x20 = 0;
-        pOVar2->field9_0x18 = 0;
+        PTR_POSS_CURRENT_OBJ->x_gravity = 0;
+        curr_obj->x_momentum = 0;
       }
-      pOVar2->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar2->obj_ptr_b & 0xfffffff7 | 4);
+      curr_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)curr_obj->obj_ptr_b & 0xfffffff7 | 4);
       return;
     }
     FUN_00410dc0();
   }
-  else if (uVar4 != 8) {
-    bVar1 = PLAYER_KGT_BUFFER[iVar3].field_0xdf92 & 7;
+  else if (uVar2 != 8) {
+    bVar1 = PLAYER_KGT_BUFFER[player_buffer].field_0xdf92 & 7;
     if (bVar1 == 1) {
-      if (*(int *)&PLAYER_KGT_BUFFER[iVar3].field_0xdf85 < 2) {
+      if (*(int *)&PLAYER_KGT_BUFFER[player_buffer].currect_action_cancellable_flag < 2) {
         return;
       }
     }
     else if (bVar1 != 2) {
       return;
     }
-    uVar4 = FUN_00410060(0);
-    if (uVar4 != 0) {
-      uVar5 = ((byte)PLAYER_KGT_BUFFER[iVar3].field_0xdf92 & 0x38) >> 3;
-      if (uVar5 == 0) {
-        bVar1 = PLAYER_KGT_BUFFER[iVar3].kgt_core.p_actionscripts_alloc
-                [(ushort)PLAYER_KGT_BUFFER[iVar3].kgt_core.p_actions_alloc[uVar4].starting_step_idx]
-                ._2;
-        if (((byte)PLAYER_KGT_BUFFER[iVar3].field_0xdf93 <= bVar1) &&
-           (bVar1 <= (byte)PLAYER_KGT_BUFFER[iVar3].field_0xdf96)) goto LAB_004119e1;
+    uVar2 = FUN_00410060(0);
+    if (uVar2 != 0) {
+      uVar3 = ((byte)PLAYER_KGT_BUFFER[player_buffer].field_0xdf92 & 0x38) >> 3;
+      if (uVar3 == 0) {
+        bVar1 = PLAYER_KGT_BUFFER[player_buffer].kgt_core.p_actionscripts_alloc
+                [(ushort)PLAYER_KGT_BUFFER[player_buffer].kgt_core.p_actions_alloc[uVar2].
+                         starting_step_idx]._2;
+        if (((byte)PLAYER_KGT_BUFFER[player_buffer].field_0xdf93 <= bVar1) &&
+           (bVar1 <= (byte)PLAYER_KGT_BUFFER[player_buffer].field_0xdf96)) goto LAB_004119e1;
       }
-      else if ((uVar5 == 1) &&
-              ((*(ushort *)&PLAYER_KGT_BUFFER[iVar3].field_0xdf94 != 0 &&
-               (uVar4 == *(ushort *)&PLAYER_KGT_BUFFER[iVar3].field_0xdf94)))) {
+      else if ((uVar3 == 1) &&
+              ((*(ushort *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf94 != 0 &&
+               (uVar2 == *(ushort *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf94)))) {
 LAB_004119e1:
         PTR_POSS_CURRENT_OBJ->obj_ptr_b =
              (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xffffffef);
-        assign_action_and_reset_some_data(uVar4);
-        *(undefined4 *)&PLAYER_KGT_BUFFER[iVar3].field_0xdf85 = 0;
+        assign_action_and_reset_some_data(uVar2);
+        *(undefined4 *)&PLAYER_KGT_BUFFER[player_buffer].currect_action_cancellable_flag = 0;
         return;
       }
     }
@@ -13393,44 +13411,44 @@ LAB_004119e1:
 void FUN_00411a80(void)
 
 {
-  int iVar1;
-  uint uVar2;
-  int iVar3;
-  OBJ_STRUCT *pOVar4;
-  OBJ_STRUCT *pOVar5;
-  short sVar6;
+  OBJ_STRUCT *pOVar1;
+  OBJ_STRUCT *pOVar2;
+  short sVar3;
+  uint input;
+  int player_buffer;
+  int w_ko_unk_var;
   
-  iVar1 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  uVar2 = INPUT_BUFFER_A[iVar1][INPUT_BUFFER_POS];
+  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+  input = INPUT_BUFFER_A[player_buffer][INPUT_BUFFER_POS];
   obj_0x129_to_0(PTR_POSS_CURRENT_OBJ);
-  FUN_0040e510();
-  PLAYER_KGT_BUFFER[iVar1].field6357_0xdefd = 0;
-  pOVar5 = PTR_POSS_CURRENT_OBJ;
-  iVar3 = PLAYER_KGT_BUFFER[iVar1].w_ko_unk_var;
-  if (iVar3 == 1) {
-    sVar6 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x2c;
+  obj_reset_values();
+  PLAYER_KGT_BUFFER[player_buffer].field6356_0xdefd = 0;
+  pOVar2 = PTR_POSS_CURRENT_OBJ;
+  w_ko_unk_var = PLAYER_KGT_BUFFER[player_buffer].w_ko_unk_var;
+  if (w_ko_unk_var == 1) {
+    sVar3 = PLAYER_KGT_BUFFER[player_buffer].victory_skill_idx;
     PTR_POSS_CURRENT_OBJ->action_idx = -1;
   }
-  else if (iVar3 == 2) {
-    sVar6 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x2f;
+  else if (w_ko_unk_var == 2) {
+    sVar3 = PLAYER_KGT_BUFFER[player_buffer].loss_skill_idx;
     PTR_POSS_CURRENT_OBJ->action_idx = -1;
   }
   else {
-    if (iVar3 != 3) {
-      pOVar4 = PTR_POSS_CURRENT_OBJ->obj_ptr_b;
-      PTR_POSS_CURRENT_OBJ->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar4 & 0xfffffff3);
-      if ((pOVar5->__or_3 & 2) != 0) {
+    if (w_ko_unk_var != 3) {
+      pOVar1 = PTR_POSS_CURRENT_OBJ->obj_ptr_b;
+      PTR_POSS_CURRENT_OBJ->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar1 & 0xfffffff3);
+      if ((pOVar2->__or_3 & 2) != 0) {
         return;
       }
-      pOVar5->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar4 & 0xfffffff0);
-      memzero(&PLAYER_KGT_BUFFER[iVar1].start_of_0x6,6);
-      pOVar5 = PTR_POSS_CURRENT_OBJ;
+      pOVar2->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar1 & 0xfffffff0);
+      memzero(&PLAYER_KGT_BUFFER[player_buffer].start_of_0x6,6);
+      pOVar2 = PTR_POSS_CURRENT_OBJ;
       if ((PTR_POSS_CURRENT_OBJ->param_4 == PTR_POSS_CURRENT_OBJ->compare_to_param_4) &&
-         (PTR_POSS_CURRENT_OBJ->field10_0x1c == 0)) {
-        PTR_POSS_CURRENT_OBJ->field11_0x20 = 0;
-        pOVar5->field9_0x18 = 0;
+         (PTR_POSS_CURRENT_OBJ->y_momentum == 0)) {
+        PTR_POSS_CURRENT_OBJ->x_gravity = 0;
+        pOVar2->x_momentum = 0;
         FUN_0040e580();
-        if ((uVar2 & 8) != 0) {
+        if ((input & 8) != 0) {
           PTR_POSS_CURRENT_OBJ->obj_ptr_b =
                (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b | 1);
           FUN_00411810();
@@ -13439,15 +13457,16 @@ void FUN_00411a80(void)
       }
       else {
         PTR_POSS_CURRENT_OBJ->obj_ptr_b = (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b | 2);
-        switch_current_object_action((uint)(ushort)PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x9);
+        switch_current_object_action
+                  ((uint)(ushort)PLAYER_KGT_BUFFER[player_buffer].falling_skill_idx);
       }
       FUN_00411810();
       return;
     }
     PTR_POSS_CURRENT_OBJ->action_idx = -1;
-    sVar6 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x30;
+    sVar3 = PLAYER_KGT_BUFFER[player_buffer].draw_skill_idx;
   }
-  assign_action_and_reset_some_data(sVar6);
+  assign_action_and_reset_some_data(sVar3);
   PTR_POSS_CURRENT_OBJ->obj_ptr_b =
        (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffff7 | 4);
   return;
@@ -13460,51 +13479,55 @@ void FUN_00411a80(void)
 void script_reading_logic(void)
 
 {
-  char cVar1;
-  short sVar2;
+  byte *pbVar1;
+  char cVar2;
   short sVar3;
-  undefined2 uVar4;
+  short sVar4;
   ushort uVar5;
   kgt_skill_step_struct *pkVar6;
-  kgt_character_struct *pkVar7;
-  undefined3 uVar8;
-  int iVar9;
-  undefined1 uVar10;
-  undefined1 uVar11;
-  char cVar12;
-  uint uVar13;
+  undefined3 uVar7;
+  undefined1 uVar8;
+  undefined1 uVar9;
+  char cVar10;
+  uint uVar11;
   int time_rand;
   int *other_player_poss_relating;
-  uint uVar14;
+  uint uVar12;
   int stage_unk_var_b;
-  int *piVar15;
-  byte bVar16;
+  int image_wait_frames;
+  int player_x_momentum;
+  int player_y_momentum;
+  int add_to_special;
+  OBJ_STRUCT_ptr_64_undefined1 PS_obj;
+  int rand;
+  byte bVar13;
+  byte is_if_failed;
+  int _x650_idx;
   int char_idx;
   int _650_size_offset;
-  OBJ_STRUCT *pOVar17;
-  kgt_pal_color kVar18;
+  OBJ_STRUCT *pOVar14;
+  int new_special_gauge;
+  kgt_pal_color kVar15;
   int i20;
+  int player_ignore_flag_flag;
   kgt_character_struct *object_addy;
+  int ps_i;
   OBJ_STRUCT *current_obj;
-  undefined4 *puVar19;
+  OBJ_STRUCT **ppOVar16;
   kgt_skill_step_struct *skill;
+  kgt_character_struct_ptr_57077_int PS_players;
   bool is_1p_story;
+  bool missing_x_flags_flag;
   uint local_11c;
-  int local_114;
-  int local_110;
-  short *char_i;
+  int ps_i3;
+  int ps_i2;
+  byte *char_i;
   int local_108;
   void *local_104;
   char local_100 [256];
-  int current_player_poss_relating;
-  bool match_found;
-  int current_time;
-  int initial_y_val;
   int player_file_buff_idx2;
-  int *unk_mystery_array_var;
   int player_file_buff_idx3;
   int temp_5f04860c28;
-  int current_skill_idx;
   uint game_round;
   int stage_unk_poss_action_idx;
   int unk_actionscript_final_0x10;
@@ -13512,6 +13535,52 @@ void script_reading_logic(void)
   int stage_unk_poss_action;
   OBJ_STRUCT *piVar16;
   character_story_entry_cpu *puVar1;
+  int current_player_poss_relating;
+  bool match_found;
+  int current_time;
+  int initial_y_val;
+  kgt_skill_step_struct *hitbox;
+  int current_skill_idx;
+  byte mvmt_flags;
+  byte m_val;
+  byte RC_flags;
+  ushort skill_id;
+  byte command_id;
+  uint skill_id_2;
+  int actionscript_idx;
+  int sc_command_id;
+  ushort image_wait;
+  byte pallette_flash;
+  int flash_player_buffer;
+  ushort flash_duration;
+  int flash_opponent_buffer;
+  ushort opp_flash_duration;
+  ushort GS_skill_idx;
+  int GS_player_buffer;
+  ushort GL_skill_idx;
+  OBJ_STRUCT *opp_obj_ptr;
+  byte RP_flags;
+  int RP_player_direction;
+  int GC_player_buffer;
+  short GC_life_opp;
+  int random_skillcommand;
+  uint DB_input;
+  int db_player_buffer;
+  short FA_width;
+  int *FA_m_number;
+  byte FA_flags;
+  byte player_down_time;
+  int PS_player_buffer;
+  byte PS_opponent_down_time;
+  int PS_player_cpu;
+  char cancel_empty;
+  byte var_LHS_long;
+  byte var_lhs;
+  byte var_flags;
+  ushort COM_skill_idx;
+  int COM_new_skillscript_idx;
+  undefined1 cancel_flags;
+  undefined1 cancel_skill_idx;
   kgt_obj_type curr_obj_type;
   GAME_MODES game_mode;
   byte life_recover_number;
@@ -13529,7 +13598,7 @@ void script_reading_logic(void)
     break;
   case main_kgt_file:
                     // DON'T FORGET TO CHANGE THIS BACK TO PROPER FILE TYPE
-    object_addy = &DAT_KGT_FILE_BUFFER_00433240;
+    object_addy = (kgt_character_struct *)&DAT_KGT_FILE_BUFFER_00433240;
     break;
   case demo_file:
     object_addy = (kgt_character_struct *)&UNK_DEMO_FILE_BUFFER_00425a60;
@@ -13548,101 +13617,111 @@ void script_reading_logic(void)
         special_stock_gauge_max = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
         player_file_buff_idx = current_obj->player_file_buffer;
         if (player_file_buff_idx == 0) {
-          cVar12 = PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].field_0x3;
+          cVar10 = PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].field_0x3;
           if (GAME_STATE.poss_current_round_count == 1) {
-            if (cVar12 == '\0') {
+            if (cVar10 == '\0') {
                     // Probably_health assigned starting_health?
-              object_addy->health = *(int *)&object_addy->life_gauge_max;
+              *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
+                   *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
             }
           }
-          else if (cVar12 == '\0') {
-            object_addy->health = *(int *)&object_addy->life_gauge_max;
+          else if (cVar10 == '\0') {
+            *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
+                 *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
           }
           else {
             life_recover_number =
                  PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
                  life_recover_number;
             if (life_recover_number == 100) {
-              object_addy->health = *(int *)&object_addy->life_gauge_max;
+              *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
+                   *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
             }
             else if (life_recover_number != 0) {
-              uVar13 = object_addy->health +
-                       ((uint)life_recover_number * *(int *)&object_addy->life_gauge_max) / 100;
-              object_addy->health = uVar13;
-              uVar14._0_2_ = object_addy->life_gauge_max;
-              uVar14._2_1_ = object_addy->field1823_0x7cac[0];
-              uVar14._3_1_ = object_addy->field1823_0x7cac[1];
-              if (uVar14 < uVar13) {
-                object_addy->health = uVar14;
+              uVar11 = *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) +
+                       ((uint)life_recover_number *
+                       *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e)) / 100;
+              *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) = uVar11;
+              uVar12 = *(uint *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
+              if (uVar12 < uVar11) {
+                *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) = uVar12;
               }
             }
           }
                     // Checking the player ignore bit on each cpu enemy
-          *(undefined4 *)&object_addy->enemy_bitmask = 0xfffffffe;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xb5b] = 0xfe;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xb5c] = 0xff;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xb5d] = 0xff;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xb5e] = 0xff;
           if (((undefined1  [26])
                PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
                character_story_entry_cpu_array[0] & (undefined1  [26])0x200) !=
               (undefined1  [26])0x0) {
-            *(undefined4 *)&object_addy->enemy_bitmask = 0xfffffffc;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb5b] = 0xfc;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb5c] = 0xff;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb5d] = 0xff;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb5e] = 0xff;
           }
           if (((undefined1  [26])
                PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
                character_story_entry_cpu_array[1] & (undefined1  [26])0x200) !=
               (undefined1  [26])0x0) {
-            *(uint *)&object_addy->enemy_bitmask = *(uint *)&object_addy->enemy_bitmask & 0xfffffffb
-            ;
+            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
+                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xfffffffb;
           }
           if (((undefined1  [26])
                PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
                character_story_entry_cpu_array[2] & (undefined1  [26])0x200) !=
               (undefined1  [26])0x0) {
-            *(uint *)&object_addy->enemy_bitmask = *(uint *)&object_addy->enemy_bitmask & 0xfffffff7
-            ;
+            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
+                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xfffffff7;
           }
           if (((undefined1  [26])
                PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
                character_story_entry_cpu_array[3] & (undefined1  [26])0x200) !=
               (undefined1  [26])0x0) {
-            *(uint *)&object_addy->enemy_bitmask = *(uint *)&object_addy->enemy_bitmask & 0xffffffef
-            ;
+            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
+                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xffffffef;
           }
           if (((undefined1  [26])
                PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
                character_story_entry_cpu_array[4] & (undefined1  [26])0x200) !=
               (undefined1  [26])0x0) {
-            *(uint *)&object_addy->enemy_bitmask = *(uint *)&object_addy->enemy_bitmask & 0xffffffdf
-            ;
+            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
+                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xffffffdf;
           }
           if (((undefined1  [26])
                PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
                character_story_entry_cpu_array[5] & (undefined1  [26])0x200) !=
               (undefined1  [26])0x0) {
-            *(uint *)&object_addy->enemy_bitmask = *(uint *)&object_addy->enemy_bitmask & 0xffffffbf
-            ;
+            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
+                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xffffffbf;
           }
           if (((undefined1  [26])
                PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
                character_story_entry_cpu_array[6] & (undefined1  [26])0x200) !=
               (undefined1  [26])0x0) {
-            *(uint *)&object_addy->enemy_bitmask = *(uint *)&object_addy->enemy_bitmask & 0xffffff7f
-            ;
+            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
+                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xffffff7f;
           }
-          object_addy->show_life = 1;
-          object_addy->round_start_var_c = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xab1] = 1;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xab2] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xab3] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xab4] = 0;
         }
         else {
-          object_addy->health = *(int *)&object_addy->life_gauge_max;
+          *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
+               *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
           puVar1 = (character_story_entry_cpu *)
                    (special_stock_gauge_max * 0xce + 0x4d9a47 + player_file_buff_idx * 0x1a);
-          uVar14 = *(uint *)puVar1;
                     // I might have the left and right digits mixed up for
                     // story_character_entry_info_bitmask
-          object_addy->show_life = (short)(uVar14 & 1);
-          object_addy->round_start_var_c = (short)((uVar14 & 1) >> 0x10);
-          *(uint *)&object_addy->enemy_bitmask = (uint)(byte)puVar1->enemy_bitmask;
-          uVar14 = *(uint *)puVar1 >> 1 & 3;
+          *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab1) = *(uint *)puVar1 & 1;
+          *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
+               (uint)(byte)puVar1->enemy_bitmask;
+          uVar12 = *(uint *)puVar1 >> 1 & 3;
                     // If character entry info bitmask has the time bit set
-          if (uVar14 == 1) {
+          if (uVar12 == 1) {
             *(uint *)&current_obj->time_method_number_in_frames =
                  (uint)(byte)puVar1->time_method_number * 100;
             if (puVar1->time_method_number_random != '\0') {
@@ -13655,95 +13734,180 @@ void script_reading_logic(void)
           }
           else {
                     // If it has the life bit set
-            if ((uVar14 == 2) &&
+            if ((uVar12 == 2) &&
                ((int)(uint)(byte)puVar1->life_method_life_amount <=
                 PLAYER_KGT_BUFFER[(byte)puVar1->life_method_target].health)) {
               current_obj->object_process_step = 0;
               return;
             }
           }
-          object_addy->poss_relating_to_player_idx = -1;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xbaf] = 0xff;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xbb0] = 0xff;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xbb1] = 0xff;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xbb2] = 0xff;
                     // Currently do not have recorded use for this variable. Likely a 0
-          object_addy->field6364_0xdf15 = (int)object_addy->field1832_0x7cc2[0];
-          object_addy->field6366_0xdf1d = 0;
+          *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab9) =
+               (int)((kgt_mainKGT *)object_addy)->stage_names[0xc].str[0x66];
+          ((kgt_mainKGT *)object_addy)->empty_e[0xac1] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xac2] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xac3] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xac4] = 0;
           if (((undefined1  [26])*puVar1 & (undefined1  [26])0x200) == (undefined1  [26])0x0) {
-            current_obj->pos_player_ignore_flag = 1;
+            current_obj->pos_player_direction = 1;
           }
         }
         current_obj->player_file_buffer_2 = current_obj->player_file_buffer;
       }
       else if ((0 < (int)game_mode) && ((int)game_mode < 3)) {
         player_file_buff_idx2 = current_obj->player_file_buffer;
-        object_addy->health = *(int *)&object_addy->life_gauge_max;
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
+             *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
         current_obj->player_file_buffer_2 = player_file_buff_idx2;
         player_file_buff_idx3 = current_obj->player_file_buffer;
                     // player_file_buff_idx3 -> ceiling 31 -> multiply by two?
-        *(int *)&object_addy->enemy_bitmask = -1 - (1 << ((byte)player_file_buff_idx3 & 0x1f));
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
+             -1 - (1 << ((byte)player_file_buff_idx3 & 0x1f));
         if (player_file_buff_idx3 != 0) {
-          *(undefined4 *)&object_addy->player_buff_idx_is_not_0 = 1;
-          current_obj->pos_player_ignore_flag = 1;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xaf1] = 1;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xaf2] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xaf3] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xaf4] = 0;
+          current_obj->pos_player_direction = 1;
         }
         if (current_obj->player_file_buffer == 0) {
           current_obj->param_3 = 0x1860000;
-          object_addy->pos_x_pos = 0x1860000;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xae5] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xae6] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xae7] = 0x86;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xae8] = 1;
         }
         else {
           current_obj->param_3 = 0x37a0000;
-          object_addy->pos_x_pos = 0x37a0000;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xae5] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xae6] = 0;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xae7] = 0x7a;
+          ((kgt_mainKGT *)object_addy)->empty_e[0xae8] = 3;
         }
       }
       temp_5f04860c28 = current_obj->param_4;
-      object_addy->pos_x_pos = current_obj->param_3;
-      object_addy->pos_y_pos = temp_5f04860c28;
-      object_addy->life_gauge_max2 = *(int *)&object_addy->life_gauge_max;
+      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xae5) = current_obj->param_3;
+      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xae9) = temp_5f04860c28;
+      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab5) =
+           *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
       game_round = GAME_STATE.poss_current_round_count;
-      object_addy->field6358_0xdf01 = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaa5] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaa6] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaa7] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaa8] = 0;
       if ((int)game_round < 2) {
-        object_addy->field6364_0xdf15 = (int)object_addy->field1832_0x7cc2[0];
-        object_addy->field6366_0xdf1d = 0;
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab9) =
+             (int)((kgt_mainKGT *)object_addy)->stage_names[0xc].str[0x66];
+        ((kgt_mainKGT *)object_addy)->empty_e[0xac1] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xac2] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xac3] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xac4] = 0;
       }
-      object_addy->special_stock_max2 = *(int *)&object_addy->special_stock_max;
-      object_addy->special_stock_gauge_max2 = *(int *)&object_addy->special_stock_gauge_max;
-      object_addy->field6368_0xdf25 = 0;
-      object_addy->field6369_0xdf29 = 0;
-      object_addy->CPU = (int)current_obj;
-      object_addy->field6356_0xdef9 = 0;
-      object_addy->field6401_0xdf69 = 0;
-      object_addy->field6402_0xdf6d = 0;
-      object_addy->field6403_0xdf71 = 0;
-      object_addy->field6404_0xdf75 = 0;
-      object_addy->winpoint = 0;
-      *(undefined4 *)&object_addy->field_0xdf7d = 0;
-      object_addy->script_reading_0x14 = 0x14;
-      object_addy->script_reading_01_field5 = 1;
-      object_addy->field6393_0xdf55 = 0;
-      object_addy->field6487_0xdfef = 0;
-      object_addy->w_ko_unk_var = 0;
-      object_addy->field6385_0xdf49 = 0;
-      object_addy->field6357_0xdefd = 0;
-      object_addy->field6504_0xe00f = 0;
-      object_addy->something_to_do_with_starting_health2 = 0;
-      object_addy->has_crouch_advance = 0;
-      object_addy->has_crouch_retreat = 0;
-      pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-      if ((ushort)pActionAlloc[(ushort)object_addy->skill_idx_crouch_advance].starting_step_idx + 1
-          < (uint)(ushort)pActionAlloc[(ushort)object_addy->skill_idx_crouch_advance + 1].
-                          starting_step_idx) {
-        object_addy->has_crouch_advance = 1;
+      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xabd) =
+           *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x56);
+      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac5) =
+           *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x52);
+      ((kgt_mainKGT *)object_addy)->empty_e[0xac9] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaca] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xacb] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xacc] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xacd] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xace] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xacf] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xad0] = 0;
+      *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa99) = current_obj;
+      *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d) = (OBJ_STRUCT *)0x0;
+      *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xb0d) = (OBJ_STRUCT *)0x0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb11] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb12] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb13] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb14] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb15] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb16] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb17] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb18] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb19] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb1a] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb1b] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb1c] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb1d] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb1e] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb1f] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb20] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb21] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb22] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb23] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb24] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xad9] = 0x14;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xada] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xadb] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xadc] = 0;
+      *(int *)(((kgt_mainKGT *)object_addy)->character_names[0] + 4) = 1;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaf9] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xafa] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xafb] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xafc] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb93] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb94] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb95] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb96] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xbab] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xbac] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xbad] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xbae] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaed] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaee] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaef] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaf0] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaa1] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaa2] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaa3] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xaa4] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xbb3] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xbb4] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xbb5] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xbb6] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb5f] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb60] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb61] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb62] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb8b] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb8c] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb8d] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb8e] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb8f] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb90] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb91] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb92] = 0;
+      uVar5 = *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x32);
+      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+      if ((ushort)pActionAlloc[uVar5].starting_step_idx + 1 <
+          (uint)(ushort)pActionAlloc[uVar5 + 1].starting_step_idx) {
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb8b] = 1;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb8c] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb8d] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb8e] = 0;
       }
-      pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
+      uVar5 = *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x34);
+      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
                     // Checking for crouch retreat vs turn standing
-      if ((ushort)pActionAlloc[(ushort)object_addy->skill_idx_crouch_retreat].starting_step_idx + 1
-          < (uint)(ushort)pActionAlloc[(ushort)object_addy->skill_idx_crouch_retreat + 1].
-                          starting_step_idx) {
-        object_addy->has_crouch_retreat = 1;
+      if ((ushort)pActionAlloc[uVar5].starting_step_idx + 1 <
+          (uint)(ushort)pActionAlloc[uVar5 + 1].starting_step_idx) {
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb8f] = 1;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb90] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb91] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb92] = 0;
       }
       current_player_poss_relating =
            PLAYER_KGT_BUFFER[current_obj->player_file_buffer].poss_relating_to_player_idx;
       if (current_player_poss_relating == -1) {
         current_player_poss_relating = 0;
       }
-      char_i = (short *)0x0;
+      char_i = (byte *)0x0;
       do {
         match_found = false;
         char_idx = 0;
@@ -13765,46 +13929,49 @@ void script_reading_logic(void)
         if (current_player_poss_relating < 0) {
           current_player_poss_relating = (current_player_poss_relating - 1U | 0xfffffff8) + 1;
         }
-        char_i = (short *)((int)char_i + 1);
+        char_i = char_i + 1;
       } while ((int)char_i < 8);
       player_file_buff_idx = GAME_STATE.field166_0xf8;
       special_stock_gauge_max = GAME_STATE.field165_0xf4;
       if ((GAME_STATE.GAME_MODE == VS_team) &&
          (GAME_STATE.field163_0xec == current_obj->player_file_buffer)) {
-        object_addy->health = GAME_STATE.field164_0xf0;
-        object_addy->field6364_0xdf15 = special_stock_gauge_max;
-        object_addy->field6366_0xdf1d = player_file_buff_idx;
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) = GAME_STATE.field164_0xf0;
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab9) = special_stock_gauge_max;
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac1) = player_file_buff_idx;
       }
-      pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-      if ((ushort)pActionAlloc[(ushort)object_addy->skill_idx_R1].starting_step_idx + 1 <
-          (uint)(ushort)pActionAlloc[(ushort)object_addy->skill_idx_R1 + 1].starting_step_idx) {
-        pOVar17 = FIND_EMPTY_OBJ(current_obj->jmp_idx,0xd,0,0);
+      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+      uVar5 = *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x4c);
+      if ((ushort)pActionAlloc[uVar5].starting_step_idx + 1 <
+          (uint)(ushort)pActionAlloc[uVar5 + 1].starting_step_idx) {
+        pOVar14 = FIND_EMPTY_OBJ(current_obj->jmp_idx,0xd,0,0);
         current_obj = PTR_POSS_CURRENT_OBJ;
-        pOVar17->obj_type = player_file;
-        uVar5 = object_addy->skill_idx_R1;
-        pOVar17->player_file_buffer = current_obj->player_file_buffer;
-        pOVar17->action_idx = (uint)uVar5;
-        *(uint *)&pOVar17->actionscript_idx =
-             (uint)(ushort)(object_addy->kgt_core).p_actions_alloc[uVar5].starting_step_idx;
+        pOVar14->obj_type = player_file;
+        uVar12 = (uint)*(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x4c);
+        pOVar14->player_file_buffer = current_obj->player_file_buffer;
+        pOVar14->action_idx = uVar12;
+        *(uint *)&pOVar14->actionscript_idx =
+             (uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar12].
+                           starting_step_idx;
       }
       else {
         current_obj->unk_bitmask = current_obj->unk_bitmask | 0x80000000;
       }
-      switch_current_object_action((uint)(ushort)object_addy->skill_idx_start);
+      switch_current_object_action
+                ((uint)*(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x40));
       current_obj = PTR_POSS_CURRENT_OBJ;
       PTR_POSS_CURRENT_OBJ->obj_ptr_b =
            (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffff7 | 4);
       memzero(INPUT_BUFFER_A + current_obj->player_file_buffer,0x1000);
-      memzero(&object_addy->start_of_0x6,6);
-      memzero(&object_addy->start_of_0x20,0x20);
-      memzero(&object_addy->start_of_0x2c,0x2c);
+      memzero(((kgt_mainKGT *)object_addy)->empty_e + 0xb35,6);
+      memzero(((kgt_mainKGT *)object_addy)->empty_e + 0xb3b,0x20);
+      memzero(((kgt_mainKGT *)object_addy)->empty_e + 2999,0x2c);
       current_obj = PTR_POSS_CURRENT_OBJ;
       PTR_POSS_CURRENT_OBJ->unk_bitmask = PTR_POSS_CURRENT_OBJ->unk_bitmask | 0x40000000;
-      puVar19 = (undefined4 *)&object_addy->field_0xdfbf;
+      ppOVar16 = (OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xb63);
       for (special_stock_gauge_max = 10; special_stock_gauge_max != 0;
           special_stock_gauge_max = special_stock_gauge_max + -1) {
-        *puVar19 = 0;
-        puVar19 = puVar19 + 1;
+        *ppOVar16 = (OBJ_STRUCT *)0x0;
+        ppOVar16 = ppOVar16 + 1;
       }
       break;
     case 1:
@@ -13841,54 +14008,54 @@ void script_reading_logic(void)
                     // I can't find anywhere where this variable is assigned to something other than
                     // 0
   if (current_obj->_x650_index != 0) {
-    uVar14 = (uint)(byte)current_obj->_x650_index;
-    _650_size_offset = uVar14 * 0x650;
-    if (*(char *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar14 * 0x194 + 0x37]
+    uVar12 = (uint)(byte)current_obj->_x650_index;
+    _650_size_offset = uVar12 * 0x650;
+    if (*(char *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x37]
                  + 4) != '\0') {
       stage_unk_poss_action_idx =
-           *(int *)(UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes + uVar14 * 0x194 + 0x36);
+           *(int *)(UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes + uVar12 * 0x194 + 0x36);
       unk_actionscript_final_0x10 =
-           (int)((object_addy->kgt_core).p_actionscripts_alloc +
+           (int)((((kgt_mainKGT *)object_addy)->kgt_core).p_actionscripts_alloc +
                 *(int *)&current_obj->actionscript_idx + -1);
       stage_unk_var_b =
-           (int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar14 * 0x194 + 0x38] + -1;
-      UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar14 * 0x194 + 0x38] =
+           (int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x38] + -1;
+      UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x38] =
            (kgt_pal_color)stage_unk_var_b;
       if (stage_unk_var_b < 0) {
-        kVar18.g = '\0';
-        kVar18.r = '\0';
-        kVar18.field3_0x3 = '\0';
-        kVar18.b = *(byte *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes
-                                  [uVar14 * 0x194 + 0x37] + 4);
-        UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar14 * 0x194 + 0x38] = kVar18;
+        kVar15.g = '\0';
+        kVar15.r = '\0';
+        kVar15.field3_0x3 = '\0';
+        kVar15.b = *(byte *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes
+                                  [uVar12 * 0x194 + 0x37] + 4);
+        UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x38] = kVar15;
         *(int *)((stage_unk_poss_action_idx + 1) * 0x10 + 0x447930 + _650_size_offset) =
              current_obj->param_3;
         stage_unk_poss_action = stage_unk_poss_action_idx * 0x10 + 0x447930 + _650_size_offset;
-        mystery_val_sub_bool = current_obj->pos_player_ignore_flag;
+        mystery_val_sub_bool = current_obj->pos_player_direction;
         *(int *)(stage_unk_poss_action + 0x14) = current_obj->param_4;
         *(uint *)(stage_unk_poss_action + 0x18) =
              ((*(ushort *)(unk_actionscript_final_0x10 + 3) & 0x4000) >> 0xe) +
              mystery_val_sub_bool * 4;
         *(int *)(stage_unk_poss_action + 0x1c) = unk_actionscript_final_0x10;
-        UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar14 * 0x194 + 0x36] =
+        UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x36] =
              (kgt_pal_color)
-             (((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar14 * 0x194 + 0x36] +
+             (((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x36] +
               1) % 100);
       }
     }
   }
-  if (current_obj->related_to_reaction_skill_idx != 0) {
+  if (current_obj->hit_junction_idx != 0) {
     current_obj->action_idx = -1;
-    assign_action_and_reset_some_data(current_obj->related_to_reaction_skill_idx & 0xffff);
+    assign_action_and_reset_some_data(current_obj->hit_junction_idx & 0xffff);
     current_obj = PTR_POSS_CURRENT_OBJ;
     *(uint *)&PTR_POSS_CURRENT_OBJ->actionscript_idx =
          *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx +
-         ((uint)PTR_POSS_CURRENT_OBJ->related_to_reaction_skill_idx >> 0x10);
-    current_obj->related_to_reaction_skill_idx = 0;
-    current_obj->field_0x7c = 0;
-    FUN_0040e510();
+         ((uint)PTR_POSS_CURRENT_OBJ->hit_junction_idx >> 0x10);
+    current_obj->hit_junction_idx = 0;
+    current_obj->loop_frequency = 0;
+    obj_reset_values();
     obj_0x129_to_0(PTR_POSS_CURRENT_OBJ);
-    FUN_0040e550(PTR_POSS_CURRENT_OBJ);
+    memzero_mystery_arrays(PTR_POSS_CURRENT_OBJ);
     current_obj = PTR_POSS_CURRENT_OBJ;
     goto LAB_00412564;
   }
@@ -13903,21 +14070,23 @@ void script_reading_logic(void)
   }
   curr_obj_type = current_obj->obj_type;
   if (curr_obj_type == 0) {
-    PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6497_0xdfff = 0;
+    PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6465_0xdfff = 0;
     FUN_0040e5c0();
     FUN_00411810();
-    if (object_addy->field6368_0xdf25 != 0) {
-      if (object_addy->field6369_0xdf29 == 0) {
-        object_addy->field6368_0xdf25 = object_addy->field6368_0xdf25 + -1;
+    if (*(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac9) != 0) {
+      if (*(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xacd) == 0) {
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac9) =
+             *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac9) + -1;
       }
       else {
-        object_addy->field6369_0xdf29 = object_addy->field6369_0xdf29 + -1;
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xacd) =
+             *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xacd) + -1;
       }
     }
     current_obj = PTR_POSS_CURRENT_OBJ;
     initial_y_val = PTR_POSS_CURRENT_OBJ->param_4;
-    object_addy->pos_x_pos = PTR_POSS_CURRENT_OBJ->param_3;
-    object_addy->pos_y_pos = initial_y_val;
+    *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xae5) = PTR_POSS_CURRENT_OBJ->param_3;
+    *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xae9) = initial_y_val;
     goto LAB_00412564;
   }
   if (curr_obj_type != 1) {
@@ -13933,17 +14102,16 @@ switchD_0041270c_default:
       }
       current_obj->param_3 = piVar16->param_3;
       current_obj->param_4 = current_obj->parent_obj->compare_to_param_4;
-      current_obj->pos_player_ignore_flag = current_obj->parent_obj->pos_player_ignore_flag;
+      current_obj->pos_player_direction = current_obj->parent_obj->pos_player_direction;
     }
     goto LAB_00412564;
   }
-  if ((current_obj->compare_to_param_4 <= current_obj->param_4) && (0 < current_obj->field10_0x1c))
-  {
+  if ((current_obj->compare_to_param_4 <= current_obj->param_4) && (0 < current_obj->y_momentum)) {
     current_obj->param_4 = current_obj->compare_to_param_4;
-    current_obj->field11_0x20 = 0;
-    current_obj->field9_0x18 = 0;
-    current_obj->field12_0x24 = 0;
-    current_obj->field10_0x1c = 0;
+    current_obj->x_gravity = 0;
+    current_obj->x_momentum = 0;
+    current_obj->y_gravity = 0;
+    current_obj->y_momentum = 0;
     current_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj->obj_ptr_b & 0xfffffffc);
     current_obj->action_idx = -1;
     if (current_obj->stage_action_idx == 0) {
@@ -13953,14 +14121,14 @@ switchD_0041270c_default:
            (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xffffffe3);
     }
     else {
-      uVar14 = current_obj->stage_action_idx & 0xffff;
-      current_obj->action_idx = uVar14;
+      uVar12 = current_obj->stage_action_idx & 0xffff;
+      current_obj->action_idx = uVar12;
       *(uint *)&current_obj->actionscript_idx =
            (uint)(ushort)PLAYER_KGT_BUFFER[current_obj->player_file_buffer].kgt_core.p_actions_alloc
-                         [uVar14].starting_step_idx + ((uint)current_obj->stage_action_idx >> 0x10);
+                         [uVar12].starting_step_idx + ((uint)current_obj->stage_action_idx >> 0x10);
       current_obj->stage_action_idx = 0;
-      current_obj->jump_6_var_a = 0;
-      FUN_0040e550(current_obj);
+      current_obj->image_wait_frames = 0;
+      memzero_mystery_arrays(current_obj);
       current_obj = PTR_POSS_CURRENT_OBJ;
     }
   }
@@ -13981,31 +14149,32 @@ LAB_004124fb:
     current_obj = PTR_POSS_CURRENT_OBJ;
   }
 LAB_00412564:
-  if ((current_obj->jump_6_var_a < 0) ||
-     (special_stock_gauge_max = current_obj->jump_6_var_a + -100,
-     current_obj->jump_6_var_a = special_stock_gauge_max, -1 < special_stock_gauge_max)) {
+  if ((current_obj->image_wait_frames < 0) ||
+     (special_stock_gauge_max = current_obj->image_wait_frames + -100,
+     current_obj->image_wait_frames = special_stock_gauge_max, -1 < special_stock_gauge_max)) {
     return;
   }
   local_108 = 1;
-  unk_mystery_array_var = current_obj->mystery_array_a + 0x13;
+  hitbox = (kgt_skill_step_struct *)(current_obj->hitbox_attack_array + 0x13);
   i20 = 20;
   do {
-    if ((*unk_mystery_array_var != 0) && ((*(byte *)(*unk_mystery_array_var + 10) & 2) != 0)) {
+    if ((*(int *)hitbox != 0) && ((*(byte *)(*(int *)hitbox + 10) & 2) != 0)) {
       current_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj->obj_ptr_b & 0xffffffef);
     }
     i20 = i20 + -1;
-    unk_mystery_array_var = unk_mystery_array_var + -1;
+    hitbox = (kgt_skill_step_struct *)&hitbox[-1].field_0xc;
   } while (i20 != 0);
 Pre_Script_reading_switch_statement:
                     // *** WHERE READING THE ACTIONSCRIPT SEEMS TO BEGIN ***
   current_skill_idx = current_obj->action_idx;
   local_108 = local_108 + 1;
   if (local_108 < 301) {
-    if ((int)(uint)(ushort)(object_addy->kgt_core).p_actions_alloc[current_skill_idx + 1].
-                           starting_step_idx <= *(int *)&current_obj->actionscript_idx)
-    goto script_switch_statement_case_0x29;
+    if ((int)(uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc
+                           [current_skill_idx + 1].starting_step_idx <=
+        *(int *)&current_obj->actionscript_idx) goto script_switch_statement_case_0x29;
 Script_reading_switch_statement:
-    skill = (object_addy->kgt_core).p_actionscripts_alloc + *(int *)&current_obj->actionscript_idx;
+    skill = (((kgt_mainKGT *)object_addy)->kgt_core).p_actionscripts_alloc +
+            *(int *)&current_obj->actionscript_idx;
                     // First byte is type of script
                     // 
                     // 01 - M
@@ -14036,7 +14205,7 @@ Script_reading_switch_statement:
                     // 25 - AI
     switch(skill->skill_step_type) {
     case 1:
-      goto switchD_00412610_next_actionscript;
+      goto switchD_00412610_compute_momentum;
     case 2:
                     // ----------------------------------
                     // - DS - Conditional Branch -
@@ -14055,7 +14224,7 @@ Script_reading_switch_statement:
                     // 4 - Hit to wall
                     // 5 - in offset
                     // 6 - while throw do
-      if (skill->field_0x1 == '\0') goto switchD_00412610_caseD_6;
+      if (skill->field_0x1 == '\0') goto switchD_00412610_advance_skillscript;
       special_stock_gauge_max = (uint)(byte)skill->field_0x4 * 0x10000 + (uint)*(ushort *)&skill->_2
       ;
       switch(skill->field_0x1) {
@@ -14084,7 +14253,7 @@ Script_reading_switch_statement:
         *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
         break;
       default:
-        goto switchD_00412610_caseD_6;
+        goto switchD_00412610_advance_skillscript;
       }
       goto LAB_004125ae;
     case 3:
@@ -14095,7 +14264,8 @@ Script_reading_switch_statement:
                     // 1 - unk
                     // 2 - Sound ID (low)
                     // 3 - Sound ID (high)
-      FUN_00403430((object_addy->kgt_core).p_sound_structs + *(ushort *)&skill->_2);
+      Handle_Sound_Skillscript_block
+                ((((kgt_mainKGT *)object_addy)->kgt_core).p_sound_structs + *(ushort *)&skill->_2);
       current_obj = PTR_POSS_CURRENT_OBJ;
       *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx =
            *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx + 1;
@@ -14133,12 +14303,13 @@ Script_reading_switch_statement:
                     // 1 - Fore
                     // 2 - P()
       if ((1 < (int)current_obj->obj_type) || ((skill->field_0x1 & 4) != 0)) goto LAB_00412b0a;
-      life_recover_number = skill->field_0xc;
-      if (*(OBJ_STRUCT **)(&object_addy->field_0xdfbf + (uint)life_recover_number * 4) ==
+      m_val = skill->field_0xc;
+      pbVar1 = ((kgt_mainKGT *)object_addy)->empty_e + (uint)m_val * 4 + 0xb63;
+      if (*(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + (uint)m_val * 4 + 0xb63) ==
           (OBJ_STRUCT *)0x0) goto LAB_00412b0a;
       special_stock_gauge_max = 0;
-      pOVar17 = OBJ_ARRAY;
-      goto LAB_00412aac;
+      pOVar14 = OBJ_ARRAY;
+      goto OBJECT_BLOCK_LOOP;
     case 5:
     case 0x29:
                     // 05 is END
@@ -14146,87 +14317,98 @@ Script_reading_switch_statement:
                     // as END?
       if (current_obj->obj_type != 0) goto switchD_0041270c_default;
 script_switch_statement_case_0x29:
-      if (current_obj->field55_0x85 == 0) {
-        if (current_obj->field_0x7c == '\0') {
-          current_obj->jump_6_var_a = 0;
-          FUN_0040e510();
+      if (current_obj->return_skill_idx == 0) {
+        if (current_obj->loop_frequency == '\0') {
+          current_obj->image_wait_frames = 0;
+          obj_reset_values();
           current_obj = PTR_POSS_CURRENT_OBJ;
           PTR_POSS_CURRENT_OBJ->obj_ptr_b =
                (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xffffffef);
           switch(current_obj->obj_type) {
           case 0:
-            *(undefined4 *)&object_addy->field_0xdf85 = 0;
-            object_addy->field6358_0xdf01 = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb29] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb2a] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb2b] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb2c] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xaa5] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xaa6] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xaa7] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xaa8] = 0;
             current_obj->action_idx = -1;
-            object_addy->field6487_0xdfef = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb93] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb94] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb95] = 0;
+            ((kgt_mainKGT *)object_addy)->empty_e[0xb96] = 0;
             FUN_00411a80();
             current_obj = PTR_POSS_CURRENT_OBJ;
             break;
           case 1:
-            uVar14 = current_obj->skill_idx_2;
-            if (uVar14 == (ushort)object_addy->SectionE_default_0x32) {
+            uVar12 = current_obj->skill_idx_2;
+            if (uVar12 == *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x48))
+            {
               if (current_obj->drawing_flag == 0) {
                 FUN_0040e4a0();
                 return;
               }
               goto LAB_004127c3;
             }
-            if ((uVar14 != (ushort)object_addy->SectionE_default_0x19) ||
-               (current_obj->drawing_flag == 0)) goto switchD_0041270c_default;
-            current_obj->action_idx = uVar14;
+            if ((uVar12 != *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x4a)
+                ) || (current_obj->drawing_flag == 0)) goto switchD_0041270c_default;
+            current_obj->action_idx = uVar12;
             *(uint *)&current_obj->actionscript_idx =
-                 (uint)(ushort)(object_addy->kgt_core).p_actions_alloc[uVar14].starting_step_idx;
+                 (uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar12].
+                               starting_step_idx;
             break;
           case main_kgt_file:
-            if (((object_addy->kgt_core).p_actions_alloc[current_obj->skill_idx_2].field_0x23 & 0x20
-                ) != 0) goto switchD_0041270c_default;
+            if (((((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[current_obj->skill_idx_2].
+                 field_0x23 & 0x20) != 0) goto switchD_0041270c_default;
           case demo_file:
           case stage_file:
           case player_file:
             if (current_obj->drawing_flag == 0) goto switchD_0041270c_default;
-            uVar14 = current_obj->skill_idx_2;
+            uVar12 = current_obj->skill_idx_2;
 LAB_004127c3:
-            pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-            current_obj->action_idx = uVar14;
+            pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+            current_obj->action_idx = uVar12;
             *(uint *)&current_obj->actionscript_idx =
-                 (uint)(ushort)pActionAlloc[uVar14].starting_step_idx;
+                 (uint)(ushort)pActionAlloc[uVar12].starting_step_idx;
             break;
           default:
             goto switchD_0041270c_default;
           }
         }
         else {
-          cVar12 = current_obj->field_0x7c + -1;
-          current_obj->field_0x7c = cVar12;
-          if (cVar12 == '\0') {
-            pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-            uVar14 = *(uint *)&current_obj->field_0x81 & 0xffff;
-            current_obj->action_idx = uVar14;
+          cVar10 = current_obj->loop_frequency + -1;
+          current_obj->loop_frequency = cVar10;
+          if (cVar10 == '\0') {
+            pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+            uVar12 = *(uint *)&current_obj->loop_skillscript_idx & 0xffff;
+            current_obj->action_idx = uVar12;
             *(uint *)&current_obj->actionscript_idx =
-                 (ushort)pActionAlloc[uVar14].starting_step_idx + 1 +
-                 (*(int *)&current_obj->field_0x81 >> 0x10);
+                 (ushort)pActionAlloc[uVar12].starting_step_idx + 1 +
+                 (*(int *)&current_obj->loop_skillscript_idx >> 0x10);
           }
           else {
-            pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-            uVar14 = *(uint *)&current_obj->field_0x7d & 0xffff;
-            current_obj->action_idx = uVar14;
+            pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+            uVar12 = *(uint *)&current_obj->field_0x7d & 0xffff;
+            current_obj->action_idx = uVar12;
             *(uint *)&current_obj->actionscript_idx =
-                 (uint)(ushort)pActionAlloc[uVar14].starting_step_idx +
+                 (uint)(ushort)pActionAlloc[uVar12].starting_step_idx +
                  (*(int *)&current_obj->field_0x7d >> 0x10);
           }
         }
       }
       else {
-        uVar14 = current_obj->field55_0x85 & 0xffff;
-        current_obj->action_idx = uVar14;
+        uVar12 = current_obj->return_skill_idx & 0xffff;
+        current_obj->action_idx = uVar12;
         *(uint *)&current_obj->actionscript_idx =
-             (ushort)(object_addy->kgt_core).p_actions_alloc[uVar14].starting_step_idx + 1 +
-             (current_obj->field55_0x85 >> 0x10);
-        current_obj->field55_0x85 = 0;
+             (ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar12].
+                     starting_step_idx + 1 + (current_obj->return_skill_idx >> 0x10);
+        current_obj->return_skill_idx = 0;
       }
       goto Script_reading_switch_statement;
     default:
-      goto switchD_00412610_caseD_6;
+      goto switchD_00412610_advance_skillscript;
     case 7:
                     // ----------------------------------
                     // - RC - Coor.*picture -
@@ -14247,71 +14429,73 @@ LAB_004127c3:
                     // 3 - Y turn
                     // 4 - same
       if (((current_obj->obj_type != 0) || (*(short *)&skill->_2 == 0)) ||
-         (pOVar17 = (OBJ_STRUCT *)object_addy->field6356_0xdef9, pOVar17 == (OBJ_STRUCT *)0x0))
-      goto switchD_00412610_caseD_6;
-      life_recover_number = skill->field_0x1;
-      if ((life_recover_number & 1) == 0) {
-        uVar14 = *(uint *)&pOVar17->__or_3;
+         (pOVar14 = *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d),
+         pOVar14 == (OBJ_STRUCT *)0x0)) goto switchD_00412610_advance_skillscript;
+      RC_flags = skill->field_0x1;
+      if ((RC_flags & 1) == 0) {
+                    // If not depth add
+        uVar12 = *(uint *)&pOVar14->__or_3;
         current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + -1
         ;
-        special_stock_gauge_max = (&INT_0041f130)[uVar14 & 1] + 1;
+        special_stock_gauge_max = (&INT_0041f130)[uVar12 & 1] + 1;
       }
       else {
-        uVar14 = *(uint *)&pOVar17->__or_3;
+        uVar12 = *(uint *)&pOVar14->__or_3;
         current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + 1;
-        special_stock_gauge_max = (&INT_0041f130)[uVar14 & 1] + -1;
+        special_stock_gauge_max = (&INT_0041f130)[uVar12 & 1] + -1;
       }
-      player_file_buff_idx = current_obj->pos_player_ignore_flag;
-      pOVar17->param2_maybe_50_or_46 = special_stock_gauge_max;
+      player_file_buff_idx = current_obj->pos_player_direction;
+      pOVar14->param2_maybe_50_or_46 = special_stock_gauge_max;
       if ((player_file_buff_idx & 1) == 0) {
-        pOVar17->param_3 = *(short *)&skill->field_0x4 * 0x10000 + current_obj->param_3;
-        if ((life_recover_number & 4) == 0) goto LAB_00412f3d;
-        pOVar17->pos_player_ignore_flag = 0;
+                    // Y turn flag?
+        pOVar14->param_3 = *(short *)&skill->field_0x4 * 0x10000 + current_obj->param_3;
+        if ((RC_flags & 4) == 0) goto LAB_00412f3d;
+        pOVar14->pos_player_direction = 0;
       }
       else {
-        pOVar17->param_3 = current_obj->param_3 + *(short *)&skill->field_0x4 * -0x10000;
-        if ((life_recover_number & 4) == 0) {
-          pOVar17->pos_player_ignore_flag = 0;
+        pOVar14->param_3 = current_obj->param_3 + *(short *)&skill->field_0x4 * -0x10000;
+        if ((RC_flags & 4) == 0) {
+          pOVar14->pos_player_direction = 0;
         }
         else {
 LAB_00412f3d:
-          pOVar17->pos_player_ignore_flag = 1;
+          pOVar14->pos_player_direction = 1;
         }
       }
-      pOVar17->param_4 = *(short *)&skill->field_0x6 * 0x10000 + current_obj->param_4;
-      FUN_0040e550(current_obj);
-      pOVar17->field9_0x18 = 0;
-      pOVar17->field10_0x1c = 0;
-      pOVar17->field11_0x20 = 0;
-      pOVar17->field12_0x24 = 0;
-      if (pOVar17->obj_type == 0) {
-        special_stock_gauge_max = pOVar17->player_file_buffer;
+      pOVar14->param_4 = *(short *)&skill->field_0x6 * 0x10000 + current_obj->param_4;
+      memzero_mystery_arrays(current_obj);
+      pOVar14->x_momentum = 0;
+      pOVar14->y_momentum = 0;
+      pOVar14->x_gravity = 0;
+      pOVar14->y_gravity = 0;
+      if (pOVar14->obj_type == 0) {
+        special_stock_gauge_max = pOVar14->player_file_buffer;
         uVar5 = *(ushort *)&skill->_2;
         pkVar6 = PLAYER_KGT_BUFFER[special_stock_gauge_max].kgt_core.p_actionscripts_alloc;
-        pOVar17->drawing_flag = -1;
+        pOVar14->drawing_flag = -1;
         *(ushort *)&pkVar6->field_0x3 =
              *(ushort *)(special_stock_gauge_max * 0xe03f + 0x4d8e4a + (uint)uVar5 * 6) & 0x1fff |
              (ushort)(skill->field_0x1 & 0xc) << 0xc;
         uVar5 = *(ushort *)&skill->_2;
         pkVar6->skill_step_type = 0xc;
-        pOVar17->action_idx = 0;
-        *(undefined4 *)&pOVar17->actionscript_idx = 1;
-        sVar2 = PLAYER_KGT_BUFFER[special_stock_gauge_max].common_images[uVar5].y_movement;
+        pOVar14->action_idx = 0;
+        *(undefined4 *)&pOVar14->actionscript_idx = 1;
+        sVar3 = PLAYER_KGT_BUFFER[special_stock_gauge_max].common_images[uVar5].y_movement;
         *(short *)&pkVar6->field_0x5 =
              PLAYER_KGT_BUFFER[special_stock_gauge_max].common_images[uVar5].x_movement;
-        *(short *)&pkVar6->field_0x7 = sVar2;
-        FUN_0040e550(pOVar17);
-        obj_0x129_to_0(pOVar17);
-        sVar2 = *(short *)&skill->field_0x4;
-        sVar3 = *(short *)&skill->field_0x6;
-        object_addy->field6487_0xdfef = (byte)skill->field_0x1 | 0x20;
-        current_obj = pOVar17->obj_ptr_b;
-        *(int *)((int)&object_addy->script_obj_var_d + 2) = (int)sVar2 << 0x10;
-        *(int *)&object_addy->field_0xdffb = (int)sVar3 << 0x10;
-        pOVar17->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj & 0xfffffffa | 10);
+        *(short *)&pkVar6->field_0x7 = sVar3;
+        memzero_mystery_arrays(pOVar14);
+        obj_0x129_to_0(pOVar14);
+        sVar3 = *(short *)&skill->field_0x4;
+        sVar4 = *(short *)&skill->field_0x6;
+        *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb93) = (byte)skill->field_0x1 | 0x20;
+        current_obj = pOVar14->obj_ptr_b;
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb9b) = (int)sVar3 << 0x10;
+        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb9f) = (int)sVar4 << 0x10;
+        pOVar14->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj & 0xfffffffa | 10);
       }
       current_obj = PTR_POSS_CURRENT_OBJ;
-      *(undefined4 *)&pOVar17->time_method_number_in_frames = 0xffffffff;
+      *(undefined4 *)&pOVar14->time_method_number_in_frames = 0xffffffff;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
     case 9:
@@ -14323,22 +14507,22 @@ LAB_00412f3d:
                     // 2 - Skill ID (low)
                     // 3 - Skill ID (high)
                     // 4 - Command ID
-      if ((skill->field_0x1 == '\0') || (uVar5 = *(ushort *)&skill->_2, uVar5 == 0))
-      goto switchD_00412610_caseD_6;
-      pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-      life_recover_number = skill->field_0x4;
-      *(uint *)&current_obj->field_0x81 =
+      if ((skill->field_0x1 == '\0') || (skill_id = *(ushort *)&skill->_2, skill_id == 0))
+      goto switchD_00412610_advance_skillscript;
+      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+      command_id = skill->field_0x4;
+      *(uint *)&current_obj->loop_skillscript_idx =
            (*(int *)&current_obj->actionscript_idx -
            (uint)(ushort)pActionAlloc[current_obj->action_idx].starting_step_idx) * 0x10000 +
            current_obj->action_idx;
-      current_obj->field_0x7c = skill->field_0x1;
-      uVar14 = (uint)uVar5;
-      *(uint *)&current_obj->field_0x7d = (uint)life_recover_number * 0x10000 + uVar14;
-      current_obj->action_idx = uVar14;
-      special_stock_gauge_max =
-           ((ushort)pActionAlloc[uVar14].starting_step_idx - 1) + (uint)life_recover_number;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      current_obj->loop_frequency = skill->field_0x1;
+      skill_id_2 = (uint)skill_id;
+      *(uint *)&current_obj->field_0x7d = (uint)command_id * 0x10000 + skill_id_2;
+      current_obj->action_idx = skill_id_2;
+      actionscript_idx = ((ushort)pActionAlloc[skill_id_2].starting_step_idx - 1) + (uint)command_id
+      ;
+      *(int *)&current_obj->actionscript_idx = actionscript_idx;
+      *(int *)&current_obj->actionscript_idx = actionscript_idx + 1;
       goto LAB_004125ae;
     case 10:
                     // ----------------------------------
@@ -14349,12 +14533,12 @@ LAB_00412f3d:
                     // 2 - Skill ID (high)
                     // 3 - Command ID
       if (*(ushort *)&skill->field_0x1 != 0) {
-        pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-        uVar14 = (uint)*(ushort *)&skill->field_0x1;
-        current_obj->action_idx = uVar14;
+        pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+        uVar12 = (uint)*(ushort *)&skill->field_0x1;
+        current_obj->action_idx = uVar12;
         goto LAB_0041298b;
       }
-      goto switchD_00412610_caseD_6;
+      goto switchD_00412610_advance_skillscript;
     case 0xb:
                     // ----------------------------------
                     // - SC - Call -
@@ -14363,19 +14547,19 @@ LAB_00412f3d:
                     // 1 - Skill ID (low)
                     // 2 - Skill ID (high)
                     // 3 - Command ID
-      if (*(short *)&skill->field_0x1 == 0) goto switchD_00412610_caseD_6;
-      pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-      current_obj->field55_0x85 =
+      if (*(short *)&skill->field_0x1 == 0) goto switchD_00412610_advance_skillscript;
+      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+      current_obj->return_skill_idx =
            (*(int *)&current_obj->actionscript_idx -
            (uint)(ushort)pActionAlloc[current_obj->action_idx].starting_step_idx) * 0x10000 +
            current_obj->action_idx;
-      uVar14 = (uint)*(ushort *)&skill->field_0x1;
-      current_obj->action_idx = uVar14;
+      uVar12 = (uint)*(ushort *)&skill->field_0x1;
+      current_obj->action_idx = uVar12;
 LAB_0041298b:
-      special_stock_gauge_max =
-           ((ushort)pActionAlloc[uVar14].starting_step_idx - 1) + (uint)(byte)skill->field_0x3;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      sc_command_id =
+           ((ushort)pActionAlloc[uVar12].starting_step_idx - 1) + (uint)(byte)skill->field_0x3;
+      *(int *)&current_obj->actionscript_idx = sc_command_id;
+      *(int *)&current_obj->actionscript_idx = sc_command_id + 1;
       goto LAB_004125ae;
     case 0xc:
                     // ----------------------------------
@@ -14403,15 +14587,18 @@ LAB_0041298b:
                     // 7 - Y flip
                     // 
       if (current_obj->obj_type == 0) {
-        object_addy->field6504_0xe00f = 1;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xbb3] = 1;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xbb4] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xbb5] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xbb6] = 0;
       }
-      uVar5 = *(ushort *)&skill->field_0x1;
-      special_stock_gauge_max = -1;
+      image_wait = *(ushort *)&skill->field_0x1;
+      image_wait_frames = -1;
       current_obj->drawing_flag = -1;
-      if (uVar5 != 0) {
-        special_stock_gauge_max = current_obj->jump_6_var_a + (uint)uVar5 * DAT_LIKELY_FPS;
+      if (image_wait != 0) {
+        image_wait_frames = current_obj->image_wait_frames + (uint)image_wait * DAT_LIKELY_FPS;
       }
-      current_obj->jump_6_var_a = special_stock_gauge_max;
+      current_obj->image_wait_frames = image_wait_frames;
       local_108 = 0;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
@@ -14454,92 +14641,96 @@ LAB_0041298b:
                     // 3 - Shaky fix
                     // 4 - Random
                     // 
-      life_recover_number = skill->field_0x1;
-      if (life_recover_number != 0) {
+      pallette_flash = skill->field_0x1;
+      if (pallette_flash != 0) {
         if ((skill->field_0x8 & 1) != 0) {
-          special_stock_gauge_max = current_obj->player_file_buffer;
-          *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].start_of_0x2c =
-               (uint)life_recover_number;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe017 = (int)skill->_2;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe01b =
-               (int)(char)skill->field_0x3;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe01f =
-               (int)(char)skill->field_0x4;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe023 =
-               (int)(char)skill->field_0x5;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe02b =
-               current_obj->field26_0x44;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe02f =
-               current_obj->field27_0x48;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe033 =
-               current_obj->field28_0x4c;
-          *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe037 =
-               *(undefined4 *)&current_obj->field_0x50;
-          uVar5 = *(ushort *)&skill->field_0x6;
-          *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe03b = (uint)uVar5;
-          *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe027 = (uint)uVar5;
+                    // OWNSIDE flag
+          flash_player_buffer = current_obj->player_file_buffer;
+          *(uint *)&PLAYER_KGT_BUFFER[flash_player_buffer].start_of_0x2c = (uint)pallette_flash;
+          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_red = (int)skill->_2;
+          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_green = (int)(char)skill->field_0x3;
+          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_blue = (int)(char)skill->field_0x4;
+          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_alpha = (int)(char)skill->field_0x5;
+          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_var_a = current_obj->color_red;
+          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_var_b = current_obj->color_green;
+          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_var_c = current_obj->color_blue;
+          uVar7 = *(undefined3 *)&current_obj->field_0x51;
+          PLAYER_KGT_BUFFER[flash_player_buffer].flash_var_d = current_obj->color_alpha;
+          *(undefined3 *)&PLAYER_KGT_BUFFER[flash_player_buffer].field_0xe038 = uVar7;
+          flash_duration = *(ushort *)&skill->field_0x6;
+          *(uint *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_duration_a = (uint)flash_duration;
+          *(uint *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_duration_b = (uint)flash_duration;
         }
-        if (((skill->field_0x8 & 2) != 0) && (object_addy->field6356_0xdef9 != 0)) {
-          special_stock_gauge_max = *(int *)(object_addy->field6356_0xdef9 + 0x156);
-          *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].start_of_0x2c =
-               (uint)life_recover_number;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe017 = (int)skill->_2;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe01b =
+        if (((skill->field_0x8 & 2) != 0) &&
+           (*(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d) != (OBJ_STRUCT *)0x0)) {
+                    // OPPSIDE flag
+          flash_opponent_buffer =
+               (*(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d))->player_file_buffer
+          ;
+          *(uint *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].start_of_0x2c = (uint)pallette_flash;
+          *(int *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_red = (int)skill->_2;
+          *(int *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_green =
                (int)(char)skill->field_0x3;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe01f =
-               (int)(char)skill->field_0x4;
-          *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe023 =
+          *(int *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_blue = (int)(char)skill->field_0x4
+          ;
+          *(int *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_alpha =
                (int)(char)skill->field_0x5;
-          *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe02b = 0;
-          *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe02f = 0;
-          *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe033 = 0;
-          *(undefined4 *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe037 = 0;
-          uVar5 = *(ushort *)&skill->field_0x6;
-          *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe03b = (uint)uVar5;
-          *(uint *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe027 = (uint)uVar5;
+          *(undefined4 *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_var_a = 0;
+          *(undefined4 *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_var_b = 0;
+          *(undefined4 *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_var_c = 0;
+          *(undefined4 *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_var_d = 0;
+          opp_flash_duration = *(ushort *)&skill->field_0x6;
+          *(uint *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_duration_a =
+               (uint)opp_flash_duration;
+          *(uint *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_duration_b =
+               (uint)opp_flash_duration;
         }
         if ((skill->field_0x8 & 4) != 0) {
-          UNK_STAGE_FILES_00445740.script_byte_2 = (int)life_recover_number;
+                    // BG flag
+          UNK_STAGE_FILES_00445740.pallette_flash = (int)pallette_flash;
           UNK_STAGE_FILES_00445740.script_read_var_a = 0;
           UNK_STAGE_FILES_00445740.script_read_var_b = 0;
-          UNK_STAGE_FILES_00445740.script_byte_3 = (int)skill->_2;
+          UNK_STAGE_FILES_00445740.pallette_flash_red = (int)skill->_2;
           UNK_STAGE_FILES_00445740.script_read_var_c = 0;
-          UNK_STAGE_FILES_00445740.script_byte_4 = (int)(char)skill->field_0x3;
+          UNK_STAGE_FILES_00445740.pallette_flash_green = (int)(char)skill->field_0x3;
           UNK_STAGE_FILES_00445740.script_read_var_d = 0;
-          UNK_STAGE_FILES_00445740.script_byte_5 = (int)(char)skill->field_0x4;
-          UNK_STAGE_FILES_00445740.script_byte_6 = (int)(char)skill->field_0x5;
-          UNK_STAGE_FILES_00445740.script_byte_7_a = (int)*(ushort *)&skill->field_0x6;
-          UNK_STAGE_FILES_00445740.script_byte_7_b = UNK_STAGE_FILES_00445740.script_byte_7_a;
+          UNK_STAGE_FILES_00445740.pallette_flash_blue = (int)(char)skill->field_0x4;
+          UNK_STAGE_FILES_00445740.pallette_flash_alpha = (int)(char)skill->field_0x5;
+          UNK_STAGE_FILES_00445740.pallette_flash_duration = (int)*(ushort *)&skill->field_0x6;
+          UNK_STAGE_FILES_00445740.pallette_flash_duration_b =
+               UNK_STAGE_FILES_00445740.pallette_flash_duration;
         }
         if ((skill->field_0x8 & 8) != 0) {
-          _DAT_004456d4 = (int)skill->_2;
-          _DAT_004456dc = (int)(char)skill->field_0x4;
-          _DAT_004456d0 = (uint)life_recover_number;
-          _DAT_004456e0 = (int)(char)skill->field_0x5;
-          _DAT_004456d8 = (int)(char)skill->field_0x3;
-          _DAT_004456e4 = (uint)*(ushort *)&skill->field_0x6;
+                    // SYSTEM flag
+          _system_flash_red = (int)skill->_2;
+          _system_flash_blue = (int)(char)skill->field_0x4;
+          _system_flash = (uint)pallette_flash;
+          _system_flash_alpha = (int)(char)skill->field_0x5;
+          _system_flash_green = (int)(char)skill->field_0x3;
+          _system_flash_duration = (uint)*(ushort *)&skill->field_0x6;
           _DAT_004456e8 = 0;
           _DAT_004456ec = 0;
           _DAT_004456f0 = 0;
           _DAT_004456f4 = 0;
-          _DAT_004456f8 = _DAT_004456e4;
+          _system_flash_2 = _system_flash_duration;
         }
       }
       if (skill->field_0x9 != 0) {
-        UNK_STAGE_FILES_00445740.script_data_array_unk[0] = (int)(byte)skill->field_0x9;
-        UNK_STAGE_FILES_00445740.script_data_array_unk[2] = (int)(byte)skill->field_0xa;
-        UNK_STAGE_FILES_00445740.script_data_array_unk[1] = 0;
-        UNK_STAGE_FILES_00445740.script_data_array_unk[3] = (int)(byte)skill->field_0xb;
-        UNK_STAGE_FILES_00445740.script_data_array_unk[4] =
-             UNK_STAGE_FILES_00445740.script_data_array_unk[3];
+                    // Pic sway X
+        UNK_STAGE_FILES_00445740.pic_sway_x = (int)(byte)skill->field_0x9;
+        UNK_STAGE_FILES_00445740.x_shake = (int)(byte)skill->field_0xa;
+        UNK_STAGE_FILES_00445740.field1046_0x266d = 0;
+        UNK_STAGE_FILES_00445740.pic_sway_x_duration = (int)(byte)skill->field_0xb;
+        UNK_STAGE_FILES_00445740.pic_sway_x_duration_2 =
+             UNK_STAGE_FILES_00445740.pic_sway_x_duration;
       }
-      if (skill->field_0xc == 0) goto switchD_00412610_caseD_6;
-      UNK_STAGE_FILES_00445740.script_data_array_unk[5] = (int)(byte)skill->field_0xc;
-      UNK_STAGE_FILES_00445740.script_data_array_unk[6] = 0;
-      UNK_STAGE_FILES_00445740.script_data_array_unk[7] = (int)(byte)skill->field_0xd;
-      UNK_STAGE_FILES_00445740.script_data_array_unk[8] = (int)(byte)skill->field_0xe;
-      UNK_STAGE_FILES_00445740.script_data_array_unk[9] =
-           UNK_STAGE_FILES_00445740.script_data_array_unk[8];
+      if (skill->field_0xc == 0) goto switchD_00412610_advance_skillscript;
+                    // Pic sway Y
+      UNK_STAGE_FILES_00445740.pic_sway_y = (int)(byte)skill->field_0xc;
+      UNK_STAGE_FILES_00445740.field1051_0x2681 = 0;
+      UNK_STAGE_FILES_00445740.y_shake = (int)(byte)skill->field_0xd;
+      UNK_STAGE_FILES_00445740.pic_sway_y_duration = (int)(byte)skill->field_0xe;
+      UNK_STAGE_FILES_00445740.pic_sway_y_duration_2 = UNK_STAGE_FILES_00445740.pic_sway_y_duration;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
     case 0x10:
@@ -14555,13 +14746,15 @@ LAB_0041298b:
                     // 6 - from (SIGNED)
                     // 7 - add to advance
       if ((skill->field_0x5 & 1) == 0) {
-        if ((PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6364_0xdf15 <
-             (int)(uint)(byte)skill->field_0x6) || (uVar5 = *(ushort *)&skill->_2, uVar5 == 0))
-        goto switchD_00412610_caseD_6;
-        current_obj->action_idx = (uint)uVar5;
-        if (uVar5 == 0) {
+                    // When little?
+        if ((PLAYER_KGT_BUFFER[current_obj->player_file_buffer].special_gauge_tokens <
+             (int)(uint)(byte)skill->field_0x6) ||
+           (GS_skill_idx = *(ushort *)&skill->_2, GS_skill_idx == 0))
+        goto switchD_00412610_advance_skillscript;
+        current_obj->action_idx = (uint)GS_skill_idx;
+        if (GS_skill_idx == 0) {
           special_stock_gauge_max =
-               PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6393_0xdf55;
+               PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6392_0xdf55;
 LAB_004135a7:
           special_stock_gauge_max = FUN_00410060(special_stock_gauge_max);
           current_obj = PTR_POSS_CURRENT_OBJ;
@@ -14571,26 +14764,26 @@ LAB_004135a7:
         }
       }
       else {
+                    // When alot
         if ((int)(uint)(byte)skill->field_0x6 <
-            PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6364_0xdf15) {
-          special_stock_gauge_max = current_obj->player_file_buffer;
-          player_file_buff_idx =
+            PLAYER_KGT_BUFFER[current_obj->player_file_buffer].special_gauge_tokens) {
+          GS_player_buffer = current_obj->player_file_buffer;
+          add_to_special =
                FUN_00414860(CONCAT31((int3)(skill->skill_step_type - 1 >> 8),skill->field_0x7));
-          player_file_buff_idx =
-               PLAYER_KGT_BUFFER[special_stock_gauge_max].field6364_0xdf15 + player_file_buff_idx;
-          PLAYER_KGT_BUFFER[special_stock_gauge_max].field6364_0xdf15 = player_file_buff_idx;
-          if (player_file_buff_idx < 0) {
-            PLAYER_KGT_BUFFER[special_stock_gauge_max].field6364_0xdf15 = 0;
+          new_special_gauge =
+               PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens + add_to_special;
+          PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens = new_special_gauge;
+          if (new_special_gauge < 0) {
+            PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens = 0;
           }
-          pkVar7 = PLAYER_KGT_BUFFER + special_stock_gauge_max;
-          uVar13._0_2_ = pkVar7->special_stock_max;
-          uVar13._2_1_ = pkVar7->field1827_0x7cb4[0];
-          uVar13._3_1_ = pkVar7->field1827_0x7cb4[1];
           current_obj = PTR_POSS_CURRENT_OBJ;
-          if ((uint)PLAYER_KGT_BUFFER[special_stock_gauge_max].field6364_0xdf15 < uVar13)
-          goto switchD_00412610_caseD_6;
-          PLAYER_KGT_BUFFER[special_stock_gauge_max].field6364_0xdf15 = uVar13;
-          PLAYER_KGT_BUFFER[special_stock_gauge_max].field6366_0xdf1d = 0;
+          if ((uint)PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens <
+              (uint)PLAYER_KGT_BUFFER[GS_player_buffer].special_stock_max)
+          goto switchD_00412610_advance_skillscript;
+                    // Enforce special gauge max
+          PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens =
+               PLAYER_KGT_BUFFER[GS_player_buffer].special_stock_max;
+          PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge = 0;
           current_obj = PTR_POSS_CURRENT_OBJ;
           *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx =
                *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx + 1;
@@ -14600,11 +14793,11 @@ LAB_004135a7:
         current_obj->action_idx = (uint)uVar5;
         if (uVar5 == 0) {
           special_stock_gauge_max =
-               PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6393_0xdf55;
+               PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6392_0xdf55;
           goto LAB_004135a7;
         }
       }
-      uVar14 = current_obj->action_idx;
+      uVar12 = current_obj->action_idx;
       goto LAB_004135bf;
     case 0x11:
                     // ----------------------------------
@@ -14619,25 +14812,29 @@ LAB_004135a7:
                     // 6 - from (low, UNSIGNED)
                     // 7 - from (high, UNSIGNED)
       if ((skill->field_0x5 & 1) == 0) {
-        if ((object_addy->health < (int)(uint)*(ushort *)&skill->field_0x6) ||
-           (*(short *)&skill->_2 == 0)) goto switchD_00412610_caseD_6;
+        if ((*(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) <
+             (int)(uint)*(ushort *)&skill->field_0x6) || (*(short *)&skill->_2 == 0))
+        goto switchD_00412610_advance_skillscript;
       }
-      else if ((int)(uint)*(ushort *)&skill->field_0x6 < object_addy->health)
-      goto switchD_00412610_caseD_6;
-      pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
-      uVar5 = *(ushort *)&skill->_2;
-      current_obj->action_idx = (uint)uVar5;
+      else if ((int)(uint)*(ushort *)&skill->field_0x6 <
+               *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9))
+      goto switchD_00412610_advance_skillscript;
+      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+      GL_skill_idx = *(ushort *)&skill->_2;
+      current_obj->action_idx = (uint)GL_skill_idx;
       *(uint *)&current_obj->actionscript_idx =
-           ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x4;
+           ((ushort)pActionAlloc[GL_skill_idx].starting_step_idx - 1) + (uint)(byte)skill->field_0x4
+      ;
       if ((current_obj->action_idx != 0) ||
-         (special_stock_gauge_max = FUN_00410060(object_addy->field6393_0xdf55),
+         (special_stock_gauge_max =
+               FUN_00410060(*(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaf9)),
          current_obj = PTR_POSS_CURRENT_OBJ, special_stock_gauge_max == 0))
-      goto switchD_00412610_caseD_6;
-      pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
+      goto switchD_00412610_advance_skillscript;
+      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
       PTR_POSS_CURRENT_OBJ->action_idx = special_stock_gauge_max;
-      uVar14 = (uint)(ushort)pActionAlloc[special_stock_gauge_max].starting_step_idx;
-      *(uint *)&current_obj->actionscript_idx = uVar14 - 1;
-      *(uint *)&current_obj->actionscript_idx = uVar14;
+      uVar12 = (uint)(ushort)pActionAlloc[special_stock_gauge_max].starting_step_idx;
+      *(uint *)&current_obj->actionscript_idx = uVar12 - 1;
+      *(uint *)&current_obj->actionscript_idx = uVar12;
       goto LAB_004125ae;
     case 0x14:
                     // ----------------------------------
@@ -14658,55 +14855,58 @@ LAB_004135a7:
                     // 2 - L.R reverse
                     // 
       if ((current_obj->obj_type != 0) ||
-         (special_stock_gauge_max = object_addy->field6356_0xdef9, special_stock_gauge_max == 0))
-      goto switchD_00412610_caseD_6;
-      life_recover_number = skill->field_0x1;
-      if ((life_recover_number & 1) == 0) {
-        uVar14 = *(uint *)(special_stock_gauge_max + 0x14);
+         (opp_obj_ptr = *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d),
+         opp_obj_ptr == (OBJ_STRUCT *)0x0)) goto switchD_00412610_advance_skillscript;
+      RP_flags = skill->field_0x1;
+      if ((RP_flags & 1) == 0) {
+        uVar12 = *(uint *)&opp_obj_ptr->__or_3;
         current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + -1
         ;
-        player_file_buff_idx = (&INT_0041f130)[uVar14 & 1] + 1;
+        special_stock_gauge_max = (&INT_0041f130)[uVar12 & 1] + 1;
       }
       else {
-        uVar14 = *(uint *)(special_stock_gauge_max + 0x14);
+        uVar12 = *(uint *)&opp_obj_ptr->__or_3;
         current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + 1;
-        player_file_buff_idx = (&INT_0041f130)[uVar14 & 1] + -1;
+        special_stock_gauge_max = (&INT_0041f130)[uVar12 & 1] + -1;
       }
-      iVar9 = current_obj->pos_player_ignore_flag;
-      *(int *)(special_stock_gauge_max + 4) = player_file_buff_idx;
-      if ((iVar9 & 1) == 0) {
-        *(int *)(special_stock_gauge_max + 8) =
-             *(short *)&skill->field_0x4 * 0x10000 + current_obj->param_3;
-        if ((life_recover_number & 4) == 0) goto LAB_004130e8;
-        *(undefined4 *)(special_stock_gauge_max + 0x5c) = 0;
+      RP_player_direction = current_obj->pos_player_direction;
+      opp_obj_ptr->param2_maybe_50_or_46 = special_stock_gauge_max;
+      if ((RP_player_direction & 1) == 0) {
+                    // Move X value
+        opp_obj_ptr->param_3 = *(short *)&skill->field_0x4 * 0x10000 + current_obj->param_3;
+        if ((RP_flags & 4) == 0) goto LAB_004130e8;
+        opp_obj_ptr->pos_player_direction = 0;
       }
       else {
-        *(int *)(special_stock_gauge_max + 8) =
-             current_obj->param_3 + *(short *)&skill->field_0x4 * -0x10000;
-        if ((life_recover_number & 4) == 0) {
-          *(undefined4 *)(special_stock_gauge_max + 0x5c) = 0;
+        opp_obj_ptr->param_3 = current_obj->param_3 + *(short *)&skill->field_0x4 * -0x10000;
+        if ((RP_flags & 4) == 0) {
+          opp_obj_ptr->pos_player_direction = 0;
         }
         else {
 LAB_004130e8:
-          *(undefined4 *)(special_stock_gauge_max + 0x5c) = 1;
+          opp_obj_ptr->pos_player_direction = 1;
         }
       }
-      *(int *)(special_stock_gauge_max + 0xc) =
-           *(short *)&skill->field_0x6 * 0x10000 + current_obj->param_4;
-      FUN_0040e550(current_obj);
+                    // Move Y pos
+      opp_obj_ptr->param_4 = *(short *)&skill->field_0x6 * 0x10000 + current_obj->param_4;
+      memzero_mystery_arrays(current_obj);
       current_obj = PTR_POSS_CURRENT_OBJ;
-      if (*(int *)(special_stock_gauge_max + 0x15a) != 0) goto switchD_00412610_caseD_6;
+      if (opp_obj_ptr->obj_type != 0) goto switchD_00412610_advance_skillscript;
       if ((byte)skill->_2 != 0) {
-        *(uint *)(special_stock_gauge_max + 0x38) =
+                    // Lands at start of hit_junction_info
+        opp_obj_ptr->hit_junction_idx =
              (uint)*(ushort *)
-                    (*(int *)(special_stock_gauge_max + 0x156) * 0xe03f + 0x4d8b2a +
-                    (uint)(byte)skill->_2 * 4);
+                    (opp_obj_ptr->player_file_buffer * 0xe03f + 0x4d8b2a + (uint)(byte)skill->_2 * 4
+                    );
       }
       current_obj = PTR_POSS_CURRENT_OBJ;
-      uVar14 = *(uint *)(special_stock_gauge_max + 0x15e);
-      *(undefined4 *)(special_stock_gauge_max + 0x40) = 0;
-      object_addy->field6487_0xdfef = 0;
-      *(uint *)(special_stock_gauge_max + 0x15e) = uVar14 & 0xfffffffa | 10;
+      pOVar14 = opp_obj_ptr->obj_ptr_b;
+      *(undefined4 *)&opp_obj_ptr->time_method_number_in_frames = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb93] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb94] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb95] = 0;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb96] = 0;
+      opp_obj_ptr->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar14 & 0xfffffffa | 10);
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
     case 0x15:
@@ -14723,35 +14923,34 @@ LAB_004130e8:
                     // 7 - Life, part (high, SIGNED)
                     // 8 - Special, part (low, SIGNED)
                     // 9 - Special, part (high, SIGNED)
-      special_stock_gauge_max = current_obj->player_file_buffer;
-      sVar2 = *(short *)&skill->field_0x6;
+      GC_player_buffer = current_obj->player_file_buffer;
+      GC_life_opp = *(short *)&skill->field_0x6;
       if (*(short *)&skill->_2 != 0) {
-        FUN_0040e7c0(PLAYER_KGT_BUFFER + special_stock_gauge_max,(int)*(short *)&skill->_2);
+        add_to_health(PLAYER_KGT_BUFFER + GC_player_buffer,(int)*(short *)&skill->_2);
         current_obj = PTR_POSS_CURRENT_OBJ;
       }
-      assign_player_0x42_0x4a_0x46(current_obj->player_file_buffer,(int)*(short *)&skill->field_0x4)
-      ;
+      add_to_special_gauge(current_obj->player_file_buffer,(int)*(short *)&skill->field_0x4);
       current_obj = PTR_POSS_CURRENT_OBJ;
-      if (PLAYER_KGT_BUFFER[special_stock_gauge_max].field6356_0xdef9 == 0) {
-        if (PLAYER_KGT_BUFFER[special_stock_gauge_max].field6401_0xdf69 == 0)
-        goto switchD_00412610_caseD_6;
+      if (PLAYER_KGT_BUFFER[GC_player_buffer].poss_opponent_obj_ptr == (OBJ_STRUCT *)0x0) {
+        if (PLAYER_KGT_BUFFER[GC_player_buffer].poss_opponent_obj_ptr_2_ == (OBJ_STRUCT *)0x0)
+        goto switchD_00412610_advance_skillscript;
         special_stock_gauge_max =
-             *(int *)(PLAYER_KGT_BUFFER[special_stock_gauge_max].field6401_0xdf69 + 0x156);
+             (PLAYER_KGT_BUFFER[GC_player_buffer].poss_opponent_obj_ptr_2_)->player_file_buffer;
       }
       else {
         special_stock_gauge_max =
-             *(int *)(PLAYER_KGT_BUFFER[special_stock_gauge_max].field6356_0xdef9 + 0x156);
+             (PLAYER_KGT_BUFFER[GC_player_buffer].poss_opponent_obj_ptr)->player_file_buffer;
       }
       if (PLAYER_KGT_BUFFER + special_stock_gauge_max != (kgt_character_struct *)0x0) {
-        if (sVar2 != 0) {
-          FUN_0040e7c0(PLAYER_KGT_BUFFER + special_stock_gauge_max,(int)sVar2);
+        if (GC_life_opp != 0) {
+          add_to_health(PLAYER_KGT_BUFFER + special_stock_gauge_max,(int)GC_life_opp);
         }
-        assign_player_0x42_0x4a_0x46
+        add_to_special_gauge
                   (*(undefined4 *)(PLAYER_KGT_BUFFER[special_stock_gauge_max].CPU + 0x156),
                    (int)*(short *)&skill->field_0x8);
         current_obj = PTR_POSS_CURRENT_OBJ;
       }
-      goto switchD_00412610_caseD_6;
+      goto switchD_00412610_advance_skillscript;
     case 0x16:
                     // ----------------------------------
                     // - DB - Cond. Branching
@@ -14774,17 +14973,17 @@ LAB_004130e8:
                     // 5 - Rear surface.
                     // 6 - Upper Part Surface.
                     // 7 - Lower Part Surfae
-      life_recover_number = skill->field_0x1 & 1;
+      is_if_failed = skill->field_0x1 & 1;
       if ((skill->field_0x1 & 2) != 0) goto switchD_00412de4_default;
-      special_stock_gauge_max = current_obj->player_file_buffer;
-      uVar14 = INPUT_BUFFER_A[special_stock_gauge_max][INPUT_BUFFER_POS];
+      db_player_buffer = current_obj->player_file_buffer;
+      DB_input = INPUT_BUFFER_A[db_player_buffer][INPUT_BUFFER_POS];
       switch(skill->field_0x7) {
       case 1:
         if (current_obj->param_4 < current_obj->compare_to_param_4) break;
         goto LAB_00412e5f;
       case 2:
         if (current_obj->compare_to_param_4 <= current_obj->param_4) {
-          uVar14 = uVar14 & 8;
+          uVar12 = DB_input & 8;
           goto joined_r0x00412e5d;
         }
         break;
@@ -14792,47 +14991,47 @@ LAB_004130e8:
         if (current_obj->compare_to_param_4 <= current_obj->param_4) goto switchD_00412de4_caseD_7;
         break;
       case 4:
-        if (((PLAYER_KGT_BUFFER[special_stock_gauge_max].guard_button_bool & 8U) == 0) ||
-           (current_obj->pos_player_ignore_flag == 0)) {
+        if (((PLAYER_KGT_BUFFER[db_player_buffer].guard_button_flag & 8U) == 0) ||
+           (current_obj->pos_player_direction == 0)) {
 LAB_00412e4c:
-          uVar14 = uVar14 & 2;
+          uVar12 = DB_input & 2;
           goto joined_r0x00412e56;
         }
         goto LAB_00412e2f;
       case 5:
-        if (((PLAYER_KGT_BUFFER[special_stock_gauge_max].guard_button_bool & 8U) != 0) &&
-           (current_obj->pos_player_ignore_flag != 0)) goto LAB_00412e4c;
+        if (((PLAYER_KGT_BUFFER[db_player_buffer].guard_button_flag & 8U) != 0) &&
+           (current_obj->pos_player_direction != 0)) goto LAB_00412e4c;
 LAB_00412e2f:
-        uVar14 = uVar14 & 1;
+        uVar12 = DB_input & 1;
 joined_r0x00412e32:
-        if (uVar14 == 0) break;
+        if (uVar12 == 0) break;
 LAB_00412e5f:
-        if (life_recover_number == 0) goto LAB_00412e79;
-        goto switchD_00412610_caseD_6;
+        if (is_if_failed == 0) goto LAB_00412e79;
+        goto switchD_00412610_advance_skillscript;
       case 6:
-        uVar14 = uVar14 & 4;
+        uVar12 = DB_input & 4;
 joined_r0x00412e56:
-        if (uVar14 != 0) goto LAB_00412e5f;
+        if (uVar12 != 0) goto LAB_00412e5f;
         break;
       case 7:
 switchD_00412de4_caseD_7:
-        uVar14 = uVar14 & 8;
+        uVar12 = DB_input & 8;
         goto joined_r0x00412e32;
       case 8:
-        uVar14 = uVar14 & 0xf;
+        uVar12 = DB_input & 0xf;
 joined_r0x00412e5d:
-        if (uVar14 == 0) goto LAB_00412e5f;
+        if (uVar12 == 0) goto LAB_00412e5f;
       }
 switchD_00412de4_default:
-      if (life_recover_number == 0) goto switchD_00412610_caseD_6;
+      if (is_if_failed == 0) goto switchD_00412610_advance_skillscript;
 LAB_00412e79:
-      if (*(ushort *)&skill->_2 == 0) goto switchD_00412610_caseD_6;
-      uVar14 = (uint)*(ushort *)&skill->_2;
-      current_obj->action_idx = uVar14;
+      if (*(ushort *)&skill->_2 == 0) goto switchD_00412610_advance_skillscript;
+      uVar12 = (uint)*(ushort *)&skill->_2;
+      current_obj->action_idx = uVar12;
 LAB_004135bf:
       special_stock_gauge_max =
-           ((ushort)(object_addy->kgt_core).p_actions_alloc[uVar14].starting_step_idx - 1) +
-           (uint)(byte)skill->field_0x4;
+           ((ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar12].
+                    starting_step_idx - 1) + (uint)(byte)skill->field_0x4;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
       *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
@@ -14853,7 +15052,7 @@ LAB_004135bf:
                     // A - Guard, Crouched (high, UNSIGNED)
                     // B - Guard, Sky (low, UNSIGNED)
                     // C - Guard, Sky (high, UNSIGNED)
-      current_obj->field58_0x129 = (int)skill;
+      current_obj->reaction_skillblock = skill;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
     case 0x18:
@@ -14883,19 +15082,25 @@ LAB_004135bf:
                     // 5 - No Sky Decision
                     // 6 - Guard Fail
                     // 7 - While Receiving
-      sVar2 = *(short *)&skill->field_0x5;
-      other_player_poss_relating = current_obj->mystery_array_a + (byte)skill->field_0x9;
-      *other_player_poss_relating = (int)skill;
-      if ((sVar2 == 0) || (*(short *)&skill->field_0x7 == 0)) goto LAB_00412d83;
-      if (current_obj->obj_type != 0) goto switchD_00412610_caseD_6;
-      life_recover_number = skill->field_0xa;
-      if ((life_recover_number & 1) == 0) {
-        *(undefined4 *)&object_addy->field_0xdf85 = 0;
+      FA_width = *(short *)&skill->field_0x5;
+      FA_m_number = current_obj->hitbox_attack_array + (byte)skill->field_0x9;
+      *FA_m_number = (int)skill;
+      if ((FA_width == 0) || (*(short *)&skill->field_0x7 == 0)) goto LAB_00412d83;
+      if (current_obj->obj_type != 0) goto switchD_00412610_advance_skillscript;
+      FA_flags = skill->field_0xa;
+      if ((FA_flags & 1) == 0) {
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb29] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb2a] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb2b] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb2c] = 0;
       }
       else {
-        *(undefined4 *)&object_addy->field_0xdf85 = 1;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb29] = 1;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb2a] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb2b] = 0;
+        ((kgt_mainKGT *)object_addy)->empty_e[0xb2c] = 0;
       }
-      if ((life_recover_number & 2) == 0) goto switchD_00412610_caseD_6;
+      if ((FA_flags & 2) == 0) goto switchD_00412610_advance_skillscript;
       current_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj->obj_ptr_b & 0xffffffef);
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
@@ -14920,12 +15125,13 @@ LAB_004135bf:
                     // 0 - Striking
                     // 1 - Doing
                     // 2 - Throwing
-      sVar2 = *(short *)&skill->field_0x5;
-      other_player_poss_relating = current_obj->mystery_array_b + (byte)skill->field_0x9;
-      *other_player_poss_relating = (int)skill;
-      if ((sVar2 != 0) && (*(short *)&skill->field_0x7 != 0)) goto switchD_00412610_caseD_6;
+      sVar3 = *(short *)&skill->field_0x5;
+      FA_m_number = current_obj->hitbox_guard_array + (byte)skill->field_0x9;
+      *FA_m_number = (int)skill;
+      if ((sVar3 != 0) && (*(short *)&skill->field_0x7 != 0))
+      goto switchD_00412610_advance_skillscript;
 LAB_00412d83:
-      *other_player_poss_relating = 0;
+      *FA_m_number = 0;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
     case 0x1a:
@@ -14936,53 +15142,54 @@ LAB_00412d83:
                     // 1 - Your Down Time (UNSIGNED)
                     // 2 - Part Down Time (UNSIGNED)
       if ((current_obj->obj_type == 0) &&
-         (life_recover_number = skill->field_0x1, life_recover_number != 0)) {
+         (player_down_time = skill->field_0x1, player_down_time != 0)) {
         *(uint *)&current_obj->time_method_number_in_frames =
-             *(int *)&current_obj->time_method_number_in_frames + (uint)life_recover_number;
-        special_stock_gauge_max = current_obj->player_file_buffer;
-        *(int *)&PLAYER_KGT_BUFFER[special_stock_gauge_max].field_0xe003 =
-             INPUT_BUFFER_A[special_stock_gauge_max][INPUT_BUFFER_POS];
-        PLAYER_KGT_BUFFER[special_stock_gauge_max].field6497_0xdfff = 1;
-        other_player_poss_relating = (int *)&OBJ_ARRAY[0].time_method_number_in_frames;
-        player_file_buff_idx = 0x400;
+             *(int *)&current_obj->time_method_number_in_frames + (uint)player_down_time;
+        PS_player_buffer = current_obj->player_file_buffer;
+        *(int *)&PLAYER_KGT_BUFFER[PS_player_buffer].input_storage =
+             INPUT_BUFFER_A[PS_player_buffer][INPUT_BUFFER_POS];
+        PLAYER_KGT_BUFFER[PS_player_buffer].field6465_0xdfff = 1;
+        PS_obj = &OBJ_ARRAY[0].time_method_number_in_frames;
+        ps_i = 0x400;
         do {
-          if (((other_player_poss_relating[-0x10] == 4) &&
-              (*(int *)((int)other_player_poss_relating + 0x116) == special_stock_gauge_max)) &&
-             ((*(byte *)((int)other_player_poss_relating + -0x15) & 0x20) != 0)) {
-            *other_player_poss_relating = *other_player_poss_relating + (uint)life_recover_number;
+          if (((ADJ(PS_obj).jmp_idx == 4) && (ADJ(PS_obj)->player_file_buffer == PS_player_buffer))
+             && ((ADJ(PS_obj)->unk_bitmask & 0x20000000) != 0)) {
+            *(uint *)PS_obj = *(int *)PS_obj + (uint)player_down_time;
           }
-          other_player_poss_relating = (int *)((int)other_player_poss_relating + 0x17e);
-          player_file_buff_idx = player_file_buff_idx + -1;
-        } while (player_file_buff_idx != 0);
+          PS_obj = PS_obj + 0x17e;
+          ps_i = ps_i + -1;
+        } while (ps_i != 0);
       }
-      life_recover_number = skill->_2;
-      if (life_recover_number == 0) goto switchD_00412610_caseD_6;
-      local_110 = 0;
-      other_player_poss_relating = &PLAYER_KGT_BUFFER[0].CPU;
+      PS_opponent_down_time = skill->_2;
+      if (PS_opponent_down_time == 0) goto switchD_00412610_advance_skillscript;
+      ps_i2 = 0;
+      PS_players = &PLAYER_KGT_BUFFER[0].CPU;
       do {
-        if ((local_110 != current_obj->player_file_buffer) &&
-           (*(int *)((int)other_player_poss_relating + -0xbcbd) != 0)) {
-          special_stock_gauge_max = *other_player_poss_relating;
-          local_114 = 0x400;
-          *(uint *)(special_stock_gauge_max + 0x40) =
-               *(int *)(special_stock_gauge_max + 0x40) + (uint)life_recover_number;
-          *(int *)((int)other_player_poss_relating + 0x10e) =
-               INPUT_BUFFER_A[*(int *)(special_stock_gauge_max + 0x156)][INPUT_BUFFER_POS];
-          *(int *)((int)other_player_poss_relating + 0x10a) = 1;
-          piVar15 = (int *)&OBJ_ARRAY[0].time_method_number_in_frames;
+        if ((ps_i2 != current_obj->player_file_buffer) &&
+           (ADJ(PS_players)->script_reading_01_field5 != 0)) {
+          PS_player_cpu = ADJ(PS_players)->CPU;
+          ps_i3 = 0x400;
+          *(uint *)(PS_player_cpu + 0x40) =
+               *(int *)(PS_player_cpu + 0x40) + (uint)PS_opponent_down_time;
+          *(int *)&ADJ(PS_players)->input_storage =
+               INPUT_BUFFER_A[*(int *)(PS_player_cpu + 0x156)][INPUT_BUFFER_POS];
+          ADJ(PS_players)->field6465_0xdfff = 1;
+          other_player_poss_relating = (int *)&OBJ_ARRAY[0].time_method_number_in_frames;
           do {
-            if (((piVar15[-0x10] == 4) &&
-                (*(int *)((int)piVar15 + 0x116) == *(int *)(*other_player_poss_relating + 0x156)))
-               && ((piVar15[-6] & 0x20000000U) != 0)) {
-              *piVar15 = *piVar15 + (uint)life_recover_number;
+            if (((other_player_poss_relating[-0x10] == 4) &&
+                (*(int *)((int)other_player_poss_relating + 0x116) ==
+                 *(int *)(ADJ(PS_players)->CPU + 0x156))) &&
+               ((other_player_poss_relating[-6] & 0x20000000U) != 0)) {
+              *other_player_poss_relating =
+                   *other_player_poss_relating + (uint)PS_opponent_down_time;
             }
-            piVar15 = (int *)((int)piVar15 + 0x17e);
-            local_114 = local_114 + -1;
-          } while (local_114 != 0);
+            other_player_poss_relating = (int *)((int)other_player_poss_relating + 0x17e);
+            ps_i3 = ps_i3 + -1;
+          } while (ps_i3 != 0);
         }
-        other_player_poss_relating = (int *)((int)other_player_poss_relating + 0xe03f);
-        local_110 = local_110 + 1;
-      } while ((int)other_player_poss_relating < 0x54fe6d);
+        PS_players = (kgt_character_struct_ptr_57077_int)((int)PS_players + 0xe03f);
+        ps_i2 = ps_i2 + 1;
+      } while ((int)PS_players < 0x54fe6d);
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
     case 0x1e:
@@ -15006,15 +15213,17 @@ LAB_00412d83:
                     // 1 - CANCEL_MASK
                     // 2 - CANCEL_MASK
                     // 3 - Skill
-      uVar10 = skill->field_0x1;
-      cVar12 = skill->_2;
-      uVar11 = skill->field_0x3;
-      uVar4 = *(undefined2 *)&skill->field_0x4;
-      object_addy->start_of_0x6 = skill->skill_step_type;
-      object_addy->field_0xdf92 = uVar10;
-      object_addy->field_0xdf93 = cVar12;
-      object_addy->field_0xdf94 = uVar11;
-      *(undefined2 *)&object_addy->field_0xdf95 = uVar4;
+      cancel_flags = skill->field_0x1;
+      cancel_empty = skill->_2;
+      cancel_skill_idx = skill->field_0x3;
+      uVar8 = skill->field_0x4;
+      uVar9 = skill->field_0x5;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb35] = skill->skill_step_type;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb36] = cancel_flags;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb37] = cancel_empty;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb38] = cancel_skill_idx;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb39] = uVar8;
+      ((kgt_mainKGT *)object_addy)->empty_e[0xb3a] = uVar9;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
     case 0x1f:
@@ -15058,37 +15267,41 @@ LAB_00412d83:
                     // 5 - unk
                     // 6 - unk
                     // 7 - Use Var
-      life_recover_number = skill->field_0x4;
-      bVar16 = life_recover_number >> 6;
-      if (bVar16 == 0) {
-        char_i = (short *)((int)current_obj->mystery_array_b +
-                          (life_recover_number & 0x3f) * 2 + 0x58);
+      var_LHS_long = skill->field_0x4;
+      var_lhs = var_LHS_long >> 6;
+      if (var_lhs == 0) {
+        char_i = (byte *)((int)current_obj->hitbox_guard_array + (var_LHS_long & 0x3f) * 2 + 0x58);
       }
-      else if (bVar16 == 1) {
-        char_i = (short *)(&object_addy->start_of_0x20 + (life_recover_number & 0x3f) * 2);
+      else if (var_lhs == 1) {
+        char_i = ((kgt_mainKGT *)object_addy)->empty_e + (var_LHS_long & 0x3f) * 2 + 0xb3b;
       }
-      else if (bVar16 == 2) {
-        char_i = (short *)(&DAT_004456b0 + (life_recover_number & 0x3f) * 2);
+      else if (var_lhs == 2) {
+        char_i = &DAT_KGT_FILE_BUFFER_00433240.field_0x12470 + (var_LHS_long & 0x3f) * 2;
       }
-      life_recover_number = skill->field_0x5;
-      if ((life_recover_number & 0x80) == 0) {
+      var_flags = skill->field_0x5;
+      if ((var_flags & 0x80) == 0) {
         local_11c = (uint)*(ushort *)&skill->field_0x7;
         goto switchD_0041380c_default;
       }
-      bVar16 = skill->field_0x6;
-      switch(bVar16 >> 6) {
+      life_recover_number = skill->field_0x6;
+      switch(life_recover_number >> 6) {
       case 0:
         local_11c = (uint)*(ushort *)
-                           ((int)current_obj->mystery_array_b + (bVar16 & 0x3f) * 2 + 0x58);
+                           ((int)current_obj->hitbox_guard_array +
+                           (life_recover_number & 0x3f) * 2 + 0x58);
         break;
       case 1:
-        local_11c = (uint)*(ushort *)(&object_addy->start_of_0x20 + (bVar16 & 0x3f) * 2);
+        local_11c = (uint)*(ushort *)
+                           (((kgt_mainKGT *)object_addy)->empty_e +
+                           (life_recover_number & 0x3f) * 2 + 0xb3b);
         break;
       case 2:
-        local_11c = (uint)*(ushort *)(&DAT_004456b0 + (bVar16 & 0x3f) * 2);
+        local_11c = (uint)*(ushort *)
+                           (&DAT_KGT_FILE_BUFFER_00433240.field_0x12470 +
+                           (life_recover_number & 0x3f) * 2);
         break;
       case 3:
-        switch(bVar16 & 0x3f) {
+        switch(life_recover_number & 0x3f) {
         case 0:
           special_stock_gauge_max = current_obj->param_3;
           goto LAB_00413865;
@@ -15118,33 +15331,36 @@ LAB_00413865:
         }
       }
 switchD_0041380c_default:
-      if ((life_recover_number & 3) == 1) {
-        *char_i = (short)local_11c;
+      if ((var_flags & 3) == 1) {
+        *(short *)char_i = (short)local_11c;
       }
-      else if ((life_recover_number & 3) == 2) {
-        special_stock_gauge_max = (int)*char_i + (int)(short)local_11c;
+      else if ((var_flags & 3) == 2) {
+        special_stock_gauge_max = (int)*(short *)char_i + (int)(short)local_11c;
         if (special_stock_gauge_max < -30000) {
-          *char_i = -30000;
+          char_i[0] = 0xd0;
+          char_i[1] = 0x8a;
         }
         else {
           if (30000 < special_stock_gauge_max) {
             special_stock_gauge_max = 30000;
           }
-          *char_i = (short)special_stock_gauge_max;
+          *(short *)char_i = (short)special_stock_gauge_max;
         }
       }
-      life_recover_number = life_recover_number >> 2 & 3;
+      life_recover_number = var_flags >> 2 & 3;
       if (life_recover_number == 1) {
-        if (*char_i != *(short *)&skill->field_0x9) goto switchD_00412610_caseD_6;
+        if (*(short *)char_i != *(short *)&skill->field_0x9)
+        goto switchD_00412610_advance_skillscript;
       }
       else if (life_recover_number == 2) {
-        if (*char_i <= *(short *)&skill->field_0x9) goto switchD_00412610_caseD_6;
+        if (*(short *)char_i <= *(short *)&skill->field_0x9)
+        goto switchD_00412610_advance_skillscript;
       }
-      else if ((life_recover_number != 3) || (*(short *)&skill->field_0x9 <= *char_i))
-      goto switchD_00412610_caseD_6;
+      else if ((life_recover_number != 3) || (*(short *)&skill->field_0x9 <= *(short *)char_i))
+      goto switchD_00412610_advance_skillscript;
       uVar5 = *(ushort *)&skill->field_0x1;
-      if (uVar5 == 0) goto switchD_00412610_caseD_6;
-      pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
+      if (uVar5 == 0) goto switchD_00412610_advance_skillscript;
+      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
       current_obj->action_idx = (uint)uVar5;
       special_stock_gauge_max =
            ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x3;
@@ -15165,17 +15381,17 @@ switchD_0041380c_default:
                     // 7 - Skill ID (high, UNSIGNED)
                     // 8 - Command ID
                     // 
-      special_stock_gauge_max = _rand();
+      rand = _rand();
       current_obj = PTR_POSS_CURRENT_OBJ;
-      if ((special_stock_gauge_max % (int)(*(ushort *)&skill->field_0x1 + 1) <=
-           (int)(uint)*(ushort *)&skill->field_0x3) ||
-         (uVar5 = *(ushort *)&skill->field_0x6, uVar5 == 0)) goto switchD_00412610_caseD_6;
-      pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
+      if ((rand % (int)(*(ushort *)&skill->field_0x1 + 1) <= (int)(uint)*(ushort *)&skill->field_0x3
+          ) || (uVar5 = *(ushort *)&skill->field_0x6, uVar5 == 0))
+      goto switchD_00412610_advance_skillscript;
+      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
       PTR_POSS_CURRENT_OBJ->action_idx = (uint)uVar5;
-      special_stock_gauge_max =
+      random_skillcommand =
            ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x8;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      *(int *)&current_obj->actionscript_idx = random_skillcommand;
+      *(int *)&current_obj->actionscript_idx = random_skillcommand + 1;
       goto LAB_004125ae;
     case 0x23:
                     // ----------------------------------
@@ -15194,19 +15410,19 @@ switchD_0041380c_default:
                     // 2 - Additive
                     // 3 - Subtractive
                     // 4 - Transparent (with custom alpha this time)
-      cVar12 = skill->_2;
-      cVar1 = skill->field_0x3;
-      *(uint *)&current_obj->field_0x54 = (uint)(byte)skill->field_0x1;
-      current_obj->field26_0x44 = (int)cVar12;
-      cVar12 = skill->field_0x4;
-      current_obj->field27_0x48 = (int)cVar1;
-      current_obj->field28_0x4c = (int)cVar12;
-      if (*(int *)&current_obj->field_0x54 == 4) {
-        *(int *)&current_obj->field_0x50 = (int)(char)skill->field_0x5;
+      cVar10 = skill->_2;
+      cVar2 = skill->field_0x3;
+      *(uint *)&current_obj->color_blendtype = (uint)(byte)skill->field_0x1;
+      current_obj->color_red = (int)cVar10;
+      cVar10 = skill->field_0x4;
+      current_obj->color_green = (int)cVar2;
+      current_obj->color_blue = (int)cVar10;
+      if (*(int *)&current_obj->color_blendtype == 4) {
+        *(int *)&current_obj->color_alpha = (int)(char)skill->field_0x5;
         *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       }
       else {
-        *(undefined4 *)&current_obj->field_0x50 = 0;
+        *(undefined4 *)&current_obj->color_alpha = 0;
         *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       }
       goto LAB_004125ae;
@@ -15269,16 +15485,16 @@ switchD_0041380c_default:
                     // D - Editable flag (if unset, this input step is greyed out in editor...)
                     // E - TYPE_MASK (not used by skills)
                     // F - TYPE_MASK (not used by skills)
-      special_stock_gauge_max = FUN_00410a50(skill);
+      special_stock_gauge_max = process_COM_skillblock(skill);
       current_obj = PTR_POSS_CURRENT_OBJ;
-      if (special_stock_gauge_max == 0) goto switchD_00412610_caseD_6;
-      uVar5 = *(ushort *)&skill->field_0x1;
-      PTR_POSS_CURRENT_OBJ->action_idx = (uint)uVar5;
-      special_stock_gauge_max =
-           ((ushort)(object_addy->kgt_core).p_actions_alloc[uVar5].starting_step_idx - 1) +
-           (uint)(byte)skill->field_0x3;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      if (special_stock_gauge_max == 0) goto switchD_00412610_advance_skillscript;
+      COM_skill_idx = *(ushort *)&skill->field_0x1;
+      PTR_POSS_CURRENT_OBJ->action_idx = (uint)COM_skill_idx;
+      COM_new_skillscript_idx =
+           ((ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[COM_skill_idx].
+                    starting_step_idx - 1) + (uint)(byte)skill->field_0x3;
+      *(int *)&current_obj->actionscript_idx = COM_new_skillscript_idx;
+      *(int *)&current_obj->actionscript_idx = COM_new_skillscript_idx + 1;
       goto LAB_004125ae;
     case 0x25:
                     // ----------------------------------
@@ -15303,63 +15519,66 @@ switchD_0041380c_default:
                     // 3 - Chika Chika fading
                     // 4 - Random
       if (current_obj->_x650_index == 0) {
-        special_stock_gauge_max = 0;
+        _x650_idx = 0;
         other_player_poss_relating = &DAT_00447f80;
-        goto LAB_00413aed;
+        goto AI_0x650_is_0;
       }
-      special_stock_gauge_max = (byte)current_obj->_x650_index - 1;
-      if ((skill->field_0x3 != '\0') && (skill->field_0x4 != '\0')) goto LAB_00413b28;
+      _x650_idx = (byte)current_obj->_x650_index - 1;
+      if ((skill->field_0x3 != '\0') && (skill->field_0x4 != '\0')) goto AI_quantity_interval_not_0;
       current_obj->_x650_index = 0;
-      player_file_buff_idx = *(int *)&current_obj->actionscript_idx;
-      (&DAT_00447f80)[special_stock_gauge_max * 0x194] = 0;
-      *(int *)&current_obj->actionscript_idx = player_file_buff_idx + 1;
+      special_stock_gauge_max = *(int *)&current_obj->actionscript_idx;
+      (&DAT_00447f80)[_x650_idx * 0x194] = 0;
+      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
     }
   }
   _sprintf(local_100,s_ScriptMainLoopError__d__d___nd___0041f230,current_obj->player_file_buffer,
            current_obj->obj_type,current_skill_idx,
            *(int *)&current_obj->actionscript_idx -
-           (uint)(ushort)(object_addy->kgt_core).p_actions_alloc[current_skill_idx + 1].
-                         starting_step_idx);
+           (uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc
+                         [current_skill_idx + 1].starting_step_idx);
   SET_DEBUG_INFO(local_100,0x8080ff);
   goto switchD_0041270c_default;
   while( true ) {
     other_player_poss_relating = other_player_poss_relating + 0x194;
-    special_stock_gauge_max = special_stock_gauge_max + 1;
+    _x650_idx = _x650_idx + 1;
+                    // AI 0x650_index is 0
     if (0x46f6bf < (int)other_player_poss_relating) break;
-LAB_00413aed:
+AI_0x650_is_0:
     if (*other_player_poss_relating == 0) {
-      (&DAT_00447f80)[special_stock_gauge_max * 0x194] = 1;
-      current_obj->_x650_index = (char)special_stock_gauge_max + '\x01';
+      (&DAT_00447f80)[_x650_idx * 0x194] = 1;
+      current_obj->_x650_index = (char)_x650_idx + '\x01';
       break;
     }
   }
-LAB_00413b28:
-  if (special_stock_gauge_max != 100) {
-    (&INT_00447f84)[special_stock_gauge_max * 0x194] = 0;
-    (&INT_00447f88)[special_stock_gauge_max * 0x194] = (int)skill;
-    (&INT_00447f8c)[special_stock_gauge_max * 0x194] = 0;
-    other_player_poss_relating = &INT_00447f90 + special_stock_gauge_max * 0x194;
-    for (player_file_buff_idx = 400; player_file_buff_idx != 0;
-        player_file_buff_idx = player_file_buff_idx + -1) {
+AI_quantity_interval_not_0:
+                    // AI Quantity and interval isn't 0
+  if (_x650_idx != 100) {
+    (&INT_00447f84)[_x650_idx * 0x194] = 0;
+    (&INT_00447f88)[_x650_idx * 0x194] = (int)skill;
+    (&INT_00447f8c)[_x650_idx * 0x194] = 0;
+    other_player_poss_relating = &INT_00447f90 + _x650_idx * 0x194;
+    for (special_stock_gauge_max = 400; special_stock_gauge_max != 0;
+        special_stock_gauge_max = special_stock_gauge_max + -1) {
       *other_player_poss_relating = 0;
       other_player_poss_relating = other_player_poss_relating + 1;
     }
     *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
     goto LAB_004125ae;
   }
-  SET_DEBUG_INFO(s_HAN_KATAKANA__0041f274,&DAT_004444ff);
+  SET_DEBUG_INFO(s_HAN_KATAKANA__0041f274,0x4444ff);
   current_obj = PTR_POSS_CURRENT_OBJ;
-  goto switchD_00412610_caseD_6;
+  goto switchD_00412610_advance_skillscript;
   while( true ) {
     special_stock_gauge_max = special_stock_gauge_max + 1;
-    pOVar17 = pOVar17 + 1;
+    pOVar14 = pOVar14 + 1;
     if (0x3ff < special_stock_gauge_max) break;
-LAB_00412aac:
-    if (pOVar17 == *(OBJ_STRUCT **)(&object_addy->field_0xdfbf + (uint)life_recover_number * 4)) {
+OBJECT_BLOCK_LOOP:
+    if (pOVar14 == *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + (uint)m_val * 4 + 0xb63)
+       ) {
       uVar5 = *(ushort *)&skill->field_0x5;
       if (uVar5 != 0) {
-        pActionAlloc = (object_addy->kgt_core).p_actions_alloc;
+        pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
         current_obj->action_idx = (uint)uVar5;
         special_stock_gauge_max =
              ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x7;
@@ -15367,8 +15586,11 @@ LAB_00412aac:
         *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
         goto LAB_004125ae;
       }
-      pOVar17->jmp_idx = reset_index;
-      *(undefined4 *)(&object_addy->field_0xdfbf + (uint)life_recover_number * 4) = 0;
+      pOVar14->jmp_idx = reset_index;
+      pbVar1[0] = 0;
+      pbVar1[1] = 0;
+      pbVar1[2] = 0;
+      pbVar1[3] = 0;
       break;
     }
   }
@@ -15376,14 +15598,15 @@ LAB_00412b0a:
   if (*(ushort *)&skill->_2 != 0) {
     curr_obj_type = current_obj->obj_type;
     life_recover_number = skill->field_0x1;
-    bVar16 = life_recover_number & 0x40;
+    bVar13 = life_recover_number & 0x40;
     if (curr_obj_type == main_kgt_file) {
-      if (((object_addy->kgt_core).p_actions_alloc[*(ushort *)&skill->_2].field_0x23 & 9) != 0) {
-        bVar16 = 0;
+      if (((((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[*(ushort *)&skill->_2].
+           field_0x23 & 9) != 0) {
+        bVar13 = 0;
         goto LAB_00412b9c;
       }
 LAB_00412b66:
-      bVar16 = 1;
+      bVar13 = 1;
 LAB_00412b6e:
       special_stock_gauge_max = (int)*(short *)&skill->field_0x8 << 0x10;
       player_file_buff_idx = (int)*(short *)&skill->field_0xa << 0x10;
@@ -15394,9 +15617,9 @@ LAB_00412b6e:
         if ((life_recover_number & 0x40) == 0) goto LAB_00412b9c;
         goto LAB_00412b6e;
       }
-      bVar16 = 0;
+      bVar13 = 0;
 LAB_00412b9c:
-      if ((current_obj->pos_player_ignore_flag & 1) == 0) {
+      if ((current_obj->pos_player_direction & 1) == 0) {
         special_stock_gauge_max = *(short *)&skill->field_0x8 * 0x10000 + current_obj->param_3;
         player_file_buff_idx = *(short *)&skill->field_0xa * 0x10000 + current_obj->param_4;
       }
@@ -15405,126 +15628,154 @@ LAB_00412b9c:
         player_file_buff_idx = *(short *)&skill->field_0xa * 0x10000 + current_obj->param_4;
       }
     }
-    uVar14 = current_obj->param2_maybe_50_or_46;
+    uVar12 = current_obj->param2_maybe_50_or_46;
     if ((life_recover_number & 3) == 0) {
-      uVar14 = uVar14 - 1;
-      if ((int)uVar14 < 10) {
-        uVar14 = 10;
+      uVar12 = uVar12 - 1;
+      if ((int)uVar12 < 10) {
+        uVar12 = 10;
       }
     }
     else if ((life_recover_number & 3) == 1) {
-      uVar14 = uVar14 + 1;
-      if (0x7f < (int)uVar14) {
-        uVar14 = 0x7f;
+      uVar12 = uVar12 + 1;
+      if (0x7f < (int)uVar12) {
+        uVar12 = 0x7f;
       }
     }
     else if ((life_recover_number & 3) == 2) {
-      uVar14 = (uint)(byte)skill->field_0xd;
+      uVar12 = (uint)(byte)skill->field_0xd;
     }
-    pOVar17 = FIND_EMPTY_OBJ(current_obj->jmp_idx,uVar14,special_stock_gauge_max,
+    pOVar14 = FIND_EMPTY_OBJ(current_obj->jmp_idx,uVar12,special_stock_gauge_max,
                              player_file_buff_idx);
     current_obj = PTR_POSS_CURRENT_OBJ;
-    pOVar17->obj_type = 1;
-    pOVar17->player_file_buffer = current_obj->player_file_buffer;
+    pOVar14->obj_type = 1;
+    pOVar14->player_file_buffer = current_obj->player_file_buffer;
     switch(current_obj->obj_type) {
     case 0:
     case 1:
     case player_file:
-      pOVar17->obj_type = 1;
+      pOVar14->obj_type = 1;
       break;
     case main_kgt_file:
-      pOVar17->obj_type = main_kgt_file;
+      pOVar14->obj_type = main_kgt_file;
       break;
     case demo_file:
-      pOVar17->obj_type = demo_file;
+      pOVar14->obj_type = demo_file;
       break;
     case stage_file:
-      pOVar17->obj_type = stage_file;
+      pOVar14->obj_type = stage_file;
     }
-    uVar8 = *(undefined3 *)&current_obj->field_0x15;
-    special_stock_gauge_max = current_obj->pos_player_ignore_flag;
-    pOVar17->__or_3 = current_obj->__or_3;
-    *(undefined3 *)&pOVar17->field_0x15 = uVar8;
+    uVar7 = *(undefined3 *)&current_obj->field_0x15;
+    special_stock_gauge_max = current_obj->pos_player_direction;
+    pOVar14->__or_3 = current_obj->__or_3;
+    *(undefined3 *)&pOVar14->field_0x15 = uVar7;
     uVar5 = *(ushort *)&skill->_2;
-    pOVar17->pos_player_ignore_flag = special_stock_gauge_max;
-    pOVar17->action_idx = (uint)uVar5;
-    *(uint *)&pOVar17->actionscript_idx =
-         (uint)(ushort)(object_addy->kgt_core).p_actions_alloc[uVar5].starting_step_idx +
-         (uint)(byte)skill->field_0x4;
-    if (bVar16 == 0) {
-      pOVar17->unk_bitmask = pOVar17->unk_bitmask | 0x40000000;
+    pOVar14->pos_player_direction = special_stock_gauge_max;
+    pOVar14->action_idx = (uint)uVar5;
+    *(uint *)&pOVar14->actionscript_idx =
+         (uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar5].
+                       starting_step_idx + (uint)(byte)skill->field_0x4;
+    if (bVar13 == 0) {
+      pOVar14->unk_bitmask = pOVar14->unk_bitmask | 0x40000000;
     }
     if ((int)current_obj->obj_type < 2) {
       life_recover_number = skill->field_0x1;
       if ((life_recover_number & 4) == 0) {
-        *(OBJ_STRUCT **)(&object_addy->field_0xdfbf + (uint)(byte)skill->field_0xc * 4) = pOVar17;
+        *(OBJ_STRUCT **)
+         (((kgt_mainKGT *)object_addy)->empty_e + (uint)(byte)skill->field_0xc * 4 + 0xb63) =
+             pOVar14;
       }
       if ((life_recover_number & 8) != 0) {
-        pOVar17->unk_bitmask = pOVar17->unk_bitmask | 0x80000000;
+        pOVar14->unk_bitmask = pOVar14->unk_bitmask | 0x80000000;
       }
     }
     if ((skill->field_0x1 & 0x20) != 0) {
-      *(undefined2 *)&pOVar17->field_0x12f = *(undefined2 *)&skill->field_0xa;
-      pOVar17->unk_bitmask = pOVar17->unk_bitmask | 0x20000000;
-      *(undefined2 *)&pOVar17->field_0x12d = *(undefined2 *)&skill->field_0x8;
+      *(undefined2 *)&pOVar14->field_0x12f = *(undefined2 *)&skill->field_0xa;
+      pOVar14->unk_bitmask = pOVar14->unk_bitmask | 0x20000000;
+      *(undefined2 *)&pOVar14->field_0x12d = *(undefined2 *)&skill->field_0x8;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
       goto LAB_004125ae;
     }
   }
-switchD_00412610_caseD_6:
+switchD_00412610_advance_skillscript:
   *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
 LAB_004125ae:
   if (local_108 == 0) {
     return;
   }
   goto Pre_Script_reading_switch_statement;
-switchD_00412610_next_actionscript:
-  special_stock_gauge_max = 1;
-  if (current_obj->pos_player_ignore_flag != 0) {
-    special_stock_gauge_max = -1;
+switchD_00412610_compute_momentum:
+                    // ----------------------------------
+                    // - M - Move -
+                    // ----------------------------------
+                    // 0 - Type
+                    // 1 - X gravity (high, SIGNED)
+                    // 2 - X gravity (low, SIGNED)
+                    // 3 - X momentum (high, SIGNED)
+                    // 4 - X momentum (low, SIGNED)
+                    // 5 - Y momentum (high, SIGNED)
+                    // 6 - Y momentum (low, SIGNED)
+                    // 7 - Y gravity (high, SIGNED)
+                    // 8 - Y gravity (low, SIGNED)
+                    // 9 - Flags
+                    // 
+                    // - Flags -
+                    // 0 - Add (if unset, set values. If set, add values.)
+                    // 1 - X momentum stop flag (what does this do...?) 
+                    // 2 - Y momentum stop flag (ditto) 
+                    // 3 - X gravity stop flag (ditto) 
+                    // 4 - Y gravity stop flag (ditto) 
+                    // 
+                    // Double check the flag values for movement skill blocks.
+  player_ignore_flag_flag = 1;
+  if (current_obj->pos_player_direction != 0) {
+                    // Possibly direction player is facing
+    player_ignore_flag_flag = -1;
   }
-  life_recover_number = skill->field_0x9;
-  is_1p_story = (life_recover_number & 1) == 0;
-  player_file_buff_idx = *(short *)&skill->field_0x3 * INT_00541f78 * special_stock_gauge_max;
-  if ((life_recover_number & 2) == 0) {
-    if (is_1p_story) {
-      current_obj->field9_0x18 = player_file_buff_idx;
+  mvmt_flags = skill->field_0x9;
+  missing_x_flags_flag = (mvmt_flags & 1) == 0;
+  player_x_momentum = *(short *)&skill->field_0x3 * player_momentum_scalar * player_ignore_flag_flag
+  ;
+  if ((mvmt_flags & 2) == 0) {
+                    // Does not have Y momentum stop flag or X gravity stop flag
+    if (missing_x_flags_flag) {
+      current_obj->x_momentum = player_x_momentum;
     }
     else {
-      current_obj->field9_0x18 = current_obj->field9_0x18 + player_file_buff_idx;
+      current_obj->x_momentum = current_obj->x_momentum + player_x_momentum;
     }
   }
-  player_file_buff_idx = *(short *)&skill->field_0x5 * INT_00541f78;
-  if ((life_recover_number & 4) == 0) {
-    if (is_1p_story) {
-      current_obj->field10_0x1c = player_file_buff_idx;
+  player_y_momentum = *(short *)&skill->field_0x5 * player_momentum_scalar;
+  if ((mvmt_flags & 4) == 0) {
+                    // Y gravity stop flag
+    if (missing_x_flags_flag) {
+      current_obj->y_momentum = player_y_momentum;
     }
     else {
-      current_obj->field10_0x1c = current_obj->field10_0x1c + player_file_buff_idx;
+      current_obj->y_momentum = current_obj->y_momentum + player_y_momentum;
     }
   }
-  special_stock_gauge_max = *(short *)&skill->field_0x1 * INT_00445700 * special_stock_gauge_max;
-  if ((life_recover_number & 8) == 0) {
-    if (is_1p_story) {
-      current_obj->field11_0x20 = special_stock_gauge_max;
+  special_stock_gauge_max = *(short *)&skill->field_0x1 * gravity_scalar * player_ignore_flag_flag;
+  if ((mvmt_flags & 8) == 0) {
+    if (missing_x_flags_flag) {
+      current_obj->x_gravity = special_stock_gauge_max;
     }
     else {
-      current_obj->field11_0x20 = current_obj->field11_0x20 + special_stock_gauge_max;
+      current_obj->x_gravity = current_obj->x_gravity + special_stock_gauge_max;
     }
   }
-  special_stock_gauge_max = *(short *)&skill->field_0x7 * INT_00445700;
-  if ((life_recover_number & 0x10) == 0) {
-    if (is_1p_story) {
-      current_obj->field12_0x24 = special_stock_gauge_max;
+  special_stock_gauge_max = *(short *)&skill->field_0x7 * gravity_scalar;
+  if ((mvmt_flags & 0x10) == 0) {
+    if (missing_x_flags_flag) {
+      current_obj->y_gravity = special_stock_gauge_max;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
     }
     else {
-      current_obj->field12_0x24 = current_obj->field12_0x24 + special_stock_gauge_max;
+      current_obj->y_gravity = current_obj->y_gravity + special_stock_gauge_max;
       *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
     }
     goto LAB_004125ae;
   }
-  goto switchD_00412610_caseD_6;
+  goto switchD_00412610_advance_skillscript;
 }
 
 
@@ -15786,7 +16037,7 @@ uint GET_KEY_PRESS(int param_1,int target_buffer)
   b_poss_facing_left = false;
   if ((((GAME_STATE.over3kunder4kcheck < 3000) || (3999 < GAME_STATE.over3kunder4kcheck)) ||
       (*(int *)&PLAYER_KGT_BUFFER[target_buffer].field_0xdf51 == 0)) ||
-     ((PLAYER_KGT_BUFFER[target_buffer].guard_button_bool & 8U) != 0)) {
+     ((PLAYER_KGT_BUFFER[target_buffer].guard_button_flag & 8U) != 0)) {
     b_poss_facing_left = true;
   }
   if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].DOWN] & 0x80) != 0) {
@@ -17001,7 +17252,7 @@ INT_PTR set_variables_from_options_menu(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM
 
 {
   HWND pHVar1;
-  short *lParam_00;
+  c_256_buffer *lParam_00;
   
   if (uMsg < 0x112) {
     if (uMsg == 0x111) {
@@ -17032,13 +17283,13 @@ INT_PTR set_variables_from_options_menu(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM
     }
     else if (uMsg == 0x110) {
       pHVar1 = GetDlgItem(hWnd,0x36b1);
-      lParam_00 = &DAT_KGT_FILE_BUFFER_00433240.hit_junctions[0xac].spark_idx;
+      lParam_00 = DAT_KGT_FILE_BUFFER_00433240.stage_names;
       do {
-        if ((char)*lParam_00 != '\0') {
+        if (lParam_00->str[0] != '\0') {
                     // CB_INSERTSTRING 
           SendMessageA(pHVar1,0x14a,0xffffffff,(LPARAM)lParam_00);
         }
-        lParam_00 = lParam_00 + 0x80;
+        lParam_00 = lParam_00 + 1;
       } while ((int)lParam_00 < 0x43d49c);
                     // CB_SETCURSEL  
       SendMessageA(pHVar1,0x14e,UINT_TESTPLAY_STAGENB,0);
