@@ -1,13 +1,13 @@
 To-Do for editor
 -----
-- [ ] Check Character Parent Struct 
- - - Problem: Might have story_character_entry_info_bitmask digits mixed up
- - - Problem: character_story_entries[x].field_0x3 may have default values?
- - - Problem: character->0x7cc2 offset may have default value in engine
+- [x] Check Character Parent Struct 
+ - - [x] Problem: Might have story_character_entry_info_bitmask digits mixed up
+ - - [x] Problem: character_story_entries[x].field_0x3 may have default values? 
+ - - [x] Problem: character->0x7cc2 offset may have default value in engine 
  - - [x] Default Skill Values
  - - [x] FIX: CPU Struct, should be able to fit 10?
  - - - [x] Unroll the array due to misaligned struct sizes
- - - [ ] Identify guard flag structures
+ - - [x] Identify guard flag structures
 - [ ] Check System Parent Struct
 - - [ ] FIX: Character names start in the middle of action list
 - - [ ] Default Skill Values
