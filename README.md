@@ -8,20 +8,22 @@ To-Do for editor
  - - [x] FIX: CPU Struct, should be able to fit 10?
  - - - [x] Unroll the array due to misaligned struct sizes
  - - [x] Identify guard flag structures
-- [ ] Check System Parent Struct
-- - [ ] FIX: Character names start in the middle of action list
-- - [ ] Default Skill Values
-- [ ] Create/Check Stage Parent Struct
-- - [ ] Default Skill Values
-- [ ] Create/Check Demo Parent Struct
- - - [ ] Default Skill Values
-- [ ] kgtSound struct
-- [ ] Confirm skill type structures
- - - [ ] RP
- - - [ ] DB
- - - [ ] Cancel
- - - [ ] COM
-- [ ] Identify source of time_method_number
+- [x] Check System Parent Struct
+- - [x] FIX: Character names start in the middle of action list
+- - [x] Default Skill Values
+- [x] Create/Check Stage Parent Struct
+- - [x] Default Skill Values
+- - - There doesn't seem to be any, unlike character and system.
+- [x] Create/Check Demo Parent Struct
+- - [x] Default Skill Values
+- - - There doesn't seem to be any, unlike character and system.
+- [x] kgtSound struct
+- [x] Confirm skill type structures
+ - - [x] RP
+ - - [x] DB
+ - - [x] Cancel
+ - - [x] COM
+- [x] Identify source of time_method_number
 - [ ] Confirm kgtFile types
  - - [ ] System
  - - [ ] Character
@@ -83,3 +85,6 @@ Editor Stage Info Ptr is 0x007757e0
 Editor Demo info Ptr is 0x00607440
 
 Editor System info is 0x0062ed80
+
+Default skill values seem to come right after common_images
+
