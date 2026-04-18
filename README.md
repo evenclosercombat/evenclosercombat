@@ -24,17 +24,16 @@ To-Do for editor
  - - [x] Cancel
  - - [x] COM
 - [x] Identify source of time_method_number
-- [ ] Confirm kgtFile types
- - - [ ] System
- - - [ ] Character
- - - [ ] Stage
- - - - Problem: kgt_stage file write is very small in engine?
- - - [ ] Demo
-- [ ] Rename all structures before export to engine
- - - [ ] Character
- - - [ ] Demo
- - - [ ] Stage
- - - [ ] System
+- [x] Confirm kgtFile types
+ - - [x] System
+ - - [x] Character
+ - - [x] Stage
+ - - [x] Demo
+- [x] Rename all structures before export to engine
+ - - [x] Character
+ - - [x] Demo
+ - - [x] Stage
+ - - [x] System
 
 To-Do for Engine
 -----
