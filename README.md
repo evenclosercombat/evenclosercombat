@@ -82,7 +82,15 @@ Naming Decisions/Changes
 
 Important Functions
 ----
-- 
+| Memory Address | Function Name | 
+|--------------|--------|
+| 0x00405ce0 | wWinMain |
+| 0x004056c0 | vInitializeWindowsAndMemory |
+| 0x004148e0 | vLoadKgt2kConfig | 
+| 0x00414930 | vLoadGameConfig | 
+| 0x00403300 | vMemzero | 
+| 0x00416530 | vRegisterInputWindowClasses |
+
 
 Important Information
 --
