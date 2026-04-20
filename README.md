@@ -49,6 +49,11 @@ To-do to get to compile
 ----
 - [ ] Explicit cast structs for script types, object types?
 
+To-do various
+----
+- [ ] Look at COM skill again, double-check for mistakes.
+ 
+
 Naming Decisions/Changes
 -----
 - Parent structs in editor -> kgtEditor_ prefix
@@ -70,6 +75,10 @@ Naming Decisions/Changes
 |--------------|--------|
 | idx | index |
 
+| comment prefix | definition | 
+|--------------|--------|
+| To-Do | Fix after export to .c files |
+| Bug | Used to denote possible bugs, or known sources of confirmed bugs | 
 
 Important Functions
 ----
