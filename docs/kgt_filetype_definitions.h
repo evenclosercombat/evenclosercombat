@@ -7,17 +7,14 @@ typedef unsigned long long    GUID;
 typedef pointer32 ImageBaseOffset32;
 
 typedef long long    longlong;
-typedef unsigned long long    qword;
 typedef int    sdword;
 typedef unsigned char    uchar;
 typedef unsigned int    uint;
 typedef unsigned long    ulong;
-typedef unsigned long long    ulonglong;
 typedef unsigned char    undefined1;
 typedef unsigned short    undefined2;
 typedef unsigned int    undefined3;
 typedef unsigned int    undefined4;
-typedef unsigned long long    undefined5;
 typedef unsigned long long    undefined6;
 typedef unsigned long long    undefined8;
 typedef unsigned short    ushort;
@@ -253,6 +250,7 @@ struct kgtFileCharacter {
     int iCommonImagesCount;
     struct kgtCommonImage kgtCommonImages[200];
     struct kgtCpuCommand kgtCpuCommands[100];
+    byte field32_0x13bb64[10]; /* Leftover bytes after CPU Commands */
     short shSkillIdxStanding; /* Beginning of default engine skill indexes */
     short shSkillIdxForward;
     short shSkillIdxBackward;
@@ -277,12 +275,12 @@ struct kgtFileCharacter {
     short shSkillIdxCharSelectPic;
     short shSkillIdxStageFacePic;
     short shSkillIdxRI;
-    byte field56_0x13bb94[38];
+    byte field57_0x13bb9e[38];
     short shAge;
-    undefined field58_0x13bbbc;
-    undefined field59_0x13bbbd;
+    undefined field59_0x13bbc6;
+    undefined field60_0x13bbc7;
     char cGender; /* 00 = male, 01 = female, 02 = both, 03 = none */
-    byte field61_0x13bbbf[1740];
+    byte field62_0x13bbc9[1740];
     short shYPosOfSideHp;
     short shInterv;
     char cShaveRatio;
@@ -291,22 +289,22 @@ struct kgtFileCharacter {
     char cCharacterRev;
     char cGuardButton; /* 00 = A, 05 = F */
     short shLifeGuageMax;
-    undefined field70_0x13c296;
-    undefined field71_0x13c297;
+    undefined field71_0x13c2a0;
+    undefined field72_0x13c2a1;
     short shSpecialGuageStockMax;
-    undefined field73_0x13c29a;
-    undefined field74_0x13c29b;
+    undefined field74_0x13c2a4;
+    undefined field75_0x13c2a5;
     short shSpecialStockMax;
-    undefined field76_0x13c29e;
-    undefined field77_0x13c29f;
+    undefined field77_0x13c2a8;
+    undefined field78_0x13c2a9;
     char cIsGuardButtonActive; /* 00 = false, 08 = true */
-    byte field79_0x13c2a1[7];
+    byte field80_0x13c2ab[7];
     short shSpecialGuageIncreaseOnAttack;
     short shSpecialGuageIncreaseOnHit;
     char cStartingStock;
-    byte field83_0x13c2ad[6];
+    byte field84_0x13c2b7[6];
     struct kgtStoryEntry kgtStoryEntries[100];
-    byte field85_0x14132b[4534];
+    byte field86_0x141335[4534];
 };
 
 typedef struct kgtFileDemo kgtFileDemo, *PkgtFileDemo;
@@ -372,8 +370,7 @@ struct kgtFileStage {
     struct kgtSound kgtSounds[256];
     int four_zeros;
     char cBGM;
-    char bSkipWithInput;
-    byte field26_0x136822[1031];
+    byte field25_0x136821[1032];
 };
 
 typedef struct kgtFileSystem kgtFileSystem, *PkgtFileSystem;
@@ -536,7 +533,7 @@ struct kgtFileSystem {
     short skill_idx_spare17;
     short skill_idx_spare18;
     short skill_idx_spare19;
-    byte field145_0x146614[76];
+    byte field145_0x146614[56];
     short shCharacterSelectStartX;
     short shCharacterSelectStartY;
     short shDistanceBetweenCharactersX;
@@ -552,6 +549,6 @@ struct kgtFileSystem {
     short shPlayer2SelectionWidth;
     short shPlayer2SelectionHeight;
     char cCharacterModeSettings[50]; /* +0x1 = Has story mode, +0x2 = Has VS mode, corresponding to character idx */
-    byte field161_0x1466ae[942];
+    byte field161_0x14669a[942];
 };
 
