@@ -44,13 +44,15 @@ To-Do for Engine
 - - [ ] Play
 - [ ] BEFORE EXPORT: Final adjust of all offset types
 - [ ] BEFORE EXPORT: List of important functions to achieve parity with
-- [ ] Annotate vMainWndProc
+- [ ] Fix stage/demo struct size
+
 
 To-do to get to compile
 ----
 - [ ] Explicit cast structs for script types, object types?
 - [ ] Produce list of #includes
 - [ ] Cut down to only core functions (function tags)
+- [ ] Fix file reading functions
 
 To-do various
 ----
@@ -106,6 +108,38 @@ Important Functions
 | 0x00406970 | vEmptyEngineObjects |
 | 0x00406570 | kgtoNewEngineObject | 
 | 0x00415190 | iSetDebugInfo | 
+| 0x00405ad0 | vGameLoop |
+| 0x00404cd0 | vProcessEngineObjects |
+| 0x00415200 | vDebugEventASubOne |
+| 0x0040c130 | vJumptableJump |
+| 0x00409a60 | vjmpStartGame |
+| 0x004043d0 | iLoadExternalImage | 
+| 0x00414880 | vSpawnTaskModalWithWarning |
+| 0x00403d60 | iOpenKgtSystemFile |
+| 0x00403d40 | iClearKgtSystemFile |
+| 0x00403520 | vFreeKgtCore |
+| 0x00403600 | bReadKgtCore |
+| 0x0040ffc0 | vHitboxHandling |
+| 0x0040eb60 | | 
+| 0x0040f010 | |
+| 0x0040f910 | |
+| 0x004146d0 | vGetPlayerInputs |
+| 0x00414340 | iTranslateKeyPress |
+| 0x00404dd0 | vHandleDrawing |
+| | |
+| 0x0040c9e0 | vCalculateShake |
+| 0x0040ad00 | vjmpDisplayTitleScreens |
+| 0x00406450 | vResetObjectsAndSpeed |
+| 0x004080a0 | vjmpMenuTraversal | 
+| 0x00403fc0 | iOpenDemoFile |
+| 0x00403fa0 | iClearDemoFile |
+| 0x00406790 | vSpawnEngineObjectForDemoSkills |
+| 0x00403430 | sound something something... |
+
+
+
+
+
 
 
 Other Functions for Parity
@@ -133,16 +167,20 @@ Other Functions for Parity
 | 0x00404bd0 | vRestoreDdrawInterfaces |
 | 0x00405c80 | vGetWindowPos |
 | 0x00404c10 | vWindowBltFuncs | 
-| 
+| 0x004025a0 | Unused_online_E |
+| 0x00402600 | Unused_online_A |
+
+
 
 
  
 
 Includes
 ---
+- winbase.h
 - wingdi.h
 - winuser.h
-- 
+- timeapi.h
 
 
 Important Information

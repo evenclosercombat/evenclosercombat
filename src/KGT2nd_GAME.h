@@ -164,6 +164,27 @@ typedef unsigned short    word;
 #define BADSPACEBASE   void
 #define code   void
 
+typedef enum kgtJumptableEndpoints {
+    EMPTY=0,
+    RESET_IDX=1,
+    START_GAME=2,
+    3=3,
+    READ_SCRIPT=4,
+    set_unk_obj_vars=5,
+    UPDATE_TIMER=6,
+    7=7,
+    ROUND_START=8,
+    set_obj_flag_a=9,
+    CHARACTER_SELECT_SCREEN=10,
+    also_set_obj_flag_a=11,
+    MENU_TRAVERSAL=12,
+    13=13,
+    BATTLE_STATE=14,
+    BATTLE_UI=15,
+    STORY_MODE=16,
+    DISPLAY_TITLE_SCREEN=17
+} kgtJumptableEndpoints;
+
 typedef struct unk_player_kgt_intern_struct unk_player_kgt_intern_struct, *Punk_player_kgt_intern_struct;
 
 typedef struct unk_player_kgt_intern_struct *unk_player_kgt_intern_struct_ptr_50_int;
@@ -276,7 +297,7 @@ typedef struct kgtCommonImage kgtCommonImage, *PkgtCommonImage;
 
 typedef struct kgtStoryEntry kgtStoryEntry, *PkgtStoryEntry;
 
-typedef struct OBJ_STRUCT OBJ_STRUCT, *POBJ_STRUCT;
+typedef struct kgtEngineObject kgtEngineObject, *PkgtEngineObject;
 
 typedef struct kgtSkillHeader kgtSkillHeader, *PkgtSkillHeader;
 
@@ -294,28 +315,6 @@ typedef struct kgtCharacterCPUCommandSkillShort kgtCharacterCPUCommandSkillShort
 
 typedef struct kgtStoryEntryCpu kgtStoryEntryCpu, *PkgtStoryEntryCpu;
 
-typedef enum Jumptable_A_endpoints {
-    empty_return=0,
-    reset_index=1,
-    start_game?=2,
-    3=3,
-    4=4,
-    set_unk_obj_vars=5,
-    6=6,
-    7=7,
-    8=8,
-    set_obj_flag_a=9,
-    poss_char_select_screen=10,
-    also_set_obj_flag_a=11,
-    12=12,
-    13=13,
-    14=14,
-    15=15,
-    16=16,
-    17=17,
-    prob_display_title_screens=18
-} Jumptable_A_endpoints;
-
 typedef enum kgt_obj_type {
     0=0,
     1=1,
@@ -324,103 +323,6 @@ typedef enum kgt_obj_type {
     stage_file=4,
     player_file=5
 } kgt_obj_type;
-
-struct OBJ_STRUCT {
-    enum Jumptable_A_endpoints iJumpIdx;
-    int iParam2;
-    int iParam3;
-    int iParam4;
-    sdword drawing_flag;
-    byte 2_or_3;
-    undefined field6_0x15;
-    undefined field7_0x16;
-    undefined field8_0x17;
-    int x_momentum;
-    int y_momentum;
-    int x_gravity;
-    int y_gravity;
-    int unk_bitmask;
-    undefined1 actionscript_idx; // Created by Rename Structure Field action
-    undefined field15_0x2d;
-    undefined field16_0x2e;
-    undefined field17_0x2f;
-    int action_idx; // Created by Rename Structure Field action
-    int skill_idx_2; // Created by Rename Structure Field action
-    int hit_junction_idx; // First 2 bytes is skillscript internal offset?? last two bytes is skill_idx
-    int image_wait_frames;
-    undefined1 opponent_downtime_in_frames; // Created by Rename Structure Field action
-    undefined field23_0x41;
-    undefined field24_0x42;
-    undefined field25_0x43;
-    int color_red;
-    int color_green;
-    int color_blue;
-    undefined1 color_alpha; // Created by Rename Structure Field action
-    undefined field30_0x51;
-    undefined field31_0x52;
-    undefined field32_0x53;
-    undefined1 color_blendtype; // Created by Rename Structure Field action
-    undefined field34_0x55;
-    undefined field35_0x56;
-    undefined field36_0x57;
-    int compare_to_param_4;
-    int pos_player_direction; // Formerly pos_player_ignore_flag, accidentally moved variable around? 04/07/26
-    int player_file_buffer_2;
-    int stage_action_idx; // Also used to store skill idx in script reading function if stage script object is being read
-    int stage_skillscript_idx; // Also used to store skillscript idx in script reading function if stage script object is being read
-    int case2_var_b;
-    int case2_var_d;
-    int case2_var_e;
-    int case2_var_f;
-    undefined1 loop_frequency; // Created by Rename Structure Field action
-    undefined field47_0x7d;
-    undefined field48_0x7e;
-    undefined field49_0x7f;
-    undefined field50_0x80;
-    undefined1 loop_skillscript_idx; // Created by Rename Structure Field action
-    undefined field52_0x82;
-    undefined field53_0x83;
-    undefined field54_0x84;
-    int return_skill_idx;
-    int hitbox_attack_array[20];
-    int hitbox_guard_array[20];
-    struct kgtSkill *reaction_skillblock;
-    undefined field59_0x12d;
-    undefined field60_0x12e;
-    undefined field61_0x12f;
-    undefined field62_0x130;
-    short variable_A;
-    short variable_B;
-    short variable_C;
-    short variable_D;
-    short variable_E;
-    short variable_F;
-    short variable_G;
-    short variable_H;
-    short variable_I;
-    short variable_J;
-    short variable_K;
-    short variable_L;
-    short variable_M;
-    short variable_N;
-    short variable_O;
-    short variable_P;
-    undefined1 0x650_index; // Created by Rename Structure Field action
-    int object_process_step;
-    int player_file_buffer;
-    enum kgt_obj_type obj_type;
-    struct OBJ_STRUCT *obj_ptr_b;
-    struct OBJ_STRUCT *obj_ptr_a;
-    int timer_mod_10;
-    int timer_div_ten_mod_10;
-    int timer_div_100_mod_10; // Created by Rename Structure Field action
-    int field88_0x172;
-    undefined field89_0x176;
-    undefined field90_0x177;
-    undefined field91_0x178;
-    undefined field92_0x179;
-    struct OBJ_STRUCT *parent_obj;
-};
 
 struct kgtSound {
     void *pAlloc;
@@ -565,7 +467,7 @@ struct kgt_core {
     undefined field14_0xe;
     undefined field15_0xf;
     char program_name[256];
-    struct kgtSkillHeader *p_actions_alloc; // Created by Rename Structure Field action
+    struct kgtSkillHeader *pSkillsAlloc; // Created by Rename Structure Field action
     struct kgtSkill *p_actionscripts_alloc; // Created by Rename Structure Field action
     struct KGT_IMG_HEADER *p_img_headers_alloc; // Created by Rename Structure Field action
     struct kgtPallette pallette_1[256];
@@ -580,7 +482,7 @@ struct kgt_core {
     struct kgtSound *p_sound_structs; // Created by Rename Structure Field action
     int unk_0x100_offset;
     int read_ended;
-    int i_actions_amount;
+    int iActionsCount;
     int i_images_amount; // Created by Rename Structure Field action
     int i_sounds_amount;
 };
@@ -597,7 +499,7 @@ struct kgt_character_struct {
     undefined field2_0x2235;
     undefined field3_0x2236;
     undefined field4_0x2237;
-    int script_reading_01_field5;
+    int unknown_online_var_a;
     struct kgtCpuCommand CPU_commands[100];
     undefined field7_0x4d98;
     undefined field8_0x4d99;
@@ -6949,7 +6851,7 @@ struct kgt_character_struct {
     int story_mode_unk_var_a;
     int field6355_0xdef1;
     int CPU; // Potentially start of a CPU info struct
-    struct OBJ_STRUCT *poss_opponent_obj_ptr;
+    struct kgtEngineObject *poss_opponent_obj_ptr;
     int field6358_0xdefd;
     int field6359_0xdf01;
     int health;
@@ -6963,11 +6865,11 @@ struct kgt_character_struct {
     int special_stock_gauge_max2;
     int field6369_0xdf25;
     int field6370_0xdf29;
-    undefined field6371_0xdf2d;
+    undefined1 unkHitboxVarB; // Created by Rename Structure Field action
     undefined field6372_0xdf2e;
     bool poss_direction_related_A;
     undefined field6374_0xdf30;
-    undefined field6375_0xdf31;
+    undefined1 unkHitboxVarA; // Created by Rename Structure Field action
     undefined field6376_0xdf32;
     undefined field6377_0xdf33;
     undefined field6378_0xdf34;
@@ -6982,49 +6884,43 @@ struct kgt_character_struct {
     short player_buff_idx_is_not_0;
     undefined field6388_0xdf4f;
     undefined field6389_0xdf50;
-    undefined field6390_0xdf51;
-    undefined field6391_0xdf52;
-    undefined field6392_0xdf53;
-    undefined field6393_0xdf54;
-    int field6394_0xdf55;
-    undefined field6395_0xdf59;
-    undefined field6396_0xdf5a;
-    undefined field6397_0xdf5b;
-    undefined field6398_0xdf5c;
-    int unk_CPU_var_initial_1;
-    int cpu_level;
-    int TESTPLAY_PLAYER_CPU;
-    struct OBJ_STRUCT *poss_opponent_obj_ptr_2?;
-    int field6403_0xdf6d;
-    int field6404_0xdf71;
+    int iProbablyIsBlocking;
+    int field6391_0xdf55;
+    undefined field6392_0xdf59;
+    undefined field6393_0xdf5a;
+    undefined field6394_0xdf5b;
+    undefined field6395_0xdf5c;
+    int iNotTestplayPlayerCpu;
+    int iCpuLevel;
+    int iTestplayPlayerCpu;
+    struct kgtEngineObject *poss_opponent_obj_ptr_2?;
+    int field6400_0xdf6d;
+    int field6401_0xdf71;
     int cpu_command_idx;
     int winpoint;
-    undefined field6407_0xdf7d;
-    undefined field6408_0xdf7e;
-    undefined field6409_0xdf7f;
-    undefined field6410_0xdf80;
+    undefined field6404_0xdf7d;
+    undefined field6405_0xdf7e;
+    undefined field6406_0xdf7f;
+    undefined field6407_0xdf80;
     undefined1 cpu_command_skill_idx; // Created by Rename Structure Field action
-    undefined field6412_0xdf82;
-    undefined field6413_0xdf83;
-    undefined field6414_0xdf84;
+    undefined field6409_0xdf82;
+    undefined field6410_0xdf83;
+    undefined field6411_0xdf84;
     undefined1 currect_action_cancellable_flag; // Created by Rename Structure Field action
-    undefined field6416_0xdf86;
-    undefined field6417_0xdf87;
-    undefined field6418_0xdf88;
-    undefined field6419_0xdf89;
-    undefined field6420_0xdf8a;
-    undefined field6421_0xdf8b;
-    undefined field6422_0xdf8c;
-    undefined field6423_0xdf8d;
-    undefined field6424_0xdf8e;
-    undefined field6425_0xdf8f;
-    undefined field6426_0xdf90;
+    undefined field6413_0xdf86;
+    undefined field6414_0xdf87;
+    undefined field6415_0xdf88;
+    undefined field6416_0xdf89;
+    undefined field6417_0xdf8a;
+    undefined field6418_0xdf8b;
+    undefined field6419_0xdf8c;
+    int iInputBufferPos; // Created by Rename Structure Field action
     undefined1 start_of_0x6; // Created by Rename Structure Field action
-    undefined field6428_0xdf92;
-    undefined field6429_0xdf93;
-    undefined field6430_0xdf94;
-    undefined field6431_0xdf95;
-    undefined field6432_0xdf96;
+    undefined field6422_0xdf92;
+    undefined field6423_0xdf93;
+    undefined field6424_0xdf94;
+    undefined field6425_0xdf95;
+    undefined field6426_0xdf96;
     short variable_A; // Created by Rename Structure Field action
     short variable_B;
     short variable_C;
@@ -7042,83 +6938,180 @@ struct kgt_character_struct {
     short variable_O;
     short variable_P;
     undefined1 enemy_bitmask; // Created by Rename Structure Field action
-    undefined field6450_0xdfb8;
-    undefined field6451_0xdfb9;
-    undefined field6452_0xdfba;
+    undefined field6444_0xdfb8;
+    undefined field6445_0xdfb9;
+    undefined field6446_0xdfba;
     int something_to_do_with_starting_health2; // Created by Rename Structure Field action
-    struct OBJ_STRUCT *object_mNumbers[10]; // Created by Rename Structure Field action
+    struct kgtEngineObject *object_mNumbers[10]; // Created by Rename Structure Field action
     int has_crouch_advance; // Created by Rename Structure Field action
     int has_crouch_retreat; // Created by Rename Structure Field action
-    int field6457_0xdfef;
-    undefined field6458_0xdff3;
-    undefined field6459_0xdff4;
+    int field6451_0xdfef;
+    undefined field6452_0xdff3;
+    undefined field6453_0xdff4;
     int script_obj_var_d;
     undefined1 script_byte_7_a; // Created by Rename Structure Field action
-    undefined field6462_0xdffa;
-    undefined field6463_0xdffb;
-    undefined field6464_0xdffc;
-    undefined field6465_0xdffd;
-    undefined field6466_0xdffe;
-    int field6467_0xdfff;
+    undefined field6456_0xdffa;
+    undefined field6457_0xdffb;
+    undefined field6458_0xdffc;
+    undefined field6459_0xdffd;
+    undefined field6460_0xdffe;
+    int field6461_0xdfff;
     undefined1 input_storage; // Created by Rename Structure Field action
-    undefined field6469_0xe004;
-    undefined field6470_0xe005;
-    undefined field6471_0xe006;
+    undefined field6463_0xe004;
+    undefined field6464_0xe005;
+    undefined field6465_0xe006;
     int w_ko_unk_var;
-    int poss_relating_to_player_idx;
+    int iColorInt;
     int unk_image_wait_flag;
     undefined1 start_of_0x2c; // Created by Rename Structure Field action
-    undefined field6476_0xe014;
-    undefined field6477_0xe015;
-    undefined field6478_0xe016;
+    undefined field6470_0xe014;
+    undefined field6471_0xe015;
+    undefined field6472_0xe016;
     undefined1 flash_red; // Created by Rename Structure Field action
-    undefined field6480_0xe018;
-    undefined field6481_0xe019;
-    undefined field6482_0xe01a;
+    undefined field6474_0xe018;
+    undefined field6475_0xe019;
+    undefined field6476_0xe01a;
     undefined1 flash_green; // Created by Rename Structure Field action
-    undefined field6484_0xe01c;
-    undefined field6485_0xe01d;
-    undefined field6486_0xe01e;
+    undefined field6478_0xe01c;
+    undefined field6479_0xe01d;
+    undefined field6480_0xe01e;
     undefined1 flash_blue; // Created by Rename Structure Field action
-    undefined field6488_0xe020;
-    undefined field6489_0xe021;
-    undefined field6490_0xe022;
+    undefined field6482_0xe020;
+    undefined field6483_0xe021;
+    undefined field6484_0xe022;
     undefined1 flash_alpha; // Created by Rename Structure Field action
-    undefined field6492_0xe024;
-    undefined field6493_0xe025;
-    undefined field6494_0xe026;
+    undefined field6486_0xe024;
+    undefined field6487_0xe025;
+    undefined field6488_0xe026;
     undefined1 flash_duration_b; // Created by Rename Structure Field action
-    undefined field6496_0xe028;
-    undefined field6497_0xe029;
-    undefined field6498_0xe02a;
+    undefined field6490_0xe028;
+    undefined field6491_0xe029;
+    undefined field6492_0xe02a;
     undefined1 flash_var_a; // Created by Rename Structure Field action
-    undefined field6500_0xe02c;
-    undefined field6501_0xe02d;
-    undefined field6502_0xe02e;
+    undefined field6494_0xe02c;
+    undefined field6495_0xe02d;
+    undefined field6496_0xe02e;
     undefined1 flash_var_b; // Created by Rename Structure Field action
-    undefined field6504_0xe030;
-    undefined field6505_0xe031;
-    undefined field6506_0xe032;
+    undefined field6498_0xe030;
+    undefined field6499_0xe031;
+    undefined field6500_0xe032;
     undefined1 flash_var_c; // Created by Rename Structure Field action
-    undefined field6508_0xe034;
-    undefined field6509_0xe035;
-    undefined field6510_0xe036;
+    undefined field6502_0xe034;
+    undefined field6503_0xe035;
+    undefined field6504_0xe036;
     undefined1 flash_var_d; // Created by Rename Structure Field action
-    undefined field6512_0xe038;
-    undefined field6513_0xe039;
-    undefined field6514_0xe03a;
+    undefined field6506_0xe038;
+    undefined field6507_0xe039;
+    undefined field6508_0xe03a;
     undefined1 flash_duration_a; // Created by Rename Structure Field action
-    undefined field6516_0xe03c;
-    undefined field6517_0xe03d;
-    undefined field6518_0xe03e;
+    undefined field6510_0xe03c;
+    undefined field6511_0xe03d;
+    undefined field6512_0xe03e;
+};
+
+struct kgtEngineObject {
+    enum kgtJumptableEndpoints iJumpIdx;
+    int iParam2;
+    int iParam3;
+    int iParam4;
+    sdword iDrawFlag;
+    byte 2_or_3;
+    undefined field6_0x15;
+    undefined field7_0x16;
+    undefined field8_0x17;
+    int x_momentum;
+    int y_momentum;
+    int x_gravity;
+    int y_gravity;
+    int unk_bitmask;
+    undefined1 actionscript_idx; // Created by Rename Structure Field action
+    undefined field15_0x2d;
+    undefined field16_0x2e;
+    undefined field17_0x2f;
+    int action_idx; // Created by Rename Structure Field action
+    int skill_idx_2; // Created by Rename Structure Field action
+    int hit_junction_idx; // First 2 bytes is skillscript internal offset?? last two bytes is skill_idx
+    int image_wait_frames;
+    undefined1 opponent_downtime_in_frames; // Created by Rename Structure Field action
+    undefined field23_0x41;
+    undefined field24_0x42;
+    undefined field25_0x43;
+    int iColorRed;
+    int iColorGreen;
+    int iColorBlue;
+    undefined1 color_alpha; // Created by Rename Structure Field action
+    undefined field30_0x51;
+    undefined field31_0x52;
+    undefined field32_0x53;
+    undefined1 iColorBlendtype; // Created by Rename Structure Field action
+    undefined field34_0x55;
+    undefined field35_0x56;
+    undefined field36_0x57;
+    int compare_to_param_4;
+    int pos_player_direction; // Formerly pos_player_ignore_flag, accidentally moved variable around? 04/07/26
+    int player_file_buffer_2;
+    int stage_action_idx; // Also used to store skill idx in script reading function if stage script object is being read
+    int stage_skillscript_idx; // Also used to store skillscript idx in script reading function if stage script object is being read
+    int case2_var_b;
+    int case2_var_d;
+    int case2_var_e;
+    int case2_var_f;
+    undefined1 loop_frequency; // Created by Rename Structure Field action
+    undefined field47_0x7d;
+    undefined field48_0x7e;
+    undefined field49_0x7f;
+    undefined field50_0x80;
+    undefined1 loop_skillscript_idx; // Created by Rename Structure Field action
+    undefined field52_0x82;
+    undefined field53_0x83;
+    undefined field54_0x84;
+    int return_skill_idx;
+    int hitbox_attack_array[20];
+    int hitbox_guard_array[20];
+    struct kgtSkill *reaction_skillblock;
+    undefined field59_0x12d;
+    undefined field60_0x12e;
+    undefined field61_0x12f;
+    undefined field62_0x130;
+    short variable_A;
+    short variable_B;
+    short variable_C;
+    short variable_D;
+    short variable_E;
+    short variable_F;
+    short variable_G;
+    short variable_H;
+    short variable_I;
+    short variable_J;
+    short variable_K;
+    short variable_L;
+    short variable_M;
+    short variable_N;
+    short variable_O;
+    short variable_P;
+    undefined1 0x650_index; // Created by Rename Structure Field action
+    int iProcessStep;
+    int iPlayerBuffer; // Multi-use variable? Look at DisplayTitleScreens
+    enum kgt_obj_type obj_type;
+    struct kgtEngineObject *obj_ptr_b; // Multi-use variable
+    struct kgtEngineObject *obj_ptr_a;
+    int timer_mod_10;
+    int timer_div_ten_mod_10;
+    int timer_div_100_mod_10; // Created by Rename Structure Field action
+    int field88_0x172;
+    undefined field89_0x176;
+    undefined field90_0x177;
+    undefined field91_0x178;
+    undefined field92_0x179;
+    struct kgtEngineObject *parent_obj;
 };
 
 struct kgtSkillHeader {
     char cName[32];
     short shStartingStepIdx;
     undefined field2_0x22;
-    undefined field3_0x23;
-    char cDefaultScriptGroup; // Used for skills that are required by the engine/built-in by default.
+    char cDemoDefaultScriptGroup;
+    char cDefaultScriptGroup; // Used for skills that are required by the engine/built-in by default. To-do: Double check offset here. Might be one byte up
     undefined field5_0x25;
     undefined field6_0x26;
 };
@@ -7221,7 +7214,14 @@ union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion {
     struct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct;
 };
 
-typedef struct OBJ_STRUCT *OBJ_STRUCT_ptr_64_undefined1;
+typedef struct POSS_0x8_struct POSS_0x8_struct, *PPOSS_0x8_struct;
+
+struct POSS_0x8_struct {
+    int *obj_ptr;
+    int *B;
+};
+
+typedef struct kgtEngineObject *OBJ_STRUCT_ptr_64_undefined1;
 
 typedef struct player_file_hlocal_struct player_file_hlocal_struct, *Pplayer_file_hlocal_struct;
 
@@ -7255,14 +7255,14 @@ typedef struct kgt_character_struct *kgt_character_struct_ptr_57081_OBJ_STRUCT *
 
 typedef struct kgt_character_struct *unk_player_kgt_intern_struct_ptr_62_int57106;
 
-typedef struct OBJ_STRUCT ** new_obj_struct_fofset_15a;
+typedef struct kgtEngineObject ** new_obj_struct_fofset_15a;
 
 typedef struct kgt_character_struct *player_obj_addy;
 
 typedef struct POSS_VTABLE_GAME_STATE POSS_VTABLE_GAME_STATE, *PPOSS_VTABLE_GAME_STATE;
 
 struct POSS_VTABLE_GAME_STATE {
-    undefined *PTR_POSS_GAMESTATE_JUMPTABLE;
+    undefined *vEmptyFunction;
     undefined *field1_0x4;
     undefined *field2_0x8;
     undefined *field3_0xc;
@@ -7282,22 +7282,17 @@ struct POSS_VTABLE_GAME_STATE {
     undefined *field17_0x44;
 };
 
-typedef struct POSS_0x8_struct POSS_0x8_struct, *PPOSS_0x8_struct;
-
-struct POSS_0x8_struct {
-    struct OBJ_STRUCT *obj_ptr;
-    int *B;
-};
-
 typedef struct kgt_character_struct *kgt_character_struct_ptr_57105_int;
 
 typedef struct kgt_character_struct *kgt_0xe03f_struct_ptr_57383_undefined;
 
 typedef struct kgt_character_struct *kgt_0xe03f_struct_ptr_57355_int;
 
-typedef struct OBJ_STRUCT *OBJ_STRUCT_ptr_8_intl;
+typedef struct kgtEngineObject *OBJ_STRUCT_ptr_8_intl;
 
 typedef struct kgt_character_struct *kgt_offset_to_health;
+
+typedef struct kgt_character_struct *kgt_character_struct_ptr_57101_short;
 
 typedef struct unk_struct_1 unk_struct_1, *Punk_struct_1;
 
@@ -7344,10 +7339,10 @@ struct kgtSystem {
     char VS_single_demo_idx;
     char VS_team_demo_idx;
     char game_over_demo_idx;
-    char opening_demo_idx;
+    char iOpeningDemoIdx;
     char default_0x18_char;
     char default_0x19_char;
-    char system_bitmask; // editor won't read file = +0x1, offset = +0x02, story mode +0x04, vs mode +0x08, vs team mode +0x10, numbers shown on life +0x20, cursor stays +0x40
+    char cSystemBitmask; // editor won't read file = +0x1, offset = +0x02, story mode +0x04, vs mode +0x08, vs team mode +0x10, numbers shown on life +0x20, cursor stays +0x40
     undefined field23_0x10665;
     undefined field24_0x10666;
     undefined field25_0x10667;
@@ -8959,7 +8954,7 @@ struct CoffArchiveHeader {
     char magic[8];
 };
 
-typedef struct OBJ_STRUCT *OBJ_STRUCT_ptr_40_undefined;
+typedef struct kgtEngineObject *OBJ_STRUCT_ptr_40_undefined;
 
 typedef struct FirstLinkerMember_29 FirstLinkerMember_29, *PFirstLinkerMember_29;
 
@@ -8997,7 +8992,7 @@ struct FirstLinkerMember_29 {
     char string[28][34];
 };
 
-typedef struct OBJ_STRUCT *obj_obj_type_offset;
+typedef struct kgtEngineObject *obj_obj_type_offset;
 
 typedef enum GAME_MODES {
     1P_story=0,
@@ -9084,7 +9079,7 @@ struct UNK_STRUCT_G(DEBUG B) {
 
 typedef struct unk_player_kgt_intern_struct *unk_player_kgt_intern_struct_ptr_38_undefined;
 
-typedef struct OBJ_STRUCT *OBJ_STRUCT_ptr_8_int;
+typedef struct kgtEngineObject *OBJ_STRUCT_ptr_8_int;
 
 typedef enum KGT_CONSTANTS {
     KGT_ACTIONSCRIPT_SIZE=16,
@@ -9094,7 +9089,7 @@ typedef enum KGT_CONSTANTS {
     KGT_OBJ_SIZE=382
 } KGT_CONSTANTS;
 
-typedef struct OBJ_STRUCT *asdfiunhadspuf;;
+typedef struct kgtEngineObject *asdfiunhadspuf;;
 
 typedef struct UNK_0x48_struct *UNK_0x48_struct_ptr_8_char[64];
 
@@ -9121,7 +9116,7 @@ struct unk_0x650_struct {
 
 typedef struct kgtStoryEntryCpu *character_story_entry_cpu_ptr_19_char;
 
-typedef struct OBJ_STRUCT *OBJ_STRUCT_ptr_64_undefined;
+typedef struct kgtEngineObject *OBJ_STRUCT_ptr_64_undefined;
 
 typedef struct kgt_debug_a kgt_debug_a, *Pkgt_debug_a;
 
@@ -9164,7 +9159,7 @@ struct kgt_grid {
     int row;
 };
 
-typedef struct OBJ_STRUCT *idx;
+typedef struct kgtEngineObject *idx;
 
 typedef struct UNK_0x48_struct *kgt_debug_a_ptr_4_char[64];
 
@@ -20472,8 +20467,8 @@ struct UNK_DSOUND_STRUCT {
 typedef struct kgt_demo_file kgt_demo_file, *Pkgt_demo_file;
 
 struct kgt_demo_file {
-    struct kgt_core kgt_core;
-    char BGM_selection;
+    struct kgt_core kgtCore;
+    char cBgmSelection;
     char skip_with_input;
     undefined field3_0x2236;
     undefined field4_0x2237;
@@ -21512,14 +21507,14 @@ typedef struct kgtGameState kgtGameState, *PkgtGameState;
 typedef uint UINT;
 
 struct kgtGameState {
-    int CHAR_SELECT[8];
+    int iCharSelect[8];
     int TESTPLAY_STAGENB;
-    undefined4 poss_current_round_count;
+    undefined4 iCurrentRound;
     undefined4 poss_wins_needed;
     undefined4 round_start_is0;
     int gameTimerInFrames;
-    int over3kunder4kcheck;
-    enum GAME_MODES GAME_MODE;
+    int iGameStateNumber; // 1000 = Display Title Screens/Menu traversal
+    enum GAME_MODES kgtGameMode;
     undefined field8_0x3c;
     undefined field9_0x3d;
     undefined field10_0x3e;
@@ -21827,7 +21822,7 @@ struct kgtGameState {
     undefined field312_0x199;
     undefined field313_0x19a;
     undefined field314_0x19b;
-    int pause_flag;
+    int iIsPausedFlag;
     UINT iStatusDisplay;
     sdword hit_player_buffer;
     undefined4 jump_15_var_a;
@@ -21841,11 +21836,15 @@ typedef enum APP_MODE {
     TEST_D=4
 } APP_MODE;
 
+typedef struct kgt_character_struct *offset)kgt_character_struct_ptr_57229_undefined;
+
 typedef struct UNK_0x48_struct *UNK_0x48_struct_ptr_8_undefined;
 
-typedef struct OBJ_STRUCT **afoiasdnfoi;
+typedef struct kgtEngineObject **afoiasdnfoi;
 
-typedef struct OBJ_STRUCT *OBJ_STRUCT_ptr_342_int;
+typedef struct kgtEngineObject *kgtEngineObject_ptr_8_int;
+
+typedef struct kgtEngineObject *OBJ_STRUCT_ptr_342_int;
 
 typedef struct UNK_BITMAPINFO_STRUCT UNK_BITMAPINFO_STRUCT, *PUNK_BITMAPINFO_STRUCT;
 
@@ -21949,9 +21948,15 @@ struct tagBITMAPINFO {
     RGBQUAD bmiColors[1];
 };
 
+typedef struct POSS_0x8_struct *offset_0x8_struct;
+
+typedef struct kgt_character_struct *offset_kgt_character_struct_ptr_57383_undefined1;
+
 typedef struct kgt_character_struct *kgt_0xe03f_struct_ptr_57185_int;
 
 typedef struct kgt_character_struct *kgt_character_struct_ptr_57077_int;
+
+typedef struct kgt_character_struct *kgt_character_struct_ptr_57383_undefined1;
 
 typedef struct kgt_stage kgt_stage, *Pkgt_stage;
 
@@ -22991,6 +22996,8 @@ struct kgt_stage {
     undefined field1032_0x263b;
     undefined field1033_0x263c;
 };
+
+typedef struct kgt_character_struct *kgt_character_struct_ptr_57081_kgtEngineObject *;
 
 typedef struct UNK_STRUCT_F UNK_STRUCT_F, *PUNK_STRUCT_F;
 
@@ -489077,40 +489084,40 @@ void ___vdecl_acos2(void);
 void ___vdecl_acos2(void);
 void Handle_Sound_Skillscript_block(kgtSound *sound);
 void FUN_004034d0(undefined4 param_1);
-void free_kgt_core_and_allocs(kgt_core *playFileInfo);
-bool enumerate_from_kgt_file(kgt_character_struct *kgt_buffer,HANDLE hFile);
+void vFreeKgtCore(kgt_core *playFileInfo);
+bool bReadKgtCore(kgt_character_struct *kgt_buffer,HANDLE hFile);
 int clear_player_kgt_buffer(int offset);
 int READ_CHARACTER_FILE(int kgt_idx,int player_file_idx);
-int clear_kgt_file(void);
-int FUN_Opens_.kgt_file(LPCSTR program_name);
-int clear_demo_file(void);
-int FUN_open_demo_file_00403fc0(int idx);
+int iClearKgtSystemFile(void);
+int iOpenKgtSystemFile(LPCSTR program_name);
+int iClearDemoFile(void);
+int iOpenDemoFile(int idx);
 int clear_stage_file(void);
 int Open_Stage_File(int idx);
-int Load_external_image(kgtBMPINFO *BMPINFO_out,LPCSTR resource_name,LPCSTR lpFileName,int i_param);
+int iLoadExternalImage(kgtBMPINFO *BMPINFO_out,LPCSTR resource_name,LPCSTR lpFileName,int i_param);
 void vReleaseDdrawInterfaces(void);
 void vSetupDdrawPrimarySurface(void);
 void vRestoreDdrawInterfaces(void);
 void vWindowBltFuncs(void);
-void FUN_00404cd0(void);
-void handle_drawing(void);
+void vProcessEngineObjects(void);
+void vHandleDrawing(void);
 void vCheckWindowBounds(HWND hWnd);
 void __fastcall vInitializeWindowsAndMemory(void);
 void UNK_GRACEFUL_EXIT(void);
-void FUN_POSS_STATE_FRAMESTEP_00405ad0(void);
+void vGameLoop(void);
 void vGetWindowPos(HWND hWnd);
 int wWinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,char *pCmdLine,int nCmdShow);
 LRESULT vMainWndProc(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam);
-void RESET_OBJECTS_AND_SET_GAME_SPEED(void);
+void vResetObjectsAndSpeed(void);
 void reset_all_objects_with_action(int action_offset);
 void reset_all_objects_for_player(int param_1);
-OBJ_STRUCT * kgtoNewEngineObject(int iJumpIdx,int param_2,int param_3,int param_4);
+kgtEngineObject *kgtoNewEngineObject(kgtJumptableEndpoints iJumpIdx,int param_2,int param_3,int param_4);
 void setup_stage_spawn_scripts(void);
-void spawn_scriptread_obj_for_each_demo_skill(void);
+void vSpawnEngineObjectForDemoSkills(void);
 int __cdecl new_kgt_scriptread_obj_with_action_idx(short idx,int param_2,int param_3,int param_4);
 uint new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc(int action_idx,int param_2,int param_3,int param_4);
 void vEmptyEngineObjects(void);
-void EMPTY_FUNCTION(void);
+void vEmptyFunction(void);
 void RESET_JUMPTABLE_INDEX(void);
 void HANDLE_STORY_MODE(void);
 void initiate_story_mode(void);
@@ -489123,16 +489130,16 @@ void CHAR_SELECT_CHANGE_SELECTION(kgt_grid *grid,int y,int x);
 int get_action_button_pressed(uint param_1);
 void pick_player_color(int idx,int last_input_difference);
 void POSS_CHAR_SELECT_SCREEN_VERSUS_00406fc0(void);
-void __fastcall FUN_00407d70(OBJ_STRUCT *param_1);
-void Poss_Menu_traversal(void);
+void __fastcall FUN_00407d70(kgtEngineObject *param_1);
+void vjmpMenuTraversal(void);
 void Jump_13(void);
 void Handle_Battle_State(void);
-void Start_Game??(void);
+void vjmpStartGame(void);
 void handle_battle_UI(void);
 void update_timer_and_ui(void);
 void FUN_0040ab10(void);
 void set_unk_obj_vars(void);
-void FUN_PROB_DISPLAY_TITLE_SCREENS_0040ad00(void);
+void vjmpDisplayTitleScreens(void);
 void __thiscall Jump_3(void);
 void draw_func_b(undefined4 *param_1,int param_2,short *param_3,int param_4,int param_5,byte *param_6,int param_7,uint param_8,int param_9,int param_10,uint param_11);
 void draw_func_a(int param_1,int param_2,uint param_3,int param_4,int param_5,uint param_6);
@@ -489140,17 +489147,17 @@ void FUN_0040bed0(int param_1,int param_2,undefined4 param_3,undefined4 param_4,
 void FUN_0040bfb0(int param_1,int param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7);
 void FUN_0040c020(char *param_1,int param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7);
 void FUN_0040c0a0(char *param_1,int param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5,undefined4 param_6,undefined4 param_7);
-void JUMPTABLE_JUMP_0040c130(void);
+void vJumptableJump(void);
 void draw_func_c(int param_1,byte *param_2,int param_3,int param_4,int param_5,int param_6,int param_7,uint param_8);
 void FUN_0040c860(int param_1,undefined4 param_2,int param_3);
 void FUN_0040c900(int param_1,undefined4 param_2,int param_3);
-void psuedo_rand(int *param_1);
+void vCalculateShake(int *seed);
 void FUN_0040ca90(int *param_1);
 void draw_func_d(void);
 void FUN_0040e4a0(void);
 void obj_reset_values(void);
-void obj_0x129_to_0(OBJ_STRUCT *obj);
-void memzero_mystery_arrays(OBJ_STRUCT *param_1);
+void obj_0x129_to_0(kgtEngineObject *obj);
+void memzero_mystery_arrays(kgtEngineObject *param_1);
 undefined4 FUN_0040e580(void);
 void FUN_0040e5c0(void);
 void add_to_special_gauge(int player_idx,int special_increase);
@@ -489159,12 +489166,12 @@ void hitbox_calculation(int *out,int x_val,int y_val,int hitbox_width,int hitbox
 void handle_hitboxes(void);
 void handle_hitboxes_2(void);
 void FUN_0040f910(void);
-void deal_with_hitboxes_and_other_stuff(void);
+void vHitboxHandling(void);
 short FUN_00410060(uint param_1);
 undefined4 process_COM_skillblock(kgtSkill *skill);
 int switch_current_object_action(int action_offset);
 void assign_action_and_reset_some_data(int offset);
-OBJ_STRUCT * FUN_00410dc0(void);
+kgtEngineObject * FUN_00410dc0(void);
 void handle_cpu_commands(void);
 void FUN_00411810(void);
 void FUN_00411a80(void);
@@ -489178,17 +489185,17 @@ int iGetJoystickOnePos(void);
 int iCheckJoystickOne(void);
 int iGetJoystickTwoPos(void);
 int iCheckJoystickTwo(void);
-uint GET_KEY_PRESS(int param_1,int target_buffer);
-void GET_INPUTS(void);
+uint iTranslateKeyPress(int iControllerIdx,int iPlayerIdx);
+void vGetPlayerInputs(void);
 int FUN_00414860(char param_1);
-void DISPLAY_MESSAGE_BOX_00414880(LPCSTR text);
+void vSpawnTaskModalWithWarning(LPCSTR text);
 void SAVE_PLAYERNAME_SESSIONNAME(void);
 void vLoadKgt2kConfig(void);
 void vLoadGameConfig(void);
 void __cdecl FUN_SAVE_INI_FILE_00414ca0(void);
 void vMemzeroDebugStructs(void);
 int iSetDebugInfo(char *debug_str,void *param_2);
-void sub_1_debug_event(void);
+void vDebugEventASubOne(void);
 void DISP_DEBUG_INFO(void);
 bool FUN_004153b0(char param_1);
 void vCloseMciDevice(void);
