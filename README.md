@@ -38,13 +38,14 @@ To-Do for editor
 To-Do for Engine
 -----
 - [ ] DirectX structures
-- - [ ] Sound
-- - [ ] Draw
+- - [x] Sound
+- - [x] Draw
 - - [ ] Input?
 - - [ ] Play
 - [ ] BEFORE EXPORT: Final adjust of all offset types
 - [ ] BEFORE EXPORT: List of important functions to achieve parity with
 - [ ] Fix stage/demo struct size
+- [ ] Possibly missing two bytes from system struct
 
 
 To-do to get to compile
@@ -118,7 +119,13 @@ Important Functions
 | 0x00403d60 | iOpenKgtSystemFile |
 | 0x00403d40 | iClearKgtSystemFile |
 | 0x00403520 | vFreeKgtCore |
+| 0x00415db0 | vFreeKgtWav | 
 | 0x00403600 | bReadKgtCore |
+| 0x00415cd0 | kgtwBuildWav |
+| 0x00415bf0 | bGetWavInformation |
+| 0x00416000 | iWalkWavFile | 
+| 0x00415c20 | dxGetSoundBufferInterface |
+| 0x00415f40 | iWriteFromSoundAlloc |
 | 0x0040ffc0 | vHitboxHandling |
 | 0x0040eb60 | | 
 | 0x0040f010 | |
@@ -134,7 +141,24 @@ Important Functions
 | 0x00403fc0 | iOpenDemoFile |
 | 0x00403fa0 | iClearDemoFile |
 | 0x00406790 | vSpawnEngineObjectForDemoSkills |
-| 0x00403430 | sound something something... |
+| 0x00403430 | vHandleLoadingSound |
+| 0x004034d0 | vHandleStoppingAllWavs |
+| 0x004033d0 | vStopAndResetAllWavs |
+| 0x00415f00 | iStopAndResetWav |
+| 0x00403469 | kgtdxReturnSoundBuffer |
+| 0x004157a0 | vWriteAndPlayMidFile |
+| 0x00415570 | vLoadSoundFromDisc | 
+| 0x004153b0 | bCheckIfDiscDrive |
+| 0x00406890 | kgtoNewObjectForSkillIdx |
+| 0x00406fc0 | vjmpCharacterSelectScreen |
+| 0x00406e70 | vCharacterSelectChangeSelection |
+| 0x00406520 | vResetObjectsForPlayerIdx |
+| 0x004039f0 | iOpenCharacterFile | 
+| 0x004039b0 | iClearCharacterFile |
+| 0x00406ee0 | iGetPressedActionButton |
+| 0x00406f20 | vPickPlayerColor |
+| 0x004069b0 | vProgressStoryMode |
+| 0x004086a0 | vjmpHandleBattleState |
 
 
 
@@ -170,9 +194,6 @@ Other Functions for Parity
 | 0x004025a0 | Unused_online_E |
 | 0x00402600 | Unused_online_A |
 
-
-
-
  
 
 Includes
@@ -181,6 +202,7 @@ Includes
 - wingdi.h
 - winuser.h
 - timeapi.h
+- fileapi.h
 
 
 Important Information

@@ -64,8 +64,8 @@ FirstLinkerMember_29 FirstLinkerMember_29_00000044;
 undefined onlineDialog;
 string sErrorMemzeroSize0;
 int giDsoundInitializedFlag;
-unk_struct_4 *gpUnkDsoundPtr;
-HLOCAL[64] ghDsoundStruct;
+IDirectSound8 * *gppDsoundInterface;
+HLOCAL[64] gkgtwWavAudios;
 string gsDirectSoundInitializationFailed;
 MCIDEVICEID MCIDEVICEID_0042473c;
 undefined4 MCI_FLAG_00424738;
@@ -76,13 +76,13 @@ string s_HAN_KATAKANA#_0041e83c;
 string s_HAN_KATAKANA#_0041e858;
 string s_HAN_KATAKANA#_0041e87c;
 string s_HAN_KATAKANA#_0041e894;
-int[8] giPlayerFileIdxs;
+int[8] giPlayerFileIndices;
+string gsErrorPlayerOpenError;
+string gsReadingCharacterFile;
 string s_%s.player.t_0041e8ac;
+string gsPlayerReadErrorFormatted;
 string s_%s.player_0041e8b8;
 string s_%s.player_0041e8c4;
-string s_HAN_HIRAGANA_KATAKANA#[%s]_0041e8d0;
-string s_Player_Open_error[%s]_0041e8f4;
-string s_Player_Read_error[%s]_0041e90c;
 APP_MODE giAppmode;
 kgtSystem gkgtKgtSystem;
 string gsErrorGamesystemOpenError;
@@ -165,7 +165,7 @@ string s_WinPoint:%3d_0041ec84;
 UINT giConfigTestplayHitjudge_2;
 int giSkipframeCount;
 int giReverseShakeDirection;
-undefined4 unk_x_position;
+undefined4 unk_y_pos2;
 undefined4 unk_y_position;
 DWORD giFrameTimeDiff;
 kgtGameState gkgtGameState;
@@ -204,10 +204,10 @@ pointer psGameplay;
 undefined4 gpsLpAppName;
 pointer psTestplay;
 MCIDEVICEID MCIDEVICEID_00424720;
+undefined4 giDiscLoopFlag;
 undefined DAT_0042472c;
-int DAT_00424728;
-undefined4 giConfigTestplayExit;
 int DAT_00424740;
+undefined4 giConfigTestplayExit;
 int DAT_00424718;
 string gsHitDebugOff;
 string gsHitDebugOn;
@@ -219,45 +219,44 @@ int giGamespeedFrames;
 UINT giConfigTestplayGamespeed;
 int giGravityScalar;
 string gsObjOver;
-int gcUnkownDemoVarA;
+int giDemoSkipWithInput;
 int giDemoTime;
 string s_demo:%s_wait:%d_0041edbc;
-string s_HAN_HIRAGANA_KATAKANA#_0041edcc;
+string gsErrorStoryScriptInfiniteLoop;
 undefined4 DAT_VAR_BATTLE_STATE_A;
-string s_HAN_HIRAGANA_KATAKANA#_0041edec;
-undefined4 DAT_VAR_BATTLE_STATE_B;
-string s_HAN_KATAKANA#_0041ee20;
-int POSS_STORY_ARRAY;
-string s_HAN_HIRAGANA_KATAKANA#_0041ee3c;
-string s_KATAKANA#%d_-_%d_-_%d_0041ee6c;
-string s_story_script_End;
-string s_HAN_KATAKANA#_0041eea0;
-string s_HAN_HIRAGANA_KATAKANA#_0041eeb0;
-int STORY_MODE_IDX;
+string gsStoryStepFormatted;
+undefined4 giProbablyUsedContinue?;
+string gsStoryOver;
+int[2] giCurrentStoryStep;
+string gsErrorStoryScriptUnknownStep;
+string gsStoryScriptEnd;
+string gsErrorStoryModeNotSet;
+int giStoryModePlayerIdx_2;
+string gsErrorStoryStepBecameMinus;
+string gsErrorStoryStepBecameTooLarge;
 undefined4 giLastInputXor_2;
 string s_HAN_HIRAGANA_KATAKANA#Error:_0041eedc;
 string s_HAN_HIRAGANA_KATAKANA#Error:_0041ef04;
 int[5] INT_ARRAY_00424e7a;
 int[4] INT_ARRAY_00424e90;
 undefined4 giConfigTestplayVsMode;
-kgt_grid Char_Select_VS_Col_0;
-kgt_grid story_mode_grid;
+kgtGridCoordinates giCharacterSelectVsGridPlayer1;
+kgtGridCoordinates kgtStoryModeGridCoordinates;
 UINT giConfigNumberOfRounds;
-int UNK_CHAR_SELECT_GLOBAL_A;
+int giBattlePrestartTimer;
 UINT giConfigNumberOfRoundsTeamVs;
-string s_Character_Script_P1_Not_found_error_0041ef2c;
-string s_Character_Script_VS_Single_Demo_not_found_error_0041ef64;
+string gsErrorCharacterScriptP1NotFound;
+string gsErrorCharacterScriptVsDemo1NotFound;
 int[8] giLastInputCleaned;
-string s_Character_select_team_demo_not_found_error_0041efa4;
-kgt_grid Char_Select_VS_Col_1;
-string s_Character_setting_error_height_or_width_0_0041efe4;
-int UNK_KGT_PLAYER_BUFFER_IDX;
+string gsErrorCharacterScriptTeamDemoNotFound;
+kgtGridCoordinates giCharacterSelectVsGridPlayer2;
+string gsErrorCharacterSettingHeightOrWidthZero;
+int giStoryModePlayerIdx;
 int[8] giLastInputXor;
-sdword SDWORD_00424f2c;
-int is_story_mode;
-undefined4 GAME_MODE_ASSIGNMENT?;
-undefined4 GAME_MODE_ASSIGNMENT_IDX?;
-undefined4 GAME_MODE_ASSIGNMENT_UPPER;
+int iIsStoryModeFlag;
+int giHasStoryMode;
+undefined4 giMenuSelectionIdx;
+undefined4 giAmountOfGameModes;
 dword giLastInput_2;
 undefined4 story_mode_p0_unk_var;
 undefined4 story_mode_p1_unk_var;
@@ -432,18 +431,16 @@ string s_%s_0041f6f0;
 string s_%s_0041f6f4;
 string s_KATAKANA#_0041f6f8;
 string s_%s_0041f708;
-undefined *PTR_DAT_0041f70c;
-undefined DAT_0041e404;
+char[4] s_A:\_0041f70c;
 string s_cdaudio_0041f710;
-undefined4 DAT_00424728;
-undefined4 DAT_0041e404;
+undefined4 giMciFlags;
 undefined DAT_00424734;
-LPCSTR lpCaption_0041f718;
 undefined1 DAT_0041e409;
 undefined1 DAT_0041e40a;
-string s_Plese_insert_Audio_CD-rom_0041f720;
-string s_\2dfightermaker2nd20022.mid_0041f798;
+LPCSTR lpCaption_0041f718;
+string gsPleaseInsertAudioCDRom;
 undefined DAT_0041f7b4;
+string gsGlobalMidFile;
 undefined *PTR_mciSendCommandA_0041c228;
 undefined DAT_0041f7bc;
 string s_sequencer_0041f7c4;
@@ -2717,7 +2714,7 @@ void * unused_online_A(void)
       case 2:
         _sprintf(acStack_718,s__s_san_ga_haitekimashitayo_0041e038,(int)&uStack_418 + 1);
         iSetDebugInfo(acStack_718,0xff00);
-        pcVar5 = gkgtLoadedCharacter[DAT_0041e3f8].kgt_core.program_name;
+        pcVar5 = gkgtLoadedCharacter[DAT_0041e3f8].kgtCore.program_name;
         puVar7 = (undefined4 *)&stack0xfffff7c1;
         for (iVar4 = 8; iVar4 != 0; iVar4 = iVar4 + -1) {
           *puVar7 = *(undefined4 *)pcVar5;
@@ -3297,19 +3294,21 @@ void vMemzero(void *address,uint size)
 void vSetupDsound(void)
 
 {
-  int iVar1;
+  int err;
   
-  vMemzero(ghDsoundStruct,0x2c00);
-  iVar1 = DirectSoundCreate(0,&gpUnkDsoundPtr,0);
-  if (iVar1 < 0) {
+  vMemzero(gkgtwWavAudios,0x2c00);
+  err = DirectSoundCreate(0,&gppDsoundInterface,0);
+  if (err < 0) {
     vSpawnTaskModalWithWarning(gsDirectSoundInitializationFailed);
   }
   else {
     giDsoundInitializedFlag = 1;
-    iVar1 = (**(code **)(gpUnkDsoundPtr->field0_0x0 + 0x18))(gpUnkDsoundPtr,gHwnd,1);
-    if (iVar1 < 0) {
-      (**(code **)(gpUnkDsoundPtr->field0_0x0 + 0x8))(gpUnkDsoundPtr);
-      gpUnkDsoundPtr = (unk_struct_4 *)0x0;
+                    // SetCooperativeLevel
+    err = (*(*gppDsoundInterface)->SetCooperativeLevel)(gppDsoundInterface,gHwnd,1);
+    if (err < 0) {
+                    // Release
+      (*(*gppDsoundInterface)->Release)(gppDsoundInterface);
+      gppDsoundInterface = (IDirectSound8 **)0x0;
       return;
     }
   }
@@ -3321,9 +3320,9 @@ void vSetupDsound(void)
 void UNLOAD_DSOUND(void)
 
 {
-  if ((giDsoundInitializedFlag != 0) && (gpUnkDsoundPtr != (unk_struct_4 *)0x0)) {
-    (**(code **)(gpUnkDsoundPtr->field0_0x0 + 8))(gpUnkDsoundPtr);
-    gpUnkDsoundPtr = (unk_struct_4 *)0x0;
+  if ((giDsoundInitializedFlag != 0) && (gppDsoundInterface != (IDirectSound8 **)0x0)) {
+    (*(*gppDsoundInterface)->Release)(gppDsoundInterface);
+    gppDsoundInterface = (IDirectSound8 **)0x0;
     giDsoundInitializedFlag = 0;
   }
   return;
@@ -3331,22 +3330,22 @@ void UNLOAD_DSOUND(void)
 
 
 
-void RUN_UNK_FUNCTION_ON_HLOCAL_ARRAY(void)
+void vStopAndResetAllWavs(void)
 
 {
-  HLOCAL *ppvVar1;
-  int iVar2;
+  HLOCAL *audios;
+  int iVar1;
   
   if (giDsoundInitializedFlag != 0) {
-    ppvVar1 = ghDsoundStruct;
+    audios = gkgtwWavAudios;
     do {
-      iVar2 = 0x100;
+      iVar1 = 256;
       do {
-        FUN_00415f00(*ppvVar1);
-        ppvVar1 = ppvVar1 + 1;
-        iVar2 = iVar2 + -1;
-      } while (iVar2 != 0);
-    } while ((int)ppvVar1 < 0x433240);
+        iStopAndResetWav(*audios);
+        audios = audios + 1;
+        iVar1 = iVar1 + -1;
+      } while (iVar1 != 0);
+    } while ((int)audios < 0x433240);
   }
   return;
 }
@@ -3375,56 +3374,56 @@ void ___vdecl_acos2(void)
 
 
 
-void Handle_Sound_Skillscript_block(kgtSound *sound)
+void vHandleLoadingSound(kgtSound *sound)
 
 {
   byte bVar1;
-  int *piVar2;
-  int buffer_size;
+  IDirectSoundBuffer8 **piVar2;
+  kgtWav *pkgtWav;
   
-  bVar1 = sound->field_0x28;
+  bVar1 = sound->cFlags;
   switch(bVar1 & 0xf) {
   case 0:
-    FUN_004034d0(0);
+    vHandleStoppingAllWavs(0);
     return;
   case 1:
     if (giDsoundInitializedFlag != 0) {
-      buffer_size = sound->iSize;
-      FUN_00415f00(buffer_size);
-      piVar2 = (int *)FUN_00415df0(buffer_size);
-      if (piVar2 != (int *)0x0) {
+      pkgtWav = (kgtWav *)sound->iSizeOrWavPtr;
+      iStopAndResetWav(pkgtWav);
+      piVar2 = (IDirectSoundBuffer8 **)kgtdxReturnSoundBuffer(pkgtWav);
+      if (piVar2 != (IDirectSoundBuffer8 **)0x0) {
         if ((bVar1 & 0x10) != 0) {
-          (**(code **)(*piVar2 + 0x30))(piVar2,0,0,1);
+          (*(*piVar2)->Play)(piVar2,0,0,1);
           return;
         }
-        (**(code **)(*piVar2 + 0x30))(piVar2,0,0,0);
+        (*(*piVar2)->Play)(piVar2,0,0,0);
         return;
       }
     }
     break;
   case 2:
-    write_mid_file(&sound->pAlloc);
+    vWriteAndPlayMidFile(sound);
     return;
   case 3:
-    FUN_00415570(sound->field_0x29,(bVar1 & 0x10) != 0);
+    vLoadsoundFromDisc((uint)(byte)sound->cMciFlags,(uint)((bVar1 & 0x10) != 0));
   }
   return;
 }
 
 
 
-void FUN_004034d0(undefined4 param_1)
+void vHandleStoppingAllWavs(int param_1)
 
 {
   switch(param_1) {
   case 0:
-    RUN_UNK_FUNCTION_ON_HLOCAL_ARRAY();
+    vStopAndResetAllWavs();
     ___vdecl_acos2();
     ___vdecl_acos2();
     return;
   case 1:
     if (giDsoundInitializedFlag != 0) {
-      RUN_UNK_FUNCTION_ON_HLOCAL_ARRAY();
+      vStopAndResetAllWavs();
       return;
     }
     break;
@@ -3449,13 +3448,13 @@ void vFreeKgtCore(kgt_core *playFileInfo)
   HGLOBAL *puVar2;
   HGLOBAL *puVar3;
   
-  if (playFileInfo->read_ended != 0) {
+  if (playFileInfo->iReadOverFlag != 0) {
     if ((giDsoundInitializedFlag != 0) && (i = playFileInfo->i_sounds_amount, 0 < i)) {
       puVar3 = &playFileInfo->p_sound_structs->pAlloc;
-      ppvVar1 = ghDsoundStruct + playFileInfo->unk_0x100_offset * 0x100;
+      ppvVar1 = gkgtwWavAudios + playFileInfo->unk_0x100_offset * 0x100;
       do {
-        if (*ppvVar1 != (player_file_hlocal_struct *)0x0) {
-          clear_player_file_hlocal_objects(*ppvVar1);
+        if (*ppvVar1 != (kgtWav *)0x0) {
+          vFreeKgtWav(*ppvVar1);
         }
         hMem = ((kgtSound *)puVar3)->pAlloc;
         *ppvVar1 = (HLOCAL)0x0;
@@ -3469,7 +3468,7 @@ void vFreeKgtCore(kgt_core *playFileInfo)
     }
     i = playFileInfo->i_images_amount;
     if (0 < i) {
-      puVar2 = &playFileInfo->p_img_headers_alloc->p_img_alloc;
+      puVar2 = &playFileInfo->p_img_headers_alloc->pAlloc;
       do {
         if (*puVar2 != (HGLOBAL)0) {
           GlobalFree(*puVar2);
@@ -3484,7 +3483,7 @@ void vFreeKgtCore(kgt_core *playFileInfo)
     if (playFileInfo->p_actionscripts_alloc != (kgtSkill *)0x0) {
       GlobalFree(playFileInfo->p_actionscripts_alloc);
     }
-    if (playFileInfo->p_img_headers_alloc != (KGT_IMG_HEADER *)0x0) {
+    if (playFileInfo->p_img_headers_alloc != (kgtImageHeader *)0x0) {
       GlobalFree(playFileInfo->p_img_headers_alloc);
     }
     if (playFileInfo->p_sound_structs != (kgtSound *)0x0) {
@@ -3503,20 +3502,21 @@ bool bReadKgtCore(kgt_character_struct *kgt_buffer,HANDLE hFile)
   BOOL b_read_success;
   kgtSkillHeader *lpBuffer;
   kgtSkill *lpBuffer_00;
-  HGLOBAL pvVar1;
-  int iVar2;
-  HLOCAL pvVar3;
+  int *lpBuffer_01;
+  int iVar1;
+  HGLOBAL alloc;
+  kgtWav *kgtwWav;
   code *p_ReadFile_Exref;
-  undefined4 *puVar4;
+  kgtSound *puVar2;
   SIZE_T size;
   code *p_GlobalAlloc_exref;
-  char *pcVar5;
-  int iVar6;
+  char *pcVar2;
+  int iVar3;
   DWORD local_10;
   int i;
   int img_header_bytes_offset;
-  KGT_IMG_HEADER *first_img_header_alloc;
-  KGT_IMG_HEADER *img_header;
+  kgtImageHeader *first_img_header_alloc;
+  kgtImageHeader *img_header;
   HANDLE local_hFile;
   int sound_amount;
   
@@ -3524,7 +3524,7 @@ bool bReadKgtCore(kgt_character_struct *kgt_buffer,HANDLE hFile)
   p_ReadFile_Exref = ReadFile_exref;
   local_10 = 0;
   b_read_success =
-       ReadFile(hFile,(kgt_buffer->kgt_core).program_name,0x100,&local_10,(LPOVERLAPPED)0x0);
+       ReadFile(hFile,(kgt_buffer->kgtCore).program_name,0x100,&local_10,(LPOVERLAPPED)0x0);
   if (b_read_success == 0) {
     return true;
   }
@@ -3535,19 +3535,19 @@ bool bReadKgtCore(kgt_character_struct *kgt_buffer,HANDLE hFile)
   }
   if (((int)hFile < 1025) && (-1 < (int)hFile)) {
     lpBuffer = GlobalAlloc(0,(int)hFile * 0x27);
-    (kgt_buffer->kgt_core).pSkillsAlloc = lpBuffer;
+    (kgt_buffer->kgtCore).pSkillsAlloc = lpBuffer;
     b_read_success = ReadFile(local_hFile,lpBuffer,(int)hFile * 0x27,&local_10,(LPOVERLAPPED)0x0);
     if (b_read_success == 0) {
       return true;
     }
-    (kgt_buffer->kgt_core).iActionsCount = (int)hFile;
+    (kgt_buffer->kgtCore).iActionsCount = (int)hFile;
     b_read_success = ReadFile(local_hFile,&hFile,4,&local_10,(LPOVERLAPPED)0x0);
     if (b_read_success == 0) {
       return true;
     }
     if (((int)hFile < 65537) && (-1 < (int)hFile)) {
       lpBuffer_00 = GlobalAlloc(0,(int)hFile << 4);
-      (kgt_buffer->kgt_core).p_actionscripts_alloc = lpBuffer_00;
+      (kgt_buffer->kgtCore).p_actionscripts_alloc = lpBuffer_00;
       b_read_success = ReadFile(local_hFile,lpBuffer_00,(int)hFile << 4,&local_10,(LPOVERLAPPED)0x0)
       ;
       if (b_read_success == 0) {
@@ -3559,30 +3559,30 @@ bool bReadKgtCore(kgt_character_struct *kgt_buffer,HANDLE hFile)
       }
       if (((int)hFile < 8193) && (-1 < (int)hFile)) {
         first_img_header_alloc = GlobalAlloc(0,(int)hFile * 0x14);
-        (kgt_buffer->kgt_core).p_img_headers_alloc = first_img_header_alloc;
-        (kgt_buffer->kgt_core).i_images_amount = (int)hFile;
+        (kgt_buffer->kgtCore).p_img_headers_alloc = first_img_header_alloc;
+        (kgt_buffer->kgtCore).i_images_amount = (int)hFile;
         i = 0;
         if (0 < (int)hFile) {
           img_header_bytes_offset = 0;
           do {
-            img_header = (KGT_IMG_HEADER *)
-                         ((int)&first_img_header_alloc->p_img_alloc + img_header_bytes_offset);
+            img_header = (kgtImageHeader *)
+                         ((int)&first_img_header_alloc->pAlloc + img_header_bytes_offset);
             b_read_success = ReadFile(local_hFile,img_header,0x14,&local_10,(LPOVERLAPPED)0x0);
             if (b_read_success == 0) {
               return true;
             }
-            size = img_header->width * img_header->height;
-            img_header->p_img_alloc = (void *)0x0;
-            if ((img_header->add_1024_flag & 1) != 0) {
+            size = img_header->iWidth * img_header->iHeight;
+            img_header->pAlloc = (int *)0x0;
+            if ((img_header->unk & 1) != 0) {
               size = size + 0x400;
             }
-            if (img_header->size_bytes != 0) {
-              size = img_header->size_bytes;
+            if (img_header->iSize != 0) {
+              size = img_header->iSize;
             }
             if (size != 0) {
-              pvVar1 = GlobalAlloc(0,size);
-              img_header->p_img_alloc = pvVar1;
-              b_read_success = ReadFile(local_hFile,pvVar1,size,&local_10,(LPOVERLAPPED)0x0);
+              lpBuffer_01 = GlobalAlloc(0,size);
+              img_header->pAlloc = lpBuffer_01;
+              b_read_success = ReadFile(local_hFile,lpBuffer_01,size,&local_10,(LPOVERLAPPED)0x0);
               if (b_read_success == 0) {
                 return true;
               }
@@ -3593,7 +3593,7 @@ bool bReadKgtCore(kgt_character_struct *kgt_buffer,HANDLE hFile)
           } while (i < (int)hFile);
         }
         b_read_success =
-             ReadFile(local_hFile,(kgt_buffer->kgt_core).pallette_1,0x2100,&local_10,
+             ReadFile(local_hFile,(kgt_buffer->kgtCore).pallette_1,0x2100,&local_10,
                       (LPOVERLAPPED)0x0);
         if (b_read_success == 0) {
           return true;
@@ -3606,153 +3606,153 @@ bool bReadKgtCore(kgt_character_struct *kgt_buffer,HANDLE hFile)
           i = (*p_GlobalAlloc_exref)(0,(int)hFile * 0x2a);
                     // To-do: Some missing code from the decompiling here, looks to act the same as
                     // the image assignments above.
-          (kgt_buffer->kgt_core).p_sound_structs = (kgtSound *)i;
-          (kgt_buffer->kgt_core).i_sounds_amount = sound_amount;
-          iVar6 = 0;
+          (kgt_buffer->kgtCore).p_sound_structs = (kgtSound *)i;
+          (kgt_buffer->kgtCore).i_sounds_amount = sound_amount;
+          iVar3 = 0;
           if (0 < sound_amount) {
             local_10 = 0;
             do {
-              puVar4 = (undefined4 *)(local_10 + i);
-              iVar2 = (*p_ReadFile_Exref)(local_hFile,puVar4,0x2a,&stack0xffffffe8,0);
-              if (iVar2 == 0) {
+              puVar2 = (kgtSound *)(local_10 + i);
+              iVar1 = (*p_ReadFile_Exref)(local_hFile,puVar2,0x2a,&stack0xffffffe8,0);
+              if (iVar1 == 0) {
                 return true;
               }
-              dwBytes = puVar4[9];
+              dwBytes = puVar2->iSizeOrWavPtr;
               if (dwBytes != 0) {
-                pvVar1 = GlobalAlloc(0,dwBytes);
-                *puVar4 = pvVar1;
-                size = GlobalSize(pvVar1);
+                alloc = GlobalAlloc(0,dwBytes);
+                puVar2->pAlloc = alloc;
+                size = GlobalSize(alloc);
                 if (size < dwBytes) {
                   return (bool)2;
                 }
                 b_read_success =
-                     ReadFile(local_hFile,pvVar1,dwBytes,(LPDWORD)&stack0xffffffe8,(LPOVERLAPPED)0x0
-                             );
+                     ReadFile(local_hFile,alloc,dwBytes,(LPDWORD)&stack0xffffffe8,(LPOVERLAPPED)0x0)
+                ;
                 if (b_read_success == 0) {
                   return true;
                 }
-                if ((giDsoundInitializedFlag != 0) && ((*(byte *)(puVar4 + 10) & 0xf) == 1)) {
-                  pvVar3 = (HLOCAL)FUN_00415cd0(gpUnkDsoundPtr,pvVar1,1);
-                  puVar4[9] = pvVar3;
-                  ghDsoundStruct[first_img_header_alloc[0x1b4].size_bytes * 0x100 + iVar6] = pvVar3;
-                  GlobalFree((HGLOBAL)*puVar4);
-                  *puVar4 = 0;
+                if ((giDsoundInitializedFlag != 0) && ((puVar2->cFlags & 0xfU) == 1)) {
+                  kgtwWav = (kgtWav *)kgtwBuildWav(gppDsoundInterface,alloc,1);
+                  puVar2->iSizeOrWavPtr = (int)kgtwWav;
+                  gkgtwWavAudios[first_img_header_alloc[0x1b4].iSize * 0x100 + iVar3] = kgtwWav;
+                  GlobalFree(puVar2->pAlloc);
+                  puVar2->pAlloc = (void *)0x0;
                 }
               }
-              iVar6 = iVar6 + 1;
+              iVar3 = iVar3 + 1;
               local_10 = local_10 + 0x2a;
               p_ReadFile_Exref = ReadFile_exref;
-            } while (iVar6 < sound_amount);
+            } while (iVar3 < sound_amount);
           }
                     // This looks like it's reading in the 'four zeros' data
-          iVar6 = (*p_ReadFile_Exref)(local_hFile,&first_img_header_alloc,4,&stack0xffffffe8,0);
-          return iVar6 == 0;
+          iVar3 = (*p_ReadFile_Exref)(local_hFile,&first_img_header_alloc,4,&stack0xffffffe8,0);
+          return iVar3 == 0;
         }
-        pcVar5 = s_HAN_KATAKANA__0041e894;
+        pcVar2 = s_HAN_KATAKANA__0041e894;
       }
       else {
-        pcVar5 = s_HAN_KATAKANA__0041e87c;
+        pcVar2 = s_HAN_KATAKANA__0041e87c;
       }
     }
     else {
-      pcVar5 = s_HAN_KATAKANA__0041e858;
+      pcVar2 = s_HAN_KATAKANA__0041e858;
     }
   }
   else {
-    pcVar5 = s_HAN_KATAKANA__0041e83c;
+    pcVar2 = s_HAN_KATAKANA__0041e83c;
   }
-  vSpawnTaskModalWithWarning(pcVar5);
+  vSpawnTaskModalWithWarning(pcVar2);
   return true;
 }
 
 
 
-int clear_player_kgt_buffer(int offset)
+int iClearCharacterFile(int offset)
 
 {
-  vFreeKgtCore(&gkgtLoadedCharacter[offset].kgt_core);
+  vFreeKgtCore(&gkgtLoadedCharacter[offset].kgtCore);
   vMemzero(gkgtLoadedCharacter + offset,0xdeed);
-  giPlayerFileIdxs[offset] = -1;
+  giPlayerFileIndices[offset] = -1;
   return 0;
 }
 
 
 
-int READ_CHARACTER_FILE(int kgt_idx,int player_file_idx)
+int iOpenCharacterFile(int iIdx,int iPlayerFileIdx)
 
 {
   HANDLE hFile;
   BOOL b;
-  bool is_normal_appmode;
+  bool bGameModeIsNormal;
   char *formatted_msg;
   DWORD local_208;
   int iStack_204;
   char fileName [256];
   char local_100 [256];
-  int characterName;
+  int sCharacterName;
   
   local_208 = 0;
-  if (giPlayerFileIdxs[kgt_idx] == player_file_idx) {
+  if (giPlayerFileIndices[iIdx] == iPlayerFileIdx) {
     return 0;
   }
-  clear_player_kgt_buffer(kgt_idx);
-                    // This is the unk_0x100_offset/idx? Might be for pallette selection?
-  is_normal_appmode = giAppmode == NORMAL;
-  gkgtLoadedCharacter[kgt_idx].kgt_core.unk_0x100_offset = kgt_idx + 3;
-  if (is_normal_appmode) {
-    _sprintf(fileName,s__s_player_0041e8c4,player_file_idx * 0x100 + 0x435474);
+  iClearCharacterFile(iIdx);
+  bGameModeIsNormal = giAppmode == NORMAL;
+  gkgtLoadedCharacter[iIdx].kgtCore.unk_0x100_offset = iIdx + 3;
+  if (bGameModeIsNormal) {
+                    // To-do: Fix ghidra direct memory reference here with variable
+    _sprintf(fileName,s__s_player_0041e8c4,iPlayerFileIdx * 0x100 + 0x435474);
     hFile = CreateFileA(fileName,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
 joined_r0x00403cc6:
     if (hFile == (HANDLE)0xffffffff) {
-      formatted_msg = s_Player_Open_error__s__0041e8f4;
-      goto LAB_00403c62;
+      formatted_msg = gsErrorPlayerOpenError;
+      goto print_error;
     }
   }
   else {
-    characterName = player_file_idx * 0x100 + 0x435474;
-    _sprintf(fileName,s__s_player_t_0041e8ac,characterName);
+    sCharacterName = iPlayerFileIdx * 0x100 + 0x435474;
+    _sprintf(fileName,s__s_player_t_0041e8ac,sCharacterName);
     hFile = CreateFileA(fileName,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
     if (hFile == (HANDLE)0xffffffff) {
-      _sprintf(fileName,s__s_player_0041e8b8,characterName);
+      _sprintf(fileName,s__s_player_0041e8b8,sCharacterName);
       hFile = CreateFileA(fileName,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
       goto joined_r0x00403cc6;
     }
   }
   SetFilePointer(hFile,0,(PLONG)0x0,0);
-  b = ReadFile(hFile,gkgtLoadedCharacter + kgt_idx,0x10,&local_208,(LPOVERLAPPED)0x0);
+  b = ReadFile(hFile,gkgtLoadedCharacter + iIdx,0x10,&local_208,(LPOVERLAPPED)0x0);
   if ((b != 0) &&
-     (characterName = bReadKgtCore(gkgtLoadedCharacter + kgt_idx,hFile), characterName == 0)) {
-    vMemzero(gkgtLoadedCharacter[kgt_idx].command_structs,0x2008);
-    vMemzero(gkgtLoadedCharacter[kgt_idx].hit_junctions,0x320);
-    vMemzero(gkgtLoadedCharacter[kgt_idx].common_images,0x4b0);
+     (sCharacterName = bReadKgtCore(gkgtLoadedCharacter + iIdx,hFile), sCharacterName == 0)) {
+    vMemzero(gkgtLoadedCharacter[iIdx].kgtCommands,0x2008);
+    vMemzero(gkgtLoadedCharacter[iIdx].kgtHitJunctions,0x320);
+    vMemzero(gkgtLoadedCharacter[iIdx].kgtCommonImages,0x4b0);
     b = ReadFile(hFile,&iStack_204,4,&local_208,(LPOVERLAPPED)0x0);
     if (((b != 0) &&
-        ((((b = ReadFile(hFile,gkgtLoadedCharacter[kgt_idx].command_structs,iStack_204 * 0x52,
-                         &local_208,(LPOVERLAPPED)0x0), b != 0 &&
+        ((((b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].kgtCommands,iStack_204 * 0x52,&local_208,
+                         (LPOVERLAPPED)0x0), b != 0 &&
            (b = ReadFile(hFile,&iStack_204,4,&local_208,(LPOVERLAPPED)0x0), b != 0)) &&
-          (b = ReadFile(hFile,gkgtLoadedCharacter[kgt_idx].hit_junctions,iStack_204 * 4,&local_208,
+          (b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].kgtHitJunctions,iStack_204 * 4,&local_208,
                         (LPOVERLAPPED)0x0), b != 0)) &&
          ((b = ReadFile(hFile,&iStack_204,4,&local_208,(LPOVERLAPPED)0x0), b != 0 &&
-          (b = ReadFile(hFile,gkgtLoadedCharacter[kgt_idx].common_images,iStack_204 * 6,&local_208,
+          (b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].kgtCommonImages,iStack_204 * 6,&local_208,
                         (LPOVERLAPPED)0x0), b != 0)))))) &&
-       ((b = ReadFile(hFile,gkgtLoadedCharacter[kgt_idx].CPU_commands,0x2b66,&local_208,
+       ((b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].kgtCpuCommands,0x2b66,&local_208,
                       (LPOVERLAPPED)0x0), b != 0 &&
-        (((b = ReadFile(hFile,&gkgtLoadedCharacter[kgt_idx].shSkillIdxStanding,0x74b,&local_208,
+        (((b = ReadFile(hFile,&gkgtLoadedCharacter[iIdx].shSkillIdxStanding,0x74b,&local_208,
                         (LPOVERLAPPED)0x0), b != 0 &&
-          (b = ReadFile(hFile,gkgtLoadedCharacter[kgt_idx].section_H,0x507c,&local_208,
+          (b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].iKgtStoriesSectionZeros,0x507c,&local_208,
                         (LPOVERLAPPED)0x0), b != 0)) &&
-         (b = ReadFile(hFile,&gkgtLoadedCharacter[kgt_idx].Section_I,0x11ac,&local_208,
+         (b = ReadFile(hFile,&gkgtLoadedCharacter[iIdx].Section_I,0x11ac,&local_208,
                        (LPOVERLAPPED)0x0), b != 0)))))) {
       CloseHandle(hFile);
-      gkgtLoadedCharacter[kgt_idx].kgt_core.read_ended = 1;
-      _sprintf(local_100,s_HAN_HIRAGANA_KATAKANA___s__0041e8d0,fileName);
+      gkgtLoadedCharacter[iIdx].kgtCore.iReadOverFlag = 1;
+      _sprintf(local_100,gsReadingCharacterFile,fileName);
       iSetDebugInfo(local_100,0xdfffff);
-      giPlayerFileIdxs[kgt_idx] = player_file_idx;
+      giPlayerFileIndices[iIdx] = iPlayerFileIdx;
       return 0;
     }
   }
-  formatted_msg = s_Player_Read_error__s__0041e90c;
-LAB_00403c62:
+  formatted_msg = gsPlayerReadErrorFormatted;
+print_error:
   _sprintf(local_100,formatted_msg,fileName);
   vSpawnTaskModalWithWarning(local_100);
   return -1;
@@ -3816,10 +3816,10 @@ int iOpenKgtSystemFile(LPCSTR program_name)
   if (BVar1 != 0) {
     iVar2 = bReadKgtCore((kgt_character_struct *)&gkgtKgtSystem,hFile);
     if (iVar2 == 0) {
-      BVar1 = ReadFile(hFile,gkgtKgtSystem.character_names,0x1023c,&local_408,(LPOVERLAPPED)0x0);
+      BVar1 = ReadFile(hFile,gkgtKgtSystem.gsCharacterName,0x1023c,&local_408,(LPOVERLAPPED)0x0);
       if (BVar1 != 0) {
         CloseHandle(hFile);
-        gkgtKgtSystem.kgt_core.read_ended = 1;
+        gkgtKgtSystem.kgt_core.iReadOverFlag = 1;
         if (gkgtKgtSystem.kgt_core.program_name[0] == '\0') {
           _sprintf(filename_buffer,gsTwoDFightingGameMaker);
         }
@@ -3905,7 +3905,7 @@ joined_r0x00404156:
      (BVar1 = ReadFile(hFile,&gkgtLoadedDemo.cBgmSelection,0x409,&local_204,(LPOVERLAPPED)0x0),
      BVar1 != 0)) {
     CloseHandle(hFile);
-    gkgtLoadedDemo.kgtCore.read_ended = 1;
+    gkgtLoadedDemo.kgtCore.iReadOverFlag = 1;
     _sprintf(local_100,gsDemoFileReadingFormatted,local_200);
     iSetDebugInfo(local_100,0xdfffff);
     return 0;
@@ -3973,7 +3973,7 @@ joined_r0x0040435e:
      (b = ReadFile(hFile,&gkgtLoadedStage.BGM_selection,0x409,&local_204,(LPOVERLAPPED)0x0), b != 0)
      ) {
     CloseHandle(hFile);
-    gkgtLoadedStage.kgt_core.read_ended = 1;
+    gkgtLoadedStage.kgt_core.iReadOverFlag = 1;
     _sprintf(local_100,s_HAN_HIRAGANA_KATAKANA___s__0041eacc,stage_filename);
     iSetDebugInfo(local_100,0xdfffff);
     return 0;
@@ -4535,7 +4535,7 @@ void vHandleDrawing(void)
         iVar9 = iVar8 + -0x19;
         iVar6 = ((int)ADJ(piVar10)->shYPosOfSideHp +
                 ((int)(ADJ(piVar10)->pos_y_pos + (ADJ(piVar10)->pos_y_pos >> 0x1f & 0xffffU)) >>
-                0x10)) - unk_x_position;
+                0x10)) - unk_y_pos2;
         draw_func_a(iVar9,iVar6,0x32,10,1,0);
         draw_func_a(iVar9,iVar6 + 1,iVar3,8,0,(iVar3 / 0x143) * 0x400 + 0x3e0);
         draw_func_a(iVar9 + iVar3,iVar6 + 1,
@@ -4859,7 +4859,7 @@ void __fastcall vInitializeWindowsAndMemory(void)
   vSetupDdrawPrimarySurface();
   vSetupDsound();
   vEmptyEngineObjects();
-  piVar1 = giPlayerFileIdxs;
+  piVar1 = giPlayerFileIndices;
   for (i = 8; i != 0; i = i + -1) {
     *piVar1 = -1;
     piVar1 = piVar1 + 1;
@@ -4876,7 +4876,7 @@ void UNK_GRACEFUL_EXIT(void)
   UNK_STRUCT_A *pUVar1;
   int offset;
   
-  FUN_004034d0(0);
+  vHandleStoppingAllWavs(0);
   pUVar1 = &UNK_DRAW_STRUCT_A;
   do {
     if ((HGLOBAL)pUVar1->field0_0x0 != (HGLOBAL)0x0) {
@@ -4896,7 +4896,7 @@ void UNK_GRACEFUL_EXIT(void)
   iClearKgtSystemFile();
   offset = 0;
   do {
-    clear_player_kgt_buffer(offset);
+    iClearCharacterFile(offset);
     offset = offset + 1;
   } while (offset < 8);
   iClearDemoFile();
@@ -5142,7 +5142,7 @@ switchD_00405da0_caseD_45:
       iVar1 = i + 253;
       i = i + -1;
     } while (-1 < iVar1);
-    pacVar3 = gkgtKgtSystem.character_names;
+    pacVar3 = gkgtKgtSystem.gsCharacterName;
     do {
       if ((*pacVar3)[0] != '\0') {
         _sprintf((char *)&file_name,s__s_s_player_t_0041ecc8,local_100,pacVar3);
@@ -5301,7 +5301,7 @@ LRESULT vMainWndProc(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam)
           _DAT_0042472c = 1;
           return 0;
         }
-        if (DAT_00424728 == 0) {
+        if (giDiscLoopFlag == 0) {
           vCloseMciDevice();
           return 0;
         }
@@ -5426,7 +5426,7 @@ void reset_all_objects_with_action(int action_offset)
   pkVar1 = kgtEngineObjects;
   iVar2 = 0x400;
   do {
-    if ((pkVar1->iJumpIdx == READ_SCRIPT) && (pkVar1->action_idx == action_offset)) {
+    if ((pkVar1->iJumpIdx == READ_SCRIPT) && (pkVar1->iSkillIdx == action_offset)) {
       pkVar1->iJumpIdx = RESET_IDX;
     }
     pkVar1 = pkVar1 + 1;
@@ -5437,7 +5437,7 @@ void reset_all_objects_with_action(int action_offset)
 
 
 
-void reset_all_objects_for_player(int param_1)
+void vResetObjectsForPlayerIdx(int iPlayerIdx)
 
 {
   kgtEngineObject *pkVar1;
@@ -5447,14 +5447,14 @@ void reset_all_objects_for_player(int param_1)
   pkVar1 = kgtEngineObjects;
   iVar2 = 0x400;
   do {
-    if (((pkVar1->iJumpIdx == READ_SCRIPT) && ((int)pkVar1->obj_type < 2)) &&
-       (pkVar1->iPlayerBuffer == param_1)) {
+    if (((pkVar1->iJumpIdx == READ_SCRIPT) && ((int)pkVar1->iObjectType < 2)) &&
+       (pkVar1->iPlayerBuffer == iPlayerIdx)) {
       pkVar1->iJumpIdx = RESET_IDX;
     }
     pkVar1 = pkVar1 + 1;
     iVar2 = iVar2 + -1;
   } while (iVar2 != 0);
-  ppkVar3 = gkgtLoadedCharacter[param_1].object_mNumbers;
+  ppkVar3 = gkgtLoadedCharacter[iPlayerIdx].object_mNumbers;
   for (iVar2 = 10; iVar2 != 0; iVar2 = iVar2 + -1) {
     *ppkVar3 = (kgtEngineObject *)0x0;
     ppkVar3 = ppkVar3 + 1;
@@ -5564,10 +5564,10 @@ void setup_stage_spawn_scripts(void)
           if (bVar2) {
             new_obj = kgtoNewEngineObject(READ_SCRIPT,(int)new_obj_param_2,0,0);
             pActionsAlloc = gkgtLoadedStage.kgt_core.pSkillsAlloc;
-            new_obj->obj_type = stage_file;
+            new_obj->iObjectType = stage;
             uVar1 = *(ushort *)(pActionsAlloc->cName + offset + 0x20);
-            new_obj->action_idx = idx;
-            *(uint *)&new_obj->actionscript_idx = (uint)uVar1;
+            new_obj->iSkillIdx = idx;
+            *(uint *)&new_obj->iSkillScriptIdx = (uint)uVar1;
           }
         }
       }
@@ -5594,16 +5594,16 @@ void setup_stage_spawn_scripts(void)
       if (bVar2) {
         pkVar3 = kgtoNewEngineObject(READ_SCRIPT,101,0,0);
         pActionsAlloc = gkgtKgtSystem.kgt_core.pSkillsAlloc;
-        pkVar3->obj_type = main_kgt_file;
+        pkVar3->iObjectType = system;
         uVar1 = pActionsAlloc[uVar4].shStartingStepIdx;
-        pkVar3->action_idx = uVar4;
-        *(uint *)&pkVar3->actionscript_idx = (uint)uVar1;
+        pkVar3->iSkillIdx = uVar4;
+        *(uint *)&pkVar3->iSkillScriptIdx = (uint)uVar1;
       }
     }
     new_obj_param_2 = new_obj_param_2 + 1;
   } while ((int)new_obj_param_2 < 0x44522e);
-  Handle_Sound_Skillscript_block
-            (gkgtLoadedStage.kgt_core.p_sound_structs + (gkgtLoadedStage._8756_4_ & 0xffff));
+  vHandleLoadingSound(gkgtLoadedStage.kgt_core.p_sound_structs + (gkgtLoadedStage._8756_4_ & 0xffff)
+                     );
   return;
 }
 
@@ -5652,10 +5652,10 @@ void vSpawnEngineObjectForDemoSkills(void)
           if (is_valid_skill) {
             new_obj = kgtoNewEngineObject(READ_SCRIPT,local_4,0,0);
             pSkill = gkgtLoadedDemo.kgtCore.pSkillsAlloc;
-            new_obj->obj_type = demo_file;
+            new_obj->iObjectType = demo;
             uVar1 = *(ushort *)(pSkill->cName + offset + 0x20);
-            new_obj->action_idx = i;
-            *(uint *)&new_obj->actionscript_idx = (uint)uVar1;
+            new_obj->iSkillIdx = i;
+            *(uint *)&new_obj->iSkillScriptIdx = (uint)uVar1;
           }
         }
       }
@@ -5665,28 +5665,30 @@ void vSpawnEngineObjectForDemoSkills(void)
   }
                     // Loads BGM
                     // bgm Selection variable
-  Handle_Sound_Skillscript_block
-            (gkgtLoadedDemo.kgtCore.p_sound_structs + (gkgtLoadedDemo._8756_4_ & 0xffff));
+  vHandleLoadingSound(gkgtLoadedDemo.kgtCore.p_sound_structs + (gkgtLoadedDemo._8756_4_ & 0xffff));
   giDemoTime = gkgtLoadedDemo._8761_4_;
-  gcUnkownDemoVarA._0_1_ = gkgtLoadedDemo._8758_1_;
+  giDemoSkipWithInput._0_1_ = gkgtLoadedDemo.cSkipWithInput;
   return;
 }
 
 
 
-int __cdecl new_kgt_scriptread_obj_with_action_idx(short idx,int param_2,int param_3,int param_4)
+kgtEngineObject * __cdecl
+kgtoNewObjectForSkillIdx
+          (kgtEngineObject *__return_storage_ptr__,short idx,int param_2,int param_3,int param_4)
 
 {
   kgtSkillHeader *pkVar1;
   kgtEngineObject *pkVar2;
-  undefined2 in_stack_00000006;
+  undefined2 in_stack_0000000a;
   
-  pkVar2 = kgtoNewEngineObject(READ_SCRIPT,param_2,param_3,param_4);
+  pkVar2 = kgtoNewEngineObject(READ_SCRIPT,_idx,param_2,param_3);
   pkVar1 = gkgtKgtSystem.kgt_core.pSkillsAlloc;
-  pkVar2->action_idx = _idx;
-  pkVar2->obj_type = main_kgt_file;
-  *(uint *)&pkVar2->actionscript_idx = (uint)(ushort)pkVar1[_idx].shStartingStepIdx;
-  return (int)pkVar2;
+  pkVar2->iSkillIdx = (int)__return_storage_ptr__;
+  pkVar2->iObjectType = system;
+  *(uint *)&pkVar2->iSkillScriptIdx =
+       (uint)(ushort)pkVar1[(int)__return_storage_ptr__].shStartingStepIdx;
+  return pkVar2;
 }
 
 
@@ -5702,11 +5704,11 @@ uint new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
   char local_100 [256];
   
   newObj = kgtoNewEngineObject(READ_SCRIPT,param_2,param_3,param_4);
-  newObj->obj_type = main_kgt_file;
-  newObj->action_idx = action_idx;
+  newObj->iObjectType = system;
+  newObj->iSkillIdx = action_idx;
   pkVar3 = gkgtKgtSystem.kgt_core.pSkillsAlloc + action_idx;
   uVar2 = (uint)(ushort)pkVar3->shStartingStepIdx;
-  *(uint *)&newObj->actionscript_idx = uVar2;
+  *(uint *)&newObj->iSkillScriptIdx = uVar2;
   uVar1 = *(ushort *)&gkgtKgtSystem.kgt_core.p_actionscripts_alloc[uVar2].field_0x1;
   _sprintf(local_100,s_demo__s_wait__d_0041edbc,pkVar3,(uint)uVar1);
   iSetDebugInfo(local_100,0x1fff1f);
@@ -5749,73 +5751,80 @@ void RESET_JUMPTABLE_INDEX(void)
 
 
 
-void HANDLE_STORY_MODE(void)
+void vProgressStoryMode(void)
 
 {
-  kgt_character_struct *pkVar1;
+  kgt_character_struct *pkgtLoadedCharacter;
   int i2;
   int i;
-  char *pcVar2;
+  char *pEnemyCharacter;
   char *debug_str;
   char f_text [224];
-  int *pbVar3;
-  int story_step;
+  int *pCurrentStoryEntry;
+  int iStoryStep;
   
-  if ((gkgtKgtSystem.story_mode_setting_check_array[STORY_MODE_IDX + -2] & 1U) == 0) {
-    debug_str = s_HAN_HIRAGANA_KATAKANA__0041edcc;
-LAB_00406bbb:
+                    // Bug: If the first two characters don't have a story mode, does this just lock
+                    // story mode out entirely? giStoryModePlayerIdx_2 doesn't seem like it gets
+                    // assigned anything except a player idx, i.e. 0 or 1.
+  if ((gkgtKgtSystem.giCharacterHasStoryModeFlags[giStoryModePlayerIdx_2] & 1U) == 0) {
+    debug_str = gsErrorStoryModeNotSet;
+KickBackToMainMenu:
     iSetDebugInfo(debug_str,0xdfffff);
     kgtoNewEngineObject(MENU_TRAVERSAL,0x7f,0,0);
   }
   else {
     vResetObjectsAndSpeed();
-    pkVar1 = gkgtLoadedCharacter;
+    pkgtLoadedCharacter = gkgtLoadedCharacter;
     do {
-      if (pkVar1 != (kgt_character_struct *)0x0) {
-        pkVar1->unknown_online_var_a = 0;
+      if (pkgtLoadedCharacter != (kgt_character_struct *)0x0) {
+        pkgtLoadedCharacter->unknown_online_var_a = 0;
       }
-      pkVar1 = pkVar1 + 1;
-    } while ((int)pkVar1 < 0x541f78);
+      pkgtLoadedCharacter = pkgtLoadedCharacter + 1;
+    } while ((int)pkgtLoadedCharacter < 0x541f78);
     gkgtGameState.iGameStateNumber = 4000;
     i2 = 1;
     do {
-      (&POSS_STORY_ARRAY)[STORY_MODE_IDX] = (&POSS_STORY_ARRAY)[STORY_MODE_IDX] + 1;
-      story_step = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
-      if (story_step < 0) {
-        debug_str = s_HAN_HIRAGANA_KATAKANA__0041edec;
-        goto LAB_00406bbb;
+      giCurrentStoryStep[giStoryModePlayerIdx_2] = giCurrentStoryStep[giStoryModePlayerIdx_2] + 1;
+      iStoryStep = giCurrentStoryStep[giStoryModePlayerIdx_2];
+      if (iStoryStep < 0) {
+        debug_str = gsErrorStoryStepBecameMinus;
+        goto KickBackToMainMenu;
       }
-      if (99 < story_step) {
-        debug_str = s_HAN_KATAKANA__0041ee20;
-        goto LAB_00406bbb;
+      if (99 < iStoryStep) {
+        debug_str = gsErrorStoryStepBecameTooLarge;
+        goto KickBackToMainMenu;
       }
       i = i2 + 1;
-      pbVar3 = (int *)(gkgtLoadedCharacter[0].kgtStoryEntries + story_step);
+      pCurrentStoryEntry = (int *)(gkgtLoadedCharacter[0].kgtStoryEntries + iStoryStep);
       if (200 < i2) {
-        debug_str = s_HAN_HIRAGANA_KATAKANA__0041ee3c;
-        goto LAB_00406bbb;
+        debug_str = gsErrorStoryScriptInfiniteLoop;
+        goto KickBackToMainMenu;
       }
-      _sprintf(f_text,s_KATAKANA__d____d____d_0041ee6c,story_step,(byte)*pbVar3 & 0xf,
-               (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[story_step].cStageIdx);
+      _sprintf(f_text,gsStoryStepFormatted,iStoryStep,(byte)*pCurrentStoryEntry & 0xf,
+               (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cStageIdx);
       iSetDebugInfo(f_text,0xffafaf);
-      switch((byte)*pbVar3 & 0xf) {
+      switch((byte)*pCurrentStoryEntry & 0xf) {
       case 0:
                     // 00000000
-        debug_str = s_story_script_End;
-        goto LAB_00406bbb;
+        debug_str = gsStoryScriptEnd;
+        goto KickBackToMainMenu;
       case 1:
                     // 00000001
+                    // 
+                    // Fight
+                    // 
+                    // Loads the enemy characters and goes to battle state
         i2 = 0;
-        pcVar2 = &gkgtLoadedCharacter[0].kgtStoryEntries[story_step].kgtStoryEntryCPUs[0].
-                  cCharacterIdx;
+        pEnemyCharacter =
+             &gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].kgtStoryEntryCPUs[0].cCharacterIdx;
         do {
-          if (*pcVar2 != 0) {
-            READ_CHARACTER_FILE(i2 + 1,(byte)*pcVar2 - 1);
+          if (*pEnemyCharacter != 0) {
+            iOpenCharacterFile(i2 + 1,(byte)*pEnemyCharacter - 1);
           }
           i2 = i2 + 1;
-          pcVar2 = pcVar2 + 0x1a;
+          pEnemyCharacter = pEnemyCharacter + 0x1a;
         } while (i2 < 7);
-        if (gkgtLoadedCharacter[0].kgtStoryEntries[story_step].cStageIdx != '\0') {
+        if (gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cStageIdx != '\0') {
           gkgtGameState.iIsPausedFlag = 0;
           kgtoNewEngineObject(BATTLE_STATE,0x7f,0,0);
           return;
@@ -5823,42 +5832,52 @@ LAB_00406bbb:
         break;
       case 2:
                     // 00000010
-        if (gkgtLoadedCharacter[0].kgtStoryEntries[story_step].cStageIdx != '\0') {
+                    // 
+                    // Demo
+        if (gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cStageIdx != '\0') {
           kgtoNewEngineObject(STORY_MODE,0x7f,
-                              (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[story_step].
+                              (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].
                                           cStageIdx,0);
           return;
         }
         break;
       case 3:
                     // 00000011
-        switch(gkgtLoadedCharacter[0].kgtStoryEntries[story_step].cStageIdx) {
+                    // 
+                    // Jump/Divergence
+        switch(gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cStageIdx) {
         case '\0':
-switchD_00406ae7_caseD_0:
-          (&POSS_STORY_ARRAY)[STORY_MODE_IDX] =
-               (&POSS_STORY_ARRAY)[STORY_MODE_IDX] +
-               gkgtLoadedCharacter[0].kgtStoryEntries[story_step].cWhenDefeatAndFirstRoundBitmask +
+switchD_00406ae7_Not_case:
+                    // Not
+          giCurrentStoryStep[giStoryModePlayerIdx_2] =
+               giCurrentStoryStep[giStoryModePlayerIdx_2] +
+               gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cWhenDefeatAndFirstRoundBitmask +
                -1;
           break;
         case '\x01':
-          if (DAT_VAR_BATTLE_STATE_A == 1) goto switchD_00406ae7_caseD_0;
+                    // Front stage
+          if (DAT_VAR_BATTLE_STATE_A == 1) goto switchD_00406ae7_Not_case;
           break;
         case '\x02':
+                    // Life gauge
           if (gkgtLoadedCharacter[0].health <
-              (int)(uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[story_step].cRoundsAmount)
-          goto switchD_00406ae7_caseD_0;
+              (int)(uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cRoundsAmount)
+          goto switchD_00406ae7_Not_case;
           break;
         case '\x03':
-          if (DAT_VAR_BATTLE_STATE_B == 0) goto switchD_00406ae7_caseD_0;
+                    // Winning all the fight
+          if (giProbablyUsedContinue_ == 0) goto switchD_00406ae7_Not_case;
         }
         break;
       case 4:
                     // 00000100
-        debug_str = s_HAN_KATAKANA__0041eea0;
-        goto LAB_00406bbb;
+                    // 
+                    // End
+        debug_str = gsStoryOver;
+        goto KickBackToMainMenu;
       default:
-        debug_str = s_HAN_HIRAGANA_KATAKANA__0041eeb0;
-        goto LAB_00406bbb;
+        debug_str = gsErrorStoryScriptUnknownStep;
+        goto KickBackToMainMenu;
       }
       i2 = i;
     } while (i != 0);
@@ -5883,7 +5902,7 @@ void initiate_story_mode(void)
     if (iVar2 != 0) {
       vResetObjectsAndSpeed();
       gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
-      HANDLE_STORY_MODE();
+      vProgressStoryMode();
       return;
     }
     vSpawnEngineObjectForDemoSkills();
@@ -5894,7 +5913,7 @@ void initiate_story_mode(void)
     }
     vResetObjectsAndSpeed();
     gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
-    HANDLE_STORY_MODE();
+    vProgressStoryMode();
     return;
   }
   pkVar1 = gpkgtCurrentEngineObject;
@@ -5902,13 +5921,12 @@ void initiate_story_mode(void)
     gpkgtCurrentEngineObject->iPlayerBuffer = gpkgtCurrentEngineObject->iPlayerBuffer + 1;
   }
   else {
-                    // This is set by an unknown/undescribed set of bytes in the demo structure.
-                    // It's likely going to always be 0?
-    if (((byte)gcUnkownDemoVarA & 1) != 0) {
+                    // In the .dmp this is a 1 so idk
+    if (((byte)giDemoSkipWithInput & 1) != 0) {
       if ((giLastInputXor_2 & 0b0000001111110000) == 0) {
-        gpkgtCurrentEngineObject->obj_type = 1;
+        gpkgtCurrentEngineObject->iObjectType = story?;
       }
-      else if (gpkgtCurrentEngineObject->obj_type != 0) {
+      else if (gpkgtCurrentEngineObject->iObjectType != player) {
         gpkgtCurrentEngineObject->iProcessStep = gpkgtCurrentEngineObject->iProcessStep + 1;
         return;
       }
@@ -5925,30 +5943,32 @@ void initiate_story_mode(void)
 void HANDLE_ROUND_START(void)
 
 {
-  kgt_obj_type kVar1;
+  kgtEngineObject *pkVar1;
   kgtEngineObject *pkVar2;
-  kgtEngineObject *pkVar3;
+  int unaff_retaddr;
   
   if (gpkgtCurrentEngineObject->iProcessStep == 0) {
     gpkgtCurrentEngineObject->iProcessStep = 1;
-    kVar1 = new_kgt_scriptread_obj_with_action_idx
-                      ((&gkgtKgtSystem.skill_idx_round_1)[gkgtGameState.iCurrentRound],0x65,0,0);
-    gpkgtCurrentEngineObject->obj_type = kVar1;
-    pkVar2 = (kgtEngineObject *)
-             new_kgt_scriptread_obj_with_action_idx(gkgtKgtSystem.skill_idx_spirits,0x65,0,0);
-    pkVar3 = gpkgtCurrentEngineObject;
+    pkVar1 = (kgtEngineObject *)
+             (uint)(ushort)(&gkgtKgtSystem.skill_idx_round_1)[gkgtGameState.iCurrentRound];
+    pkVar2 = kgtoNewObjectForSkillIdx(pkVar1,0x65,0,0,unaff_retaddr);
+    gpkgtCurrentEngineObject->iObjectType = (kgtEngineObjectTypes)pkVar2;
+    pkVar2 = kgtoNewObjectForSkillIdx
+                       ((kgtEngineObject *)(uint)(ushort)gkgtKgtSystem.skill_idx_spirits,0x65,0,0,
+                        (int)pkVar1);
+    pkVar1 = gpkgtCurrentEngineObject;
     gpkgtCurrentEngineObject->obj_ptr_b = pkVar2;
   }
   else {
-    pkVar3 = gpkgtCurrentEngineObject;
+    pkVar1 = gpkgtCurrentEngineObject;
     if (gpkgtCurrentEngineObject->iProcessStep != 1) {
       return;
     }
   }
-  if (199 < pkVar3->parent_obj->iProcessStep) {
-    pkVar2 = pkVar3->obj_ptr_b;
-    pkVar3->iJumpIdx = RESET_IDX;
-    *(undefined4 *)pkVar3->obj_type = 1;
+  if (199 < pkVar1->parent_obj->iProcessStep) {
+    pkVar2 = pkVar1->obj_ptr_b;
+    pkVar1->iJumpIdx = RESET_IDX;
+    *(undefined4 *)pkVar1->iObjectType = 1;
     pkVar2->iJumpIdx = RESET_IDX;
   }
   return;
@@ -5981,7 +6001,7 @@ void FUN_00406db0(int *param_1)
     if (iVar1 + -1 < 0) {
       *param_1 = 0x31;
     }
-    if (gkgtKgtSystem.character_names[*param_1][0] != '\0') break;
+    if (gkgtKgtSystem.gsCharacterName[*param_1][0] != '\0') break;
     bVar3 = iVar2 == 0;
     iVar2 = iVar2 + -1;
     if (bVar3) {
@@ -6008,7 +6028,7 @@ void FUN_00406e00(int *param_1)
     if (iVar1 + 1 == 0x32) {
       *param_1 = 0;
     }
-    if (gkgtKgtSystem.character_names[*param_1][0] != '\0') break;
+    if (gkgtKgtSystem.gsCharacterName[*param_1][0] != '\0') break;
     bVar3 = iVar2 == 0;
     iVar2 = iVar2 + -1;
     if (bVar3) {
@@ -6032,7 +6052,7 @@ void also_set_obj_flag_a(void)
 
 
 
-void CHAR_SELECT_CHANGE_SELECTION(kgt_grid *grid,int y,int x)
+void vCharacterSelectChangeSelection(kgtGridCoordinates *grid,int y,int x)
 
 {
   int new_col;
@@ -6040,100 +6060,100 @@ void CHAR_SELECT_CHANGE_SELECTION(kgt_grid *grid,int y,int x)
   short max_col;
   short max_row;
   
-  new_col = grid->col + y;
-  grid->col = new_col;
-  new_row = grid->row + x;
-  grid->row = new_row;
-  max_col = gkgtKgtSystem.distance_between_characters_y;
+  new_col = grid->iCol + y;
+  grid->iCol = new_col;
+  new_row = grid->iRow + x;
+  grid->iRow = new_row;
+  max_col = gkgtKgtSystem.iColumnsInSelectScreen;
   if (new_col < 0) {
-    grid->col = gkgtKgtSystem.distance_between_characters_y + -1;
+    grid->iCol = gkgtKgtSystem.iColumnsInSelectScreen + -1;
   }
-  max_row = gkgtKgtSystem.columns_in_select_screen;
+  max_row = gkgtKgtSystem.iRowsInSelectScreen;
   if (new_row < 0) {
-    grid->row = gkgtKgtSystem.columns_in_select_screen + -1;
+    grid->iRow = gkgtKgtSystem.iRowsInSelectScreen + -1;
   }
-  if ((int)max_col <= grid->col) {
-    grid->col = 0;
+  if ((int)max_col <= grid->iCol) {
+    grid->iCol = 0;
   }
-  if ((int)max_row <= grid->row) {
-    grid->row = 0;
+  if ((int)max_row <= grid->iRow) {
+    grid->iRow = 0;
   }
   return;
 }
 
 
 
-int get_action_button_pressed(uint param_1)
+int iGetPressedActionButton(uint param_1)
 
 {
-  uint uVar1;
+  uint iButton;
   
-  uVar1 = (uint)((param_1 & 0b00100000) != 0);
+  iButton = (uint)((param_1 & 0b00100000) != 0);
   if ((param_1 & 0b01000000) != 0) {
-    uVar1 = 2;
+    iButton = 2;
   }
   if ((param_1 & 0b10000000) != 0) {
-    uVar1 = 3;
+    iButton = 3;
   }
   if ((param_1 & 0b0000000100000000) != 0) {
-    uVar1 = 4;
+    iButton = 4;
   }
   if ((param_1 & 0b0000001000000000) != 0) {
-    uVar1 = 5;
+    iButton = 5;
   }
-  return uVar1;
+  return iButton;
 }
 
 
 
-void pick_player_color(int idx,int last_input_difference)
+void vPickPlayerColor(int idx,int last_input_difference)
 
 {
-  int *piVar1;
-  int current_player_idx;
+  int *piOtherPlayerColor;
+  int iOtherPlayerIdx;
   int i;
-  uint color_int;
-  bool shared_color;
+  uint iColor;
+  bool bColorsAreShared;
   
-  color_int = (uint)((last_input_difference & 0b00100000U) != 0);
+  iColor = (uint)((last_input_difference & 0b00100000U) != 0);
                     // Choose color based on button
   if ((last_input_difference & 0b01000000U) != 0) {
-    color_int = 2;
+    iColor = 2;
   }
   if ((last_input_difference & 0b10000000U) != 0) {
-    color_int = 3;
+    iColor = 3;
   }
   if ((last_input_difference & 0b0000000100000000U) != 0) {
-    color_int = 4;
+    iColor = 4;
   }
   if ((last_input_difference & 0b0000001000000000U) != 0) {
-    color_int = 5;
+    iColor = 5;
   }
   i = 0;
   while( true ) {
-    shared_color = false;
-    current_player_idx = 0;
-    piVar1 = &gkgtLoadedCharacter[0].iColorInt;
+    bColorsAreShared = false;
+    iOtherPlayerIdx = 0;
+    piOtherPlayerColor = &gkgtLoadedCharacter[0].iColorInt;
     do {
-                    // Make sure another player doesn't share the color (source of glitch, should
-                    // only trigger on shared character)
-      if ((idx != current_player_idx) && (color_int == *piVar1)) {
-        shared_color = true;
+                    // Bug: Make sure another player doesn't share the color (source of glitch,
+                    // should only trigger on shared character)
+      if ((idx != iOtherPlayerIdx) && (iColor == *piOtherPlayerColor)) {
+        bColorsAreShared = true;
       }
-      piVar1 = (int *)((int)piVar1 + 0xe03f);
-      current_player_idx = current_player_idx + 1;
-    } while ((int)piVar1 < 0x54ff83);
-    if (!shared_color) break;
-    color_int = color_int + 1 & 0b10000000000000000000000000000111;
-    if ((int)color_int < 0) {
-      color_int = (color_int - 1 | 0b11111111111111111111111111111000) + 1;
+      piOtherPlayerColor = (int *)((int)piOtherPlayerColor + 0xe03f);
+      iOtherPlayerIdx = iOtherPlayerIdx + 1;
+    } while ((int)piOtherPlayerColor < 0x54ff83);
+    if (!bColorsAreShared) break;
+    iColor = iColor + 1 & 0b10000000000000000000000000000111;
+    if ((int)iColor < 0) {
+      iColor = (iColor - 1 | 0b11111111111111111111111111111000) + 1;
     }
     i = i + 1;
     if (7 < i) {
       return;
     }
   }
-  gkgtLoadedCharacter[idx].iColorInt = color_int;
+  gkgtLoadedCharacter[idx].iColorInt = iColor;
   return;
 }
 
@@ -6141,12 +6161,9 @@ void pick_player_color(int idx,int last_input_difference)
 
 // For VS mode - Exits to jumptable idx 14, param_2 is 127
 
-void POSS_CHAR_SELECT_SCREEN_VERSUS_00406fc0(void)
+void vjmpCharacterSelectScreen(void)
 
 {
-  ushort uVar1;
-  bool bVar2;
-  undefined4 uVar3;
   kgtEngineObject *menu_obj;
   int err3;
   int err2;
@@ -6154,117 +6171,126 @@ void POSS_CHAR_SELECT_SCREEN_VERSUS_00406fc0(void)
   int new_kgt2;
   int new_kgt3;
   kgtEngineObject *new_kgt;
-  kgtEngineObject *pkVar4;
-  int iVar5;
-  int iVar6;
-  kgtEngineObject *pkVar7;
+  int iVar1;
+  int iVar2;
+  kgtEngineObject *pkgto1pVsCursorAfterInput;
+  kgtEngineObject *pkgto2pVsCursorAfterInput;
   int last_button_pressed;
-  int hovered_character_vs;
-  int hovered_character_story;
+  int iHoveredCharacterVs;
+  kgtEngineObject *kgtoNewObjectVs;
+  int iStoryModePrestartTimer;
+  int iStoryModeCharacterHovered;
+  kgtEngineObject *kgtoCharSelectObject;
   int bVar4;
   int i;
-  int *piVar8;
-  int iVar9;
-  uint default0x32;
-  kgt_0xe03f_struct_ptr_57355_int piVar11;
-  int iVar10;
-  kgt_grid *pkVar11;
-  int player_idx;
-  int *p_unk_v_sel_struct;
-  kgt_grid *char_sel_col;
+  int *piVar3;
+  int idx;
+  uint iSkillIdxCharSelectPic;
+  kgtEngineObject *piPlayerColumn;
+  int iVar4;
+  kgtEngineObject *pkgtoVsCursor;
+  int iPlayerIdx;
+  int unaff_EDI;
+  int *piCharSelect;
+  kgtGridCoordinates *kgtgPlayerGrid;
   char *debug_str;
   int local_14;
   undefined4 *local_10;
-  kgt_grid *local_8;
-  kgtEngineObject *local_4;
+  kgtEngineObject *pkgtkoVsCursor_2;
+  kgtEngineObject *kgtoChildObject_B;
+  uint iLastInputXor;
   int obj_step;
+  kgtEngineObject *kgtoPlayerOneCursor;
   int player_has_chosen;
   int last_input_diff;
-  kgtSkillHeader *p0skillalloc;
+  bool bHasWaitedMoreThanASecond;
+  ushort iSkillIdxCharSelectPicVs;
+  kgtSkillHeader *kgtPlayerOneSkillsAlloc;
+  kgtEngineObject *pkgtCurrentEngineObject;
   
   obj_step = gpkgtCurrentEngineObject->iProcessStep;
   if (obj_step == 0) {
     gpkgtCurrentEngineObject->iProcessStep = 1;
     vResetObjectsAndSpeed();
-    gkgtGameState.TESTPLAY_VSMODE = giConfigTestplayVsMode;
-    gkgtGameState.PTR_TO___OF_ROUNDS_VERSUS_00470068 = giConfigNumberOfRounds;
+    gkgtGameState.iConfigTestPlayVsMode = giConfigTestplayVsMode;
+    gkgtGameState.iConfigNumberOfRounds = giConfigNumberOfRounds;
     gkgtGameState.iCharSelect[0] = -1;
     gkgtGameState.iCharSelect[1] = -1;
     gkgtGameState.char_select_var_a = 0;
     gkgtGameState.char_select_var_b = 0;
-    gkgtGameState.character_chosen_flag_player_0 = 0;
-    gkgtGameState.character_chosen_flag_player_1 = 0;
+    gkgtGameState.iPlayerOneChoseCharacterFlag = 0;
+    gkgtGameState.iCharacterChosenFlagPlayerOne = 0;
     gkgtGameState.iCurrentRound = 0;
-    gkgtGameState.PTR_TO___OF_ROUNDS_TEAM_VS_00470064 = giConfigNumberOfRoundsTeamVs;
+    gkgtGameState.iConfigNumberOfRoundsTeamVs = giConfigNumberOfRoundsTeamVs;
     gkgtLoadedCharacter[0].story_mode_unk_var_a = 0;
     gkgtLoadedCharacter[1].story_mode_unk_var_a = 0;
-    UNK_CHAR_SELECT_GLOBAL_A = 0;
+    giBattlePrestartTimer = 0;
     unk_y_position = 0;
-    unk_x_position = 480;
+    unk_y_pos2 = 480;
                     // PREPARE MEMORY
-    piVar8 = &gkgtLoadedCharacter[0].iColorInt;
+    piVar3 = &gkgtLoadedCharacter[0].iColorInt;
     i = 8;
-    p_unk_v_sel_struct = gkgtGameState.iCharSelect;
+    piCharSelect = gkgtGameState.iCharSelect;
     for (; i != 0; i = i + -1) {
-      *p_unk_v_sel_struct = -1;
-      p_unk_v_sel_struct = p_unk_v_sel_struct + 1;
+      *piCharSelect = -1;
+      piCharSelect = piCharSelect + 1;
     }
     do {
-      *piVar8 = -1;
-      piVar8 = (int *)((int)piVar8 + 0xe03f);
-    } while ((int)piVar8 < 0x54ff83);
+      *piVar3 = -1;
+      piVar3 = (int *)((int)piVar3 + 0xe03f);
+    } while ((int)piVar3 < 0x54ff83);
                     // OPEN APPROPRIATE DEMO FILE BASED ON GAME MODE
     if (gkgtGameState.kgtGameMode == 1P_story) {
-      err = iOpenDemoFile((uint)(byte)gkgtKgtSystem._p_demo_script_idx);
+      err = iOpenDemoFile((uint)(byte)gkgtKgtSystem.cStoryModeDemoIdx);
       if (err != 0) {
-        iSetDebugInfo(s_Character_Script_P1_Not_found_error_0041ef2c,0x4040ff);
+        iSetDebugInfo(gsErrorCharacterScriptP1NotFound,0x4040ff);
         gpkgtCurrentEngineObject->iProcessStep = 4;
         return;
       }
     }
     else if (gkgtGameState.kgtGameMode == VS_single) {
-      err2 = iOpenDemoFile((uint)(byte)gkgtKgtSystem.VS_single_demo_idx);
+      err2 = iOpenDemoFile((uint)(byte)gkgtKgtSystem.cVsSingleDemoIdx);
       if (err2 != 0) {
-        debug_str = s_Character_Script_VS_Single_Demo_not_found_error_0041ef64;
+        debug_str = gsErrorCharacterScriptVsDemo1NotFound;
         goto LAB_00407133;
       }
     }
     else if ((gkgtGameState.kgtGameMode == VS_team) &&
-            (err3 = iOpenDemoFile((uint)(byte)gkgtKgtSystem.VS_team_demo_idx), err3 != 0)) {
-      iSetDebugInfo(s_Character_select_team_demo_not_found_error_0041efa4,0x4040ff);
+            (err3 = iOpenDemoFile((uint)(byte)gkgtKgtSystem.cVsTeamDemoIdx), err3 != 0)) {
+      iSetDebugInfo(gsErrorCharacterScriptTeamDemoNotFound,0x4040ff);
       gpkgtCurrentEngineObject->iProcessStep = 4;
       return;
     }
     vSpawnEngineObjectForDemoSkills();
     if (gkgtGameState.kgtGameMode == 1P_story) {
-      new_kgt = (kgtEngineObject *)
-                new_kgt_scriptread_obj_with_action_idx
-                          (gkgtKgtSystem.skill_idx_1p_vs_screen_cursor,0x65,0,0);
-      pkVar4 = gpkgtCurrentEngineObject;
+      new_kgt = kgtoNewObjectForSkillIdx
+                          ((kgtEngineObject *)(gkgtKgtSystem._73744_4_ & 0xffff),0x65,0,0,unaff_EDI)
+      ;
+      pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       gpkgtCurrentEngineObject->timer_mod_10 = (int)new_kgt;
     }
     else {
-      pkVar4 = gpkgtCurrentEngineObject;
+      pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       if ((0 < (int)gkgtGameState.kgtGameMode) && ((int)gkgtGameState.kgtGameMode < 3)) {
-        new_kgt2 = new_kgt_scriptread_obj_with_action_idx
-                             (gkgtKgtSystem.skill_idx_1p_vs_screen_cursor,0x65,0,0);
+        pkgtCurrentEngineObject = (kgtEngineObject *)(gkgtKgtSystem._73744_4_ & 0xffff);
+        new_kgt2 = (int)kgtoNewObjectForSkillIdx(pkgtCurrentEngineObject,0x65,0,0,unaff_EDI);
         gpkgtCurrentEngineObject->timer_mod_10 = new_kgt2;
-        new_kgt3 = new_kgt_scriptread_obj_with_action_idx
-                             (gkgtKgtSystem.skill_idx_2p_vs_screen_cursor,0x65,0,0);
-        pkVar4 = gpkgtCurrentEngineObject;
+        new_kgt3 = (int)kgtoNewObjectForSkillIdx
+                                  ((kgtEngineObject *)((uint)gkgtKgtSystem._73744_4_ >> 0x10),0x65,0
+                                   ,0,(int)pkgtCurrentEngineObject);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         gpkgtCurrentEngineObject->timer_div_ten_mod_10 = new_kgt3;
-        piVar8 = INT_ARRAY_00424e90;
+        piVar3 = INT_ARRAY_00424e90;
         do {
-          piVar8[-4] = 0;
-          *piVar8 = 0;
-          piVar8 = piVar8 + 1;
-        } while ((int)piVar8 < 0x424ea0);
+          piVar3[-4] = 0;
+          *piVar3 = 0;
+          piVar3 = piVar3 + 1;
+        } while ((int)piVar3 < 0x424ea0);
       }
     }
     gkgtGameState.iGameStateNumber = 2000;
-    if ((int)gkgtKgtSystem.columns_in_select_screen *
-        (int)gkgtKgtSystem.distance_between_characters_y == 0) {
-      debug_str = s_Character_setting_error_height_or_width_0_0041efe4;
+    if ((int)gkgtKgtSystem.iRowsInSelectScreen * (int)gkgtKgtSystem.iColumnsInSelectScreen == 0) {
+      debug_str = gsErrorCharacterSettingHeightOrWidthZero;
 LAB_00407133:
       iSetDebugInfo(debug_str,0x4040ff);
       gpkgtCurrentEngineObject->iProcessStep = 4;
@@ -6272,7 +6298,7 @@ LAB_00407133:
     }
   }
   else {
-    pkVar4 = gpkgtCurrentEngineObject;
+    pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
     if (obj_step != 1) {
       if (obj_step != 4) {
         return;
@@ -6287,219 +6313,233 @@ LAB_00407133:
   }
                     // Upon pressing start button, exit back to main menu
   if ((giLastInputXor_2 & 1024) != 0) {
-    pkVar4->iProcessStep = 4;
+    pkgtCurrentEngineObject->iProcessStep = 4;
     return;
   }
-  if ((pkVar4->obj_ptr_b != (kgtEngineObject *)0x0) && (pkVar4->obj_ptr_b->iJumpIdx == RESET_IDX)) {
-    pkVar4->obj_ptr_b = (kgtEngineObject *)0x0;
+  if ((pkgtCurrentEngineObject->obj_ptr_b != (kgtEngineObject *)0x0) &&
+     (pkgtCurrentEngineObject->obj_ptr_b->iJumpIdx == RESET_IDX)) {
+    pkgtCurrentEngineObject->obj_ptr_b = (kgtEngineObject *)0x0;
   }
-  if ((pkVar4->obj_ptr_a != (kgtEngineObject *)0x0) && (pkVar4->obj_ptr_a->iJumpIdx == RESET_IDX)) {
-    pkVar4->obj_ptr_a = (kgtEngineObject *)0x0;
+  if ((pkgtCurrentEngineObject->obj_ptr_a != (kgtEngineObject *)0x0) &&
+     (pkgtCurrentEngineObject->obj_ptr_a->iJumpIdx == RESET_IDX)) {
+    pkgtCurrentEngineObject->obj_ptr_a = (kgtEngineObject *)0x0;
   }
   if (gkgtGameState.kgtGameMode == 1P_story) {
-    hovered_character_story = pkVar4->timer_mod_10;
-    *(int *)(hovered_character_story + 8) =
-         (gkgtKgtSystem.character_select_start_y * story_mode_grid.col +
-         (int)(short)gkgtKgtSystem._73840_2_) * 0x10000;
-    *(int *)(hovered_character_story + 0xc) =
-         (gkgtKgtSystem.distance_between_characters_x * story_mode_grid.row +
-         (int)gkgtKgtSystem.character_select_start_x) * 0x10000;
-    if (gkgtGameState.character_chosen_flag_player_0 == 0) {
-      if ((*(byte *)(giLastInputCleaned + UNK_KGT_PLAYER_BUFFER_IDX) & 4) != 0) {
-        CHAR_SELECT_CHANGE_SELECTION(&story_mode_grid,0,-1);
-        pkVar4 = gpkgtCurrentEngineObject;
+    kgtoPlayerOneCursor = (kgtEngineObject *)pkgtCurrentEngineObject->timer_mod_10;
+    kgtoPlayerOneCursor->iParam3 =
+         (gkgtKgtSystem.iDistanceBetweenCharactersX * kgtStoryModeGridCoordinates.iCol +
+         (int)gkgtKgtSystem.iCharacterSelectStartX) * 0x10000;
+    kgtoPlayerOneCursor->iParam4 =
+         (gkgtKgtSystem.iDistanceBetweenCharactersY * kgtStoryModeGridCoordinates.iRow +
+         (int)gkgtKgtSystem.iCharacterSelectStartY) * 0x10000;
+    if (gkgtGameState.iPlayerOneChoseCharacterFlag == 0) {
+                    // If player hasn't chosen character, read inputs to move selection up/across
+                    // grid
+      if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 4) != 0) {
+        vCharacterSelectChangeSelection(&kgtStoryModeGridCoordinates,0,-1);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       }
-      if ((*(byte *)(giLastInputCleaned + UNK_KGT_PLAYER_BUFFER_IDX) & 8) != 0) {
-        CHAR_SELECT_CHANGE_SELECTION(&story_mode_grid,0,1);
-        pkVar4 = gpkgtCurrentEngineObject;
+      if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 8) != 0) {
+        vCharacterSelectChangeSelection(&kgtStoryModeGridCoordinates,0,1);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       }
-      if ((*(byte *)(giLastInputCleaned + UNK_KGT_PLAYER_BUFFER_IDX) & 1) != 0) {
-        CHAR_SELECT_CHANGE_SELECTION(&story_mode_grid,-1,0);
-        pkVar4 = gpkgtCurrentEngineObject;
+      if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 1) != 0) {
+        vCharacterSelectChangeSelection(&kgtStoryModeGridCoordinates,-1,0);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       }
-      if ((*(byte *)(giLastInputCleaned + UNK_KGT_PLAYER_BUFFER_IDX) & 2) != 0) {
-        CHAR_SELECT_CHANGE_SELECTION(&story_mode_grid,1,0);
-        pkVar4 = gpkgtCurrentEngineObject;
+      if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 2) != 0) {
+        vCharacterSelectChangeSelection(&kgtStoryModeGridCoordinates,1,0);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       }
-      hovered_character_story =
-           gkgtKgtSystem.distance_between_characters_y * story_mode_grid.row + story_mode_grid.col;
-      if (gkgtGameState.iCharSelect[0] != hovered_character_story) {
+      iStoryModeCharacterHovered =
+           gkgtKgtSystem.iColumnsInSelectScreen * kgtStoryModeGridCoordinates.iRow +
+           kgtStoryModeGridCoordinates.iCol;
+      if (gkgtGameState.iCharSelect[0] != iStoryModeCharacterHovered) {
         if (gkgtGameState.iCharSelect[0] != -1) {
-          reset_all_objects_for_player(0);
+          vResetObjectsForPlayerIdx(0);
           gkgtGameState.iCharSelect[0] = -1;
           return;
         }
-        if (49 < hovered_character_story) {
+        if (49 < iStoryModeCharacterHovered) {
           return;
         }
-        if (gkgtKgtSystem.character_names[hovered_character_story][0] == '\0') {
+        if (gkgtKgtSystem.gsCharacterName[iStoryModeCharacterHovered][0] == '\0') {
           return;
         }
-        if ((gkgtKgtSystem.story_mode_setting_check_array[hovered_character_story + -2] & 1U) == 0)
-        {
+                    // Check if character is allowed in story mode
+        if ((gkgtKgtSystem.giCharacterHasStoryModeFlags[iStoryModeCharacterHovered] & 1U) == 0) {
           return;
         }
-        gkgtGameState.iCharSelect[0] = hovered_character_story;
-        READ_CHARACTER_FILE(0,hovered_character_story);
-        pkVar7 = kgtoNewEngineObject(READ_SCRIPT,0x50,
-                                     (int)gkgtKgtSystem.rows_in_select_screen << 0x10,
-                                     (gkgtKgtSystem.player1_cursor_x + 0x1e0) * 0x10000);
-        p0skillalloc = gkgtLoadedCharacter[0].kgt_core.pSkillsAlloc;
-        default0x32 = gkgtLoadedCharacter[0]._30116_4_ & 0xffff;
-        pkVar7->obj_type = 1;
-        pkVar7->iPlayerBuffer = 0;
-        pkVar4 = gpkgtCurrentEngineObject;
-        pkVar7->action_idx = default0x32;
-        pkVar4->obj_ptr_b = pkVar7;
-        *(uint *)&pkVar7->actionscript_idx =
-             (uint)(ushort)p0skillalloc[default0x32].shStartingStepIdx;
-        pkVar7->unk_bitmask = pkVar7->unk_bitmask | 0x40000000;
+        gkgtGameState.iCharSelect[0] = iStoryModeCharacterHovered;
+                    // Bug: This seriously opens a new character file every time the player moves to
+                    // a different character on the select screen...
+        iOpenCharacterFile(0,iStoryModeCharacterHovered);
+        kgtoCharSelectObject =
+             kgtoNewEngineObject(READ_SCRIPT,0x50,(int)gkgtKgtSystem.iPlayerOneCursorX << 0x10,
+                                 (gkgtKgtSystem.iPlayerOneCursorY + 0x1e0) * 0x10000);
+        kgtPlayerOneSkillsAlloc = gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc;
+        iSkillIdxCharSelectPic = gkgtLoadedCharacter[0]._30116_4_ & 0xffff;
+        kgtoCharSelectObject->iObjectType = story?;
+        kgtoCharSelectObject->iPlayerBuffer = 0;
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+        kgtoCharSelectObject->iSkillIdx = iSkillIdxCharSelectPic;
+        pkgtCurrentEngineObject->obj_ptr_b = kgtoCharSelectObject;
+        *(uint *)&kgtoCharSelectObject->iSkillScriptIdx =
+             (uint)(ushort)kgtPlayerOneSkillsAlloc[iSkillIdxCharSelectPic].shStartingStepIdx;
+        kgtoCharSelectObject->unk_bitmask = kgtoCharSelectObject->unk_bitmask | 0x40000000;
       }
-      uVar3 = gkgtKgtSystem._73748_4_;
       if ((-1 < gkgtGameState.iCharSelect[0]) &&
-         ((giLastInputXor[UNK_KGT_PLAYER_BUFFER_IDX] & 0x3f0U) != 0)) {
-        gkgtGameState.character_chosen_flag_player_0 = 1;
-        *(undefined4 *)pkVar4->timer_mod_10 = 1;
-        iVar9 = new_kgt_scriptread_obj_with_action_idx((short)uVar3,0x65,0,0);
-        hovered_character_story = UNK_KGT_PLAYER_BUFFER_IDX;
-        gpkgtCurrentEngineObject->timer_mod_10 = iVar9;
-        bVar4 = get_action_button_pressed(giLastInputXor[hovered_character_story]);
-        STORY_MODE_IDX = UNK_KGT_PLAYER_BUFFER_IDX;
-        gkgtGameState.action_btn_pressed_player_0 = bVar4;
-        pick_player_color(0,giLastInputXor[UNK_KGT_PLAYER_BUFFER_IDX]);
+         ((giLastInputXor[giStoryModePlayerIdx] & 0x3f0U) != 0)) {
+                    // This IF block is what actually solidifies character selection
+        kgtoCharSelectObject = (kgtEngineObject *)(gkgtKgtSystem._73748_4_ & 0xffff);
+        gkgtGameState.iPlayerOneChoseCharacterFlag = 1;
+        *(undefined4 *)pkgtCurrentEngineObject->timer_mod_10 = 1;
+        pkgtCurrentEngineObject = kgtoNewObjectForSkillIdx(kgtoCharSelectObject,0x65,0,0,unaff_EDI);
+        iStoryModeCharacterHovered = giStoryModePlayerIdx;
+        gpkgtCurrentEngineObject->timer_mod_10 = (int)pkgtCurrentEngineObject;
+        bVar4 = iGetPressedActionButton(giLastInputXor[iStoryModeCharacterHovered]);
+        giStoryModePlayerIdx_2 = giStoryModePlayerIdx;
+        gkgtGameState.iActionButtonPressedPlayerOne = bVar4;
+        vPickPlayerColor(0,giLastInputXor[giStoryModePlayerIdx]);
       }
     }
     else {
-      hovered_character_story = UNK_CHAR_SELECT_GLOBAL_A + 1;
-      bVar2 = 100 < UNK_CHAR_SELECT_GLOBAL_A;
-      UNK_CHAR_SELECT_GLOBAL_A = hovered_character_story;
-      if (bVar2) {
+                    // if gkgtGameState.iPlayerOneChoseCharacterFlag != 0
+      iStoryModePrestartTimer = giBattlePrestartTimer + 1;
+      bHasWaitedMoreThanASecond = 100 < giBattlePrestartTimer;
+      giBattlePrestartTimer = iStoryModePrestartTimer;
+      if (bHasWaitedMoreThanASecond) {
         vResetObjectsAndSpeed();
         gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
                     // This can generate exits at jumptable idx 14 and at 16
-        HANDLE_STORY_MODE();
+        vProgressStoryMode();
         return;
       }
     }
   }
   else if (gkgtGameState.kgtGameMode == VS_single) {
-    player_idx = 0;
-    pkVar11 = local_8;
-    char_sel_col = (kgt_grid *)local_4;
+    iPlayerIdx = 0;
+    pkgtoVsCursor = pkgtkoVsCursor_2;
+    kgtgPlayerGrid = (kgtGridCoordinates *)kgtoChildObject_B;
     do {
-      if (player_idx == 0) {
-        pkVar11 = (kgt_grid *)pkVar4->timer_mod_10;
-        local_4 = (kgtEngineObject *)&pkVar4->obj_ptr_b;
-        char_sel_col = &Char_Select_VS_Col_0;
-        local_8 = pkVar11;
+      if (iPlayerIdx == 0) {
+        pkgtoVsCursor = (kgtEngineObject *)pkgtCurrentEngineObject->timer_mod_10;
+        kgtoChildObject_B = (kgtEngineObject *)&pkgtCurrentEngineObject->obj_ptr_b;
+        kgtgPlayerGrid = &giCharacterSelectVsGridPlayer1;
+        pkgtkoVsCursor_2 = pkgtoVsCursor;
       }
-      else if (player_idx == 1) {
-        pkVar11 = (kgt_grid *)pkVar4->timer_div_ten_mod_10;
-        local_4 = (kgtEngineObject *)&pkVar4->obj_ptr_a;
-        char_sel_col = &Char_Select_VS_Col_1;
-        local_8 = pkVar11;
+      else if (iPlayerIdx == 1) {
+        pkgtoVsCursor = (kgtEngineObject *)pkgtCurrentEngineObject->timer_div_ten_mod_10;
+        kgtoChildObject_B = (kgtEngineObject *)&pkgtCurrentEngineObject->obj_ptr_a;
+        kgtgPlayerGrid = &giCharacterSelectVsGridPlayer2;
+        pkgtkoVsCursor_2 = pkgtoVsCursor;
       }
-      pkVar11[1].col =
-           ((int)gkgtKgtSystem.character_select_start_y *
-            ((kgtEngineObject *)char_sel_col)->iJumpIdx + (int)(short)gkgtKgtSystem._73840_2_) *
-           0x10000;
-      player_has_chosen = (&gkgtGameState.character_chosen_flag_player_0)[player_idx];
-      pkVar11[1].row =
-           ((int)gkgtKgtSystem.distance_between_characters_x *
-            ((kgtEngineObject *)char_sel_col)->iParam2 + (int)gkgtKgtSystem.character_select_start_x
+      pkgtoVsCursor->iParam3 =
+           ((int)gkgtKgtSystem.iDistanceBetweenCharactersX *
+            ((kgtEngineObject *)kgtgPlayerGrid)->iJumpIdx +
+           (int)gkgtKgtSystem.iCharacterSelectStartX) * 0x10000;
+      player_has_chosen = (&gkgtGameState.iPlayerOneChoseCharacterFlag)[iPlayerIdx];
+      pkgtoVsCursor->iParam4 =
+           ((int)gkgtKgtSystem.iDistanceBetweenCharactersY *
+            ((kgtEngineObject *)kgtgPlayerGrid)->iParam2 + (int)gkgtKgtSystem.iCharacterSelectStartY
            ) * 0x10000;
       if (player_has_chosen == 0) {
-        if ((gkgtGameState.iCharSelect[player_idx] < 0) ||
-           ((giLastInputXor[player_idx] & 0x3f0U) == 0)) {
-          if ((*(byte *)(giLastInputCleaned + player_idx) & 4) != 0) {
-            CHAR_SELECT_CHANGE_SELECTION(char_sel_col,0,-1);
-            pkVar4 = gpkgtCurrentEngineObject;
+        if ((gkgtGameState.iCharSelect[iPlayerIdx] < 0) ||
+           ((giLastInputXor[iPlayerIdx] & 0x3f0U) == 0)) {
+          if ((*(byte *)(giLastInputCleaned + iPlayerIdx) & 4) != 0) {
+            vCharacterSelectChangeSelection(kgtgPlayerGrid,0,-1);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
           }
-          if ((*(byte *)(giLastInputCleaned + player_idx) & 8) != 0) {
-            CHAR_SELECT_CHANGE_SELECTION(char_sel_col,0,1);
-            pkVar4 = gpkgtCurrentEngineObject;
+          if ((*(byte *)(giLastInputCleaned + iPlayerIdx) & 8) != 0) {
+            vCharacterSelectChangeSelection(kgtgPlayerGrid,0,1);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
           }
-          if ((*(byte *)(giLastInputCleaned + player_idx) & 1) != 0) {
-            CHAR_SELECT_CHANGE_SELECTION(char_sel_col,-1,0);
-            pkVar4 = gpkgtCurrentEngineObject;
+          if ((*(byte *)(giLastInputCleaned + iPlayerIdx) & 1) != 0) {
+            vCharacterSelectChangeSelection(kgtgPlayerGrid,-1,0);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
           }
-          if ((*(byte *)(giLastInputCleaned + player_idx) & 2) != 0) {
-            CHAR_SELECT_CHANGE_SELECTION(char_sel_col,1,0);
-            pkVar4 = gpkgtCurrentEngineObject;
+          if ((*(byte *)(giLastInputCleaned + iPlayerIdx) & 2) != 0) {
+            vCharacterSelectChangeSelection(kgtgPlayerGrid,1,0);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
           }
-          hovered_character_vs =
-               (int)gkgtKgtSystem.distance_between_characters_y *
-               ((kgtEngineObject *)char_sel_col)->iParam2 +
-               ((kgtEngineObject *)char_sel_col)->iJumpIdx;
-          if (gkgtGameState.iCharSelect[player_idx] != hovered_character_vs) {
-            if (gkgtGameState.iCharSelect[player_idx] == -1) {
-              if (((hovered_character_vs < 0x32) &&
-                  (gkgtKgtSystem.character_names[hovered_character_vs][0] != '\0')) &&
-                 ((gkgtKgtSystem.story_mode_setting_check_array[hovered_character_vs + -2] & 2U) !=
-                  0)) {
-                gkgtGameState.iCharSelect[player_idx] = hovered_character_vs;
-                READ_CHARACTER_FILE(player_idx,hovered_character_vs);
-                if (player_idx == 0) {
-                  pkVar4 = kgtoNewEngineObject(READ_SCRIPT,0x50,
-                                               (int)gkgtKgtSystem.rows_in_select_screen << 0x10,
-                                               (gkgtKgtSystem.player1_cursor_x + 0x1e0) * 0x10000);
+          iHoveredCharacterVs =
+               (int)gkgtKgtSystem.iColumnsInSelectScreen *
+               ((kgtEngineObject *)kgtgPlayerGrid)->iParam2 +
+               ((kgtEngineObject *)kgtgPlayerGrid)->iJumpIdx;
+          if (gkgtGameState.iCharSelect[iPlayerIdx] != iHoveredCharacterVs) {
+            if (gkgtGameState.iCharSelect[iPlayerIdx] == -1) {
+              if (((iHoveredCharacterVs < 0x32) &&
+                  (gkgtKgtSystem.gsCharacterName[iHoveredCharacterVs][0] != '\0')) &&
+                 ((gkgtKgtSystem.giCharacterHasStoryModeFlags[iHoveredCharacterVs] & 2U) != 0)) {
+                gkgtGameState.iCharSelect[iPlayerIdx] = iHoveredCharacterVs;
+                iOpenCharacterFile(iPlayerIdx,iHoveredCharacterVs);
+                if (iPlayerIdx == 0) {
+                  kgtoNewObjectVs =
+                       kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                           (int)gkgtKgtSystem.iPlayerOneCursorX << 0x10,
+                                           (gkgtKgtSystem.iPlayerOneCursorY + 0x1e0) * 0x10000);
                 }
                 else {
-                  pkVar4 = kgtoNewEngineObject(READ_SCRIPT,0x50,
-                                               (int)gkgtKgtSystem.player1_selection_height << 0x10,
-                                               (gkgtKgtSystem.player2_cursor_x + 0x1e0) * 0x10000);
-                  pkVar4->pos_player_direction = 1;
+                  kgtoNewObjectVs =
+                       kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                           (int)gkgtKgtSystem.iPlayerTwoCursorX << 0x10,
+                                           (gkgtKgtSystem.iPlayerTwoCursorY + 0x1e0) * 0x10000);
+                  kgtoNewObjectVs->iPlayerLookingLeft = 1;
                 }
-                local_4->iJumpIdx = (kgtJumptableEndpoints)pkVar4;
-                uVar1 = gkgtLoadedCharacter[player_idx].shSkillIdxCharSelectPic;
-                p0skillalloc = gkgtLoadedCharacter[player_idx].kgt_core.pSkillsAlloc;
-                pkVar4->action_idx = (uint)uVar1;
-                pkVar4->obj_type = 1;
-                pkVar4->iPlayerBuffer = player_idx;
-                *(uint *)&pkVar4->actionscript_idx =
-                     (uint)(ushort)p0skillalloc[uVar1].shStartingStepIdx;
-                pkVar4->unk_bitmask = pkVar4->unk_bitmask | 0x40000000;
-                pkVar4 = gpkgtCurrentEngineObject;
-                pkVar11 = local_8;
+                kgtoChildObject_B->iJumpIdx = (kgtJumptableEndpoints)kgtoNewObjectVs;
+                iSkillIdxCharSelectPicVs = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxCharSelectPic;
+                kgtPlayerOneSkillsAlloc = gkgtLoadedCharacter[iPlayerIdx].kgtCore.pSkillsAlloc;
+                kgtoNewObjectVs->iSkillIdx = (uint)iSkillIdxCharSelectPicVs;
+                kgtoNewObjectVs->iObjectType = story?;
+                kgtoNewObjectVs->iPlayerBuffer = iPlayerIdx;
+                *(uint *)&kgtoNewObjectVs->iSkillScriptIdx =
+                     (uint)(ushort)kgtPlayerOneSkillsAlloc[iSkillIdxCharSelectPicVs].
+                                   shStartingStepIdx;
+                kgtoNewObjectVs->unk_bitmask = kgtoNewObjectVs->unk_bitmask | 0x40000000;
+                pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+                pkgtoVsCursor = pkgtkoVsCursor_2;
               }
             }
             else {
-              reset_all_objects_for_player(player_idx);
-              pkVar4 = gpkgtCurrentEngineObject;
-              gkgtGameState.iCharSelect[player_idx] = -1;
+              vResetObjectsForPlayerIdx(iPlayerIdx);
+              pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+              gkgtGameState.iCharSelect[iPlayerIdx] = -1;
             }
           }
         }
         else {
-          pkVar11->col = 1;
-          if (player_idx == 0) {
-            hovered_character_story =
-                 new_kgt_scriptread_obj_with_action_idx
-                           (gkgtKgtSystem.skill_idx_1p_vs_cursor_after_input,0x65,0,0);
-            gpkgtCurrentEngineObject->timer_mod_10 = hovered_character_story;
+          pkgtoVsCursor->iJumpIdx = RESET_IDX;
+          if (iPlayerIdx == 0) {
+                    // shSkillIdx1pVsCursorAfterInput
+            pkgto1pVsCursorAfterInput =
+                 kgtoNewObjectForSkillIdx
+                           ((kgtEngineObject *)(gkgtKgtSystem._73748_4_ & 0xffff),0x65,0,0,unaff_EDI
+                           );
+            gpkgtCurrentEngineObject->timer_mod_10 = (int)pkgto1pVsCursorAfterInput;
           }
           else {
-            hovered_character_story =
-                 new_kgt_scriptread_obj_with_action_idx
-                           (gkgtKgtSystem.skill_idx_2p_vs_cursor_after_input,0x65,0,0);
-            gpkgtCurrentEngineObject->timer_div_ten_mod_10 = hovered_character_story;
+            pkgto2pVsCursorAfterInput =
+                 kgtoNewObjectForSkillIdx
+                           ((kgtEngineObject *)((uint)gkgtKgtSystem._73748_4_ >> 0x10),0x65,0,0,
+                            unaff_EDI);
+            gpkgtCurrentEngineObject->timer_div_ten_mod_10 = (int)pkgto2pVsCursorAfterInput;
           }
-          default0x32 = giLastInputXor[player_idx];
-          (&gkgtGameState.character_chosen_flag_player_0)[player_idx] = 1;
-          last_button_pressed = get_action_button_pressed(default0x32);
-          last_input_diff = giLastInputXor[player_idx];
-          (&gkgtGameState.action_btn_pressed_player_0)[player_idx * 4] = last_button_pressed;
-          pick_player_color(player_idx,last_input_diff);
-          pkVar4 = gpkgtCurrentEngineObject;
+          iLastInputXor = giLastInputXor[iPlayerIdx];
+          (&gkgtGameState.iPlayerOneChoseCharacterFlag)[iPlayerIdx] = 1;
+          last_button_pressed = iGetPressedActionButton(iLastInputXor);
+          last_input_diff = giLastInputXor[iPlayerIdx];
+          (&gkgtGameState.iActionButtonPressedPlayerOne)[iPlayerIdx * 4] = last_button_pressed;
+          vPickPlayerColor(iPlayerIdx,last_input_diff);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
       }
-      player_idx = player_idx + 1;
-    } while (player_idx < 2);
-    if (((gkgtGameState.character_chosen_flag_player_0 != 0) &&
-        (gkgtGameState.character_chosen_flag_player_1 != 0)) &&
-       (hovered_character_story = UNK_CHAR_SELECT_GLOBAL_A + 1,
-       bVar2 = 100 < UNK_CHAR_SELECT_GLOBAL_A, UNK_CHAR_SELECT_GLOBAL_A = hovered_character_story,
-       bVar2)) {
+      iPlayerIdx = iPlayerIdx + 1;
+    } while (iPlayerIdx < 2);
+    if (((gkgtGameState.iPlayerOneChoseCharacterFlag != 0) &&
+        (gkgtGameState.iCharacterChosenFlagPlayerOne != 0)) &&
+       (iStoryModeCharacterHovered = giBattlePrestartTimer + 1,
+       bHasWaitedMoreThanASecond = 100 < giBattlePrestartTimer,
+       giBattlePrestartTimer = iStoryModeCharacterHovered, bHasWaitedMoreThanASecond)) {
       vResetObjectsAndSpeed();
       gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
       gkgtGameState.iIsPausedFlag = 0;
@@ -6509,157 +6549,168 @@ LAB_00407133:
   }
   else if (gkgtGameState.kgtGameMode == VS_team) {
     local_14 = 0;
-    piVar11 = &local_8->col;
+    piPlayerColumn = pkgtkoVsCursor_2;
     do {
-      hovered_character_story = local_14 * 4;
-      iVar9 = (&gkgtGameState.char_select_var_a)[local_14] + hovered_character_story;
+      iStoryModeCharacterHovered = local_14 * 4;
+      idx = (&gkgtGameState.char_select_var_a)[local_14] + iStoryModeCharacterHovered;
       if (local_14 == 0) {
-        local_4 = (kgtEngineObject *)&pkVar4->obj_ptr_b;
-        local_10 = (undefined4 *)pkVar4->timer_mod_10;
-        local_8 = &Char_Select_VS_Col_0;
-        piVar11 = &Char_Select_VS_Col_0.col;
+        kgtoChildObject_B = (kgtEngineObject *)&pkgtCurrentEngineObject->obj_ptr_b;
+        local_10 = (undefined4 *)pkgtCurrentEngineObject->timer_mod_10;
+        pkgtkoVsCursor_2 = (kgtEngineObject *)&giCharacterSelectVsGridPlayer1;
+        piPlayerColumn = (kgtEngineObject *)&giCharacterSelectVsGridPlayer1;
       }
       else if (local_14 == 1) {
-        local_10 = (undefined4 *)pkVar4->timer_div_ten_mod_10;
-        local_4 = (kgtEngineObject *)&pkVar4->obj_ptr_a;
-        piVar11 = &Char_Select_VS_Col_1.col;
-        local_8 = &Char_Select_VS_Col_1;
+        local_10 = (undefined4 *)pkgtCurrentEngineObject->timer_div_ten_mod_10;
+        kgtoChildObject_B = (kgtEngineObject *)&pkgtCurrentEngineObject->obj_ptr_a;
+        piPlayerColumn = (kgtEngineObject *)&giCharacterSelectVsGridPlayer2;
+        pkgtkoVsCursor_2 = (kgtEngineObject *)&giCharacterSelectVsGridPlayer2;
       }
-      local_10[2] = ((int)gkgtKgtSystem.character_select_start_y * ((kgt_grid *)piVar11)->col +
-                    (int)(short)gkgtKgtSystem._73840_2_) * 0x10000;
-      local_10[3] = ((int)gkgtKgtSystem.distance_between_characters_x * ((kgt_grid *)piVar11)->row +
-                    (int)gkgtKgtSystem.character_select_start_x) * 0x10000;
-      if ((&gkgtGameState.character_chosen_flag_player_0)[local_14] == 0) {
+      local_10[2] = ((int)gkgtKgtSystem.iDistanceBetweenCharactersX * piPlayerColumn->iJumpIdx +
+                    (int)gkgtKgtSystem.iCharacterSelectStartX) * 0x10000;
+      local_10[3] = ((int)gkgtKgtSystem.iDistanceBetweenCharactersY * piPlayerColumn->iParam2 +
+                    (int)gkgtKgtSystem.iCharacterSelectStartY) * 0x10000;
+      if ((&gkgtGameState.iPlayerOneChoseCharacterFlag)[local_14] == 0) {
         if ((*(byte *)(giLastInputCleaned + local_14) & 4) != 0) {
-          CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,0,-1);
-          pkVar4 = gpkgtCurrentEngineObject;
+          vCharacterSelectChangeSelection((kgtGridCoordinates *)piPlayerColumn,0,-1);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
         if ((*(byte *)(giLastInputCleaned + local_14) & 8) != 0) {
-          CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,0,1);
-          pkVar4 = gpkgtCurrentEngineObject;
+          vCharacterSelectChangeSelection((kgtGridCoordinates *)piPlayerColumn,0,1);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
         if ((*(byte *)(giLastInputCleaned + local_14) & 1) != 0) {
-          CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,-1,0);
-          pkVar4 = gpkgtCurrentEngineObject;
+          vCharacterSelectChangeSelection((kgtGridCoordinates *)piPlayerColumn,-1,0);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
         if ((*(byte *)(giLastInputCleaned + local_14) & 2) != 0) {
-          CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,1,0);
-          pkVar4 = gpkgtCurrentEngineObject;
+          vCharacterSelectChangeSelection((kgtGridCoordinates *)piPlayerColumn,1,0);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
-        iVar10 = (int)gkgtKgtSystem.distance_between_characters_y * ((kgt_grid *)piVar11)->row +
-                 ((kgt_grid *)piVar11)->col;
-        if (gkgtGameState.iCharSelect[local_14] == iVar10) {
+        iVar4 = (int)gkgtKgtSystem.iColumnsInSelectScreen * piPlayerColumn->iParam2 +
+                piPlayerColumn->iJumpIdx;
+        if (gkgtGameState.iCharSelect[local_14] == iVar4) {
 LAB_0040752f:
           gkgtGameState.iCharSelect
-          [(&gkgtGameState.char_select_var_a)[local_14] + hovered_character_story + 0x13] = iVar10;
+          [(&gkgtGameState.char_select_var_a)[local_14] + iStoryModeCharacterHovered + 0x13] = iVar4
+          ;
           if ((-1 < gkgtGameState.iCharSelect[local_14]) &&
              ((giLastInputXor[local_14] & 0x3f0U) != 0)) {
-            pick_player_color(iVar9,giLastInputXor[local_14]);
-            (&gkgtGameState.action_btn_pressed_player_0)
-            [(&gkgtGameState.char_select_var_a)[local_14] + hovered_character_story] =
-                 gkgtLoadedCharacter[iVar9].iColorInt;
+            vPickPlayerColor(idx,giLastInputXor[local_14]);
+            (&gkgtGameState.iActionButtonPressedPlayerOne)
+            [(&gkgtGameState.char_select_var_a)[local_14] + iStoryModeCharacterHovered] =
+                 gkgtLoadedCharacter[idx].iColorInt;
             if ((&gkgtGameState.char_select_var_a)[local_14] + 1 <
-                gkgtGameState.PTR_TO___OF_ROUNDS_TEAM_VS_00470064) {
-              iVar5 = gkgtGameState.PTR_TO___OF_ROUNDS_TEAM_VS_00470064 -
+                gkgtGameState.iConfigNumberOfRoundsTeamVs) {
+              iVar1 = gkgtGameState.iConfigNumberOfRoundsTeamVs -
                       (&gkgtGameState.char_select_var_a)[local_14];
-              iVar6 = iVar5 + -1;
-              READ_CHARACTER_FILE(iVar9,iVar10);
+              iVar2 = iVar1 + -1;
+              iOpenCharacterFile(idx,iVar4);
               if (local_14 == 0) {
-                pkVar7 = kgtoNewEngineObject(READ_SCRIPT,iVar5 + 0x4f,
-                                             (gkgtKgtSystem.player1_cursor_y * iVar6 +
-                                             (int)gkgtKgtSystem.rows_in_select_screen) * 0x10000,
-                                             (gkgtKgtSystem.player1_selection_width * iVar6 + 0x1e0
-                                             + (int)gkgtKgtSystem.player1_cursor_x) * 0x10000);
+                kgtoCharSelectObject =
+                     kgtoNewEngineObject(READ_SCRIPT,iVar1 + 0x4f,
+                                         (gkgtKgtSystem.player1_selection_width * iVar2 +
+                                         (int)gkgtKgtSystem.iPlayerOneCursorX) * 0x10000,
+                                         (gkgtKgtSystem.player1_selection_height * iVar2 + 0x1e0 +
+                                         (int)gkgtKgtSystem.iPlayerOneCursorY) * 0x10000);
               }
               else {
-                pkVar7 = kgtoNewEngineObject(READ_SCRIPT,iVar5 + 0x4f,
-                                             (gkgtKgtSystem.player2_cursor_y * iVar6 +
-                                             (int)gkgtKgtSystem.player1_selection_height) * 0x10000,
-                                             (gkgtKgtSystem.player2_selection_width * iVar6 + 0x1e0
-                                             + (int)gkgtKgtSystem.player2_cursor_x) * 0x10000);
-                pkVar7->pos_player_direction = 1;
+                kgtoCharSelectObject =
+                     kgtoNewEngineObject(READ_SCRIPT,iVar1 + 0x4f,
+                                         (gkgtKgtSystem.player2_selection_width * iVar2 +
+                                         (int)gkgtKgtSystem.iPlayerTwoCursorX) * 0x10000,
+                                         (gkgtKgtSystem.player2_selection_height * iVar2 + 0x1e0 +
+                                         (int)gkgtKgtSystem.iPlayerTwoCursorY) * 0x10000);
+                kgtoCharSelectObject->iPlayerLookingLeft = 1;
               }
-              iVar10 = (&gkgtGameState.char_select_var_a)[local_14];
-              pkVar7->obj_type = 1;
+              iVar4 = (&gkgtGameState.char_select_var_a)[local_14];
+              kgtoCharSelectObject->iObjectType = story?;
               *(kgtEngineObject **)
-               ((int)INT_ARRAY_00424e7a + (iVar10 + hovered_character_story) * 4 + 6) = pkVar7;
-              pkVar7->iPlayerBuffer = iVar9;
-              uVar1 = gkgtLoadedCharacter[iVar9].shSkillIdxCharSelectPic;
-              pkVar7->action_idx = (uint)uVar1;
-              uVar1 = gkgtLoadedCharacter[iVar9].kgt_core.pSkillsAlloc[uVar1].shStartingStepIdx;
-              pkVar7->unk_bitmask = pkVar7->unk_bitmask | 0x40000000;
-              pkVar4 = gpkgtCurrentEngineObject;
-              *(uint *)&pkVar7->actionscript_idx = (uint)uVar1;
-              (&gkgtGameState.char_select_var_a)[local_14] = iVar10 + 1;
-              piVar11 = &local_8->col;
+               ((int)INT_ARRAY_00424e7a + (iVar4 + iStoryModeCharacterHovered) * 4 + 6) =
+                   kgtoCharSelectObject;
+              kgtoCharSelectObject->iPlayerBuffer = idx;
+              iSkillIdxCharSelectPicVs = gkgtLoadedCharacter[idx].shSkillIdxCharSelectPic;
+              kgtoCharSelectObject->iSkillIdx = (uint)iSkillIdxCharSelectPicVs;
+              iSkillIdxCharSelectPicVs =
+                   gkgtLoadedCharacter[idx].kgtCore.pSkillsAlloc[iSkillIdxCharSelectPicVs].
+                   shStartingStepIdx;
+              kgtoCharSelectObject->unk_bitmask = kgtoCharSelectObject->unk_bitmask | 0x40000000;
+              pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+              *(uint *)&kgtoCharSelectObject->iSkillScriptIdx = (uint)iSkillIdxCharSelectPicVs;
+              (&gkgtGameState.char_select_var_a)[local_14] = iVar4 + 1;
+              piPlayerColumn = pkgtkoVsCursor_2;
             }
             else {
               *local_10 = 1;
               if (local_14 == 0) {
-                hovered_character_story =
-                     new_kgt_scriptread_obj_with_action_idx
-                               (gkgtKgtSystem.skill_idx_1p_vs_cursor_after_input,0x65,0,0);
-                pkVar4 = gpkgtCurrentEngineObject;
-                gkgtGameState.character_chosen_flag_player_0 = 1;
-                gpkgtCurrentEngineObject->timer_mod_10 = hovered_character_story;
+                kgtoCharSelectObject =
+                     kgtoNewObjectForSkillIdx
+                               ((kgtEngineObject *)(gkgtKgtSystem._73748_4_ & 0xffff),0x65,0,0,
+                                unaff_EDI);
+                pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+                gkgtGameState.iPlayerOneChoseCharacterFlag = 1;
+                gpkgtCurrentEngineObject->timer_mod_10 = (int)kgtoCharSelectObject;
               }
               else {
-                hovered_character_story =
-                     new_kgt_scriptread_obj_with_action_idx
-                               (gkgtKgtSystem.skill_idx_2p_vs_cursor_after_input,0x65,0,0);
-                pkVar4 = gpkgtCurrentEngineObject;
-                (&gkgtGameState.character_chosen_flag_player_0)[local_14] = 1;
-                pkVar4->timer_div_ten_mod_10 = hovered_character_story;
+                kgtoCharSelectObject =
+                     kgtoNewObjectForSkillIdx
+                               ((kgtEngineObject *)((uint)gkgtKgtSystem._73748_4_ >> 0x10),0x65,0,0,
+                                unaff_EDI);
+                pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+                (&gkgtGameState.iPlayerOneChoseCharacterFlag)[local_14] = 1;
+                pkgtCurrentEngineObject->timer_div_ten_mod_10 = (int)kgtoCharSelectObject;
               }
             }
           }
         }
         else {
-          iVar5 = hovered_character_story + 3;
+          iVar1 = iStoryModeCharacterHovered + 3;
           if (gkgtGameState.iCharSelect[local_14] == -1) {
-            if (((iVar10 < 0x32) && (gkgtKgtSystem.character_names[iVar10][0] != '\0')) &&
-               ((gkgtKgtSystem.story_mode_setting_check_array[iVar10 + -2] & 2U) != 0)) {
-              gkgtGameState.iCharSelect[local_14] = iVar10;
-              READ_CHARACTER_FILE(iVar5,iVar10);
+            if (((iVar4 < 0x32) && (gkgtKgtSystem.gsCharacterName[iVar4][0] != '\0')) &&
+               ((gkgtKgtSystem.giCharacterHasStoryModeFlags[iVar4] & 2U) != 0)) {
+              gkgtGameState.iCharSelect[local_14] = iVar4;
+              iOpenCharacterFile(iVar1,iVar4);
               if (local_14 == 0) {
-                pkVar4 = kgtoNewEngineObject(READ_SCRIPT,0x50,
-                                             (int)gkgtKgtSystem.rows_in_select_screen << 0x10,
-                                             (gkgtKgtSystem.player1_cursor_x + 0x1e0) * 0x10000);
+                pkgtCurrentEngineObject =
+                     kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                         (int)gkgtKgtSystem.iPlayerOneCursorX << 0x10,
+                                         (gkgtKgtSystem.iPlayerOneCursorY + 0x1e0) * 0x10000);
               }
               else {
-                pkVar4 = kgtoNewEngineObject(READ_SCRIPT,0x50,
-                                             (int)gkgtKgtSystem.player1_selection_height << 0x10,
-                                             (gkgtKgtSystem.player2_cursor_x + 0x1e0) * 0x10000);
-                pkVar4->pos_player_direction = 1;
+                pkgtCurrentEngineObject =
+                     kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                         (int)gkgtKgtSystem.iPlayerTwoCursorX << 0x10,
+                                         (gkgtKgtSystem.iPlayerTwoCursorY + 0x1e0) * 0x10000);
+                pkgtCurrentEngineObject->iPlayerLookingLeft = 1;
               }
-              pkVar4->iPlayerBuffer = iVar5;
-              pkVar4->obj_type = 1;
-              local_4->iJumpIdx = (kgtJumptableEndpoints)pkVar4;
-              uVar1 = gkgtLoadedCharacter[iVar5].shSkillIdxCharSelectPic;
-              pkVar4->action_idx = (uint)uVar1;
+              pkgtCurrentEngineObject->iPlayerBuffer = iVar1;
+              pkgtCurrentEngineObject->iObjectType = story?;
+              kgtoChildObject_B->iJumpIdx = (kgtJumptableEndpoints)pkgtCurrentEngineObject;
+              iSkillIdxCharSelectPicVs = gkgtLoadedCharacter[iVar1].shSkillIdxCharSelectPic;
+              pkgtCurrentEngineObject->iSkillIdx = (uint)iSkillIdxCharSelectPicVs;
                     // initially setting the obj bitmask here
-              *(uint *)&pkVar4->actionscript_idx =
-                   (uint)(ushort)gkgtLoadedCharacter[iVar5].kgt_core.pSkillsAlloc[uVar1].
-                                 shStartingStepIdx;
-              pkVar4->unk_bitmask = pkVar4->unk_bitmask | 0x40000000;
-              pkVar4 = gpkgtCurrentEngineObject;
+              *(uint *)&pkgtCurrentEngineObject->iSkillScriptIdx =
+                   (uint)(ushort)gkgtLoadedCharacter[iVar1].kgtCore.pSkillsAlloc
+                                 [iSkillIdxCharSelectPicVs].shStartingStepIdx;
+              pkgtCurrentEngineObject->unk_bitmask =
+                   pkgtCurrentEngineObject->unk_bitmask | 0x40000000;
+              pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
               goto LAB_0040752f;
             }
           }
           else {
-            reset_all_objects_for_player(iVar5);
-            pkVar4 = gpkgtCurrentEngineObject;
+            vResetObjectsForPlayerIdx(iVar1);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
             gkgtGameState.iCharSelect[local_14] = -1;
           }
         }
       }
       local_14 = local_14 + 1;
     } while (local_14 < 2);
-    if (((gkgtGameState.character_chosen_flag_player_0 != 0) &&
-        (gkgtGameState.character_chosen_flag_player_1 != 0)) &&
-       (hovered_character_story = UNK_CHAR_SELECT_GLOBAL_A + 1,
-       bVar2 = 100 < UNK_CHAR_SELECT_GLOBAL_A, UNK_CHAR_SELECT_GLOBAL_A = hovered_character_story,
-       bVar2)) {
+    if (((gkgtGameState.iPlayerOneChoseCharacterFlag != 0) &&
+        (gkgtGameState.iCharacterChosenFlagPlayerOne != 0)) &&
+       (iStoryModeCharacterHovered = giBattlePrestartTimer + 1,
+       bHasWaitedMoreThanASecond = 100 < giBattlePrestartTimer,
+       giBattlePrestartTimer = iStoryModeCharacterHovered, bHasWaitedMoreThanASecond)) {
       vResetObjectsAndSpeed();
       gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
       kgtoNewEngineObject(BATTLE_STATE,0x7f,0,0);
@@ -6686,7 +6737,7 @@ void __fastcall FUN_00407d70(kgtEngineObject *param_1)
   iVar8 = 0;
   if (gpkgtCurrentEngineObject->iProcessStep == 0) {
     gpkgtCurrentEngineObject->iProcessStep = 1;
-    iVar3 = iOpenDemoFile((uint)(byte)gkgtKgtSystem._p_demo_script_idx);
+    iVar3 = iOpenDemoFile((uint)(byte)gkgtKgtSystem.cStoryModeDemoIdx);
     if (iVar3 == 0) {
       vSpawnEngineObjectForDemoSkills();
     }
@@ -6694,11 +6745,11 @@ void __fastcall FUN_00407d70(kgtEngineObject *param_1)
     gkgtGameState.iCharSelect[0] = 0;
     gkgtGameState.iCharSelect[1] = 0;
     gpkgtCurrentEngineObject->iPlayerBuffer = -1;
-    pkVar5->obj_type = ~0;
+    pkVar5->iObjectType = ~player;
     pkVar5->obj_ptr_b = (kgtEngineObject *)0xffffffff;
     pkVar5->obj_ptr_a = (kgtEngineObject *)0xffffffff;
     unk_y_position = 0;
-    unk_x_position = 0x1e0;
+    unk_y_pos2 = 0x1e0;
     gkgtGameState.iGameStateNumber = 2000;
   }
   else {
@@ -6708,15 +6759,15 @@ void __fastcall FUN_00407d70(kgtEngineObject *param_1)
     }
   }
   if (gkgtGameState.kgtGameMode == 1P_story) {
-    if ((*(byte *)(giLastInputCleaned + UNK_KGT_PLAYER_BUFFER_IDX) & 5) != 0) {
+    if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 5) != 0) {
       FUN_00406db0(&gkgtGameState);
       pkVar5 = gpkgtCurrentEngineObject;
     }
-    if ((*(byte *)(giLastInputCleaned + UNK_KGT_PLAYER_BUFFER_IDX) & 10) != 0) {
+    if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 10) != 0) {
       FUN_00406e00(&gkgtGameState);
       pkVar5 = gpkgtCurrentEngineObject;
     }
-    iVar8 = UNK_KGT_PLAYER_BUFFER_IDX;
+    iVar8 = giStoryModePlayerIdx;
     if (gkgtGameState.iCharSelect[0] != pkVar5->iPlayerBuffer) {
       if (pkVar5->iPlayerBuffer != -1) {
         pkVar5->obj_ptr_b->iJumpIdx = RESET_IDX;
@@ -6726,21 +6777,21 @@ void __fastcall FUN_00407d70(kgtEngineObject *param_1)
       gpkgtCurrentEngineObject->obj_ptr_b = pkVar6;
       iVar8 = gkgtGameState.iCharSelect[0];
       pkVar5->iPlayerBuffer = gkgtGameState.iCharSelect[0];
-      READ_CHARACTER_FILE(0,iVar8);
-      pkVar2 = gkgtLoadedCharacter[0].kgt_core.pSkillsAlloc;
+      iOpenCharacterFile(0,iVar8);
+      pkVar2 = gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc;
       uVar7 = (uint)(ushort)gkgtLoadedCharacter[0].shSkillIdxStageFacePic;
       pkVar5 = gpkgtCurrentEngineObject->obj_ptr_b;
-      pkVar5->obj_type = 1;
+      pkVar5->iObjectType = story?;
       pkVar5->iPlayerBuffer = 0;
-      pkVar5->action_idx = uVar7;
-      *(uint *)&pkVar5->actionscript_idx = (uint)(ushort)pkVar2[uVar7].shStartingStepIdx;
+      pkVar5->iSkillIdx = uVar7;
+      *(uint *)&pkVar5->iSkillScriptIdx = (uint)(ushort)pkVar2[uVar7].shStartingStepIdx;
       pkVar5->unk_bitmask = pkVar5->unk_bitmask | 0x40000000;
     }
-    if ((giLastInputXor[UNK_KGT_PLAYER_BUFFER_IDX] & 0x3f0U) != 0) {
+    if ((giLastInputXor[giStoryModePlayerIdx] & 0x3f0U) != 0) {
       vResetObjectsAndSpeed();
-      STORY_MODE_IDX = UNK_KGT_PLAYER_BUFFER_IDX;
+      giStoryModePlayerIdx_2 = giStoryModePlayerIdx;
       gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
-      HANDLE_STORY_MODE();
+      vProgressStoryMode();
     }
   }
   else if ((0 < (int)gkgtGameState.kgtGameMode) &&
@@ -6753,7 +6804,7 @@ LAB_00407e49:
         pkVar4 = (kgtEngineObject *)pkVar6->iJumpIdx;
       }
       else if (iVar8 == 1) {
-        param_1 = (kgtEngineObject *)&pkVar5->obj_type;
+        param_1 = (kgtEngineObject *)&pkVar5->iObjectType;
         pkVar6 = (kgtEngineObject *)&pkVar5->obj_ptr_a;
         goto LAB_00407e49;
       }
@@ -6774,14 +6825,13 @@ LAB_00407e49:
         pkVar5 = (kgtEngineObject *)gkgtGameState.iCharSelect[iVar8];
         pkVar6->iJumpIdx = (kgtJumptableEndpoints)pkVar4;
         param_1->iJumpIdx = (kgtJumptableEndpoints)pkVar5;
-        READ_CHARACTER_FILE(iVar8,pkVar5);
-        pkVar4->obj_type = 1;
+        iOpenCharacterFile(iVar8,pkVar5);
+        pkVar4->iObjectType = story?;
         pkVar4->iPlayerBuffer = iVar8;
         uVar1 = gkgtLoadedCharacter[iVar8].shSkillIdxStageFacePic;
-        pkVar4->action_idx = (uint)uVar1;
-        *(uint *)&pkVar4->actionscript_idx =
-             (uint)(ushort)gkgtLoadedCharacter[iVar8].kgt_core.pSkillsAlloc[uVar1].shStartingStepIdx
-        ;
+        pkVar4->iSkillIdx = (uint)uVar1;
+        *(uint *)&pkVar4->iSkillScriptIdx =
+             (uint)(ushort)gkgtLoadedCharacter[iVar8].kgtCore.pSkillsAlloc[uVar1].shStartingStepIdx;
         pkVar4->unk_bitmask = pkVar4->unk_bitmask | 0x40000000;
         pkVar5 = gpkgtCurrentEngineObject;
       }
@@ -6811,10 +6861,12 @@ void vjmpMenuTraversal(void)
   short sVar1;
   int err;
   uint uVar2;
+  kgtEngineObject *pkVar3;
   int *pOVar5;
+  int unaff_ESI;
   bool has_story_mode;
-  kgtSkill *local_c [3];
-  kgt_obj_type newObj;
+  kgtSkill *kgtTitleCursor [3];
+  kgtEngineObject *newObj;
   kgtEngineObject *pkgtCurrentEngineObject;
   char sys_bitmask;
   
@@ -6841,7 +6893,7 @@ void vjmpMenuTraversal(void)
       gpkgtCurrentEngineObject->iPlayerBuffer = gpkgtCurrentEngineObject->iPlayerBuffer + 1;
       return;
     }
-    if (((byte)gcUnkownDemoVarA & 1) == 0) {
+    if (((byte)giDemoSkipWithInput & 1) == 0) {
       if ((giDemoTime != 0) && (giDemoTime = giDemoTime + -1, giDemoTime == 0)) {
         gpkgtCurrentEngineObject->iProcessStep = 2;
         return;
@@ -6849,10 +6901,10 @@ void vjmpMenuTraversal(void)
     }
     else {
       if ((giLastInputXor_2 & 0x3f0) == 0) {
-        gpkgtCurrentEngineObject->obj_type = 1;
+        gpkgtCurrentEngineObject->iObjectType = story?;
         return;
       }
-      if (gpkgtCurrentEngineObject->obj_type != 0) {
+      if (gpkgtCurrentEngineObject->iObjectType != player) {
         gpkgtCurrentEngineObject->iProcessStep = 2;
         return;
       }
@@ -6890,33 +6942,38 @@ void vjmpMenuTraversal(void)
     }
     break;
   case 4:
-    POSS_STORY_ARRAY = -1;
-    SDWORD_00424f2c = -1;
+    giCurrentStoryStep[0] = -1;
+    giCurrentStoryStep[1] = -1;
     gpkgtCurrentEngineObject->iProcessStep = 5;
+                    // Has story mode
     has_story_mode = (sys_bitmask & 0x4U) != 0;
+                    // To-do: Replace these weird array indices with direct reference to the
+                    // variable
     if (has_story_mode) {
-      GAME_MODE_ASSIGNMENT_ = 0;
+      giHasStoryMode = 0;
     }
     uVar2 = (uint)has_story_mode;
+                    // Has versus mode
     if ((sys_bitmask & 0x8U) != 0) {
-      (&GAME_MODE_ASSIGNMENT_)[uVar2] = 1;
+      (&giHasStoryMode)[uVar2] = 1;
       uVar2 = uVar2 + 1;
     }
+                    // Has team versus mode
     if ((sys_bitmask & 0x10U) != 0) {
-      (&GAME_MODE_ASSIGNMENT_)[uVar2] = 2;
+      (&giHasStoryMode)[uVar2] = 2;
       uVar2 = uVar2 + 1;
     }
     if (uVar2 == 0) {
       pkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
       return;
     }
-    GAME_MODE_ASSIGNMENT_UPPER = uVar2 - 1;
-    newObj = new_kgt_scriptread_obj_with_action_idx(gkgtKgtSystem.skill_idx_title_cursor,0x65,0,0);
+    giAmountOfGameModes = uVar2 - 1;
+    pkVar3 = kgtoNewObjectForSkillIdx
+                       ((kgtEngineObject *)(gkgtKgtSystem._73732_4_ & 0xffff),0x65,0,0,unaff_ESI);
     pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
     gkgtLoadedCharacter[0].story_mode_unk_var_a = 0;
     gkgtLoadedCharacter[1].story_mode_unk_var_a = 0;
-                    // I think that above return value always comes out to four?
-    gpkgtCurrentEngineObject->obj_type = newObj;
+    gpkgtCurrentEngineObject->iObjectType = (kgtEngineObjectTypes)pkVar3;
     gkgtGameState.iGameStateNumber = 1000;
     goto LAB_0040830b;
   case 5:
@@ -6926,21 +6983,22 @@ LAB_0040830b:
     }
     else if (((giLastInputXor_2 & 0b00000101) == 0) || (pkgtCurrentEngineObject->iParam3 != 0)) {
       if (((giLastInputXor_2 & 0b00001010) == 0) || (pkgtCurrentEngineObject->iParam3 != 0)) {
+                    // Used for moving up/down the menu and then clicking a button
         if (((giLastInputXor_2 & 0b0000001111110000) != 0) &&
            (pkgtCurrentEngineObject->iParam3 == 0)) {
           if ((giLastInputXor[0] & 0b0000001111110000U) != 0) {
-            UNK_KGT_PLAYER_BUFFER_IDX = 0;
+            giStoryModePlayerIdx = 0;
           }
           if ((giLastInputXor[1] & 0b0000001111110000U) != 0) {
-            UNK_KGT_PLAYER_BUFFER_IDX = 1;
+            giStoryModePlayerIdx = 1;
           }
-          gkgtGameState.kgtGameMode = (&GAME_MODE_ASSIGNMENT_)[GAME_MODE_ASSIGNMENT_IDX_];
+          gkgtGameState.kgtGameMode = (&giHasStoryMode)[giMenuSelectionIdx];
           if (gkgtGameState.kgtGameMode == 1P_story) {
-            is_story_mode = 1;
+            iIsStoryModeFlag = 1;
           }
           else if ((gkgtGameState.kgtGameMode == VS_single) ||
                   (gkgtGameState.kgtGameMode == VS_team)) {
-            is_story_mode = 0;
+            iIsStoryModeFlag = 0;
           }
           kgtoNewEngineObject(CHARACTER_SELECT_SCREEN,0x7f,0,0);
           pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
@@ -6948,35 +7006,40 @@ LAB_0040830b:
         }
       }
       else {
-        GAME_MODE_ASSIGNMENT_IDX_ = GAME_MODE_ASSIGNMENT_IDX_ + 1;
-        if (GAME_MODE_ASSIGNMENT_UPPER < GAME_MODE_ASSIGNMENT_IDX_) {
-          GAME_MODE_ASSIGNMENT_IDX_ = 0;
+        giMenuSelectionIdx = giMenuSelectionIdx + 1;
+        if (giAmountOfGameModes < giMenuSelectionIdx) {
+          giMenuSelectionIdx = 0;
         }
         pkgtCurrentEngineObject->iParam3 = 1;
       }
     }
     else {
-      GAME_MODE_ASSIGNMENT_IDX_ = GAME_MODE_ASSIGNMENT_IDX_ + -1;
-      if (GAME_MODE_ASSIGNMENT_IDX_ < 0) {
-        GAME_MODE_ASSIGNMENT_IDX_ = GAME_MODE_ASSIGNMENT_UPPER;
+      giMenuSelectionIdx = giMenuSelectionIdx + -1;
+      if (giMenuSelectionIdx < 0) {
+        giMenuSelectionIdx = giAmountOfGameModes;
       }
       pkgtCurrentEngineObject->iParam3 = 1;
     }
-    local_c[0] = gkgtKgtSystem.kgt_core.p_actionscripts_alloc +
-                 (ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[(uint)gkgtKgtSystem._73732_4_ >> 0x10].
-                         shStartingStepIdx;
-    local_c[1] = gkgtKgtSystem.kgt_core.p_actionscripts_alloc +
-                 (ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[gkgtKgtSystem._73736_4_ & 0xffff].
-                         shStartingStepIdx;
-    local_c[2] = gkgtKgtSystem.kgt_core.p_actionscripts_alloc +
-                 (ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[gkgtKgtSystem._73752_4_ & 0xffff].
-                         shStartingStepIdx;
-    newObj = pkgtCurrentEngineObject->obj_type;
-    sVar1 = *(short *)&local_c[(&GAME_MODE_ASSIGNMENT_)[GAME_MODE_ASSIGNMENT_IDX_]]->field_0x3;
-    *(int *)(newObj + 8) =
-         (int)*(short *)&local_c[(&GAME_MODE_ASSIGNMENT_)[GAME_MODE_ASSIGNMENT_IDX_]]->field_0x1 <<
-         0x10;
-    *(int *)(newObj + 0xc) = (int)sVar1 << 0x10;
+                    // Title cursor
+    kgtTitleCursor[0] =
+         gkgtKgtSystem.kgt_core.p_actionscripts_alloc +
+         (ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[(uint)gkgtKgtSystem._73732_4_ >> 0x10].
+                 shStartingStepIdx;
+                    // Position for vs mode
+    kgtTitleCursor[1] =
+         gkgtKgtSystem.kgt_core.p_actionscripts_alloc +
+         (ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[gkgtKgtSystem._73736_4_ & 0xffff].
+                 shStartingStepIdx;
+                    // Position for team battle
+    kgtTitleCursor[2] =
+         gkgtKgtSystem.kgt_core.p_actionscripts_alloc +
+         (ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[gkgtKgtSystem._73752_4_ & 0xffff].
+                 shStartingStepIdx;
+    newObj = (kgtEngineObject *)pkgtCurrentEngineObject->iObjectType;
+    sVar1 = *(short *)&kgtTitleCursor[(&giHasStoryMode)[giMenuSelectionIdx]]->field_0x3;
+    newObj->iParam3 =
+         (int)*(short *)&kgtTitleCursor[(&giHasStoryMode)[giMenuSelectionIdx]]->field_0x1 << 0x10;
+    newObj->iParam4 = (int)sVar1 << 0x10;
     if ((((gkgtKgtSystem.iOpeningDemoIdx != '\0') || ((gkgtKgtSystem.cSystemBitmask & 0x40U) != 0))
         && (pkgtCurrentEngineObject->obj_ptr_b != (kgtEngineObject *)0x0)) &&
        (pOVar5 = (int *)((int)&pkgtCurrentEngineObject->obj_ptr_b[-1].parent_obj + 3),
@@ -7000,24 +7063,25 @@ void Jump_13(void)
 
 {
   short sVar1;
-  int iVar2;
-  kgt_obj_type kVar3;
+  kgtEngineObjectTypes kVar2;
+  int iVar3;
   kgtEngineObject *pkVar4;
-  kgtSkill *local_8 [2];
+  int in_stack_fffffff8;
   
   pkVar4 = gpkgtCurrentEngineObject;
   if (gpkgtCurrentEngineObject->iProcessStep == 0) {
     gpkgtCurrentEngineObject->iProcessStep = 1;
     vResetObjectsAndSpeed();
                     // opens game over demo here
-    iVar2 = iOpenDemoFile(gkgtKgtSystem._67168_4_ & 0xff);
-    if (iVar2 == 0) {
+    iVar3 = iOpenDemoFile(gkgtKgtSystem._67168_4_ & 0xff);
+    if (iVar3 == 0) {
       vSpawnEngineObjectForDemoSkills();
     }
-    kVar3 = new_kgt_scriptread_obj_with_action_idx(gkgtKgtSystem.skill_idx_continue_cursor,0x65,0,0)
-    ;
+    pkVar4 = kgtoNewObjectForSkillIdx
+                       ((kgtEngineObject *)(uint)(ushort)gkgtKgtSystem.skill_idx_continue_cursor,
+                        0x65,0,0,in_stack_fffffff8);
     gkgtGameState.iGameStateNumber = 4000;
-    gpkgtCurrentEngineObject->obj_type = kVar3;
+    gpkgtCurrentEngineObject->iObjectType = (kgtEngineObjectTypes)pkVar4;
   }
   else if (gpkgtCurrentEngineObject->iProcessStep == 1) {
     if (giLastInput_2 == 0) {
@@ -7031,8 +7095,9 @@ void Jump_13(void)
           gkgtGameState.iCurrentRound = story_mode_current_round;
           gkgtLoadedCharacter[0].story_mode_unk_var_a = story_mode_p0_unk_var;
           gkgtLoadedCharacter[1].story_mode_unk_var_a = story_mode_p1_unk_var;
-          (&POSS_STORY_ARRAY)[STORY_MODE_IDX] = (&POSS_STORY_ARRAY)[STORY_MODE_IDX] + -1;
-          HANDLE_STORY_MODE();
+          giCurrentStoryStep[giStoryModePlayerIdx_2] =
+               giCurrentStoryStep[giStoryModePlayerIdx_2] + -1;
+          vProgressStoryMode();
         }
         else if (gpkgtCurrentEngineObject->obj_ptr_b == (kgtEngineObject *)0x1) {
           kgtoNewEngineObject(MENU_TRAVERSAL,0x7f,0,0);
@@ -7046,16 +7111,11 @@ void Jump_13(void)
            (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b ^ 1);
       pkVar4->iParam3 = 1;
     }
-    local_8[0] = gkgtKgtSystem.kgt_core.p_actionscripts_alloc +
-                 (ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[gkgtKgtSystem._73740_4_ & 0xffff].
-                         shStartingStepIdx;
-    kVar3 = pkVar4->obj_type;
-    local_8[1] = gkgtKgtSystem.kgt_core.p_actionscripts_alloc +
-                 (ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[(uint)gkgtKgtSystem._73740_4_ >> 0x10].
-                         shStartingStepIdx;
-    sVar1 = *(short *)&local_8[(int)pkVar4->obj_ptr_b]->field_0x3;
-    *(int *)(kVar3 + 8) = (int)*(short *)&local_8[(int)pkVar4->obj_ptr_b]->field_0x1 << 0x10;
-    *(int *)(kVar3 + 0xc) = (int)sVar1 << 0x10;
+    kVar2 = pkVar4->iObjectType;
+    sVar1 = *(short *)(*(int *)(&stack0xfffffff8 + (int)pkVar4->obj_ptr_b * 4) + 3);
+    *(int *)(kVar2 + 8) =
+         (int)*(short *)(*(int *)(&stack0xfffffff8 + (int)pkVar4->obj_ptr_b * 4) + 1) << 0x10;
+    *(int *)(kVar2 + 0xc) = (int)sVar1 << 0x10;
     return;
   }
   return;
@@ -7072,7 +7132,7 @@ void Jump_13(void)
 //           current_obj = FIND_EMPTY_OBJ(3,13,0,0);
 //           current_obj->object_process_step = 14;
 
-void Handle_Battle_State(void)
+void vjmpHandleBattleState(void)
 
 {
   byte bVar1;
@@ -7098,6 +7158,7 @@ void Handle_Battle_State(void)
   kgt_character_struct_ptr_57105_int piVar11;
   character_story_entry_cpu_ptr_19_char pcVar15;
   int obj_step;
+  int unaff_EDI;
   character_story_entry_cpu_ptr_7_short cpu_start_pos;
   int i;
   bool is_1p_story;
@@ -7131,7 +7192,8 @@ void Handle_Battle_State(void)
                     // If start button then pause
   if ((giLastInputXor_2 & 1024) != 0) {
     gkgtGameState.iIsPausedFlag = 1;
-    new_kgt_scriptread_obj_with_action_idx(gkgtKgtSystem.skill_idx_pause,0x78,0,0);
+    kgtoNewObjectForSkillIdx
+              ((kgtEngineObject *)(uint)(ushort)gkgtKgtSystem.skill_idx_pause,0x78,0,0,unaff_EDI);
     return;
   }
   obj_step = gpkgtCurrentEngineObject->iProcessStep;
@@ -7179,7 +7241,7 @@ LAB_00409394:
             piVar5 = &kgtEngineObjects[0].iPlayerBuffer;
             do {
                     // Do...while loop counts how many script objects of type 0
-              if (((ADJ(piVar5).iJumpIdx == READ_SCRIPT) && (ADJ(piVar5)->obj_type == 0)) &&
+              if (((ADJ(piVar5).iJumpIdx == READ_SCRIPT) && (ADJ(piVar5)->iObjectType == player)) &&
                  (gkgtLoadedCharacter[ADJ(piVar5)->iPlayerBuffer].health != 0)) {
                 script_obj_amt = script_obj_amt + 1;
               }
@@ -7209,14 +7271,14 @@ LAB_00409394:
           current_obj->iProcessStep = 100;
           vResetObjectsAndSpeed();
           DAT_VAR_BATTLE_STATE_A = 0;
-          DAT_VAR_BATTLE_STATE_B = 0;
+          giProbablyUsedContinue_ = 0;
                     // Bug: The game actually doesn't allow you to select a stage.
           gkgtGameState.TESTPLAY_STAGENB = giConfigTestplayStageNb;
           if (gkgtGameState.kgtGameMode == 1P_story) {
             Open_Stage_File((byte)gkgtLoadedCharacter[0].kgtStoryEntries
-                                  [(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].cStageIdx - 1);
+                                  [giCurrentStoryStep[giStoryModePlayerIdx_2]].cStageIdx - 1);
                     // if mask is not set to 'carry_over'
-            if ((gkgtLoadedCharacter[0].kgtStoryEntries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
+            if ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
                  cWhenDefeatAndFirstRoundBitmask & 2U) == 0) {
               gkgtGameState.iCurrentRound = 0;
               gkgtLoadedCharacter[0].story_mode_unk_var_a = 0;
@@ -7228,7 +7290,7 @@ LAB_00409394:
             }
             gkgtGameState.poss_wins_needed =
                  (UINT)(byte)gkgtLoadedCharacter[0].kgtStoryEntries
-                             [(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].cRoundsAmount;
+                             [giCurrentStoryStep[giStoryModePlayerIdx_2]].cRoundsAmount;
             story_mode_current_round = gkgtGameState.iCurrentRound;
           }
           else if (gkgtGameState.kgtGameMode == VS_single) {
@@ -7236,23 +7298,23 @@ LAB_00409394:
             gkgtGameState.iCurrentRound = 0;
             gkgtGameState.poss_wins_needed = giConfigNumberOfRounds;
             Open_Stage_File(giConfigTestplayStageNb);
-            READ_CHARACTER_FILE(0,gkgtGameState.iCharSelect[0]);
-            READ_CHARACTER_FILE(1,gkgtGameState.iCharSelect[1]);
+            iOpenCharacterFile(0,gkgtGameState.iCharSelect[0]);
+            iOpenCharacterFile(1,gkgtGameState.iCharSelect[1]);
           }
           else if (gkgtGameState.kgtGameMode == VS_team) {
             gkgtGameState.iCurrentRound = 0;
             Open_Stage_File(giConfigTestplayStageNb);
-            gkgtGameState.poss_wins_needed = gkgtGameState.PTR_TO___OF_ROUNDS_TEAM_VS_00470064;
+            gkgtGameState.poss_wins_needed = gkgtGameState.iConfigNumberOfRoundsTeamVs;
             gkgtGameState.char_select_var_a = 0;
             gkgtGameState.char_select_var_b = 0;
             gkgtGameState.field163_0xec = -1;
-            READ_CHARACTER_FILE(0,gkgtGameState.iCharSelect[0]);
-            READ_CHARACTER_FILE(1,gkgtGameState.iCharSelect[1]);
+            iOpenCharacterFile(0,gkgtGameState.iCharSelect[0]);
+            iOpenCharacterFile(1,gkgtGameState.iCharSelect[1]);
           }
           if (gkgtGameState.kgtGameMode == 1P_story) {
             if ((int)gkgtGameState.poss_wins_needed <= gkgtGameState.iCurrentRound) {
               iSetDebugInfo(s_HAN_HIRAGANA_KATAKANA__0041f014,0x4040ff);
-              HANDLE_STORY_MODE();
+              vProgressStoryMode();
               gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
               gkgtGameState.iGameStateNumber = 3000;
               return;
@@ -7265,7 +7327,7 @@ LAB_00409394:
           if (gkgtGameState.poss_wins_needed == 0) {
             iSetDebugInfo(s_HAN_HIRAGANA_Error_0041f044,0x4040ff);
             if (gkgtGameState.kgtGameMode == 1P_story) {
-              HANDLE_STORY_MODE();
+              vProgressStoryMode();
               gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
             }
             else if ((0 < (int)gkgtGameState.kgtGameMode) && ((int)gkgtGameState.kgtGameMode < 3)) {
@@ -7283,7 +7345,7 @@ LAB_00409394:
                     // THIRD FRAME, 100 series is round start logic
           gpkgtCurrentEngineObject->iProcessStep = 101;
           gkgtGameState.iCurrentRound = gkgtGameState.iCurrentRound + 1;
-          unk_x_position = 0;
+          unk_y_pos2 = 0;
           gkgtGameState.round_start_is0 = 0;
           piVar4 = &gkgtLoadedCharacter[0].health;
           do {
@@ -7294,7 +7356,7 @@ LAB_00409394:
           } while ((int)piVar4 < 0x54fe7d);
           if (gkgtGameState.kgtGameMode == 1P_story) {
             local_8 = 1;
-            i = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
+            i = giCurrentStoryStep[giStoryModePlayerIdx_2];
             new_story_obj =
                  kgtoNewEngineObject(READ_SCRIPT,0x50,
                                      (uint)(ushort)gkgtLoadedCharacter[0].kgtStoryEntries[i].
@@ -7358,10 +7420,8 @@ LAB_00409394:
               ADJ(piVar7)->iCpuLevel = -1;
               piVar7 = (kgt_0xe03f_struct_ptr_57185_int)((int)piVar7 + 0xe03f);
             } while ((int)piVar7 < 0x54ff83);
-            READ_CHARACTER_FILE(0,gkgtGameState.iCharSelect[gkgtGameState.char_select_var_a + 0x13])
-            ;
-            READ_CHARACTER_FILE(1,gkgtGameState.iCharSelect[gkgtGameState.char_select_var_b + 0x17])
-            ;
+            iOpenCharacterFile(0,gkgtGameState.iCharSelect[gkgtGameState.char_select_var_a + 0x13]);
+            iOpenCharacterFile(1,gkgtGameState.iCharSelect[gkgtGameState.char_select_var_b + 0x17]);
             current_obj = kgtoNewEngineObject(READ_SCRIPT,0x50,0x1860000,0x3980000);
             current_obj->iPlayerBuffer = 0;
             current_obj = kgtoNewEngineObject(READ_SCRIPT,0x50,0x37a0000,0x3980000);
@@ -7369,9 +7429,9 @@ LAB_00409394:
             unk_y_position = 320;
             gkgtGameState.gameTimerInFrames = giConfigTestplayTime * 100 + -1;
             gkgtLoadedCharacter[0].iColorInt =
-                 (&gkgtGameState.action_btn_pressed_player_0)[gkgtGameState.char_select_var_a];
+                 (&gkgtGameState.iActionButtonPressedPlayerOne)[gkgtGameState.char_select_var_a];
             gkgtLoadedCharacter[1].iColorInt =
-                 (&gkgtGameState.action_btn_pressed_player_1)[gkgtGameState.char_select_var_b];
+                 (&gkgtGameState.iActionButtedPressedPlayerTwo)[gkgtGameState.char_select_var_b];
           }
           setup_stage_spawn_scripts();
           kgtoNewEngineObject(BATTLE_UI,0xf,0,0);
@@ -7410,7 +7470,7 @@ LAB_00409394:
           current_obj->iProcessStep = current_obj->iProcessStep + 1;
                     // options bitmask -> show round #
           if ((is_1p_story) &&
-             ((gkgtLoadedCharacter[0].kgtStoryEntries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
+             ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
                cOptionsBitmask & 1U) == 0)) {
             current_obj->iPlayerBuffer = 0;
             return;
@@ -7436,7 +7496,7 @@ LAB_00409394:
           current_obj->iProcessStep = current_obj->iProcessStep + 1;
                     // options bitmask -> fighting spirit indicate
           if ((is_1p_story) &&
-             ((gkgtLoadedCharacter[0].kgtStoryEntries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
+             ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
                cOptionsBitmask & 2U) == 0)) {
             current_obj->iPlayerBuffer = 0;
             return;
@@ -7472,7 +7532,7 @@ LAB_00409394:
           piVar11 = (kgt_character_struct_ptr_57105_int)((int)piVar11 + 0xe03f);
         } while ((int)piVar11 < 0x54fe89);
         if (gkgtGameState.kgtGameMode == 1P_story) {
-          i = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
+          i = giCurrentStoryStep[giStoryModePlayerIdx_2];
           if (gkgtGameState.gameTimerInFrames == 0) {
             skill_idx_draw = (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[i].cWhenTimeOver;
             if (((gkgtLoadedCharacter[0].wins_accumulated <
@@ -7524,7 +7584,7 @@ LAB_00409394:
           if (i == obj_step) {
             iSetDebugInfo(s_KATAKANA__0041f05c,0xffff1f);
             gpkgtCurrentEngineObject->iProcessStep = 0x1ae;
-            DAT_VAR_BATTLE_STATE_B = DAT_VAR_BATTLE_STATE_B + 1;
+            giProbablyUsedContinue_ = giProbablyUsedContinue_ + 1;
             return;
           }
           if (obj_step < i) {
@@ -7533,7 +7593,7 @@ LAB_00409394:
             return;
           }
           iSetDebugInfo(s_HAN_KATAKANA__0041f080,0xffff1f);
-          DAT_VAR_BATTLE_STATE_B = DAT_VAR_BATTLE_STATE_B + 1;
+          giProbablyUsedContinue_ = giProbablyUsedContinue_ + 1;
           gpkgtCurrentEngineObject->iProcessStep = 0x1a4;
           return;
         }
@@ -7572,7 +7632,7 @@ LAB_00409394:
                           (gkgtKgtSystem._73632_4_ & 0xffff,0x65,0,0);
         current_obj = gpkgtCurrentEngineObject;
         obj_step = gkgtGameState.gameTimerInFrames;
-        i = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
+        i = giCurrentStoryStep[giStoryModePlayerIdx_2];
         gpkgtCurrentEngineObject->iPlayerBuffer = iVar3;
         gkgtLoadedCharacter[0].story_mode_unk_var_a =
              gkgtLoadedCharacter[0].story_mode_unk_var_a + 1;
@@ -7604,8 +7664,8 @@ LAB_00409394:
         gkgtLoadedCharacter[1].story_mode_unk_var_a =
              gkgtLoadedCharacter[1].story_mode_unk_var_a + 1;
         piVar9 = &gkgtLoadedCharacter[1].w_ko_unk_var;
-        pkVar14 = gkgtLoadedCharacter[0].kgtStoryEntries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
-                  kgtStoryEntryCPUs;
+        pkVar14 = gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]]
+                  .kgtStoryEntryCPUs;
         do {
           if ((ADJ(piVar9)->round_start_var_d == 0) &&
              (ADJ(piVar9)->round_start_var_d = 1,
@@ -7702,12 +7762,12 @@ LAB_004096ed:
       if (gkgtGameState.kgtGameMode == 1P_story) {
         if ((gkgtLoadedCharacter[0].story_mode_unk_var_a <=
              gkgtLoadedCharacter[1].story_mode_unk_var_a) &&
-           ((gkgtLoadedCharacter[0].kgtStoryEntries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
+           ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
              cWhenDefeatAndFirstRoundBitmask & 1U) != 0)) {
           kgtoNewEngineObject(13,0x7f,0,0);
           return;
         }
-        HANDLE_STORY_MODE();
+        vProgressStoryMode();
         gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
         return;
       }
@@ -7745,8 +7805,8 @@ LAB_00409764:
       gkgtGameState.char_select_var_b = gkgtGameState.char_select_var_b + 1;
       gkgtGameState.field163_0xec = -1;
     }
-    if ((gkgtGameState.char_select_var_a <= gkgtGameState.PTR_TO___OF_ROUNDS_TEAM_VS_00470064) &&
-       (gkgtGameState.char_select_var_b <= gkgtGameState.PTR_TO___OF_ROUNDS_TEAM_VS_00470064)) {
+    if ((gkgtGameState.char_select_var_a <= gkgtGameState.iConfigNumberOfRoundsTeamVs) &&
+       (gkgtGameState.char_select_var_b <= gkgtGameState.iConfigNumberOfRoundsTeamVs)) {
 LAB_004097f0:
       current_obj->iPlayerBuffer = 0;
       current_obj->iProcessStep = 100;
@@ -8047,28 +8107,28 @@ void handle_battle_UI(void)
       do {
         new_obj = kgtoNewEngineObject(READ_SCRIPT,0x65,script_0x1,script_0x3);
         iVar2 = gkgtLoadedCharacter[0].story_mode_unk_var_a;
-        new_obj->obj_type = main_kgt_file;
+        new_obj->iObjectType = system;
         if (i < iVar2) {
           one_up0x37 = (uint)(ushort)gkgtKgtSystem.skill_idx_victory_mark_on;
           new_obj->skill_idx_2 = one_up0x37;
-          new_obj->action_idx = one_up0x37;
+          new_obj->iSkillIdx = one_up0x37;
         }
         else {
                     // 56
           one_up0x37 = gkgtKgtSystem._73688_4_ & 0xffff;
           new_obj->skill_idx_2 = one_up0x37;
-          new_obj->action_idx = one_up0x37;
+          new_obj->iSkillIdx = one_up0x37;
           current_obj = gpkgtCurrentEngineObject;
           if (!b) {
             b = true;
             gpkgtCurrentEngineObject->iPlayerBuffer = (int)new_obj;
-            current_obj->obj_type = iVar2;
+            current_obj->iObjectType = iVar2;
           }
         }
         actions_alloc = gkgtKgtSystem.kgt_core.pSkillsAlloc;
-        *(uint *)&new_obj->actionscript_idx =
-             (uint)(ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[new_obj->action_idx].
-                           shStartingStepIdx;
+        *(uint *)&new_obj->iSkillScriptIdx =
+             (uint)(ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[new_obj->iSkillIdx].shStartingStepIdx
+        ;
         script_0x1 = script_0x1 + script_0x5 * 0x10000;
         script_0x3 = script_0x3 + script_0x6 * 0x10000;
         i = i + 1;
@@ -8087,16 +8147,16 @@ void handle_battle_UI(void)
       do {
         current_obj = kgtoNewEngineObject(READ_SCRIPT,0x65,script_0x1,script_0x3);
         iVar2 = gkgtLoadedCharacter[1].story_mode_unk_var_a;
-        current_obj->obj_type = main_kgt_file;
+        current_obj->iObjectType = system;
         if (i < iVar2) {
           one_up0x37 = (uint)(ushort)gkgtKgtSystem.skill_idx_victory_mark_on;
           current_obj->skill_idx_2 = one_up0x37;
-          current_obj->action_idx = one_up0x37;
+          current_obj->iSkillIdx = one_up0x37;
         }
         else {
           one_up0x37 = gkgtKgtSystem._73688_4_ & 0xffff;
           current_obj->skill_idx_2 = one_up0x37;
-          current_obj->action_idx = one_up0x37;
+          current_obj->iSkillIdx = one_up0x37;
           pkVar3 = gpkgtCurrentEngineObject;
           if (!b) {
             b = true;
@@ -8105,8 +8165,8 @@ void handle_battle_UI(void)
           }
         }
         actions_alloc = gkgtKgtSystem.kgt_core.pSkillsAlloc;
-        *(uint *)&current_obj->actionscript_idx =
-             (uint)(ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[current_obj->action_idx].
+        *(uint *)&current_obj->iSkillScriptIdx =
+             (uint)(ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[current_obj->iSkillIdx].
                            shStartingStepIdx;
         script_0x1 = script_0x1 + local_4;
         script_0x3 = script_0x3 + script_0x5 * 0x10000;
@@ -8114,9 +8174,9 @@ void handle_battle_UI(void)
       } while (i < gkgtGameState.poss_wins_needed);
     }
     if (gkgtGameState.kgtGameMode == 1P_story) {
-      if ((ushort)gkgtLoadedCharacter[0].kgt_core.pSkillsAlloc
+      if ((ushort)gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc
                   [(ushort)gkgtLoadedCharacter[0].shSkillIdxStageFacePic].shStartingStepIdx + 1 <
-          (uint)(ushort)gkgtLoadedCharacter[0].kgt_core.pSkillsAlloc
+          (uint)(ushort)gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc
                         [gkgtLoadedCharacter[0]._30120_4_ & 0xffff].shStartingStepIdx) {
         current_obj = kgtoNewEngineObject(READ_SCRIPT,0x65,
                                           (int)*(short *)&gkgtKgtSystem.kgt_core.
@@ -8128,13 +8188,13 @@ void handle_battle_UI(void)
                                                                [(ushort)actions_alloc[0x48].
                                                                         shStartingStepIdx].field_0x3
                                                << 0x10);
-        actions_alloc = gkgtLoadedCharacter[0].kgt_core.pSkillsAlloc;
+        actions_alloc = gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc;
         one_up0x37 = (uint)(ushort)gkgtLoadedCharacter[0].shSkillIdxStageFacePic;
         current_obj->skill_idx_2 = one_up0x37;
-        current_obj->action_idx = one_up0x37;
+        current_obj->iSkillIdx = one_up0x37;
         current_obj->iPlayerBuffer = 0;
-        current_obj->obj_type = 1;
-        *(uint *)&current_obj->actionscript_idx =
+        current_obj->iObjectType = story?;
+        *(uint *)&current_obj->iSkillScriptIdx =
              (uint)(ushort)actions_alloc[one_up0x37].shStartingStepIdx;
       }
     }
@@ -8149,13 +8209,13 @@ void handle_battle_UI(void)
                                                               [(ushort)actions_alloc[0x48].
                                                                        shStartingStepIdx].field_0x3
                                               << 0x10);
-      actions_alloc = gkgtLoadedCharacter[0].kgt_core.pSkillsAlloc;
+      actions_alloc = gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc;
       one_up0x37 = (uint)(ushort)gkgtLoadedCharacter[0].shSkillIdxStageFacePic;
       new_object_b->skill_idx_2 = one_up0x37;
-      new_object_b->action_idx = one_up0x37;
+      new_object_b->iSkillIdx = one_up0x37;
       new_object_b->iPlayerBuffer = 0;
-      new_object_b->obj_type = 1;
-      *(uint *)&new_object_b->actionscript_idx =
+      new_object_b->iObjectType = story?;
+      *(uint *)&new_object_b->iSkillScriptIdx =
            (uint)(ushort)actions_alloc[one_up0x37].shStartingStepIdx;
       new_object_c = kgtoNewEngineObject(READ_SCRIPT,0x65,
                                          (int)*(short *)&gkgtKgtSystem.kgt_core.
@@ -8169,51 +8229,51 @@ void handle_battle_UI(void)
                                                                        pSkillsAlloc[0x49].
                                                                        shStartingStepIdx].field_0x3
                                               << 0x10);
-      actions_alloc = gkgtLoadedCharacter[1].kgt_core.pSkillsAlloc;
+      actions_alloc = gkgtLoadedCharacter[1].kgtCore.pSkillsAlloc;
       one_up0x37 = (uint)(ushort)gkgtLoadedCharacter[1].shSkillIdxStageFacePic;
       new_object_c->skill_idx_2 = one_up0x37;
-      new_object_c->action_idx = one_up0x37;
+      new_object_c->iSkillIdx = one_up0x37;
       new_object_c->iPlayerBuffer = 1;
-      new_object_c->obj_type = 1;
-      new_object_c->pos_player_direction = 1;
-      *(uint *)&new_object_c->actionscript_idx =
+      new_object_c->iObjectType = story?;
+      new_object_c->iPlayerLookingLeft = 1;
+      *(uint *)&new_object_c->iSkillScriptIdx =
            (uint)(ushort)actions_alloc[one_up0x37].shStartingStepIdx;
     }
     new_jump4_obj = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
     actions_alloc = gkgtKgtSystem.kgt_core.pSkillsAlloc;
     one_up0x37 = (uint)(ushort)gkgtKgtSystem.skill_idx_1p_life_gauge;
     new_jump4_obj->skill_idx_2 = one_up0x37;
-    new_jump4_obj->action_idx = one_up0x37;
+    new_jump4_obj->iSkillIdx = one_up0x37;
     script_idx = actions_alloc[one_up0x37].shStartingStepIdx;
-    new_jump4_obj->obj_type = main_kgt_file;
-    *(uint *)&new_jump4_obj->actionscript_idx = (uint)script_idx;
+    new_jump4_obj->iObjectType = system;
+    *(uint *)&new_jump4_obj->iSkillScriptIdx = (uint)script_idx;
     new_jump4_obj->iPlayerBuffer = 10;
     current_obj = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
     actions_alloc = gkgtKgtSystem.kgt_core.pSkillsAlloc;
     one_up0x37 = gkgtKgtSystem._73712_4_ & 0xffff;
     current_obj->skill_idx_2 = one_up0x37;
-    current_obj->action_idx = one_up0x37;
+    current_obj->iSkillIdx = one_up0x37;
     script_idx = actions_alloc[one_up0x37].shStartingStepIdx;
-    current_obj->obj_type = main_kgt_file;
-    *(uint *)&current_obj->actionscript_idx = (uint)script_idx;
+    current_obj->iObjectType = system;
+    *(uint *)&current_obj->iSkillScriptIdx = (uint)script_idx;
     current_obj->iPlayerBuffer = 0xb;
     current_obj = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
     actions_alloc = gkgtKgtSystem.kgt_core.pSkillsAlloc;
     one_up0x37 = (uint)gkgtKgtSystem._73712_4_ >> 0x10;
     current_obj->skill_idx_2 = one_up0x37;
-    current_obj->action_idx = one_up0x37;
+    current_obj->iSkillIdx = one_up0x37;
     script_idx = actions_alloc[one_up0x37].shStartingStepIdx;
-    current_obj->obj_type = main_kgt_file;
-    *(uint *)&current_obj->actionscript_idx = (uint)script_idx;
+    current_obj->iObjectType = system;
+    *(uint *)&current_obj->iSkillScriptIdx = (uint)script_idx;
     current_obj->iPlayerBuffer = 0x14;
     current_obj = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
     one_up0x37 = gkgtKgtSystem._73716_4_ & 0xffff;
-    current_obj->obj_type = main_kgt_file;
+    current_obj->iObjectType = system;
     current_obj->skill_idx_2 = one_up0x37;
-    current_obj->action_idx = one_up0x37;
+    current_obj->iSkillIdx = one_up0x37;
     current_obj->iPlayerBuffer = 0x15;
     actions_alloc = gkgtKgtSystem.kgt_core.pSkillsAlloc;
-    *(uint *)&current_obj->actionscript_idx =
+    *(uint *)&current_obj->iSkillScriptIdx =
          (uint)(ushort)gkgtKgtSystem.kgt_core.pSkillsAlloc[one_up0x37].shStartingStepIdx;
     pkVar3 = kgtoNewEngineObject(READ_SCRIPT,0x65,
                                  (int)*(short *)&gkgtKgtSystem.kgt_core.p_actionscripts_alloc
@@ -8223,7 +8283,7 @@ void handle_battle_UI(void)
                                                  [(ushort)actions_alloc[0x4a].shStartingStepIdx].
                                                  field_0x3 << 0x10);
     current_obj = gpkgtCurrentEngineObject;
-    pkVar3->obj_type = main_kgt_file;
+    pkVar3->iObjectType = system;
     current_obj->timer_mod_10 = (int)pkVar3;
     pkVar3 = kgtoNewEngineObject(READ_SCRIPT,0x65,
                                  (int)*(short *)&gkgtKgtSystem.kgt_core.p_actionscripts_alloc
@@ -8234,7 +8294,7 @@ void handle_battle_UI(void)
                                                           shStartingStepIdx].field_0x3 << 0x10);
     current_obj = gpkgtCurrentEngineObject;
     sVar4 = gkgtGameState.hit_player_buffer;
-    pkVar3->obj_type = main_kgt_file;
+    pkVar3->iObjectType = system;
     current_obj->timer_div_100_mod_10 = (int)pkVar3;
     current_obj->field88_0x172 = -1;
     current_obj->timer_div_ten_mod_10 = -1;
@@ -8291,22 +8351,22 @@ void handle_battle_UI(void)
         sVar4 = gkgtGameState.hit_player_buffer;
         *(kgtEngineObject **)&gpkgtCurrentEngineObject->field_0x176 = pkVar3;
         one_up0x37 = (uint)(ushort)gkgtLoadedCharacter[sVar4].shSkillIdxStageFacePic;
-        pkVar3->obj_type = 1;
+        pkVar3->iObjectType = story?;
         pkVar3->skill_idx_2 = one_up0x37;
-        pkVar3->action_idx = one_up0x37;
+        pkVar3->iSkillIdx = one_up0x37;
         pkVar3->iPlayerBuffer = sVar4;
-        actions_alloc = gkgtLoadedCharacter[sVar4].kgt_core.pSkillsAlloc;
-        pkVar3->pos_player_direction = 1;
+        actions_alloc = gkgtLoadedCharacter[sVar4].kgtCore.pSkillsAlloc;
+        pkVar3->iPlayerLookingLeft = 1;
         script_idx = actions_alloc[one_up0x37].shStartingStepIdx;
         current_obj->iParam3 = 1;
-        *(uint *)&pkVar3->actionscript_idx = (uint)script_idx;
+        *(uint *)&pkVar3->iSkillScriptIdx = (uint)script_idx;
       }
       else if (*(int *)(i + 0x156) != sVar4) {
         *(sdword *)(i + 0x156) = sVar4;
         one_up0x37 = (uint)(ushort)gkgtLoadedCharacter[sVar4].shSkillIdxStageFacePic;
         *(uint *)(i + 0x34) = one_up0x37;
         *(uint *)(i + 0x30) = one_up0x37;
-        script_idx = gkgtLoadedCharacter[sVar4].kgt_core.pSkillsAlloc[one_up0x37].shStartingStepIdx;
+        script_idx = gkgtLoadedCharacter[sVar4].kgtCore.pSkillsAlloc[one_up0x37].shStartingStepIdx;
         *(undefined4 *)(i + 0x10) = 0;
         *(uint *)(i + 0x2c) = (uint)script_idx;
       }
@@ -8363,8 +8423,8 @@ void handle_battle_UI(void)
   *(uint *)(i + 0x2c) = (uint)(ushort)actions_alloc[*(int *)(i + 0x30)].shStartingStepIdx;
 LAB_0040a584:
   sVar1 = gkgtKgtSystem.skill_idx_victory_mark_on;
-  if (current_obj->obj_type != gkgtLoadedCharacter[0].story_mode_unk_var_a) {
-    current_obj->obj_type = gkgtLoadedCharacter[0].story_mode_unk_var_a;
+  if (current_obj->iObjectType != gkgtLoadedCharacter[0].story_mode_unk_var_a) {
+    current_obj->iObjectType = gkgtLoadedCharacter[0].story_mode_unk_var_a;
     i = current_obj->iPlayerBuffer;
     one_up0x37 = (uint)(ushort)sVar1;
     *(uint *)(i + 0x34) = one_up0x37;
@@ -8377,8 +8437,8 @@ LAB_0040a584:
     current_obj = current_obj->obj_ptr_b;
     one_up0x37 = (uint)(ushort)sVar1;
     current_obj->skill_idx_2 = one_up0x37;
-    current_obj->action_idx = one_up0x37;
-    *(uint *)&current_obj->actionscript_idx =
+    current_obj->iSkillIdx = one_up0x37;
+    *(uint *)&current_obj->iSkillScriptIdx =
          (uint)(ushort)actions_alloc[one_up0x37].shStartingStepIdx;
     current_obj->image_wait_frames = 0;
   }
@@ -8391,7 +8451,7 @@ void update_timer_and_ui(void)
 
 {
   short sVar1;
-  kgt_obj_type kVar4;
+  kgtEngineObjectTypes kVar4;
   kgtEngineObject *pkVar5;
   uint unlimited_sign;
   int timer_div_ten_mod_10;
@@ -8418,19 +8478,19 @@ void update_timer_and_ui(void)
     }
     pkVar5 = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
     pCurrObj = gpkgtCurrentEngineObject;
-    pkVar5->obj_type = main_kgt_file;
+    pkVar5->iObjectType = system;
     pCurrObj->obj_ptr_a = pkVar5;
     pkVar5->iParam3 = 0x27100000;
     pkVar5 = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
     pCurrObj = gpkgtCurrentEngineObject;
-    pkVar5->obj_type = main_kgt_file;
+    pkVar5->iObjectType = system;
     pCurrObj->obj_ptr_b = pkVar5;
     pkVar5->iParam3 = 0x27100000;
     pkVar5 = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
     pCurrObj = gpkgtCurrentEngineObject;
-    pkVar5->obj_type = main_kgt_file;
+    pkVar5->iObjectType = system;
     pkVar5->iParam3 = 0x27100000;
-    pCurrObj->obj_type = (kgt_obj_type)pkVar5;
+    pCurrObj->iObjectType = (kgtEngineObjectTypes)pkVar5;
     pkVar5->image_wait_frames = 1000000;
     skillAlloc = gkgtKgtSystem.kgt_core.pSkillsAlloc;
     pCurrObj->obj_ptr_b->image_wait_frames = 1000000;
@@ -8450,7 +8510,7 @@ void update_timer_and_ui(void)
     *(uint *)&pCurrObj->field_0x176 = (uint)(byte)scriptAlloc[_x47starting_step].field_0x5 << 0x10;
     current_step = pCurrObj->iParam4;
                     // param_4
-    *(int *)(pCurrObj->obj_type + 0xc) = current_step;
+    *(int *)(pCurrObj->iObjectType + 0xc) = current_step;
     pCurrObj->obj_ptr_b->iParam4 = current_step;
     pCurrObj->obj_ptr_a->iParam4 = current_step;
   }
@@ -8465,7 +8525,7 @@ void update_timer_and_ui(void)
       pCurrObj = gpkgtCurrentEngineObject;
       scriptAlloc = gkgtKgtSystem.kgt_core.p_actionscripts_alloc;
       skillAlloc = gkgtKgtSystem.kgt_core.pSkillsAlloc;
-      pkVar5->obj_type = main_kgt_file;
+      pkVar5->iObjectType = system;
       pCurrObj->obj_ptr_b = pkVar5;
       _x47starting_step = skillAlloc[0x47].shStartingStepIdx;
       sVar1 = *(short *)&scriptAlloc[_x47starting_step].field_0x3;
@@ -8473,9 +8533,9 @@ void update_timer_and_ui(void)
       pkVar5->iParam4 = (int)sVar1 << 0x10;
       unlimited_sign = gkgtKgtSystem._73644_4_ & 0xffff;
       pkVar5->skill_idx_2 = unlimited_sign;
-      pkVar5->action_idx = unlimited_sign;
-      *(uint *)&pkVar5->actionscript_idx =
-           (uint)(ushort)skillAlloc[unlimited_sign].shStartingStepIdx;
+      pkVar5->iSkillIdx = unlimited_sign;
+      *(uint *)&pkVar5->iSkillScriptIdx = (uint)(ushort)skillAlloc[unlimited_sign].shStartingStepIdx
+      ;
       return;
     }
   }
@@ -8491,15 +8551,15 @@ void update_timer_and_ui(void)
       if (timer_seconds % 10 != pCurrObj->timer_mod_10) {
                     // Once per 10 seconds
         pCurrObj->timer_mod_10 = timer_seconds % 10;
-        kVar3 = (kgtEngineObject *)pCurrObj->obj_type;
+        kVar3 = (kgtEngineObject *)pCurrObj->iObjectType;
         timer_seconds = pCurrObj->iPlayerBuffer;
         kVar3->iParam3 = *(int *)&pCurrObj->field_0x176 + pCurrObj->iParam3;
         _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[timer_seconds % 10];
         kVar3->skill_idx_2 = (uint)_x47starting_step;
-        kVar3->action_idx = (uint)_x47starting_step;
+        kVar3->iSkillIdx = (uint)_x47starting_step;
         kVar3->image_wait_frames = 0;
-        *(uint *)&kVar3->actionscript_idx =
-             (uint)(ushort)skillAlloc[kVar3->action_idx].shStartingStepIdx;
+        *(uint *)&kVar3->iSkillScriptIdx =
+             (uint)(ushort)skillAlloc[kVar3->iSkillIdx].shStartingStepIdx;
       }
       timer_div_ten_mod_10 = (timer_seconds / 10) % 10;
       if (timer_div_ten_mod_10 != pCurrObj->timer_div_ten_mod_10) {
@@ -8510,10 +8570,10 @@ void update_timer_and_ui(void)
         pkVar5->iParam3 = pCurrObj->iParam3;
         _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[(timer_seconds / 10) % 10];
         pkVar5->skill_idx_2 = (uint)_x47starting_step;
-        pkVar5->action_idx = (uint)_x47starting_step;
+        pkVar5->iSkillIdx = (uint)_x47starting_step;
         pkVar5->image_wait_frames = 0;
-        *(uint *)&pkVar5->actionscript_idx =
-             (uint)(ushort)skillAlloc[pkVar5->action_idx].shStartingStepIdx;
+        *(uint *)&pkVar5->iSkillScriptIdx =
+             (uint)(ushort)skillAlloc[pkVar5->iSkillIdx].shStartingStepIdx;
       }
       timer_div_100_mod_10 = (timer_seconds / 100) % 10;
       if (timer_div_100_mod_10 != pCurrObj->timer_div_100_mod_10) {
@@ -8523,24 +8583,24 @@ void update_timer_and_ui(void)
         pkVar5->iParam3 = pCurrObj->iParam3 - *(int *)&pCurrObj->field_0x176;
         _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[(current_step / 100) % 10];
         pkVar5->skill_idx_2 = (uint)_x47starting_step;
-        pkVar5->action_idx = (uint)_x47starting_step;
+        pkVar5->iSkillIdx = (uint)_x47starting_step;
         pkVar5->image_wait_frames = 0;
-        *(uint *)&pkVar5->actionscript_idx =
-             (uint)(ushort)skillAlloc[pkVar5->action_idx].shStartingStepIdx;
+        *(uint *)&pkVar5->iSkillScriptIdx =
+             (uint)(ushort)skillAlloc[pkVar5->iSkillIdx].shStartingStepIdx;
       }
       return;
     }
     if (timer_seconds % 10 != pCurrObj->timer_mod_10) {
       pCurrObj->timer_mod_10 = timer_seconds % 10;
-      kVar2 = (kgtEngineObject *)pCurrObj->obj_type;
+      kVar2 = (kgtEngineObject *)pCurrObj->iObjectType;
       timer_seconds = pCurrObj->iPlayerBuffer;
       kVar2->iParam3 = *(int *)&pCurrObj->field_0x176 / 2 + pCurrObj->iParam3;
       _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[timer_seconds % 10];
       kVar2->skill_idx_2 = (uint)_x47starting_step;
-      kVar2->action_idx = (uint)_x47starting_step;
+      kVar2->iSkillIdx = (uint)_x47starting_step;
       kVar2->image_wait_frames = 0;
-      *(uint *)&kVar2->actionscript_idx =
-           (uint)(ushort)skillAlloc[kVar2->action_idx].shStartingStepIdx;
+      *(uint *)&kVar2->iSkillScriptIdx =
+           (uint)(ushort)skillAlloc[kVar2->iSkillIdx].shStartingStepIdx;
     }
     current_step = (timer_seconds / 10) % 10;
     if (current_step != pCurrObj->timer_div_ten_mod_10) {
@@ -8550,17 +8610,17 @@ void update_timer_and_ui(void)
       _x47starting_step =
            (&gkgtKgtSystem.skill_idx_time_number_0)[(pCurrObj->iPlayerBuffer / 10) % 10];
       pkVar5->skill_idx_2 = (uint)_x47starting_step;
-      pkVar5->action_idx = (uint)_x47starting_step;
+      pkVar5->iSkillIdx = (uint)_x47starting_step;
       pkVar5->image_wait_frames = 0;
-      *(uint *)&pkVar5->actionscript_idx =
-           (uint)(ushort)skillAlloc[pkVar5->action_idx].shStartingStepIdx;
+      *(uint *)&pkVar5->iSkillScriptIdx =
+           (uint)(ushort)skillAlloc[pkVar5->iSkillIdx].shStartingStepIdx;
     }
     pCurrObj->obj_ptr_a->iParam3 = 0x27100000;
     return;
   }
   if (timer_seconds % 10 != pCurrObj->timer_mod_10) {
     pCurrObj->timer_mod_10 = timer_seconds % 10;
-    kVar4 = pCurrObj->obj_type;
+    kVar4 = pCurrObj->iObjectType;
     current_step = pCurrObj->iPlayerBuffer;
     *(int *)(kVar4 + 8) = pCurrObj->iParam3;
     _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[current_step % 10];
@@ -8583,56 +8643,56 @@ void FUN_0040ab10(void)
   byte bVar1;
   kgtSkillHeader *pkVar2;
   kgtEngineObject *pkVar3;
-  int iVar4;
-  kgtEngineObject *pkVar5;
+  kgtEngineObject *pkVar4;
+  uint uVar5;
   uint uVar6;
-  uint uVar7;
-  kgt_obj_type kVar8;
-  int iVar9;
+  kgtEngineObjectTypes kVar7;
+  int iVar8;
+  int unaff_EDI;
   
-  pkVar5 = gpkgtCurrentEngineObject;
+  pkVar4 = gpkgtCurrentEngineObject;
   if (gpkgtCurrentEngineObject->iProcessStep == 0) {
     gpkgtCurrentEngineObject->iProcessStep = 1;
-    pkVar3 = (kgtEngineObject *)
-             new_kgt_scriptread_obj_with_action_idx
-                       (gkgtKgtSystem.skill_idx_hit_letter_hit,0x65,pkVar5->iParam3,pkVar5->iParam4)
-    ;
-    pkVar5 = gpkgtCurrentEngineObject;
+    pkVar3 = kgtoNewObjectForSkillIdx
+                       ((kgtEngineObject *)(uint)(ushort)gkgtKgtSystem.skill_idx_hit_letter_hit,0x65
+                        ,pkVar4->iParam3,pkVar4->iParam4,unaff_EDI);
+    pkVar4 = gpkgtCurrentEngineObject;
     pkVar2 = gkgtKgtSystem.kgt_core.pSkillsAlloc;
-    uVar7 = pkVar3->unk_bitmask;
+    uVar6 = pkVar3->unk_bitmask;
     gpkgtCurrentEngineObject->obj_ptr_a = pkVar3;
-    pkVar3->unk_bitmask = uVar7 | 0x40000000;
+    pkVar3->unk_bitmask = uVar6 | 0x40000000;
     bVar1 = gkgtKgtSystem.kgt_core.p_actionscripts_alloc[(ushort)pkVar2[1].shStartingStepIdx].
             field_0x2;
-    iVar9 = 0;
-    uVar7 = pkVar5->iPlayerBuffer;
-    for (uVar6 = uVar7; 9 < uVar6; uVar6 = uVar6 / 10) {
-      iVar9 = iVar9 + 1;
+    iVar8 = 0;
+    uVar6 = pkVar4->iPlayerBuffer;
+    for (uVar5 = uVar6; 9 < uVar5; uVar5 = uVar5 / 10) {
+      iVar8 = iVar8 + 1;
     }
     if ((gkgtKgtSystem.kgt_core.p_actionscripts_alloc[(ushort)pkVar2[1].shStartingStepIdx].field_0x1
         & 1) != 0) {
-      pkVar5->iParam3 = pkVar5->iParam3 + iVar9 * (uint)bVar1 * 0x10000;
+      pkVar4->iParam3 = pkVar4->iParam3 + iVar8 * (uint)bVar1 * 0x10000;
     }
-    for (iVar9 = iVar9 + 1; iVar9 != 0; iVar9 = iVar9 + -1) {
-      iVar4 = new_kgt_scriptread_obj_with_action_idx
-                        ((&gkgtKgtSystem.skill_idx_hit_number_0)[uVar7 % 10],0x65,pkVar5->iParam3,
-                         pkVar5->iParam4);
-      pkVar5 = gpkgtCurrentEngineObject;
-      *(uint *)(iVar4 + 0x28) = *(uint *)(iVar4 + 0x28) | 0x40000000;
-      uVar7 = uVar7 / 10;
-      pkVar5->iParam3 = pkVar5->iParam3 + (uint)bVar1 * -0x10000;
+    for (iVar8 = iVar8 + 1; iVar8 != 0; iVar8 = iVar8 + -1) {
+      pkVar3 = kgtoNewObjectForSkillIdx
+                         ((kgtEngineObject *)
+                          (uint)(ushort)(&gkgtKgtSystem.skill_idx_hit_number_0)[uVar6 % 10],0x65,
+                          pkVar4->iParam3,pkVar4->iParam4,unaff_EDI);
+      pkVar4 = gpkgtCurrentEngineObject;
+      pkVar3->unk_bitmask = pkVar3->unk_bitmask | 0x40000000;
+      uVar6 = uVar6 / 10;
+      pkVar4->iParam3 = pkVar4->iParam3 + (uint)bVar1 * -0x10000;
     }
   }
   else if (gpkgtCurrentEngineObject->iProcessStep != 1) {
     return;
   }
-  if (pkVar5->iPlayerBuffer < (int)pkVar5->obj_ptr_b->iJumpIdx) {
-    pkVar5->obj_type = 1000;
+  if (pkVar4->iPlayerBuffer < (int)pkVar4->obj_ptr_b->iJumpIdx) {
+    pkVar4->iObjectType = 1000;
   }
-  kVar8 = pkVar5->obj_type + 1;
-  pkVar5->obj_type = kVar8;
-  if (200 < (int)kVar8) {
-    pkVar5->iJumpIdx = RESET_IDX;
+  kVar7 = pkVar4->iObjectType + story?;
+  pkVar4->iObjectType = kVar7;
+  if (200 < (int)kVar7) {
+    pkVar4->iJumpIdx = RESET_IDX;
   }
   return;
 }
@@ -8649,25 +8709,25 @@ void set_unk_obj_vars(void)
   if (gpkgtCurrentEngineObject->iProcessStep == 0) {
     gpkgtCurrentEngineObject->iProcessStep = 1;
     pkVar1->iDrawFlag = -3;
-    if (pkVar1->obj_type == 1) {
+    if (pkVar1->iObjectType == story?) {
       pkVar1->x_momentum = 3;
-      if (pkVar1->pos_player_direction != 0) {
+      if (pkVar1->iPlayerLookingLeft != 0) {
         pkVar1->x_momentum = -3;
       }
     }
-    else if ((pkVar1->obj_type == main_kgt_file) &&
-            (pkVar1->x_momentum = -1, pkVar1->pos_player_direction != 0)) {
+    else if ((pkVar1->iObjectType == system) &&
+            (pkVar1->x_momentum = -1, pkVar1->iPlayerLookingLeft != 0)) {
       pkVar1->x_momentum = -1;
     }
   }
   else if (gpkgtCurrentEngineObject->iProcessStep != 1) {
     return;
   }
-  if (pkVar1->obj_type == 1) {
+  if (pkVar1->iObjectType == story?) {
     pkVar1->iColorBlue = pkVar1->iColorBlue + -1;
   }
   else {
-    if (pkVar1->obj_type != main_kgt_file) goto LAB_0040accc;
+    if (pkVar1->iObjectType != system) goto LAB_0040accc;
     pkVar1->iColorRed = pkVar1->iColorRed + -1;
   }
   pkVar1->iColorGreen = pkVar1->iColorGreen + -1;
@@ -8843,12 +8903,11 @@ switchD_0040af51_caseD_d:
     is_1p_story = gkgtGameState.kgtGameMode == 1P_story;
     current_obj->iParam3 = current_obj->iParam3 + next_pbuffer;
     if (is_1p_story) {
-      unk_x_position =
-           (((int)(gkgtLoadedCharacter[0].pos_y_pos +
-                  (gkgtLoadedCharacter[0].pos_y_pos >> 0x1f & 0xffffU)) >> 0x10) + -320 +
-           unk_x_position) / 2;
+      unk_y_pos2 = (((int)(gkgtLoadedCharacter[0].pos_y_pos +
+                          (gkgtLoadedCharacter[0].pos_y_pos >> 0x1f & 0xffffU)) >> 0x10) + -320 +
+                   unk_y_pos2) / 2;
                     // WALL option
-      if ((gkgtLoadedCharacter[0].kgtStoryEntries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
+      if ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
            cOptionsBitmask & 0x4U) == 0) {
         if (gkgtLoadedCharacter[0].health == 0) {
           iVar3 = 0;
@@ -8856,7 +8915,7 @@ switchD_0040af51_caseD_d:
           piVar6 = &kgtEngineObjects[0].iPlayerBuffer;
           i = 1024;
           do {
-            if (((ADJ(piVar6).iJumpIdx == READ_SCRIPT) && (ADJ(piVar6)->obj_type == 0)) &&
+            if (((ADJ(piVar6).iJumpIdx == READ_SCRIPT) && (ADJ(piVar6)->iObjectType == player)) &&
                (gkgtLoadedCharacter[ADJ(piVar6)->iPlayerBuffer].health != 0)) {
               next_pbuffer = next_pbuffer +
                              ((int)(ADJ(piVar6)->iParam3 + (ADJ(piVar6)->iParam3 >> 0x1f & 0xffffU))
@@ -8878,7 +8937,7 @@ switchD_0040af51_caseD_d:
           piVar5 = &kgtEngineObjects[0].iPlayerBuffer;
           i = 1024;
           do {
-            if (((ADJ(piVar5).iJumpIdx == READ_SCRIPT) && (ADJ(piVar5)->obj_type == 0)) &&
+            if (((ADJ(piVar5).iJumpIdx == READ_SCRIPT) && (ADJ(piVar5)->iObjectType == player)) &&
                ((gkgtLoadedCharacter[ADJ(piVar5)->iPlayerBuffer].health != 0 &&
                 (gkgtLoadedCharacter[ADJ(piVar5)->iPlayerBuffer].unknown_online_var_a != 0)))) {
               next_pbuffer = next_pbuffer +
@@ -8930,10 +8989,9 @@ switchD_0040af51_caseD_d:
            (((int)(gkgtLoadedCharacter[1].pos_x_pos + gkgtLoadedCharacter[0].pos_x_pos +
                   (gkgtLoadedCharacter[1].pos_x_pos + gkgtLoadedCharacter[0].pos_x_pos >> 0x1f &
                   0x1ffffU)) >> 0x11) + -0x140 + unk_y_position) / 2;
-      unk_x_position =
-           (((int)(gkgtLoadedCharacter[1].pos_y_pos + gkgtLoadedCharacter[0].pos_y_pos +
-                  (gkgtLoadedCharacter[1].pos_y_pos + gkgtLoadedCharacter[0].pos_y_pos >> 0x1f &
-                  0x1ffffU)) >> 0x11) + -0x140 + unk_x_position) / 2;
+      unk_y_pos2 = (((int)(gkgtLoadedCharacter[1].pos_y_pos + gkgtLoadedCharacter[0].pos_y_pos +
+                          (gkgtLoadedCharacter[1].pos_y_pos + gkgtLoadedCharacter[0].pos_y_pos >>
+                           0x1f & 0x1ffffU)) >> 0x11) + -0x140 + unk_y_pos2) / 2;
     }
     if (unk_y_position < 0) {
       unk_y_position = 0;
@@ -8941,13 +8999,13 @@ switchD_0040af51_caseD_d:
     else if (0x280 < unk_y_position) {
       unk_y_position = 0x280;
     }
-    if (unk_x_position < 0) {
-      unk_x_position = 0;
+    if (unk_y_pos2 < 0) {
+      unk_y_pos2 = 0;
     }
-    else if (0x1e0 < unk_x_position) {
-      unk_x_position = 0x1e0;
+    else if (0x1e0 < unk_y_pos2) {
+      unk_y_pos2 = 0x1e0;
     }
-    next_pbuffer = unk_x_position * -0x10000;
+    next_pbuffer = unk_y_pos2 * -0x10000;
     current_obj->iParam3 = unk_y_position * -0x10000;
     current_obj->iParam4 = next_pbuffer;
     return;
@@ -8960,15 +9018,15 @@ switchD_0040af51_caseD_d:
     current_obj->iDrawFlag = -4;
     current_obj->iParam3 = 0;
     current_obj->iParam4 = 0;
-    current_obj->obj_type = 1;
+    current_obj->iObjectType = story?;
   case 0x11:
     rand = current_obj->iPlayerBuffer + 1;
     current_obj->iPlayerBuffer = rand;
     if ((rand & 3) == 0) {
-      next_pbuffer = current_obj->iColorRed + current_obj->obj_type;
+      next_pbuffer = current_obj->iColorRed + current_obj->iObjectType;
       current_obj->iColorRed = next_pbuffer;
       if ((0x1e < next_pbuffer) || (next_pbuffer < 0)) {
-        current_obj->obj_type = -current_obj->obj_type;
+        current_obj->iObjectType = -current_obj->iObjectType;
       }
     }
     current_obj->iColorBlue = current_obj->iColorRed;
@@ -8993,12 +9051,12 @@ switchD_0040af51_caseD_d:
   case 0x1e:
     gpkgtCurrentEngineObject->iProcessStep = 0x1f;
     current_obj->iDrawFlag = -10;
-    current_obj->obj_type = 1;
+    current_obj->iObjectType = story?;
   case 0x1f:
-    next_pbuffer = current_obj->iPlayerBuffer + current_obj->obj_type;
+    next_pbuffer = current_obj->iPlayerBuffer + current_obj->iObjectType;
     current_obj->iPlayerBuffer = next_pbuffer;
     if ((next_pbuffer < 1) || (99 < next_pbuffer)) {
-      current_obj->obj_type = -current_obj->obj_type;
+      current_obj->iObjectType = -current_obj->iObjectType;
     }
   }
   return;
@@ -9890,7 +9948,7 @@ void FUN_0040c860(int param_1,undefined4 param_2,int param_3)
     draw_func_a((iVar1 - unk_y_position) - (int)*(short *)(param_1 + 5),
                 ((((int)(gpkgtCurrentEngineObject->iParam4 +
                         (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10) +
-                 (int)*(short *)(param_1 + 3)) - unk_x_position) - (int)*(short *)(param_1 + 7),
+                 (int)*(short *)(param_1 + 3)) - unk_y_pos2) - (int)*(short *)(param_1 + 7),
                 *(short *)(param_1 + 5) * 2,*(short *)(param_1 + 7) * 2,1,param_2);
   }
   return;
@@ -9916,7 +9974,7 @@ void FUN_0040c900(int param_1,undefined4 param_2,int param_3)
     }
     iVar4 = ((((int)(gpkgtCurrentEngineObject->iParam4 +
                     (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10) +
-             (int)*(short *)(param_1 + 3)) - unk_x_position) - (int)*(short *)(param_1 + 7);
+             (int)*(short *)(param_1 + 3)) - unk_y_pos2) - (int)*(short *)(param_1 + 7);
     iVar1 = *(short *)(param_1 + 7) * 2;
     iVar3 = (iVar2 - unk_y_position) - (int)*(short *)(param_1 + 5);
     iVar2 = *(short *)(param_1 + 5) * 2;
@@ -10040,7 +10098,7 @@ void FUN_0040ca90(int *param_1)
 void draw_func_d(void)
 
 {
-  KGT_IMG_HEADER *pKVar1;
+  kgtImageHeader *pkVar1;
   char cVar2;
   char cVar3;
   byte bVar4;
@@ -10056,7 +10114,7 @@ void draw_func_d(void)
   int iVar14;
   kgtSkill *pkVar15;
   UINT UVar16;
-  KGT_IMG_HEADER *pKVar17;
+  kgtImageHeader *pkVar17;
   uint uVar18;
   int iVar19;
   kgtPallette *pkVar20;
@@ -10089,7 +10147,7 @@ void draw_func_d(void)
   int local_38;
   int local_34;
   kgtPallette *local_24;
-  KGT_IMG_HEADER *local_18;
+  kgtImageHeader *local_18;
   int i;
   int draw_flag;
   
@@ -10134,11 +10192,11 @@ void draw_func_d(void)
       case -6:
         FUN_0040bfb0(gpkgtCurrentEngineObject->iPlayerBuffer,
                      gpkgtCurrentEngineObject->iParam3 - unk_y_position,
-                     gpkgtCurrentEngineObject->iParam4 - unk_x_position,4,
+                     gpkgtCurrentEngineObject->iParam4 - unk_y_pos2,4,
                      gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
                      gpkgtCurrentEngineObject->iColorBlue);
         draw_func_b(0x424f74,(gpkgtCurrentEngineObject->iParam3 - unk_y_position) + 0x20,
-                    gpkgtCurrentEngineObject->iParam4 - unk_x_position,0x60,0x20,0,0x40,4,
+                    gpkgtCurrentEngineObject->iParam4 - unk_y_pos2,0x60,0x20,0,0x40,4,
                     gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
                     gpkgtCurrentEngineObject->iColorBlue);
         return;
@@ -10157,11 +10215,11 @@ void draw_func_d(void)
         return;
       case -3:
         draw_func_b(0x424f74,(gpkgtCurrentEngineObject->iParam3 - unk_y_position) + -0x40,
-                    (gpkgtCurrentEngineObject->iParam4 - unk_x_position) + -0x40,0x80,0x80,
+                    (gpkgtCurrentEngineObject->iParam4 - unk_y_pos2) + -0x40,0x80,0x80,
                     ((int)(gpkgtCurrentEngineObject->iPlayerBuffer +
                           (gpkgtCurrentEngineObject->iPlayerBuffer >> 0x1f & 7U)) >> 3) << 7,
-                    gpkgtCurrentEngineObject->obj_type << 7,
-                    gpkgtCurrentEngineObject->pos_player_direction * 0x40000000 + 2,
+                    gpkgtCurrentEngineObject->iObjectType << 7,
+                    gpkgtCurrentEngineObject->iPlayerLookingLeft * 0x40000000 + 2,
                     gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
                     gpkgtCurrentEngineObject->iColorBlue);
         return;
@@ -10180,8 +10238,8 @@ void draw_func_d(void)
             draw_func_b(0x424f74,(((int)(ADJ(puVar32)->iParam3 +
                                         (ADJ(puVar32)->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
                                  unk_y_position) + -0x38,
-                        (((int)(draw_flag + (draw_flag >> 0x1f & 0xffffU)) >> 0x10) - unk_x_position
-                        ) + -0x10,0x80,0x20,0,0x60,3,iVar23,pOVar->iColorGreen,pOVar->iColorBlue);
+                        (((int)(draw_flag + (draw_flag >> 0x1f & 0xffffU)) >> 0x10) - unk_y_pos2) +
+                        -0x10,0x80,0x20,0,0x60,3,iVar23,pOVar->iColorGreen,pOVar->iColorBlue);
             pOVar = gpkgtCurrentEngineObject;
           }
           puVar32 = (OBJ_STRUCT_ptr_40_undefined)((int)puVar32 + 0x17e);
@@ -10260,32 +10318,32 @@ void draw_func_d(void)
                 gpkgtCurrentEngineObject->iColorBlue);
     return;
   }
-  switch(gpkgtCurrentEngineObject->obj_type) {
-  case 0:
-  case 1:
+  switch(gpkgtCurrentEngineObject->iObjectType) {
+  case player:
+  case story?:
   case player_file:
     local_58 = (kgtSystem *)(gkgtLoadedCharacter + gpkgtCurrentEngineObject->iPlayerBuffer);
     break;
-  case main_kgt_file:
+  case system:
     local_58 = &gkgtKgtSystem;
     break;
-  case demo_file:
+  case demo:
     local_58 = (kgtSystem *)&gkgtLoadedDemo;
     break;
-  case stage_file:
+  case stage:
     local_58 = (kgtSystem *)&gkgtLoadedStage;
   }
-  draw_flag = *(int *)&gpkgtCurrentEngineObject->actionscript_idx;
+  draw_flag = *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx;
   pkVar7 = (local_58->kgt_core).p_actionscripts_alloc;
-  pKVar1 = (local_58->kgt_core).p_img_headers_alloc +
+  pkVar1 = (local_58->kgt_core).p_img_headers_alloc +
            (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0x1fff);
-  if (pKVar1->p_img_alloc == (void *)0x0) {
+  if (pkVar1->pAlloc == (int *)0x0) {
     return;
   }
-  iVar23 = pKVar1->height;
-  iVar8 = pKVar1->width;
+  iVar23 = pkVar1->iHeight;
+  iVar8 = pkVar1->iWidth;
   local_60 = (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0x4000) >> 0xe;
-  if ((int)gpkgtCurrentEngineObject->obj_type < 2) {
+  if ((int)gpkgtCurrentEngineObject->iObjectType < 2) {
     if (*(int *)(local_58->empty_e + 0xbaf) < 0) {
       local_44 = (local_58->kgt_core).pallette_1;
     }
@@ -10309,7 +10367,7 @@ void draw_func_d(void)
       iVar10 = pOVar->iColorBlue;
       iVar11 = *(int *)&pOVar->color_alpha;
       uVar25 = (uint)*(byte *)((int)kVar9 + 3);
-      local_18 = (KGT_IMG_HEADER *)0x0;
+      local_18 = (kgtImageHeader *)0x0;
       local_34 = 0;
       iVar19 = ((int)gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x36] - uVar25)
                + 100;
@@ -10320,25 +10378,25 @@ void draw_func_d(void)
           iVar12 = *(int *)(iVar19 * 0x10 + 0x44794c + iVar35);
           iVar32 = iVar19 * 0x10 + 0x447930 + iVar35;
           local_48 = *(uint *)(iVar32 + 0x18) & 3;
-          pKVar17 = local_18;
+          pkVar17 = local_18;
           if (iVar12 == 0) goto LAB_0040d4a6;
           uVar5 = *(ushort *)(iVar12 + 3);
-          pKVar17 = (local_58->kgt_core).p_img_headers_alloc + (uVar5 & 0x1fff);
-          local_68 = pKVar17->p_img_alloc;
+          pkVar17 = (local_58->kgt_core).p_img_headers_alloc + (uVar5 & 0x1fff);
+          local_68 = (kgtPallette *)pkVar17->pAlloc;
           if (local_68 == (kgtPallette *)0x0) goto LAB_0040d4a6;
-          iVar13 = pKVar17->height;
-          iVar14 = pKVar17->width;
-          if (pKVar17->size_bytes == 0) {
+          iVar13 = pkVar17->iHeight;
+          iVar14 = pkVar17->iWidth;
+          if (pkVar17->iSize == 0) {
             pkVar20 = local_68;
-            if ((pKVar17->add_1024_flag & 1) != 0) goto LAB_0040ce6d;
+            if ((pkVar17->unk & 1) != 0) goto LAB_0040ce6d;
           }
           else {
-            if (pKVar17 != local_18) {
-              func_0x004140c0(gpGlobalMemoryAlloc,local_68,pKVar17->size_bytes);
+            if (pkVar17 != local_18) {
+              func_0x004140c0(gpGlobalMemoryAlloc,local_68,pkVar17->iSize);
               pOVar = gpkgtCurrentEngineObject;
             }
             pkVar20 = gpGlobalMemoryAlloc;
-            if ((pKVar17->add_1024_flag & 1) == 0) {
+            if ((pkVar17->unk & 1) == 0) {
               local_68 = gpGlobalMemoryAlloc;
             }
             else {
@@ -10399,7 +10457,7 @@ LAB_0040d031:
           *(int *)&pOVar->color_alpha = iVar21;
 switchD_0040ce8e_default:
           psVar36 = &DAT_004d1a20;
-          local_18 = (KGT_IMG_HEADER *)0x100;
+          local_18 = (kgtImageHeader *)0x100;
           pkVar20 = local_44;
           do {
             kVar9 = *pkVar20;
@@ -10446,33 +10504,33 @@ switchD_0040ce8e_default:
             }
             psVar36 = psVar36 + 1;
             pkVar20 = pkVar20 + 1;
-            local_18 = (KGT_IMG_HEADER *)((int)local_18 + -1);
-          } while (local_18 != (KGT_IMG_HEADER *)0x0);
-          switch(pOVar->obj_type) {
-          case 0:
-          case 1:
+            local_18 = (kgtImageHeader *)((int)local_18 + -1);
+          } while (local_18 != (kgtImageHeader *)0x0);
+          switch(pOVar->iObjectType) {
+          case player:
+          case story?:
           case player_file:
             if ((*(byte *)(iVar32 + 0x18) & 4) == 0) {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = (((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) -
-                       ((uint)pKVar17->height >> 1)) + (int)*(short *)(iVar12 + 5);
+                       ((uint)pkVar17->iHeight >> 1)) + (int)*(short *)(iVar12 + 5);
             }
             else {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = ((((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) -
-                        (int)*(short *)(iVar12 + 5)) + ((uint)pKVar17->height >> 1)) -
-                       pKVar17->height;
+                        (int)*(short *)(iVar12 + 5)) + ((uint)pkVar17->iHeight >> 1)) -
+                       pkVar17->iHeight;
               local_48 = local_48 ^ 1;
             }
             iVar32 = ((int)*(short *)(iVar12 + 7) +
                      ((int)(*(int *)(iVar32 + 0x14) + (*(int *)(iVar32 + 0x14) >> 0x1f & 0xffffU))
-                     >> 0x10)) - pKVar17->width;
+                     >> 0x10)) - pkVar17->iWidth;
             if ((pOVar->unk_bitmask & 0x40000000U) == 0) goto LAB_0040d43d;
             iVar31 = (iVar31 - unk_y_position) + giShakeX;
-            local_38 = (iVar32 - unk_x_position) + giShakeY;
+            local_38 = (iVar32 - unk_y_pos2) + giShakeY;
             break;
-          case main_kgt_file:
-          case demo_file:
+          case system:
+          case demo:
             if ((*(byte *)(iVar32 + 0x18) & 4) == 0) {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = ((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) +
@@ -10481,20 +10539,20 @@ switchD_0040ce8e_default:
             else {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = (((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) -
-                       (int)*(short *)(iVar12 + 5)) - pKVar17->height;
+                       (int)*(short *)(iVar12 + 5)) - pkVar17->iHeight;
               local_48 = local_48 ^ 1;
             }
             iVar32 = ((int)(*(int *)(iVar32 + 0x14) + (*(int *)(iVar32 + 0x14) >> 0x1f & 0xffffU))
                      >> 0x10) + (int)*(short *)(iVar12 + 7);
             if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
               iVar31 = iVar31 - unk_y_position;
-              iVar32 = iVar32 - unk_x_position;
+              iVar32 = iVar32 - unk_y_pos2;
             }
 LAB_0040d43d:
             iVar31 = iVar31 + giShakeX;
             local_38 = iVar32 + giShakeY;
             break;
-          case stage_file:
+          case stage:
             if ((*(byte *)(iVar32 + 0x18) & 4) == 0) {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = ((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) +
@@ -10503,14 +10561,14 @@ LAB_0040d43d:
             else {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = (((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) -
-                       (int)*(short *)(iVar12 + 5)) - pKVar17->height;
+                       (int)*(short *)(iVar12 + 5)) - pkVar17->iHeight;
               local_48 = local_48 ^ 1;
             }
             iVar32 = ((int)(*(int *)(iVar32 + 0x14) + (*(int *)(iVar32 + 0x14) >> 0x1f & 0xffffU))
                      >> 0x10) + (int)*(short *)(iVar12 + 7);
             if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
               iVar31 = iVar31 - unk_y_position;
-              iVar32 = iVar32 - unk_x_position;
+              iVar32 = iVar32 - unk_y_pos2;
             }
             iVar31 = iVar31 + giShakeX;
             iVar12 = pOVar->stage_skillscript_idx;
@@ -10528,8 +10586,8 @@ LAB_0040d43d:
             }
             if ((pkVar15[iVar12].field_0x1 & 0x10) != 0) {
               uVar25 = (uint)*(short *)&pkVar15[iVar12].field_0x4;
-              iVar32 = (int)((ulonglong)((longlong)(int)(uVar25 * unk_x_position) * -0x51eb851f) >>
-                            0x20);
+              iVar32 = (int)((ulonglong)((longlong)(int)(uVar25 * unk_y_pos2) * -0x51eb851f) >> 0x20
+                            );
               local_38 = local_38 + ((iVar32 >> 5) - (iVar32 >> 0x1f));
               if (*(short *)&pkVar15[iVar12].field_0x4 < 0) {
                 local_38 = local_38 +
@@ -10538,11 +10596,11 @@ LAB_0040d43d:
               }
             }
           }
-          draw_func_c(pKVar17,local_68,&DAT_004d1a20,iVar31,local_38,iVar13,iVar14,
+          draw_func_c(pkVar17,local_68,&DAT_004d1a20,iVar31,local_38,iVar13,iVar14,
                       (uVar5 & 0xc000) + local_48);
           pOVar = gpkgtCurrentEngineObject;
 LAB_0040d4a6:
-          local_18 = pKVar17;
+          local_18 = pkVar17;
           local_34 = local_34 + 1;
           iVar19 = iVar19 + 1;
         } while (local_34 <
@@ -10557,18 +10615,18 @@ LAB_0040d4a6:
     }
   }
   local_24 = local_44;
-  if (pKVar1->size_bytes == 0) {
-    pkVar20 = pKVar1->p_img_alloc;
+  if (pkVar1->iSize == 0) {
+    pkVar20 = (kgtPallette *)pkVar1->pAlloc;
     local_68 = pkVar20;
-    if ((pKVar1->add_1024_flag & 1) != 0) {
+    if ((pkVar1->unk & 1) != 0) {
       local_68 = pkVar20 + 0x100;
       local_24 = pkVar20;
     }
   }
   else {
-    func_0x004140c0(gpGlobalMemoryAlloc,pKVar1->p_img_alloc,pKVar1->size_bytes);
+    func_0x004140c0(gpGlobalMemoryAlloc,pkVar1->pAlloc,pkVar1->iSize);
     pOVar = gpkgtCurrentEngineObject;
-    if ((pKVar1->add_1024_flag & 1) == 0) {
+    if ((pkVar1->unk & 1) == 0) {
       local_68 = gpGlobalMemoryAlloc;
     }
     else {
@@ -10576,25 +10634,25 @@ LAB_0040d4a6:
       local_68 = gpGlobalMemoryAlloc + 0x100;
     }
   }
-  switch(pOVar->obj_type) {
-  case 0:
-  case 1:
+  switch(pOVar->iObjectType) {
+  case player:
+  case story?:
   case player_file:
     piVar22 = (int *)(pOVar->iPlayerBuffer * 0xe03f + 0x4dfd93);
     break;
-  case main_kgt_file:
+  case system:
     piVar22 = (int *)&system_flash;
     break;
   default:
     goto switchD_0040d56f_caseD_3;
-  case stage_file:
+  case stage:
     piVar22 = &giPalletteFlash;
   }
   FUN_0040ca90(piVar22);
   pOVar = gpkgtCurrentEngineObject;
 switchD_0040d56f_caseD_3:
   psVar36 = &DAT_004d1a20;
-  local_18 = (KGT_IMG_HEADER *)0x100;
+  local_18 = (kgtImageHeader *)0x100;
   do {
     kVar9 = *local_24;
     if (((uint)kVar9 & 0xffffff) == 0) {
@@ -10641,30 +10699,30 @@ switchD_0040d56f_caseD_3:
     UVar16 = giConfigTestplayHitjudge_2;
     psVar36 = psVar36 + 1;
     local_24 = local_24 + 1;
-    local_18 = (KGT_IMG_HEADER *)((int)local_18 + -1);
-  } while (local_18 != (KGT_IMG_HEADER *)0x0);
+    local_18 = (kgtImageHeader *)((int)local_18 + -1);
+  } while (local_18 != (kgtImageHeader *)0x0);
   iVar35 = iVar23;
-  switch(pOVar->obj_type) {
-  case 0:
-  case 1:
+  switch(pOVar->iObjectType) {
+  case player:
+  case story?:
   case player_file:
     if (*(int *)&pOVar->opponent_downtime_in_frames != -1) {
-      if ((pOVar->pos_player_direction == 0) || ((pkVar7[draw_flag + -1].field_0x9 & 1) != 0)) {
-        iVar35 = ((int)*(short *)&pkVar7[draw_flag + -1].field_0x5 - ((uint)pKVar1->height >> 1)) +
+      if ((pOVar->iPlayerLookingLeft == 0) || ((pkVar7[draw_flag + -1].field_0x9 & 1) != 0)) {
+        iVar35 = ((int)*(short *)&pkVar7[draw_flag + -1].field_0x5 - ((uint)pkVar1->iHeight >> 1)) +
                  ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10);
       }
       else {
-        iVar35 = ((((uint)pKVar1->height >> 1) - (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) +
-                 ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10)) -
-                 pKVar1->height;
+        iVar35 = ((((uint)pkVar1->iHeight >> 1) - (int)*(short *)&pkVar7[draw_flag + -1].field_0x5)
+                 + ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10)) -
+                 pkVar1->iHeight;
         local_60 = local_60 ^ 1;
       }
       iVar19 = ((int)*(short *)&pkVar7[draw_flag + -1].field_0x7 +
-               ((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10)) - pKVar1->width
-      ;
+               ((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10)) -
+               pkVar1->iWidth;
       if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
         iVar35 = iVar35 - (giShakeX + unk_y_position);
-        iVar19 = iVar19 - (giShakeY + unk_x_position);
+        iVar19 = iVar19 - (giShakeY + unk_y_pos2);
       }
       if (giConfigTestplayHitjudge_2 != 0) {
         iVar33 = 0x4c;
@@ -10683,7 +10741,7 @@ switchD_0040d56f_caseD_3:
           iVar33 = iVar33 + -4;
         } while (bVar37);
       }
-      draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar35,iVar19,iVar23,iVar8,
+      draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar35,iVar19,iVar23,iVar8,
                   (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
       if (UVar16 == 0) {
         return;
@@ -10702,7 +10760,7 @@ switchD_0040d56f_caseD_3:
         bVar37 = draw_flag != 0;
         draw_flag = draw_flag + -4;
       } while (bVar37);
-      if (gpkgtCurrentEngineObject->obj_type != 0) {
+      if (gpkgtCurrentEngineObject->iObjectType != player) {
         return;
       }
       draw_func_b(0x424f74,(((int)(gpkgtCurrentEngineObject->iParam3 +
@@ -10710,19 +10768,19 @@ switchD_0040d56f_caseD_3:
                            unk_y_position) + -0x20,
                   (((int)(gpkgtCurrentEngineObject->iParam4 +
                          (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10) -
-                  unk_x_position) + -0x40,0x40,0x20,
+                  unk_y_pos2) + -0x40,0x40,0x20,
                   (((int)gpkgtCurrentEngineObject->obj_ptr_b >> 2 & 3U) + 4) * 0x40,0x60,0,0,0,0);
       draw_func_b(0x424f74,(((int)(gpkgtCurrentEngineObject->iParam3 +
                                   (gpkgtCurrentEngineObject->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
                            unk_y_position) + -0x20,
                   (((int)(gpkgtCurrentEngineObject->iParam4 +
                          (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10) -
-                  unk_x_position) + -0x20,0x40,0x20,
+                  unk_y_pos2) + -0x20,0x40,0x20,
                   (((uint)gpkgtCurrentEngineObject->obj_ptr_b & 3) + 4) * 0x40,0x40,0,0,0,0);
       return;
     }
     uVar5 = *(ushort *)&pkVar7[draw_flag + -1].field_0x3;
-    local_60 = (*(kgtEngineObject **)(local_58->empty_e + 0xa9d))->pos_player_direction;
+    local_60 = (*(kgtEngineObject **)(local_58->empty_e + 0xa9d))->iPlayerLookingLeft;
     if ((uVar5 & 0x4000) != 0) {
       local_60 = local_60 ^ 1;
     }
@@ -10732,7 +10790,7 @@ switchD_0040d56f_caseD_3:
     }
     else {
       iVar19 = (((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
-               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pKVar1->height;
+               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pkVar1->iHeight;
     }
     if ((uVar5 & 0x8000) == 0) {
       iVar33 = ((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10) +
@@ -10740,42 +10798,42 @@ switchD_0040d56f_caseD_3:
     }
     else {
       iVar33 = (((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10) -
-               (int)*(short *)&pkVar7[draw_flag + -1].field_0x7) - pKVar1->width;
+               (int)*(short *)&pkVar7[draw_flag + -1].field_0x7) - pkVar1->iWidth;
     }
     if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
       iVar19 = iVar19 - unk_y_position;
-      iVar33 = iVar33 - unk_x_position;
+      iVar33 = iVar33 - unk_y_pos2;
     }
     iVar33 = iVar33 + giShakeY;
     local_60 = uVar5 & 0xc000 | local_60;
     iVar19 = iVar19 + giShakeX;
     goto LAB_0040d790;
-  case main_kgt_file:
-  case demo_file:
-    if (pOVar->pos_player_direction == 0) {
+  case system:
+  case demo:
+    if (pOVar->iPlayerLookingLeft == 0) {
       iVar19 = ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) +
                (int)*(short *)&pkVar7[draw_flag + -1].field_0x5;
     }
     else {
       iVar19 = (((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
-               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pKVar1->height;
+               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pkVar1->iHeight;
       local_60 = local_60 ^ 1;
     }
     iVar33 = ((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10) +
              (int)*(short *)&pkVar7[draw_flag + -1].field_0x7;
     if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
       iVar19 = iVar19 - (giShakeX + unk_y_position);
-      iVar33 = iVar33 - (giShakeY + unk_x_position);
+      iVar33 = iVar33 - (giShakeY + unk_y_pos2);
     }
     break;
-  case stage_file:
-    if (pOVar->pos_player_direction == 0) {
+  case stage:
+    if (pOVar->iPlayerLookingLeft == 0) {
       iVar35 = ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) +
                (int)*(short *)&pkVar7[draw_flag + -1].field_0x5;
     }
     else {
       iVar35 = (((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
-               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pKVar1->height;
+               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pkVar1->iHeight;
       local_60 = local_60 ^ 1;
     }
     iVar35 = iVar35 + giShakeX;
@@ -10795,7 +10853,7 @@ switchD_0040d56f_caseD_3:
     bVar4 = pkVar15[iVar19].field_0x1;
     if ((bVar4 & 0x10) != 0) {
       uVar18 = (uint)*(short *)&pkVar15[iVar19].field_0x4;
-      iVar29 = (int)((ulonglong)((longlong)(int)(uVar18 * unk_x_position) * -0x51eb851f) >> 0x20);
+      iVar29 = (int)((ulonglong)((longlong)(int)(uVar18 * unk_y_pos2) * -0x51eb851f) >> 0x20);
       iVar33 = iVar33 + ((iVar29 >> 5) - (iVar29 >> 0x1f));
       if (*(short *)&pkVar15[iVar19].field_0x4 < 0) {
         iVar33 = iVar33 + (int)(((uVar18 ^ (int)uVar18 >> 0x1f) - ((int)uVar18 >> 0x1f)) * -0x30) /
@@ -10804,7 +10862,7 @@ switchD_0040d56f_caseD_3:
     }
     if ((bVar4 & 2) == 0) {
       if ((bVar4 & 4) == 0) {
-        draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
+        draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
                     (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
         return;
       }
@@ -10812,7 +10870,7 @@ switchD_0040d56f_caseD_3:
       }
       if (iVar33 < 0x1e0) {
         do {
-          draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
+          draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
                       (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
           iVar33 = iVar33 + iVar8;
         } while (iVar33 < 0x1e0);
@@ -10824,7 +10882,7 @@ switchD_0040d56f_caseD_3:
       }
       if (iVar35 < 0x280) {
         do {
-          draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
+          draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
                       (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
           iVar35 = iVar35 + iVar23;
         } while (iVar35 < 0x280);
@@ -10840,7 +10898,7 @@ switchD_0040d56f_caseD_3:
       if (iVar33 < 0x1e0) {
         do {
           for (; iVar19 < 0x280; iVar19 = iVar19 + iVar23) {
-            draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar19,iVar33,iVar23,iVar8,
+            draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar19,iVar33,iVar23,iVar8,
                         (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
           }
           iVar33 = iVar33 + iVar8;
@@ -10895,7 +10953,7 @@ LAB_0040de77:
   }
   local_60 = (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60;
 LAB_0040d790:
-  draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar19,iVar33,iVar35,iVar8,local_60);
+  draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar19,iVar33,iVar35,iVar8,local_60);
   return;
 }
 
@@ -10910,7 +10968,7 @@ void FUN_0040e4a0(void)
   int iVar4;
   
   pkVar2 = gpkgtCurrentEngineObject;
-  if (gpkgtCurrentEngineObject->obj_type == 1) {
+  if (gpkgtCurrentEngineObject->iObjectType == story?) {
     iVar4 = 10;
     ppkVar3 = gkgtLoadedCharacter[gpkgtCurrentEngineObject->iPlayerBuffer].object_mNumbers;
     do {
@@ -10941,7 +10999,7 @@ void obj_reset_values(void)
   kgtEngineObject *pkVar1;
   
   pkVar1 = gpkgtCurrentEngineObject;
-  if ((int)gpkgtCurrentEngineObject->obj_type < 2) {
+  if ((int)gpkgtCurrentEngineObject->iObjectType < 2) {
     gpkgtCurrentEngineObject->stage_action_idx = 0;
     pkVar1->stage_skillscript_idx = 0;
     pkVar1->case2_var_b = 0;
@@ -10986,11 +11044,11 @@ undefined4 FUN_0040e580(void)
     return 0;
   }
   iVar1 = gkgtLoadedCharacter[player_buffer].iProbablyIsBlocking;
-  if (gpkgtCurrentEngineObject->pos_player_direction == iVar1) {
+  if (gpkgtCurrentEngineObject->iPlayerLookingLeft == iVar1) {
     return 0;
   }
   *(int *)&gkgtLoadedCharacter[player_buffer].player_buff_idx_is_not_0 = iVar1;
-  curr_obj->pos_player_direction = iVar1;
+  curr_obj->iPlayerLookingLeft = iVar1;
   return 1;
 }
 
@@ -11020,7 +11078,8 @@ void FUN_0040e5c0(void)
   gkgtLoadedCharacter[iVar1].poss_opponent_obj_ptr_2_ = (kgtEngineObject *)0x0;
   do {
     if ((((ADJ(first_obj_player_idx).iJumpIdx == READ_SCRIPT) &&
-         (ADJ(first_obj_player_idx) != curr_obj)) && (ADJ(first_obj_player_idx)->obj_type == 0)) &&
+         (ADJ(first_obj_player_idx) != curr_obj)) &&
+        (ADJ(first_obj_player_idx)->iObjectType == player)) &&
        (*(int *)&curr_obj->__or_3 == *(int *)&ADJ(first_obj_player_idx)->__or_3)) {
       iVar2 = ADJ(first_obj_player_idx)->iPlayerBuffer;
       if (((gkgtLoadedCharacter[iVar2].health != 0) &&
@@ -11164,7 +11223,7 @@ void add_to_health(kgt_character_struct *player,int life_add)
   player->field6369_0xdf25 = 0;
   player->field6370_0xdf29 = 0;
   if (bVar12) goto LAB_0040e8b7;
-  iVar4 = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
+  iVar4 = giCurrentStoryStep[giStoryModePlayerIdx_2];
   iVar10 = *(int *)((int)puVar5 + 0x156);
   if (iVar10 == 0) {
     bVar2 = gkgtLoadedCharacter[0].kgtStoryEntries[iVar4].cCpuWins;
@@ -11207,7 +11266,7 @@ LAB_0040e998:
     cVar3 = *(char *)((int)puVar1 + 0x11);
     goto LAB_0040e998;
   }
-  iVar4 = STORY_MODE_IDX;
+  iVar4 = giStoryModePlayerIdx_2;
   uVar7 = *puVar1 >> 5 & 3;
   if (uVar7 == 1) {
     *puVar5 = 1;
@@ -11217,8 +11276,8 @@ LAB_0040e998:
     *puVar5 = 1;
     iVar11 = *(int *)((int)puVar5 + 0x156);
     iVar9 = (iVar11 + -1) * 0x1a;
-    iVar10 = iVar9 + 0x4d9a61 + (&POSS_STORY_ARRAY)[iVar4] * 0xce;
-    if (*(char *)(iVar9 + 0x4d9a65 + (&POSS_STORY_ARRAY)[iVar4] * 0xce) == '\0') {
+    iVar10 = iVar9 + 0x4d9a61 + giCurrentStoryStep[iVar4] * 0xce;
+    if (*(char *)(iVar9 + 0x4d9a65 + giCurrentStoryStep[iVar4] * 0xce) == '\0') {
       return;
     }
     pkVar8 = kgtoNewEngineObject(READ_SCRIPT,0x50,(uint)*(ushort *)(iVar10 + 7) << 0x10,0x3980000);
@@ -11283,7 +11342,7 @@ void hitbox_calculation(int *out,int x_val,int y_val,int hitbox_width,int hitbox
 void handle_hitboxes(void)
 
 {
-  kgt_obj_type kVar1;
+  kgtEngineObjectTypes kVar1;
   kgtSkillHeader *pkVar2;
   int y_val;
   int hitbox_width;
@@ -11345,7 +11404,7 @@ void handle_hitboxes(void)
         if (hitbox != (kgtSkill *)0x0) {
                     // Figure out what is going on with the division? here
           x_val = ADJ(pObj_param3)->iParam3;
-          if ((ADJ(pObj_param3)->pos_player_direction & 1) == 0) {
+          if ((ADJ(pObj_param3)->iPlayerLookingLeft & 1) == 0) {
             adjusted_x_val =
                  (int)*(short *)&hitbox->field_0x1 +
                  ((int)(x_val + (x_val >> 31 & 0xffffU)) >> 0x10);
@@ -11375,7 +11434,7 @@ void handle_hitboxes(void)
                   do {
                     opp_hitbox = *pOpp_hitbox;
                     if (opp_hitbox != (kgtSkill *)0x0) {
-                      if ((opponent_obj->pos_player_direction & 1) == 0) {
+                      if ((opponent_obj->iPlayerLookingLeft & 1) == 0) {
                         opp_x_val = (int)*(short *)&opp_hitbox->field_0x1 +
                                     ((int)(opponent_obj->iParam3 +
                                           (opponent_obj->iParam3 >> 0x1f & 0xffffU)) >> 0x10);
@@ -11422,12 +11481,12 @@ void handle_hitboxes(void)
                                                  opp_hitbox_height);
                               iVar7 = kgtoNewEngineObject(READ_SCRIPT,0x5d,
                                                           local_8[0] + unk_y_position * -0x10000,
-                                                          local_8[1] + unk_x_position * -0x10000);
+                                                          local_8[1] + unk_y_pos2 * -0x10000);
                               pkVar2 = gkgtKgtSystem.kgt_core.pSkillsAlloc;
                               uVar3 = gkgtKgtSystem._73600_4_ & 0xffff;
-                              iVar7->action_idx = uVar3;
-                              iVar7->obj_type = main_kgt_file;
-                              *(uint *)&iVar7->actionscript_idx =
+                              iVar7->iSkillIdx = uVar3;
+                              iVar7->iObjectType = system;
+                              *(uint *)&iVar7->iSkillScriptIdx =
                                    (uint)(ushort)pkVar2[uVar3].shStartingStepIdx;
                             }
                             opp_x_val = opponent_obj->iPlayerBuffer;
@@ -11452,14 +11511,15 @@ void handle_hitboxes(void)
                              (((hitbox->field_0xb & 0x80) != 0 ||
                               ((opp_hitbox->field_0xb & 0x80) != 0)))) {
                             opp_hitbox->cSkillType = '\0';
-                            kVar1 = ADJ(pObj_param3)->obj_type;
+                            kVar1 = ADJ(pObj_param3)->iObjectType;
                             hitbox->cSkillType = '\0';
-                            if ((kVar1 != 0) && (ADJ(pObj_param3)->stage_skillscript_idx != 0)) {
+                            if ((kVar1 != player) && (ADJ(pObj_param3)->stage_skillscript_idx != 0))
+                            {
                               ADJ(pObj_param3)->hit_junction_idx =
                                    ADJ(pObj_param3)->stage_skillscript_idx;
                               ADJ(pObj_param3)->stage_skillscript_idx = 0;
                             }
-                            if ((opponent_obj->obj_type != 0) &&
+                            if ((opponent_obj->iObjectType != player) &&
                                (opponent_obj->stage_skillscript_idx != 0)) {
                               opponent_obj->hit_junction_idx = opponent_obj->stage_skillscript_idx;
                               opponent_obj->stage_skillscript_idx = 0;
@@ -11536,7 +11596,7 @@ void handle_hitboxes_2(void)
         hitbox = (kgtSkill *)object->hitbox_attack_array[i];
         if (hitbox != (kgtSkill *)0x0) {
           hitbox_y_val = object->iParam3;
-          if ((object->pos_player_direction & 1) == 0) {
+          if ((object->iPlayerLookingLeft & 1) == 0) {
             hitbox_x_val = (int)*(short *)&hitbox->field_0x1 +
                            ((int)(hitbox_y_val + (hitbox_y_val >> 0x1f & 0xffffU)) >> 0x10);
           }
@@ -11558,7 +11618,7 @@ void handle_hitboxes_2(void)
               if (((*(uint *)&gkgtLoadedCharacter[player_buffer].enemy_bitmask &
                    1 << ((byte)opp_object->iPlayerBuffer & 0x1f)) != 0) &&
                  ((*(uint *)&opp_object->__or_3 & 2) == 0)) {
-                if (opp_object->obj_type == 0) {
+                if (opp_object->iObjectType == player) {
                   if ((opp_object->iParam4 == opp_object->compare_to_param_4) &&
                      (opp_object->y_momentum == 0)) {
                     hitbox_flags = hitbox->field_0xa;
@@ -11578,7 +11638,7 @@ void handle_hitboxes_2(void)
                 do {
                   iVar11 = *local_38;
                   if ((iVar11 != 0) && ((*(byte *)(iVar11 + 10) & 6) != 0)) {
-                    if ((opp_object->pos_player_direction & 1) == 0) {
+                    if ((opp_object->iPlayerLookingLeft & 1) == 0) {
                       iVar12 = (int)*(short *)(iVar11 + 1) +
                                ((int)(opp_object->iParam3 + (opp_object->iParam3 >> 0x1f & 0xffffU))
                                >> 0x10);
@@ -11599,7 +11659,7 @@ void handle_hitboxes_2(void)
                       uVar10 = (uint)(byte)hitbox->field_0xc;
                       local_3c = giInputBufferA[iVar2][giInputBufferPos];
                       pkVar1 = gkgtLoadedCharacter + iVar2;
-                      if (object->obj_type == 0) {
+                      if (object->iObjectType == player) {
                         gkgtLoadedCharacter[player_buffer].poss_opponent_obj_ptr = opp_object;
                         gkgtLoadedCharacter[iVar2].poss_opponent_obj_ptr = object;
                       }
@@ -11611,14 +11671,14 @@ void handle_hitboxes_2(void)
                         local_3c = *(uint *)&gkgtLoadedCharacter[iVar2].input_storage;
                       }
                       object->obj_ptr_b = (kgtEngineObject *)((uint)object->obj_ptr_b | 0x10);
-                      if (object->obj_type == 0) {
+                      if (object->iObjectType == player) {
                         object->iParam2 = (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + 1;
                       }
-                      if (opp_object->obj_type == 0) {
+                      if (opp_object->iObjectType == player) {
                         opp_object->iParam2 = (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + -1;
                       }
-                      if (opp_object->obj_type != 0) {
-                        if ((opp_object->obj_type == 1) && (object->case2_var_b != 0)) {
+                      if (opp_object->iObjectType != player) {
+                        if ((opp_object->iObjectType == story?) && (object->case2_var_b != 0)) {
                           object->hit_junction_idx = object->case2_var_b;
                           object->case2_var_b = 0;
                         }
@@ -11722,7 +11782,7 @@ LAB_0040f657:
                         }
                         if (uVar9 == 0) goto LAB_0040f657;
                         opp_object->hit_junction_idx =
-                             (uint)(ushort)pkVar1->hit_junctions[uVar9].shAllottmentIdx;
+                             (uint)(ushort)pkVar1->kgtHitJunctions[uVar9].shAllottmentIdx;
                         if ((gkgtKgtSystem.hit_junctions[uVar9].cDoing & 1U) != 0) {
                           bVar5 = false;
                         }
@@ -11733,17 +11793,17 @@ LAB_0040f657:
                                              hitbox_height,iVar12,iVar13,(int)*(short *)(iVar11 + 5)
                                              ,(int)*(short *)(iVar11 + 7));
                           pkVar8 = kgtoNewEngineObject(READ_SCRIPT,0x5d,local_8,local_4);
-                          iVar4 = object->pos_player_direction;
+                          iVar4 = object->iPlayerLookingLeft;
                           pkVar8->iPlayerBuffer = object->iPlayerBuffer;
                           uVar7 = *(undefined3 *)&object->field_0x15;
                           pkVar8->__or_3 = object->__or_3;
                           *(undefined3 *)&pkVar8->field_0x15 = uVar7;
                           uVar9 = (uint)*(ushort *)(uVar9 * 4 + 0x4d8b2c + player_buffer * 0xe03f);
-                          pkVar8->pos_player_direction = iVar4;
-                          pkVar8->action_idx = uVar9;
-                          pkVar8->obj_type = 1;
-                          *(uint *)&pkVar8->actionscript_idx =
-                               (uint)(ushort)gkgtLoadedCharacter[rand].kgt_core.pSkillsAlloc[uVar9].
+                          pkVar8->iPlayerLookingLeft = iVar4;
+                          pkVar8->iSkillIdx = uVar9;
+                          pkVar8->iObjectType = story?;
+                          *(uint *)&pkVar8->iSkillScriptIdx =
+                               (uint)(ushort)gkgtLoadedCharacter[rand].kgtCore.pSkillsAlloc[uVar9].
                                              shStartingStepIdx;
                           pkVar8->unk_bitmask = pkVar8->unk_bitmask | 0x40000000;
                         }
@@ -11753,7 +11813,7 @@ LAB_0040f657:
                         }
                       }
                       if (bVar5) {
-                        opp_object->pos_player_direction = object->pos_player_direction ^ 1;
+                        opp_object->iPlayerLookingLeft = object->iPlayerLookingLeft ^ 1;
                         if (uVar10 != 0) {
                           uVar9 = (uint)(byte)gkgtKgtSystem.stiff_time_guard;
                           *(uint *)&opp_object->opponent_downtime_in_frames = uVar9;
@@ -11792,7 +11852,7 @@ LAB_0040f657:
                                *(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA + 1;
                           iSetDebugInfo(s_HAN_HIRAGANA__0041f1f8,0x8fffff);
                         }
-                        opp_object->pos_player_direction = object->pos_player_direction ^ 1;
+                        opp_object->iPlayerLookingLeft = object->iPlayerLookingLeft ^ 1;
                         if (uVar10 != 0) {
                           uVar9 = (uint)(byte)gkgtKgtSystem.stiff_time_hit;
                           *(uint *)&opp_object->opponent_downtime_in_frames = uVar9;
@@ -11830,7 +11890,7 @@ LAB_0040f657:
                                (kgtEngineObject *)&gkgtLoadedCharacter[iVar2].field6359_0xdf01;
                           pkVar8->unk_bitmask = pkVar8->unk_bitmask | 0x40000000;
                         }
-                        if (object->obj_type == 0) {
+                        if (object->iObjectType == player) {
                           pkVar1 = gkgtLoadedCharacter + player_buffer;
                           uVar10._0_1_ = pkVar1->unkHitboxVarB;
                           uVar10._1_1_ = pkVar1->field_0xdf2e;
@@ -11850,7 +11910,7 @@ LAB_0040f657:
                           object->case2_var_b = 0;
                         }
                       }
-                      if (object->obj_type == 0) {
+                      if (object->iObjectType == player) {
                         gkgtLoadedCharacter[iVar2].field6358_0xdefd = (int)object;
                       }
                       else if ((object->unk_bitmask & 0x20000000U) != 0) {
@@ -11886,7 +11946,7 @@ void FUN_0040f910(void)
 
 {
   short sVar1;
-  kgt_obj_type kVar2;
+  kgtEngineObjectTypes kVar2;
   bool bVar3;
   bool bVar4;
   int iVar5;
@@ -11912,7 +11972,7 @@ void FUN_0040f910(void)
     bVar13 = false;
     if ((local_38->iJumpIdx == READ_SCRIPT) &&
        (((gkgtGameState.iIsPausedFlag == 0 ||
-         (kVar2 = gpkgtCurrentEngineObject->obj_type, (int)kVar2 < 0)) ||
+         (kVar2 = gpkgtCurrentEngineObject->iObjectType, (int)kVar2 < 0)) ||
         ((1 < (int)kVar2 && (kVar2 != player_file)))))) {
       if (*(int *)&local_38->opponent_downtime_in_frames == 0) {
         iVar5 = local_38->x_momentum + local_38->x_gravity;
@@ -11924,7 +11984,7 @@ void FUN_0040f910(void)
       }
       if ((local_38->unk_bitmask & 0x20000000U) != 0) {
         pkVar10 = local_38->parent_obj;
-        if ((pkVar10->pos_player_direction & 1) == 0) {
+        if ((pkVar10->iPlayerLookingLeft & 1) == 0) {
           local_38->iParam3 = *(short *)&local_38->field_0x12d * 0x10000 + pkVar10->iParam3;
         }
         else {
@@ -11933,7 +11993,7 @@ void FUN_0040f910(void)
         local_38->iParam4 =
              *(short *)&local_38->field_0x12f * 0x10000 + local_38->parent_obj->iParam4;
       }
-      if (local_38->obj_type == 0) {
+      if (local_38->iObjectType == player) {
         bVar3 = false;
         bVar13 = gkgtLoadedCharacter[local_38->iPlayerBuffer].health == 0;
         local_38->iParam3 =
@@ -11942,8 +12002,8 @@ void FUN_0040f910(void)
         gkgtLoadedCharacter[iVar5].field6386_0xdf49 = 0;
         if ((((gkgtLoadedCharacter[iVar5].field6451_0xdfef & 0x10) != 0) &&
             (pkVar10 = gkgtLoadedCharacter[iVar5].poss_opponent_obj_ptr,
-            pkVar10 != (kgtEngineObject *)0x0)) && (pkVar10->obj_type == 0)) {
-          if ((local_38->pos_player_direction & 1) == 0) {
+            pkVar10 != (kgtEngineObject *)0x0)) && (pkVar10->iObjectType == player)) {
+          if ((local_38->iPlayerLookingLeft & 1) == 0) {
             iVar8 = *(int *)((int)&gkgtLoadedCharacter[iVar5].script_obj_var_d + 2) +
                     local_38->iParam3;
           }
@@ -11958,7 +12018,7 @@ void FUN_0040f910(void)
         iVar8 = unk_y_position;
         bVar4 = false;
         if (gkgtGameState.kgtGameMode == 1P_story) {
-          if ((gkgtLoadedCharacter[0].kgtStoryEntries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
+          if ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
                cOptionsBitmask & 4U) != 0) goto LAB_0040faab;
         }
         else if ((0 < (int)gkgtGameState.kgtGameMode) && ((int)gkgtGameState.kgtGameMode < 3)) {
@@ -12023,13 +12083,13 @@ LAB_0040fca7:
         }
       }
 LAB_0040fcbc:
-      if ((int)local_38->obj_type < 2) {
+      if ((int)local_38->iObjectType < 2) {
         local_20 = local_38->hitbox_guard_array + 0x13;
         local_8 = 0x14;
         do {
           iVar5 = *local_20;
           if ((iVar5 != 0) && ((*(byte *)(iVar5 + 10) & 1) != 0)) {
-            if ((local_38->pos_player_direction & 1) == 0) {
+            if ((local_38->iPlayerLookingLeft & 1) == 0) {
               iVar8 = (int)*(short *)(iVar5 + 1) +
                       ((int)(local_38->iParam3 + (local_38->iParam3 >> 0x1f & 0xffffU)) >> 0x10);
             }
@@ -12048,7 +12108,7 @@ LAB_0040fcbc:
                 bVar3 = false;
                 if ((pkVar10->iJumpIdx == READ_SCRIPT) &&
                    (((*(uint *)&pkVar10->__or_3 ^ *(uint *)&local_38->__or_3) & 1) == 0)) {
-                  if ((pkVar10->obj_type == 0) &&
+                  if ((pkVar10->iObjectType == player) &&
                      (gkgtLoadedCharacter[pkVar10->iPlayerBuffer].health == 0)) {
                     bVar3 = true;
                   }
@@ -12058,7 +12118,7 @@ LAB_0040fcbc:
                     iVar5 = *local_24;
                     if ((iVar5 != 0) && ((*(byte *)(iVar5 + 10) & 1) != 0)) {
                       iVar7 = pkVar10->iParam3;
-                      if ((pkVar10->pos_player_direction & 1) == 0) {
+                      if ((pkVar10->iPlayerLookingLeft & 1) == 0) {
                         iVar7 = (int)*(short *)(iVar5 + 1) +
                                 ((int)(iVar7 + (iVar7 >> 0x1f & 0xffffU)) >> 0x10);
                       }
@@ -12253,7 +12313,7 @@ short FUN_00410060(uint param_1)
               uVar8 = uVar16 & 0xf;
               switch(uVar3 >> 0xe) {
               case 0:
-                if ((gpkgtCurrentEngineObject->pos_player_direction != 0) &&
+                if ((gpkgtCurrentEngineObject->iPlayerLookingLeft != 0) &&
                    ((gkgtLoadedCharacter[iVar5].cIsGuardButtonActive & 8U) != 0)) {
                   switch(uVar9 & 0xf) {
                   case 0:
@@ -12305,7 +12365,7 @@ short FUN_00410060(uint param_1)
                 }
                 uVar14 = 0;
                 uVar17 = uVar9 & 0x3f0;
-                if ((gpkgtCurrentEngineObject->pos_player_direction != 0) &&
+                if ((gpkgtCurrentEngineObject->iPlayerLookingLeft != 0) &&
                    ((gkgtLoadedCharacter[iVar5].cIsGuardButtonActive & 8U) != 0)) {
                   switch(uVar9 & 0xf) {
                   case 0:
@@ -12423,7 +12483,7 @@ switchD_00410350_default:
                     uVar13 = 0;
                     uVar17 = giInputBufferA[iVar5][uVar14];
                     uVar10 = uVar17 & 0xf;
-                    if ((gpkgtCurrentEngineObject->pos_player_direction != 0) &&
+                    if ((gpkgtCurrentEngineObject->iPlayerLookingLeft != 0) &&
                        ((gkgtLoadedCharacter[iVar5].cIsGuardButtonActive & 8U) != 0)) {
                       switch(uVar9 & 0xf) {
                       case 0:
@@ -12788,7 +12848,7 @@ undefined4 process_COM_skillblock(kgtSkill *skill)
         uVar5 = 0;
         uVar3 = current_player_input & 0xf;
         if ((uVar2 & 0xc000) != 0) goto LAB_00410c43;
-        if ((gpkgtCurrentEngineObject->pos_player_direction != 0) &&
+        if ((gpkgtCurrentEngineObject->iPlayerLookingLeft != 0) &&
            ((gkgtLoadedCharacter[player_buffer].cIsGuardButtonActive & 8U) != 0)) {
           switch(uVar4 & 0xf) {
           case 0:
@@ -12923,9 +12983,9 @@ int switch_current_object_action(int action_offset)
   pkVar2 = gpkgtCurrentEngineObject;
   if (action_offset != 0) {
     piVar1 = &gpkgtCurrentEngineObject->iPlayerBuffer;
-    gpkgtCurrentEngineObject->action_idx = action_offset;
-    *(uint *)&pkVar2->actionscript_idx =
-         (uint)(ushort)gkgtLoadedCharacter[*piVar1].kgt_core.pSkillsAlloc[action_offset].
+    gpkgtCurrentEngineObject->iSkillIdx = action_offset;
+    *(uint *)&pkVar2->iSkillScriptIdx =
+         (uint)(ushort)gkgtLoadedCharacter[*piVar1].kgtCore.pSkillsAlloc[action_offset].
                        shStartingStepIdx;
     return 0;
   }
@@ -12939,13 +12999,13 @@ void assign_action_and_reset_some_data(int offset)
 {
   kgtEngineObject *pkVar1;
   
-  if (offset != gpkgtCurrentEngineObject->action_idx) {
+  if (offset != gpkgtCurrentEngineObject->iSkillIdx) {
     switch_current_object_action(offset);
     obj_0x129_to_0(gpkgtCurrentEngineObject);
     obj_reset_values();
     pkVar1 = gpkgtCurrentEngineObject;
     gpkgtCurrentEngineObject->image_wait_frames = 0;
-    if (pkVar1->obj_type == 0) {
+    if (pkVar1->iObjectType == player) {
       if ((pkVar1->iParam4 == pkVar1->compare_to_param_4) && (pkVar1->y_momentum == 0)) {
         pkVar1->y_gravity = 0;
         pkVar1->y_momentum = 0;
@@ -13005,13 +13065,13 @@ kgtEngineObject * FUN_00410dc0(void)
         if (uVar8 == 0) {
           return (kgtEngineObject *)0x0;
         }
-        gpkgtCurrentEngineObject->pos_player_direction = 0;
+        gpkgtCurrentEngineObject->iPlayerLookingLeft = 0;
         return (kgtEngineObject *)0x0;
       }
       if (((uVar2 & 1) != 0) &&
          ((gkgtLoadedCharacter[iVar1].has_crouch_retreat != 0 && (uVar8 != 0)))) {
         assign_action_and_reset_some_data(gkgtLoadedCharacter[iVar1].shSkillIdxCrouchAdvance);
-        gpkgtCurrentEngineObject->pos_player_direction = 1;
+        gpkgtCurrentEngineObject->iPlayerLookingLeft = 1;
         return (kgtEngineObject *)0x0;
       }
       if ((((uVar2 & 1) != 0) && (gkgtLoadedCharacter[iVar1].has_crouch_retreat != 0)) &&
@@ -13019,11 +13079,11 @@ kgtEngineObject * FUN_00410dc0(void)
         assign_action_and_reset_some_data(gkgtLoadedCharacter[iVar1].shSkillIdxCrouchRetreat);
         return (kgtEngineObject *)0x0;
       }
-      if (gpkgtCurrentEngineObject->action_idx ==
+      if (gpkgtCurrentEngineObject->iSkillIdx ==
           (uint)(ushort)gkgtLoadedCharacter[iVar1].shSkillIdxMidCrouch) {
         return (kgtEngineObject *)0x0;
       }
-      if (gpkgtCurrentEngineObject->action_idx ==
+      if (gpkgtCurrentEngineObject->iSkillIdx ==
           (uint)(ushort)gkgtLoadedCharacter[iVar1].shSkillIdxTurnCrouching) {
         return (kgtEngineObject *)0x0;
       }
@@ -13053,7 +13113,7 @@ kgtEngineObject * FUN_00410dc0(void)
   iVar6 = gkgtLoadedCharacter[iVar1].w_ko_unk_var;
   if (0 < iVar6) {
     if (iVar6 == 1) {
-      gpkgtCurrentEngineObject->action_idx = -1;
+      gpkgtCurrentEngineObject->iSkillIdx = -1;
       sVar9 = gkgtLoadedCharacter[iVar1].shSkillIdxVictory;
 LAB_00411015:
       assign_action_and_reset_some_data(sVar9);
@@ -13063,12 +13123,12 @@ LAB_00411015:
       return pkVar7;
     }
     if (iVar6 == 2) {
-      gpkgtCurrentEngineObject->action_idx = -1;
+      gpkgtCurrentEngineObject->iSkillIdx = -1;
       sVar9 = gkgtLoadedCharacter[iVar1].shSkillIdxLoss;
       goto LAB_00411015;
     }
     if (iVar6 == 3) {
-      gpkgtCurrentEngineObject->action_idx = -1;
+      gpkgtCurrentEngineObject->iSkillIdx = -1;
       sVar9 = gkgtLoadedCharacter[iVar1].shSkillIdxDraw;
       goto LAB_00411015;
     }
@@ -13097,7 +13157,7 @@ LAB_00411015:
       else {
         if (uVar8 != 0) {
           assign_action_and_reset_some_data(gkgtLoadedCharacter[iVar1].shSkillIdxFrontJump);
-          gpkgtCurrentEngineObject->pos_player_direction = 1;
+          gpkgtCurrentEngineObject->iPlayerLookingLeft = 1;
           goto LAB_0041116a;
         }
         sVar9 = gkgtLoadedCharacter[iVar1].shSkillIdxBackJump;
@@ -13107,7 +13167,7 @@ LAB_00411015:
     else {
       assign_action_and_reset_some_data(gkgtLoadedCharacter[iVar1].shSkillIdxFrontJump);
       if (uVar8 != 0) {
-        gpkgtCurrentEngineObject->pos_player_direction = 0;
+        gpkgtCurrentEngineObject->iPlayerLookingLeft = 0;
       }
     }
 LAB_0041116a:
@@ -13119,9 +13179,9 @@ LAB_0041116a:
      ((uVar2 & 1 << (gkgtLoadedCharacter[iVar1].cGuardButton + 4U & 0x1f)) == 0)) {
     if ((uVar2 & 2) == 0) {
       if ((uVar2 & 1) == 0) {
-        if ((gpkgtCurrentEngineObject->action_idx ==
+        if ((gpkgtCurrentEngineObject->iSkillIdx ==
              (uint)(ushort)gkgtLoadedCharacter[iVar1].shSkillIdxStandFromCrouch) ||
-           (gpkgtCurrentEngineObject->action_idx ==
+           (gpkgtCurrentEngineObject->iSkillIdx ==
             (uint)(ushort)gkgtLoadedCharacter[iVar1].shSkillIdxTurnStanding)) goto LAB_00411248;
         sVar9 = gkgtLoadedCharacter[iVar1].shSkillIdxStanding;
       }
@@ -13129,19 +13189,19 @@ LAB_0041116a:
         sVar9 = gkgtLoadedCharacter[iVar1].shSkillIdxBackward;
       }
       else {
-        if (gpkgtCurrentEngineObject->pos_player_direction != 1) {
-          gpkgtCurrentEngineObject->action_idx = -1;
+        if (gpkgtCurrentEngineObject->iPlayerLookingLeft != 1) {
+          gpkgtCurrentEngineObject->iSkillIdx = -1;
         }
-        pkVar7->pos_player_direction = 1;
+        pkVar7->iPlayerLookingLeft = 1;
         sVar9 = gkgtLoadedCharacter[iVar1].shSkillIdxForward;
       }
     }
     else {
       if (uVar8 != 0) {
-        if (gpkgtCurrentEngineObject->pos_player_direction != 0) {
-          gpkgtCurrentEngineObject->action_idx = -1;
+        if (gpkgtCurrentEngineObject->iPlayerLookingLeft != 0) {
+          gpkgtCurrentEngineObject->iSkillIdx = -1;
         }
-        pkVar7->pos_player_direction = 0;
+        pkVar7->iPlayerLookingLeft = 0;
       }
       sVar9 = gkgtLoadedCharacter[iVar1].shSkillIdxForward;
     }
@@ -13208,7 +13268,7 @@ void handle_cpu_commands(void)
           cpu_level = gkgtLoadedCharacter[player_buffer].iCpuLevel;
           rand = _rand();
           cpu_interval_empty =
-               &gkgtLoadedCharacter[player_buffer].CPU_commands[0].kgtCharacterCPUCommandSkill_1.
+               &gkgtLoadedCharacter[player_buffer].kgtCpuCommands[0].kgtCharacterCPUCommandSkill_1.
                 skill_idx;
           i = 0;
           *(int *)&gkgtLoadedCharacter[player_buffer].field_0xdf7d =
@@ -13262,7 +13322,7 @@ LAB_00411405:
           if (9 < rand) {
             gkgtLoadedCharacter[player_buffer].cpu_command_idx = 0;
           }
-          if ((gkgtLoadedCharacter[player_buffer].CPU_commands[command_idx].sName
+          if ((gkgtLoadedCharacter[player_buffer].kgtCpuCommands[command_idx].sName
                [*(int *)&gkgtLoadedCharacter[player_buffer].cpu_command_skill_idx * 7 + -0x3a] &
               0x20U) == 0) {
                     // Testing for END SKILL flag
@@ -13271,7 +13331,7 @@ LAB_00411405:
           rand2 = _rand();
           rand = rand2 % (101 - gkgtLoadedCharacter[player_buffer].iCpuLevel) +
                  (uint)*(ushort *)
-                        (gkgtLoadedCharacter[player_buffer].CPU_commands[command_idx].sName +
+                        (gkgtLoadedCharacter[player_buffer].kgtCpuCommands[command_idx].sName +
                         *(int *)&gkgtLoadedCharacter[player_buffer].cpu_command_skill_idx * 7 +
                         -0x37);
           gkgtLoadedCharacter[player_buffer].winpoint = rand;
@@ -13279,7 +13339,7 @@ LAB_00411405:
             _sprintf(local_100,s__s__d_0041f210,
                      player_buffer * 0xe03f + 0x4d6ad0 +
                      (uint)*(ushort *)
-                            (gkgtLoadedCharacter[player_buffer].CPU_commands
+                            (gkgtLoadedCharacter[player_buffer].kgtCpuCommands
                              [gkgtLoadedCharacter[player_buffer].cpu_command_idx].sName +
                             *(int *)&gkgtLoadedCharacter[player_buffer].cpu_command_skill_idx * 7 +
                             -0x39) * 0x52,rand);
@@ -13295,12 +13355,12 @@ LAB_00411405:
             local_114 = &DAT_0041f138;
           }
           uVar1 = *(ushort *)
-                   (gkgtLoadedCharacter[player_buffer].CPU_commands[rand].sName + i + -0x39);
+                   (gkgtLoadedCharacter[player_buffer].kgtCpuCommands[rand].sName + i + -0x39);
           if (uVar1 != 0) {
             local_10c = 10;
             cpu_interval_empty =
-                 gkgtLoadedCharacter[player_buffer].command_structs[uVar1 - 1].shCommandInputTimings
-                 + 9;
+                 gkgtLoadedCharacter[player_buffer].kgtCommands[uVar1 - 1].shCommandInputTimings + 9
+            ;
             input_buffer_pos = giInputBufferPos;
             do {
               uVar1 = cpu_interval_empty[-10];
@@ -13327,7 +13387,7 @@ LAB_00411405:
                 }
                 distance = distance |
                            *(uint *)(local_114 +
-                                    ((byte)gkgtLoadedCharacter[player_buffer].CPU_commands[rand].
+                                    ((byte)gkgtLoadedCharacter[player_buffer].kgtCpuCommands[rand].
                                            sName[i + -0x3b] & 0xf) * 4);
                 switch((int)(uint)uVar1 >> 0xe) {
                 case 0:
@@ -13408,8 +13468,8 @@ LAB_00411405:
           }
           giInputBufferA[gpkgtCurrentEngineObject->iPlayerBuffer][giInputBufferPos] =
                *(int *)(local_114 +
-                       ((byte)gkgtLoadedCharacter[player_buffer].CPU_commands[rand].sName[i + -0x3b]
-                       & 0xf) * 4);
+                       ((byte)gkgtLoadedCharacter[player_buffer].kgtCpuCommands[rand].sName
+                              [i + -0x3b] & 0xf) * 4);
           return;
         }
       }
@@ -13457,7 +13517,7 @@ void FUN_00411810(void)
     curr_obj->y_gravity = 0;
     curr_obj->y_momentum = 0;
     curr_obj->obj_ptr_b = (kgtEngineObject *)((uint)curr_obj->obj_ptr_b & 0xfffffffc);
-    curr_obj->action_idx = -1;
+    curr_obj->iSkillIdx = -1;
     if (curr_obj->stage_action_idx == 0) {
       FUN_0040e580();
       curr_obj = gpkgtCurrentEngineObject;
@@ -13466,9 +13526,9 @@ void FUN_00411810(void)
     }
     else {
       uVar2 = curr_obj->stage_action_idx & 0xffff;
-      curr_obj->action_idx = uVar2;
-      *(uint *)&curr_obj->actionscript_idx =
-           (uint)(ushort)gkgtLoadedCharacter[curr_obj->iPlayerBuffer].kgt_core.pSkillsAlloc[uVar2].
+      curr_obj->iSkillIdx = uVar2;
+      *(uint *)&curr_obj->iSkillScriptIdx =
+           (uint)(ushort)gkgtLoadedCharacter[curr_obj->iPlayerBuffer].kgtCore.pSkillsAlloc[uVar2].
                          shStartingStepIdx + ((uint)curr_obj->stage_action_idx >> 0x10);
       curr_obj->stage_action_idx = 0;
       curr_obj->obj_ptr_b = (kgtEngineObject *)((uint)curr_obj->obj_ptr_b & 0xfffffff7 | 4);
@@ -13506,8 +13566,8 @@ void FUN_00411810(void)
     if (uVar2 != 0) {
       uVar3 = ((byte)gkgtLoadedCharacter[player_buffer].field_0xdf92 & 0x38) >> 3;
       if (uVar3 == 0) {
-        bVar1 = gkgtLoadedCharacter[player_buffer].kgt_core.p_actionscripts_alloc
-                [(ushort)gkgtLoadedCharacter[player_buffer].kgt_core.pSkillsAlloc[uVar2].
+        bVar1 = gkgtLoadedCharacter[player_buffer].kgtCore.p_actionscripts_alloc
+                [(ushort)gkgtLoadedCharacter[player_buffer].kgtCore.pSkillsAlloc[uVar2].
                          shStartingStepIdx].field_0x2;
         if (((byte)gkgtLoadedCharacter[player_buffer].field_0xdf93 <= bVar1) &&
            (bVar1 <= (byte)gkgtLoadedCharacter[player_buffer].field_0xdf96)) goto LAB_004119e1;
@@ -13548,11 +13608,11 @@ void FUN_00411a80(void)
   w_ko_unk_var = gkgtLoadedCharacter[player_buffer].w_ko_unk_var;
   if (w_ko_unk_var == 1) {
     sVar3 = gkgtLoadedCharacter[player_buffer].shSkillIdxVictory;
-    gpkgtCurrentEngineObject->action_idx = -1;
+    gpkgtCurrentEngineObject->iSkillIdx = -1;
   }
   else if (w_ko_unk_var == 2) {
     sVar3 = gkgtLoadedCharacter[player_buffer].shSkillIdxLoss;
-    gpkgtCurrentEngineObject->action_idx = -1;
+    gpkgtCurrentEngineObject->iSkillIdx = -1;
   }
   else {
     if (w_ko_unk_var != 3) {
@@ -13585,7 +13645,7 @@ void FUN_00411a80(void)
       FUN_00411810();
       return;
     }
-    gpkgtCurrentEngineObject->action_idx = -1;
+    gpkgtCurrentEngineObject->iSkillIdx = -1;
     sVar3 = gkgtLoadedCharacter[player_buffer].shSkillIdxDraw;
   }
   assign_action_and_reset_some_data(sVar3);
@@ -13705,7 +13765,7 @@ void script_reading_logic(void)
   char bCarryOver;
   undefined1 cancel_flags;
   undefined1 cancel_skill_idx;
-  kgt_obj_type curr_obj_type;
+  kgtEngineObjectTypes curr_obj_type;
   GAME_MODES game_mode;
   byte life_recover_number;
   kgtSkillHeader *pActionAlloc;
@@ -13714,31 +13774,31 @@ void script_reading_logic(void)
   
   current_obj = gpkgtCurrentEngineObject;
   object_addy = local_104;
-  switch(gpkgtCurrentEngineObject->obj_type) {
-  case 0:
-  case 1:
+  switch(gpkgtCurrentEngineObject->iObjectType) {
+  case player:
+  case story?:
   case player_file:
     object_addy = gkgtLoadedCharacter + gpkgtCurrentEngineObject->iPlayerBuffer;
     break;
-  case main_kgt_file:
+  case system:
                     // DON'T FORGET TO CHANGE THIS BACK TO PROPER FILE TYPE
     object_addy = (kgt_character_struct *)&gkgtKgtSystem;
     break;
-  case demo_file:
+  case demo:
     object_addy = (kgt_character_struct *)&gkgtLoadedDemo;
     break;
-  case stage_file:
+  case stage:
     object_addy = (kgt_character_struct *)&gkgtLoadedStage;
   }
   if (gpkgtCurrentEngineObject->iProcessStep == 0) {
     gpkgtCurrentEngineObject->iProcessStep = 1;
     game_mode = gkgtGameState.kgtGameMode;
-    switch(current_obj->obj_type) {
-    case 0:
+    switch(current_obj->iObjectType) {
+    case player:
       is_1p_story = gkgtGameState.kgtGameMode == 1P_story;
       current_obj->iParam2 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1];
       if (is_1p_story) {
-        special_stock_gauge_max = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
+        special_stock_gauge_max = giCurrentStoryStep[giStoryModePlayerIdx_2];
         player_file_buff_idx = current_obj->iPlayerBuffer;
         if (player_file_buff_idx == 0) {
           bCarryOver = gkgtLoadedCharacter[0].kgtStoryEntries[special_stock_gauge_max].
@@ -13870,7 +13930,7 @@ void script_reading_logic(void)
           ((kgtSystem *)object_addy)->empty_e[0xac3] = 0;
           ((kgtSystem *)object_addy)->empty_e[0xac4] = 0;
           if (((undefined1  [26])*puVar1 & (undefined1  [26])0x200) == (undefined1  [26])0x0) {
-            current_obj->pos_player_direction = 1;
+            current_obj->iPlayerLookingLeft = 1;
           }
         }
         current_obj->player_file_buffer_2 = current_obj->iPlayerBuffer;
@@ -13889,7 +13949,7 @@ void script_reading_logic(void)
           ((kgtSystem *)object_addy)->empty_e[0xaf2] = 0;
           ((kgtSystem *)object_addy)->empty_e[0xaf3] = 0;
           ((kgtSystem *)object_addy)->empty_e[0xaf4] = 0;
-          current_obj->pos_player_direction = 1;
+          current_obj->iPlayerLookingLeft = 1;
         }
         if (current_obj->iPlayerBuffer == 0) {
           current_obj->iParam3 = 0x1860000;
@@ -13963,7 +14023,7 @@ void script_reading_logic(void)
       ((kgtSystem *)object_addy)->empty_e[0xada] = 0;
       ((kgtSystem *)object_addy)->empty_e[0xadb] = 0;
       ((kgtSystem *)object_addy)->empty_e[0xadc] = 0;
-      *(int *)(((kgtSystem *)object_addy)->character_names[0] + 4) = 1;
+      *(int *)(((kgtSystem *)object_addy)->gsCharacterName[0] + 4) = 1;
       ((kgtSystem *)object_addy)->empty_e[0xaf9] = 0;
       ((kgtSystem *)object_addy)->empty_e[0xafa] = 0;
       ((kgtSystem *)object_addy)->empty_e[0xafb] = 0;
@@ -14075,12 +14135,12 @@ void script_reading_logic(void)
                                                  0xc) + 4) + 1].shStartingStepIdx) {
         pkVar13 = kgtoNewEngineObject(current_obj->iJumpIdx,0xd,0,0);
         current_obj = gpkgtCurrentEngineObject;
-        pkVar13->obj_type = player_file;
+        pkVar13->iObjectType = player_file;
         uVar5 = *(short *)((int)((kgtCommonImage *)(((kgtSystem *)object_addy)->sStageNames + 5) +
                                 0xc) + 4);
         pkVar13->iPlayerBuffer = current_obj->iPlayerBuffer;
-        pkVar13->action_idx = (uint)uVar5;
-        *(uint *)&pkVar13->actionscript_idx =
+        pkVar13->iSkillIdx = (uint)uVar5;
+        *(uint *)&pkVar13->iSkillScriptIdx =
              (uint)(ushort)(((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc[uVar5].
                            shStartingStepIdx;
       }
@@ -14107,17 +14167,17 @@ void script_reading_logic(void)
         ppkVar15 = ppkVar15 + 1;
       }
       break;
-    case 1:
+    case story?:
       current_obj->player_file_buffer_2 = current_obj->iPlayerBuffer;
       break;
-    case stage_file:
-      current_obj->stage_action_idx = current_obj->action_idx;
-      current_obj->stage_skillscript_idx = *(int *)&current_obj->actionscript_idx;
+    case stage:
+      current_obj->stage_action_idx = current_obj->iSkillIdx;
+      current_obj->stage_skillscript_idx = *(int *)&current_obj->iSkillScriptIdx;
       break;
     case player_file:
       current_obj->unk_bitmask = current_obj->unk_bitmask | 0x40000000;
     }
-    current_obj->skill_idx_2 = current_obj->action_idx;
+    current_obj->skill_idx_2 = current_obj->iSkillIdx;
   }
   else if (gpkgtCurrentEngineObject->iProcessStep != 1) {
     return;
@@ -14130,7 +14190,7 @@ void script_reading_logic(void)
     current_obj->compare_to_param_4 = 0x3520000;
   }
   if ((gkgtGameState.iIsPausedFlag != 0) &&
-     (curr_obj_type = current_obj->obj_type, -1 < (int)curr_obj_type)) {
+     (curr_obj_type = current_obj->iObjectType, -1 < (int)curr_obj_type)) {
     if ((int)curr_obj_type < 2) {
       return;
     }
@@ -14149,7 +14209,7 @@ void script_reading_logic(void)
            *(int *)(gkgtLoadedStage.kgt_core.pallette_extra_bytes + uVar11 * 0x194 + 0x36);
       unk_actionscript_final_0x10 =
            (int)((((kgtSystem *)object_addy)->kgt_core).p_actionscripts_alloc +
-                *(int *)&current_obj->actionscript_idx + -1);
+                *(int *)&current_obj->iSkillScriptIdx + -1);
       stage_unk_var_b =
            (int)gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar11 * 0x194 + 0x38] + -1;
       gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar11 * 0x194 + 0x38] =
@@ -14164,7 +14224,7 @@ void script_reading_logic(void)
         *(int *)((stage_unk_poss_action_idx + 1) * 0x10 + 0x447930 + _650_size_offset) =
              current_obj->iParam3;
         stage_unk_poss_action = stage_unk_poss_action_idx * 0x10 + 0x447930 + _650_size_offset;
-        mystery_val_sub_bool = current_obj->pos_player_direction;
+        mystery_val_sub_bool = current_obj->iPlayerLookingLeft;
         *(int *)(stage_unk_poss_action + 0x14) = current_obj->iParam4;
         *(uint *)(stage_unk_poss_action + 0x18) =
              ((*(ushort *)(unk_actionscript_final_0x10 + 3) & 0x4000) >> 0xe) +
@@ -14178,11 +14238,11 @@ void script_reading_logic(void)
     }
   }
   if (current_obj->hit_junction_idx != 0) {
-    current_obj->action_idx = -1;
+    current_obj->iSkillIdx = -1;
     assign_action_and_reset_some_data(current_obj->hit_junction_idx & 0xffff);
     current_obj = gpkgtCurrentEngineObject;
-    *(uint *)&gpkgtCurrentEngineObject->actionscript_idx =
-         *(int *)&gpkgtCurrentEngineObject->actionscript_idx +
+    *(uint *)&gpkgtCurrentEngineObject->iSkillScriptIdx =
+         *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx +
          ((uint)gpkgtCurrentEngineObject->hit_junction_idx >> 0x10);
     current_obj->hit_junction_idx = 0;
     current_obj->loop_frequency = 0;
@@ -14201,8 +14261,8 @@ void script_reading_logic(void)
     *(int *)&current_obj->opponent_downtime_in_frames = current_time + -1;
     return;
   }
-  curr_obj_type = current_obj->obj_type;
-  if (curr_obj_type == 0) {
+  curr_obj_type = current_obj->iObjectType;
+  if (curr_obj_type == player) {
     gkgtLoadedCharacter[current_obj->iPlayerBuffer].field6461_0xdfff = 0;
     FUN_0040e5c0();
     FUN_00411810();
@@ -14222,7 +14282,7 @@ void script_reading_logic(void)
     *(int *)(((kgtSystem *)object_addy)->empty_e + 0xae9) = initial_y_val;
     goto LAB_00412564;
   }
-  if (curr_obj_type != 1) {
+  if (curr_obj_type != story?) {
     if (curr_obj_type == player_file) {
       piVar16 = current_obj->parent_obj;
       if (piVar16->iJumpIdx == RESET_IDX) {
@@ -14235,7 +14295,7 @@ switchD_0041270c_default:
       }
       current_obj->iParam3 = piVar16->iParam3;
       current_obj->iParam4 = current_obj->parent_obj->compare_to_param_4;
-      current_obj->pos_player_direction = current_obj->parent_obj->pos_player_direction;
+      current_obj->iPlayerLookingLeft = current_obj->parent_obj->iPlayerLookingLeft;
     }
     goto LAB_00412564;
   }
@@ -14246,7 +14306,7 @@ switchD_0041270c_default:
     current_obj->y_gravity = 0;
     current_obj->y_momentum = 0;
     current_obj->obj_ptr_b = (kgtEngineObject *)((uint)current_obj->obj_ptr_b & 0xfffffffc);
-    current_obj->action_idx = -1;
+    current_obj->iSkillIdx = -1;
     if (current_obj->stage_action_idx == 0) {
       FUN_0040e580();
       current_obj = gpkgtCurrentEngineObject;
@@ -14255,9 +14315,9 @@ switchD_0041270c_default:
     }
     else {
       uVar11 = current_obj->stage_action_idx & 0xffff;
-      current_obj->action_idx = uVar11;
-      *(uint *)&current_obj->actionscript_idx =
-           (uint)(ushort)gkgtLoadedCharacter[current_obj->iPlayerBuffer].kgt_core.pSkillsAlloc
+      current_obj->iSkillIdx = uVar11;
+      *(uint *)&current_obj->iSkillScriptIdx =
+           (uint)(ushort)gkgtLoadedCharacter[current_obj->iPlayerBuffer].kgtCore.pSkillsAlloc
                          [uVar11].shStartingStepIdx + ((uint)current_obj->stage_action_idx >> 0x10);
       current_obj->stage_action_idx = 0;
       current_obj->image_wait_frames = 0;
@@ -14299,15 +14359,15 @@ LAB_00412564:
   } while (i20 != 0);
 Pre_Script_reading_switch_statement:
                     // *** WHERE READING THE ACTIONSCRIPT SEEMS TO BEGIN ***
-  current_skill_idx = current_obj->action_idx;
+  current_skill_idx = current_obj->iSkillIdx;
   local_108 = local_108 + 1;
   if (local_108 < 301) {
     if ((int)(uint)(ushort)(((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc
                            [current_skill_idx + 1].shStartingStepIdx <=
-        *(int *)&current_obj->actionscript_idx) goto script_switch_statement_case_0x29;
+        *(int *)&current_obj->iSkillScriptIdx) goto script_switch_statement_case_0x29;
 Script_reading_switch_statement:
     skill = (((kgtSystem *)object_addy)->kgt_core).p_actionscripts_alloc +
-            *(int *)&current_obj->actionscript_idx;
+            *(int *)&current_obj->iSkillScriptIdx;
                     // First byte is type of script
                     // 
                     // 01 - M
@@ -14363,27 +14423,27 @@ Script_reading_switch_statement:
       switch(skill->field_0x1) {
       case 1:
         current_obj->stage_action_idx = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
         break;
       case 2:
         current_obj->case2_var_b = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
         break;
       case 3:
         current_obj->stage_skillscript_idx = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
         break;
       case 4:
         current_obj->case2_var_d = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
         break;
       case 5:
         current_obj->case2_var_e = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
         break;
       case 6:
         current_obj->case2_var_f = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
         break;
       default:
         goto switchD_00412610_advance_skillscript;
@@ -14397,12 +14457,11 @@ Script_reading_switch_statement:
                     // 1 - unk
                     // 2 - Sound ID (low)
                     // 3 - Sound ID (high)
-      Handle_Sound_Skillscript_block
-                ((((kgtSystem *)object_addy)->kgt_core).p_sound_structs +
-                 *(ushort *)&skill->field_0x2);
+      vHandleLoadingSound((((kgtSystem *)object_addy)->kgt_core).p_sound_structs +
+                          *(ushort *)&skill->field_0x2);
       current_obj = gpkgtCurrentEngineObject;
-      *(int *)&gpkgtCurrentEngineObject->actionscript_idx =
-           *(int *)&gpkgtCurrentEngineObject->actionscript_idx + 1;
+      *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\x04':
                     // ----------------------------------
@@ -14436,7 +14495,7 @@ Script_reading_switch_statement:
                     // 0 - IN
                     // 1 - Fore
                     // 2 - P()
-      if ((1 < (int)current_obj->obj_type) || ((skill->field_0x1 & 4) != 0)) goto LAB_00412b0a;
+      if ((1 < (int)current_obj->iObjectType) || ((skill->field_0x1 & 4) != 0)) goto LAB_00412b0a;
       m_val = skill->field_0xc;
       pbVar1 = ((kgtSystem *)object_addy)->empty_e + (uint)m_val * 4 + 0xb63;
       if (*(kgtEngineObject **)(((kgtSystem *)object_addy)->empty_e + (uint)m_val * 4 + 0xb63) ==
@@ -14449,7 +14508,7 @@ Script_reading_switch_statement:
                     // 05 is END
                     // 29 in editor is SB (Super background) which seems unused. Code is interpreted
                     // as END?
-      if (current_obj->obj_type != 0) goto switchD_0041270c_default;
+      if (current_obj->iObjectType != player) goto switchD_0041270c_default;
 script_switch_statement_case_0x29:
       if (current_obj->return_skill_idx == 0) {
         if (current_obj->loop_frequency == '\0') {
@@ -14458,8 +14517,8 @@ script_switch_statement_case_0x29:
           current_obj = gpkgtCurrentEngineObject;
           gpkgtCurrentEngineObject->obj_ptr_b =
                (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xffffffef);
-          switch(current_obj->obj_type) {
-          case 0:
+          switch(current_obj->iObjectType) {
+          case player:
             ((kgtSystem *)object_addy)->empty_e[0xb29] = 0;
             ((kgtSystem *)object_addy)->empty_e[0xb2a] = 0;
             ((kgtSystem *)object_addy)->empty_e[0xb2b] = 0;
@@ -14468,7 +14527,7 @@ script_switch_statement_case_0x29:
             ((kgtSystem *)object_addy)->empty_e[0xaa6] = 0;
             ((kgtSystem *)object_addy)->empty_e[0xaa7] = 0;
             ((kgtSystem *)object_addy)->empty_e[0xaa8] = 0;
-            current_obj->action_idx = -1;
+            current_obj->iSkillIdx = -1;
             ((kgtSystem *)object_addy)->empty_e[0xb93] = 0;
             ((kgtSystem *)object_addy)->empty_e[0xb94] = 0;
             ((kgtSystem *)object_addy)->empty_e[0xb95] = 0;
@@ -14476,7 +14535,7 @@ script_switch_statement_case_0x29:
             FUN_00411a80();
             current_obj = gpkgtCurrentEngineObject;
             break;
-          case 1:
+          case story?:
             uVar11 = current_obj->skill_idx_2;
             if (uVar11 == *(ushort *)
                            ((kgtCommonImage *)(((kgtSystem *)object_addy)->sStageNames + 5) + 0xc))
@@ -14491,23 +14550,23 @@ script_switch_statement_case_0x29:
                                                     (((kgtSystem *)object_addy)->sStageNames + 5) +
                                                    0xc) + 2)) || (current_obj->iDrawFlag == 0))
             goto switchD_0041270c_default;
-            current_obj->action_idx = uVar11;
-            *(uint *)&current_obj->actionscript_idx =
+            current_obj->iSkillIdx = uVar11;
+            *(uint *)&current_obj->iSkillScriptIdx =
                  (uint)(ushort)(((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc[uVar11].
                                shStartingStepIdx;
             break;
-          case main_kgt_file:
+          case system:
             if (((((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc[current_obj->skill_idx_2].
                  cDemoDefaultScriptGroup & 0x20U) != 0) goto switchD_0041270c_default;
-          case demo_file:
-          case stage_file:
+          case demo:
+          case stage:
           case player_file:
             if (current_obj->iDrawFlag == 0) goto switchD_0041270c_default;
             uVar11 = current_obj->skill_idx_2;
 LAB_004127c3:
             pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
-            current_obj->action_idx = uVar11;
-            *(uint *)&current_obj->actionscript_idx =
+            current_obj->iSkillIdx = uVar11;
+            *(uint *)&current_obj->iSkillScriptIdx =
                  (uint)(ushort)pActionAlloc[uVar11].shStartingStepIdx;
             break;
           default:
@@ -14520,16 +14579,16 @@ LAB_004127c3:
           if (bCarryOver == '\0') {
             pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
             uVar11 = *(uint *)&current_obj->loop_skillscript_idx & 0xffff;
-            current_obj->action_idx = uVar11;
-            *(uint *)&current_obj->actionscript_idx =
+            current_obj->iSkillIdx = uVar11;
+            *(uint *)&current_obj->iSkillScriptIdx =
                  (ushort)pActionAlloc[uVar11].shStartingStepIdx + 1 +
                  (*(int *)&current_obj->loop_skillscript_idx >> 0x10);
           }
           else {
             pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
             uVar11 = *(uint *)&current_obj->field_0x7d & 0xffff;
-            current_obj->action_idx = uVar11;
-            *(uint *)&current_obj->actionscript_idx =
+            current_obj->iSkillIdx = uVar11;
+            *(uint *)&current_obj->iSkillScriptIdx =
                  (uint)(ushort)pActionAlloc[uVar11].shStartingStepIdx +
                  (*(int *)&current_obj->field_0x7d >> 0x10);
           }
@@ -14537,8 +14596,8 @@ LAB_004127c3:
       }
       else {
         uVar11 = current_obj->return_skill_idx & 0xffff;
-        current_obj->action_idx = uVar11;
-        *(uint *)&current_obj->actionscript_idx =
+        current_obj->iSkillIdx = uVar11;
+        *(uint *)&current_obj->iSkillScriptIdx =
              (ushort)(((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc[uVar11].shStartingStepIdx +
              1 + (current_obj->return_skill_idx >> 0x10);
         current_obj->return_skill_idx = 0;
@@ -14565,7 +14624,7 @@ LAB_004127c3:
                     // 2 - X turn
                     // 3 - Y turn
                     // 4 - same
-      if (((current_obj->obj_type != 0) || (*(short *)&skill->field_0x2 == 0)) ||
+      if (((current_obj->iObjectType != player) || (*(short *)&skill->field_0x2 == 0)) ||
          (pkVar13 = *(kgtEngineObject **)(((kgtSystem *)object_addy)->empty_e + 0xa9d),
          pkVar13 == (kgtEngineObject *)0x0)) goto switchD_00412610_advance_skillscript;
       RC_flags = skill->field_0x1;
@@ -14580,22 +14639,22 @@ LAB_004127c3:
         current_obj->iParam2 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + 1;
         special_stock_gauge_max = (&INT_0041f130)[uVar11 & 1] + -1;
       }
-      player_file_buff_idx = current_obj->pos_player_direction;
+      player_file_buff_idx = current_obj->iPlayerLookingLeft;
       pkVar13->iParam2 = special_stock_gauge_max;
       if ((player_file_buff_idx & 1) == 0) {
                     // Y turn flag?
         pkVar13->iParam3 = *(short *)&skill->field_0x4 * 0x10000 + current_obj->iParam3;
         if ((RC_flags & 4) == 0) goto LAB_00412f3d;
-        pkVar13->pos_player_direction = 0;
+        pkVar13->iPlayerLookingLeft = 0;
       }
       else {
         pkVar13->iParam3 = current_obj->iParam3 + *(short *)&skill->field_0x4 * -0x10000;
         if ((RC_flags & 4) == 0) {
-          pkVar13->pos_player_direction = 0;
+          pkVar13->iPlayerLookingLeft = 0;
         }
         else {
 LAB_00412f3d:
-          pkVar13->pos_player_direction = 1;
+          pkVar13->iPlayerLookingLeft = 1;
         }
       }
       pkVar13->iParam4 = *(short *)&skill->field_0x6 * 0x10000 + current_obj->iParam4;
@@ -14604,21 +14663,21 @@ LAB_00412f3d:
       pkVar13->y_momentum = 0;
       pkVar13->x_gravity = 0;
       pkVar13->y_gravity = 0;
-      if (pkVar13->obj_type == 0) {
+      if (pkVar13->iObjectType == player) {
         special_stock_gauge_max = pkVar13->iPlayerBuffer;
         uVar5 = *(ushort *)&skill->field_0x2;
-        pkVar6 = gkgtLoadedCharacter[special_stock_gauge_max].kgt_core.p_actionscripts_alloc;
+        pkVar6 = gkgtLoadedCharacter[special_stock_gauge_max].kgtCore.p_actionscripts_alloc;
         pkVar13->iDrawFlag = -1;
         *(ushort *)&pkVar6->field_0x3 =
              *(ushort *)(special_stock_gauge_max * 0xe03f + 0x4d8e4a + (uint)uVar5 * 6) & 0x1fff |
              (ushort)(skill->field_0x1 & 0xc) << 0xc;
         uVar5 = *(ushort *)&skill->field_0x2;
         pkVar6->cSkillType = '\f';
-        pkVar13->action_idx = 0;
-        *(undefined4 *)&pkVar13->actionscript_idx = 1;
-        sVar3 = gkgtLoadedCharacter[special_stock_gauge_max].common_images[uVar5].shY_Movement;
+        pkVar13->iSkillIdx = 0;
+        *(undefined4 *)&pkVar13->iSkillScriptIdx = 1;
+        sVar3 = gkgtLoadedCharacter[special_stock_gauge_max].kgtCommonImages[uVar5].shY_Movement;
         *(short *)&pkVar6->field_0x5 =
-             gkgtLoadedCharacter[special_stock_gauge_max].common_images[uVar5].shX_Movement;
+             gkgtLoadedCharacter[special_stock_gauge_max].kgtCommonImages[uVar5].shX_Movement;
         *(short *)&pkVar6->field_0x7 = sVar3;
         memzero_mystery_arrays(pkVar13);
         obj_0x129_to_0(pkVar13);
@@ -14632,7 +14691,7 @@ LAB_00412f3d:
       }
       current_obj = gpkgtCurrentEngineObject;
       *(undefined4 *)&pkVar13->opponent_downtime_in_frames = 0xffffffff;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\t':
                     // ----------------------------------
@@ -14648,17 +14707,17 @@ LAB_00412f3d:
       pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
       command_id = skill->field_0x4;
       *(uint *)&current_obj->loop_skillscript_idx =
-           (*(int *)&current_obj->actionscript_idx -
-           (uint)(ushort)pActionAlloc[current_obj->action_idx].shStartingStepIdx) * 0x10000 +
-           current_obj->action_idx;
+           (*(int *)&current_obj->iSkillScriptIdx -
+           (uint)(ushort)pActionAlloc[current_obj->iSkillIdx].shStartingStepIdx) * 0x10000 +
+           current_obj->iSkillIdx;
       current_obj->loop_frequency = skill->field_0x1;
       skill_id_2 = (uint)skill_id;
       *(uint *)&current_obj->field_0x7d = (uint)command_id * 0x10000 + skill_id_2;
-      current_obj->action_idx = skill_id_2;
+      current_obj->iSkillIdx = skill_id_2;
       actionscript_idx = ((ushort)pActionAlloc[skill_id_2].shStartingStepIdx - 1) + (uint)command_id
       ;
-      *(int *)&current_obj->actionscript_idx = actionscript_idx;
-      *(int *)&current_obj->actionscript_idx = actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = actionscript_idx;
+      *(int *)&current_obj->iSkillScriptIdx = actionscript_idx + 1;
       goto LAB_004125ae;
     case '\n':
                     // ----------------------------------
@@ -14671,7 +14730,7 @@ LAB_00412f3d:
       if (*(ushort *)&skill->field_0x1 != 0) {
         pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
         uVar11 = (uint)*(ushort *)&skill->field_0x1;
-        current_obj->action_idx = uVar11;
+        current_obj->iSkillIdx = uVar11;
         goto LAB_0041298b;
       }
       goto switchD_00412610_advance_skillscript;
@@ -14686,16 +14745,16 @@ LAB_00412f3d:
       if (*(short *)&skill->field_0x1 == 0) goto switchD_00412610_advance_skillscript;
       pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
       current_obj->return_skill_idx =
-           (*(int *)&current_obj->actionscript_idx -
-           (uint)(ushort)pActionAlloc[current_obj->action_idx].shStartingStepIdx) * 0x10000 +
-           current_obj->action_idx;
+           (*(int *)&current_obj->iSkillScriptIdx -
+           (uint)(ushort)pActionAlloc[current_obj->iSkillIdx].shStartingStepIdx) * 0x10000 +
+           current_obj->iSkillIdx;
       uVar11 = (uint)*(ushort *)&skill->field_0x1;
-      current_obj->action_idx = uVar11;
+      current_obj->iSkillIdx = uVar11;
 LAB_0041298b:
       sc_command_id =
            ((ushort)pActionAlloc[uVar11].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x3;
-      *(int *)&current_obj->actionscript_idx = sc_command_id;
-      *(int *)&current_obj->actionscript_idx = sc_command_id + 1;
+      *(int *)&current_obj->iSkillScriptIdx = sc_command_id;
+      *(int *)&current_obj->iSkillScriptIdx = sc_command_id + 1;
       goto LAB_004125ae;
     case '\f':
                     // ----------------------------------
@@ -14722,7 +14781,7 @@ LAB_0041298b:
                     // 6 - X flip
                     // 7 - Y flip
                     // 
-      if (current_obj->obj_type == 0) {
+      if (current_obj->iObjectType == player) {
         ((kgtSystem *)object_addy)->empty_e[0xbb3] = 1;
         ((kgtSystem *)object_addy)->empty_e[0xbb4] = 0;
         ((kgtSystem *)object_addy)->empty_e[0xbb5] = 0;
@@ -14736,7 +14795,7 @@ LAB_0041298b:
       }
       current_obj->image_wait_frames = image_wait_frames;
       local_108 = 0;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\x0e':
                     // ----------------------------------
@@ -14871,7 +14930,7 @@ LAB_0041298b:
       giPicShakeY = (int)(byte)skill->field_0xd;
       giPicSwayYDuration = (int)(byte)skill->field_0xe;
       giPicSwayYDuration_2 = giPicSwayYDuration;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\x10':
                     // ----------------------------------
@@ -14891,7 +14950,7 @@ LAB_0041298b:
              (int)(uint)(byte)skill->field_0x6) ||
            (GS_skill_idx = *(ushort *)&skill->field_0x2, GS_skill_idx == 0))
         goto switchD_00412610_advance_skillscript;
-        current_obj->action_idx = (uint)GS_skill_idx;
+        current_obj->iSkillIdx = (uint)GS_skill_idx;
         if (GS_skill_idx == 0) {
           special_stock_gauge_max = gkgtLoadedCharacter[current_obj->iPlayerBuffer].field6391_0xdf55
           ;
@@ -14899,7 +14958,7 @@ LAB_004135a7:
           special_stock_gauge_max = FUN_00410060(special_stock_gauge_max);
           current_obj = gpkgtCurrentEngineObject;
           if (special_stock_gauge_max != 0) {
-            gpkgtCurrentEngineObject->action_idx = special_stock_gauge_max;
+            gpkgtCurrentEngineObject->iSkillIdx = special_stock_gauge_max;
           }
         }
       }
@@ -14925,19 +14984,19 @@ LAB_004135a7:
                gkgtLoadedCharacter[GS_player_buffer].iSpecialStockMax;
           gkgtLoadedCharacter[GS_player_buffer].special_gauge = 0;
           current_obj = gpkgtCurrentEngineObject;
-          *(int *)&gpkgtCurrentEngineObject->actionscript_idx =
-               *(int *)&gpkgtCurrentEngineObject->actionscript_idx + 1;
+          *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx =
+               *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx + 1;
           goto LAB_004125ae;
         }
         uVar5 = *(ushort *)&skill->field_0x2;
-        current_obj->action_idx = (uint)uVar5;
+        current_obj->iSkillIdx = (uint)uVar5;
         if (uVar5 == 0) {
           special_stock_gauge_max = gkgtLoadedCharacter[current_obj->iPlayerBuffer].field6391_0xdf55
           ;
           goto LAB_004135a7;
         }
       }
-      uVar11 = current_obj->action_idx;
+      uVar11 = current_obj->iSkillIdx;
       goto LAB_004135bf;
     case '\x11':
                     // ----------------------------------
@@ -14961,20 +15020,20 @@ LAB_004135a7:
       goto switchD_00412610_advance_skillscript;
       pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
       GL_skill_idx = *(ushort *)&skill->field_0x2;
-      current_obj->action_idx = (uint)GL_skill_idx;
-      *(uint *)&current_obj->actionscript_idx =
+      current_obj->iSkillIdx = (uint)GL_skill_idx;
+      *(uint *)&current_obj->iSkillScriptIdx =
            ((ushort)pActionAlloc[GL_skill_idx].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x4
       ;
-      if ((current_obj->action_idx != 0) ||
+      if ((current_obj->iSkillIdx != 0) ||
          (special_stock_gauge_max =
                FUN_00410060(*(int *)(((kgtSystem *)object_addy)->empty_e + 0xaf9)),
          current_obj = gpkgtCurrentEngineObject, special_stock_gauge_max == 0))
       goto switchD_00412610_advance_skillscript;
       pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
-      gpkgtCurrentEngineObject->action_idx = special_stock_gauge_max;
+      gpkgtCurrentEngineObject->iSkillIdx = special_stock_gauge_max;
       uVar11 = (uint)(ushort)pActionAlloc[special_stock_gauge_max].shStartingStepIdx;
-      *(uint *)&current_obj->actionscript_idx = uVar11 - 1;
-      *(uint *)&current_obj->actionscript_idx = uVar11;
+      *(uint *)&current_obj->iSkillScriptIdx = uVar11 - 1;
+      *(uint *)&current_obj->iSkillScriptIdx = uVar11;
       goto LAB_004125ae;
     case '\x14':
                     // ----------------------------------
@@ -14992,7 +15051,7 @@ LAB_004135a7:
                     // - Flags -
                     // +0x1 = 'In' (unset is 'Out')
                     // +0x4 = 'Turn X'
-      if ((current_obj->obj_type != 0) ||
+      if ((current_obj->iObjectType != player) ||
          (opp_obj_ptr = *(kgtEngineObject **)(((kgtSystem *)object_addy)->empty_e + 0xa9d),
          opp_obj_ptr == (kgtEngineObject *)0x0)) goto switchD_00412610_advance_skillscript;
       RP_flags = skill->field_0x1;
@@ -15006,29 +15065,29 @@ LAB_004135a7:
         current_obj->iParam2 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + 1;
         special_stock_gauge_max = (&INT_0041f130)[uVar11 & 1] + -1;
       }
-      RP_player_direction = current_obj->pos_player_direction;
+      RP_player_direction = current_obj->iPlayerLookingLeft;
       opp_obj_ptr->iParam2 = special_stock_gauge_max;
       if ((RP_player_direction & 1) == 0) {
                     // Move X value
         opp_obj_ptr->iParam3 = *(short *)&skill->field_0x4 * 0x10000 + current_obj->iParam3;
         if ((RP_flags & 4) == 0) goto LAB_004130e8;
-        opp_obj_ptr->pos_player_direction = 0;
+        opp_obj_ptr->iPlayerLookingLeft = 0;
       }
       else {
         opp_obj_ptr->iParam3 = current_obj->iParam3 + *(short *)&skill->field_0x4 * -0x10000;
         if ((RP_flags & 4) == 0) {
-          opp_obj_ptr->pos_player_direction = 0;
+          opp_obj_ptr->iPlayerLookingLeft = 0;
         }
         else {
 LAB_004130e8:
-          opp_obj_ptr->pos_player_direction = 1;
+          opp_obj_ptr->iPlayerLookingLeft = 1;
         }
       }
                     // Move Y pos
       opp_obj_ptr->iParam4 = *(short *)&skill->field_0x6 * 0x10000 + current_obj->iParam4;
       memzero_mystery_arrays(current_obj);
       current_obj = gpkgtCurrentEngineObject;
-      if (opp_obj_ptr->obj_type != 0) goto switchD_00412610_advance_skillscript;
+      if (opp_obj_ptr->iObjectType != player) goto switchD_00412610_advance_skillscript;
       if ((byte)skill->field_0x2 != 0) {
                     // Lands at start of hit_junction_info
         opp_obj_ptr->hit_junction_idx =
@@ -15044,7 +15103,7 @@ LAB_004130e8:
       ((kgtSystem *)object_addy)->empty_e[0xb95] = 0;
       ((kgtSystem *)object_addy)->empty_e[0xb96] = 0;
       opp_obj_ptr->obj_ptr_b = (kgtEngineObject *)((uint)pkVar13 & 0xfffffffa | 10);
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\x15':
                     // ----------------------------------
@@ -15129,7 +15188,7 @@ LAB_004130e8:
         break;
       case 4:
         if (((gkgtLoadedCharacter[db_player_buffer].cIsGuardButtonActive & 8U) == 0) ||
-           (current_obj->pos_player_direction == 0)) {
+           (current_obj->iPlayerLookingLeft == 0)) {
 LAB_00412e4c:
           uVar11 = DB_input & 2;
           goto joined_r0x00412e56;
@@ -15137,7 +15196,7 @@ LAB_00412e4c:
         goto LAB_00412e2f;
       case 5:
         if (((gkgtLoadedCharacter[db_player_buffer].cIsGuardButtonActive & 8U) != 0) &&
-           (current_obj->pos_player_direction != 0)) goto LAB_00412e4c;
+           (current_obj->iPlayerLookingLeft != 0)) goto LAB_00412e4c;
 LAB_00412e2f:
         uVar11 = DB_input & 1;
 joined_r0x00412e32:
@@ -15164,13 +15223,13 @@ switchD_00412de4_default:
 LAB_00412e79:
       if (*(ushort *)&skill->field_0x2 == 0) goto switchD_00412610_advance_skillscript;
       uVar11 = (uint)*(ushort *)&skill->field_0x2;
-      current_obj->action_idx = uVar11;
+      current_obj->iSkillIdx = uVar11;
 LAB_004135bf:
       special_stock_gauge_max =
            ((ushort)(((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc[uVar11].shStartingStepIdx -
            1) + (uint)(byte)skill->field_0x4;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      *(int *)&current_obj->iSkillScriptIdx = special_stock_gauge_max;
+      *(int *)&current_obj->iSkillScriptIdx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
     case '\x17':
                     // ----------------------------------
@@ -15190,7 +15249,7 @@ LAB_004135bf:
                     // B - Guard, Sky (low, UNSIGNED)
                     // C - Guard, Sky (high, UNSIGNED)
       current_obj->reaction_skillblock = skill;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\x18':
                     // ----------------------------------
@@ -15223,7 +15282,7 @@ LAB_004135bf:
       FA_m_number = current_obj->hitbox_attack_array + (byte)skill->field_0x9;
       *FA_m_number = (int)skill;
       if ((FA_width == 0) || (*(short *)&skill->field_0x7 == 0)) goto LAB_00412d83;
-      if (current_obj->obj_type != 0) goto switchD_00412610_advance_skillscript;
+      if (current_obj->iObjectType != player) goto switchD_00412610_advance_skillscript;
       FA_flags = skill->field_0xa;
       if ((FA_flags & 1) == 0) {
         ((kgtSystem *)object_addy)->empty_e[0xb29] = 0;
@@ -15239,7 +15298,7 @@ LAB_004135bf:
       }
       if ((FA_flags & 2) == 0) goto switchD_00412610_advance_skillscript;
       current_obj->obj_ptr_b = (kgtEngineObject *)((uint)current_obj->obj_ptr_b & 0xffffffef);
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\x19':
                     // ----------------------------------
@@ -15269,7 +15328,7 @@ LAB_004135bf:
       goto switchD_00412610_advance_skillscript;
 LAB_00412d83:
       *FA_m_number = 0;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\x1a':
                     // ----------------------------------
@@ -15278,7 +15337,7 @@ LAB_00412d83:
                     // 0 - Type
                     // 1 - Your Down Time (UNSIGNED)
                     // 2 - Part Down Time (UNSIGNED)
-      if ((current_obj->obj_type == 0) &&
+      if ((current_obj->iObjectType == player) &&
          (player_down_time = skill->field_0x1, player_down_time != 0)) {
         *(uint *)&current_obj->opponent_downtime_in_frames =
              *(int *)&current_obj->opponent_downtime_in_frames + (uint)player_down_time;
@@ -15327,7 +15386,7 @@ LAB_00412d83:
         PS_players = (kgt_character_struct_ptr_57077_int)((int)PS_players + 0xe03f);
         ps_i2 = ps_i2 + 1;
       } while ((int)PS_players < 0x54fe6d);
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\x1e':
                     // ----------------------------------
@@ -15364,7 +15423,7 @@ LAB_00412d83:
       ((kgtSystem *)object_addy)->empty_e[0xb38] = cancel_skill_idx;
       ((kgtSystem *)object_addy)->empty_e[0xb39] = uVar8;
       ((kgtSystem *)object_addy)->empty_e[0xb3a] = uVar9;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     case '\x1f':
                     // ----------------------------------
@@ -15450,7 +15509,7 @@ LAB_00412d83:
           local_11c = unk_y_position;
           break;
         case 3:
-          local_11c = unk_x_position;
+          local_11c = unk_y_pos2;
           break;
         case 4:
           special_stock_gauge_max = current_obj->parent_obj->iParam3;
@@ -15499,11 +15558,11 @@ switchD_0041380c_default:
       uVar5 = *(ushort *)&skill->field_0x1;
       if (uVar5 == 0) goto switchD_00412610_advance_skillscript;
       pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
-      current_obj->action_idx = (uint)uVar5;
+      current_obj->iSkillIdx = (uint)uVar5;
       special_stock_gauge_max =
            ((ushort)pActionAlloc[uVar5].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x3;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      *(int *)&current_obj->iSkillScriptIdx = special_stock_gauge_max;
+      *(int *)&current_obj->iSkillScriptIdx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
     case ' ':
                     // ----------------------------------
@@ -15525,11 +15584,11 @@ switchD_0041380c_default:
           ) || (uVar5 = *(ushort *)&skill->field_0x6, uVar5 == 0))
       goto switchD_00412610_advance_skillscript;
       pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
-      gpkgtCurrentEngineObject->action_idx = (uint)uVar5;
+      gpkgtCurrentEngineObject->iSkillIdx = (uint)uVar5;
       random_skillcommand =
            ((ushort)pActionAlloc[uVar5].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x8;
-      *(int *)&current_obj->actionscript_idx = random_skillcommand;
-      *(int *)&current_obj->actionscript_idx = random_skillcommand + 1;
+      *(int *)&current_obj->iSkillScriptIdx = random_skillcommand;
+      *(int *)&current_obj->iSkillScriptIdx = random_skillcommand + 1;
       goto LAB_004125ae;
     case '#':
                     // ----------------------------------
@@ -15557,11 +15616,11 @@ switchD_0041380c_default:
       current_obj->iColorBlue = (int)bCarryOver;
       if (*(int *)&current_obj->iColorBlendtype == 4) {
         *(int *)&current_obj->color_alpha = (int)(char)skill->field_0x5;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       }
       else {
         *(undefined4 *)&current_obj->color_alpha = 0;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       }
       goto LAB_004125ae;
     case '$':
@@ -15615,12 +15674,12 @@ switchD_0041380c_default:
       current_obj = gpkgtCurrentEngineObject;
       if (special_stock_gauge_max == 0) goto switchD_00412610_advance_skillscript;
       COM_skill_idx = *(ushort *)&skill->field_0x1;
-      gpkgtCurrentEngineObject->action_idx = (uint)COM_skill_idx;
+      gpkgtCurrentEngineObject->iSkillIdx = (uint)COM_skill_idx;
       COM_new_skillscript_idx =
            ((ushort)(((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc[COM_skill_idx].
                     shStartingStepIdx - 1) + (uint)(byte)skill->field_0x3;
-      *(int *)&current_obj->actionscript_idx = COM_new_skillscript_idx;
-      *(int *)&current_obj->actionscript_idx = COM_new_skillscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = COM_new_skillscript_idx;
+      *(int *)&current_obj->iSkillScriptIdx = COM_new_skillscript_idx + 1;
       goto LAB_004125ae;
     case '%':
                     // ----------------------------------
@@ -15652,15 +15711,15 @@ switchD_0041380c_default:
       _x650_idx = (byte)current_obj->_x650_index - 1;
       if ((skill->field_0x3 != '\0') && (skill->field_0x4 != '\0')) goto AI_quantity_interval_not_0;
       current_obj->_x650_index = 0;
-      special_stock_gauge_max = *(int *)&current_obj->actionscript_idx;
+      special_stock_gauge_max = *(int *)&current_obj->iSkillScriptIdx;
       (&DAT_00447f80)[_x650_idx * 0x194] = 0;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      *(int *)&current_obj->iSkillScriptIdx = special_stock_gauge_max + 1;
       goto LAB_004125ae;
     }
   }
   _sprintf(local_100,s_ScriptMainLoopError__d__d___nd___0041f230,current_obj->iPlayerBuffer,
-           current_obj->obj_type,current_skill_idx,
-           *(int *)&current_obj->actionscript_idx -
+           current_obj->iObjectType,current_skill_idx,
+           *(int *)&current_obj->iSkillScriptIdx -
            (uint)(ushort)(((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc[current_skill_idx + 1].
                          shStartingStepIdx);
   iSetDebugInfo(local_100,0x8080ff);
@@ -15689,7 +15748,7 @@ AI_quantity_interval_not_0:
       *other_player_poss_relating = 0;
       other_player_poss_relating = other_player_poss_relating + 1;
     }
-    *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+    *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
     goto LAB_004125ae;
   }
   iSetDebugInfo(s_HAN_KATAKANA__0041f274,0x4444ff);
@@ -15705,11 +15764,11 @@ OBJECT_BLOCK_LOOP:
       uVar5 = *(ushort *)&skill->field_0x5;
       if (uVar5 != 0) {
         pActionAlloc = (((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc;
-        current_obj->action_idx = (uint)uVar5;
+        current_obj->iSkillIdx = (uint)uVar5;
         special_stock_gauge_max =
              ((ushort)pActionAlloc[uVar5].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x7;
-        *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+        *(int *)&current_obj->iSkillScriptIdx = special_stock_gauge_max;
+        *(int *)&current_obj->iSkillScriptIdx = special_stock_gauge_max + 1;
         goto LAB_004125ae;
       }
       pkVar13->iJumpIdx = RESET_IDX;
@@ -15722,10 +15781,10 @@ OBJECT_BLOCK_LOOP:
   }
 LAB_00412b0a:
   if (*(ushort *)&skill->field_0x2 != 0) {
-    curr_obj_type = current_obj->obj_type;
+    curr_obj_type = current_obj->iObjectType;
     life_recover_number = skill->field_0x1;
     bVar12 = life_recover_number & 0x40;
-    if (curr_obj_type == main_kgt_file) {
+    if (curr_obj_type == system) {
       if (((((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc[*(ushort *)&skill->field_0x2].
            cDemoDefaultScriptGroup & 9U) != 0) {
         bVar12 = 0;
@@ -15738,14 +15797,14 @@ LAB_00412b6e:
       player_file_buff_idx = (int)*(short *)&skill->field_0xa << 0x10;
     }
     else {
-      if (curr_obj_type == demo_file) goto LAB_00412b66;
-      if (curr_obj_type != stage_file) {
+      if (curr_obj_type == demo) goto LAB_00412b66;
+      if (curr_obj_type != stage) {
         if ((life_recover_number & 0x40) == 0) goto LAB_00412b9c;
         goto LAB_00412b6e;
       }
       bVar12 = 0;
 LAB_00412b9c:
-      if ((current_obj->pos_player_direction & 1) == 0) {
+      if ((current_obj->iPlayerLookingLeft & 1) == 0) {
         special_stock_gauge_max = *(short *)&skill->field_0x8 * 0x10000 + current_obj->iParam3;
         player_file_buff_idx = *(short *)&skill->field_0xa * 0x10000 + current_obj->iParam4;
       }
@@ -15773,37 +15832,37 @@ LAB_00412b9c:
     pkVar13 = kgtoNewEngineObject(current_obj->iJumpIdx,uVar11,special_stock_gauge_max,
                                   player_file_buff_idx);
     current_obj = gpkgtCurrentEngineObject;
-    pkVar13->obj_type = 1;
+    pkVar13->iObjectType = story?;
     pkVar13->iPlayerBuffer = current_obj->iPlayerBuffer;
-    switch(current_obj->obj_type) {
-    case 0:
-    case 1:
+    switch(current_obj->iObjectType) {
+    case player:
+    case story?:
     case player_file:
-      pkVar13->obj_type = 1;
+      pkVar13->iObjectType = story?;
       break;
-    case main_kgt_file:
-      pkVar13->obj_type = main_kgt_file;
+    case system:
+      pkVar13->iObjectType = system;
       break;
-    case demo_file:
-      pkVar13->obj_type = demo_file;
+    case demo:
+      pkVar13->iObjectType = demo;
       break;
-    case stage_file:
-      pkVar13->obj_type = stage_file;
+    case stage:
+      pkVar13->iObjectType = stage;
     }
     uVar7 = *(undefined3 *)&current_obj->field_0x15;
-    special_stock_gauge_max = current_obj->pos_player_direction;
+    special_stock_gauge_max = current_obj->iPlayerLookingLeft;
     pkVar13->__or_3 = current_obj->__or_3;
     *(undefined3 *)&pkVar13->field_0x15 = uVar7;
     uVar5 = *(ushort *)&skill->field_0x2;
-    pkVar13->pos_player_direction = special_stock_gauge_max;
-    pkVar13->action_idx = (uint)uVar5;
-    *(uint *)&pkVar13->actionscript_idx =
+    pkVar13->iPlayerLookingLeft = special_stock_gauge_max;
+    pkVar13->iSkillIdx = (uint)uVar5;
+    *(uint *)&pkVar13->iSkillScriptIdx =
          (uint)(ushort)(((kgtSystem *)object_addy)->kgt_core).pSkillsAlloc[uVar5].shStartingStepIdx
          + (uint)(byte)skill->field_0x4;
     if (bVar12 == 0) {
       pkVar13->unk_bitmask = pkVar13->unk_bitmask | 0x40000000;
     }
-    if ((int)current_obj->obj_type < 2) {
+    if ((int)current_obj->iObjectType < 2) {
       life_recover_number = skill->field_0x1;
       if ((life_recover_number & 4) == 0) {
         *(kgtEngineObject **)
@@ -15817,12 +15876,12 @@ LAB_00412b9c:
       *(undefined2 *)&pkVar13->field_0x12f = *(undefined2 *)&skill->field_0xa;
       pkVar13->unk_bitmask = pkVar13->unk_bitmask | 0x20000000;
       *(undefined2 *)&pkVar13->field_0x12d = *(undefined2 *)&skill->field_0x8;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     }
   }
 switchD_00412610_advance_skillscript:
-  *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+  *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
 LAB_004125ae:
   if (local_108 == 0) {
     return;
@@ -15852,7 +15911,7 @@ switchD_00412610_compute_momentum:
                     // 
                     // Double check the flag values for movement skill blocks.
   player_ignore_flag_flag = 1;
-  if (current_obj->pos_player_direction != 0) {
+  if (current_obj->iPlayerLookingLeft != 0) {
                     // Possibly direction player is facing
     player_ignore_flag_flag = -1;
   }
@@ -15892,11 +15951,11 @@ switchD_00412610_compute_momentum:
   if ((mvmt_flags & 0x10) == 0) {
     if (missing_x_flags_flag) {
       current_obj->y_gravity = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
     }
     else {
       current_obj->y_gravity = current_obj->y_gravity + special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&current_obj->iSkillScriptIdx = *(int *)&current_obj->iSkillScriptIdx + 1;
     }
     goto LAB_004125ae;
   }
@@ -16332,7 +16391,7 @@ void vGetPlayerInputs(void)
     giInputBufferA[1][giInputBufferPos] = giUserKeydowns[1];
   }
   else {
-    giUserKeydowns[0] = iTranslateKeyPress(UNK_KGT_PLAYER_BUFFER_IDX,0);
+    giUserKeydowns[0] = iTranslateKeyPress(giStoryModePlayerIdx,0);
     giInputBufferA[0][giInputBufferPos] = giUserKeydowns[0];
   }
   giLastInput_2 = 0;
@@ -16759,14 +16818,15 @@ void DISP_DEBUG_INFO(void)
 
 
 
-bool FUN_004153b0(char param_1)
+bool bCheckIfDiscDrive(char param_1)
 
 {
   UINT UVar1;
   char local_4;
   undefined3 uStack_3;
   
-  _local_4 = CONCAT31((int3)((uint)PTR_DAT_0041f70c >> 8),param_1 + 'A');
+                    // To-Do: Fix this ghidra-ism
+  _local_4 = CONCAT31(s_A___0041f70c._1_3_,param_1 + 'A');
   UVar1 = GetDriveTypeA(&local_4);
   return UVar1 == 5;
 }
@@ -16807,13 +16867,13 @@ int iUnkHandleMci_2(void)
   char *local_c;
   undefined *local_8;
   
-  uVar2 = DAT_0041e404;
-  cVar1 = (char)DAT_0041e404;
+  uVar2 = giMciFlags;
+  cVar1 = (char)giMciFlags;
   if (MCI_OPEN_FLAG != 0) {
     vCloseMciDevice();
     MCI_OPEN_FLAG = 0;
   }
-  if (DAT_0041e404 != 0xffffffff) {
+  if (giMciFlags != 0xffffffff) {
     local_c = s_cdaudio_0041f710;
     local_8 = &gsCurrentDirectory_2;
     MVar3 = mciSendCommandA(0,0x803,0x2200,(DWORD_PTR)local_14);
@@ -16847,32 +16907,32 @@ int iUnkHandleMci_2(void)
 
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 
-void FUN_00415570(undefined4 param_1,undefined4 param_2)
+void vLoadsoundFromDisc(int iMciFlags,int loopFlag)
 
 {
   int iVar1;
-  int iVar2;
+  int iAlphabetOffset;
   
-  iVar2 = 0;
-  DAT_00424728 = param_2;
-  DAT_0041e404 = param_1;
+  iAlphabetOffset = 0;
+  giDiscLoopFlag = loopFlag;
+  giMciFlags = iMciFlags;
   _DAT_00424734 = 1;
   DAT_0041e409 = 0x3a;
   DAT_0041e40a = 0;
   iVar1 = iUnkHandleMci_2();
   if (iVar1 != 0) {
     do {
-      iVar1 = FUN_004153b0(iVar2);
+      iVar1 = bCheckIfDiscDrive(iAlphabetOffset);
       if (iVar1 != 0) {
-        gsCurrentDirectory_2 = (char)iVar2 + 'A';
+        gsCurrentDirectory_2 = (char)iAlphabetOffset + 'A';
         iVar1 = iUnkHandleMci_2();
         if (iVar1 == 0) {
           return;
         }
       }
-      iVar2 = iVar2 + 1;
-    } while (iVar2 < 0x1a);
-    MessageBoxA(gHwnd,s_Plese_insert_Audio_CD_rom_0041f720,(LPCSTR)&lpCaption_0041f718,0x30);
+      iAlphabetOffset = iAlphabetOffset + 1;
+    } while (iAlphabetOffset < 0x1a);
+    MessageBoxA(gHwnd,gsPleaseInsertAudioCDRom,(LPCSTR)&lpCaption_0041f718,0x30);
   }
   return;
 }
@@ -16913,7 +16973,7 @@ void del_mid_file(void)
   CHAR local_108 [264];
   
   GetWindowsDirectoryA(local_108,0x105);
-  _sprintf(local_108,&DAT_0041f7b4,local_108,s__2dfightermaker2nd20022_mid_0041f798);
+  _sprintf(local_108,&DAT_0041f7b4,local_108,gsGlobalMidFile);
   DeleteFileA(local_108);
   return;
 }
@@ -16936,7 +16996,7 @@ int iPlayAndCloseMidFile(void)
   pcVar3 = mciSendCommandA_exref;
   if (MCI_FLAG_00424738 == 0) {
     GetWindowsDirectoryA(local_108,0x105);
-    _sprintf(local_108,&DAT_0041f7bc,local_108,s__2dfightermaker2nd20022_mid_0041f798);
+    _sprintf(local_108,&DAT_0041f7bc,local_108,gsGlobalMidFile);
     pcVar3 = mciSendCommandA_exref;
                     // MCI_OPEN command
     pCStack_11c = local_108;
@@ -16967,25 +17027,25 @@ int iPlayAndCloseMidFile(void)
 
 
 
-void write_mid_file(HGLOBAL *param_1)
+void vWriteAndPlayMidFile(kgtSound *kgtsound)
 
 {
   HGLOBAL hMem;
   LPVOID lpBuffer;
   HANDLE hFile;
   DWORD local_10c;
-  CHAR local_108 [264];
+  CHAR sDirectory [264];
   
-  DAT_00424740 = (*(byte *)(param_1 + 10) & 0x10) >> 4;
+  DAT_00424740 = ((byte)kgtsound->cFlags & 0x10) >> 4;
   del_mid_file();
   vUnkHandleMci();
   local_10c = 0;
-  GetWindowsDirectoryA(local_108,0x105);
-  _sprintf(local_108,s__s_s_0041f7d0,local_108,s__2dfightermaker2nd20022_mid_0041f798);
-  hMem = *param_1;
+  GetWindowsDirectoryA(sDirectory,0x105);
+  _sprintf(sDirectory,s__s_s_0041f7d0,sDirectory,gsGlobalMidFile);
+  hMem = kgtsound->pAlloc;
   lpBuffer = GlobalLock(hMem);
-  hFile = CreateFileA(local_108,0x40000000,0,(LPSECURITY_ATTRIBUTES)0x0,2,0x80,(HANDLE)0x0);
-  WriteFile(hFile,lpBuffer,(DWORD)param_1[9],&local_10c,(LPOVERLAPPED)0x0);
+  hFile = CreateFileA(sDirectory,0x40000000,0,(LPSECURITY_ATTRIBUTES)0x0,2,0x80,(HANDLE)0x0);
+  WriteFile(hFile,lpBuffer,kgtsound->iSizeOrWavPtr,&local_10c,(LPOVERLAPPED)0x0);
   CloseHandle(hFile);
   GlobalUnlock(hMem);
   iPlayAndCloseMidFile();
@@ -16994,128 +17054,133 @@ void write_mid_file(HGLOBAL *param_1)
 
 
 
-bool FUN_00415bf0(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
-                 undefined4 param_5)
+bool bGetWavInformation(int zero,void *alloc,int *pWavFmtBloc,int *pWavDataBloc,int *iDataBlocSize)
 
 {
-  int iVar1;
+  int err;
   
-  iVar1 = FUN_00416000(param_2,param_3,param_4,param_5);
-  return iVar1 != 0;
+  err = iWalkWavFile(alloc,pWavFmtBloc,pWavDataBloc,iDataBlocSize);
+  return err != 0;
 }
 
 
 
-int * FUN_00415c20(int *param_1,undefined4 param_2)
+IDirectSoundBuffer8 ** dxGetSoundBufferInterface(IDirectSound8 **pDsoundInterface,void *alloc)
 
 {
-  int iVar1;
-  undefined4 uVar2;
-  int *local_18;
-  undefined4 local_14;
-  undefined4 local_10;
-  undefined4 local_c;
-  undefined4 local_8;
-  undefined4 local_4;
+  int err;
+  IDirectSoundBuffer8 **sound_buffer;
+  int **buffer_desc;
+  int local_10;
+  int iDataSize;
+  undefined4 uStack_8;
+  int iStack_4;
   
   local_10 = 0;
-  local_c = 0;
-  local_8 = 0;
-  local_4 = 0;
-  local_18 = (int *)0x0;
-  local_14 = 0;
-  iVar1 = FUN_00415bf0(0,param_2,&local_4,&param_2,&local_c);
-  if (iVar1 == 0) {
-    return local_18;
+  iDataSize = 0;
+  uStack_8 = 0;
+  iStack_4 = 0;
+  sound_buffer = (IDirectSoundBuffer8 **)0x0;
+  buffer_desc = (int **)0x0;
+  err = bGetWavInformation(0,alloc,&iStack_4,(int *)&alloc,&iDataSize);
+  if (err == 0) {
+    return sound_buffer;
   }
-  uVar2 = 0;
-  local_14 = 0x14;
+  buffer_desc = (int **)0x14;
   local_10 = 0xe2;
-  iVar1 = (**(code **)(*param_1 + 0xc))(param_1,&local_14,&local_18,0);
-  if (-1 < iVar1) {
-    iVar1 = FUN_00415f40(param_1,local_8,uVar2);
-    if (iVar1 != 0) {
-      return param_1;
+                    // CreateSoundBuffer
+  err = (*(*pDsoundInterface)->CreateSoundBuffer)
+                  (pDsoundInterface,&buffer_desc,&sound_buffer,(IUnknown *)0x0);
+  if (-1 < err) {
+    err = iWriteFromSoundAlloc(sound_buffer,alloc,(int *)iDataSize);
+    if (err != 0) {
+      return sound_buffer;
     }
-    (**(code **)(*param_1 + 8))(param_1);
+                    // Release
+    (*(*sound_buffer)->Release)(sound_buffer);
   }
-  return (int *)0x0;
+  return (IDirectSoundBuffer8 **)0x0;
 }
 
 
 
-player_file_hlocal_struct * FUN_00415cd0(int *param_1,undefined4 param_2,int param_3)
+kgtWav * kgtwBuildWav(IDirectSound8 **iDirectSoundInterface,void *alloc,int one)
 
 {
+  int err;
+  kgtWav *ppLocalAlloc;
+  IDirectSoundBuffer8 **dxSoundBufferInterface;
   int iVar1;
-  player_file_hlocal_struct *ppVar2;
-  player_file_hlocal_internal *ppVar3;
-  int iVar4;
-  HLOCAL pvVar5;
-  player_file_hlocal_struct *ppVar6;
-  HLOCAL local_c;
-  undefined4 local_8;
-  undefined1 local_4 [4];
+  IDirectSoundBuffer8 **ppIVar2;
+  IDirectSoundBuffer8 ***lplpDsbDuplicate;
+  void *pdataBloc;
+  int iDataBlocSize;
+  int *pFmtBloc;
   
-  iVar1 = FUN_00415bf0(0,param_2,local_4,&local_c,&local_8);
-  if (iVar1 == 0) {
-    return (player_file_hlocal_struct *)0x0;
+  err = bGetWavInformation(0,alloc,(int *)&pFmtBloc,(int *)&pdataBloc,&iDataBlocSize);
+  if (err == 0) {
+    return (kgtWav *)0x0;
   }
-  if (param_3 < 1) {
-    param_3 = 1;
+  if (one < 1) {
+    one = 1;
   }
-  ppVar2 = LocalAlloc(0x40,param_3 * 4 + 0x10);
-  if (ppVar2 != (player_file_hlocal_struct *)0x0) {
-    ppVar2->hlocal_intern_objects_amount = param_3;
-    ppVar2->hlocal = local_c;
-    *(undefined4 *)&ppVar2->field_0x4 = local_8;
-    ppVar3 = (player_file_hlocal_internal *)FUN_00415c20(param_1,param_2);
-    iVar1 = 1;
-    ppVar2->pp = ppVar3;
-    if (1 < param_3) {
-      ppVar6 = ppVar2 + 1;
+  ppLocalAlloc = LocalAlloc(0x40,one * 4 + 0x10);
+  if (ppLocalAlloc != (kgtWav *)0x0) {
+    ppLocalAlloc->one = one;
+    ppLocalAlloc->pDataBloc = pdataBloc;
+    ppLocalAlloc->iDataBlocSize = iDataBlocSize;
+    dxSoundBufferInterface =
+         (IDirectSoundBuffer8 **)dxGetSoundBufferInterface(iDirectSoundInterface,alloc);
+    err = 1;
+    ppLocalAlloc->IDirectSoundBuffer8Interface = dxSoundBufferInterface;
+    if (1 < one) {
+                    // This IF clause should never run
+      lplpDsbDuplicate = &ppLocalAlloc->IDirectSoundBuffer8Interface_duplicate;
       do {
-        iVar4 = (**(code **)(*param_1 + 0x14))(param_1,ppVar2->pp,ppVar6);
-        if (iVar4 < 0) {
-          pvVar5 = (HLOCAL)FUN_00415c20(param_1,param_2);
-          ppVar6->hlocal = pvVar5;
-          if (pvVar5 == (HLOCAL)0x0) {
-            clear_player_file_hlocal_objects(ppVar2);
-            ppVar2 = (player_file_hlocal_struct *)0x0;
+        iVar1 = (*(*iDirectSoundInterface)->DuplicateSoundBuffer)
+                          (iDirectSoundInterface,ppLocalAlloc->IDirectSoundBuffer8Interface,
+                           lplpDsbDuplicate);
+        if (iVar1 < 0) {
+          ppIVar2 = (IDirectSoundBuffer8 **)dxGetSoundBufferInterface(iDirectSoundInterface,alloc);
+          *lplpDsbDuplicate = ppIVar2;
+          if (ppIVar2 == (IDirectSoundBuffer8 **)0x0) {
+            vFreeKgtWav(ppLocalAlloc);
+            ppLocalAlloc = (kgtWav *)0x0;
             break;
           }
         }
-        iVar1 = iVar1 + 1;
-        ppVar6 = (player_file_hlocal_struct *)&ppVar6->field_0x4;
-      } while (iVar1 < ppVar2->hlocal_intern_objects_amount);
+        err = err + 1;
+        lplpDsbDuplicate = lplpDsbDuplicate + 1;
+      } while (err < ppLocalAlloc->one);
     }
   }
   GlobalFree(DAT_00424790);
-  return ppVar2;
+  return ppLocalAlloc;
 }
 
 
 
-void clear_player_file_hlocal_objects(player_file_hlocal_struct *param_1)
+void vFreeKgtWav(kgtWav *param_1)
 
 {
-  player_file_hlocal_internal *ppVar1;
-  player_file_hlocal_internal **offset_16bytes;
+  IDirectSoundBuffer8 **this;
+  void *offset_16bytes;
   int i;
+  void *ppVar1;
   
-  if (param_1 != (player_file_hlocal_struct *)0x0) {
+  if (param_1 != (kgtWav *)0x0) {
     i = 0;
-    if (0 < param_1->hlocal_intern_objects_amount) {
-      offset_16bytes = &param_1->pp;
+    if (0 < param_1->one) {
+      offset_16bytes = &param_1->IDirectSoundBuffer8Interface;
       do {
-        ppVar1 = *offset_16bytes;
-        if (ppVar1 != (player_file_hlocal_internal *)0x0) {
-          (*(code *)ppVar1->field0_0x0[2])(ppVar1);
-          *offset_16bytes = (player_file_hlocal_internal *)0x0;
+        this = *(IDirectSoundBuffer8 ***)offset_16bytes;
+        if (this != (IDirectSoundBuffer8 **)0x0) {
+          (*(*this)->Release)(this);
+          *(IDirectSoundBuffer8 ***)offset_16bytes = (IDirectSoundBuffer8 **)0x0;
         }
         i = i + 1;
-        offset_16bytes = offset_16bytes + 1;
-      } while (i < param_1->hlocal_intern_objects_amount);
+        offset_16bytes = (void *)((int)offset_16bytes + 4);
+      } while (i < param_1->one);
     }
     LocalFree(param_1);
   }
@@ -17124,60 +17189,66 @@ void clear_player_file_hlocal_objects(player_file_hlocal_struct *param_1)
 
 
 
-int * FUN_00415df0(undefined4 *param_1)
+IDirectSoundBuffer8 ** kgtdxReturnSoundBuffer(kgtWav *Wav)
 
 {
-  undefined4 *puVar1;
-  int iVar2;
-  int iVar3;
-  int *piVar4;
+  kgtWav *pkVar1;
+  int err;
+  int err_2;
+  int err_3;
+  IDirectSoundBuffer8 **SOUNDBUFFER;
   byte unaff_DI;
+  int idx;
   
-  puVar1 = param_1;
-  if (param_1 == (undefined4 *)0x0) {
-    return (int *)0x0;
+  pkVar1 = Wav;
+  if (Wav == (kgtWav *)0x0) {
+    return (IDirectSoundBuffer8 **)0x0;
   }
-  iVar3 = param_1[3];
-  piVar4 = (int *)param_1[iVar3 + 4];
-  if (piVar4 == (int *)0x0) {
-    return (int *)0x0;
+  idx = Wav->iCurrentBufferIdx;
+  SOUNDBUFFER = (&Wav->IDirectSoundBuffer8Interface)[idx];
+  if (SOUNDBUFFER == (IDirectSoundBuffer8 **)0x0) {
+    return (IDirectSoundBuffer8 **)0x0;
   }
-  iVar2 = (**(code **)(*piVar4 + 0x24))(piVar4,&param_1);
-  if (iVar2 < 0) {
+  err = (*(*SOUNDBUFFER)->GetStatus)(SOUNDBUFFER,(int *)&Wav);
+  if (err < 0) {
     unaff_DI = 0;
   }
+                    // BUG: This seems like it may break easily
   if ((unaff_DI & 1) == 1) {
-    if ((int)puVar1[2] < 2) {
-      return (int *)0x0;
+                    // Looks like this might not ever run
+    if (pkVar1->one < 2) {
+      return (IDirectSoundBuffer8 **)0x0;
     }
-    iVar3 = iVar3 + 1;
-    puVar1[3] = iVar3;
-    if ((int)puVar1[2] <= iVar3) {
-      puVar1[3] = 0;
+    idx = idx + 1;
+    pkVar1->iCurrentBufferIdx = idx;
+    if (pkVar1->one <= idx) {
+      pkVar1->iCurrentBufferIdx = 0;
     }
-    piVar4 = (int *)puVar1[puVar1[3] + 4];
-    iVar3 = (**(code **)(*piVar4 + 0x24))(piVar4,&stack0xfffffffc);
-    if ((-1 < iVar3) && ((unaff_DI & 1) == 1)) {
-      (**(code **)(*piVar4 + 0x48))(piVar4);
-      (**(code **)(*piVar4 + 0x34))(piVar4,0);
+    SOUNDBUFFER = (&pkVar1->IDirectSoundBuffer8Interface)[pkVar1->iCurrentBufferIdx];
+    idx = (*(*SOUNDBUFFER)->GetStatus)(SOUNDBUFFER,(int *)&stack0xfffffffc);
+    if ((-1 < idx) && ((unaff_DI & 1) == 1)) {
+      (*(*SOUNDBUFFER)->Stop)(SOUNDBUFFER);
+      (*(*SOUNDBUFFER)->SetCurrentPosition)(SOUNDBUFFER,0);
     }
   }
-  if (piVar4 != (int *)0x0) {
+  if (SOUNDBUFFER != (IDirectSoundBuffer8 **)0x0) {
     if ((unaff_DI & 2) == 0) {
-      return piVar4;
+      return SOUNDBUFFER;
     }
-    iVar3 = (**(code **)(*piVar4 + 0x50))(piVar4);
-    if ((-1 < iVar3) && (iVar3 = FUN_00415f40(piVar4,*puVar1,puVar1[1]), iVar3 != 0)) {
-      return piVar4;
+    err_2 = (*(*SOUNDBUFFER)->Restore)(SOUNDBUFFER);
+    if ((-1 < err_2) &&
+       (err_3 = iWriteFromSoundAlloc(SOUNDBUFFER,pkVar1->pDataBloc,(int *)pkVar1->iDataBlocSize),
+       err_3 != 0)) {
+      return SOUNDBUFFER;
     }
-    return (int *)0x0;
+    return (IDirectSoundBuffer8 **)0x0;
   }
-  return (int *)0x0;
+  return (IDirectSoundBuffer8 **)0x0;
 }
 
 
 
-bool FUN_00415eb0(int param_1,uint param_2)
+bool FUN_00415eb0(kgtWav *param_1,uint param_2)
 
 {
   int *piVar1;
@@ -17185,11 +17256,11 @@ bool FUN_00415eb0(int param_1,uint param_2)
   bool bVar3;
   
   bVar3 = false;
-  if (param_1 == 0) {
+  if (param_1 == (kgtWav *)0x0) {
     return false;
   }
-  if (((param_2 & 1) == 0) || (*(int *)(param_1 + 8) == 1)) {
-    piVar1 = (int *)FUN_00415df0(param_1);
+  if (((param_2 & 1) == 0) || (param_1->one == 1)) {
+    piVar1 = (int *)kgtdxReturnSoundBuffer(param_1);
     if (piVar1 != (int *)0x0) {
       iVar2 = (**(code **)(*piVar1 + 0x30))(piVar1,0,0,param_2);
       bVar3 = -1 < iVar2;
@@ -17200,24 +17271,24 @@ bool FUN_00415eb0(int param_1,uint param_2)
 
 
 
-undefined4 FUN_00415f00(int param_1)
+int iStopAndResetWav(kgtWav *param_1)
 
 {
-  int *piVar1;
-  int iVar2;
-  undefined4 *puVar3;
+  int one;
+  IDirectSoundBuffer8 ***pppSoundInterface;
+  IDirectSoundBuffer8 **ppSoundInterface;
   
-  if (param_1 != 0) {
-    iVar2 = *(int *)(param_1 + 8);
-    if (0 < iVar2) {
-      puVar3 = (undefined4 *)(param_1 + 0x10);
+  if (param_1 != (kgtWav *)0x0) {
+    one = param_1->one;
+    if (0 < one) {
+      pppSoundInterface = &param_1->IDirectSoundBuffer8Interface;
       do {
-        piVar1 = (int *)*puVar3;
-        (**(code **)(*piVar1 + 0x48))(piVar1);
-        (**(code **)(*piVar1 + 0x34))(piVar1,0);
-        puVar3 = puVar3 + 1;
-        iVar2 = iVar2 + -1;
-      } while (iVar2 != 0);
+        ppSoundInterface = *pppSoundInterface;
+        (*(*ppSoundInterface)->Stop)(ppSoundInterface);
+        (*(*ppSoundInterface)->SetCurrentPosition)(ppSoundInterface,0);
+        pppSoundInterface = pppSoundInterface + 1;
+        one = one + -1;
+      } while (one != 0);
     }
     return 1;
   }
@@ -17226,118 +17297,123 @@ undefined4 FUN_00415f00(int param_1)
 
 
 
-undefined4 FUN_00415f40(int *param_1,undefined4 *param_2,undefined4 *param_3)
+int iWriteFromSoundAlloc(IDirectSoundBuffer8 **SOUNDBUFFER,void *alloc,int *iStorage)
 
 {
-  int *piVar1;
-  int iVar2;
-  uint uVar3;
-  undefined4 *puVar4;
-  undefined4 *puVar5;
-  undefined4 *puVar6;
-  undefined4 *puVar7;
-  undefined1 local_4 [4];
+  IDirectSoundBuffer8 **this;
+  int iVar1;
+  uint uVar2;
+  undefined4 *pAlloc_2;
+  int *piVar3;
+  undefined4 *pdwAudioBytes1_2;
+  int *piVar4;
+  undefined4 *pdwAudioBytes1;
+  void *pAlloc;
   
-  puVar5 = param_2;
-  piVar1 = param_1;
-  if (((param_1 != (int *)0x0) && (param_2 != (undefined4 *)0x0)) && (param_3 != (undefined4 *)0x0))
-  {
-    puVar7 = param_3;
-    iVar2 = (**(code **)(*param_1 + 0x2c))(param_1,0,param_3,local_4);
-    if (-1 < iVar2) {
-      puVar4 = puVar5;
-      puVar6 = puVar7;
-      for (uVar3 = (uint)&param_1 >> 2; uVar3 != 0; uVar3 = uVar3 - 1) {
-        *puVar6 = *puVar4;
-        puVar4 = puVar4 + 1;
-        puVar6 = puVar6 + 1;
-      }
-      for (iVar2 = 0; iVar2 != 0; iVar2 = iVar2 + -1) {
-        *(undefined1 *)puVar6 = *(undefined1 *)puVar4;
-        puVar4 = (undefined4 *)((int)puVar4 + 1);
-        puVar6 = (undefined4 *)((int)puVar6 + 1);
-      }
-      if (&param_3 != (undefined4 **)0x0) {
-        puVar5 = (undefined4 *)((int)&param_1 + (int)puVar5);
-        puVar4 = &param_2;
-        for (uVar3 = (uint)&param_3 >> 2; uVar3 != 0; uVar3 = uVar3 - 1) {
-          *puVar4 = *puVar5;
-          puVar5 = puVar5 + 1;
-          puVar4 = puVar4 + 1;
-        }
-        for (iVar2 = 0; iVar2 != 0; iVar2 = iVar2 + -1) {
-          *(undefined1 *)puVar4 = *(undefined1 *)puVar5;
-          puVar5 = (undefined4 *)((int)puVar5 + 1);
-          puVar4 = (undefined4 *)((int)puVar4 + 1);
-        }
-      }
-      (**(code **)(*piVar1 + 0x4c))(piVar1,puVar7,&param_1,&param_2,&param_3);
-      return 1;
+  pAlloc = alloc;
+  this = SOUNDBUFFER;
+  if ((((SOUNDBUFFER != (IDirectSoundBuffer8 **)0x0) && (alloc != (void *)0x0)) &&
+      (iStorage != (int *)0x0)) &&
+     (iVar1 = (*(*SOUNDBUFFER)->Lock)
+                        (SOUNDBUFFER,0,(int)iStorage,&pdwAudioBytes1,(int *)&SOUNDBUFFER,
+                         (int *)&iStorage,(int *)&alloc,0), -1 < iVar1)) {
+    pAlloc_2 = pAlloc;
+    pdwAudioBytes1_2 = pdwAudioBytes1;
+    for (uVar2 = (uint)SOUNDBUFFER >> 2; uVar2 != 0; uVar2 = uVar2 - 1) {
+      *pdwAudioBytes1_2 = *pAlloc_2;
+      pAlloc_2 = pAlloc_2 + 1;
+      pdwAudioBytes1_2 = pdwAudioBytes1_2 + 1;
     }
+    for (uVar2 = (uint)SOUNDBUFFER & 3; uVar2 != 0; uVar2 = uVar2 - 1) {
+      *(undefined1 *)pdwAudioBytes1_2 = *(undefined1 *)pAlloc_2;
+      pAlloc_2 = (undefined4 *)((int)pAlloc_2 + 1);
+      pdwAudioBytes1_2 = (undefined4 *)((int)pdwAudioBytes1_2 + 1);
+    }
+    if (alloc != (void *)0x0) {
+      piVar3 = (int *)((int)SOUNDBUFFER + (int)pAlloc);
+      piVar4 = iStorage;
+      for (uVar2 = (uint)alloc >> 2; uVar2 != 0; uVar2 = uVar2 - 1) {
+        *piVar4 = *piVar3;
+        piVar3 = piVar3 + 1;
+        piVar4 = piVar4 + 1;
+      }
+      for (uVar2 = (uint)alloc & 3; uVar2 != 0; uVar2 = uVar2 - 1) {
+        *(char *)piVar4 = (char)*piVar3;
+        piVar3 = (int *)((int)piVar3 + 1);
+        piVar4 = (int *)((int)piVar4 + 1);
+      }
+    }
+    (*(*this)->Unlock)(this,pdwAudioBytes1,(int)SOUNDBUFFER,iStorage,(int)alloc);
+    return 1;
   }
   return 0;
 }
 
 
 
-undefined4 FUN_00416000(int *param_1,uint *param_2,int *param_3,uint *param_4)
+int iWalkWavFile(wavSoundFile *alloc,int *fmtBloc,int *dataBloc,int *piDataSize)
 
 {
-  int *piVar1;
-  uint uVar2;
-  uint uVar3;
-  int *piVar4;
-  int *piVar5;
+  int iVar1;
+  int *pFormatBlocID;
+  short *pBlocData;
+  int pBlocSize;
+  int *fileEnd;
   
-  if (param_2 != (uint *)0x0) {
-    *param_2 = 0;
+  if (fmtBloc != (int *)0x0) {
+    *fmtBloc = 0;
   }
-  if (param_3 != (int *)0x0) {
-    *param_3 = 0;
+  if (dataBloc != (int *)0x0) {
+    *dataBloc = 0;
   }
-  if (param_4 != (uint *)0x0) {
-    *param_4 = 0;
+  if (piDataSize != (int *)0x0) {
+    *piDataSize = 0;
   }
-  piVar5 = param_1 + 3;
-  if ((*param_1 == 0x46464952) && (param_1[2] == 0x45564157)) {
-    piVar1 = (int *)(param_1[1] + -4 + (int)piVar5);
-    while (piVar5 < piVar1) {
-      uVar2 = piVar5[1];
-      piVar4 = piVar5 + 2;
-      if (*piVar5 == 0x20746d66) {
-        if ((param_2 != (uint *)0x0) && (*param_2 == 0)) {
-          if (uVar2 < 0xe) {
+  pFormatBlocID = &alloc->FormatBlocID;
+                    // .WAV file header check
+  if ((alloc->FileTypeBlocID == 0x46464952) && (alloc->FileFormatID == 0x45564157)) {
+    fileEnd = (int *)(alloc->FileSize + -4 + (int)pFormatBlocID);
+    while (pFormatBlocID < fileEnd) {
+      pBlocSize = pFormatBlocID[1];
+      pBlocData = (short *)(pFormatBlocID + 2);
+                    // Looking for Format Block header
+      if (*pFormatBlocID == 0x20746d66) {
+        if ((fmtBloc != (int *)0x0) && (*fmtBloc == 0)) {
+          if ((uint)pBlocSize < 0xe) {
             return 0;
           }
-          *param_2 = (uint)piVar4;
-          if ((param_3 == (int *)0x0) || (*param_3 != 0)) {
-            if (param_4 == (uint *)0x0) {
+          *fmtBloc = (int)pBlocData;
+          if ((dataBloc == (int *)0x0) || (*dataBloc != 0)) {
+            if (piDataSize == (int *)0x0) {
               return 1;
             }
-            uVar3 = *param_4;
+            iVar1 = *piDataSize;
             goto joined_r0x004160c6;
           }
         }
       }
-      else if ((*piVar5 == 0x61746164) &&
-              (((param_3 != (int *)0x0 && (*param_3 == 0)) ||
-               ((param_4 != (uint *)0x0 && (*param_4 == 0)))))) {
-        if (param_3 != (int *)0x0) {
-          *param_3 = (int)piVar4;
-        }
-        if (param_4 != (uint *)0x0) {
-          *param_4 = uVar2;
-        }
-        if (param_2 == (uint *)0x0) {
-          return 1;
-        }
-        uVar3 = *param_2;
+      else {
+                    // 'Data' block
+        if ((*pFormatBlocID == 0x61746164) &&
+           (((dataBloc != (int *)0x0 && (*dataBloc == 0)) ||
+            ((piDataSize != (int *)0x0 && (*piDataSize == 0)))))) {
+          if (dataBloc != (int *)0x0) {
+            *dataBloc = (int)pBlocData;
+          }
+          if (piDataSize != (int *)0x0) {
+            *piDataSize = pBlocSize;
+          }
+          if (fmtBloc == (int *)0x0) {
+            return 1;
+          }
+          iVar1 = *fmtBloc;
 joined_r0x004160c6:
-        if (uVar3 != 0) {
-          return 1;
+          if (iVar1 != 0) {
+            return 1;
+          }
         }
       }
-      piVar5 = (int *)((int)piVar4 + (uVar2 + 1 & 0xfffffffe));
+      pFormatBlocID = (int *)((int)pBlocData + (pBlocSize + 1U & 0xfffffffe));
     }
   }
   return 0;

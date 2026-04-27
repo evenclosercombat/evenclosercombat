@@ -303,7 +303,7 @@ typedef struct kgtSkillHeader kgtSkillHeader, *PkgtSkillHeader;
 
 typedef struct kgtSkill kgtSkill, *PkgtSkill;
 
-typedef struct KGT_IMG_HEADER KGT_IMG_HEADER, *PKGT_IMG_HEADER;
+typedef struct kgtImageHeader kgtImageHeader, *PkgtImageHeader;
 
 typedef struct kgtPallette kgtPallette, *PkgtPallette;
 
@@ -315,21 +315,21 @@ typedef struct kgtCharacterCPUCommandSkillShort kgtCharacterCPUCommandSkillShort
 
 typedef struct kgtStoryEntryCpu kgtStoryEntryCpu, *PkgtStoryEntryCpu;
 
-typedef enum kgt_obj_type {
-    0=0,
-    1=1,
-    main_kgt_file=2,
-    demo_file=3,
-    stage_file=4,
+typedef enum kgtEngineObjectTypes {
+    player=0,
+    story?=1,
+    system=2,
+    demo=3,
+    stage=4,
     player_file=5
-} kgt_obj_type;
+} kgtEngineObjectTypes;
 
 struct kgtSound {
     void *pAlloc;
     char sName[32];
-    int iSize;
-    undefined field3_0x28;
-    undefined field4_0x29;
+    int iSizeOrWavPtr; // Used as wav pointer after reading from file.
+    char cFlags; // Multiple places is checked against 0xf. Right half is what vHandleLoadingSound should do with the sound (stop all wavs, play wav, write a mid file??, or load from CD). Left half is playing behavior. 0x10 seems to be to loop it on the left half.
+    char cMciFlags; // Created by Rename Structure Field action
 };
 
 struct kgtCharacterCommand {
@@ -345,19 +345,19 @@ struct kgtCharacterCommand {
     short shCommandInputTimings[10];
 };
 
+struct kgtCharacterCPUCommandSkillShort {
+    char last_cpu_command_directional; // The final CPU command is one byte less?
+    char last_cpu_command_continute_flag;
+    short last_cpu_command_directional_skill_idx;
+    short last_cpu_command_directional_skill_timing;
+};
+
 struct kgtCharacterCPUCommandSkillFull {
     char directional; // starts at 1 = no direction, continues starting at right, ending at up-right
     char continue_flag; // 30 = go to next skill, 20 = end skill, 10 = inactive? unsure.
     short skill_idx;
     short skill_timing;
     undefined field4_0x6;
-};
-
-struct kgtCharacterCPUCommandSkillShort {
-    char last_cpu_command_directional; // The final CPU command is one byte less?
-    char last_cpu_command_continute_flag;
-    short last_cpu_command_directional_skill_idx;
-    short last_cpu_command_directional_skill_timing;
 };
 
 struct kgtCpuCommand {
@@ -469,7 +469,7 @@ struct kgt_core {
     char program_name[256];
     struct kgtSkillHeader *pSkillsAlloc; // Created by Rename Structure Field action
     struct kgtSkill *p_actionscripts_alloc; // Created by Rename Structure Field action
-    struct KGT_IMG_HEADER *p_img_headers_alloc; // Created by Rename Structure Field action
+    struct kgtImageHeader *p_img_headers_alloc; // Created by Rename Structure Field action
     struct kgtPallette pallette_1[256];
     struct kgtPallette pallette_2[256];
     struct kgtPallette pallette_3[256];
@@ -481,7 +481,7 @@ struct kgt_core {
     struct kgtPallette pallette_extra_bytes[64];
     struct kgtSound *p_sound_structs; // Created by Rename Structure Field action
     int unk_0x100_offset;
-    int read_ended;
+    int iReadOverFlag;
     int iActionsCount;
     int i_images_amount; // Created by Rename Structure Field action
     int i_sounds_amount;
@@ -494,13 +494,13 @@ struct kgtCommonImage {
 };
 
 struct kgt_character_struct {
-    struct kgt_core kgt_core;
+    struct kgt_core kgtCore;
     undefined field1_0x2234;
     undefined field2_0x2235;
     undefined field3_0x2236;
     undefined field4_0x2237;
     int unknown_online_var_a;
-    struct kgtCpuCommand CPU_commands[100];
+    struct kgtCpuCommand kgtCpuCommands[100];
     undefined field7_0x4d98;
     undefined field8_0x4d99;
     undefined field9_0x4d9a;
@@ -511,9 +511,9 @@ struct kgt_character_struct {
     undefined field14_0x4d9f;
     undefined field15_0x4da0;
     undefined field16_0x4da1;
-    struct kgtCharacterCommand command_structs[100];
-    struct kgtCharacterHitJunction hit_junctions[200];
-    struct kgtCommonImage common_images[200];
+    struct kgtCharacterCommand kgtCommands[100];
+    struct kgtCharacterHitJunction kgtHitJunctions[200];
+    struct kgtCommonImage kgtCommonImages[200];
     short shSkillIdxStanding;
     short shSkillIdxForward;
     short shSkillIdxBackward;
@@ -2328,7 +2328,7 @@ struct kgt_character_struct {
     char cStartingStock;
     undefined field1832_0x7cc3;
     undefined field1833_0x7cc4;
-    char section_H[4];
+    char iKgtStoriesSectionZeros[4];
     struct kgtStoryEntry kgtStoryEntries[100];
     char Section_I; // All Zeros by default
     undefined field1837_0xcd42;
@@ -7024,11 +7024,11 @@ struct kgtEngineObject {
     int x_gravity;
     int y_gravity;
     int unk_bitmask;
-    undefined1 actionscript_idx; // Created by Rename Structure Field action
+    undefined1 iSkillScriptIdx; // Created by Rename Structure Field action
     undefined field15_0x2d;
     undefined field16_0x2e;
     undefined field17_0x2f;
-    int action_idx; // Created by Rename Structure Field action
+    int iSkillIdx; // Created by Rename Structure Field action
     int skill_idx_2; // Created by Rename Structure Field action
     int hit_junction_idx; // First 2 bytes is skillscript internal offset?? last two bytes is skill_idx
     int image_wait_frames;
@@ -7048,7 +7048,7 @@ struct kgtEngineObject {
     undefined field35_0x56;
     undefined field36_0x57;
     int compare_to_param_4;
-    int pos_player_direction; // Formerly pos_player_ignore_flag, accidentally moved variable around? 04/07/26
+    int iPlayerLookingLeft; // Formerly pos_player_ignore_flag, accidentally moved variable around? 04/07/26
     int player_file_buffer_2;
     int stage_action_idx; // Also used to store skill idx in script reading function if stage script object is being read
     int stage_skillscript_idx; // Also used to store skillscript idx in script reading function if stage script object is being read
@@ -7092,11 +7092,11 @@ struct kgtEngineObject {
     undefined1 0x650_index; // Created by Rename Structure Field action
     int iProcessStep;
     int iPlayerBuffer; // Multi-use variable? Look at DisplayTitleScreens
-    enum kgt_obj_type obj_type;
+    enum kgtEngineObjectTypes iObjectType;
     struct kgtEngineObject *obj_ptr_b; // Multi-use variable
     struct kgtEngineObject *obj_ptr_a;
-    int timer_mod_10;
-    int timer_div_ten_mod_10;
+    int timer_mod_10; // Multi-use variable. Character Select Screen used for an object?
+    int timer_div_ten_mod_10; // Multi-use variable. Character Select Screen used for an object?
     int timer_div_100_mod_10; // Created by Rename Structure Field action
     int field88_0x172;
     undefined field89_0x176;
@@ -7135,18 +7135,6 @@ struct kgtSkill {
     undefined field15_0xf;
 };
 
-struct KGT_IMG_HEADER {
-    void *p_img_alloc;
-    int height;
-    int width;
-    int add_1024_flag;
-    int size_bytes;
-};
-
-typedef struct kgtFileDemo kgtFileDemo, *PkgtFileDemo;
-
-typedef struct kgtImageHeader kgtImageHeader, *PkgtImageHeader;
-
 struct kgtImageHeader {
     int *pAlloc;
     int iHeight;
@@ -7154,6 +7142,8 @@ struct kgtImageHeader {
     int unk;
     int iSize;
 };
+
+typedef struct kgtFileDemo kgtFileDemo, *PkgtFileDemo;
 
 struct kgtFileDemo {
     char sHeaderStart[12];
@@ -7181,8 +7171,8 @@ struct kgtFileDemo {
     struct kgtSound kgtSounds[256];
     int four_zeros;
     char cBGM;
-    char bSkipWithInput;
-    undefined field26_0x136822;
+    undefined field25_0x136821;
+    char cSkipWithInput;
     undefined field27_0x136823;
     int iTime;
     byte field29_0x136828[1025];
@@ -7251,6 +7241,39 @@ struct player_file_hlocal_struct {
     struct player_file_hlocal_internal *pp;
 };
 
+typedef struct IDirectSoundBuffer8 IDirectSoundBuffer8, *PIDirectSoundBuffer8;
+
+typedef long HRESULT;
+
+typedef DWORD ULONG;
+
+struct IDirectSoundBuffer8 {
+    HRESULT (*QueryInterface)(void *, int, void **);
+    ULONG (*AddRef)(void *);
+    ULONG (*Release)(void *);
+    void (*GetCaps)(void *, void *);
+    void (*GetCurrentPosition)(void *, int *, int *);
+    void (*GetFprmat)(void *, void *, int, int *);
+    void (*GetVolume)(void *, int *);
+    void (*GetPan)(void *, int *);
+    void (*GetFrequency)(void *, int *);
+    void (*GetStatus)(void *, int *);
+    void (*Initialize)(void *, void *, void *);
+    void (*Lock)(void *, int, int, void *, int *, int *, int *, int);
+    void (*Play)(void *, int, int, int);
+    void (*SetCurrentPosition)(void *, int);
+    void (*SetFormat)(void *, void *);
+    void (*SetVolume)(void *, int);
+    void (*SetPan)(void *, int);
+    void (*SetFrequency)(void *, int);
+    void (*Stop)(void *);
+    void (*Unlock)(void *, void *, int, void *, int);
+    void (*Restore)(void *);
+    void (*SetFX)(void *, int, void *, int *);
+    void (*AcquireResources)(void *, int, int, int *);
+    void (*GetObjectInPath)(void *, int, int, int, void *);
+};
+
 typedef struct kgt_character_struct *kgt_character_struct_ptr_57081_OBJ_STRUCT *;
 
 typedef struct kgt_character_struct *unk_player_kgt_intern_struct_ptr_62_int57106;
@@ -7285,6 +7308,13 @@ struct POSS_VTABLE_GAME_STATE {
 typedef struct kgt_character_struct *kgt_character_struct_ptr_57105_int;
 
 typedef struct kgt_character_struct *kgt_0xe03f_struct_ptr_57383_undefined;
+
+typedef struct kgtGridCoordinates kgtGridCoordinates, *PkgtGridCoordinates;
+
+struct kgtGridCoordinates {
+    int iCol;
+    int iRow;
+};
 
 typedef struct kgt_character_struct *kgt_0xe03f_struct_ptr_57355_int;
 
@@ -7321,7 +7351,7 @@ typedef struct kgtSystem kgtSystem, *PkgtSystem;
 
 struct kgtSystem {
     struct kgt_core kgt_core;
-    char character_names[50][256]; // Created by Rename Structure Field action
+    char gsCharacterName[50][256]; // Created by Rename Structure Field action
     struct kgtSystemHitJunction hit_junctions[200];
     char cUnknown0x2;
     undefined field4_0x7055;
@@ -7335,9 +7365,9 @@ struct kgtSystem {
     char sDemoNames[50][256];
     byte empty_e[12800];
     char title_demo_script_idx;
-    char 1p_demo_script_idx;
-    char VS_single_demo_idx;
-    char VS_team_demo_idx;
+    char cStoryModeDemoIdx;
+    char cVsSingleDemoIdx;
+    char cVsTeamDemoIdx;
     char game_over_demo_idx;
     char iOpeningDemoIdx;
     char default_0x18_char;
@@ -7425,16 +7455,16 @@ struct kgtSystem {
     short skill_idx_pos_special_stock_2p;
     short skill_idx_pos_victory_mark_1p;
     short skill_idx_pos_victory_mark_2p;
-    short skill_idx_title_cursor;
+    short iSkillIdxTitleCursor;
     short skill_idx_position_for_story_mode;
     short skill_idx_position_for_vs_mode;
     short skill_idx_continue_cursor;
     short skill_idx_position_cursor_it_does;
     short skill_idx_position_cursor_it_does_not;
-    short skill_idx_1p_vs_screen_cursor;
-    short skill_idx_2p_vs_screen_cursor;
-    short skill_idx_1p_vs_cursor_after_input;
-    short skill_idx_2p_vs_cursor_after_input;
+    short shSkillIdx1pVsScreenCursor;
+    short shSkillIdx2pVsScreenCursor;
+    short shSkillIdx1pVsCursorAfterInput;
+    short shSkillIdx2pVsCursorAfterInput;
     short skill_idx_pos_cursor_for_team_battle;
     short skill_idx_pause;
     short skill_idx_spare_6; // From this point on these skills are not built-in, I think. Might be tracked by accident. 
@@ -7507,23 +7537,23 @@ struct kgtSystem {
     undefined field184_0x1206d;
     undefined field185_0x1206e;
     undefined field186_0x1206f;
-    undefined field187_0x12070;
-    undefined field188_0x12071;
-    short character_select_start_x;
-    short character_select_start_y;
-    short distance_between_characters_x;
-    short distance_between_characters_y;
-    short columns_in_select_screen;
-    short rows_in_select_screen;
-    short player1_cursor_x;
-    short player1_cursor_y;
+    short iCharacterSelectStartX;
+    short iCharacterSelectStartY;
+    short iDistanceBetweenCharactersX;
+    short iDistanceBetweenCharactersY;
+    short iColumnsInSelectScreen;
+    short iRowsInSelectScreen;
+    short iPlayerOneCursorX;
+    short iPlayerOneCursorY;
     short player1_selection_width;
     short player1_selection_height;
-    short player2_cursor_x;
-    short player2_cursor_y;
+    short iPlayerTwoCursorX;
+    short iPlayerTwoCursorY;
     short player2_selection_width;
     short player2_selection_height;
-    char story_mode_setting_check_array[50]; // '+0x1 = Has story mode, +0x2 = Has VS mode, corresponding to character idx
+    char giCharacterHasStoryModeFlags[50]; // '+0x1 = Has story mode, +0x2 = Has VS mode, corresponding to character idx
+    undefined field202_0x120be;
+    undefined field203_0x120bf;
     undefined field204_0x120c0;
     undefined field205_0x120c1;
     undefined field206_0x120c2;
@@ -8466,8 +8496,6 @@ struct kgtSystem {
     undefined field1143_0x1246b;
     undefined field1144_0x1246c;
     undefined field1145_0x1246d;
-    undefined field1146_0x1246e;
-    undefined field1147_0x1246f;
 };
 
 typedef struct online_tcp_struct online_tcp_struct, *Ponline_tcp_struct;
@@ -8883,6 +8911,53 @@ typedef struct kgt_character_struct *UNK_0xe03f_struct_ptr_57225_int;
 
 typedef struct unk_player_kgt_intern_struct *unk_player_kgt_intern_struct_ptr_78_short;
 
+typedef struct IDirectSound8 IDirectSound8, *PIDirectSound8;
+
+typedef struct IUnknown IUnknown, *PIUnknown;
+
+typedef struct HWND__ HWND__, *PHWND__;
+
+typedef struct HWND__ *HWND;
+
+typedef struct IUnknownVtbl IUnknownVtbl, *PIUnknownVtbl;
+
+
+// WARNING! conflicting data type names: /ddraw.h/HRESULT - /winnt.h/HRESULT
+
+
+// WARNING! conflicting data type names: /guiddef.h/GUID - /GUID
+
+typedef GUID IID;
+
+struct HWND__ {
+    int unused;
+};
+
+struct IDirectSound8 {
+    HRESULT (*QueryInterface)(void *, void **); // 0
+    ULONG (*AddRef)(void *); // 1
+    ULONG (*Release)(void *); // 2
+    void (*CreateSoundBuffer)(void *, void *, void **, struct IUnknown *); // 3
+    void (*GetCaps)(void *, void *); // 4
+    void (*DuplicateSoundBuffer)(void *, void *, void **); // 5
+    void (*SetCooperativeLevel)(void *, HWND, DWORD); // 6
+    void (*Compact)(void *); // 7
+    void (*GetSpeakerConfig)(void *, void *); // 8
+    void (*SetSpeakerConfig)(void *, DWORD); // 9
+    void (*Initialize)(void *, void *); // a
+    void (*VerifyCertification)(void *, void *); // b
+};
+
+struct IUnknownVtbl {
+    HRESULT (*QueryInterface)(struct IUnknown *, IID *, void **);
+    ULONG (*AddRef)(struct IUnknown *);
+    ULONG (*Release)(struct IUnknown *);
+};
+
+struct IUnknown {
+    struct IUnknownVtbl *lpVtbl;
+};
+
 typedef struct unk_player_kgt_intern_struct *unk_player_kgt_intern_struct_ptr_94_undefined;
 
 typedef struct kgt_action kgt_action, *Pkgt_action;
@@ -9151,13 +9226,6 @@ struct CLIENT_ID {
 };
 
 typedef struct kgt_character_struct *kgt_character_struct_ptr_57121_short;
-
-typedef struct kgt_grid kgt_grid, *Pkgt_grid;
-
-struct kgt_grid {
-    int col;
-    int row;
-};
 
 typedef struct kgtEngineObject *idx;
 
@@ -20469,8 +20537,8 @@ typedef struct kgt_demo_file kgt_demo_file, *Pkgt_demo_file;
 struct kgt_demo_file {
     struct kgt_core kgtCore;
     char cBgmSelection;
-    char skip_with_input;
-    undefined field3_0x2236;
+    undefined field2_0x2235;
+    char cSkipWithInput;
     undefined field4_0x2237;
     int time;
     undefined field6_0x223c;
@@ -21513,15 +21581,15 @@ struct kgtGameState {
     undefined4 poss_wins_needed;
     undefined4 round_start_is0;
     int gameTimerInFrames;
-    int iGameStateNumber; // 1000 = Display Title Screens/Menu traversal
+    int iGameStateNumber; // 1000 = Display Title Screens/Menu traversal. 2000 = Character Select Screen. 4000 = Progressing Story Mode
     enum GAME_MODES kgtGameMode;
     undefined field8_0x3c;
     undefined field9_0x3d;
     undefined field10_0x3e;
     undefined field11_0x3f;
-    int TESTPLAY_VSMODE;
-    int PTR_TO_#_OF_ROUNDS_TEAM_VS_00470064;
-    int PTR_TO_#_OF_ROUNDS_VERSUS_00470068;
+    int iConfigTestPlayVsMode;
+    int iConfigNumberOfRoundsTeamVs;
+    int iConfigNumberOfRounds;
     undefined4 field15_0x4c;
     undefined4 field16_0x50;
     undefined field17_0x54;
@@ -21674,7 +21742,7 @@ struct kgtGameState {
     undefined4 field164_0xf0;
     undefined4 field165_0xf4;
     int field166_0xf8;
-    int action_btn_pressed_player_0;
+    int iActionButtonPressedPlayerOne;
     undefined field168_0x100;
     undefined field169_0x101;
     undefined field170_0x102;
@@ -21687,7 +21755,7 @@ struct kgtGameState {
     undefined field177_0x109;
     undefined field178_0x10a;
     undefined field179_0x10b;
-    int action_btn_pressed_player_1;
+    int iActionButtedPressedPlayerTwo;
     undefined field181_0x110;
     undefined field182_0x111;
     undefined field183_0x112;
@@ -21796,8 +21864,8 @@ struct kgtGameState {
     undefined field286_0x179;
     undefined field287_0x17a;
     undefined field288_0x17b;
-    int character_chosen_flag_player_0;
-    int character_chosen_flag_player_1;
+    int iPlayerOneChoseCharacterFlag;
+    int iCharacterChosenFlagPlayerOne;
     undefined field291_0x184;
     undefined field292_0x185;
     undefined field293_0x186;
@@ -486718,8 +486786,6 @@ struct _EXCEPTION_POINTERS {
     PCONTEXT ContextRecord;
 };
 
-typedef DWORD ULONG;
-
 #define _M_IX86 300
 
 #define WINVER 2304
@@ -486753,6 +486819,17 @@ struct unk_struct_4 {
     undefined4 field4_0x10;
     undefined4 field5_0x14;
     undefined4 field6_0x18;
+};
+
+typedef struct kgtWav kgtWav, *PkgtWav;
+
+struct kgtWav {
+    void *pDataBloc;
+    int iDataBlocSize;
+    int one; // It's one.
+    int iCurrentBufferIdx; // I have not yet seen this get assigned to anything except 0
+    struct IDirectSoundBuffer8 **IDirectSoundBuffer8Interface;
+    struct IDirectSoundBuffer8 **IDirectSoundBuffer8Interface_duplicate; // Probably never actually created
 };
 
 typedef struct astruct astruct, *Pastruct;
@@ -487724,6 +487801,25 @@ struct astruct_1 {
     undefined4 field1_0x4;
 };
 
+typedef struct wavSoundFile wavSoundFile, *PwavSoundFile;
+
+struct wavSoundFile {
+    int FileTypeBlocID;
+    int FileSize;
+    int FileFormatID;
+    int FormatBlocID;
+    uint BlocSize;
+    short AudioFormat;
+    short NbrChannels;
+    int Frequency;
+    int BytePerSec;
+    short BytePerBloc;
+    short BitsPerSample;
+    int DataBlocID;
+    int DataSize;
+    byte *SampledData;
+};
+
 
 // WARNING! conflicting data type names: /rpcndr.h/byte - /byte
 
@@ -487768,10 +487864,6 @@ typedef long LONG_PTR;
 
 typedef LONG_PTR LRESULT;
 
-typedef struct HWND__ HWND__, *PHWND__;
-
-typedef struct HWND__ *HWND;
-
 typedef uint UINT_PTR;
 
 typedef UINT_PTR WPARAM;
@@ -487812,10 +487904,6 @@ struct tagWNDCLASSA {
 };
 
 struct HICON__ {
-    int unused;
-};
-
-struct HWND__ {
     int unused;
 };
 
@@ -487878,11 +487966,6 @@ struct _GUID {
     uchar Data4[8];
 };
 
-
-// WARNING! conflicting data type names: /guiddef.h/GUID - /GUID
-
-typedef GUID IID;
-
 typedef wchar_t WCHAR;
 
 typedef WCHAR *LPWSTR;
@@ -487929,8 +488012,6 @@ struct IMAGE_DOS_HEADER {
 typedef struct IDirectDrawSurface.conflict IDirectDrawSurface.conflict, *PIDirectDrawSurface.conflict;
 
 typedef struct IDirectDrawSurfaceVtbl IDirectDrawSurfaceVtbl, *PIDirectDrawSurfaceVtbl;
-
-typedef LONG HRESULT;
 
 typedef struct IDirectDrawSurface.conflict *LPDIRECTDRAWSURFACE;
 
@@ -488032,8 +488113,6 @@ typedef union _union_3125 _union_3125, *P_union_3125;
 
 typedef struct IDirectDrawVtbl IDirectDrawVtbl, *PIDirectDrawVtbl;
 
-typedef struct IUnknown IUnknown, *PIUnknown;
-
 typedef HRESULT (*LPDDENUMMODESCALLBACK)(LPDDSURFACEDESC, LPVOID);
 
 typedef struct _DDCAPS_DX7 _DDCAPS_DX7, *P_DDCAPS_DX7;
@@ -488051,8 +488130,6 @@ typedef union _union_3147 _union_3147, *P_union_3147;
 typedef struct _RGNDATAHEADER _RGNDATAHEADER, *P_RGNDATAHEADER;
 
 typedef struct _RGNDATAHEADER RGNDATAHEADER;
-
-typedef struct IUnknownVtbl IUnknownVtbl, *PIUnknownVtbl;
 
 typedef struct _DDSCAPS2 _DDSCAPS2, *P_DDSCAPS2;
 
@@ -488404,16 +488481,6 @@ struct tagPALETTEENTRY {
     BYTE peGreen;
     BYTE peBlue;
     BYTE peFlags;
-};
-
-struct IUnknownVtbl {
-    HRESULT (*QueryInterface)(struct IUnknown *, IID *, void **);
-    ULONG (*AddRef)(struct IUnknown *);
-    ULONG (*Release)(struct IUnknown *);
-};
-
-struct IUnknown {
-    struct IUnknownVtbl *lpVtbl;
 };
 
 union _union_3147 {
@@ -489079,15 +489146,15 @@ void vSpawnOnlineDialog(HINSTANCE hInstance,HWND hWnd);
 void vMemzero(void *address,uint size);
 void vSetupDsound(void);
 void UNLOAD_DSOUND(void);
-void RUN_UNK_FUNCTION_ON_HLOCAL_ARRAY(void);
+void vStopAndResetAllWavs(void);
 void ___vdecl_acos2(void);
 void ___vdecl_acos2(void);
-void Handle_Sound_Skillscript_block(kgtSound *sound);
-void FUN_004034d0(undefined4 param_1);
+void vHandleLoadingSound(kgtSound *sound);
+void vHandleStoppingAllWavs(int param_1);
 void vFreeKgtCore(kgt_core *playFileInfo);
 bool bReadKgtCore(kgt_character_struct *kgt_buffer,HANDLE hFile);
-int clear_player_kgt_buffer(int offset);
-int READ_CHARACTER_FILE(int kgt_idx,int player_file_idx);
+int iClearCharacterFile(int offset);
+int iOpenCharacterFile(int iIdx,int iPlayerFileIdx);
 int iClearKgtSystemFile(void);
 int iOpenKgtSystemFile(LPCSTR program_name);
 int iClearDemoFile(void);
@@ -489110,30 +489177,30 @@ int wWinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,char *pCmdLine,int nCmd
 LRESULT vMainWndProc(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam);
 void vResetObjectsAndSpeed(void);
 void reset_all_objects_with_action(int action_offset);
-void reset_all_objects_for_player(int param_1);
+void vResetObjectsForPlayerIdx(int iPlayerIdx);
 kgtEngineObject *kgtoNewEngineObject(kgtJumptableEndpoints iJumpIdx,int param_2,int param_3,int param_4);
 void setup_stage_spawn_scripts(void);
 void vSpawnEngineObjectForDemoSkills(void);
-int __cdecl new_kgt_scriptread_obj_with_action_idx(short idx,int param_2,int param_3,int param_4);
+kgtEngineObject * __cdecl kgtoNewObjectForSkillIdx(kgtEngineObject *__return_storage_ptr__,short idx,int param_2,int param_3,int param_4);
 uint new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc(int action_idx,int param_2,int param_3,int param_4);
 void vEmptyEngineObjects(void);
 void vEmptyFunction(void);
 void RESET_JUMPTABLE_INDEX(void);
-void HANDLE_STORY_MODE(void);
+void vProgressStoryMode(void);
 void initiate_story_mode(void);
 void HANDLE_ROUND_START(void);
 void set_obj_flag_a(void);
 void FUN_00406db0(int *param_1);
 void FUN_00406e00(int *param_1);
 void also_set_obj_flag_a(void);
-void CHAR_SELECT_CHANGE_SELECTION(kgt_grid *grid,int y,int x);
-int get_action_button_pressed(uint param_1);
-void pick_player_color(int idx,int last_input_difference);
-void POSS_CHAR_SELECT_SCREEN_VERSUS_00406fc0(void);
+void vCharacterSelectChangeSelection(kgtGridCoordinates *grid,int y,int x);
+int iGetPressedActionButton(uint param_1);
+void vPickPlayerColor(int idx,int last_input_difference);
+void vjmpCharacterSelectScreen(void);
 void __fastcall FUN_00407d70(kgtEngineObject *param_1);
 void vjmpMenuTraversal(void);
 void Jump_13(void);
-void Handle_Battle_State(void);
+void vjmpHandleBattleState(void);
 void vjmpStartGame(void);
 void handle_battle_UI(void);
 void update_timer_and_ui(void);
@@ -489197,24 +489264,24 @@ void vMemzeroDebugStructs(void);
 int iSetDebugInfo(char *debug_str,void *param_2);
 void vDebugEventASubOne(void);
 void DISP_DEBUG_INFO(void);
-bool FUN_004153b0(char param_1);
+bool bCheckIfDiscDrive(char param_1);
 void vCloseMciDevice(void);
 int iUnkHandleMci_2(void);
-void FUN_00415570(undefined4 param_1,undefined4 param_2);
+void vLoadsoundFromDisc(int iMciFlags,int loopFlag);
 void ___vdecl_acos2(void);
 void vUnkHandleMci(void);
 void del_mid_file(void);
 int iPlayAndCloseMidFile(void);
-void write_mid_file(HGLOBAL *param_1);
-bool FUN_00415bf0(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,undefined4 param_5);
-int * FUN_00415c20(int *param_1,undefined4 param_2);
-player_file_hlocal_struct * FUN_00415cd0(int *param_1,undefined4 param_2,int param_3);
-void clear_player_file_hlocal_objects(player_file_hlocal_struct *param_1);
-int * FUN_00415df0(undefined4 *param_1);
-bool FUN_00415eb0(int param_1,uint param_2);
-undefined4 FUN_00415f00(int param_1);
-undefined4 FUN_00415f40(int *param_1,undefined4 *param_2,undefined4 *param_3);
-undefined4 FUN_00416000(int *param_1,uint *param_2,int *param_3,uint *param_4);
+void vWriteAndPlayMidFile(kgtSound *kgtsound);
+bool bGetWavInformation(int zero,void *alloc,int *pWavFmtBloc,int *pWavDataBloc,int *iDataBlocSize);
+IDirectSoundBuffer8 ** dxGetSoundBufferInterface(IDirectSound8 **pDsoundInterface,void *alloc);
+kgtWav * kgtwBuildWav(IDirectSound8 **iDirectSoundInterface,void *alloc,int one);
+void vFreeKgtWav(kgtWav *param_1);
+IDirectSoundBuffer8 ** kgtdxReturnSoundBuffer(kgtWav *Wav);
+bool FUN_00415eb0(kgtWav *param_1,uint param_2);
+int iStopAndResetWav(kgtWav *param_1);
+int iWriteFromSoundAlloc(IDirectSoundBuffer8 **SOUNDBUFFER,void *alloc,int *iStorage);
+int iWalkWavFile(wavSoundFile *alloc,int *fmtBloc,int *dataBloc,int *piDataSize);
 INT_PTR set_variables_from_options_menu(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam);
 void vRegisterInputWindowClasses(void);
 void vFindWindowPos(HWND hWnd);
