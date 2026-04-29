@@ -46,6 +46,7 @@ To-Do for Engine
 - [ ] BEFORE EXPORT: List of important functions to achieve parity with
 - [ ] Fix stage/demo struct size
 - [ ] Possibly missing two bytes from system struct
+- [ ] Re look at vjmpHandleBattleInterface
 
 
 To-do to get to compile
@@ -159,6 +160,16 @@ Important Functions
 | 0x00406f20 | vPickPlayerColor |
 | 0x004069b0 | vProgressStoryMode |
 | 0x004086a0 | vjmpHandleBattleState |
+| 0x004064f0 | vResetAllObjectsWithSkillIdx |
+| 0x004041e0 | iOpenStageFile |
+| 0x004041c0 | iClearStageFile |
+| 0x00406610 | vSpawnStageScripts |
+| 0x004068e0 | kgtSpawnNewEngineObjectReturnSkillField0x1 |
+| 0x00409d00 | vjmpHandleBattleInterface |
+| 0x0040a620 | vjmpUpdateTimerAndUi |
+| 0x004084f0 | vjmpGameOverScreen |
+
+
 
 
 
