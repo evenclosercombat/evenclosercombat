@@ -8,12 +8,12 @@ undefined DAT_004213b8;
 undefined4 DAT_004203b0;
 undefined4 DAT_00420bb0;
 string s_error_0041e030;
-kgt_character_struct[8] PLAYER_KGT_BUFFER;
+kgt_character_struct[8] gkgtLoadedCharacter;
 undefined4 DAT_004213c8;
 undefined4 Unused_internet_interface;
 int DAT_0041e3f8;
 string s_%s:%s_0041e078;
-int[2][1024] INPUT_BUFFER_A;
+int[2][1024] giInputBufferA;
 string DAT_%s_san_ga_nuketayo_0041e064;
 string s_%s_san_ga_haitekimashitayo_0041e038;
 string s_%s_san_ga_iru_0041e054;
@@ -33,13 +33,13 @@ undefined DAT_004213dc;
 undefined1 DAT_00422e88;
 undefined4 DAT_004246ec;
 undefined unused_online_j;
-char *PTR_playername_config_kgt2kini;
-HWND HWND_004246f8;
+HWND gHwnd;
+char *gpsPlayerNameOut;
 string s_kgt2k_Game:%s_Player:%s_IP:%02d._0041e088;
 undefined DAT_00447de0;
 u_long netlong;
 undefined DAT_00424288;
-char *PTR_s_session_name_config_kgt2kini;
+char *gpsSessionNameOut;
 undefined DAT_0042428c;
 undefined DAT_00424290;
 undefined DAT_00424294;
@@ -62,11 +62,11 @@ string s_HAN_HIRAGANA#DirectPlay_0041e2b0;
 string s_HAN_HIRAGANA#DirectPlay_0041e2d0;
 FirstLinkerMember_29 FirstLinkerMember_29_00000044;
 undefined onlineDialog;
-string s_HAN_HIRAGANA#memzero_:_0041e7fc;
-string s_HAN_HIRAGANA#DirectSound_0041e818;
-HLOCAL[64] HLOCAL_ARRAY_00430640;
-int DSOUND_INITIALIZED_FLAG_0042474c;
-unk_struct_4 *PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc;
+string sErrorMemzeroSize0;
+int giDsoundInitializedFlag;
+IDirectSound8 * *gppDsoundInterface;
+HLOCAL[64] gkgtwWavAudios;
+string gsDirectSoundInitializationFailed;
 MCIDEVICEID MCIDEVICEID_0042473c;
 undefined4 MCI_FLAG_00424738;
 undefined *PTR_GlobalFree_0041c120;
@@ -76,46 +76,46 @@ string s_HAN_KATAKANA#_0041e83c;
 string s_HAN_KATAKANA#_0041e858;
 string s_HAN_KATAKANA#_0041e87c;
 string s_HAN_KATAKANA#_0041e894;
-int[8] loaded_player_file_indexes;
+int[8] giPlayerFileIndices;
+string gsErrorPlayerOpenError;
+string gsReadingCharacterFile;
 string s_%s.player.t_0041e8ac;
+string gsPlayerReadErrorFormatted;
 string s_%s.player_0041e8b8;
 string s_%s.player_0041e8c4;
-string s_HAN_HIRAGANA_KATAKANA#[%s]_0041e8d0;
-string s_Player_Open_error[%s]_0041e8f4;
-string s_Player_Read_error[%s]_0041e90c;
-APP_MODE APPMODE;
-kgt_mainKGT DAT_KGT_FILE_BUFFER_00433240;
-string s_GameSystem_Read_error[%s]_0041e9c8;
+APP_MODE giAppmode;
+kgtSystem gkgtKgtSystem;
+string gsErrorGamesystemOpenError;
+string gsKgt2ndEditorExe;
+string gsTwoDFightingGameMaker;
+string gsTestplayFormatted;
+string gsReadingGameSystem;
+string gsErrorGamesystemReadErrorFormatted;
 string s_%s.t_0041e93c;
-string s_KGT2nd_EDITOR.exe_0041e944;
-string s_HAN_KATAKANA#nd._0041e958;
 string s_%s_0041e970;
-string s_%s_-Test_Play-_0041e974;
-string s_HAN_HIRAGANA_KATAKANA#[%s]_0041e988;
-string s_GameSystem_Open_error[%s]_0041e9ac;
-kgt_demo_file UNK_DEMO_FILE_BUFFER_00425a60;
+kgt_demo_file gkgtLoadedDemo;
 string s_%s.demo.t_0041ea24;
 string s_%s.demo_0041ea30;
-string s_%s.demo_0041ea38;
-string s_Demo_File_Not_Set_Error_0041ea00;
-string s_HAN_HIRAGANA_KATAKANA#[%s]_0041ea40;
-string s_GameDemo_Open_error[%s]_0041ea5c;
-string s_GameDemo_Read_error[%s]_0041ea74;
-kgt_stage UNK_STAGE_FILES_00445740;
+string gsErrorDemoFileNotSet;
+string gsDemoNameFormatted;
+string gsGameDemoOpenErrorFormatted;
+string gsDemoFileReadingFormatted;
+string gsGameDemoReadErrorFormatted;
+kgt_stage gkgtLoadedStage;
 string s_%s.stage.t_0041eaa8;
 string s_%s.stage_0041eab4;
 string s_%s.stage_0041eac0;
-string s_HAN_HIRAGANA_KATAKANA#[%s]_0041eacc;
-string s_GameStage_Open_error[%s]_0041eaec;
-string s_GameStage_Read_error[%s]_0041eb08;
-string s_HAN_HIRAGANA#load_bmp_:_BMP_0041eb40;
-string s_HAN_HIRAGANA_KATAKANA#load_bmp_:_BMP_0041eb5c;
-string s_HAN_HIRAGANA_KATAKANA#BMP_x%d,y%d_0041eb88;
-string s_HAN#_0041eba4;
-string s_HAN_HIRAGANA_KATAKANA#(%dbit)_0041ebac;
-string s_error_0041ebdc;
-HINSTANCE HINSTANCE_004701cc;
-RECT lpRect_00424f40;
+string gsErrorGameStageOpenErrorFormatted;
+string gsReadingStageFile;
+string gsErrorGameStageReadErrorFormatted;
+string gsErrorTwoColorBMPForgive;
+string gsErrorUnsupportedBmpPallette;
+HINSTANCE ghInstance;
+string gsErrorUnsupportedBitmap_2;
+string gsError;
+string gsUnsupportedBitmap_3;
+string gsContact_2;
+RECT grWindowRect;
 int INT_GET_WINDOW_FLAG_0042475c;
 undefined4 DDRAW_INITIALIZED_FLAG;
 IDirectDrawSurface7 DIRECTDRAW_DESC2;
@@ -127,18 +127,19 @@ int DAT_00424774;
 DDSURFACEDESC2 DIRECTDRAW_DESC;
 RECT lpRect_004259e0;
 undefined4 DAT_00424768;
-undefined4 UINT_GAME_SCREEN_MODE_2;
-HDC HDC_DIP_A;
+undefined4 giGameScreenMode_2;
+HDC ghHdcDip_1;
 int DAT_0042476c;
-UINT UINT_GAME_WINDOW_SIZE_X;
-UINT UINT_GAME_WINDOW_SIZE_Y;
+UINT giConfigGameWindowSizeX;
+UINT giConfigGameWindowSizeY;
 POSS_0x8_struct[128] POSS_0x8_struct_ARRAY_00430240;
-OBJ_STRUCT *PTR_POSS_CURRENT_OBJ;
-OBJ_STRUCT *[2048] UNK_OBJ_ARRAY;
-undefined4 INT_JUMP_ACTIVATED_COUNT_004246fc;
-int INT_UNK_ITER_004259a4;
-OBJ_STRUCT[95] OBJ_ARRAY;
-OBJ_STRUCT *PTR_OBJ_PARAM_1_ARRAY;
+kgtEngineObject *gpkgtCurrentEngineObject;
+kgtEngineObject *[2048] kgtEngineObjects;
+undefined4 giJumpActivatedCounter;
+int giEngineObjectIter;
+kgtEngineObject[95] kgtEngineObjects;
+kgtEngineObject *PTR_OBJ_PARAM_1_ARRAY;
+int giPalletteFlashDuration;
 undefined system_flash_duration;
 int DAT_0041e7f4;
 int DAT_0041e7e8;
@@ -148,152 +149,161 @@ int DAT_0041e7f8;
 int DAT_0041e7ec;
 int UNK_DEBUG_FLAG;
 void *ppvBits_A;
-int INT_004456fc;
 int DAT_00424768;
 string s_%d_-_0041ebe4;
 string s_%s_%2d_0041ebec;
+int giPicSwayX;
 string s_%d_0041ebf4;
 string s_-_0041ebf8;
 string s_%3d-%4d:%1d_/_S:%3d_/_W:%2d_L:%2_0041ebfc;
 string s_Terminal_0041ec44;
+int giPicSwayY;
 string s_%s_0041ec50;
 string s_Terminal_0041ec54;
 string s_FPS:%3d_SkipFrame:%3d_Object:%3d_0041ec60;
 string s_WinPoint:%3d_0041ec84;
-UINT UINT_TESTPLAY_HITJUDGE_2_0042470c;
-int timer_iter_skipframe;
+UINT giConfigTestplayHitjudge_2;
+int giSkipframeCount;
+int giReverseShakeDirection;
+undefined4 unk_y_pos2;
 undefined4 unk_x_position;
-undefined4 unk_y_position;
-DWORD frame_time_diff;
-UNK_VERSUS_SELECTION_STRUCT GAME_STATE;
-UINT UINT_TESTPLAY_GAMEINFO;
-LPCTSTR lpWindowName_0042477c;
-BITMAPINFO lpbmi_B;
-void * *ppvBits_B;
-HGDIOBJ HGDIOBJ_004246c8;
-HGDIOBJ HGDIOBJ_00421a80;
+DWORD giFrameTimeDiff;
+kgtGameState gkgtGameState;
+UINT giConfigTestplayGameinfo;
+LPCTSTR glLpWindowName;
+UNK_STRUCT_A UNK_DRAW_STRUCT_A;
 undefined DAT_00007f00;
-string s_KGT2KGAME_0041e7bc;
-string s_exe_ico_0041ec94;
+BITMAPINFO lpbmi_B;
 string s_cupid_menu_0041ec9c;
-UNK_STRUCT_A UNK_STRUCT_A_00424f60;
-UINT UINT_GAME_WINDOW_POINT_X;
-UINT UINT_GAME_WINDOW_PAOINT_Y;
-UINT UINT_GAME_SCREEN_MODE;
-undefined WindowProc;
-undefined4 DAT_Global_Alloc_Memory_00425a44;
-BITMAPINFO PTR_BITMAPINFO_00424298;
-undefined DAT_DIR_BUFFER_0041e408;
-HBITMAP HBITMAP_DIB_A;
-HBITMAP HBITMAP_DIB_B_A;
-HDC HDC_DIP_B;
+void * *ppvBits_B;
+string gsGameWindow;
+UINT gConfigiGameWindowPointX;
+UINT giConfigGameWindowPointY;
+UINT giConfigGameScreenMode;
+string gsExeIco;
+HGDIOBJ ghHgdiObj;
+HGDIOBJ hgHBitmapDib_2;
+undefined vMainWndProc;
+undefined4 gpGlobalMemoryAlloc;
+BITMAPINFO gpBitmapInfo;
+undefined gsCurrentDirectory_2;
+HBITMAP ghHBitmapDib_1;
+HBITMAP ghHbitmap_Dib_2;
+HDC ghHdcDip_2;
 undefined *PTR_timeGetTime_0041c22c;
-DWORD DWORD_TIME_00447dd4;
-undefined4 DAT_NEW_TIME_BIGGER_CHECK_00424700;
-int INPUT_BUFFER_POS;
-int DAT_POSS_RELATED_TO_FPS_0041e2f0;
-undefined *PTR_s_TestPlay_0041eca8;
-undefined *PTR_s_GamePlay_0041ecac;
+DWORD gdSystemTime;
+undefined4 giTimeAdjustmentFlag;
+int giInputBufferPos;
+int giTen;
 string s_%s%s.player.t_0041ecc8;
 string s_%s%s.stage.t_0041ecd8;
 string s_%s%s.demo.t_0041ece8;
-string s_another_game_exe_address?;
-char CHAR_00h_0043022a;
-undefined4 LPCSTR_lpAppName_00541f7c;
+char gcUnknownTestingCharacters;
+string gsCurrentDirectory;
+pointer psGameplay;
+undefined4 gpsLpAppName;
+pointer psTestplay;
 MCIDEVICEID MCIDEVICEID_00424720;
+undefined4 giDiscLoopFlag;
 undefined DAT_0042472c;
-int DAT_00424728;
-undefined4 UINT_TESTPLAY_EXIT;
 int DAT_00424740;
+undefined4 giConfigTestplayExit;
 int DAT_00424718;
-string s_HAN_HIRAGANA#_0041ecf4;
-string s_HAN_HIRAGANA#_0041ed0c;
-string s_HAN_KATAKANA#_0041ed28;
-string s_HAN_KATAKANA#_0041ed40;
+string gsHitDebugOff;
+string gsHitDebugOn;
+string gsStatusDisplayOff;
+string gsStatusDisplayOn;
 undefined4 MCI_OPEN_FLAG;
-int player_momentum_scalar;
-int DAT_LIKELY_FPS;
-UINT UINT_TESTPLAY_GAMESPEED;
-int gravity_scalar;
-string s_OBJ_OVER_0041edb0;
-int UNK_FLAG_00424f04;
-int UNK_FLAG_00424f08;
+int giPlayerMomentumScalar;
+int giGamespeedFrames;
+UINT giConfigTestplayGamespeed;
+int giGravityScalar;
+string gsObjOver;
+int giDemoSkipWithInput;
+int giDemoTime;
 string s_demo:%s_wait:%d_0041edbc;
-string s_HAN_HIRAGANA_KATAKANA#_0041edcc;
+string gsErrorStoryScriptInfiniteLoop;
 undefined4 DAT_VAR_BATTLE_STATE_A;
-string s_HAN_HIRAGANA_KATAKANA#_0041edec;
-undefined4 DAT_VAR_BATTLE_STATE_B;
-string s_HAN_KATAKANA#_0041ee20;
-int POSS_STORY_ARRAY;
-string s_HAN_HIRAGANA_KATAKANA#_0041ee3c;
-string s_KATAKANA#%d_-_%d_-_%d_0041ee6c;
-string s_story_script_End;
-string s_HAN_KATAKANA#_0041eea0;
-string s_HAN_HIRAGANA_KATAKANA#_0041eeb0;
-int STORY_MODE_IDX;
-undefined4 LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME;
+string gsStoryStepFormatted;
+undefined4 giRoundsNotWon;
+string gsStoryOver;
+int[2] giCurrentStoryStep;
+string gsErrorStoryScriptUnknownStep;
+string gsStoryScriptEnd;
+string gsErrorStoryModeNotSet;
+int giStoryModePlayerIdx_2;
+string gsErrorStoryStepBecameMinus;
+string gsErrorStoryStepBecameTooLarge;
+undefined4 giLastInputXor_2;
 string s_HAN_HIRAGANA_KATAKANA#Error:_0041eedc;
 string s_HAN_HIRAGANA_KATAKANA#Error:_0041ef04;
 int[5] INT_ARRAY_00424e7a;
 int[4] INT_ARRAY_00424e90;
-undefined4 UINT_TESTPLAY_VSMODE;
-kgt_grid Char_Select_VS_Col_0;
-kgt_grid story_mode_grid;
-UINT UINT_#_OF_ROUNDS_00430124;
-int UNK_CHAR_SELECT_GLOBAL_A;
-UINT UINT_#_OF_ROUNDS_TEAM_VS_00430128;
-string s_Character_Script_P1_Not_found_error_0041ef2c;
-string s_Character_Script_VS_Single_Demo_not_found_error_0041ef64;
-int[8] LAST_INPUT_BITWISE_TESTED;
-string s_Character_select_team_demo_not_found_error_0041efa4;
-kgt_grid Char_Select_VS_Col_1;
-string s_Character_setting_error_height_or_width_0_0041efe4;
-int UNK_KGT_PLAYER_BUFFER_IDX;
-int[8] LAST_INPUT_DIFFERENCE;
-sdword SDWORD_00424f2c;
-int is_story_mode;
-undefined4 GAME_MODE_ASSIGNMENT?;
-undefined4 GAME_MODE_ASSIGNMENT_IDX?;
-undefined4 GAME_MODE_ASSIGNMENT_UPPER;
-dword LAST_INPUT_OR_VALUE_EVERY_FRAME;
+undefined4 giConfigTestplayVsMode;
+kgtGridCoordinates giCharacterSelectVsGridPlayer1;
+kgtGridCoordinates kgtStoryModeGridCoordinates;
+UINT giConfigNumberOfRounds;
+int giBattlePrestartTimer;
+UINT giConfigNumberOfRoundsTeamVs;
+string gsErrorCharacterScriptP1NotFound;
+string gsErrorCharacterScriptVsDemo1NotFound;
+int[8] giLastInputCleaned;
+string gsErrorCharacterScriptTeamDemoNotFound;
+kgtGridCoordinates giCharacterSelectVsGridPlayer2;
+string gsErrorCharacterSettingHeightOrWidthZero;
+int giStoryModePlayerIdx;
+int[8] giLastInputXor;
+int iIsStoryModeFlag;
+int giHasStoryMode;
+undefined4 giMenuSelectionIdx;
+undefined4 giAmountOfGameModes;
+dword giLastInput_2;
 undefined4 story_mode_p0_unk_var;
 undefined4 story_mode_p1_unk_var;
-undefined4 story_mode_current_round;
-undefined4 UINT_TESTPLAY_TIME;
-string s_HAN_HIRAGANA_KATAKANA#_0041f014;
-string s_HAN_HIRAGANA#Error_0041f044;
-string s_KATAKANA#_0041f05c;
-string s_HAN_KATAKANA#_0041f070;
-string s_HAN_KATAKANA#_0041f080;
-string s_w_ko_0041f0a0;
-string s_draw_0041f0a8;
-UINT UINT_TESTPLAY_STAGENB;
-string s_1p_win_0041f0b0;
-string s_2p_win_0041f0b8;
-int INT_00424708;
-UINT UINT_TESTPLAY_PLAYER0_NB;
-int INT_00447f28;
-int UINT_TESTPLAY_PLAYER0_CPU;
-UINT UINT_TESTPLAY_PLAYER1_NB;
-UINT UINT_TESTPLAY_PLAYER1_CPU;
-string s_text.bmp_0041f0c0;
-string s_RC_BMP_text_0041f0cc;
+undefined4 giStoryModeCurrentRound;
+undefined4 giConfigTestplayTime;
+UINT giConfigTestplayStageNb;
+string gsNumberOfRoundsHasReachedNumberOfWins;
+string gsErrorNumberOfRoundsIsZero;
+int giPicShakeX;
+int giPicSwayXDuration;
+int giPicSwayXDuration_2;
+int giPicShakeY;
+int giPicSwayYDuration;
+int giPicSwayYDuration_2;
+int giShakeX;
+int giShakeY;
+string gsStoryFailure;
+string gsStorySuccess;
+string gsStoryDraw;
+string gsWKo;
+string gsDraw;
+string gs1pWin;
+string gs2pWin;
+int giStartGameUnusedB;
+UINT giConfigTestplayPlayer0Nb;
+int giConfigTestplayerPlayer0Cpu;
 string s_%s_0041f0d8;
+UINT giConfigTestplayPlayer1Nb;
 string s_%s.kgt_0041f0dc;
-undefined lpReturnedString_0043012c;
-string s_1.bmp_0041f0e4;
-string s_RC_BMP_01_0041f0ec;
-string s_2.bmp_0041f0f8;
-string s_RC_BMP_02_0041f100;
-string s_3.bmp_0041f10c;
-string s_RC_BMP_03_0041f114;
+UINT giConfigTestplayPlayer1Cpu;
+string gsRcBmpText;
+string gsTextBmp;
+undefined gsConfigReturnedFilename;
+int giStartGameUnusedA;
+string gsRcBmp01;
+string gs1Bmp;
+string gs2Bmp;
+string gsRcBmp02;
+string s3Bmp;
+string gsRcBmp03;
 string s_bg_001_0.bmp_0041f120;
 undefined bg_001_0_poss_filename;
 undefined2 DAT_004d1a20;
-POSS_VTABLE_GAME_STATE PTR_POSS_GAMESTATE_JUMPTABLE;
-undefined INT_004456fc;
+POSS_VTABLE_GAME_STATE gpGamestateJumptable;
 undefined *PTR_SecondLinkerMember_16_29_000003e4.string[4]+8_0041eda4;
 undefined4 DAT_0041eda0;
+int giPalletteFlash;
 undefined system_flash;
 undefined DAT_004d1cfc;
 int INT_0041f130;
@@ -304,50 +314,59 @@ int DAT_00424710;
 undefined DAT_0041f138;
 undefined DAT_0041f178;
 string s_%s_%d_0041f210;
+int INT_00447d95;
+int INT_00447d99;
+int INT_00447d9d;
+int INT_00447da1;
 undefined DAT_004456e8;
 undefined DAT_004456ec;
 undefined DAT_004456f0;
 undefined DAT_004456f4;
 string s_ScriptMainLoopError_%d_%d_-_nd:%_0041f230;
+int giPalletteFlashRed;
 string s_HAN_KATAKANA#_0041f274;
+int giPalletteFlashGreen;
 undefined4 DAT_00447f80;
+int giPalletteFlashBlue;
 int INT_00447f84;
+int giPalletteFlashAlpha;
 int INT_00447f88;
 int INT_00447f8c;
+int giPalletteFlashDuration_B;
 int INT_00447f90;
 undefined system_flash_red;
 undefined system_flash_blue;
 undefined system_flash_green;
 undefined system_flash_alpha;
 undefined system_flash_2;
+undefined SYSTEM_VARIABLES;
 char *DAT_00424e30;
 int DAT_00424788;
 undefined1 *DAT_00424e30;
 undefined4 *DAT_00424e30;
-DWORD DWORD_Joystick_X_POS_00424e20;
-DWORD DWORD_Joystick_Y_POS_00424e24;
-tagJOYCAPSA pjc_004249e0;
-DWORD DWORD_JOYSTICK_XPOS_2_00424e28;
-DWORD DWORD_JOYSTICK_YPOS_2_00424e2c;
-tagJOYCAPSA pjc_00424b80;
-CONTROL_LAYOUT DAT_P1_KEYBOARD_CONTROLS_00425980;
+DWORD gdwJoystickX;
+DWORD gdwJoystickY;
+tagJOYCAPSA gpjcJoystick;
+DWORD gdJoystickTwoX;
+DWORD gdJoystickTwoY;
+tagJOYCAPSA gpjcJoystickTwo;
+CONTROL_LAYOUT[2] gcKeyboardControlsSets;
 char[8] JOYSTICK_INPUTS;
-byte[256] lpKeyState_00424d20;
-UINT UINT_TESTPLAY_JOYSTICK;
-int INT_0041e400;
-int LAST_INPUT_BITWISE_OR_VALUE_EVERY_FRAME;
-int INT_0041e3fc;
-int[8] INT_ARRAY_004d1c40;
-int[8] user_keys_pressed_ARRAY_004259c0;
-int[8] LAST_INPUT_BITWISE_TESTS;
-int[8] LAST_INPUTS_RAW;
-undefined *PTR_s_HAN#_0041e2f4;
-undefined *PTR_s_kgt2k.INI_0041f28c;
-undefined *PTR_s_PlayerName_0041f290;
-undefined *PTR_s_SessionName_0041f294;
-string s_Player_1_0041f62c;
-string s_Session_1_0041f638;
-undefined *PTR_s_game.ini_0041f29c;
+byte[256] glpKeyState;
+UINT giConfigTestplayJoystick;
+int giLastInput_3;
+int[8] giUserKeydowns;
+int[8] giLastInputBitwiseTester;
+int giThirtyTwo;
+int giFive;
+int[8] iInputCountdowns;
+int[8] giLastInput;
+pointer gsContact;
+pointer gpsKgt2kConfigFilename;
+pointer gpsPlayerNameKey;
+pointer gpsSessionNameKey;
+string gsSession1;
+string gsPlayer1;
 undefined *PTR_s_Editor.TestPlay.Player0.nb_0041f2a8;
 undefined *PTR_s_Editor.TestPlay.Player0.cpu_0041f2ac;
 undefined *PTR_s_Editor.TestPlay.Player1.nb_0041f2b0;
@@ -368,17 +387,20 @@ undefined *PTR_s_GameWindowPoint_y_0041f370;
 undefined *PTR_s_GameWindowSize_x_0041f364;
 undefined *PTR_s_GameWindowSize_y_0041f368;
 undefined *PTR_s_GameScreenMode_0041f374;
-undefined *PTR_s_2D_Fighter_Maker_2002.ini_0041f298;
 string s_%s\%s_0041f644;
 string s_%s\%s_0041f64c;
-string s_Player%d_KEY_%s_0041f654;
-string s_Player%d_JOY_%s_0041f664;
-UINT UINT_TESTPLAY_HITJUDGE;
+pointer gpsGameConfigFilename;
+pointer gpsTestmodeGameConfigFilename;
+string gpsPlayerKeyFormat;
+string gpsPlayerJosytickKeyFormat;
+char[11] gsKeyboardControlsForDialogBoxPlayer1;
+char[8] gpsJoystickControlsForDialogBoxPlayer1;
+UINT giConfigTestplayHitjudge;
 LPCSTR LPCSTR_S_FILENAME_0041f2a4;
 LPCSTR LPCSTR_UNK_LPAPPNAME_0041f2a0;
-pointer[1][12] PTR_s_UP_0041f2e8;
-pointer[1][8] PTR_JOYSTICK_BUTTONS;
-UINT UINT_EDITER_DEMO_NB;
+char *[11] gpsKeyboardKeyNames;
+char *[7] gpsJoystickKeyNames;
+UINT giConfigEditorDemoNb;
 LPCSTR lpDefault_0042478c;
 string s_%s\%s_0041f674;
 string s_%s\%s_0041f67c;
@@ -409,18 +431,16 @@ string s_%s_0041f6f0;
 string s_%s_0041f6f4;
 string s_KATAKANA#_0041f6f8;
 string s_%s_0041f708;
-undefined *PTR_DAT_0041f70c;
-undefined DAT_0041e404;
+char[4] s_A:\_0041f70c;
 string s_cdaudio_0041f710;
-undefined4 DAT_00424728;
-undefined4 DAT_0041e404;
+undefined4 giMciFlags;
 undefined DAT_00424734;
-LPCSTR lpCaption_0041f718;
 undefined1 DAT_0041e409;
 undefined1 DAT_0041e40a;
-string s_Plese_insert_Audio_CD-rom_0041f720;
-string s_\2dfightermaker2nd20022.mid_0041f798;
+LPCSTR lpCaption_0041f718;
+string gsPleaseInsertAudioCDRom;
 undefined DAT_0041f7b4;
+string gsGlobalMidFile;
 undefined *PTR_mciSendCommandA_0041c228;
 undefined DAT_0041f7bc;
 string s_sequencer_0041f7c4;
@@ -435,78 +455,77 @@ LRESULT LRESULT_#_OF_ROUNDS_004247c0;
 LRESULT LRESULT_#_OF_ROUNDS_TEAM_VS_004247f8;
 LRESULT LRESULT_SPEED_004247bc;
 LRESULT LRESULT_POSS_TIME_SETTING_004247b0;
-undefined *PTR_s_KeyInput_0041f838;
-undefined *PTR_s_JoyInput_0041f83c;
-undefined FUN_Joystick_Input_WndProc_00416ef0;
-undefined FUN_Keyboard_Input_WndProc_00416cc0;
+undefined iJoyInputWndProc;
+pointer gpsJoyInput;
+pointer gpsKeyInput;
+undefined iKeyboardInputWndProc;
 string s_%d_0041f858;
-string s_#Pad_%d_0041f85c;
-string s_F_%d_0041f868;
-string s_HAN_HIRAGANA_KATAKANA#_0041f870;
-string s_HAN_HIRAGANA_KATAKANA#_0041f87c;
-string s_KATAKANA#_0041f888;
-string s_HAN_HIRAGANA_KATAKANA#_0041f894;
-string s_BackSpace_0041f8a4;
-pointer PTR_DAT_0041f8b0;
-string s_Clear_0041f8b4;
-string s_Enter_0041f8bc;
-string s_Shift_0041f8c4;
-undefined DAT_0041f8cc;
-undefined DAT_0041f8d4;
-string s_Pause_0041f8d8;
-pointer PTR_DAT_0041f8e0;
-string s_Space_0041f8e4;
-string s_PageUp_0041f8ec;
-string s_PageDown_0041f8f4;
-string s_End_0041f900;
-string s_Home_0041f904;
-string s_<-_0041f90c;
-string s_Up_0041f910;
-string s_->_0041f914;
-string s_Dw_0041f918;
-string s_Select_0041f91c;
-string s_Execute_0041f924;
-string s_Ins_0041f92c;
-string s_Del_0041f930;
-string s_Help_0041f934;
-string s_#Pad_*_0041f93c;
-string s_#Pad_+_0041f948;
-string s_KATAKANA#_0041f954;
-string s_#Pad_-_0041f960;
-string s_#Pad_._0041f96c;
-string s_#Pad_/_0041f978;
-string s_~_0041f984;
-string s_-_0041f988;
-string s_=_0041f98c;
-string s_\_0041f990;
-string s_[_0041f994;
-string s_]_0041f998;
-string s_;_0041f99c;
-string s_'_0041f9a0;
-string s_<_0041f9a4;
-string s_>_0041f9a8;
-string s_/_0041f9ac;
-string s_#Pad_=_0041f9b0;
-undefined DAT_0041f9bc;
-undefined DAT_0041f9c0;
-string s_KATAKANA#_0041f9c4;
-string s_HAN#_0041f9d4;
-string s_HAN_HIRAGANA_KATAKANA#[_]_0041f9dc;
-string s_Press_a_button_a_your_keyboard_0041fa0c;
-undefined1 *DAT_004249b8;
-undefined DAT_004249c0;
-string s_KeyInput_0041fa2c;
-uint DAT_00424800;
+string gsPadFormatted;
+string gsFFormatted;
+string gsLeftMouseButton;
+string gsRightMouseButton;
+string gsControlBreak;
+string gsMouseMiddleButton;
+string gsBackspace;
+string gsClear;
+string gsEnter;
+string gsShift;
+undefined gsCtrl;
+undefined gsAlt;
+string gsPause;
+string gsEsc;
+string gsTab;
+string gsSpace;
+string gsPageUp;
+string gsPageDown;
+string gsEnd;
+string gsHome;
+string gs<-;
+string gsUp;
+string gs->;
+string gsDw;
+string gsSelect;
+string gsExecute;
+string gsIns;
+string gsDel;
+string gsHelp;
+string gsNumPadAsterisk;
+string gsNumPadPlus;
+string gsSeperateKey;
+string gsNumPadMinus;
+string gsNumPadPeriod;
+string gsNumPadSlash;
+string gsNumPadEquals;
+string gsSemicolon;
+string gsEquals;
+string gsLessThan;
+string gsMinus;
+string gsMoreThan;
+string gsSlash;
+string gsTilde;
+string gsLeftBracket;
+string gsForwardSlash;
+string gsRightBracket;
+string gsApostrophe;
+undefined gsUnderscore;
+undefined gsUnderscoreShort;
+string gsMsGothic;
+string gsErrorMsGothicNotFound;
+string gsConfirm;
+string gsPressAButtonOnYourKeyboard;
+undefined4 gcInputCharacter;
+HWND ghKeyInputWindow;
+string gsKeyInput;
+int giJoystickInputTimer;
 int DAT_004249bc;
+string gsMsGothic_2;
+string gsErrorMsGothicNotFound_2;
 char *DAT_004249b0;
-string s_KATAKANA#_0041fa38;
-string s_HAN#_0041fa48;
-string s_HAN_HIRAGANA_KATAKANA#[_]_0041fa50;
-string s_Press_a_Button_on_your_JoyStick_0041fa80;
-undefined DAT_004249b4;
-string s_JoyInput_0041fab4;
+string gsConfirm_2;
+string gsPressAButtonOnYourJoystick;
+HWND ghJoyWindow;
+string gsJoyInput;
 undefined4 DAT_P1_UP_IN_DIALOG_004247c4;
-undefined *DAT_004249b8;
 undefined DAT_004243d8;
 undefined DAT_004243db;
 undefined4 DAT_004249bc;
@@ -517,23 +536,21 @@ undefined DAT_004247f0;
 undefined2 DAT_004247f4;
 undefined4 DAT_00445718;
 undefined2 DAT_0044571c;
-undefined4 DAT_0041f358;
-undefined4 DAT_0041f35c;
-undefined2 DAT_0041f360;
 string s_%d_0041fac0;
 string s_%d_0041fac4;
 undefined DAT_004243ee;
 undefined DAT_004243fb;
-string s_about_dlg_0041fac8;
-undefined lpDialogFunc_00417700;
+char[8] gpsJoystickControlsForDialogBoxPlayer2;
+string gsAboutDlg;
+undefined iLpDialogFunc;
 int INT_lprect_y_coord_004247a4;
-string s_DIALOG_GAMESPEEDSETUP_0041fad4;
-string s_DIALOG_Setup_KeyBoard_0041faec;
-string s_DIALOG_Setup_JoyStick_0041fb04;
 undefined set_variables_from_options_menu;
-undefined lpDialogFunc_00417460;
-undefined lpDialogFunc_00417230;
+undefined vSetupJoystickDialog;
+undefined vSetupKeyboardDialog;
+string gsDialogGameSpeedSetup;
 int lpRect_004247a0;
+string gsDialogSetupKeyboard;
+string gsDialogSetupJoystick;
 int INT_rand_seed;
 undefined DAT_00424828;
 undefined DAT_00424824;
@@ -2526,7 +2543,7 @@ int UNK_FIND_MATCH_IN_STRUCT_00402490(int param_1)
   int *piVar2;
   
   iVar1 = 0;
-  piVar2 = (int *)&PLAYER_KGT_BUFFER[0].field_0x2234;
+  piVar2 = (int *)&gkgtLoadedCharacter[0].field_0x2234;
   do {
     if (*piVar2 == param_1) {
       return iVar1;
@@ -2546,7 +2563,7 @@ int UNK_FIND_0_IN_STRUCT_004024c0(void)
   int *piVar2;
   
   iVar1 = 0;
-  piVar2 = (int *)&PLAYER_KGT_BUFFER[0].field_0x2234;
+  piVar2 = (int *)&gkgtLoadedCharacter[0].field_0x2234;
   do {
     if (*piVar2 == 0) {
       return iVar1;
@@ -2568,8 +2585,8 @@ int FUN_004024e0(undefined4 param_1)
   if (iStepAmount == -1) {
     return -1;
   }
-  PLAYER_KGT_BUFFER[iStepAmount].script_reading_01_field5 = 2;
-  *(undefined4 *)&PLAYER_KGT_BUFFER[iStepAmount].field_0x2234 = param_1;
+  gkgtLoadedCharacter[iStepAmount].unknown_online_var_a = 2;
+  *(undefined4 *)&gkgtLoadedCharacter[iStepAmount].field_0x2234 = param_1;
   return iStepAmount;
 }
 
@@ -2619,14 +2636,14 @@ void Unused_online_E(int *param_1)
   int *local_7;
   
   if (Unused_internet_interface != 0) {
-    piVar1 = &PLAYER_KGT_BUFFER[0].field_0xdf89;
+    piVar1 = &gkgtLoadedCharacter[0].field_0xdf89;
     do {
-      if (ADJ(piVar1)->script_reading_01_field5 == 1) {
+      if (ADJ(piVar1)->unknown_online_var_a == 1) {
         local_8 = 0;
         local_7 = param_1;
         Unused_online_D(&local_8,5);
       }
-      else if (ADJ(piVar1)->script_reading_01_field5 == 2) {
+      else if (ADJ(piVar1)->unknown_online_var_a == 2) {
         *(int *)piVar1 = *(int *)piVar1 + 1;
       }
       piVar1 = piVar1 + 0xe03f;
@@ -2682,22 +2699,22 @@ void * unused_online_A(void)
       }
       switch(uStack_418 & 0xff) {
       case 0:
-        uVar3 = *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf8d + 1U & 0xff;
-        *(uint *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf8d = uVar3;
-        INPUT_BUFFER_A[iVar1][uVar3] = CONCAT13(uStack_414,uStack_418._1_3_);
-        *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf89 =
-             *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf89 + -1;
+        uVar3 = gkgtLoadedCharacter[iVar1].iInputBufferPos + 1U & 0xff;
+        gkgtLoadedCharacter[iVar1].iInputBufferPos = uVar3;
+        giInputBufferA[iVar1][uVar3] = CONCAT13(uStack_414,uStack_418._1_3_);
+        *(int *)&gkgtLoadedCharacter[iVar1].field_0xdf89 =
+             *(int *)&gkgtLoadedCharacter[iVar1].field_0xdf89 + -1;
         break;
       case 1:
         _sprintf(acStack_818,DAT__s_san_ga_nuketayo_0041e064,iVar1 * 0xe03f + 0x4d1d90);
-        SET_DEBUG_INFO(acStack_818,0xff);
-        PLAYER_KGT_BUFFER[iVar1].script_reading_01_field5 = 1;
-        *(undefined4 *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf89 = 0;
+        iSetDebugInfo(acStack_818,0xff);
+        gkgtLoadedCharacter[iVar1].unknown_online_var_a = 1;
+        *(undefined4 *)&gkgtLoadedCharacter[iVar1].field_0xdf89 = 0;
         break;
       case 2:
         _sprintf(acStack_718,s__s_san_ga_haitekimashitayo_0041e038,(int)&uStack_418 + 1);
-        SET_DEBUG_INFO(acStack_718,0xff00);
-        pcVar5 = PLAYER_KGT_BUFFER[DAT_0041e3f8].kgt_core.program_name;
+        iSetDebugInfo(acStack_718,0xff00);
+        pcVar5 = gkgtLoadedCharacter[DAT_0041e3f8].kgtCore.program_name;
         puVar7 = (undefined4 *)&stack0xfffff7c1;
         for (iVar4 = 8; iVar4 != 0; iVar4 = iVar4 + -1) {
           *puVar7 = *(undefined4 *)pcVar5;
@@ -2705,26 +2722,26 @@ void * unused_online_A(void)
           puVar7 = puVar7 + 1;
         }
         Unused_online_C(piStack_850,&stack0xfffff7c0,0x25);
-        *(undefined4 *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf89 = 0;
-        PLAYER_KGT_BUFFER[iVar1].script_reading_01_field5 = 2;
+        *(undefined4 *)&gkgtLoadedCharacter[iVar1].field_0xdf89 = 0;
+        gkgtLoadedCharacter[iVar1].unknown_online_var_a = 2;
         puVar6 = puStack_848;
         break;
       case 3:
         _sprintf(acStack_518,s__s_san_ga_iru_0041e054,(int)&uStack_418 + 1);
-        SET_DEBUG_INFO(acStack_518,0xff00ff);
-        *(undefined4 *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf89 = 0;
-        PLAYER_KGT_BUFFER[iVar1].script_reading_01_field5 = 2;
+        iSetDebugInfo(acStack_518,0xff00ff);
+        *(undefined4 *)&gkgtLoadedCharacter[iVar1].field_0xdf89 = 0;
+        gkgtLoadedCharacter[iVar1].unknown_online_var_a = 2;
         break;
       case 4:
         _sprintf(acStack_618,s__s__s_0041e078,iVar1 * 0xe03f + 0x4d1d90,(int)&uStack_418 + 1);
-        SET_DEBUG_INFO(acStack_618,0xffff);
+        iSetDebugInfo(acStack_618,0xffff);
       }
     }
     iVar1 = (**(code **)(*Unused_internet_interface + 0x64))
                       (Unused_internet_interface,&piStack_850,&piStack_844,1,&uStack_418,&uStack_84c
                       );
   }
-  piVar2 = (int *)&PLAYER_KGT_BUFFER[0].field_0xdf89;
+  piVar2 = (int *)&gkgtLoadedCharacter[0].field_0xdf89;
   do {
     if (0 < *piVar2) {
       puVar6 = (void *)((int)puVar6 + 1);
@@ -2954,7 +2971,7 @@ void get_and_display_playername_and_ip(char *game)
   
   local_128 = 2;
   local_107 = DAT_004213c8;
-  ppcVar2 = &PTR_playername_config_kgt2kini;
+  ppcVar2 = &gpsPlayerNameOut;
   puVar3 = local_127;
   for (iVar1 = 8; iVar1 != 0; iVar1 = iVar1 + -1) {
     *puVar3 = *ppcVar2;
@@ -2972,7 +2989,7 @@ void get_and_display_playername_and_ip(char *game)
   ip_a = ntohl(netlong);
   _sprintf(acStack_100,s_kgt2k_Game__s_Player__s_IP__02d__0041e088,game,
            DAT_0041e3f8 * 0xe03f + 0x4d1d90,ip_a >> 0x18,ip_b,ip_c,ip_d,puVar4);
-  SetWindowTextA(HWND_004246f8,acStack_100);
+  SetWindowTextA(gHwnd,acStack_100);
   return;
 }
 
@@ -3006,13 +3023,13 @@ int Unused_online_H(void)
   local_30 = *(undefined4 *)(PTR_DAT_004246e4 + 8);
   local_2c = *(undefined4 *)(PTR_DAT_004246e4 + 0xc);
   local_28 = 0x32;
-  local_20 = &PTR_s_session_name_config_kgt2kini;
+  local_20 = &gpsSessionNameOut;
   iVar2 = (**(code **)(*Unused_internet_interface + 0x60))(Unused_internet_interface,local_50,2);
   if (iVar2 == 0) {
     _DAT_0042428c = 0;
     _DAT_00424288 = 0x10;
     _DAT_00424290 = &DAT_0041e0e0;
-    _DAT_00424294 = &PTR_playername_config_kgt2kini;
+    _DAT_00424294 = &gpsPlayerNameOut;
     iVar2 = (**(code **)(*Unused_internet_interface + 0x18))
                       (Unused_internet_interface,&DAT_004213c8,&DAT_00424288,0,0,0,0);
     if (iVar2 != 0) {
@@ -3023,9 +3040,9 @@ int Unused_online_H(void)
     if (DAT_0041e3f8 == -1) {
       online_throw_error(s_HAN_HIRAGANA_KATAKANA__0041e114);
     }
-    get_and_display_playername_and_ip((char *)&PTR_s_session_name_config_kgt2kini);
+    get_and_display_playername_and_ip((char *)&gpsSessionNameOut);
     _DAT_004280d4 = DAT_004213c8;
-    PLAYER_KGT_BUFFER[DAT_0041e3f8].script_reading_01_field5 = 1;
+    gkgtLoadedCharacter[DAT_0041e3f8].unknown_online_var_a = 1;
   }
   else if (iVar2 != -0x7788fee8) {
     online_throw_error(s_HAN_KATAKANA__0041e0c0);
@@ -3090,7 +3107,7 @@ int unused_online_I(void)
   _DAT_0042428c = 0;
   _DAT_00424288 = 0x10;
   _DAT_00424290 = &DAT_0041e180;
-  _DAT_00424294 = &PTR_playername_config_kgt2kini;
+  _DAT_00424294 = &gpsPlayerNameOut;
   iVar1 = (**(code **)(*Unused_internet_interface + 0x18))
                     (Unused_internet_interface,&DAT_004213c8,&DAT_00424288,0,0,0,0);
   if (iVar1 != 0) {
@@ -3103,7 +3120,7 @@ int unused_online_I(void)
   }
   get_and_display_playername_and_ip(&DAT_00422e88 + iStack_14 * 0x100);
   _DAT_004280d4 = 0;
-  PLAYER_KGT_BUFFER[DAT_0041e3f8].script_reading_01_field5 = 1;
+  gkgtLoadedCharacter[DAT_0041e3f8].unknown_online_var_a = 1;
   return 1;
 }
 
@@ -3134,8 +3151,8 @@ int * onlineDialog(HWND hWnd,int uMsg,uint wParam,LPARAM lParam)
     BVar6 = 0;
     pHVar2 = GetDlgItem(pHVar3,0x3e9);
     EnableWindow(pHVar2,BVar6);
-    SetDlgItemTextA(pHVar3,0x3f1,(LPCSTR)&PTR_playername_config_kgt2kini);
-    SetDlgItemTextA(pHVar3,0x3f0,(LPCSTR)&PTR_s_session_name_config_kgt2kini);
+    SetDlgItemTextA(pHVar3,0x3f1,(LPCSTR)&gpsPlayerNameOut);
+    SetDlgItemTextA(pHVar3,0x3f0,(LPCSTR)&gpsSessionNameOut);
     SendDlgItemMessageA(pHVar3,0x3e9,0x186,0,0);
     SendDlgItemMessageA(pHVar3,1000,0x186,0,0);
     hWnd = (HWND)0x0;
@@ -3144,6 +3161,7 @@ int * onlineDialog(HWND hWnd,int uMsg,uint wParam,LPARAM lParam)
       (**(code **)(*Unused_internet_interface + 8))(Unused_internet_interface);
       Unused_internet_interface = (int *)0;
     }
+                    // DirectPlaycreate
     iVar5 = DPLAYX_1(&online_memory_region_a,&hWnd,0);
     if (iVar5 != 0) {
       online_throw_error(s_HAN_HIRAGANA_DirectPlay_0041e2b0);
@@ -3167,8 +3185,8 @@ int * onlineDialog(HWND hWnd,int uMsg,uint wParam,LPARAM lParam)
           MessageBoxA(hWnd,s_HAN_HIRAGANA__0041e290,(LPCSTR)0x0,0);
           return (int *)0x0;
         }
-        GetDlgItemTextA(hWnd,0x3f1,(LPSTR)&PTR_playername_config_kgt2kini,0x20);
-        GetDlgItemTextA(pHVar3,0x3f0,(LPSTR)&PTR_s_session_name_config_kgt2kini,0x20);
+        GetDlgItemTextA(hWnd,0x3f1,(LPSTR)&gpsPlayerNameOut,0x20);
+        GetDlgItemTextA(pHVar3,0x3f0,(LPSTR)&gpsSessionNameOut,0x20);
         Unused_online_H();
         EndDialog(pHVar3,1);
         return (int *)0x0;
@@ -3219,7 +3237,7 @@ int * onlineDialog(HWND hWnd,int uMsg,uint wParam,LPARAM lParam)
     else if (uVar1 == 0x3ef) {
       LVar4 = SendDlgItemMessageA(hWnd,0x3e9,0x188,0,0);
       if ((-1 < LVar4) && ((&DAT_00422e88)[LVar4 * 0x100] != '\0')) {
-        GetDlgItemTextA(pHVar3,0x3f1,(LPSTR)&PTR_playername_config_kgt2kini,0x20);
+        GetDlgItemTextA(pHVar3,0x3f1,(LPSTR)&gpsPlayerNameOut,0x20);
         iVar5 = unused_online_I();
         if (iVar5 == 0) {
           MessageBoxA(pHVar3,s_HAN_HIRAGANA__0041e200,(LPCSTR)0x0,0);
@@ -3237,30 +3255,32 @@ int * onlineDialog(HWND hWnd,int uMsg,uint wParam,LPARAM lParam)
 
 
 
-void setupOnlineDialog(HINSTANCE param_1,HWND param_2)
+void vSpawnOnlineDialog(HINSTANCE hInstance,HWND hWnd)
 
 {
-  DialogBoxParamA(param_1,(LPCSTR)((int)FirstLinkerMember_29_00000044.offsets + 0x1d),param_2,
+  DialogBoxParamA(hInstance,(LPCSTR)((int)FirstLinkerMember_29_00000044.offsets + 0x1d),hWnd,
                   onlineDialog,0);
   return;
 }
 
 
 
-void memzero(void *address,uint memory_area)
+// Zeros out a specified amount of memory from given address
+
+void vMemzero(void *address,uint size)
 
 {
   uint uVar1;
   
-  if (memory_area == 0) {
-    DISPLAY_MESSAGE_BOX_00414880(s_HAN_HIRAGANA_memzero___0041e7fc);
+  if (size == 0) {
+    vSpawnTaskModalWithWarning(sErrorMemzeroSize0);
     return;
   }
-  for (uVar1 = memory_area >> 2; uVar1 != 0; uVar1 = uVar1 - 1) {
+  for (uVar1 = size >> 2; uVar1 != 0; uVar1 = uVar1 - 1) {
     *(undefined4 *)address = 0;
     address = (undefined4 *)((int)address + 4);
   }
-  for (uVar1 = memory_area & 3; uVar1 != 0; uVar1 = uVar1 - 1) {
+  for (uVar1 = size & 3; uVar1 != 0; uVar1 = uVar1 - 1) {
     *(undefined1 *)address = 0;
     address = (undefined4 *)((int)address + 1);
   }
@@ -3269,24 +3289,26 @@ void memzero(void *address,uint memory_area)
 
 
 
-void SETUP_DSOUND_00403330(void)
+// To-do: Add Dsound functions
+
+void vSetupDsound(void)
 
 {
-  int iVar1;
+  int err;
   
-  memzero(HLOCAL_ARRAY_00430640,0x2c00);
-  iVar1 = DirectSoundCreate(0,&PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc,0);
-  if (iVar1 < 0) {
-    DISPLAY_MESSAGE_BOX_00414880(s_HAN_HIRAGANA_DirectSound_0041e818);
+  vMemzero(gkgtwWavAudios,0x2c00);
+  err = DirectSoundCreate(0,&gppDsoundInterface,0);
+  if (err < 0) {
+    vSpawnTaskModalWithWarning(gsDirectSoundInitializationFailed);
   }
   else {
-    DSOUND_INITIALIZED_FLAG_0042474c = 1;
-    iVar1 = (**(code **)(PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc->field0_0x0 + 0x18))
-                      (PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc,HWND_004246f8,1);
-    if (iVar1 < 0) {
-      (**(code **)(PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc->field0_0x0 + 0x8))
-                (PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc);
-      PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc = (unk_struct_4 *)0x0;
+    giDsoundInitializedFlag = 1;
+                    // SetCooperativeLevel
+    err = (*(*gppDsoundInterface)->SetCooperativeLevel)(gppDsoundInterface,gHwnd,1);
+    if (err < 0) {
+                    // Release
+      (*(*gppDsoundInterface)->Release)(gppDsoundInterface);
+      gppDsoundInterface = (IDirectSound8 **)0x0;
       return;
     }
   }
@@ -3298,34 +3320,32 @@ void SETUP_DSOUND_00403330(void)
 void UNLOAD_DSOUND(void)
 
 {
-  if ((DSOUND_INITIALIZED_FLAG_0042474c != 0) &&
-     (PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc != (unk_struct_4 *)0x0)) {
-    (**(code **)(PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc->field0_0x0 + 8))
-              (PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc);
-    PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc = (unk_struct_4 *)0x0;
-    DSOUND_INITIALIZED_FLAG_0042474c = 0;
+  if ((giDsoundInitializedFlag != 0) && (gppDsoundInterface != (IDirectSound8 **)0x0)) {
+    (*(*gppDsoundInterface)->Release)(gppDsoundInterface);
+    gppDsoundInterface = (IDirectSound8 **)0x0;
+    giDsoundInitializedFlag = 0;
   }
   return;
 }
 
 
 
-void RUN_UNK_FUNCTION_ON_HLOCAL_ARRAY(void)
+void vStopAndResetAllWavs(void)
 
 {
-  HLOCAL *ppvVar1;
-  int iVar2;
+  HLOCAL *audios;
+  int iVar1;
   
-  if (DSOUND_INITIALIZED_FLAG_0042474c != 0) {
-    ppvVar1 = HLOCAL_ARRAY_00430640;
+  if (giDsoundInitializedFlag != 0) {
+    audios = gkgtwWavAudios;
     do {
-      iVar2 = 0x100;
+      iVar1 = 256;
       do {
-        FUN_00415f00(*ppvVar1);
-        ppvVar1 = ppvVar1 + 1;
-        iVar2 = iVar2 + -1;
-      } while (iVar2 != 0);
-    } while ((int)ppvVar1 < 0x433240);
+        iStopAndResetWav(*audios);
+        audios = audios + 1;
+        iVar1 = iVar1 + -1;
+      } while (iVar1 != 0);
+    } while ((int)audios < 0x433240);
   }
   return;
 }
@@ -3354,56 +3374,56 @@ void ___vdecl_acos2(void)
 
 
 
-void Handle_Sound_Skillscript_block(kgt_sound_struct *sound)
+void vHandleLoadingSound(kgtSound *sound)
 
 {
   byte bVar1;
-  int *piVar2;
-  int buffer_size;
+  IDirectSoundBuffer8 **piVar2;
+  kgtWav *pkgtWav;
   
-  bVar1 = sound->field_0x28;
+  bVar1 = sound->cFlags;
   switch(bVar1 & 0xf) {
   case 0:
-    FUN_004034d0(0);
+    vHandleStoppingAllWavs(0);
     return;
   case 1:
-    if (DSOUND_INITIALIZED_FLAG_0042474c != 0) {
-      buffer_size = sound->buffer_size;
-      FUN_00415f00(buffer_size);
-      piVar2 = (int *)FUN_00415df0(buffer_size);
-      if (piVar2 != (int *)0x0) {
+    if (giDsoundInitializedFlag != 0) {
+      pkgtWav = (kgtWav *)sound->iSizeOrWavPtr;
+      iStopAndResetWav(pkgtWav);
+      piVar2 = (IDirectSoundBuffer8 **)kgtdxReturnSoundBuffer(pkgtWav);
+      if (piVar2 != (IDirectSoundBuffer8 **)0x0) {
         if ((bVar1 & 0x10) != 0) {
-          (**(code **)(*piVar2 + 0x30))(piVar2,0,0,1);
+          (*(*piVar2)->Play)(piVar2,0,0,1);
           return;
         }
-        (**(code **)(*piVar2 + 0x30))(piVar2,0,0,0);
+        (*(*piVar2)->Play)(piVar2,0,0,0);
         return;
       }
     }
     break;
   case 2:
-    write_mid_file(&sound->buffer);
+    vWriteAndPlayMidFile(sound);
     return;
   case 3:
-    FUN_00415570(sound->field_0x29,(bVar1 & 0x10) != 0);
+    vLoadsoundFromDisc((uint)(byte)sound->cMciFlags,(uint)((bVar1 & 0x10) != 0));
   }
   return;
 }
 
 
 
-void FUN_004034d0(undefined4 param_1)
+void vHandleStoppingAllWavs(int param_1)
 
 {
   switch(param_1) {
   case 0:
-    RUN_UNK_FUNCTION_ON_HLOCAL_ARRAY();
+    vStopAndResetAllWavs();
     ___vdecl_acos2();
     ___vdecl_acos2();
     return;
   case 1:
-    if (DSOUND_INITIALIZED_FLAG_0042474c != 0) {
-      RUN_UNK_FUNCTION_ON_HLOCAL_ARRAY();
+    if (giDsoundInitializedFlag != 0) {
+      vStopAndResetAllWavs();
       return;
     }
     break;
@@ -3419,7 +3439,7 @@ void FUN_004034d0(undefined4 param_1)
 
 
 
-void free_kgt_core_and_allocs(kgt_core *playFileInfo)
+void vFreeKgtCore(kgt_core *playFileInfo)
 
 {
   HGLOBAL hMem;
@@ -3428,15 +3448,15 @@ void free_kgt_core_and_allocs(kgt_core *playFileInfo)
   HGLOBAL *puVar2;
   HGLOBAL *puVar3;
   
-  if (playFileInfo->read_ended != 0) {
-    if ((DSOUND_INITIALIZED_FLAG_0042474c != 0) && (i = playFileInfo->i_sounds_amount, 0 < i)) {
-      puVar3 = &playFileInfo->p_sound_structs->buffer;
-      ppvVar1 = HLOCAL_ARRAY_00430640 + playFileInfo->unk_0x100_offset * 0x100;
+  if (playFileInfo->iReadOverFlag != 0) {
+    if ((giDsoundInitializedFlag != 0) && (i = playFileInfo->i_sounds_amount, 0 < i)) {
+      puVar3 = &playFileInfo->pkgtSounds->pAlloc;
+      ppvVar1 = gkgtwWavAudios + playFileInfo->unk_0x100_offset * 0x100;
       do {
-        if (*ppvVar1 != (player_file_hlocal_struct *)0x0) {
-          clear_player_file_hlocal_objects(*ppvVar1);
+        if (*ppvVar1 != (kgtWav *)0x0) {
+          vFreeKgtWav(*ppvVar1);
         }
-        hMem = ((kgt_sound_struct *)puVar3)->buffer;
+        hMem = ((kgtSound *)puVar3)->pAlloc;
         *ppvVar1 = (HLOCAL)0x0;
         if (hMem != (HGLOBAL)0x0) {
           GlobalFree(hMem);
@@ -3448,7 +3468,7 @@ void free_kgt_core_and_allocs(kgt_core *playFileInfo)
     }
     i = playFileInfo->i_images_amount;
     if (0 < i) {
-      puVar2 = &playFileInfo->p_img_headers_alloc->p_img_alloc;
+      puVar2 = &playFileInfo->p_img_headers_alloc->pAlloc;
       do {
         if (*puVar2 != (HGLOBAL)0) {
           GlobalFree(*puVar2);
@@ -3457,17 +3477,17 @@ void free_kgt_core_and_allocs(kgt_core *playFileInfo)
         i = i + -1;
       } while (i != 0);
     }
-    if (playFileInfo->p_actions_alloc != (kgt_skill_struct *)0x0) {
-      GlobalFree(playFileInfo->p_actions_alloc);
+    if (playFileInfo->pSkillsAlloc != (kgtSkillHeader *)0x0) {
+      GlobalFree(playFileInfo->pSkillsAlloc);
     }
-    if (playFileInfo->p_actionscripts_alloc != (kgt_skill_step_struct *)0x0) {
-      GlobalFree(playFileInfo->p_actionscripts_alloc);
+    if (playFileInfo->pSkillScriptsAlloc != (kgtSkill *)0x0) {
+      GlobalFree(playFileInfo->pSkillScriptsAlloc);
     }
-    if (playFileInfo->p_img_headers_alloc != (KGT_IMG_HEADER *)0x0) {
+    if (playFileInfo->p_img_headers_alloc != (kgtImageHeader *)0x0) {
       GlobalFree(playFileInfo->p_img_headers_alloc);
     }
-    if (playFileInfo->p_sound_structs != (kgt_sound_struct *)0x0) {
-      GlobalFree(playFileInfo->p_sound_structs);
+    if (playFileInfo->pkgtSounds != (kgtSound *)0x0) {
+      GlobalFree(playFileInfo->pkgtSounds);
     }
   }
   return;
@@ -3475,27 +3495,28 @@ void free_kgt_core_and_allocs(kgt_core *playFileInfo)
 
 
 
-bool enumerate_from_kgt_file(kgt_character_struct *kgt_buffer,HANDLE hFile)
+bool bReadKgtCore(kgt_character_struct *kgt_buffer,HANDLE hFile)
 
 {
   uint dwBytes;
   BOOL b_read_success;
-  kgt_skill_struct *lpBuffer;
-  kgt_skill_step_struct *lpBuffer_00;
-  HGLOBAL pvVar1;
-  int iVar2;
-  HLOCAL pvVar3;
+  kgtSkillHeader *lpBuffer;
+  kgtSkill *lpBuffer_00;
+  int *lpBuffer_01;
+  int iVar1;
+  HGLOBAL alloc;
+  kgtWav *kgtwWav;
   code *p_ReadFile_Exref;
-  undefined4 *puVar4;
+  kgtSound *puVar2;
   SIZE_T size;
   code *p_GlobalAlloc_exref;
-  char *pcVar5;
-  int iVar6;
+  char *pcVar2;
+  int iVar3;
   DWORD local_10;
   int i;
   int img_header_bytes_offset;
-  KGT_IMG_HEADER *first_img_header_alloc;
-  KGT_IMG_HEADER *img_header;
+  kgtImageHeader *first_img_header_alloc;
+  kgtImageHeader *img_header;
   HANDLE local_hFile;
   int sound_amount;
   
@@ -3503,7 +3524,7 @@ bool enumerate_from_kgt_file(kgt_character_struct *kgt_buffer,HANDLE hFile)
   p_ReadFile_Exref = ReadFile_exref;
   local_10 = 0;
   b_read_success =
-       ReadFile(hFile,(kgt_buffer->kgt_core).program_name,0x100,&local_10,(LPOVERLAPPED)0x0);
+       ReadFile(hFile,(kgt_buffer->kgtCore).program_name,0x100,&local_10,(LPOVERLAPPED)0x0);
   if (b_read_success == 0) {
     return true;
   }
@@ -3514,19 +3535,19 @@ bool enumerate_from_kgt_file(kgt_character_struct *kgt_buffer,HANDLE hFile)
   }
   if (((int)hFile < 1025) && (-1 < (int)hFile)) {
     lpBuffer = GlobalAlloc(0,(int)hFile * 0x27);
-    (kgt_buffer->kgt_core).p_actions_alloc = lpBuffer;
+    (kgt_buffer->kgtCore).pSkillsAlloc = lpBuffer;
     b_read_success = ReadFile(local_hFile,lpBuffer,(int)hFile * 0x27,&local_10,(LPOVERLAPPED)0x0);
     if (b_read_success == 0) {
       return true;
     }
-    (kgt_buffer->kgt_core).i_actions_amount = (int)hFile;
+    (kgt_buffer->kgtCore).iActionsCount = (int)hFile;
     b_read_success = ReadFile(local_hFile,&hFile,4,&local_10,(LPOVERLAPPED)0x0);
     if (b_read_success == 0) {
       return true;
     }
     if (((int)hFile < 65537) && (-1 < (int)hFile)) {
       lpBuffer_00 = GlobalAlloc(0,(int)hFile << 4);
-      (kgt_buffer->kgt_core).p_actionscripts_alloc = lpBuffer_00;
+      (kgt_buffer->kgtCore).pSkillScriptsAlloc = lpBuffer_00;
       b_read_success = ReadFile(local_hFile,lpBuffer_00,(int)hFile << 4,&local_10,(LPOVERLAPPED)0x0)
       ;
       if (b_read_success == 0) {
@@ -3538,30 +3559,30 @@ bool enumerate_from_kgt_file(kgt_character_struct *kgt_buffer,HANDLE hFile)
       }
       if (((int)hFile < 8193) && (-1 < (int)hFile)) {
         first_img_header_alloc = GlobalAlloc(0,(int)hFile * 0x14);
-        (kgt_buffer->kgt_core).p_img_headers_alloc = first_img_header_alloc;
-        (kgt_buffer->kgt_core).i_images_amount = (int)hFile;
+        (kgt_buffer->kgtCore).p_img_headers_alloc = first_img_header_alloc;
+        (kgt_buffer->kgtCore).i_images_amount = (int)hFile;
         i = 0;
         if (0 < (int)hFile) {
           img_header_bytes_offset = 0;
           do {
-            img_header = (KGT_IMG_HEADER *)
-                         ((int)&first_img_header_alloc->p_img_alloc + img_header_bytes_offset);
+            img_header = (kgtImageHeader *)
+                         ((int)&first_img_header_alloc->pAlloc + img_header_bytes_offset);
             b_read_success = ReadFile(local_hFile,img_header,0x14,&local_10,(LPOVERLAPPED)0x0);
             if (b_read_success == 0) {
               return true;
             }
-            size = img_header->width * img_header->height;
-            img_header->p_img_alloc = (void *)0x0;
-            if ((img_header->add_1024_flag & 1) != 0) {
+            size = img_header->iWidth * img_header->iHeight;
+            img_header->pAlloc = (int *)0x0;
+            if ((img_header->unk & 1) != 0) {
               size = size + 0x400;
             }
-            if (img_header->size_bytes != 0) {
-              size = img_header->size_bytes;
+            if (img_header->iSize != 0) {
+              size = img_header->iSize;
             }
             if (size != 0) {
-              pvVar1 = GlobalAlloc(0,size);
-              img_header->p_img_alloc = pvVar1;
-              b_read_success = ReadFile(local_hFile,pvVar1,size,&local_10,(LPOVERLAPPED)0x0);
+              lpBuffer_01 = GlobalAlloc(0,size);
+              img_header->pAlloc = lpBuffer_01;
+              b_read_success = ReadFile(local_hFile,lpBuffer_01,size,&local_10,(LPOVERLAPPED)0x0);
               if (b_read_success == 0) {
                 return true;
               }
@@ -3572,7 +3593,7 @@ bool enumerate_from_kgt_file(kgt_character_struct *kgt_buffer,HANDLE hFile)
           } while (i < (int)hFile);
         }
         b_read_success =
-             ReadFile(local_hFile,(kgt_buffer->kgt_core).pallette_1,0x2100,&local_10,
+             ReadFile(local_hFile,(kgt_buffer->kgtCore).pallette_1,0x2100,&local_10,
                       (LPOVERLAPPED)0x0);
         if (b_read_success == 0) {
           return true;
@@ -3583,160 +3604,157 @@ bool enumerate_from_kgt_file(kgt_character_struct *kgt_buffer,HANDLE hFile)
         }
         if (((int)hFile < 257) && (-1 < (int)hFile)) {
           i = (*p_GlobalAlloc_exref)(0,(int)hFile * 0x2a);
-                    // Some missing code from the decompiling here, looks to act the same as the
-                    // image assignments above.
-          (kgt_buffer->kgt_core).p_sound_structs = (kgt_sound_struct *)i;
-          (kgt_buffer->kgt_core).i_sounds_amount = sound_amount;
-          iVar6 = 0;
+                    // To-do: Some missing code from the decompiling here, looks to act the same as
+                    // the image assignments above.
+          (kgt_buffer->kgtCore).pkgtSounds = (kgtSound *)i;
+          (kgt_buffer->kgtCore).i_sounds_amount = sound_amount;
+          iVar3 = 0;
           if (0 < sound_amount) {
             local_10 = 0;
             do {
-              puVar4 = (undefined4 *)(local_10 + i);
-              iVar2 = (*p_ReadFile_Exref)(local_hFile,puVar4,0x2a,&stack0xffffffe8,0);
-              if (iVar2 == 0) {
+              puVar2 = (kgtSound *)(local_10 + i);
+              iVar1 = (*p_ReadFile_Exref)(local_hFile,puVar2,0x2a,&stack0xffffffe8,0);
+              if (iVar1 == 0) {
                 return true;
               }
-              dwBytes = puVar4[9];
+              dwBytes = puVar2->iSizeOrWavPtr;
               if (dwBytes != 0) {
-                pvVar1 = GlobalAlloc(0,dwBytes);
-                *puVar4 = pvVar1;
-                size = GlobalSize(pvVar1);
+                alloc = GlobalAlloc(0,dwBytes);
+                puVar2->pAlloc = alloc;
+                size = GlobalSize(alloc);
                 if (size < dwBytes) {
                   return (bool)2;
                 }
                 b_read_success =
-                     ReadFile(local_hFile,pvVar1,dwBytes,(LPDWORD)&stack0xffffffe8,(LPOVERLAPPED)0x0
-                             );
+                     ReadFile(local_hFile,alloc,dwBytes,(LPDWORD)&stack0xffffffe8,(LPOVERLAPPED)0x0)
+                ;
                 if (b_read_success == 0) {
                   return true;
                 }
-                if ((DSOUND_INITIALIZED_FLAG_0042474c != 0) && ((*(byte *)(puVar4 + 10) & 0xf) == 1)
-                   ) {
-                  pvVar3 = (HLOCAL)FUN_00415cd0(PTR_UNK_REF_TO_DSOUND_STRUCT_004280cc,pvVar1,1);
-                  puVar4[9] = pvVar3;
-                  HLOCAL_ARRAY_00430640[first_img_header_alloc[0x1b4].size_bytes * 0x100 + iVar6] =
-                       pvVar3;
-                  GlobalFree((HGLOBAL)*puVar4);
-                  *puVar4 = 0;
+                if ((giDsoundInitializedFlag != 0) && ((puVar2->cFlags & 0xfU) == 1)) {
+                  kgtwWav = (kgtWav *)kgtwBuildWav(gppDsoundInterface,alloc,1);
+                  puVar2->iSizeOrWavPtr = (int)kgtwWav;
+                  gkgtwWavAudios[first_img_header_alloc[0x1b4].iSize * 0x100 + iVar3] = kgtwWav;
+                  GlobalFree(puVar2->pAlloc);
+                  puVar2->pAlloc = (void *)0x0;
                 }
               }
-              iVar6 = iVar6 + 1;
+              iVar3 = iVar3 + 1;
               local_10 = local_10 + 0x2a;
               p_ReadFile_Exref = ReadFile_exref;
-            } while (iVar6 < sound_amount);
+            } while (iVar3 < sound_amount);
           }
                     // This looks like it's reading in the 'four zeros' data
-          iVar6 = (*p_ReadFile_Exref)(local_hFile,&first_img_header_alloc,4,&stack0xffffffe8,0);
-          return iVar6 == 0;
+          iVar3 = (*p_ReadFile_Exref)(local_hFile,&first_img_header_alloc,4,&stack0xffffffe8,0);
+          return iVar3 == 0;
         }
-        pcVar5 = s_HAN_KATAKANA__0041e894;
+        pcVar2 = s_HAN_KATAKANA__0041e894;
       }
       else {
-        pcVar5 = s_HAN_KATAKANA__0041e87c;
+        pcVar2 = s_HAN_KATAKANA__0041e87c;
       }
     }
     else {
-      pcVar5 = s_HAN_KATAKANA__0041e858;
+      pcVar2 = s_HAN_KATAKANA__0041e858;
     }
   }
   else {
-    pcVar5 = s_HAN_KATAKANA__0041e83c;
+    pcVar2 = s_HAN_KATAKANA__0041e83c;
   }
-  DISPLAY_MESSAGE_BOX_00414880(pcVar5);
+  vSpawnTaskModalWithWarning(pcVar2);
   return true;
 }
 
 
 
-int clear_player_kgt_buffer(int offset)
+int iClearCharacterFile(int offset)
 
 {
-  free_kgt_core_and_allocs(&PLAYER_KGT_BUFFER[offset].kgt_core);
-  memzero(PLAYER_KGT_BUFFER + offset,0xdeed);
-  loaded_player_file_indexes[offset] = -1;
+  vFreeKgtCore(&gkgtLoadedCharacter[offset].kgtCore);
+  vMemzero(gkgtLoadedCharacter + offset,0xdeed);
+  giPlayerFileIndices[offset] = -1;
   return 0;
 }
 
 
 
-int READ_CHARACTER_FILE(int kgt_idx,int player_file_idx)
+int iOpenCharacterFile(int iIdx,int iPlayerFileIdx)
 
 {
   HANDLE hFile;
   BOOL b;
-  bool is_normal_appmode;
+  bool bGameModeIsNormal;
   char *formatted_msg;
   DWORD local_208;
   int iStack_204;
   char fileName [256];
   char local_100 [256];
-  int characterName;
+  int sCharacterName;
   
   local_208 = 0;
-  if (loaded_player_file_indexes[kgt_idx] == player_file_idx) {
+  if (giPlayerFileIndices[iIdx] == iPlayerFileIdx) {
     return 0;
   }
-  clear_player_kgt_buffer(kgt_idx);
-                    // This is the unk_0x100_offset/idx? Might be for pallette selection?
-  is_normal_appmode = APPMODE == NORMAL;
-  PLAYER_KGT_BUFFER[kgt_idx].kgt_core.unk_0x100_offset = kgt_idx + 3;
-  if (is_normal_appmode) {
-    _sprintf(fileName,s__s_player_0041e8c4,player_file_idx * 0x100 + 0x435474);
+  iClearCharacterFile(iIdx);
+  bGameModeIsNormal = giAppmode == NORMAL;
+  gkgtLoadedCharacter[iIdx].kgtCore.unk_0x100_offset = iIdx + 3;
+  if (bGameModeIsNormal) {
+                    // To-do: Fix ghidra direct memory reference here with variable
+    _sprintf(fileName,s__s_player_0041e8c4,iPlayerFileIdx * 0x100 + 0x435474);
     hFile = CreateFileA(fileName,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
 joined_r0x00403cc6:
     if (hFile == (HANDLE)0xffffffff) {
-      formatted_msg = s_Player_Open_error__s__0041e8f4;
-      goto LAB_00403c62;
+      formatted_msg = gsErrorPlayerOpenError;
+      goto print_error;
     }
   }
   else {
-    characterName = player_file_idx * 0x100 + 0x435474;
-    _sprintf(fileName,s__s_player_t_0041e8ac,characterName);
+    sCharacterName = iPlayerFileIdx * 0x100 + 0x435474;
+    _sprintf(fileName,s__s_player_t_0041e8ac,sCharacterName);
     hFile = CreateFileA(fileName,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
     if (hFile == (HANDLE)0xffffffff) {
-      _sprintf(fileName,s__s_player_0041e8b8,characterName);
+      _sprintf(fileName,s__s_player_0041e8b8,sCharacterName);
       hFile = CreateFileA(fileName,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
       goto joined_r0x00403cc6;
     }
   }
   SetFilePointer(hFile,0,(PLONG)0x0,0);
-  b = ReadFile(hFile,PLAYER_KGT_BUFFER + kgt_idx,0x10,&local_208,(LPOVERLAPPED)0x0);
+  b = ReadFile(hFile,gkgtLoadedCharacter + iIdx,0x10,&local_208,(LPOVERLAPPED)0x0);
   if ((b != 0) &&
-     (characterName = enumerate_from_kgt_file(PLAYER_KGT_BUFFER + kgt_idx,hFile), characterName == 0
-     )) {
-    memzero(PLAYER_KGT_BUFFER[kgt_idx].command_structs,0x2008);
-    memzero(PLAYER_KGT_BUFFER[kgt_idx].hit_junctions,0x320);
-    memzero(PLAYER_KGT_BUFFER[kgt_idx].common_images,0x4b0);
+     (sCharacterName = bReadKgtCore(gkgtLoadedCharacter + iIdx,hFile), sCharacterName == 0)) {
+    vMemzero(gkgtLoadedCharacter[iIdx].kgtCommands,0x2008);
+    vMemzero(gkgtLoadedCharacter[iIdx].kgtHitJunctions,0x320);
+    vMemzero(gkgtLoadedCharacter[iIdx].kgtCommonImages,0x4b0);
     b = ReadFile(hFile,&iStack_204,4,&local_208,(LPOVERLAPPED)0x0);
     if (((b != 0) &&
-        ((((b = ReadFile(hFile,PLAYER_KGT_BUFFER[kgt_idx].command_structs,iStack_204 * 0x52,
-                         &local_208,(LPOVERLAPPED)0x0), b != 0 &&
+        ((((b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].kgtCommands,iStack_204 * 0x52,&local_208,
+                         (LPOVERLAPPED)0x0), b != 0 &&
            (b = ReadFile(hFile,&iStack_204,4,&local_208,(LPOVERLAPPED)0x0), b != 0)) &&
-          (b = ReadFile(hFile,PLAYER_KGT_BUFFER[kgt_idx].hit_junctions,iStack_204 * 4,&local_208,
+          (b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].kgtHitJunctions,iStack_204 * 4,&local_208,
                         (LPOVERLAPPED)0x0), b != 0)) &&
          ((b = ReadFile(hFile,&iStack_204,4,&local_208,(LPOVERLAPPED)0x0), b != 0 &&
-          (b = ReadFile(hFile,PLAYER_KGT_BUFFER[kgt_idx].common_images,iStack_204 * 6,&local_208,
+          (b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].kgtCommonImages,iStack_204 * 6,&local_208,
                         (LPOVERLAPPED)0x0), b != 0)))))) &&
-       ((b = ReadFile(hFile,PLAYER_KGT_BUFFER[kgt_idx].CPU_commands,0x2b66,&local_208,
+       ((b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].kgtCpuCommands,0x2b66,&local_208,
                       (LPOVERLAPPED)0x0), b != 0 &&
-        (((b = ReadFile(hFile,&PLAYER_KGT_BUFFER[kgt_idx].SectionE_default_0x1,0x74b,&local_208,
+        (((b = ReadFile(hFile,&gkgtLoadedCharacter[iIdx].shSkillIdxStanding,0x74b,&local_208,
                         (LPOVERLAPPED)0x0), b != 0 &&
-          (b = ReadFile(hFile,PLAYER_KGT_BUFFER[kgt_idx].section_H,0x507c,&local_208,
+          (b = ReadFile(hFile,gkgtLoadedCharacter[iIdx].iKgtStoriesSectionZeros,0x507c,&local_208,
                         (LPOVERLAPPED)0x0), b != 0)) &&
-         (b = ReadFile(hFile,&PLAYER_KGT_BUFFER[kgt_idx].Section_I,0x11ac,&local_208,
+         (b = ReadFile(hFile,&gkgtLoadedCharacter[iIdx].Section_I,0x11ac,&local_208,
                        (LPOVERLAPPED)0x0), b != 0)))))) {
       CloseHandle(hFile);
-      PLAYER_KGT_BUFFER[kgt_idx].kgt_core.read_ended = 1;
-      _sprintf(local_100,s_HAN_HIRAGANA_KATAKANA___s__0041e8d0,fileName);
-      SET_DEBUG_INFO(local_100,0xdfffff);
-      loaded_player_file_indexes[kgt_idx] = player_file_idx;
+      gkgtLoadedCharacter[iIdx].kgtCore.iReadOverFlag = 1;
+      _sprintf(local_100,gsReadingCharacterFile,fileName);
+      iSetDebugInfo(local_100,0xdfffff);
+      giPlayerFileIndices[iIdx] = iPlayerFileIdx;
       return 0;
     }
   }
-  formatted_msg = s_Player_Read_error__s__0041e90c;
-LAB_00403c62:
+  formatted_msg = gsPlayerReadErrorFormatted;
+print_error:
   _sprintf(local_100,formatted_msg,fileName);
-  DISPLAY_MESSAGE_BOX_00414880(local_100);
+  vSpawnTaskModalWithWarning(local_100);
   return -1;
 }
 
@@ -3744,17 +3762,17 @@ LAB_00403c62:
 
 // WARNING: Unknown calling convention -- yet parameter storage is locked
 
-int clear_kgt_file(void)
+int iClearKgtSystemFile(void)
 
 {
-  free_kgt_core_and_allocs(&DAT_KGT_FILE_BUFFER_00433240.kgt_core);
-  memzero(&DAT_KGT_FILE_BUFFER_00433240,0x124bc);
+  vFreeKgtCore(&gkgtKgtSystem.kgtCore);
+  vMemzero(&gkgtKgtSystem,0x124bc);
   return 0;
 }
 
 
 
-int FUN_Opens__kgt_file(LPCSTR program_name)
+int iOpenKgtSystemFile(LPCSTR program_name)
 
 {
   HANDLE hFile;
@@ -3769,12 +3787,12 @@ int FUN_Opens__kgt_file(LPCSTR program_name)
   
   local_408 = 0;
   local_404 = 0;
-  clear_kgt_file();
-  DAT_KGT_FILE_BUFFER_00433240.kgt_core.unk_0x100_offset = 0;
-  if (APPMODE == NORMAL) {
+  iClearKgtSystemFile();
+  gkgtKgtSystem.kgtCore.unk_0x100_offset = 0;
+  if (giAppmode == NORMAL) {
     hFile = CreateFileA(program_name,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
     if (hFile == (HANDLE)0xffffffff) {
-      WinExec(s_KGT2nd_EDITOR_exe_0041e944,5);
+      WinExec(gsKgt2ndEditorExe,5);
       PostQuitMessage(0);
       return -1;
     }
@@ -3785,7 +3803,7 @@ int FUN_Opens__kgt_file(LPCSTR program_name)
     if (hFile == (HANDLE)0xffffffff) {
       hFile = CreateFileA(program_name,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
       if (hFile == (HANDLE)0xffffffff) {
-        formatted_msg = s_GameSystem_Open_error__s__0041e9ac;
+        formatted_msg = gsErrorGamesystemOpenError;
         goto LAB_00403e5e;
       }
     }
@@ -3794,27 +3812,26 @@ int FUN_Opens__kgt_file(LPCSTR program_name)
     }
   }
   SetFilePointer(hFile,0,(PLONG)0x0,0);
-  BVar1 = ReadFile(hFile,&DAT_KGT_FILE_BUFFER_00433240,0x10,&local_408,(LPOVERLAPPED)0x0);
+  BVar1 = ReadFile(hFile,&gkgtKgtSystem,0x10,&local_408,(LPOVERLAPPED)0x0);
   if (BVar1 != 0) {
-    iVar2 = enumerate_from_kgt_file((kgt_character_struct *)&DAT_KGT_FILE_BUFFER_00433240,hFile);
+    iVar2 = bReadKgtCore((kgt_character_struct *)&gkgtKgtSystem,hFile);
     if (iVar2 == 0) {
-      BVar1 = ReadFile(hFile,DAT_KGT_FILE_BUFFER_00433240.character_names,0x1023c,&local_408,
-                       (LPOVERLAPPED)0x0);
+      BVar1 = ReadFile(hFile,gkgtKgtSystem.gsCharacterName,0x1023c,&local_408,(LPOVERLAPPED)0x0);
       if (BVar1 != 0) {
         CloseHandle(hFile);
-        DAT_KGT_FILE_BUFFER_00433240.kgt_core.read_ended = 1;
-        if (DAT_KGT_FILE_BUFFER_00433240.kgt_core.program_name[0] == '\0') {
-          _sprintf(filename_buffer,s_HAN_KATAKANA_nd__0041e958);
+        gkgtKgtSystem.kgtCore.iReadOverFlag = 1;
+        if (gkgtKgtSystem.kgtCore.program_name[0] == '\0') {
+          _sprintf(filename_buffer,gsTwoDFightingGameMaker);
         }
         else {
           _sprintf(filename_buffer,s__s_0041e970,0x433250);
         }
-        if (APPMODE != NORMAL) {
-          _sprintf(filename_buffer,s__s__Test_Play__0041e974,filename_buffer);
+        if (giAppmode != NORMAL) {
+          _sprintf(filename_buffer,gsTestplayFormatted,filename_buffer);
         }
-        SetWindowTextA(HWND_004246f8,filename_buffer);
-        _sprintf(local_400,s_HAN_HIRAGANA_KATAKANA___s__0041e988,program_name);
-        SET_DEBUG_INFO(local_400,0xdfffff);
+        SetWindowTextA(gHwnd,filename_buffer);
+        _sprintf(local_400,gsReadingGameSystem,program_name);
+        iSetDebugInfo(local_400,0xdfffff);
         if (local_404 != 0) {
           DeleteFileA(local_300);
         }
@@ -3822,10 +3839,10 @@ int FUN_Opens__kgt_file(LPCSTR program_name)
       }
     }
   }
-  formatted_msg = s_GameSystem_Read_error__s__0041e9c8;
+  formatted_msg = gsErrorGamesystemReadErrorFormatted;
 LAB_00403e5e:
   _sprintf(local_400,formatted_msg,program_name);
-  DISPLAY_MESSAGE_BOX_00414880(local_400);
+  vSpawnTaskModalWithWarning(local_400);
   return -1;
 }
 
@@ -3833,17 +3850,17 @@ LAB_00403e5e:
 
 // WARNING: Unknown calling convention -- yet parameter storage is locked
 
-int clear_demo_file(void)
+int iClearDemoFile(void)
 
 {
-  free_kgt_core_and_allocs(&UNK_DEMO_FILE_BUFFER_00425a60.kgt_core);
-  memzero(&UNK_DEMO_FILE_BUFFER_00425a60,0x2669);
+  vFreeKgtCore(&gkgtLoadedDemo.kgtCore);
+  vMemzero(&gkgtLoadedDemo,0x2669);
   return 0;
 }
 
 
 
-int FUN_open_demo_file_00403fc0(int idx)
+int iOpenDemoFile(int idx)
 
 {
   HANDLE hFile;
@@ -3855,19 +3872,20 @@ int FUN_open_demo_file_00403fc0(int idx)
   char local_100 [256];
   
   local_204 = 0;
-  clear_demo_file();
+  iClearDemoFile();
   if (idx == 0) {
-    DISPLAY_MESSAGE_BOX_00414880(s_Demo_File_Not_Set_Error_0041ea00);
+    vSpawnTaskModalWithWarning(gsErrorDemoFileNotSet);
     return -1;
   }
-  UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.unk_0x100_offset = 1;
-  if (APPMODE == NORMAL) {
-    _sprintf(local_200,s__s_demo_0041ea38,(idx + -1) * 0x100 + 0x43d49c);
+  gkgtLoadedDemo.kgtCore.unk_0x100_offset = 1;
+  if (giAppmode == NORMAL) {
+                    // To-do: Fix direct address reference
+    _sprintf(local_200,gsDemoNameFormatted,(idx + -1) * 0x100 + 0x43d49c);
     hFile = CreateFileA(local_200,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
 joined_r0x00404156:
     if (hFile == (HANDLE)0xffffffff) {
-      formatted_msg = s_GameDemo_Open_error__s__0041ea5c;
-      goto LAB_004040f4;
+      formatted_msg = gsGameDemoOpenErrorFormatted;
+      goto Spwan_warning_modal;
     }
   }
   else {
@@ -3881,22 +3899,21 @@ joined_r0x00404156:
     }
   }
   SetFilePointer(hFile,0,(PLONG)0x0,0);
-  BVar1 = ReadFile(hFile,&UNK_DEMO_FILE_BUFFER_00425a60,0x10,&local_204,(LPOVERLAPPED)0x0);
+  BVar1 = ReadFile(hFile,&gkgtLoadedDemo,0x10,&local_204,(LPOVERLAPPED)0x0);
   if (((BVar1 != 0) &&
-      (iVar2 = enumerate_from_kgt_file((kgt_character_struct *)&UNK_DEMO_FILE_BUFFER_00425a60,hFile)
-      , iVar2 == 0)) &&
-     (BVar1 = ReadFile(hFile,&UNK_DEMO_FILE_BUFFER_00425a60.BGM_selection,0x409,&local_204,
-                       (LPOVERLAPPED)0x0), BVar1 != 0)) {
+      (iVar2 = bReadKgtCore((kgt_character_struct *)&gkgtLoadedDemo,hFile), iVar2 == 0)) &&
+     (BVar1 = ReadFile(hFile,&gkgtLoadedDemo.cBgmSelection,0x409,&local_204,(LPOVERLAPPED)0x0),
+     BVar1 != 0)) {
     CloseHandle(hFile);
-    UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.read_ended = 1;
-    _sprintf(local_100,s_HAN_HIRAGANA_KATAKANA___s__0041ea40,local_200);
-    SET_DEBUG_INFO(local_100,0xdfffff);
+    gkgtLoadedDemo.kgtCore.iReadOverFlag = 1;
+    _sprintf(local_100,gsDemoFileReadingFormatted,local_200);
+    iSetDebugInfo(local_100,0xdfffff);
     return 0;
   }
-  formatted_msg = s_GameDemo_Read_error__s__0041ea74;
-LAB_004040f4:
+  formatted_msg = gsGameDemoReadErrorFormatted;
+Spwan_warning_modal:
   _sprintf(local_100,formatted_msg,local_200);
-  DISPLAY_MESSAGE_BOX_00414880(local_100);
+  vSpawnTaskModalWithWarning(local_100);
   return -1;
 }
 
@@ -3904,17 +3921,17 @@ LAB_004040f4:
 
 // WARNING: Unknown calling convention -- yet parameter storage is locked
 
-int clear_stage_file(void)
+int iClearStageFile(void)
 
 {
-  free_kgt_core_and_allocs(&UNK_STAGE_FILES_00445740.kgt_core);
-  memzero(&UNK_STAGE_FILES_00445740,0x2691);
+  vFreeKgtCore(&gkgtLoadedStage.kgt_core);
+  vMemzero(&gkgtLoadedStage,0x2691);
   return 0;
 }
 
 
 
-int Open_Stage_File(int idx)
+int iOpenStageFile(int idx)
 
 {
   HANDLE hFile;
@@ -3927,19 +3944,19 @@ int Open_Stage_File(int idx)
   char *stage_t_filename;
   
   local_204 = 0;
-  clear_stage_file();
-  UNK_STAGE_FILES_00445740.kgt_core.unk_0x100_offset = 2;
-  if (APPMODE == NORMAL) {
+  iClearStageFile();
+  gkgtLoadedStage.kgt_core.unk_0x100_offset = 2;
+  if (giAppmode == NORMAL) {
     _sprintf(stage_filename,s__s_stage_0041eac0,idx * 0x100 + 0x43a29c);
     hFile = CreateFileA(stage_filename,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
 joined_r0x0040435e:
     if (hFile == (HANDLE)0xffffffff) {
-      formatted_msg = s_GameStage_Open_error__s__0041eaec;
+      formatted_msg = gsErrorGameStageOpenErrorFormatted;
       goto LAB_004042f4;
     }
   }
   else {
-    stage_t_filename = DAT_KGT_FILE_BUFFER_00433240.stage_names[idx].str;
+    stage_t_filename = gkgtKgtSystem.sStageNames[idx];
     _sprintf(stage_filename,s__s_stage_t_0041eaa8,stage_t_filename);
     hFile = CreateFileA(stage_filename,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
     if (hFile == (HANDLE)0xffffffff) {
@@ -3950,28 +3967,27 @@ joined_r0x0040435e:
     }
   }
   SetFilePointer(hFile,0,(PLONG)0x0,0);
-  b = ReadFile(hFile,&UNK_STAGE_FILES_00445740,0x10,&local_204,(LPOVERLAPPED)0x0);
+  b = ReadFile(hFile,&gkgtLoadedStage,0x10,&local_204,(LPOVERLAPPED)0x0);
   if (((b != 0) &&
-      (iVar1 = enumerate_from_kgt_file((kgt_character_struct *)&UNK_STAGE_FILES_00445740,hFile),
-      iVar1 == 0)) &&
-     (b = ReadFile(hFile,&UNK_STAGE_FILES_00445740.BGM_selection,0x409,&local_204,(LPOVERLAPPED)0x0)
-     , b != 0)) {
+      (iVar1 = bReadKgtCore((kgt_character_struct *)&gkgtLoadedStage,hFile), iVar1 == 0)) &&
+     (b = ReadFile(hFile,&gkgtLoadedStage.cBgmSelection,0x409,&local_204,(LPOVERLAPPED)0x0), b != 0)
+     ) {
     CloseHandle(hFile);
-    UNK_STAGE_FILES_00445740.kgt_core.read_ended = 1;
-    _sprintf(local_100,s_HAN_HIRAGANA_KATAKANA___s__0041eacc,stage_filename);
-    SET_DEBUG_INFO(local_100,0xdfffff);
+    gkgtLoadedStage.kgt_core.iReadOverFlag = 1;
+    _sprintf(local_100,gsReadingStageFile,stage_filename);
+    iSetDebugInfo(local_100,0xdfffff);
     return 0;
   }
-  formatted_msg = s_GameStage_Read_error__s__0041eb08;
+  formatted_msg = gsErrorGameStageReadErrorFormatted;
 LAB_004042f4:
   _sprintf(local_100,formatted_msg,stage_filename);
-  DISPLAY_MESSAGE_BOX_00414880(local_100);
+  vSpawnTaskModalWithWarning(local_100);
   return -1;
 }
 
 
 
-int Load_external_image(kgtBMPINFO *BMPINFO_out,LPCSTR resource_name,LPCSTR lpFileName,int i_param)
+int iLoadExternalImage(kgtBMPINFO *BMPINFO_out,LPCSTR resource_name,LPCSTR lpFileName,int i_param)
 
 {
   byte *pbVar1;
@@ -4010,9 +4026,9 @@ int Load_external_image(kgtBMPINFO *BMPINFO_out,LPCSTR resource_name,LPCSTR lpFi
   local_cc = (byte *)0x0;
   hFile = CreateFileA(lpFileName,0x80000000,0,(LPSECURITY_ATTRIBUTES)0x0,3,0x80,(HANDLE)0x0);
   if (hFile == (HANDLE)0xffffffff) {
-    resource = FindResourceA(HINSTANCE_004701cc,resource_name,(LPCSTR)0x2);
-    if (resource == (HRSRC)0x0) goto LAB_00404820;
-    resource_handle = LoadResource(HINSTANCE_004701cc,resource);
+    resource = FindResourceA(ghInstance,resource_name,(LPCSTR)0x2);
+    if (resource == (HRSRC)0x0) goto freeMemory3;
+    resource_handle = LoadResource(ghInstance,resource);
     resource_pointer = LockResource(resource_handle);
     b_resource_loaded = true;
     bmpDataOffset = local_cc;
@@ -4022,26 +4038,26 @@ int Load_external_image(kgtBMPINFO *BMPINFO_out,LPCSTR resource_name,LPCSTR lpFi
     dwBytes = GetFileSize(hFile,(LPDWORD)0x0);
     hFile_mem_buffer = GlobalAlloc(0,dwBytes);
     if ((hFile_mem_buffer == (undefined *)0x0) ||
-       (lpBuffer = GlobalLock(hFile_mem_buffer), lpBuffer == (LPVOID)0x0)) goto LAB_00404853;
+       (lpBuffer = GlobalLock(hFile_mem_buffer), lpBuffer == (LPVOID)0x0)) goto freeMemory2;
     SetFilePointer(hFile,0,(PLONG)0x0,0);
     b_file_read_successful = ReadFile(hFile,lpBuffer,dwBytes,(LPDWORD)&local_cc,(LPOVERLAPPED)0x0);
-    if (b_file_read_successful == 0) goto LAB_00404853;
+    if (b_file_read_successful == 0) goto freeMemory2;
     CloseHandle(hFile);
                     // Skips to bitmap infoheader
     resource_pointer = (BITMAPINFOHEADER *)((int)lpBuffer + 14);
     bmpDataOffset = (byte *)(*(int *)((int)lpBuffer + 10) + (int)lpBuffer);
   }
   i_colorsUsed = resource_pointer->biClrUsed;
-  if (i_colorsUsed != 0) goto LAB_0040450c;
+  if (i_colorsUsed != 0) goto process_image;
   switch(resource_pointer->biBitCount) {
   case 1:
-    p_bmp_state_string = s_HAN_HIRAGANA_load_bmp___BMP_0041eb40;
-    goto LAB_00404810;
+    p_bmp_state_string = gsErrorTwoColorBMPForgive;
+    goto spwan_task_modal;
   default:
-    p_bmp_state_string = s_HAN_HIRAGANA_KATAKANA_load_bmp___BMP_0041eb5c;
-LAB_00404810:
-    DISPLAY_MESSAGE_BOX_00414880(p_bmp_state_string);
-    goto LAB_00404818;
+    p_bmp_state_string = gsErrorUnsupportedBmpPallette;
+spwan_task_modal:
+    vSpawnTaskModalWithWarning(p_bmp_state_string);
+    goto freeMemory1;
   case 4:
     i_colorsUsed = 16;
     break;
@@ -4051,7 +4067,7 @@ LAB_00404810:
   case 0x18:
     i_colorsUsed = 0;
   }
-LAB_0040450c:
+process_image:
   bitCount = (uint)resource_pointer->biBitCount;
   if (b_resource_loaded) {
     bmpDataOffset =
@@ -4102,8 +4118,8 @@ LAB_0040450c:
     case 1:
       break;
     default:
-      _sprintf(acStack_c8,s_HAN_HIRAGANA_KATAKANA___dbit__0041ebac,bitCount);
-      MessageBoxA((HWND)0x0,acStack_c8,s_error_0041ebdc,0x2000);
+      _sprintf(acStack_c8,gsErrorUnsupportedBitmap_2,bitCount);
+      MessageBoxA((HWND)0x0,acStack_c8,gsError,0x2000);
       return 1;
     case 4:
       storageSize = (byte *)(bmpStorageAddress + BMPINFO_out->colorsUsed + 1);
@@ -4190,17 +4206,17 @@ LAB_0040450c:
     BMPINFO_out[1].handle = (void *)0x0;
     return 0;
   }
-  _sprintf(acStack_c8,s_HAN_HIRAGANA_KATAKANA_BMP_x_d_y_d_0041eb88,adjustedBMPwidth,bmpHeight);
-  MessageBoxA((HWND)0x0,acStack_c8,s_HAN__0041eba4,0x2000);
-LAB_00404818:
+  _sprintf(acStack_c8,gsUnsupportedBitmap_3,adjustedBMPwidth,bmpHeight);
+  MessageBoxA((HWND)0x0,acStack_c8,gsContact_2,0x2000);
+freeMemory1:
   pMem = resource_pointer2;
   if (!b_resource_loaded) {
-LAB_00404853:
+freeMemory2:
     GlobalUnlock(hFile_mem_buffer);
     GlobalFree(hFile_mem_buffer);
     return -1;
   }
-LAB_00404820:
+freeMemory3:
   resource_handle = GlobalHandle(pMem);
   GlobalUnlock(resource_handle);
   resource_handle = GlobalHandle(pMem);
@@ -4211,11 +4227,11 @@ LAB_00404820:
 
 
 
-void RELEASE_DDRAW_INTERFACES(void)
+void vReleaseDdrawInterfaces(void)
 
 {
   if (INT_GET_WINDOW_FLAG_0042475c != 0) {
-    GetWindowRect(HWND_004246f8,&lpRect_00424f40);
+    GetWindowRect(gHwnd,&grWindowRect);
     INT_GET_WINDOW_FLAG_0042475c = 0;
   }
   if (DDRAW_INITIALIZED_FLAG != 0) {
@@ -4240,7 +4256,7 @@ void RELEASE_DDRAW_INTERFACES(void)
 
 
 
-void SETUP_DDRAW_PRIMARY_SURFACE(void)
+void vSetupDdrawPrimarySurface(void)
 
 {
   int hResult;
@@ -4251,21 +4267,20 @@ void SETUP_DDRAW_PRIMARY_SURFACE(void)
   
   DAT_00424770 = DAT_00424770 + 1;
   DAT_0042476c = 1;
-  RELEASE_DDRAW_INTERFACES();
+  vReleaseDdrawInterfaces();
   do {
-    if (UINT_GAME_SCREEN_MODE_2 == 0) {
+    if (giGameScreenMode_2 == 0) {
       DAT_00424774 = 0;
-      hdc = GetDC(HWND_004246f8);
+      hdc = GetDC(gHwnd);
       PatBlt(hdc,0,0,640,480,0x42);
-      ReleaseDC(HWND_004246f8,hdc);
+      ReleaseDC(gHwnd,hdc);
       ClipCursor((RECT *)NULL);
-      MoveWindow(HWND_004246f8,lpRect_00424f40.left,lpRect_00424f40.top,
-                 lpRect_00424f40.right - lpRect_00424f40.left,
-                 lpRect_00424f40.bottom - lpRect_00424f40.top,1);
+      MoveWindow(gHwnd,grWindowRect.left,grWindowRect.top,grWindowRect.right - grWindowRect.left,
+                 grWindowRect.bottom - grWindowRect.top,1);
       INT_GET_WINDOW_FLAG_0042475c = 1;
 LAB_00404b5d:
       DAT_00424768 = 3;
-      UpdateWindow(HWND_004246f8);
+      UpdateWindow(gHwnd);
       DAT_0042476c = 0;
       DAT_00424774 = DAT_00424774 + 1;
       return;
@@ -4282,7 +4297,7 @@ LAB_00404b5d:
                     // DDSCL_FULLSCREEN|DDSCL_EXCLUSIVE|DDSCL_ALLOWMODEX
     if ((hResult == 0) &&
        (hResult = (**(code **)((IDIRECTDRAW_INTERFACE.lpVtbl)->QueryInterface + 0x50))
-                            (IDIRECTDRAW_INTERFACE.lpVtbl,HWND_004246f8,0x51), hResult == 0)) {
+                            (IDIRECTDRAW_INTERFACE.lpVtbl,gHwnd,0x51), hResult == 0)) {
                     // SetDisplayMode()
       (**(code **)((IDIRECTDRAW_INTERFACE.lpVtbl)->QueryInterface + 0x54))
                 (IDIRECTDRAW_INTERFACE.lpVtbl,640,480,16);
@@ -4322,16 +4337,16 @@ LAB_00404b5d:
       goto LAB_00404b5d;
     }
 LAB_00404ac8:
-    UINT_GAME_SCREEN_MODE_2 = 0;
+    giGameScreenMode_2 = 0;
     DAT_0042476c = 1;
     DAT_00424770 = DAT_00424770 + 1;
-    RELEASE_DDRAW_INTERFACES();
+    vReleaseDdrawInterfaces();
   } while( true );
 }
 
 
 
-void restoreDDRAWinterfaces(void)
+void vRestoreDdrawInterfaces(void)
 
 {
   int isLost;
@@ -4352,24 +4367,24 @@ void restoreDDRAWinterfaces(void)
 
 
 
-void FUN_00404c10(void)
+void vWindowBltFuncs(void)
 
 {
   HDC hdc;
   
-  if ((DAT_0042476c == 0) && (UINT_GAME_SCREEN_MODE_2 == 0)) {
-    hdc = GetDC(HWND_004246f8);
+  if ((DAT_0042476c == 0) && (giGameScreenMode_2 == 0)) {
+    hdc = GetDC(gHwnd);
                     // mode = COLORONCOLOR
     SetStretchBltMode(hdc,3);
-    if ((UINT_GAME_WINDOW_SIZE_X == 640) && (UINT_GAME_WINDOW_SIZE_Y == 480)) {
+    if ((giConfigGameWindowSizeX == 640) && (giConfigGameWindowSizeY == 480)) {
                     // ROP = SRCCOPY
-      BitBlt(hdc,0,0,640,480,HDC_DIP_A,0,0,0xcc0020);
-      ReleaseDC(HWND_004246f8,hdc);
+      BitBlt(hdc,0,0,640,480,ghHdcDip_1,0,0,0xcc0020);
+      ReleaseDC(gHwnd,hdc);
       return;
     }
-    StretchBlt(hdc,0,0,UINT_GAME_WINDOW_SIZE_X,UINT_GAME_WINDOW_SIZE_Y,HDC_DIP_A,0,0,640,480,
+    StretchBlt(hdc,0,0,giConfigGameWindowSizeX,giConfigGameWindowSizeY,ghHdcDip_1,0,0,640,480,
                0xcc0020);
-    ReleaseDC(HWND_004246f8,hdc);
+    ReleaseDC(gHwnd,hdc);
   }
   return;
 }
@@ -4377,66 +4392,69 @@ void FUN_00404c10(void)
 
 
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
+// Runs 8 times at the start of vGameLoop()
 
-void FUN_00404cd0(void)
+void vProcessEngineObjects(void)
 
 {
-  int iVar1;
-  int **ppiVar2;
-  OBJ_STRUCT **ppOVar3;
-  OBJ_STRUCT *pOVar4;
-  kgt_0xe03f_struct_ptr_57383_undefined flash_duration;
-  POSS_0x8_struct *pPVar5;
+  offset_0x8_struct ppiVar1;
+  int *kgtObj;
+  kgtEngineObject *pkVar1;
+  kgt_character_struct_ptr_57383_undefined1 flash_duration;
+  POSS_0x8_struct *pPVar2;
   int i;
+  int iObjParam2;
   
-  INT_JUMP_ACTIVATED_COUNT_004246fc = 0;
-  sub_1_debug_event();
-  ppiVar2 = &POSS_0x8_struct_ARRAY_00430240[0].B;
+  giJumpActivatedCounter = 0;
+  vDebugEventASubOne();
+  ppiVar1 = &POSS_0x8_struct_ARRAY_00430240[0].B;
   do {
-    *ppiVar2 = (int *)0x0;
-    ppiVar2 = ppiVar2 + 2;
-  } while ((int)ppiVar2 < 0x430644);
-  ppOVar3 = UNK_OBJ_ARRAY;
+    ADJ(ppiVar1)->B = (int *)0x0;
+    ppiVar1 = ppiVar1 + 2;
+  } while ((int)ppiVar1 < 0x430644);
+  kgtObj = (int *)kgtEngineObjects;
   i = 1024;
-  PTR_POSS_CURRENT_OBJ = OBJ_ARRAY;
-  INT_UNK_ITER_004259a4 = 1024;
+  gpkgtCurrentEngineObject = kgtEngineObjects;
+                    // To-do: Cleanup the typecasts
+                    // To-do: Figure out what this does
+  giEngineObjectIter = 1024;
   do {
-    if (PTR_POSS_CURRENT_OBJ->jmp_idx != empty_return) {
-      iVar1 = PTR_POSS_CURRENT_OBJ->param2_maybe_50_or_46;
-      if (POSS_0x8_struct_ARRAY_00430240[iVar1].B == (int *)0x0) {
-        POSS_0x8_struct_ARRAY_00430240[iVar1].obj_ptr = (OBJ_STRUCT *)ppOVar3;
+    if (gpkgtCurrentEngineObject->iJumpIdx != EMPTY) {
+      iObjParam2 = gpkgtCurrentEngineObject->iParam2;
+      if (POSS_0x8_struct_ARRAY_00430240[iObjParam2].B == (int *)0x0) {
+        POSS_0x8_struct_ARRAY_00430240[iObjParam2].obj_ptr = kgtObj;
       }
       else {
-        POSS_0x8_struct_ARRAY_00430240[iVar1].B[1] = (int)ppOVar3;
+        POSS_0x8_struct_ARRAY_00430240[iObjParam2].B[1] = (int)kgtObj;
       }
-      ((OBJ_STRUCT *)ppOVar3)->jmp_idx = (Jumptable_A_endpoints)PTR_POSS_CURRENT_OBJ;
-      POSS_0x8_struct_ARRAY_00430240[iVar1].B = (int *)ppOVar3;
-      ((OBJ_STRUCT *)ppOVar3)->param2_maybe_50_or_46 = 0;
-      ppOVar3 = (OBJ_STRUCT **)&((OBJ_STRUCT *)ppOVar3)->param_3;
+      ((kgtEngineObject *)kgtObj)->iJumpIdx = (kgtJumptableEndpoints)gpkgtCurrentEngineObject;
+      POSS_0x8_struct_ARRAY_00430240[iObjParam2].B = kgtObj;
+      ((kgtEngineObject *)kgtObj)->iParam2 = 0;
+      kgtObj = &((kgtEngineObject *)kgtObj)->iParam3;
     }
-    PTR_POSS_CURRENT_OBJ = PTR_POSS_CURRENT_OBJ + 1;
+    gpkgtCurrentEngineObject = gpkgtCurrentEngineObject + 1;
     i = i + -1;
   } while (i != 0);
-  pPVar5 = POSS_0x8_struct_ARRAY_00430240;
-  PTR_OBJ_PARAM_1_ARRAY = (OBJ_STRUCT *)ppOVar3;
+  pPVar2 = POSS_0x8_struct_ARRAY_00430240;
+  PTR_OBJ_PARAM_1_ARRAY = (kgtEngineObject *)kgtObj;
   do {
-    if (pPVar5->B != (int *)0x0) {
-      pOVar4 = pPVar5->obj_ptr;
+    if (pPVar2->B != (int *)0x0) {
+      pkVar1 = (kgtEngineObject *)pPVar2->obj_ptr;
       do {
-        PTR_POSS_CURRENT_OBJ = (OBJ_STRUCT *)pOVar4->jmp_idx;
-        PTR_OBJ_PARAM_1_ARRAY = pOVar4;
-        if (PTR_POSS_CURRENT_OBJ->jmp_idx != empty_return) {
-          INT_JUMP_ACTIVATED_COUNT_004246fc = INT_JUMP_ACTIVATED_COUNT_004246fc + 1;
-          JUMPTABLE_JUMP_0040c130();
+        gpkgtCurrentEngineObject = (kgtEngineObject *)pkVar1->iJumpIdx;
+        PTR_OBJ_PARAM_1_ARRAY = pkVar1;
+        if (gpkgtCurrentEngineObject->iJumpIdx != EMPTY) {
+          giJumpActivatedCounter = giJumpActivatedCounter + 1;
+          vJumptableJump();
         }
-        pOVar4 = (OBJ_STRUCT *)PTR_OBJ_PARAM_1_ARRAY->param2_maybe_50_or_46;
-      } while (pOVar4 != (OBJ_STRUCT *)0x0);
+        pkVar1 = (kgtEngineObject *)PTR_OBJ_PARAM_1_ARRAY->iParam2;
+      } while (pkVar1 != (kgtEngineObject *)0x0);
     }
-    pPVar5 = pPVar5 + 1;
-  } while ((int)pPVar5 < 0x430640);
-  deal_with_hitboxes_and_other_stuff();
-                    // This variable initializes at 0
-  flash_duration = &PLAYER_KGT_BUFFER[0].flash_duration_b;
+    pPVar2 = pPVar2 + 1;
+  } while ((int)pPVar2 < 0x430640);
+  vHitboxHandling();
+                    // Countdown all character flash durations
+  flash_duration = &gkgtLoadedCharacter[0].flash_duration_b;
   do {
     if (*(int *)flash_duration != 0) {
       *(int *)flash_duration = *(int *)flash_duration + -1;
@@ -4446,19 +4464,19 @@ void FUN_00404cd0(void)
   if (_system_flash_duration != 0) {
     _system_flash_duration = _system_flash_duration + -1;
   }
-  if (UNK_STAGE_FILES_00445740.pallette_flash_duration != 0) {
-    UNK_STAGE_FILES_00445740.pallette_flash_duration =
-         UNK_STAGE_FILES_00445740.pallette_flash_duration + -1;
+  if (giPalletteFlashDuration != 0) {
+    giPalletteFlashDuration = giPalletteFlashDuration + -1;
   }
   return;
 }
 
 
 
-void handle_drawing(void)
+void vHandleDrawing(void)
 
 {
-  OBJ_STRUCT *pi;
+  kgtEngineObject *pkVar1;
+  kgtEngineObject *pi;
   int iVar3;
   HFONT pHVar4;
   HGDIOBJ pvVar5;
@@ -4468,10 +4486,10 @@ void handle_drawing(void)
   int iVar8;
   int iVar9;
   undefined4 *puVar10;
-  astruct_4 *piVar10;
-  int *piVar1;
+  kgt_character_struct_ptr_57101_short piVar10;
+  int *piVar2;
   int *ddraw_desc_mem_region;
-  OBJ_STRUCT **local_21c;
+  kgtEngineObject **local_21c;
   char local_214 [2];
   undefined1 local_212 [2];
   undefined1 local_210 [2];
@@ -4487,56 +4505,57 @@ void handle_drawing(void)
   HDC pHVar1;
   IDirectDrawSurface7 p_DDRAW_desc1;
   
-  psuedo_rand(&UNK_STAGE_FILES_00445740.pic_sway_x);
-  psuedo_rand(&UNK_STAGE_FILES_00445740.pic_sway_y);
+  vCalculateShake(&giPicSwayX);
+  vCalculateShake(&giPicSwayY);
   _ppiVar1 = POSS_0x8_struct_ARRAY_00430240;
   do {
     if (_ppiVar1->B != (int *)0x0) {
-      pi = _ppiVar1->obj_ptr;
+      pi = (kgtEngineObject *)_ppiVar1->obj_ptr;
       do {
-        PTR_POSS_CURRENT_OBJ = (OBJ_STRUCT *)pi->jmp_idx;
+        gpkgtCurrentEngineObject = (kgtEngineObject *)pi->iJumpIdx;
         PTR_OBJ_PARAM_1_ARRAY = pi;
-        if (PTR_POSS_CURRENT_OBJ->jmp_idx != empty_return) {
+        if (gpkgtCurrentEngineObject->iJumpIdx != EMPTY) {
           draw_func_d();
         }
-        pi = (OBJ_STRUCT *)PTR_OBJ_PARAM_1_ARRAY->param2_maybe_50_or_46;
-      } while (pi != (OBJ_STRUCT *)0x0);
+        pi = (kgtEngineObject *)PTR_OBJ_PARAM_1_ARRAY->iParam2;
+      } while (pi != (kgtEngineObject *)0x0);
     }
     _ppiVar1 = _ppiVar1 + 1;
   } while ((int)_ppiVar1 < 0x430640);
-  if (((GAME_STATE.GAME_MODE == 1P_story) && (2999 < GAME_STATE.over3kunder4kcheck)) &&
-     (GAME_STATE.over3kunder4kcheck < 4000)) {
-    piVar10 = (astruct_4 *)&PLAYER_KGT_BUFFER[1].show_life;
+  if (((gkgtGameState.kgtGameMode == 1P_story) && (2999 < gkgtGameState.iGameStateNumber)) &&
+     (gkgtGameState.iGameStateNumber < 4000)) {
+    piVar10 = &gkgtLoadedCharacter[1].bShowLife;
     do {
-      if (((piVar10 != (astruct_4 *)0xdf0d) && (*(int *)&piVar10[-0xb9].field_0x81 != 0)) &&
-         ((*(int *)&piVar10[-1].field_0xfe != 0 &&
-          ((piVar10->field0_0x0 != 0 && (piVar10->field243_0x102 != 0)))))) {
-        iVar3 = (*(int *)&piVar10[-1].field_0xfe * 0x32) / piVar10->field1_0x4;
-        iVar8 = ((int)(piVar10->field43_0x34 + (piVar10->field43_0x34 >> 0x1f & 0xffffU)) >> 0x10) -
-                unk_y_position;
+      if (((piVar10 != (kgt_character_struct_ptr_57101_short)0xdf0d) &&
+          (ADJ(piVar10)->unknown_online_var_a != 0)) &&
+         ((ADJ(piVar10)->iHealth != 0 &&
+          ((*(int *)piVar10 != 0 && (ADJ(piVar10)->unk_image_wait_flag != 0)))))) {
+        iVar3 = (ADJ(piVar10)->iHealth * 0x32) / ADJ(piVar10)->iLifeGaugeMax_2;
+        iVar8 = ((int)(ADJ(piVar10)->iCurrentXPos + (ADJ(piVar10)->iCurrentXPos >> 0x1f & 0xffffU))
+                >> 0x10) - unk_x_position;
         iVar9 = iVar8 + -0x19;
-        iVar6 = ((int)*(short *)&piVar10[-0x61].field_0xda +
-                ((int)(piVar10->field44_0x38 + (piVar10->field44_0x38 >> 0x1f & 0xffffU)) >> 0x10))
-                - unk_x_position;
+        iVar6 = ((int)ADJ(piVar10)->shYPosOfSideHp +
+                ((int)(ADJ(piVar10)->iCurrentYPos + (ADJ(piVar10)->iCurrentYPos >> 0x1f & 0xffffU))
+                >> 0x10)) - unk_y_pos2;
         draw_func_a(iVar9,iVar6,0x32,10,1,0);
         draw_func_a(iVar9,iVar6 + 1,iVar3,8,0,(iVar3 / 0x143) * 0x400 + 0x3e0);
-        draw_func_a(iVar9 + iVar3,iVar6 + 1,(piVar10->field18_0x18 * 0x32) / piVar10->field1_0x4,8,0
-                    ,0x7c00);
-        if ((DAT_KGT_FILE_BUFFER_00433240.system_bitmask & 0x20U) != 0) {
-          FUN_0040bed0(*(undefined4 *)&piVar10[-1].field_0xfe,iVar8 + -0x2b,iVar6,0,0,0,0);
-          FUN_0040bed0(piVar10->field18_0x18,iVar8 + 0xf,iVar6,0,0x20,0,0);
+        draw_func_a(iVar9 + iVar3,iVar6 + 1,
+                    (ADJ(piVar10)->iLifeAddUnk1 * 0x32) / ADJ(piVar10)->iLifeGaugeMax_2,8,0,0x7c00);
+        if ((gkgtKgtSystem.cSystemBitmask & 0x20U) != 0) {
+          FUN_0040bed0(ADJ(piVar10)->iHealth,iVar8 + -0x2b,iVar6,0,0,0,0);
+          FUN_0040bed0(ADJ(piVar10)->iLifeAddUnk1,iVar8 + 0xf,iVar6,0,0x20,0,0);
         }
       }
-      piVar10 = (astruct_4 *)&piVar10[0xdb].field_0x1d;
+      piVar10 = (kgt_character_struct_ptr_57101_short)((int)piVar10 + 0xe03f);
     } while ((int)piVar10 < 0x54fe85);
   }
-  if (UINT_TESTPLAY_HITJUDGE_2_0042470c != 0) {
-    if (GAME_STATE.GAME_MODE == VS_team) {
+  if (giConfigTestplayHitjudge_2 != 0) {
+    if (gkgtGameState.kgtGameMode == VS_team) {
       iVar3 = 0;
       iVar6 = 0x32;
       do {
         _sprintf(local_200,s__d___0041ebe4,iVar3);
-        puVar10 = (undefined4 *)((int)GAME_STATE.CHAR_SELECT + iVar6 + 0x1a);
+        puVar10 = (undefined4 *)((int)gkgtGameState.iCharSelect + iVar6 + 0x1a);
         iVar8 = 4;
         do {
           _sprintf(local_200,s__s__2d_0041ebec,local_200,*puVar10);
@@ -4548,39 +4567,39 @@ void handle_drawing(void)
         iVar3 = iVar3 + 1;
       } while (iVar6 < 0x52);
     }
-    if ((2999 < GAME_STATE.over3kunder4kcheck) && (GAME_STATE.over3kunder4kcheck < 4000)) {
+    if ((2999 < gkgtGameState.iGameStateNumber) && (gkgtGameState.iGameStateNumber < 4000)) {
       iVar3 = 9;
-      piVar1 = &PLAYER_KGT_BUFFER[0].life_gauge_max2;
+      piVar2 = &gkgtLoadedCharacter[0].iLifeGaugeMax_2;
       do {
-        iVar6 = piVar1[-7];
-        if (*(int *)((int)piVar1 + -0xbcd9) != 0) {
-          iVar8 = iVar3 + -1;
-          iVar9 = (piVar1[-3] * 200) / *piVar1;
-          draw_func_a(0x40,iVar8,200,10,1,0);
-          draw_func_a(0x40,iVar3,iVar9,8,0,(iVar9 / 0x143) * 0x400 + 0x3e0);
-          draw_func_a(iVar9 + 0x40,iVar3,(piVar1[5] * 200) / *piVar1,8,0,0x7c00);
-          FUN_0040bed0(piVar1[-3],0x2e,iVar8,0,0,0,0);
-          FUN_0040bed0(piVar1[5],0xfe,iVar8,0,0x20,0,0);
-          local_21c = (OBJ_STRUCT **)((int)piVar1 + 0xae);
-          iVar8 = 0;
+        pkVar1 = (kgtEngineObject *)piVar2[-7];
+        if (*(int *)((int)piVar2 + -0xbcd9) != 0) {
+          iVar6 = iVar3 + -1;
+          iVar8 = (piVar2[-3] * 200) / *piVar2;
+          draw_func_a(0x40,iVar6,200,10,1,0);
+          draw_func_a(0x40,iVar3,iVar8,8,0,(iVar8 / 0x143) * 0x400 + 0x3e0);
+          draw_func_a(iVar8 + 0x40,iVar3,(piVar2[5] * 200) / *piVar2,8,0,0x7c00);
+          FUN_0040bed0(piVar2[-3],0x2e,iVar6,0,0,0,0);
+          FUN_0040bed0(piVar2[5],0xfe,iVar6,0,0x20,0,0);
+          local_21c = (kgtEngineObject **)((int)piVar2 + 0xae);
+          iVar6 = 0;
           str = local_214;
           do {
-            if (*local_21c == (OBJ_STRUCT *)0x0) {
+            if (*local_21c == (kgtEngineObject *)0x0) {
               _sprintf(str,s___0041ebf8);
             }
             else {
-              _sprintf(str,s__d_0041ebf4,iVar8);
+              _sprintf(str,s__d_0041ebf4,iVar6);
             }
-            iVar8 = iVar8 + 1;
+            iVar6 = iVar6 + 1;
             local_21c = local_21c + 1;
             str = str + 2;
-          } while (iVar8 < 10);
-          _sprintf(local_100,s__3d__4d__1d___S__3d___W__2d_L__2_0041ebfc,
-                   *(undefined4 *)(iVar6 + 0x30),*(undefined4 *)(iVar6 + 0x2c),piVar1[0x1d],
-                   piVar1[1],piVar1[-9],piVar1[-8],*(int *)((int)piVar1 + 0xaa),local_214,local_212,
-                   local_210,local_20e,local_20c,local_20a,local_208,local_206,local_204,local_202);
+          } while (iVar6 < 10);
+          _sprintf(local_100,s__3d__4d__1d___S__3d___W__2d_L__2_0041ebfc,pkVar1->iSkillIdx,
+                   *(undefined4 *)&pkVar1->iSkillScriptIdx,piVar2[0x1d],piVar2[1],piVar2[-9],
+                   piVar2[-8],*(int *)((int)piVar2 + 0xaa),local_214,local_212,local_210,local_20e,
+                   local_20c,local_20a,local_208,local_206,local_204,local_202);
           FUN_0040c020(local_100,0x110,iVar3,4,0,0,0);
-          pHVar1 = HDC_DIP_A;
+          pHVar1 = ghHdcDip_1;
           DAT_0041e7e8 = DAT_0041e7e8 + DAT_0041e7f4;
           DAT_0041e7e4 = DAT_0041e7e4 + DAT_0041e7f0;
           DAT_0041e7ec = DAT_0041e7ec + DAT_0041e7f8;
@@ -4612,7 +4631,7 @@ void handle_drawing(void)
           pvVar5 = SelectObject(pHVar1,pHVar4);
           SetBkMode(pHVar1,1);
           _sprintf(local_200,s__s_0041ec50,
-                   *(kgt_skill_struct **)((int)piVar1 + -0xde01) + *(int *)(iVar6 + 0x30));
+                   *(kgtSkillHeader **)((int)piVar2 + -0xde01) + pkVar1->iSkillIdx);
           SetTextColor(pHVar1,0);
           iVar6 = lstrlenA(local_200);
           TextOutA(pHVar1,100,iVar3 + 4,local_200,iVar6);
@@ -4629,35 +4648,34 @@ void handle_drawing(void)
           SelectObject(pHVar1,pvVar5);
           DeleteObject(pHVar4);
         }
-        piVar1 = (int *)((int)piVar1 + 0xe03f);
+        piVar2 = (int *)((int)piVar2 + 0xe03f);
         iVar3 = iVar3 + 0x10;
-      } while ((int)piVar1 < 0x54fe89);
+      } while ((int)piVar2 < 0x54fe89);
     }
   }
   if (UNK_DEBUG_FLAG != 0) {
     draw_func_a(8,0x1c8,0x270,0x10,1,0);
   }
-  pHVar1 = HDC_DIP_A;
-  INT_004456fc = INT_004456fc + 1;
-  if (GAME_STATE.status_display != 0) {
+  pHVar1 = ghHdcDip_1;
+  giReverseShakeDirection = giReverseShakeDirection + 1;
+  if (gkgtGameState.iStatusDisplay != 0) {
     pHVar4 = CreateFontA(0x1a,0xc,0,0,0,0,0,0,0x80,0,0,0,0x30,s_Terminal_0041ec54);
     pvVar5 = SelectObject(pHVar1,pHVar4);
     SetBkMode(pHVar1,1);
     _sprintf(local_200,s_FPS__3d_SkipFrame__3d_Object__3d_0041ec60,
-             (int)(1000 / (ulonglong)frame_time_diff),timer_iter_skipframe + -1,
-             INT_JUMP_ACTIVATED_COUNT_004246fc);
+             (int)(1000 / (ulonglong)giFrameTimeDiff),giSkipframeCount + -1,giJumpActivatedCounter);
     FUN_0040c0a0(local_200,4,0x1cc,1,0,0,0);
-    if (GAME_STATE.GAME_MODE == 1P_story) {
+    if (gkgtGameState.kgtGameMode == 1P_story) {
       _sprintf(local_200,s_WinPoint__3d_0041ec84,
-               PLAYER_KGT_BUFFER[0].something_to_do_with_starting_health2);
+               gkgtLoadedCharacter[0].something_to_do_with_starting_health2);
       FUN_0040c0a0(local_200,0x1c2,0x1cc,1,0,0,0);
     }
     SelectObject(pHVar1,pvVar5);
     DeleteObject(pHVar4);
     DISP_DEBUG_INFO();
   }
-  if (UINT_GAME_SCREEN_MODE_2 == 0) {
-    FUN_00404c10();
+  if (giGameScreenMode_2 == 0) {
+    vWindowBltFuncs();
   }
   else {
     if (DAT_00424768 != 0) {
@@ -4706,14 +4724,14 @@ void handle_drawing(void)
 
 
 
-void check_window_bounding_area(HWND hWnd)
+void vCheckWindowBounds(HWND hWnd)
 
 {
   bool b_out_of_bounds;
   RECT r_window_rect;
   RECT r_work_area;
   
-  if (UINT_GAME_SCREEN_MODE_2 == 0) {
+  if (giGameScreenMode_2 == 0) {
     SystemParametersInfoA(0x30,0,&r_work_area,0);
     GetWindowRect(hWnd,&r_window_rect);
     if (r_work_area.right < r_window_rect.right) {
@@ -4741,87 +4759,89 @@ void check_window_bounding_area(HWND hWnd)
 
 
 
-void __fastcall Init_Windows_and_Memory_Regions_004056c0(void)
+void __fastcall vInitializeWindowsAndMemory(void)
 
 {
-  ATOM AVar1;
+  ATOM err;
   int i_cxframe;
   int i_cymenu;
   int i_cycaption;
   HDC hdc;
   int i;
-  int *piVar2;
+  int *piVar1;
   HWND hWndParent;
   HMENU hMenu;
   HINSTANCE hInstance;
   LPVOID lpParam;
   WNDCLASSA local_12c;
-  CHAR aC_directory_buffer [260];
+  CHAR sCurrentDirectory [260];
   
-  DAT_Global_Alloc_Memory_00425a44 = GlobalAlloc(0,0x138800);
-  GetCurrentDirectoryA(259,aC_directory_buffer);
-  DAT_DIR_BUFFER_0041e408 = aC_directory_buffer[0];
-  read_kgt2k_ini();
-  Load_Config_00414930();
-  memzero(&PTR_BITMAPINFO_00424298,0x438);
-  memzero(&UNK_STRUCT_A_00424f60,0xa00);
-  memzero(&GAME_STATE,0x1ac);
-  memzero(PLAYER_KGT_BUFFER,0x701f8);
-  memzero(&DAT_KGT_FILE_BUFFER_00433240,0x124bc);
-  memzero(&UNK_DEMO_FILE_BUFFER_00425a60,0x2669);
-  memzero(&UNK_STAGE_FILES_00445740,0x2691);
-  GAME_STATE.status_display = UINT_TESTPLAY_GAMEINFO;
-  FUN_register_input_window_classes_00416530();
-  FUN_ZERO_OUT_DEBUG_STRUCTS_00415170();
+  gpGlobalMemoryAlloc = GlobalAlloc(0,0x138800);
+  GetCurrentDirectoryA(259,sCurrentDirectory);
+  gsCurrentDirectory_2 = sCurrentDirectory[0];
+  vLoadKgt2kConfig();
+  vLoadGameConfig();
+                    // Some of these memzeros clear a little bit more memory than their given struct
+                    // requires.
+  vMemzero(&gpBitmapInfo,0x438);
+  vMemzero(&UNK_DRAW_STRUCT_A,0xa00);
+  vMemzero(&gkgtGameState,0x1ac);
+  vMemzero(gkgtLoadedCharacter,0x701f8);
+  vMemzero(&gkgtKgtSystem,0x124bc);
+  vMemzero(&gkgtLoadedDemo,0x2669);
+  vMemzero(&gkgtLoadedStage,0x2691);
+  gkgtGameState.iStatusDisplay = giConfigTestplayGameinfo;
+  vRegisterInputWindowClasses();
+  vMemzeroDebugStructs();
   setup_online_memory();
-  Check_Joystick_Capabilities_00414230();
-  Check_Joystick_Capabilities_2_004142e0();
-  if (((int)UINT_GAME_WINDOW_SIZE_X < 1) || ((int)UINT_GAME_WINDOW_SIZE_Y < 1)) {
-    UINT_GAME_WINDOW_SIZE_X = 640;
-    UINT_GAME_WINDOW_SIZE_Y = 480;
+  iCheckJoystickOne();
+  iCheckJoystickTwo();
+  if (((int)giConfigGameWindowSizeX < 1) || ((int)giConfigGameWindowSizeY < 1)) {
+    giConfigGameWindowSizeX = 640;
+    giConfigGameWindowSizeY = 480;
   }
   local_12c.style = 0x3000;
-  local_12c.lpfnWndProc = WindowProc;
+  local_12c.lpfnWndProc = vMainWndProc;
   local_12c.cbClsExtra = 0;
   local_12c.cbWndExtra = 0;
-  local_12c.hInstance = HINSTANCE_004701cc;
-  local_12c.hIcon = LoadIconA(HINSTANCE_004701cc,s_exe_ico_0041ec94);
+  local_12c.hInstance = ghInstance;
+  local_12c.hIcon = LoadIconA(ghInstance,gsExeIco);
+                    // To-do: Figure out lpCursorName
   local_12c.hCursor = LoadCursorA((HINSTANCE)0x0,&lpCursorName_00007f00);
   local_12c.hbrBackground = (HBRUSH)0x0;
   local_12c.lpszMenuName = s_cupid_menu_0041ec9c;
-  local_12c.lpszClassName = s_KGT2KGAME_0041e7bc;
-  AVar1 = RegisterClassA(&local_12c);
-  if (AVar1 != 0) {
+  local_12c.lpszClassName = gsGameWindow;
+  err = RegisterClassA(&local_12c);
+  if (err != 0) {
     lpParam = (LPVOID)0x0;
     hMenu = (HMENU)0x0;
     hWndParent = (HWND)0x0;
-    hInstance = HINSTANCE_004701cc;
+    hInstance = ghInstance;
     i_cxframe = GetSystemMetrics(0x20);
     i_cymenu = GetSystemMetrics(0xf);
     i_cycaption = GetSystemMetrics(4);
-    i_cycaption = i_cycaption + UINT_GAME_WINDOW_SIZE_Y + i_cymenu + i_cxframe * 2;
+    i_cycaption = i_cycaption + giConfigGameWindowSizeY + i_cymenu + i_cxframe * 2;
     i_cxframe = GetSystemMetrics(0x20);
-    HWND_004246f8 =
-         CreateWindowExA(0x40000,s_KGT2KGAME_0041e7bc,(LPCSTR)&lpWindowName_0042477c,0xf0000,
-                         UINT_GAME_WINDOW_POINT_X,UINT_GAME_WINDOW_PAOINT_Y,
-                         UINT_GAME_WINDOW_SIZE_X + i_cxframe * 2,i_cycaption,hWndParent,hMenu,
-                         hInstance,lpParam);
-    ShowWindow(HWND_004246f8,5);
-    GetWindowRect(HWND_004246f8,&lpRect_00424f40);
+    gHwnd = CreateWindowExA(0x40000,gsGameWindow,(LPCSTR)&glLpWindowName,0xf0000,
+                            gConfigiGameWindowPointX,giConfigGameWindowPointY,
+                            giConfigGameWindowSizeX + i_cxframe * 2,i_cycaption,hWndParent,hMenu,
+                            hInstance,lpParam);
+    ShowWindow(gHwnd,5);
+    GetWindowRect(gHwnd,&grWindowRect);
   }
-  hdc = GetDC(HWND_004246f8);
-  PTR_BITMAPINFO_00424298.bmiHeader.biSize = 0x28;
-  PTR_BITMAPINFO_00424298.bmiHeader.biPlanes = 1;
-  PTR_BITMAPINFO_00424298.bmiHeader.biBitCount = 0x10;
-  PTR_BITMAPINFO_00424298.bmiHeader.biCompression = 0;
-  PTR_BITMAPINFO_00424298.bmiHeader.biSizeImage = 0;
-  PTR_BITMAPINFO_00424298.bmiHeader.biClrUsed = 0;
-  PTR_BITMAPINFO_00424298.bmiHeader.biClrImportant = 0;
-  PTR_BITMAPINFO_00424298.bmiHeader.biWidth = 0x280;
-  PTR_BITMAPINFO_00424298.bmiHeader.biHeight = -0x1e0;
-  HDC_DIP_A = CreateCompatibleDC(hdc);
-  HBITMAP_DIB_A = CreateDIBSection(HDC_DIP_A,&PTR_BITMAPINFO_00424298,0,&ppvBits_A,(HANDLE)0x0,0);
-  HGDIOBJ_004246c8 = SelectObject(HDC_DIP_A,HBITMAP_DIB_A);
+  hdc = GetDC(gHwnd);
+  gpBitmapInfo.bmiHeader.biSize = 0x28;
+  gpBitmapInfo.bmiHeader.biPlanes = 1;
+  gpBitmapInfo.bmiHeader.biBitCount = 0x10;
+  gpBitmapInfo.bmiHeader.biCompression = 0;
+  gpBitmapInfo.bmiHeader.biSizeImage = 0;
+  gpBitmapInfo.bmiHeader.biClrUsed = 0;
+  gpBitmapInfo.bmiHeader.biClrImportant = 0;
+  gpBitmapInfo.bmiHeader.biWidth = 0x280;
+  gpBitmapInfo.bmiHeader.biHeight = -0x1e0;
+  ghHdcDip_1 = CreateCompatibleDC(hdc);
+  ghHBitmapDib_1 = CreateDIBSection(ghHdcDip_1,&gpBitmapInfo,0,&ppvBits_A,(HANDLE)0x0,0);
+  ghHgdiObj = SelectObject(ghHdcDip_1,ghHBitmapDib_1);
   lpbmi_B.bmiHeader.biSize = 0x28;
   lpbmi_B.bmiHeader.biPlanes = 1;
   lpbmi_B.bmiHeader.biBitCount = 0x10;
@@ -4831,18 +4851,18 @@ void __fastcall Init_Windows_and_Memory_Regions_004056c0(void)
   lpbmi_B.bmiHeader.biClrImportant = 0;
   lpbmi_B.bmiHeader.biWidth = 0x280;
   lpbmi_B.bmiHeader.biHeight = -0x10;
-  HDC_DIP_B = CreateCompatibleDC(hdc);
-  HBITMAP_DIB_B_A = CreateDIBSection(HDC_DIP_B,&lpbmi_B,0,&ppvBits_B,(HANDLE)0x0,0);
-  HGDIOBJ_00421a80 = SelectObject(HDC_DIP_B,HBITMAP_DIB_B_A);
-  ReleaseDC(HWND_004246f8,hdc);
-  UINT_GAME_SCREEN_MODE_2 = UINT_GAME_SCREEN_MODE;
-  SETUP_DDRAW_PRIMARY_SURFACE();
-  SETUP_DSOUND_00403330();
-  EMPTY_OBJECTS();
-  piVar2 = loaded_player_file_indexes;
+  ghHdcDip_2 = CreateCompatibleDC(hdc);
+  ghHbitmap_Dib_2 = CreateDIBSection(ghHdcDip_2,&lpbmi_B,0,&ppvBits_B,(HANDLE)0x0,0);
+  hgHBitmapDib_2 = SelectObject(ghHdcDip_2,ghHbitmap_Dib_2);
+  ReleaseDC(gHwnd,hdc);
+  giGameScreenMode_2 = giConfigGameScreenMode;
+  vSetupDdrawPrimarySurface();
+  vSetupDsound();
+  vEmptyEngineObjects();
+  piVar1 = giPlayerFileIndices;
   for (i = 8; i != 0; i = i + -1) {
-    *piVar2 = -1;
-    piVar2 = piVar2 + 1;
+    *piVar1 = -1;
+    piVar1 = piVar1 + 1;
   }
   return;
 }
@@ -4856,66 +4876,67 @@ void UNK_GRACEFUL_EXIT(void)
   UNK_STRUCT_A *pUVar1;
   int offset;
   
-  FUN_004034d0(0);
-  pUVar1 = &UNK_STRUCT_A_00424f60;
+  vHandleStoppingAllWavs(0);
+  pUVar1 = &UNK_DRAW_STRUCT_A;
   do {
     if ((HGLOBAL)pUVar1->field0_0x0 != (HGLOBAL)0x0) {
       GlobalFree((HGLOBAL)pUVar1->field0_0x0);
     }
     pUVar1 = (UNK_STRUCT_A *)&pUVar1->bmpInfo;
   } while ((int)pUVar1 < 0x425960);
-  SelectObject(HDC_DIP_A,HGDIOBJ_004246c8);
-  DeleteObject(HBITMAP_DIB_A);
-  DeleteDC(HDC_DIP_A);
-  SelectObject(HDC_DIP_B,HGDIOBJ_00421a80);
-  DeleteObject(HBITMAP_DIB_B_A);
-  DeleteDC(HDC_DIP_B);
+  SelectObject(ghHdcDip_1,ghHgdiObj);
+  DeleteObject(ghHBitmapDib_1);
+  DeleteDC(ghHdcDip_1);
+  SelectObject(ghHdcDip_2,hgHBitmapDib_2);
+  DeleteObject(ghHbitmap_Dib_2);
+  DeleteDC(ghHdcDip_2);
   UNLOAD_DSOUND();
-  RELEASE_DDRAW_INTERFACES();
+  vReleaseDdrawInterfaces();
   Unused_online_F((int3)extraout_ECX);
-  clear_kgt_file();
+  iClearKgtSystemFile();
   offset = 0;
   do {
-    clear_player_kgt_buffer(offset);
+    iClearCharacterFile(offset);
     offset = offset + 1;
   } while (offset < 8);
-  clear_demo_file();
-  clear_stage_file();
-  UINT_GAME_SCREEN_MODE = UINT_GAME_SCREEN_MODE_2;
+  iClearDemoFile();
+  iClearStageFile();
+  giConfigGameScreenMode = giGameScreenMode_2;
   FUN_SAVE_INI_FILE_00414ca0();
   SAVE_PLAYERNAME_SESSIONNAME();
-  GlobalFree(DAT_Global_Alloc_Memory_00425a44);
+  GlobalFree(gpGlobalMemoryAlloc);
   return;
 }
 
 
 
-void FUN_POSS_STATE_FRAMESTEP_00405ad0(void)
+void vGameLoop(void)
 
 {
   bool b_is_message;
   bool local_AL_399;
   BOOL BVar1;
-  DWORD DWORD_NEW_TIME;
-  int *piVar2;
+  DWORD dSystemTime;
+  offset_kgt_character_struct_ptr_57229_undefined piVar2;
   int b;
-  uint uVar3;
+  uint iNewTime;
   int i;
   tagMSG msg;
   int ten;
-  int buffer_pos;
+  int iBufferPos;
   
-  DAT_POSS_RELATED_TO_FPS_0041e2f0 = 10;
-  DWORD_TIME_00447dd4 = timeGetTime();
+  giTen = 10;
+  gdSystemTime = timeGetTime();
   i = 8;
   do {
-    FUN_00404cd0();
+    vProcessEngineObjects();
     i = i + -1;
   } while (i != 0);
-  DWORD_TIME_00447dd4 = timeGetTime();
-LAB_00405b04:
-  while (BVar1 = PeekMessageA(&msg,(HWND)0x0,0,0,0), ten = DAT_POSS_RELATED_TO_FPS_0041e2f0,
-        BVar1 != 0) {
+  gdSystemTime = timeGetTime();
+Loop_start:
+                    // Dispatch window messages
+                    // Start of actual loop, code above does not get rerun
+  while (BVar1 = PeekMessageA(&msg,(HWND)0x0,0,0,0), ten = giTen, BVar1 != 0) {
     BVar1 = GetMessageA(&msg,(HWND)0x0,0,0);
     if (BVar1 == 0) {
       return;
@@ -4924,51 +4945,52 @@ LAB_00405b04:
     DispatchMessageA(&msg);
   }
   i = 0;
-  DWORD_NEW_TIME = timeGetTime();
-  buffer_pos = INPUT_BUFFER_POS;
-  if (DAT_NEW_TIME_BIGGER_CHECK_00424700 == 0) {
-    if (DWORD_NEW_TIME < DWORD_TIME_00447dd4) {
-      frame_time_diff = DWORD_TIME_00447dd4 - DWORD_NEW_TIME;
+  dSystemTime = timeGetTime();
+  iBufferPos = giInputBufferPos;
+  if (giTimeAdjustmentFlag == 0) {
+    if (dSystemTime < gdSystemTime) {
+      giFrameTimeDiff = gdSystemTime - dSystemTime;
     }
     else {
-      frame_time_diff = DWORD_NEW_TIME - DWORD_TIME_00447dd4;
+      giFrameTimeDiff = dSystemTime - gdSystemTime;
     }
-    DAT_NEW_TIME_BIGGER_CHECK_00424700 = 1;
+    giTimeAdjustmentFlag = 1;
   }
-  uVar3 = DWORD_TIME_00447dd4 + ten;
-  if (DWORD_NEW_TIME < uVar3) goto code_r0x00405b88;
-  goto LAB_00405b97;
+  iNewTime = gdSystemTime + ten;
+  if (dSystemTime < iNewTime) goto code_r0x00405b88;
+  goto Process_Engine_Objects;
 code_r0x00405b88:
-  if (DWORD_NEW_TIME + ten <= DWORD_TIME_00447dd4) {
-    if (DWORD_NEW_TIME < uVar3) {
+  if (dSystemTime + ten <= gdSystemTime) {
+    if (dSystemTime < iNewTime) {
       i = 1;
-      DWORD_TIME_00447dd4 = uVar3;
+      gdSystemTime = iNewTime;
     }
     else {
-LAB_00405b97:
-      timer_iter_skipframe = 0;
+Process_Engine_Objects:
+                    // Catch-up frames
+      giSkipframeCount = 0;
       do {
-        timer_iter_skipframe = timer_iter_skipframe + 1;
-        if (timer_iter_skipframe < 10) {
+        giSkipframeCount = giSkipframeCount + 1;
+        if (giSkipframeCount < 10) {
           i = i + 1;
         }
-        uVar3 = uVar3 + ten;
-        DWORD_TIME_00447dd4 = DWORD_TIME_00447dd4 + ten;
-      } while (uVar3 <= DWORD_NEW_TIME);
+        iNewTime = iNewTime + ten;
+        gdSystemTime = gdSystemTime + ten;
+      } while (iNewTime <= dSystemTime);
     }
-    piVar2 = (int *)&PLAYER_KGT_BUFFER[0].field_0xdf8d;
+    piVar2 = &gkgtLoadedCharacter[0].iInputBufferPos;
     do {
-      piVar2[-1] = 0;
-      *piVar2 = buffer_pos;
-      piVar2 = (int *)((int)piVar2 + 0xe03f);
+      *(undefined4 *)&ADJ(piVar2)->field_0xdf89 = 0;
+      ADJ(piVar2)->iInputBufferPos = iBufferPos;
+      piVar2 = (offset_kgt_character_struct_ptr_57229_undefined)((int)piVar2 + 0xe03f);
     } while ((int)piVar2 < 0x54ff05);
     for (; i != 0; i = i + -1) {
-      GET_INPUTS();
-      FUN_00404cd0();
-      Unused_online_E((int *)INPUT_BUFFER_A[0][INPUT_BUFFER_POS]);
+      vGetPlayerInputs();
+      vProcessEngineObjects();
+      Unused_online_E((int *)giInputBufferA[0][giInputBufferPos]);
     }
-    handle_drawing();
-    DAT_NEW_TIME_BIGGER_CHECK_00424700 = 0;
+    vHandleDrawing();
+    giTimeAdjustmentFlag = 0;
     b = (int)unused_online_A();
     while ((void *)b != (void *)0x0) {
       BVar1 = PeekMessageA(&msg,(HWND)0x0,0,0,0);
@@ -4983,28 +5005,28 @@ LAB_00405b97:
       b = (int)unused_online_A();
     }
   }
-  goto LAB_00405b04;
+  goto Loop_start;
 }
 
 
 
-void FUN_00405c80(HWND param_1)
+void vGetWindowPos(HWND hWnd)
 
 {
   BOOL BVar1;
   tagRECT tStack_3c;
   WINDOWPLACEMENT local_2c;
   
-  if (UINT_GAME_SCREEN_MODE_2 == 0) {
-    BVar1 = GetWindowPlacement(param_1,&local_2c);
+  if (giGameScreenMode_2 == 0) {
+    BVar1 = GetWindowPlacement(hWnd,&local_2c);
     if (BVar1 != 0) {
-      UINT_GAME_WINDOW_POINT_X = local_2c.rcNormalPosition.left;
-      UINT_GAME_WINDOW_PAOINT_Y = local_2c.rcNormalPosition.top;
+      gConfigiGameWindowPointX = local_2c.rcNormalPosition.left;
+      giConfigGameWindowPointY = local_2c.rcNormalPosition.top;
       return;
     }
-    GetWindowRect(param_1,&tStack_3c);
-    UINT_GAME_WINDOW_POINT_X = tStack_3c.left;
-    UINT_GAME_WINDOW_PAOINT_Y = tStack_3c.top;
+    GetWindowRect(hWnd,&tStack_3c);
+    gConfigiGameWindowPointX = tStack_3c.left;
+    giConfigGameWindowPointY = tStack_3c.top;
   }
   return;
 }
@@ -5015,95 +5037,103 @@ int wWinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,char *pCmdLine,int nCmd
 
 {
   HWND pHVar1;
-  int i_cmd_line_arg_len;
+  int iCmdArgCount;
   char *extraout_ECX;
-  char *puVar2;
+  char *pCmdLineCharacter;
   uint extraout_EDX;
   uint uVar2;
   char (*pacVar3) [256];
-  c_256_buffer *pcVar4;
-  int iVar5;
+  int iNumberFromCmd;
   int local_214;
   char *file_name;
   undefined1 local_100 [253];
   char s_cmdline_buffer [3];
   int iVar1;
-  char c2;
+  char cCmdLineCharacter_2;
   int i;
   bool b_finishedReading;
-  byte c;
+  byte cCmdLineCharacter;
   char c_current_char;
   
-  GetCurrentDirectoryA(255,s_another_game_exe_address_);
-  pHVar1 = FindWindowA(s_KGT2KGAME_0041e7bc,(LPCSTR)0x0);
+  GetCurrentDirectoryA(255,gsCurrentDirectory);
+  pHVar1 = FindWindowA(gsGameWindow,(LPCSTR)0x0);
   if (pHVar1 != (HWND)0x0) {
     return 1;
   }
-  HINSTANCE_004701cc = hInstance;
+  ghInstance = hInstance;
   if (hPrevInstance != (HINSTANCE)0x0) {
     return local_214;
   }
-  APPMODE = NORMAL;
-  iVar5 = 0;
-  i_cmd_line_arg_len = lstrlenA(pCmdLine);
-  puVar2 = extraout_ECX;
+  giAppmode = NORMAL;
+  iNumberFromCmd = 0;
+  iCmdArgCount = lstrlenA(pCmdLine);
+  pCmdLineCharacter = extraout_ECX;
   uVar2 = extraout_EDX;
-  if (i_cmd_line_arg_len != 0) {
-    c = *pCmdLine;
-    puVar2 = (char *)(uint)c;
-    while (c != 0) {
-      c2 = *pCmdLine;
-      puVar2 = (char *)(uint)(byte)c2;
-      if (('/' < c2) && (c2 < ':')) {
-        uVar2 = iVar5 * 5;
-        iVar5 = c2 + -0x30 + iVar5 * 10;
+                    // To-Do:
+                    // Fix these extra-outs. They don't seem to actually do anything and are
+                    // immediately reassigned. uVar2 actually seems completely unused.
+  if (iCmdArgCount != 0) {
+                    // Screen command line input for any extra start-up commands
+    cCmdLineCharacter = *pCmdLine;
+    pCmdLineCharacter = (char *)(uint)cCmdLineCharacter;
+    while (cCmdLineCharacter != 0) {
+      cCmdLineCharacter_2 = *pCmdLine;
+      pCmdLineCharacter = (char *)(uint)(byte)cCmdLineCharacter_2;
+      if (('/' < cCmdLineCharacter_2) && (cCmdLineCharacter_2 < ':')) {
+                    // Conversion of numbers in hex/ascii to numbers in numbers
+        uVar2 = iNumberFromCmd * 5;
+        iNumberFromCmd = cCmdLineCharacter_2 + -0x30 + iNumberFromCmd * 10;
       }
-      if ((c2 != '-') && (c2 != '/')) goto LAB_00405dc1;
-      c = pCmdLine[1];
+      if ((cCmdLineCharacter_2 != '-') && (cCmdLineCharacter_2 != '/')) goto LAB_00405dc1;
+      cCmdLineCharacter = pCmdLine[1];
       pCmdLine = pCmdLine + 1;
-      puVar2 = (char *)((char)c + -0x44);
-      if (puVar2 < (char *)0x31) {
-        uVar2 = (uint)*(byte *)((char)c + 0x405ed0);
-        switch(c) {
+      pCmdLineCharacter = (char *)((char)cCmdLineCharacter + -0x44);
+      if (pCmdLineCharacter < (char *)0x31) {
+        uVar2 = (uint)*(byte *)((char)cCmdLineCharacter + 0x405ed0);
+        switch(cCmdLineCharacter) {
         case 0x44:
         case 100:
-          APPMODE = TEST_D;
+                    // Command '-d'
+          giAppmode = TEST_D;
           break;
         default:
           goto switchD_00405da0_caseD_45;
         case 0x46:
         case 0x66:
-          APPMODE = TEST_F;
+                    // Command '-f'
+          giAppmode = TEST_F;
           break;
         case 0x53:
         case 0x73:
-          APPMODE = TEST_S;
+                    // Command '-s'
+          giAppmode = TEST_S;
           break;
         case 0x54:
         case 0x74:
-          APPMODE = TEST_T;
+                    // Command '-t'
+          giAppmode = TEST_T;
         }
 LAB_00405dc1:
         pCmdLine = pCmdLine + 1;
       }
 switchD_00405da0_caseD_45:
-      c = *pCmdLine;
+      cCmdLineCharacter = *pCmdLine;
     }
   }
-  if (APPMODE == NORMAL) {
-    LPCSTR_lpAppName_00541f7c = PTR_s_GamePlay_0041ecac;
-    puVar2 = PTR_s_GamePlay_0041ecac;
+  if (giAppmode == NORMAL) {
+    gpsLpAppName = psGameplay;
+    pCmdLineCharacter = psGameplay;
   }
   else {
-    LPCSTR_lpAppName_00541f7c = PTR_s_TestPlay_0041eca8;
+    gpsLpAppName = psTestplay;
   }
-  Init_Windows_and_Memory_Regions_004056c0(puVar2,uVar2);
-  FUN_POSS_STATE_FRAMESTEP_00405ad0();
-  if (APPMODE != NORMAL) {
+  vInitializeWindowsAndMemory(pCmdLineCharacter,uVar2);
+  vGameLoop();
+  if (giAppmode != NORMAL) {
     b_finishedReading = false;
     i = 0;
     do {
-      c_current_char = (&CHAR_00h_0043022a)[i];
+      c_current_char = (&gcUnknownTestingCharacters)[i];
       s_cmdline_buffer[i + 1] = c_current_char;
       if ((!b_finishedReading) && (c_current_char == '\\')) {
         b_finishedReading = true;
@@ -5112,7 +5142,7 @@ switchD_00405da0_caseD_45:
       iVar1 = i + 253;
       i = i + -1;
     } while (-1 < iVar1);
-    pacVar3 = DAT_KGT_FILE_BUFFER_00433240.character_names;
+    pacVar3 = gkgtKgtSystem.gsCharacterName;
     do {
       if ((*pacVar3)[0] != '\0') {
         _sprintf((char *)&file_name,s__s_s_player_t_0041ecc8,local_100,pacVar3);
@@ -5120,22 +5150,22 @@ switchD_00405da0_caseD_45:
       }
       pacVar3 = pacVar3 + 1;
     } while ((int)pacVar3 < 0x438674);
-    pcVar4 = DAT_KGT_FILE_BUFFER_00433240.stage_names;
+    pacVar3 = gkgtKgtSystem.sStageNames;
     do {
-      if (pcVar4->str[0] != '\0') {
-        _sprintf((char *)&file_name,s__s_s_stage_t_0041ecd8,local_100,pcVar4);
+      if ((*pacVar3)[0] != '\0') {
+        _sprintf((char *)&file_name,s__s_s_stage_t_0041ecd8,local_100,pacVar3);
         DeleteFileA((LPCSTR)&file_name);
       }
-      pcVar4 = pcVar4 + 1;
-    } while ((int)pcVar4 < 0x43d49c);
-    pcVar4 = DAT_KGT_FILE_BUFFER_00433240.demo_names;
+      pacVar3 = pacVar3 + 1;
+    } while ((int)pacVar3 < 0x43d49c);
+    pacVar3 = gkgtKgtSystem.sDemoNames;
     do {
-      if (pcVar4->str[0] != '\0') {
-        _sprintf((char *)&file_name,s__s_s_demo_t_0041ece8,local_100,pcVar4);
+      if ((*pacVar3)[0] != '\0') {
+        _sprintf((char *)&file_name,s__s_s_demo_t_0041ece8,local_100,pacVar3);
         DeleteFileA((LPCSTR)&file_name);
       }
-      pcVar4 = pcVar4 + 1;
-    } while ((int)pcVar4 < 0x44389c);
+      pacVar3 = pacVar3 + 1;
+    } while ((int)pacVar3 < 0x44389c);
   }
   UNK_GRACEFUL_EXIT();
   return 0;
@@ -5145,78 +5175,88 @@ switchD_00405da0_caseD_45:
 
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 
-LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,uint lParam)
+LRESULT vMainWndProc(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam)
 
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
-  LRESULT LVar4;
+  int iCxSizeFrame;
+  int iCyMenu;
+  int iSmCyCaption;
+  LRESULT LVar1;
   tagPAINTSTRUCT local_40;
   
   if (0x1c < uMsg) {
     if (uMsg < 0x106) {
       if (uMsg == 0x105) {
+                    // WM_SYSKEYUP
         if (wParam == 0xd) {
-          UINT_GAME_SCREEN_MODE_2 = UINT_GAME_SCREEN_MODE_2 - 1 & 1;
-          SETUP_DDRAW_PRIMARY_SURFACE();
-          DWORD_TIME_00447dd4 = timeGetTime();
+                    // Carriage Return
+          giGameScreenMode_2 = giGameScreenMode_2 - 1 & 1;
+          vSetupDdrawPrimarySurface();
+          gdSystemTime = timeGetTime();
         }
-        if (UINT_GAME_SCREEN_MODE_2 != 0) {
+        if (giGameScreenMode_2 != 0) {
           return 0;
         }
-        LVar4 = DefWindowProcA(hWnd,0x105,wParam,lParam);
-        return LVar4;
+        LVar1 = DefWindowProcA(hWnd,0x105,wParam,lParam);
+        return LVar1;
       }
       if (uMsg == 0x24) {
-        iVar1 = GetSystemMetrics(32);
-        *(int *)(lParam + 0x18) = iVar1 * 2 + 0xa0;
-        iVar1 = GetSystemMetrics(32);
-        iVar2 = GetSystemMetrics(0xf);
-        iVar3 = GetSystemMetrics(4);
-        *(int *)(lParam + 0x1c) = iVar2 + 0x78 + iVar1 * 2 + iVar3;
+                    // WM_GETMINXMAXINFO
+                    // 32 = SM_CXSIZEFRAME
+                    // 15 = SM_CYMENU
+                    // 04 = SM_CYCAPTION
+                    // 
+                    // To-do: Figure out what structure lParam is here.
+        iCxSizeFrame = GetSystemMetrics(32);
+        *(int *)(lParam + 0x18) = iCxSizeFrame * 2 + 0xa0;
+        iCxSizeFrame = GetSystemMetrics(32);
+        iCyMenu = GetSystemMetrics(0xf);
+        iSmCyCaption = GetSystemMetrics(4);
+        *(int *)(lParam + 0x1c) = iCyMenu + 0x78 + iCxSizeFrame * 2 + iSmCyCaption;
         return 0;
       }
       if (uMsg == 0x100) {
+                    // WM_KEYDOWN
         if (wParam == 0x73) {
-          UINT_GAME_SCREEN_MODE_2 = UINT_GAME_SCREEN_MODE_2 - 1 & 1;
-          SETUP_DDRAW_PRIMARY_SURFACE();
-          DWORD_TIME_00447dd4 = timeGetTime();
+                    // Lowercase s ???
+          giGameScreenMode_2 = giGameScreenMode_2 - 1 & 1;
+          vSetupDdrawPrimarySurface();
+          gdSystemTime = timeGetTime();
         }
-        if (APPMODE == NORMAL) {
+        if (giAppmode == NORMAL) {
           return 0;
         }
         switch(wParam) {
         case 0x70:
-          UINT_TESTPLAY_HITJUDGE_2_0042470c = UINT_TESTPLAY_HITJUDGE_2_0042470c ^ 1;
-          if (UINT_TESTPLAY_HITJUDGE_2_0042470c == 0) {
-            SET_DEBUG_INFO(s_HAN_HIRAGANA__0041ed0c,0xefefff);
+          giConfigTestplayHitjudge_2 = giConfigTestplayHitjudge_2 ^ 1;
+          if (giConfigTestplayHitjudge_2 == 0) {
+            iSetDebugInfo(gsHitDebugOff,0xefefff);
             return 0;
           }
-          SET_DEBUG_INFO(s_HAN_HIRAGANA__0041ecf4,0xefefff);
+          iSetDebugInfo(gsHitDebugOn,0xefefff);
           return 0;
         default:
           return 0;
         case 0x72:
-          GAME_STATE.status_display = GAME_STATE.status_display ^ 1;
-          if (GAME_STATE.status_display == 0) {
-            SET_DEBUG_INFO(s_HAN_KATAKANA__0041ed40,0xdfffff);
+          gkgtGameState.iStatusDisplay = gkgtGameState.iStatusDisplay ^ 1;
+          if (gkgtGameState.iStatusDisplay == 0) {
+            iSetDebugInfo(gsStatusDisplayOff,0xdfffff);
             return 0;
           }
-          SET_DEBUG_INFO(s_HAN_KATAKANA__0041ed28,0xdfffff);
+          iSetDebugInfo(gsStatusDisplayOn,0xdfffff);
           return 0;
         case 0x74:
           goto switchD_00406135_caseD_74;
         case 0x75:
-          if (GAME_STATE.GAME_MODE != 1P_story) {
-            if ((int)GAME_STATE.GAME_MODE < 1) {
+          if (gkgtGameState.kgtGameMode != 1P_story) {
+            if ((int)gkgtGameState.kgtGameMode < 1) {
               return 0;
             }
-            if (2 < (int)GAME_STATE.GAME_MODE) {
+            if (2 < (int)gkgtGameState.kgtGameMode) {
               return 0;
             }
           }
-          PLAYER_KGT_BUFFER[0].health = 0;
+          gkgtLoadedCharacter[0].iHealth = 0;
           return 0;
         case 0x7b:
           DAT_00424718 = DAT_00424718 + 1;
@@ -5226,46 +5266,47 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,uint lParam)
     }
     else {
       if (uMsg == 0x111) {
+                    // WM_COMMAND
         if ((short)lParam != 0) {
           return 0;
         }
-        Handle_dialog_boxes_and_window_moving_prob(hWnd,wParam);
+        vHandleWmCommand(hWnd,wParam);
         return 0;
       }
       if (uMsg == 0x3b9) {
-        if ((MCI_OPEN_FLAG == 0) || ((lParam & 0xffff) != MCIDEVICEID_00424720)) {
+        if ((MCI_OPEN_FLAG == 0) || ((lParam & 0xffffU) != MCIDEVICEID_00424720)) {
           if (MCI_FLAG_00424738 == 0) {
             return 0;
           }
-          if ((lParam & 0xffff) != MCIDEVICEID_0042473c) {
+          if ((lParam & 0xffffU) != MCIDEVICEID_0042473c) {
             return 0;
           }
           if (wParam == 1) {
             if (DAT_00424740 != 0) {
-              play_then_close_mid_file();
+              iPlayAndCloseMidFile();
               return 0;
             }
           }
           else if (wParam != 8) {
             return 0;
           }
-          FUN_00415600();
+          vUnkHandleMci();
           return 0;
         }
         if (wParam != 1) {
           if (wParam != 8) {
             return 0;
           }
-          CLOSE_MCIDEVICE();
+          vCloseMciDevice();
           _DAT_0042472c = 1;
           return 0;
         }
-        if (DAT_00424728 == 0) {
-          CLOSE_MCIDEVICE();
+        if (giDiscLoopFlag == 0) {
+          vCloseMciDevice();
           return 0;
         }
-        iVar1 = FUN_00415440();
-        if (iVar1 == 0) {
+        iCxSizeFrame = iUnkHandleMci_2();
+        if (iCxSizeFrame == 0) {
           return 0;
         }
         _DAT_0042472c = 1;
@@ -5273,18 +5314,19 @@ LRESULT WindowProc(HWND hWnd,uint uMsg,WPARAM wParam,uint lParam)
       }
     }
 switchD_00405f7d_caseD_4:
-    LVar4 = DefWindowProcA(hWnd,uMsg,wParam,lParam);
-    return LVar4;
+    LVar1 = DefWindowProcA(hWnd,uMsg,wParam,lParam);
+    return LVar1;
   }
   if (uMsg == 0x1c) {
-    if ((((wParam != 0) && (DAT_00424774 != 0)) && (DAT_0042476c == 0)) &&
-       (UINT_GAME_SCREEN_MODE_2 != 0)) {
-      restoreDDRAWinterfaces();
+                    // WM_ACTIVATEAPP
+    if ((((wParam != 0) && (DAT_00424774 != 0)) && (DAT_0042476c == 0)) && (giGameScreenMode_2 != 0)
+       ) {
+      vRestoreDdrawInterfaces();
     }
-    if (APPMODE == NORMAL) {
+    if (giAppmode == NORMAL) {
       return 0;
     }
-    if (UINT_TESTPLAY_EXIT == 0) {
+    if (giConfigTestplayExit == 0) {
       return 0;
     }
     if (wParam != 0) {
@@ -5296,97 +5338,98 @@ switchD_00405f7d_caseD_2:
   }
   switch(uMsg) {
   case 1:
-    check_window_bounding_area(hWnd);
+    vCheckWindowBounds(hWnd);
     return 0;
   case 2:
     goto switchD_00405f7d_caseD_2;
   case 3:
-    check_window_bounding_area(hWnd);
-    FUN_00405c80(hWnd);
-    LVar4 = DefWindowProcA(hWnd,uMsg,wParam,lParam);
-    return LVar4;
+    vCheckWindowBounds(hWnd);
+    vGetWindowPos(hWnd);
+    LVar1 = DefWindowProcA(hWnd,uMsg,wParam,lParam);
+    return LVar1;
   default:
     goto switchD_00405f7d_caseD_4;
   case 5:
-    if (UINT_GAME_SCREEN_MODE_2 == 0) {
-      UINT_GAME_WINDOW_SIZE_X = lParam & 0xffff;
-      UINT_GAME_WINDOW_SIZE_Y = lParam >> 0x10;
-      check_window_bounding_area(hWnd);
-      FUN_00405c80(hWnd);
+    if (giGameScreenMode_2 == 0) {
+      giConfigGameWindowSizeX = lParam & 0xffff;
+      giConfigGameWindowSizeY = (uint)lParam >> 0x10;
+      vCheckWindowBounds(hWnd);
+      vGetWindowPos(hWnd);
       SendMessageA(hWnd,0xf,0,0);
-      LVar4 = DefWindowProcA(hWnd,uMsg,wParam,lParam);
-      return LVar4;
+      LVar1 = DefWindowProcA(hWnd,uMsg,wParam,lParam);
+      return LVar1;
     }
     break;
   case 0xf:
     BeginPaint(hWnd,&local_40);
     EndPaint(hWnd,&local_40);
-    if (UINT_GAME_SCREEN_MODE_2 == 0) {
-      FUN_00404c10();
+    if (giGameScreenMode_2 == 0) {
+      vWindowBltFuncs();
       return 0;
     }
   }
   return 0;
 switchD_00406135_caseD_74:
-  if (GAME_STATE.GAME_MODE == 1P_story) {
-    PLAYER_KGT_BUFFER[0].something_to_do_with_starting_health2 = 100;
+  if (gkgtGameState.kgtGameMode == 1P_story) {
+    gkgtLoadedCharacter[0].something_to_do_with_starting_health2 = 100;
     return 0;
   }
-  if ((int)GAME_STATE.GAME_MODE < 1) {
+  if ((int)gkgtGameState.kgtGameMode < 1) {
     return 0;
   }
-  if (2 < (int)GAME_STATE.GAME_MODE) {
+  if (2 < (int)gkgtGameState.kgtGameMode) {
     return 0;
   }
-  PLAYER_KGT_BUFFER[1].health = 0;
+  gkgtLoadedCharacter[1].iHealth = 0;
   return 0;
 }
 
 
 
-void RESET_OBJECTS_AND_SET_GAME_SPEED(void)
+void vResetObjectsAndSpeed(void)
 
 {
-  OBJ_STRUCT *pOVar1;
-  OBJ_STRUCT *pOVar2;
+  kgtEngineObject *kgtEngineObjectList;
   int i;
+  kgtEngineObject *kgtCurrentEngineObject;
   
-  pOVar1 = PTR_POSS_CURRENT_OBJ;
-  pOVar2 = OBJ_ARRAY;
+  kgtCurrentEngineObject = gpkgtCurrentEngineObject;
+  kgtEngineObjectList = kgtEngineObjects;
   i = 1024;
   do {
-    if ((1 < (int)pOVar2->jmp_idx) && (pOVar2 != pOVar1)) {
-      pOVar2->jmp_idx = reset_index;
+    if ((1 < (int)kgtEngineObjectList->iJumpIdx) && (kgtEngineObjectList != kgtCurrentEngineObject))
+    {
+      kgtEngineObjectList->iJumpIdx = RESET_IDX;
     }
-    pOVar2 = pOVar2 + 1;
+    kgtEngineObjectList = kgtEngineObjectList + 1;
     i = i + -1;
   } while (i != 0);
-  if ((int)UINT_TESTPLAY_GAMESPEED < 11) {
-    DAT_LIKELY_FPS = UINT_TESTPLAY_GAMESPEED * 5 + 50;
+  if ((int)giConfigTestplayGamespeed < 11) {
+    giGamespeedFrames = giConfigTestplayGamespeed * 5 + 50;
   }
   else {
-    DAT_LIKELY_FPS = UINT_TESTPLAY_GAMESPEED * 10;
+    giGamespeedFrames = giConfigTestplayGamespeed * 10;
   }
-  player_momentum_scalar = (int)(65536 / (longlong)DAT_LIKELY_FPS);
-  gravity_scalar = (int)(3932160 / (longlong)(DAT_LIKELY_FPS * DAT_LIKELY_FPS));
+  giPlayerMomentumScalar = (int)(65536 / (longlong)giGamespeedFrames);
+  giGravityScalar = (int)(3932160 / (longlong)(giGamespeedFrames * giGamespeedFrames));
   return;
 }
 
 
 
-void reset_all_objects_with_action(int action_offset)
+void vResetAllObjectsWithSkillIdx(int iSkillIdx)
 
 {
-  OBJ_STRUCT *pOVar1;
+  kgtEngineObject *pkVar1;
   int iVar2;
   
-  pOVar1 = OBJ_ARRAY;
+  pkVar1 = kgtEngineObjects;
   iVar2 = 0x400;
   do {
-    if ((pOVar1->jmp_idx == 4) && (pOVar1->action_idx == action_offset)) {
-      pOVar1->jmp_idx = reset_index;
+    if ((pkVar1->iJumpIdx == READ_SCRIPT) && (pkVar1->iSkillIdx == iSkillIdx)) {
+      pkVar1->iJumpIdx = RESET_IDX;
     }
-    pOVar1 = pOVar1 + 1;
+    pkVar1 = pkVar1 + 1;
     iVar2 = iVar2 + -1;
   } while (iVar2 != 0);
   return;
@@ -5394,27 +5437,27 @@ void reset_all_objects_with_action(int action_offset)
 
 
 
-void reset_all_objects_for_player(int param_1)
+void vResetObjectsForPlayerIdx(int iPlayerIdx)
 
 {
-  OBJ_STRUCT *pOVar1;
+  kgtEngineObject *pkVar1;
   int iVar2;
-  OBJ_STRUCT **ppOVar3;
+  kgtEngineObject **ppkVar3;
   
-  pOVar1 = OBJ_ARRAY;
+  pkVar1 = kgtEngineObjects;
   iVar2 = 0x400;
   do {
-    if (((pOVar1->jmp_idx == 4) && ((int)pOVar1->obj_type < 2)) &&
-       (pOVar1->player_file_buffer == param_1)) {
-      pOVar1->jmp_idx = reset_index;
+    if (((pkVar1->iJumpIdx == READ_SCRIPT) && ((int)pkVar1->iObjectType < 2)) &&
+       (pkVar1->iPlayerIdx == iPlayerIdx)) {
+      pkVar1->iJumpIdx = RESET_IDX;
     }
-    pOVar1 = pOVar1 + 1;
+    pkVar1 = pkVar1 + 1;
     iVar2 = iVar2 + -1;
   } while (iVar2 != 0);
-  ppOVar3 = PLAYER_KGT_BUFFER[param_1].object_mNumbers;
+  ppkVar3 = gkgtLoadedCharacter[iPlayerIdx].object_mNumbers;
   for (iVar2 = 10; iVar2 != 0; iVar2 = iVar2 + -1) {
-    *ppOVar3 = (OBJ_STRUCT *)0x0;
-    ppOVar3 = ppOVar3 + 1;
+    *ppkVar3 = (kgtEngineObject *)0x0;
+    ppkVar3 = ppkVar3 + 1;
   }
   return;
 }
@@ -5423,269 +5466,276 @@ void reset_all_objects_for_player(int param_1)
 
 // WARNING: Unknown calling convention
 
-OBJ_STRUCT * FIND_EMPTY_OBJ(int param_1,int param_2,int param_3,int param_4)
+kgtEngineObject *
+kgtoNewEngineObject(kgtJumptableEndpoints iJumpIdx,int param_2,int param_3,int param_4)
 
 {
-  OBJ_STRUCT *pOVar1;
-  int iVar2;
+  int iVar1;
   int i2;
   int i;
-  OBJ_STRUCT *pOVar3;
-  OBJ_STRUCT *pOVar6;
-  int *pOVar5;
-  int *pOVar4;
+  kgtEngineObject *kgtCurrentObj;
+  kgtEngineObject *kgtObj;
+  int *pkgtFirstEngineObject;
+  int *pObjectMember;
+  kgtEngineObject *kgtParentObj;
+  kgtEngineObject *pkgtCurrentEngineObject_2;
   
-  iVar2 = 0;
-  pOVar6 = OBJ_ARRAY;
+  iVar1 = 0;
+  kgtObj = kgtEngineObjects;
   do {
-    pOVar3 = pOVar6;
-    if (pOVar3->jmp_idx == empty_return) {
-      pOVar4 = (int *)pOVar3;
+    kgtCurrentObj = kgtObj;
+    if (kgtCurrentObj->iJumpIdx == EMPTY) {
+      pObjectMember = (int *)kgtCurrentObj;
+                    // Zero out object memory
       for (i = 95; i != 0; i = i + -1) {
-        *pOVar4 = 0;
-        pOVar4 = pOVar4 + 1;
+        *pObjectMember = 0;
+        pObjectMember = pObjectMember + 1;
       }
-      *(undefined2 *)pOVar4 = 0;
-      pOVar3->jmp_idx = param_1;
-      pOVar3->param2_maybe_50_or_46 = param_2;
-      pOVar6 = PTR_POSS_CURRENT_OBJ;
-      pOVar3->param_3 = param_3;
-      pOVar3->param_4 = param_4;
-      pOVar3->parent_obj = pOVar6;
-      return pOVar3;
+      *(undefined2 *)pObjectMember = 0;
+      kgtCurrentObj->iJumpIdx = iJumpIdx;
+      kgtCurrentObj->iParam2 = param_2;
+      kgtParentObj = gpkgtCurrentEngineObject;
+      kgtCurrentObj->iParam3 = param_3;
+      kgtCurrentObj->iParam4 = param_4;
+      kgtCurrentObj->parent_obj = kgtParentObj;
+      return kgtCurrentObj;
     }
-    iVar2 = iVar2 + 1;
-    pOVar6 = pOVar3 + 1;
-  } while (iVar2 < 1023);
-  pOVar5 = (int *)pOVar6;
+    iVar1 = iVar1 + 1;
+    kgtObj = kgtCurrentObj + 1;
+  } while (iVar1 < 1023);
+  pkgtFirstEngineObject = (int *)kgtObj;
   for (i2 = 95; i2 != 0; i2 = i2 + -1) {
-    *pOVar5 = 0;
-    pOVar5 = pOVar5 + 1;
+    *pkgtFirstEngineObject = 0;
+    pkgtFirstEngineObject = pkgtFirstEngineObject + 1;
   }
-  *(undefined2 *)pOVar5 = 0;
-  pOVar6->jmp_idx = param_1;
-  pOVar3[1].param2_maybe_50_or_46 = param_2;
-  pOVar1 = PTR_POSS_CURRENT_OBJ;
-  pOVar3[1].param_3 = param_3;
-  pOVar3[1].param_4 = param_4;
-  pOVar3[1].parent_obj = pOVar1;
-  SET_DEBUG_INFO(s_OBJ_OVER_0041edb0,0x1fff1f);
-  return pOVar6;
+  *(undefined2 *)pkgtFirstEngineObject = 0;
+  kgtObj->iJumpIdx = iJumpIdx;
+  kgtCurrentObj[1].iParam2 = param_2;
+  pkgtCurrentEngineObject_2 = gpkgtCurrentEngineObject;
+  kgtCurrentObj[1].iParam3 = param_3;
+  kgtCurrentObj[1].iParam4 = param_4;
+  kgtCurrentObj[1].parent_obj = pkgtCurrentEngineObject_2;
+  iSetDebugInfo(gsObjOver,0x1fff1f);
+  return kgtObj;
 }
 
 
 
-void setup_stage_spawn_scripts(void)
+void vSpawnStageScripts(void)
 
 {
   ushort uVar1;
   bool bVar2;
-  int _x20_diff;
-  OBJ_STRUCT *new_obj;
+  int iSkillEndStep;
+  kgtEngineObject *pkgtoNewObject;
   int _x20_diff2;
-  OBJ_STRUCT *pOVar3;
-  kgt_skill_step_struct *pActionscript;
-  uint this_0x20;
+  kgtEngineObject *pkVar3;
+  kgtSkill *pSkillScript;
+  uint iThisSkillStartingStep;
   int idx;
   int offset;
-  uint uVar4;
-  short *new_obj_param_2;
+  uint iSkillIdxStageLayout1;
+  short *iNewParam2;
   int offset2;
-  kgt_skill_struct *pActionsAlloc;
+  kgtSkillHeader *pSkillsAlloc;
   
   idx = 1;
-  new_obj_param_2 = (short *)12;
-  if (1 < UNK_STAGE_FILES_00445740.kgt_core.i_actions_amount + -1) {
+  iNewParam2 = (short *)12;
+  if (1 < gkgtLoadedStage.kgt_core.iActionsCount + -1) {
     offset = 0x27;
-    pActionsAlloc = UNK_STAGE_FILES_00445740.kgt_core.p_actions_alloc;
+    pSkillsAlloc = gkgtLoadedStage.kgt_core.pSkillsAlloc;
     do {
-      if (pActionsAlloc->action_name[offset] != '\0') {
+      if (pSkillsAlloc->cName[offset] != '\0') {
         bVar2 = false;
-        if (*(int *)(pActionsAlloc->action_name + offset + 0x23) == 3) {
-          new_obj_param_2 = (short *)100;
+        if (*(int *)(pSkillsAlloc->cName + offset + 0x23) == 3) {
+          iNewParam2 = (short *)100;
         }
-        this_0x20 = (uint)*(ushort *)(pActionsAlloc->action_name + offset + 0x20);
-        if (this_0x20 < *(ushort *)(pActionsAlloc[1].action_name + offset + 0x20)) {
-          pActionscript = UNK_STAGE_FILES_00445740.kgt_core.p_actionscripts_alloc + this_0x20;
-          _x20_diff = *(ushort *)(pActionsAlloc[1].action_name + offset + 0x20) - this_0x20;
+        iThisSkillStartingStep = (uint)*(ushort *)(pSkillsAlloc->cName + offset + 0x20);
+        if (iThisSkillStartingStep < *(ushort *)(pSkillsAlloc[1].cName + offset + 0x20)) {
+          pSkillScript = gkgtLoadedStage.kgt_core.pSkillScriptsAlloc + iThisSkillStartingStep;
+          iSkillEndStep =
+               *(ushort *)(pSkillsAlloc[1].cName + offset + 0x20) - iThisSkillStartingStep;
           do {
-            if (pActionscript->skill_step_type == 0xc) {
+            if (pSkillScript->cSkillType == '\f') {
               bVar2 = true;
             }
-            pActionscript = pActionscript + 1;
-            _x20_diff = _x20_diff + -1;
-          } while (_x20_diff != 0);
+            pSkillScript = pSkillScript + 1;
+            iSkillEndStep = iSkillEndStep + -1;
+          } while (iSkillEndStep != 0);
           if (bVar2) {
-            new_obj = FIND_EMPTY_OBJ(4,(int)new_obj_param_2,0,0);
-            pActionsAlloc = UNK_STAGE_FILES_00445740.kgt_core.p_actions_alloc;
-            new_obj->obj_type = stage_file;
-            uVar1 = *(ushort *)(pActionsAlloc->action_name + offset + 0x20);
-            new_obj->action_idx = idx;
-            *(uint *)&new_obj->actionscript_idx = (uint)uVar1;
+            pkgtoNewObject = kgtoNewEngineObject(READ_SCRIPT,(int)iNewParam2,0,0);
+            pSkillsAlloc = gkgtLoadedStage.kgt_core.pSkillsAlloc;
+            pkgtoNewObject->iObjectType = STAGE_ENGINE_OBJECT;
+            uVar1 = *(ushort *)(pSkillsAlloc->cName + offset + 0x20);
+            pkgtoNewObject->iSkillIdx = idx;
+            *(uint *)&pkgtoNewObject->iSkillScriptIdx = (uint)uVar1;
           }
         }
       }
       idx = idx + 1;
       offset = offset + 0x27;
-    } while (idx < UNK_STAGE_FILES_00445740.kgt_core.i_actions_amount + -1);
+    } while (idx < gkgtLoadedStage.kgt_core.iActionsCount + -1);
   }
-  new_obj_param_2 = &DAT_KGT_FILE_BUFFER_00433240.skill_idx_stage_layout_1;
-  pActionsAlloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
+  iNewParam2 = &gkgtKgtSystem.shSkillIdxStageLayout1;
+  pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
   do {
-    uVar4 = (uint)(ushort)*new_obj_param_2;
+    iSkillIdxStageLayout1 = (uint)(ushort)*iNewParam2;
     bVar2 = false;
-    this_0x20 = (uint)(ushort)pActionsAlloc[uVar4].starting_step_idx;
-    if (this_0x20 < (ushort)pActionsAlloc[uVar4 + 1].starting_step_idx) {
-      pActionscript = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc + this_0x20;
-      _x20_diff2 = (ushort)pActionsAlloc[uVar4 + 1].starting_step_idx - this_0x20;
+    iThisSkillStartingStep = (uint)(ushort)pSkillsAlloc[iSkillIdxStageLayout1].shStartingStepIdx;
+    if (iThisSkillStartingStep < (ushort)pSkillsAlloc[iSkillIdxStageLayout1 + 1].shStartingStepIdx)
+    {
+      pSkillScript = gkgtKgtSystem.kgtCore.pSkillScriptsAlloc + iThisSkillStartingStep;
+      _x20_diff2 = (ushort)pSkillsAlloc[iSkillIdxStageLayout1 + 1].shStartingStepIdx -
+                   iThisSkillStartingStep;
       do {
-        if (pActionscript->skill_step_type == 0xc) {
+        if (pSkillScript->cSkillType == '\f') {
           bVar2 = true;
         }
-        pActionscript = pActionscript + 1;
+        pSkillScript = pSkillScript + 1;
         _x20_diff2 = _x20_diff2 + -1;
       } while (_x20_diff2 != 0);
       if (bVar2) {
-        pOVar3 = FIND_EMPTY_OBJ(4,101,0,0);
-        pActionsAlloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-        pOVar3->obj_type = main_kgt_file;
-        uVar1 = pActionsAlloc[uVar4].starting_step_idx;
-        pOVar3->action_idx = uVar4;
-        *(uint *)&pOVar3->actionscript_idx = (uint)uVar1;
+        pkVar3 = kgtoNewEngineObject(READ_SCRIPT,101,0,0);
+        pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+        pkVar3->iObjectType = SYSTEM_ENGINE_OBJECT;
+        uVar1 = pSkillsAlloc[iSkillIdxStageLayout1].shStartingStepIdx;
+        pkVar3->iSkillIdx = iSkillIdxStageLayout1;
+        *(uint *)&pkVar3->iSkillScriptIdx = (uint)uVar1;
       }
     }
-    new_obj_param_2 = new_obj_param_2 + 1;
-  } while ((int)new_obj_param_2 < 0x44522e);
-  Handle_Sound_Skillscript_block
-            (UNK_STAGE_FILES_00445740.kgt_core.p_sound_structs +
-             (UNK_STAGE_FILES_00445740._8756_4_ & 0xffff));
+    iNewParam2 = iNewParam2 + 1;
+  } while ((int)iNewParam2 < 0x44522e);
+  vHandleLoadingSound(gkgtLoadedStage.kgt_core.pkgtSounds + (gkgtLoadedStage._8756_4_ & 0xffff));
   return;
 }
 
 
 
-void spawn_scriptread_obj_for_each_demo_skill(void)
+void vSpawnEngineObjectForDemoSkills(void)
 
 {
   ushort uVar1;
   int step_count;
-  OBJ_STRUCT *new_obj;
-  kgt_skill_step_struct *skillscript;
+  kgtEngineObject *new_obj;
+  kgtSkill *skillscript;
   uint skillscript_offset;
   int i;
   int offset;
-  kgt_skill_struct *pActionsAlloc;
+  kgtSkillHeader *pSkill;
   int local_4;
   bool is_valid_skill;
   
   i = 1;
   local_4 = 0xc;
-  if (1 < UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.i_actions_amount + -1) {
+  if (1 < gkgtLoadedDemo.kgtCore.iActionsCount + -1) {
     offset = 0x27;
-    pActionsAlloc = UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.p_actions_alloc;
+    pSkill = gkgtLoadedDemo.kgtCore.pSkillsAlloc;
     do {
-      if (pActionsAlloc->action_name[offset] != '\0') {
+      if (pSkill->cName[offset] != '\0') {
         is_valid_skill = false;
-        if (*(int *)(pActionsAlloc->action_name + offset + 0x23) == 3) {
+                    // Check default grouping
+                    // 03 is 'System Images' skill
+        if (*(int *)(pSkill->cName + offset + 0x23) == 3) {
           local_4 = 100;
         }
-        skillscript_offset = (uint)*(ushort *)(pActionsAlloc->action_name + offset + 0x20);
-        if (skillscript_offset < *(ushort *)(pActionsAlloc[1].action_name + offset + 0x20)) {
-          skillscript = UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.p_actionscripts_alloc +
-                        skillscript_offset;
-          step_count = *(ushort *)(pActionsAlloc[1].action_name + offset + 0x20) -
-                       skillscript_offset;
+                    // 0x20 is offset for shStartingStepIdx
+        skillscript_offset = (uint)*(ushort *)(pSkill->cName + offset + 0x20);
+        if (skillscript_offset < *(ushort *)(pSkill[1].cName + offset + 0x20)) {
+          skillscript = gkgtLoadedDemo.kgtCore.pSkillScriptsAlloc + skillscript_offset;
+          step_count = *(ushort *)(pSkill[1].cName + offset + 0x20) - skillscript_offset;
           do {
-            if (skillscript->skill_step_type == 0xc) {
+                    // [I] skill block
+            if (skillscript->cSkillType == '\f') {
               is_valid_skill = true;
             }
             skillscript = skillscript + 1;
             step_count = step_count + -1;
           } while (step_count != 0);
           if (is_valid_skill) {
-            new_obj = FIND_EMPTY_OBJ(4,local_4,0,0);
-            pActionsAlloc = UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.p_actions_alloc;
-            new_obj->obj_type = demo_file;
-            uVar1 = *(ushort *)(pActionsAlloc->action_name + offset + 0x20);
-            new_obj->action_idx = i;
-            *(uint *)&new_obj->actionscript_idx = (uint)uVar1;
+            new_obj = kgtoNewEngineObject(READ_SCRIPT,local_4,0,0);
+            pSkill = gkgtLoadedDemo.kgtCore.pSkillsAlloc;
+            new_obj->iObjectType = DEMO_ENGINE_OBJECT;
+            uVar1 = *(ushort *)(pSkill->cName + offset + 0x20);
+            new_obj->iSkillIdx = i;
+            *(uint *)&new_obj->iSkillScriptIdx = (uint)uVar1;
           }
         }
       }
       i = i + 1;
       offset = offset + 0x27;
-    } while (i < UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.i_actions_amount + -1);
+    } while (i < gkgtLoadedDemo.kgtCore.iActionsCount + -1);
   }
                     // Loads BGM
-  Handle_Sound_Skillscript_block
-            (UNK_DEMO_FILE_BUFFER_00425a60.kgt_core.p_sound_structs +
-             (UNK_DEMO_FILE_BUFFER_00425a60._8756_4_ & 0xffff));
-  UNK_FLAG_00424f08 = UNK_DEMO_FILE_BUFFER_00425a60._8761_4_;
-  UNK_FLAG_00424f04._0_1_ = UNK_DEMO_FILE_BUFFER_00425a60._8758_1_;
+                    // bgm Selection variable
+  vHandleLoadingSound(gkgtLoadedDemo.kgtCore.pkgtSounds + (gkgtLoadedDemo._8756_4_ & 0xffff));
+  giDemoTime = gkgtLoadedDemo._8761_4_;
+  giDemoSkipWithInput._0_1_ = gkgtLoadedDemo.cSkipWithInput;
   return;
 }
 
 
 
-int __cdecl new_kgt_scriptread_obj_with_action_idx(short idx,int param_2,int param_3,int param_4)
+kgtEngineObject * __cdecl
+kgtoNewObjectForSkillIdx
+          (kgtEngineObject *__return_storage_ptr__,short idx,int param_2,int param_3,int param_4)
 
 {
-  kgt_skill_struct *pkVar1;
-  OBJ_STRUCT *pOVar2;
-  undefined2 in_stack_00000006;
+  kgtSkillHeader *pkVar1;
+  kgtEngineObject *pkVar2;
+  undefined2 in_stack_0000000a;
   
-  pOVar2 = FIND_EMPTY_OBJ(4,param_2,param_3,param_4);
-  pkVar1 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-  pOVar2->action_idx = _idx;
-  pOVar2->obj_type = main_kgt_file;
-  *(uint *)&pOVar2->actionscript_idx = (uint)(ushort)pkVar1[_idx].starting_step_idx;
-  return (int)pOVar2;
+  pkVar2 = kgtoNewEngineObject(READ_SCRIPT,_idx,param_2,param_3);
+  pkVar1 = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+  pkVar2->iSkillIdx = (int)__return_storage_ptr__;
+  pkVar2->iObjectType = SYSTEM_ENGINE_OBJECT;
+  *(uint *)&pkVar2->iSkillScriptIdx =
+       (uint)(ushort)pkVar1[(int)__return_storage_ptr__].shStartingStepIdx;
+  return pkVar2;
 }
 
 
 
-uint new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-               (int action_idx,int param_2,int param_3,int param_4)
+uint kgtSpawnNewEngineObjectReturnSkillField0x1(int iSkillIdx,int param_2,int param_3,int param_4)
 
 {
   ushort uVar1;
-  OBJ_STRUCT *newObj;
+  kgtEngineObject *newObj;
   uint uVar2;
-  kgt_skill_struct *pkVar3;
+  kgtSkillHeader *pkVar3;
   char local_100 [256];
   
-  newObj = FIND_EMPTY_OBJ(4,param_2,param_3,param_4);
-  newObj->obj_type = main_kgt_file;
-  newObj->action_idx = action_idx;
-  pkVar3 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc + action_idx;
-  uVar2 = (uint)(ushort)pkVar3->starting_step_idx;
-  *(uint *)&newObj->actionscript_idx = uVar2;
-  uVar1 = *(ushort *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc[uVar2].field_0x1;
+  newObj = kgtoNewEngineObject(READ_SCRIPT,param_2,param_3,param_4);
+  newObj->iObjectType = SYSTEM_ENGINE_OBJECT;
+  newObj->iSkillIdx = iSkillIdx;
+  pkVar3 = gkgtKgtSystem.kgtCore.pSkillsAlloc + iSkillIdx;
+  uVar2 = (uint)(ushort)pkVar3->shStartingStepIdx;
+  *(uint *)&newObj->iSkillScriptIdx = uVar2;
+  uVar1 = *(ushort *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc[uVar2].field_0x1;
   _sprintf(local_100,s_demo__s_wait__d_0041edbc,pkVar3,(uint)uVar1);
-  SET_DEBUG_INFO(local_100,0x1fff1f);
+  iSetDebugInfo(local_100,0x1fff1f);
   return (uint)uVar1;
 }
 
 
 
-void EMPTY_OBJECTS(void)
+void vEmptyEngineObjects(void)
 
 {
   int i;
-  int *piVar2;
+  int *obj;
   
-  piVar2 = (int *)OBJ_ARRAY;
+  obj = (int *)kgtEngineObjects;
   for (i = 97792; i != 0; i = i + -1) {
-    *piVar2 = 0;
-    piVar2 = piVar2 + 1;
+    *obj = 0;
+    obj = obj + 1;
   }
-  FIND_EMPTY_OBJ(2,0,0,0);
+  kgtoNewEngineObject(START_GAME,0,0,0);
   return;
 }
 
 
 
-void EMPTY_FUNCTION(void)
+void vEmptyFunction(void)
 
 {
   return;
@@ -5696,122 +5746,139 @@ void EMPTY_FUNCTION(void)
 void RESET_JUMPTABLE_INDEX(void)
 
 {
-  PTR_POSS_CURRENT_OBJ->jmp_idx = empty_return;
+  gpkgtCurrentEngineObject->iJumpIdx = EMPTY;
   return;
 }
 
 
 
-void HANDLE_STORY_MODE(void)
+void vProgressStoryMode(void)
 
 {
-  kgt_character_struct *pkVar1;
+  kgt_character_struct *pkgtLoadedCharacter;
   int i2;
   int i;
-  char *pcVar2;
+  char *pEnemyCharacter;
   char *debug_str;
   char f_text [224];
-  int *pbVar3;
-  int story_step;
+  int *pCurrentStoryEntry;
+  int iStoryStep;
   
-  if ((DAT_KGT_FILE_BUFFER_00433240.story_mode_setting_check_array[STORY_MODE_IDX + -2] & 1U) == 0)
-  {
-    debug_str = s_HAN_HIRAGANA_KATAKANA__0041edcc;
-LAB_00406bbb:
-    SET_DEBUG_INFO(debug_str,0xdfffff);
-    FIND_EMPTY_OBJ(12,0x7f,0,0);
+                    // Bug: If the first two characters don't have a story mode, does this just lock
+                    // story mode out entirely? giStoryModePlayerIdx_2 doesn't seem like it gets
+                    // assigned anything except a player idx, i.e. 0 or 1.
+  if ((gkgtKgtSystem.giCharacterHasStoryModeFlags[giStoryModePlayerIdx_2] & 1U) == 0) {
+    debug_str = gsErrorStoryModeNotSet;
+KickBackToMainMenu:
+    iSetDebugInfo(debug_str,0xdfffff);
+    kgtoNewEngineObject(MENU_TRAVERSAL,0x7f,0,0);
   }
   else {
-    RESET_OBJECTS_AND_SET_GAME_SPEED();
-    pkVar1 = PLAYER_KGT_BUFFER;
+    vResetObjectsAndSpeed();
+    pkgtLoadedCharacter = gkgtLoadedCharacter;
     do {
-      if (pkVar1 != (kgt_character_struct *)0x0) {
-        pkVar1->script_reading_01_field5 = 0;
+      if (pkgtLoadedCharacter != (kgt_character_struct *)0x0) {
+        pkgtLoadedCharacter->unknown_online_var_a = 0;
       }
-      pkVar1 = pkVar1 + 1;
-    } while ((int)pkVar1 < 0x541f78);
-    GAME_STATE.over3kunder4kcheck = 4000;
+      pkgtLoadedCharacter = pkgtLoadedCharacter + 1;
+    } while ((int)pkgtLoadedCharacter < 0x541f78);
+    gkgtGameState.iGameStateNumber = 4000;
     i2 = 1;
     do {
-      (&POSS_STORY_ARRAY)[STORY_MODE_IDX] = (&POSS_STORY_ARRAY)[STORY_MODE_IDX] + 1;
-      story_step = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
-      if (story_step < 0) {
-        debug_str = s_HAN_HIRAGANA_KATAKANA__0041edec;
-        goto LAB_00406bbb;
+      giCurrentStoryStep[giStoryModePlayerIdx_2] = giCurrentStoryStep[giStoryModePlayerIdx_2] + 1;
+      iStoryStep = giCurrentStoryStep[giStoryModePlayerIdx_2];
+      if (iStoryStep < 0) {
+        debug_str = gsErrorStoryStepBecameMinus;
+        goto KickBackToMainMenu;
       }
-      if (99 < story_step) {
-        debug_str = s_HAN_KATAKANA__0041ee20;
-        goto LAB_00406bbb;
+      if (99 < iStoryStep) {
+        debug_str = gsErrorStoryStepBecameTooLarge;
+        goto KickBackToMainMenu;
       }
       i = i2 + 1;
-      pbVar3 = (int *)(PLAYER_KGT_BUFFER[0].character_story_entries + story_step);
+      pCurrentStoryEntry = (int *)(gkgtLoadedCharacter[0].kgtStoryEntries + iStoryStep);
       if (200 < i2) {
-        debug_str = s_HAN_HIRAGANA_KATAKANA__0041ee3c;
-        goto LAB_00406bbb;
+        debug_str = gsErrorStoryScriptInfiniteLoop;
+        goto KickBackToMainMenu;
       }
-      _sprintf(f_text,s_KATAKANA__d____d____d_0041ee6c,story_step,(byte)*pbVar3 & 0xf,
-               (uint)(byte)PLAYER_KGT_BUFFER[0].character_story_entries[story_step].stage);
-      SET_DEBUG_INFO(f_text,0xffafaf);
-      switch((byte)*pbVar3 & 0xf) {
+      _sprintf(f_text,gsStoryStepFormatted,iStoryStep,(byte)*pCurrentStoryEntry & 0xf,
+               (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cStageIdx);
+      iSetDebugInfo(f_text,0xffafaf);
+      switch((byte)*pCurrentStoryEntry & 0xf) {
       case 0:
                     // 00000000
-        debug_str = s_story_script_End;
-        goto LAB_00406bbb;
+        debug_str = gsStoryScriptEnd;
+        goto KickBackToMainMenu;
       case 1:
                     // 00000001
+                    // 
+                    // Fight
+                    // 
+                    // Loads the enemy characters and goes to battle state
         i2 = 0;
-        pcVar2 = &PLAYER_KGT_BUFFER[0].character_story_entries[story_step].
-                  character_story_entry_cpu_array[0].character;
+        pEnemyCharacter =
+             &gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].kgtStoryEntryCPUs[0].cCharacterIdx;
         do {
-          if (*pcVar2 != 0) {
-            READ_CHARACTER_FILE(i2 + 1,(byte)*pcVar2 - 1);
+          if (*pEnemyCharacter != 0) {
+            iOpenCharacterFile(i2 + 1,(byte)*pEnemyCharacter - 1);
           }
           i2 = i2 + 1;
-          pcVar2 = pcVar2 + 0x1a;
+          pEnemyCharacter = pEnemyCharacter + 0x1a;
         } while (i2 < 7);
-        if (PLAYER_KGT_BUFFER[0].character_story_entries[story_step].stage != '\0') {
-          GAME_STATE.pause_flag = 0;
-          FIND_EMPTY_OBJ(14,0x7f,0,0);
+        if (gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cStageIdx != '\0') {
+          gkgtGameState.iIsPausedFlag = 0;
+          kgtoNewEngineObject(BATTLE_STATE,0x7f,0,0);
           return;
         }
         break;
       case 2:
                     // 00000010
-        if (PLAYER_KGT_BUFFER[0].character_story_entries[story_step].stage != '\0') {
-          FIND_EMPTY_OBJ(16,0x7f,(uint)(byte)PLAYER_KGT_BUFFER[0].character_story_entries
-                                             [story_step].stage,0);
+                    // 
+                    // Demo
+        if (gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cStageIdx != '\0') {
+          kgtoNewEngineObject(STORY_MODE,0x7f,
+                              (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].
+                                          cStageIdx,0);
           return;
         }
         break;
       case 3:
                     // 00000011
-        switch(PLAYER_KGT_BUFFER[0].character_story_entries[story_step].stage) {
+                    // 
+                    // Jump/Divergence
+        switch(gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cStageIdx) {
         case '\0':
-switchD_00406ae7_caseD_0:
-          (&POSS_STORY_ARRAY)[STORY_MODE_IDX] =
-               (&POSS_STORY_ARRAY)[STORY_MODE_IDX] +
-               PLAYER_KGT_BUFFER[0].character_story_entries[story_step].
-               when_defeat_and_1st_round_bitmask + -1;
+switchD_00406ae7_Not_case:
+                    // Not
+          giCurrentStoryStep[giStoryModePlayerIdx_2] =
+               giCurrentStoryStep[giStoryModePlayerIdx_2] +
+               gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cWhenDefeatAndFirstRoundBitmask +
+               -1;
           break;
         case '\x01':
-          if (DAT_VAR_BATTLE_STATE_A == 1) goto switchD_00406ae7_caseD_0;
+                    // Front stage
+          if (DAT_VAR_BATTLE_STATE_A == 1) goto switchD_00406ae7_Not_case;
           break;
         case '\x02':
-          if (PLAYER_KGT_BUFFER[0].health <
-              (int)(uint)(byte)PLAYER_KGT_BUFFER[0].character_story_entries[story_step].
-                               number_of_rounds) goto switchD_00406ae7_caseD_0;
+                    // Life gauge
+          if (gkgtLoadedCharacter[0].iHealth <
+              (int)(uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[iStoryStep].cRoundsAmount)
+          goto switchD_00406ae7_Not_case;
           break;
         case '\x03':
-          if (DAT_VAR_BATTLE_STATE_B == 0) goto switchD_00406ae7_caseD_0;
+                    // Winning all the fight
+          if (giRoundsNotWon == 0) goto switchD_00406ae7_Not_case;
         }
         break;
       case 4:
                     // 00000100
-        debug_str = s_HAN_KATAKANA__0041eea0;
-        goto LAB_00406bbb;
+                    // 
+                    // End
+        debug_str = gsStoryOver;
+        goto KickBackToMainMenu;
       default:
-        debug_str = s_HAN_HIRAGANA_KATAKANA__0041eeb0;
-        goto LAB_00406bbb;
+        debug_str = gsErrorStoryScriptUnknownStep;
+        goto KickBackToMainMenu;
       }
       i2 = i;
     } while (i != 0);
@@ -5824,48 +5891,50 @@ switchD_00406ae7_caseD_0:
 void initiate_story_mode(void)
 
 {
-  OBJ_STRUCT *pOVar1;
+  kgtEngineObject *pkVar1;
   int iVar2;
   
-  iVar2 = PTR_POSS_CURRENT_OBJ->object_process_step;
+  iVar2 = gpkgtCurrentEngineObject->iProcessStep;
   if (iVar2 == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    GAME_STATE.over3kunder4kcheck = 4000;
-    RESET_OBJECTS_AND_SET_GAME_SPEED();
-    iVar2 = FUN_open_demo_file_00403fc0(PTR_POSS_CURRENT_OBJ->param_3);
+    gpkgtCurrentEngineObject->iProcessStep = 1;
+    gkgtGameState.iGameStateNumber = 4000;
+    vResetObjectsAndSpeed();
+    iVar2 = iOpenDemoFile(gpkgtCurrentEngineObject->iParam3);
     if (iVar2 != 0) {
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
-      PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
-      HANDLE_STORY_MODE();
+      vResetObjectsAndSpeed();
+      gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
+      vProgressStoryMode();
       return;
     }
-    spawn_scriptread_obj_for_each_demo_skill();
+    vSpawnEngineObjectForDemoSkills();
   }
   else if (iVar2 != 1) {
     if (iVar2 != 2) {
       return;
     }
-    RESET_OBJECTS_AND_SET_GAME_SPEED();
-    PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
-    HANDLE_STORY_MODE();
+    vResetObjectsAndSpeed();
+    gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
+    vProgressStoryMode();
     return;
   }
-  pOVar1 = PTR_POSS_CURRENT_OBJ;
-  if (PTR_POSS_CURRENT_OBJ->player_file_buffer < 10) {
-    PTR_POSS_CURRENT_OBJ->player_file_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer + 1;
+  pkVar1 = gpkgtCurrentEngineObject;
+  if (gpkgtCurrentEngineObject->iPlayerIdx < 10) {
+    gpkgtCurrentEngineObject->iPlayerIdx = gpkgtCurrentEngineObject->iPlayerIdx + 1;
   }
-  else if (((byte)UNK_FLAG_00424f04 & 1) != 0) {
-    if ((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0b0000001111110000) == 0) {
-      PTR_POSS_CURRENT_OBJ->obj_type = 1;
-    }
-    else if (PTR_POSS_CURRENT_OBJ->obj_type != 0) {
-      PTR_POSS_CURRENT_OBJ->object_process_step = PTR_POSS_CURRENT_OBJ->object_process_step + 1;
-      return;
+  else {
+                    // In the .dmp this is a 1 so idk
+    if (((byte)giDemoSkipWithInput & 1) != 0) {
+      if ((giLastInputXor_2 & 0b0000001111110000) == 0) {
+        gpkgtCurrentEngineObject->iObjectType = STORY?_ENGINE_OBJECT;
+      }
+      else if (gpkgtCurrentEngineObject->iObjectType != PLAYER_ENGINE_OBJECT) {
+        gpkgtCurrentEngineObject->iProcessStep = gpkgtCurrentEngineObject->iProcessStep + 1;
+        return;
+      }
     }
   }
-  if ((UNK_FLAG_00424f08 != 0) &&
-     (UNK_FLAG_00424f08 = UNK_FLAG_00424f08 + -1, UNK_FLAG_00424f08 == 0)) {
-    pOVar1->object_process_step = pOVar1->object_process_step + 1;
+  if ((giDemoTime != 0) && (giDemoTime = giDemoTime + -1, giDemoTime == 0)) {
+    pkVar1->iProcessStep = pkVar1->iProcessStep + 1;
   }
   return;
 }
@@ -5875,33 +5944,33 @@ void initiate_story_mode(void)
 void HANDLE_ROUND_START(void)
 
 {
-  kgt_obj_type kVar1;
-  OBJ_STRUCT *pOVar2;
-  OBJ_STRUCT *pOVar3;
+  kgtEngineObject *pkVar1;
+  kgtEngineObject *pkVar2;
+  int unaff_retaddr;
   
-  if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    kVar1 = new_kgt_scriptread_obj_with_action_idx
-                      ((&DAT_KGT_FILE_BUFFER_00433240.skill_idx_round_1)
-                       [GAME_STATE.poss_current_round_count],0x65,0,0);
-    PTR_POSS_CURRENT_OBJ->obj_type = kVar1;
-    pOVar2 = (OBJ_STRUCT *)
-             new_kgt_scriptread_obj_with_action_idx
-                       (DAT_KGT_FILE_BUFFER_00433240.skill_idx_spirits,0x65,0,0);
-    pOVar3 = PTR_POSS_CURRENT_OBJ;
-    PTR_POSS_CURRENT_OBJ->obj_ptr_b = pOVar2;
+  if (gpkgtCurrentEngineObject->iProcessStep == 0) {
+    gpkgtCurrentEngineObject->iProcessStep = 1;
+    pkVar1 = (kgtEngineObject *)
+             (uint)(ushort)(&gkgtKgtSystem.skill_idx_round_1)[gkgtGameState.iCurrentRound];
+    pkVar2 = kgtoNewObjectForSkillIdx(pkVar1,0x65,0,0,unaff_retaddr);
+    gpkgtCurrentEngineObject->iObjectType = (kgtEngineObjectTypes)pkVar2;
+    pkVar2 = kgtoNewObjectForSkillIdx
+                       ((kgtEngineObject *)(uint)(ushort)gkgtKgtSystem.shSkillIdxSpirits,0x65,0,0,
+                        (int)pkVar1);
+    pkVar1 = gpkgtCurrentEngineObject;
+    gpkgtCurrentEngineObject->obj_ptr_b = pkVar2;
   }
   else {
-    pOVar3 = PTR_POSS_CURRENT_OBJ;
-    if (PTR_POSS_CURRENT_OBJ->object_process_step != 1) {
+    pkVar1 = gpkgtCurrentEngineObject;
+    if (gpkgtCurrentEngineObject->iProcessStep != 1) {
       return;
     }
   }
-  if (199 < pOVar3->parent_obj->object_process_step) {
-    pOVar2 = pOVar3->obj_ptr_b;
-    pOVar3->jmp_idx = reset_index;
-    *(undefined4 *)pOVar3->obj_type = 1;
-    pOVar2->jmp_idx = reset_index;
+  if (199 < pkVar1->parent_obj->iProcessStep) {
+    pkVar2 = pkVar1->obj_ptr_b;
+    pkVar1->iJumpIdx = RESET_IDX;
+    *(undefined4 *)pkVar1->iObjectType = 1;
+    pkVar2->iJumpIdx = RESET_IDX;
   }
   return;
 }
@@ -5911,8 +5980,8 @@ void HANDLE_ROUND_START(void)
 void set_obj_flag_a(void)
 
 {
-  if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
+  if (gpkgtCurrentEngineObject->iProcessStep == 0) {
+    gpkgtCurrentEngineObject->iProcessStep = 1;
   }
   return;
 }
@@ -5933,11 +6002,11 @@ void FUN_00406db0(int *param_1)
     if (iVar1 + -1 < 0) {
       *param_1 = 0x31;
     }
-    if (DAT_KGT_FILE_BUFFER_00433240.character_names[*param_1][0] != '\0') break;
+    if (gkgtKgtSystem.gsCharacterName[*param_1][0] != '\0') break;
     bVar3 = iVar2 == 0;
     iVar2 = iVar2 + -1;
     if (bVar3) {
-      SET_DEBUG_INFO(s_HAN_HIRAGANA_KATAKANA_Error__0041eedc,0xdfffff);
+      iSetDebugInfo(s_HAN_HIRAGANA_KATAKANA_Error__0041eedc,0xdfffff);
       return;
     }
   }
@@ -5960,11 +6029,11 @@ void FUN_00406e00(int *param_1)
     if (iVar1 + 1 == 0x32) {
       *param_1 = 0;
     }
-    if (DAT_KGT_FILE_BUFFER_00433240.character_names[*param_1][0] != '\0') break;
+    if (gkgtKgtSystem.gsCharacterName[*param_1][0] != '\0') break;
     bVar3 = iVar2 == 0;
     iVar2 = iVar2 + -1;
     if (bVar3) {
-      SET_DEBUG_INFO(s_HAN_HIRAGANA_KATAKANA_Error__0041ef04,0xdfffff);
+      iSetDebugInfo(s_HAN_HIRAGANA_KATAKANA_Error__0041ef04,0xdfffff);
       return;
     }
   }
@@ -5976,15 +6045,15 @@ void FUN_00406e00(int *param_1)
 void also_set_obj_flag_a(void)
 
 {
-  if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
+  if (gpkgtCurrentEngineObject->iProcessStep == 0) {
+    gpkgtCurrentEngineObject->iProcessStep = 1;
   }
   return;
 }
 
 
 
-void CHAR_SELECT_CHANGE_SELECTION(kgt_grid *grid,int y,int x)
+void vCharacterSelectChangeSelection(kgtGridCoordinates *grid,int y,int x)
 
 {
   int new_col;
@@ -5992,100 +6061,100 @@ void CHAR_SELECT_CHANGE_SELECTION(kgt_grid *grid,int y,int x)
   short max_col;
   short max_row;
   
-  new_col = grid->col + y;
-  grid->col = new_col;
-  new_row = grid->row + x;
-  grid->row = new_row;
-  max_col = DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y;
+  new_col = grid->iCol + y;
+  grid->iCol = new_col;
+  new_row = grid->iRow + x;
+  grid->iRow = new_row;
+  max_col = gkgtKgtSystem.iColumnsInSelectScreen;
   if (new_col < 0) {
-    grid->col = DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y + -1;
+    grid->iCol = gkgtKgtSystem.iColumnsInSelectScreen + -1;
   }
-  max_row = DAT_KGT_FILE_BUFFER_00433240.columns_in_select_screen;
+  max_row = gkgtKgtSystem.iRowsInSelectScreen;
   if (new_row < 0) {
-    grid->row = DAT_KGT_FILE_BUFFER_00433240.columns_in_select_screen + -1;
+    grid->iRow = gkgtKgtSystem.iRowsInSelectScreen + -1;
   }
-  if ((int)max_col <= grid->col) {
-    grid->col = 0;
+  if ((int)max_col <= grid->iCol) {
+    grid->iCol = 0;
   }
-  if ((int)max_row <= grid->row) {
-    grid->row = 0;
+  if ((int)max_row <= grid->iRow) {
+    grid->iRow = 0;
   }
   return;
 }
 
 
 
-int get_action_button_pressed(uint param_1)
+int iGetPressedActionButton(uint param_1)
 
 {
-  uint uVar1;
+  uint iButton;
   
-  uVar1 = (uint)((param_1 & 0b00100000) != 0);
+  iButton = (uint)((param_1 & 0b00100000) != 0);
   if ((param_1 & 0b01000000) != 0) {
-    uVar1 = 2;
+    iButton = 2;
   }
   if ((param_1 & 0b10000000) != 0) {
-    uVar1 = 3;
+    iButton = 3;
   }
   if ((param_1 & 0b0000000100000000) != 0) {
-    uVar1 = 4;
+    iButton = 4;
   }
   if ((param_1 & 0b0000001000000000) != 0) {
-    uVar1 = 5;
+    iButton = 5;
   }
-  return uVar1;
+  return iButton;
 }
 
 
 
-void pick_player_color(int idx,int last_input_difference)
+void vPickPlayerColor(int idx,int last_input_difference)
 
 {
-  int *piVar1;
-  int current_player_idx;
+  int *piOtherPlayerColor;
+  int iOtherPlayerIdx;
   int i;
-  uint color_int;
-  bool shared_color;
+  uint iColor;
+  bool bColorsAreShared;
   
-  color_int = (uint)((last_input_difference & 0b00100000U) != 0);
+  iColor = (uint)((last_input_difference & 0b00100000U) != 0);
                     // Choose color based on button
   if ((last_input_difference & 0b01000000U) != 0) {
-    color_int = 2;
+    iColor = 2;
   }
   if ((last_input_difference & 0b10000000U) != 0) {
-    color_int = 3;
+    iColor = 3;
   }
   if ((last_input_difference & 0b0000000100000000U) != 0) {
-    color_int = 4;
+    iColor = 4;
   }
   if ((last_input_difference & 0b0000001000000000U) != 0) {
-    color_int = 5;
+    iColor = 5;
   }
   i = 0;
   while( true ) {
-    shared_color = false;
-    current_player_idx = 0;
-    piVar1 = &PLAYER_KGT_BUFFER[0].poss_relating_to_player_idx;
+    bColorsAreShared = false;
+    iOtherPlayerIdx = 0;
+    piOtherPlayerColor = &gkgtLoadedCharacter[0].iColorInt;
     do {
-                    // Make sure another player doesn't share the color (source of glitch, should
-                    // only trigger on shared character)
-      if ((idx != current_player_idx) && (color_int == *piVar1)) {
-        shared_color = true;
+                    // Bug: Make sure another player doesn't share the color (source of glitch,
+                    // should only trigger on shared character)
+      if ((idx != iOtherPlayerIdx) && (iColor == *piOtherPlayerColor)) {
+        bColorsAreShared = true;
       }
-      piVar1 = (int *)((int)piVar1 + 0xe03f);
-      current_player_idx = current_player_idx + 1;
-    } while ((int)piVar1 < 0x54ff83);
-    if (!shared_color) break;
-    color_int = color_int + 1 & 0b10000000000000000000000000000111;
-    if ((int)color_int < 0) {
-      color_int = (color_int - 1 | 0b11111111111111111111111111111000) + 1;
+      piOtherPlayerColor = (int *)((int)piOtherPlayerColor + 0xe03f);
+      iOtherPlayerIdx = iOtherPlayerIdx + 1;
+    } while ((int)piOtherPlayerColor < 0x54ff83);
+    if (!bColorsAreShared) break;
+    iColor = iColor + 1 & 0b10000000000000000000000000000111;
+    if ((int)iColor < 0) {
+      iColor = (iColor - 1 | 0b11111111111111111111111111111000) + 1;
     }
     i = i + 1;
     if (7 < i) {
       return;
     }
   }
-  PLAYER_KGT_BUFFER[idx].poss_relating_to_player_idx = color_int;
+  gkgtLoadedCharacter[idx].iColorInt = iColor;
   return;
 }
 
@@ -6093,550 +6162,559 @@ void pick_player_color(int idx,int last_input_difference)
 
 // For VS mode - Exits to jumptable idx 14, param_2 is 127
 
-void POSS_CHAR_SELECT_SCREEN_VERSUS_00406fc0(void)
+void vjmpCharacterSelectScreen(void)
 
 {
-  ushort uVar1;
-  bool bVar2;
-  undefined4 uVar3;
-  OBJ_STRUCT *menu_obj;
+  kgtEngineObject *menu_obj;
   int err3;
   int err2;
   int err;
   int new_kgt2;
   int new_kgt3;
-  OBJ_STRUCT *new_kgt;
-  OBJ_STRUCT *pOVar4;
-  int iVar5;
-  int iVar6;
-  OBJ_STRUCT *pOVar7;
+  kgtEngineObject *new_kgt;
+  int iVar1;
+  int iVar2;
+  kgtEngineObject *pkgto1pVsCursorAfterInput;
+  kgtEngineObject *pkgto2pVsCursorAfterInput;
   int last_button_pressed;
-  int hovered_character_vs;
-  int hovered_character_story;
+  int iHoveredCharacterVs;
+  kgtEngineObject *kgtoNewObjectVs;
+  int iStoryModePrestartTimer;
+  int iStoryModeCharacterHovered;
+  kgtEngineObject *kgtoCharSelectObject;
   int bVar4;
   int i;
-  int *piVar8;
-  int iVar9;
-  uint default0x32;
-  kgt_0xe03f_struct_ptr_57355_int piVar11;
-  int iVar10;
-  kgt_grid *pkVar11;
-  int player_idx;
-  int *p_unk_v_sel_struct;
-  kgt_grid *char_sel_col;
+  int *piVar3;
+  int idx;
+  uint iSkillIdxCharSelectPic;
+  kgtEngineObject *piPlayerColumn;
+  int iVar4;
+  kgtEngineObject *pkgtoVsCursor;
+  int iPlayerIdx;
+  int unaff_EDI;
+  int *piCharSelect;
+  kgtGridCoordinates *kgtgPlayerGrid;
   char *debug_str;
   int local_14;
   undefined4 *local_10;
-  kgt_grid *local_8;
-  OBJ_STRUCT *local_4;
+  kgtEngineObject *pkgtkoVsCursor_2;
+  kgtEngineObject *kgtoChildObject_B;
+  uint iLastInputXor;
   int obj_step;
+  kgtEngineObject *kgtoPlayerOneCursor;
   int player_has_chosen;
   int last_input_diff;
-  kgt_skill_struct *p0skillalloc;
+  bool bHasWaitedMoreThanASecond;
+  ushort iSkillIdxCharSelectPicVs;
+  kgtSkillHeader *kgtPlayerOneSkillsAlloc;
+  kgtEngineObject *pkgtCurrentEngineObject;
   
-  obj_step = PTR_POSS_CURRENT_OBJ->object_process_step;
+  obj_step = gpkgtCurrentEngineObject->iProcessStep;
   if (obj_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    RESET_OBJECTS_AND_SET_GAME_SPEED();
-    GAME_STATE.TESTPLAY_VSMODE = UINT_TESTPLAY_VSMODE;
-    GAME_STATE.PTR_TO___OF_ROUNDS_VERSUS_00470068 = UINT___OF_ROUNDS_00430124;
-    GAME_STATE.CHAR_SELECT[0] = -1;
-    GAME_STATE.CHAR_SELECT[1] = -1;
-    GAME_STATE.char_select_var_a = 0;
-    GAME_STATE.char_select_var_b = 0;
-    GAME_STATE.character_chosen_flag_player_0 = 0;
-    GAME_STATE.character_chosen_flag_player_1 = 0;
-    GAME_STATE.poss_current_round_count = 0;
-    GAME_STATE.PTR_TO___OF_ROUNDS_TEAM_VS_00470064 = UINT___OF_ROUNDS_TEAM_VS_00430128;
-    PLAYER_KGT_BUFFER[0].story_mode_unk_var_a = 0;
-    PLAYER_KGT_BUFFER[1].story_mode_unk_var_a = 0;
-    UNK_CHAR_SELECT_GLOBAL_A = 0;
-    unk_y_position = 0;
-    unk_x_position = 480;
+    gpkgtCurrentEngineObject->iProcessStep = 1;
+    vResetObjectsAndSpeed();
+    gkgtGameState.iConfigTestPlayVsMode = giConfigTestplayVsMode;
+    gkgtGameState.iConfigNumberOfRounds = giConfigNumberOfRounds;
+    gkgtGameState.iCharSelect[0] = -1;
+    gkgtGameState.iCharSelect[1] = -1;
+    gkgtGameState.char_select_var_a = 0;
+    gkgtGameState.char_select_var_b = 0;
+    gkgtGameState.iPlayerOneChoseCharacterFlag = 0;
+    gkgtGameState.iCharacterChosenFlagPlayerOne = 0;
+    gkgtGameState.iCurrentRound = 0;
+    gkgtGameState.iConfigNumberOfRoundsTeamVs = giConfigNumberOfRoundsTeamVs;
+    gkgtLoadedCharacter[0].iPossiblyVictoriesCount = 0;
+    gkgtLoadedCharacter[1].iPossiblyVictoriesCount = 0;
+    giBattlePrestartTimer = 0;
+    unk_x_position = 0;
+    unk_y_pos2 = 480;
                     // PREPARE MEMORY
-    piVar8 = &PLAYER_KGT_BUFFER[0].poss_relating_to_player_idx;
+    piVar3 = &gkgtLoadedCharacter[0].iColorInt;
     i = 8;
-    p_unk_v_sel_struct = GAME_STATE.CHAR_SELECT;
+    piCharSelect = gkgtGameState.iCharSelect;
     for (; i != 0; i = i + -1) {
-      *p_unk_v_sel_struct = -1;
-      p_unk_v_sel_struct = p_unk_v_sel_struct + 1;
+      *piCharSelect = -1;
+      piCharSelect = piCharSelect + 1;
     }
     do {
-      *piVar8 = -1;
-      piVar8 = (int *)((int)piVar8 + 0xe03f);
-    } while ((int)piVar8 < 0x54ff83);
+      *piVar3 = -1;
+      piVar3 = (int *)((int)piVar3 + 0xe03f);
+    } while ((int)piVar3 < 0x54ff83);
                     // OPEN APPROPRIATE DEMO FILE BASED ON GAME MODE
-    if (GAME_STATE.GAME_MODE == 1P_story) {
-      err = FUN_open_demo_file_00403fc0((uint)(byte)DAT_KGT_FILE_BUFFER_00433240._p_demo_script_idx)
-      ;
+    if (gkgtGameState.kgtGameMode == 1P_story) {
+      err = iOpenDemoFile((uint)(byte)gkgtKgtSystem.cStoryModeDemoIdx);
       if (err != 0) {
-        SET_DEBUG_INFO(s_Character_Script_P1_Not_found_error_0041ef2c,0x4040ff);
-        PTR_POSS_CURRENT_OBJ->object_process_step = 4;
+        iSetDebugInfo(gsErrorCharacterScriptP1NotFound,0x4040ff);
+        gpkgtCurrentEngineObject->iProcessStep = 4;
         return;
       }
     }
-    else if (GAME_STATE.GAME_MODE == VS_single) {
-      err2 = FUN_open_demo_file_00403fc0
-                       ((uint)(byte)DAT_KGT_FILE_BUFFER_00433240.VS_single_demo_idx);
+    else if (gkgtGameState.kgtGameMode == VS_single) {
+      err2 = iOpenDemoFile((uint)(byte)gkgtKgtSystem.cVsSingleDemoIdx);
       if (err2 != 0) {
-        debug_str = s_Character_Script_VS_Single_Demo_not_found_error_0041ef64;
+        debug_str = gsErrorCharacterScriptVsDemo1NotFound;
         goto LAB_00407133;
       }
     }
-    else if ((GAME_STATE.GAME_MODE == VS_team) &&
-            (err3 = FUN_open_demo_file_00403fc0
-                              ((uint)(byte)DAT_KGT_FILE_BUFFER_00433240.VS_team_demo_idx), err3 != 0
-            )) {
-      SET_DEBUG_INFO(s_Character_select_team_demo_not_found_error_0041efa4,0x4040ff);
-      PTR_POSS_CURRENT_OBJ->object_process_step = 4;
+    else if ((gkgtGameState.kgtGameMode == VS_team) &&
+            (err3 = iOpenDemoFile((uint)(byte)gkgtKgtSystem.cVsTeamDemoIdx), err3 != 0)) {
+      iSetDebugInfo(gsErrorCharacterScriptTeamDemoNotFound,0x4040ff);
+      gpkgtCurrentEngineObject->iProcessStep = 4;
       return;
     }
-    spawn_scriptread_obj_for_each_demo_skill();
-    if (GAME_STATE.GAME_MODE == 1P_story) {
-      new_kgt = (OBJ_STRUCT *)
-                new_kgt_scriptread_obj_with_action_idx
-                          (DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_vs_screen_cursor,0x65,0,0);
-      pOVar4 = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->timer_mod_10 = (int)new_kgt;
+    vSpawnEngineObjectForDemoSkills();
+    if (gkgtGameState.kgtGameMode == 1P_story) {
+      new_kgt = kgtoNewObjectForSkillIdx
+                          ((kgtEngineObject *)(gkgtKgtSystem._73744_4_ & 0xffff),0x65,0,0,unaff_EDI)
+      ;
+      pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->timer_mod_10 = (int)new_kgt;
     }
     else {
-      pOVar4 = PTR_POSS_CURRENT_OBJ;
-      if ((0 < (int)GAME_STATE.GAME_MODE) && ((int)GAME_STATE.GAME_MODE < 3)) {
-        new_kgt2 = new_kgt_scriptread_obj_with_action_idx
-                             (DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_vs_screen_cursor,0x65,0,0);
-        PTR_POSS_CURRENT_OBJ->timer_mod_10 = new_kgt2;
-        new_kgt3 = new_kgt_scriptread_obj_with_action_idx
-                             (DAT_KGT_FILE_BUFFER_00433240.skill_idx_2p_vs_screen_cursor,0x65,0,0);
-        pOVar4 = PTR_POSS_CURRENT_OBJ;
-        PTR_POSS_CURRENT_OBJ->timer_div_ten_mod_10 = new_kgt3;
-        piVar8 = INT_ARRAY_00424e90;
+      pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+      if ((0 < (int)gkgtGameState.kgtGameMode) && ((int)gkgtGameState.kgtGameMode < 3)) {
+        pkgtCurrentEngineObject = (kgtEngineObject *)(gkgtKgtSystem._73744_4_ & 0xffff);
+        new_kgt2 = (int)kgtoNewObjectForSkillIdx(pkgtCurrentEngineObject,0x65,0,0,unaff_EDI);
+        gpkgtCurrentEngineObject->timer_mod_10 = new_kgt2;
+        new_kgt3 = (int)kgtoNewObjectForSkillIdx
+                                  ((kgtEngineObject *)((uint)gkgtKgtSystem._73744_4_ >> 0x10),0x65,0
+                                   ,0,(int)pkgtCurrentEngineObject);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+        gpkgtCurrentEngineObject->timer_div_ten_mod_10 = new_kgt3;
+        piVar3 = INT_ARRAY_00424e90;
         do {
-          piVar8[-4] = 0;
-          *piVar8 = 0;
-          piVar8 = piVar8 + 1;
-        } while ((int)piVar8 < 0x424ea0);
+          piVar3[-4] = 0;
+          *piVar3 = 0;
+          piVar3 = piVar3 + 1;
+        } while ((int)piVar3 < 0x424ea0);
       }
     }
-    GAME_STATE.over3kunder4kcheck = 2000;
-    if ((int)DAT_KGT_FILE_BUFFER_00433240.columns_in_select_screen *
-        (int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y == 0) {
-      debug_str = s_Character_setting_error_height_or_width_0_0041efe4;
+    gkgtGameState.iGameStateNumber = 2000;
+    if ((int)gkgtKgtSystem.iRowsInSelectScreen * (int)gkgtKgtSystem.iColumnsInSelectScreen == 0) {
+      debug_str = gsErrorCharacterSettingHeightOrWidthZero;
 LAB_00407133:
-      SET_DEBUG_INFO(debug_str,0x4040ff);
-      PTR_POSS_CURRENT_OBJ->object_process_step = 4;
+      iSetDebugInfo(debug_str,0x4040ff);
+      gpkgtCurrentEngineObject->iProcessStep = 4;
       return;
     }
   }
   else {
-    pOVar4 = PTR_POSS_CURRENT_OBJ;
+    pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
     if (obj_step != 1) {
       if (obj_step != 4) {
         return;
       }
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
-      PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
+      vResetObjectsAndSpeed();
+      gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
                     // Exit back to menu
-      menu_obj = FIND_EMPTY_OBJ(12,0x7f,0,0);
-      menu_obj->object_process_step = 2;
+      menu_obj = kgtoNewEngineObject(MENU_TRAVERSAL,0x7f,0,0);
+      menu_obj->iProcessStep = 2;
       return;
     }
   }
                     // Upon pressing start button, exit back to main menu
-  if ((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 1024) != 0) {
-    pOVar4->object_process_step = 4;
+  if ((giLastInputXor_2 & 1024) != 0) {
+    pkgtCurrentEngineObject->iProcessStep = 4;
     return;
   }
-  if ((pOVar4->obj_ptr_b != (OBJ_STRUCT *)0x0) && (pOVar4->obj_ptr_b->jmp_idx == reset_index)) {
-    pOVar4->obj_ptr_b = (OBJ_STRUCT *)0x0;
+  if ((pkgtCurrentEngineObject->obj_ptr_b != (kgtEngineObject *)0x0) &&
+     (pkgtCurrentEngineObject->obj_ptr_b->iJumpIdx == RESET_IDX)) {
+    pkgtCurrentEngineObject->obj_ptr_b = (kgtEngineObject *)0x0;
   }
-  if ((pOVar4->obj_ptr_a != (OBJ_STRUCT *)0x0) && (pOVar4->obj_ptr_a->jmp_idx == reset_index)) {
-    pOVar4->obj_ptr_a = (OBJ_STRUCT *)0x0;
+  if ((pkgtCurrentEngineObject->obj_ptr_a != (kgtEngineObject *)0x0) &&
+     (pkgtCurrentEngineObject->obj_ptr_a->iJumpIdx == RESET_IDX)) {
+    pkgtCurrentEngineObject->obj_ptr_a = (kgtEngineObject *)0x0;
   }
-  if (GAME_STATE.GAME_MODE == 1P_story) {
-    hovered_character_story = pOVar4->timer_mod_10;
-    *(int *)(hovered_character_story + 8) =
-         (DAT_KGT_FILE_BUFFER_00433240.character_select_start_y * story_mode_grid.col +
-         (int)(short)DAT_KGT_FILE_BUFFER_00433240._73840_2_) * 0x10000;
-    *(int *)(hovered_character_story + 0xc) =
-         (DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_x * story_mode_grid.row +
-         (int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_x) * 0x10000;
-    if (GAME_STATE.character_chosen_flag_player_0 == 0) {
-      if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + UNK_KGT_PLAYER_BUFFER_IDX) & 4) != 0) {
-        CHAR_SELECT_CHANGE_SELECTION(&story_mode_grid,0,-1);
-        pOVar4 = PTR_POSS_CURRENT_OBJ;
+  if (gkgtGameState.kgtGameMode == 1P_story) {
+    kgtoPlayerOneCursor = (kgtEngineObject *)pkgtCurrentEngineObject->timer_mod_10;
+    kgtoPlayerOneCursor->iParam3 =
+         (gkgtKgtSystem.iDistanceBetweenCharactersX * kgtStoryModeGridCoordinates.iCol +
+         (int)gkgtKgtSystem.iCharacterSelectStartX) * 0x10000;
+    kgtoPlayerOneCursor->iParam4 =
+         (gkgtKgtSystem.iDistanceBetweenCharactersY * kgtStoryModeGridCoordinates.iRow +
+         (int)gkgtKgtSystem.iCharacterSelectStartY) * 0x10000;
+    if (gkgtGameState.iPlayerOneChoseCharacterFlag == 0) {
+                    // If player hasn't chosen character, read inputs to move selection up/across
+                    // grid
+      if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 4) != 0) {
+        vCharacterSelectChangeSelection(&kgtStoryModeGridCoordinates,0,-1);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       }
-      if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + UNK_KGT_PLAYER_BUFFER_IDX) & 8) != 0) {
-        CHAR_SELECT_CHANGE_SELECTION(&story_mode_grid,0,1);
-        pOVar4 = PTR_POSS_CURRENT_OBJ;
+      if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 8) != 0) {
+        vCharacterSelectChangeSelection(&kgtStoryModeGridCoordinates,0,1);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       }
-      if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + UNK_KGT_PLAYER_BUFFER_IDX) & 1) != 0) {
-        CHAR_SELECT_CHANGE_SELECTION(&story_mode_grid,-1,0);
-        pOVar4 = PTR_POSS_CURRENT_OBJ;
+      if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 1) != 0) {
+        vCharacterSelectChangeSelection(&kgtStoryModeGridCoordinates,-1,0);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       }
-      if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + UNK_KGT_PLAYER_BUFFER_IDX) & 2) != 0) {
-        CHAR_SELECT_CHANGE_SELECTION(&story_mode_grid,1,0);
-        pOVar4 = PTR_POSS_CURRENT_OBJ;
+      if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 2) != 0) {
+        vCharacterSelectChangeSelection(&kgtStoryModeGridCoordinates,1,0);
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
       }
-      hovered_character_story =
-           DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y * story_mode_grid.row +
-           story_mode_grid.col;
-      if (GAME_STATE.CHAR_SELECT[0] != hovered_character_story) {
-        if (GAME_STATE.CHAR_SELECT[0] != -1) {
-          reset_all_objects_for_player(0);
-          GAME_STATE.CHAR_SELECT[0] = -1;
+      iStoryModeCharacterHovered =
+           gkgtKgtSystem.iColumnsInSelectScreen * kgtStoryModeGridCoordinates.iRow +
+           kgtStoryModeGridCoordinates.iCol;
+      if (gkgtGameState.iCharSelect[0] != iStoryModeCharacterHovered) {
+        if (gkgtGameState.iCharSelect[0] != -1) {
+          vResetObjectsForPlayerIdx(0);
+          gkgtGameState.iCharSelect[0] = -1;
           return;
         }
-        if (49 < hovered_character_story) {
+        if (49 < iStoryModeCharacterHovered) {
           return;
         }
-        if (DAT_KGT_FILE_BUFFER_00433240.character_names[hovered_character_story][0] == '\0') {
+        if (gkgtKgtSystem.gsCharacterName[iStoryModeCharacterHovered][0] == '\0') {
           return;
         }
-        if ((DAT_KGT_FILE_BUFFER_00433240.story_mode_setting_check_array
-             [hovered_character_story + -2] & 1U) == 0) {
+                    // Check if character is allowed in story mode
+        if ((gkgtKgtSystem.giCharacterHasStoryModeFlags[iStoryModeCharacterHovered] & 1U) == 0) {
           return;
         }
-        GAME_STATE.CHAR_SELECT[0] = hovered_character_story;
-        READ_CHARACTER_FILE(0,hovered_character_story);
-        pOVar7 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.rows_in_select_screen <<
-                                       0x10,
-                                (DAT_KGT_FILE_BUFFER_00433240.player1_cursor_x + 0x1e0) * 0x10000);
-        p0skillalloc = PLAYER_KGT_BUFFER[0].kgt_core.p_actions_alloc;
-        default0x32 = PLAYER_KGT_BUFFER[0]._30116_4_ & 0xffff;
-        pOVar7->obj_type = 1;
-        pOVar7->player_file_buffer = 0;
-        pOVar4 = PTR_POSS_CURRENT_OBJ;
-        pOVar7->action_idx = default0x32;
-        pOVar4->obj_ptr_b = pOVar7;
-        *(uint *)&pOVar7->actionscript_idx =
-             (uint)(ushort)p0skillalloc[default0x32].starting_step_idx;
-        pOVar7->unk_bitmask = pOVar7->unk_bitmask | 0x40000000;
+        gkgtGameState.iCharSelect[0] = iStoryModeCharacterHovered;
+                    // Bug: This seriously opens a new character file every time the player moves to
+                    // a different character on the select screen...
+        iOpenCharacterFile(0,iStoryModeCharacterHovered);
+        kgtoCharSelectObject =
+             kgtoNewEngineObject(READ_SCRIPT,0x50,(int)gkgtKgtSystem.iPlayerOneCursorX << 0x10,
+                                 (gkgtKgtSystem.iPlayerOneCursorY + 0x1e0) * 0x10000);
+        kgtPlayerOneSkillsAlloc = gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc;
+        iSkillIdxCharSelectPic = gkgtLoadedCharacter[0]._30116_4_ & 0xffff;
+        kgtoCharSelectObject->iObjectType = STORY?_ENGINE_OBJECT;
+        kgtoCharSelectObject->iPlayerIdx = 0;
+        pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+        kgtoCharSelectObject->iSkillIdx = iSkillIdxCharSelectPic;
+        pkgtCurrentEngineObject->obj_ptr_b = kgtoCharSelectObject;
+        *(uint *)&kgtoCharSelectObject->iSkillScriptIdx =
+             (uint)(ushort)kgtPlayerOneSkillsAlloc[iSkillIdxCharSelectPic].shStartingStepIdx;
+        kgtoCharSelectObject->unk_bitmask = kgtoCharSelectObject->unk_bitmask | 0x40000000;
       }
-      uVar3 = DAT_KGT_FILE_BUFFER_00433240._73748_4_;
-      if ((-1 < GAME_STATE.CHAR_SELECT[0]) &&
-         ((LAST_INPUT_DIFFERENCE[UNK_KGT_PLAYER_BUFFER_IDX] & 0x3f0U) != 0)) {
-        GAME_STATE.character_chosen_flag_player_0 = 1;
-        *(undefined4 *)pOVar4->timer_mod_10 = 1;
-        iVar9 = new_kgt_scriptread_obj_with_action_idx((short)uVar3,0x65,0,0);
-        hovered_character_story = UNK_KGT_PLAYER_BUFFER_IDX;
-        PTR_POSS_CURRENT_OBJ->timer_mod_10 = iVar9;
-        bVar4 = get_action_button_pressed(LAST_INPUT_DIFFERENCE[hovered_character_story]);
-        STORY_MODE_IDX = UNK_KGT_PLAYER_BUFFER_IDX;
-        GAME_STATE.action_btn_pressed_player_0 = bVar4;
-        pick_player_color(0,LAST_INPUT_DIFFERENCE[UNK_KGT_PLAYER_BUFFER_IDX]);
+      if ((-1 < gkgtGameState.iCharSelect[0]) &&
+         ((giLastInputXor[giStoryModePlayerIdx] & 0x3f0U) != 0)) {
+                    // This IF block is what actually solidifies character selection
+        kgtoCharSelectObject = (kgtEngineObject *)(gkgtKgtSystem._73748_4_ & 0xffff);
+        gkgtGameState.iPlayerOneChoseCharacterFlag = 1;
+        *(undefined4 *)pkgtCurrentEngineObject->timer_mod_10 = 1;
+        pkgtCurrentEngineObject = kgtoNewObjectForSkillIdx(kgtoCharSelectObject,0x65,0,0,unaff_EDI);
+        iStoryModeCharacterHovered = giStoryModePlayerIdx;
+        gpkgtCurrentEngineObject->timer_mod_10 = (int)pkgtCurrentEngineObject;
+        bVar4 = iGetPressedActionButton(giLastInputXor[iStoryModeCharacterHovered]);
+        giStoryModePlayerIdx_2 = giStoryModePlayerIdx;
+        gkgtGameState.iActionButtonPressedPlayerOne = bVar4;
+        vPickPlayerColor(0,giLastInputXor[giStoryModePlayerIdx]);
       }
     }
     else {
-      hovered_character_story = UNK_CHAR_SELECT_GLOBAL_A + 1;
-      bVar2 = 100 < UNK_CHAR_SELECT_GLOBAL_A;
-      UNK_CHAR_SELECT_GLOBAL_A = hovered_character_story;
-      if (bVar2) {
-        RESET_OBJECTS_AND_SET_GAME_SPEED();
-        PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
+                    // if gkgtGameState.iPlayerOneChoseCharacterFlag != 0
+      iStoryModePrestartTimer = giBattlePrestartTimer + 1;
+      bHasWaitedMoreThanASecond = 100 < giBattlePrestartTimer;
+      giBattlePrestartTimer = iStoryModePrestartTimer;
+      if (bHasWaitedMoreThanASecond) {
+        vResetObjectsAndSpeed();
+        gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
                     // This can generate exits at jumptable idx 14 and at 16
-        HANDLE_STORY_MODE();
+        vProgressStoryMode();
         return;
       }
     }
   }
-  else if (GAME_STATE.GAME_MODE == VS_single) {
-    player_idx = 0;
-    pkVar11 = local_8;
-    char_sel_col = (kgt_grid *)local_4;
+  else if (gkgtGameState.kgtGameMode == VS_single) {
+    iPlayerIdx = 0;
+    pkgtoVsCursor = pkgtkoVsCursor_2;
+    kgtgPlayerGrid = (kgtGridCoordinates *)kgtoChildObject_B;
     do {
-      if (player_idx == 0) {
-        pkVar11 = (kgt_grid *)pOVar4->timer_mod_10;
-        local_4 = (OBJ_STRUCT *)&pOVar4->obj_ptr_b;
-        char_sel_col = &Char_Select_VS_Col_0;
-        local_8 = pkVar11;
+      if (iPlayerIdx == 0) {
+        pkgtoVsCursor = (kgtEngineObject *)pkgtCurrentEngineObject->timer_mod_10;
+        kgtoChildObject_B = (kgtEngineObject *)&pkgtCurrentEngineObject->obj_ptr_b;
+        kgtgPlayerGrid = &giCharacterSelectVsGridPlayer1;
+        pkgtkoVsCursor_2 = pkgtoVsCursor;
       }
-      else if (player_idx == 1) {
-        pkVar11 = (kgt_grid *)pOVar4->timer_div_ten_mod_10;
-        local_4 = (OBJ_STRUCT *)&pOVar4->obj_ptr_a;
-        char_sel_col = &Char_Select_VS_Col_1;
-        local_8 = pkVar11;
+      else if (iPlayerIdx == 1) {
+        pkgtoVsCursor = (kgtEngineObject *)pkgtCurrentEngineObject->timer_div_ten_mod_10;
+        kgtoChildObject_B = (kgtEngineObject *)&pkgtCurrentEngineObject->obj_ptr_a;
+        kgtgPlayerGrid = &giCharacterSelectVsGridPlayer2;
+        pkgtkoVsCursor_2 = pkgtoVsCursor;
       }
-      pkVar11[1].col =
-           ((int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_y *
-            ((OBJ_STRUCT *)char_sel_col)->jmp_idx +
-           (int)(short)DAT_KGT_FILE_BUFFER_00433240._73840_2_) * 0x10000;
-      player_has_chosen = (&GAME_STATE.character_chosen_flag_player_0)[player_idx];
-      pkVar11[1].row =
-           ((int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_x *
-            ((OBJ_STRUCT *)char_sel_col)->param2_maybe_50_or_46 +
-           (int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_x) * 0x10000;
+      pkgtoVsCursor->iParam3 =
+           ((int)gkgtKgtSystem.iDistanceBetweenCharactersX *
+            ((kgtEngineObject *)kgtgPlayerGrid)->iJumpIdx +
+           (int)gkgtKgtSystem.iCharacterSelectStartX) * 0x10000;
+      player_has_chosen = (&gkgtGameState.iPlayerOneChoseCharacterFlag)[iPlayerIdx];
+      pkgtoVsCursor->iParam4 =
+           ((int)gkgtKgtSystem.iDistanceBetweenCharactersY *
+            ((kgtEngineObject *)kgtgPlayerGrid)->iParam2 + (int)gkgtKgtSystem.iCharacterSelectStartY
+           ) * 0x10000;
       if (player_has_chosen == 0) {
-        if ((GAME_STATE.CHAR_SELECT[player_idx] < 0) ||
-           ((LAST_INPUT_DIFFERENCE[player_idx] & 0x3f0U) == 0)) {
-          if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + player_idx) & 4) != 0) {
-            CHAR_SELECT_CHANGE_SELECTION(char_sel_col,0,-1);
-            pOVar4 = PTR_POSS_CURRENT_OBJ;
+        if ((gkgtGameState.iCharSelect[iPlayerIdx] < 0) ||
+           ((giLastInputXor[iPlayerIdx] & 0x3f0U) == 0)) {
+          if ((*(byte *)(giLastInputCleaned + iPlayerIdx) & 4) != 0) {
+            vCharacterSelectChangeSelection(kgtgPlayerGrid,0,-1);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
           }
-          if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + player_idx) & 8) != 0) {
-            CHAR_SELECT_CHANGE_SELECTION(char_sel_col,0,1);
-            pOVar4 = PTR_POSS_CURRENT_OBJ;
+          if ((*(byte *)(giLastInputCleaned + iPlayerIdx) & 8) != 0) {
+            vCharacterSelectChangeSelection(kgtgPlayerGrid,0,1);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
           }
-          if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + player_idx) & 1) != 0) {
-            CHAR_SELECT_CHANGE_SELECTION(char_sel_col,-1,0);
-            pOVar4 = PTR_POSS_CURRENT_OBJ;
+          if ((*(byte *)(giLastInputCleaned + iPlayerIdx) & 1) != 0) {
+            vCharacterSelectChangeSelection(kgtgPlayerGrid,-1,0);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
           }
-          if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + player_idx) & 2) != 0) {
-            CHAR_SELECT_CHANGE_SELECTION(char_sel_col,1,0);
-            pOVar4 = PTR_POSS_CURRENT_OBJ;
+          if ((*(byte *)(giLastInputCleaned + iPlayerIdx) & 2) != 0) {
+            vCharacterSelectChangeSelection(kgtgPlayerGrid,1,0);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
           }
-          hovered_character_vs =
-               (int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y *
-               ((OBJ_STRUCT *)char_sel_col)->param2_maybe_50_or_46 +
-               ((OBJ_STRUCT *)char_sel_col)->jmp_idx;
-          if (GAME_STATE.CHAR_SELECT[player_idx] != hovered_character_vs) {
-            if (GAME_STATE.CHAR_SELECT[player_idx] == -1) {
-              if (((hovered_character_vs < 0x32) &&
-                  (DAT_KGT_FILE_BUFFER_00433240.character_names[hovered_character_vs][0] != '\0'))
-                 && ((DAT_KGT_FILE_BUFFER_00433240.story_mode_setting_check_array
-                      [hovered_character_vs + -2] & 2U) != 0)) {
-                GAME_STATE.CHAR_SELECT[player_idx] = hovered_character_vs;
-                READ_CHARACTER_FILE(player_idx,hovered_character_vs);
-                if (player_idx == 0) {
-                  pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.
-                                                      rows_in_select_screen << 0x10,
-                                          (DAT_KGT_FILE_BUFFER_00433240.player1_cursor_x + 0x1e0) *
-                                          0x10000);
+          iHoveredCharacterVs =
+               (int)gkgtKgtSystem.iColumnsInSelectScreen *
+               ((kgtEngineObject *)kgtgPlayerGrid)->iParam2 +
+               ((kgtEngineObject *)kgtgPlayerGrid)->iJumpIdx;
+          if (gkgtGameState.iCharSelect[iPlayerIdx] != iHoveredCharacterVs) {
+            if (gkgtGameState.iCharSelect[iPlayerIdx] == -1) {
+              if (((iHoveredCharacterVs < 0x32) &&
+                  (gkgtKgtSystem.gsCharacterName[iHoveredCharacterVs][0] != '\0')) &&
+                 ((gkgtKgtSystem.giCharacterHasStoryModeFlags[iHoveredCharacterVs] & 2U) != 0)) {
+                gkgtGameState.iCharSelect[iPlayerIdx] = iHoveredCharacterVs;
+                iOpenCharacterFile(iPlayerIdx,iHoveredCharacterVs);
+                if (iPlayerIdx == 0) {
+                  kgtoNewObjectVs =
+                       kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                           (int)gkgtKgtSystem.iPlayerOneCursorX << 0x10,
+                                           (gkgtKgtSystem.iPlayerOneCursorY + 0x1e0) * 0x10000);
                 }
                 else {
-                  pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.
-                                                      player1_selection_height << 0x10,
-                                          (DAT_KGT_FILE_BUFFER_00433240.player2_cursor_x + 0x1e0) *
-                                          0x10000);
-                  pOVar4->pos_player_direction = 1;
+                  kgtoNewObjectVs =
+                       kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                           (int)gkgtKgtSystem.iPlayerTwoCursorX << 0x10,
+                                           (gkgtKgtSystem.iPlayerTwoCursorY + 0x1e0) * 0x10000);
+                  kgtoNewObjectVs->iPlayerLookingRight = 1;
                 }
-                local_4->jmp_idx = (Jumptable_A_endpoints)pOVar4;
-                uVar1 = PLAYER_KGT_BUFFER[player_idx].character_select_pic_skill_idx;
-                p0skillalloc = PLAYER_KGT_BUFFER[player_idx].kgt_core.p_actions_alloc;
-                pOVar4->action_idx = (uint)uVar1;
-                pOVar4->obj_type = 1;
-                pOVar4->player_file_buffer = player_idx;
-                *(uint *)&pOVar4->actionscript_idx =
-                     (uint)(ushort)p0skillalloc[uVar1].starting_step_idx;
-                pOVar4->unk_bitmask = pOVar4->unk_bitmask | 0x40000000;
-                pOVar4 = PTR_POSS_CURRENT_OBJ;
-                pkVar11 = local_8;
+                kgtoChildObject_B->iJumpIdx = (kgtJumptableEndpoints)kgtoNewObjectVs;
+                iSkillIdxCharSelectPicVs = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxCharSelectPic;
+                kgtPlayerOneSkillsAlloc = gkgtLoadedCharacter[iPlayerIdx].kgtCore.pSkillsAlloc;
+                kgtoNewObjectVs->iSkillIdx = (uint)iSkillIdxCharSelectPicVs;
+                kgtoNewObjectVs->iObjectType = STORY?_ENGINE_OBJECT;
+                kgtoNewObjectVs->iPlayerIdx = iPlayerIdx;
+                *(uint *)&kgtoNewObjectVs->iSkillScriptIdx =
+                     (uint)(ushort)kgtPlayerOneSkillsAlloc[iSkillIdxCharSelectPicVs].
+                                   shStartingStepIdx;
+                kgtoNewObjectVs->unk_bitmask = kgtoNewObjectVs->unk_bitmask | 0x40000000;
+                pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+                pkgtoVsCursor = pkgtkoVsCursor_2;
               }
             }
             else {
-              reset_all_objects_for_player(player_idx);
-              pOVar4 = PTR_POSS_CURRENT_OBJ;
-              GAME_STATE.CHAR_SELECT[player_idx] = -1;
+              vResetObjectsForPlayerIdx(iPlayerIdx);
+              pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+              gkgtGameState.iCharSelect[iPlayerIdx] = -1;
             }
           }
         }
         else {
-          pkVar11->col = 1;
-          if (player_idx == 0) {
-            hovered_character_story =
-                 new_kgt_scriptread_obj_with_action_idx
-                           (DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_vs_cursor_after_input,0x65,0,0
+          pkgtoVsCursor->iJumpIdx = RESET_IDX;
+          if (iPlayerIdx == 0) {
+                    // shSkillIdx1pVsCursorAfterInput
+            pkgto1pVsCursorAfterInput =
+                 kgtoNewObjectForSkillIdx
+                           ((kgtEngineObject *)(gkgtKgtSystem._73748_4_ & 0xffff),0x65,0,0,unaff_EDI
                            );
-            PTR_POSS_CURRENT_OBJ->timer_mod_10 = hovered_character_story;
+            gpkgtCurrentEngineObject->timer_mod_10 = (int)pkgto1pVsCursorAfterInput;
           }
           else {
-            hovered_character_story =
-                 new_kgt_scriptread_obj_with_action_idx
-                           (DAT_KGT_FILE_BUFFER_00433240.skill_idx_2p_vs_cursor_after_input,0x65,0,0
-                           );
-            PTR_POSS_CURRENT_OBJ->timer_div_ten_mod_10 = hovered_character_story;
+            pkgto2pVsCursorAfterInput =
+                 kgtoNewObjectForSkillIdx
+                           ((kgtEngineObject *)((uint)gkgtKgtSystem._73748_4_ >> 0x10),0x65,0,0,
+                            unaff_EDI);
+            gpkgtCurrentEngineObject->timer_div_ten_mod_10 = (int)pkgto2pVsCursorAfterInput;
           }
-          default0x32 = LAST_INPUT_DIFFERENCE[player_idx];
-          (&GAME_STATE.character_chosen_flag_player_0)[player_idx] = 1;
-          last_button_pressed = get_action_button_pressed(default0x32);
-          last_input_diff = LAST_INPUT_DIFFERENCE[player_idx];
-          (&GAME_STATE.action_btn_pressed_player_0)[player_idx * 4] = last_button_pressed;
-          pick_player_color(player_idx,last_input_diff);
-          pOVar4 = PTR_POSS_CURRENT_OBJ;
+          iLastInputXor = giLastInputXor[iPlayerIdx];
+          (&gkgtGameState.iPlayerOneChoseCharacterFlag)[iPlayerIdx] = 1;
+          last_button_pressed = iGetPressedActionButton(iLastInputXor);
+          last_input_diff = giLastInputXor[iPlayerIdx];
+          (&gkgtGameState.iActionButtonPressedPlayerOne)[iPlayerIdx * 4] = last_button_pressed;
+          vPickPlayerColor(iPlayerIdx,last_input_diff);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
       }
-      player_idx = player_idx + 1;
-    } while (player_idx < 2);
-    if (((GAME_STATE.character_chosen_flag_player_0 != 0) &&
-        (GAME_STATE.character_chosen_flag_player_1 != 0)) &&
-       (hovered_character_story = UNK_CHAR_SELECT_GLOBAL_A + 1,
-       bVar2 = 100 < UNK_CHAR_SELECT_GLOBAL_A, UNK_CHAR_SELECT_GLOBAL_A = hovered_character_story,
-       bVar2)) {
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
-      PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
-      GAME_STATE.pause_flag = 0;
-      FIND_EMPTY_OBJ(14,0x7f,0,0);
+      iPlayerIdx = iPlayerIdx + 1;
+    } while (iPlayerIdx < 2);
+    if (((gkgtGameState.iPlayerOneChoseCharacterFlag != 0) &&
+        (gkgtGameState.iCharacterChosenFlagPlayerOne != 0)) &&
+       (iStoryModeCharacterHovered = giBattlePrestartTimer + 1,
+       bHasWaitedMoreThanASecond = 100 < giBattlePrestartTimer,
+       giBattlePrestartTimer = iStoryModeCharacterHovered, bHasWaitedMoreThanASecond)) {
+      vResetObjectsAndSpeed();
+      gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
+      gkgtGameState.iIsPausedFlag = 0;
+      kgtoNewEngineObject(BATTLE_STATE,0x7f,0,0);
       return;
     }
   }
-  else if (GAME_STATE.GAME_MODE == VS_team) {
+  else if (gkgtGameState.kgtGameMode == VS_team) {
     local_14 = 0;
-    piVar11 = &local_8->col;
+    piPlayerColumn = pkgtkoVsCursor_2;
     do {
-      hovered_character_story = local_14 * 4;
-      iVar9 = (&GAME_STATE.char_select_var_a)[local_14] + hovered_character_story;
+      iStoryModeCharacterHovered = local_14 * 4;
+      idx = (&gkgtGameState.char_select_var_a)[local_14] + iStoryModeCharacterHovered;
       if (local_14 == 0) {
-        local_4 = (OBJ_STRUCT *)&pOVar4->obj_ptr_b;
-        local_10 = (undefined4 *)pOVar4->timer_mod_10;
-        local_8 = &Char_Select_VS_Col_0;
-        piVar11 = &Char_Select_VS_Col_0.col;
+        kgtoChildObject_B = (kgtEngineObject *)&pkgtCurrentEngineObject->obj_ptr_b;
+        local_10 = (undefined4 *)pkgtCurrentEngineObject->timer_mod_10;
+        pkgtkoVsCursor_2 = (kgtEngineObject *)&giCharacterSelectVsGridPlayer1;
+        piPlayerColumn = (kgtEngineObject *)&giCharacterSelectVsGridPlayer1;
       }
       else if (local_14 == 1) {
-        local_10 = (undefined4 *)pOVar4->timer_div_ten_mod_10;
-        local_4 = (OBJ_STRUCT *)&pOVar4->obj_ptr_a;
-        piVar11 = &Char_Select_VS_Col_1.col;
-        local_8 = &Char_Select_VS_Col_1;
+        local_10 = (undefined4 *)pkgtCurrentEngineObject->timer_div_ten_mod_10;
+        kgtoChildObject_B = (kgtEngineObject *)&pkgtCurrentEngineObject->obj_ptr_a;
+        piPlayerColumn = (kgtEngineObject *)&giCharacterSelectVsGridPlayer2;
+        pkgtkoVsCursor_2 = (kgtEngineObject *)&giCharacterSelectVsGridPlayer2;
       }
-      local_10[2] = ((int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_y *
-                     ((kgt_grid *)piVar11)->col + (int)(short)DAT_KGT_FILE_BUFFER_00433240._73840_2_
-                    ) * 0x10000;
-      local_10[3] = ((int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_x *
-                     ((kgt_grid *)piVar11)->row +
-                    (int)DAT_KGT_FILE_BUFFER_00433240.character_select_start_x) * 0x10000;
-      if ((&GAME_STATE.character_chosen_flag_player_0)[local_14] == 0) {
-        if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + local_14) & 4) != 0) {
-          CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,0,-1);
-          pOVar4 = PTR_POSS_CURRENT_OBJ;
+      local_10[2] = ((int)gkgtKgtSystem.iDistanceBetweenCharactersX * piPlayerColumn->iJumpIdx +
+                    (int)gkgtKgtSystem.iCharacterSelectStartX) * 0x10000;
+      local_10[3] = ((int)gkgtKgtSystem.iDistanceBetweenCharactersY * piPlayerColumn->iParam2 +
+                    (int)gkgtKgtSystem.iCharacterSelectStartY) * 0x10000;
+      if ((&gkgtGameState.iPlayerOneChoseCharacterFlag)[local_14] == 0) {
+        if ((*(byte *)(giLastInputCleaned + local_14) & 4) != 0) {
+          vCharacterSelectChangeSelection((kgtGridCoordinates *)piPlayerColumn,0,-1);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
-        if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + local_14) & 8) != 0) {
-          CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,0,1);
-          pOVar4 = PTR_POSS_CURRENT_OBJ;
+        if ((*(byte *)(giLastInputCleaned + local_14) & 8) != 0) {
+          vCharacterSelectChangeSelection((kgtGridCoordinates *)piPlayerColumn,0,1);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
-        if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + local_14) & 1) != 0) {
-          CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,-1,0);
-          pOVar4 = PTR_POSS_CURRENT_OBJ;
+        if ((*(byte *)(giLastInputCleaned + local_14) & 1) != 0) {
+          vCharacterSelectChangeSelection((kgtGridCoordinates *)piPlayerColumn,-1,0);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
-        if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + local_14) & 2) != 0) {
-          CHAR_SELECT_CHANGE_SELECTION((kgt_grid *)piVar11,1,0);
-          pOVar4 = PTR_POSS_CURRENT_OBJ;
+        if ((*(byte *)(giLastInputCleaned + local_14) & 2) != 0) {
+          vCharacterSelectChangeSelection((kgtGridCoordinates *)piPlayerColumn,1,0);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
         }
-        iVar10 = (int)DAT_KGT_FILE_BUFFER_00433240.distance_between_characters_y *
-                 ((kgt_grid *)piVar11)->row + ((kgt_grid *)piVar11)->col;
-        if (GAME_STATE.CHAR_SELECT[local_14] == iVar10) {
+        iVar4 = (int)gkgtKgtSystem.iColumnsInSelectScreen * piPlayerColumn->iParam2 +
+                piPlayerColumn->iJumpIdx;
+        if (gkgtGameState.iCharSelect[local_14] == iVar4) {
 LAB_0040752f:
-          GAME_STATE.CHAR_SELECT
-          [(&GAME_STATE.char_select_var_a)[local_14] + hovered_character_story + 0x13] = iVar10;
-          if ((-1 < GAME_STATE.CHAR_SELECT[local_14]) &&
-             ((LAST_INPUT_DIFFERENCE[local_14] & 0x3f0U) != 0)) {
-            pick_player_color(iVar9,LAST_INPUT_DIFFERENCE[local_14]);
-            (&GAME_STATE.action_btn_pressed_player_0)
-            [(&GAME_STATE.char_select_var_a)[local_14] + hovered_character_story] =
-                 PLAYER_KGT_BUFFER[iVar9].poss_relating_to_player_idx;
-            if ((&GAME_STATE.char_select_var_a)[local_14] + 1 <
-                GAME_STATE.PTR_TO___OF_ROUNDS_TEAM_VS_00470064) {
-              iVar5 = GAME_STATE.PTR_TO___OF_ROUNDS_TEAM_VS_00470064 -
-                      (&GAME_STATE.char_select_var_a)[local_14];
-              iVar6 = iVar5 + -1;
-              READ_CHARACTER_FILE(iVar9,iVar10);
+          gkgtGameState.iCharSelect
+          [(&gkgtGameState.char_select_var_a)[local_14] + iStoryModeCharacterHovered + 0x13] = iVar4
+          ;
+          if ((-1 < gkgtGameState.iCharSelect[local_14]) &&
+             ((giLastInputXor[local_14] & 0x3f0U) != 0)) {
+            vPickPlayerColor(idx,giLastInputXor[local_14]);
+            (&gkgtGameState.iActionButtonPressedPlayerOne)
+            [(&gkgtGameState.char_select_var_a)[local_14] + iStoryModeCharacterHovered] =
+                 gkgtLoadedCharacter[idx].iColorInt;
+            if ((&gkgtGameState.char_select_var_a)[local_14] + 1 <
+                gkgtGameState.iConfigNumberOfRoundsTeamVs) {
+              iVar1 = gkgtGameState.iConfigNumberOfRoundsTeamVs -
+                      (&gkgtGameState.char_select_var_a)[local_14];
+              iVar2 = iVar1 + -1;
+              iOpenCharacterFile(idx,iVar4);
               if (local_14 == 0) {
-                pOVar7 = FIND_EMPTY_OBJ(4,iVar5 + 0x4f,
-                                        (DAT_KGT_FILE_BUFFER_00433240.player1_cursor_y * iVar6 +
-                                        (int)DAT_KGT_FILE_BUFFER_00433240.rows_in_select_screen) *
-                                        0x10000,(DAT_KGT_FILE_BUFFER_00433240.
-                                                 player1_selection_width * iVar6 + 0x1e0 +
-                                                (int)DAT_KGT_FILE_BUFFER_00433240.player1_cursor_x)
-                                                * 0x10000);
+                kgtoCharSelectObject =
+                     kgtoNewEngineObject(READ_SCRIPT,iVar1 + 0x4f,
+                                         (gkgtKgtSystem.player1_selection_width * iVar2 +
+                                         (int)gkgtKgtSystem.iPlayerOneCursorX) * 0x10000,
+                                         (gkgtKgtSystem.player1_selection_height * iVar2 + 0x1e0 +
+                                         (int)gkgtKgtSystem.iPlayerOneCursorY) * 0x10000);
               }
               else {
-                pOVar7 = FIND_EMPTY_OBJ(4,iVar5 + 0x4f,
-                                        (DAT_KGT_FILE_BUFFER_00433240.player2_cursor_y * iVar6 +
-                                        (int)DAT_KGT_FILE_BUFFER_00433240.player1_selection_height)
-                                        * 0x10000,
-                                        (DAT_KGT_FILE_BUFFER_00433240.player2_selection_width *
-                                         iVar6 + 0x1e0 +
-                                        (int)DAT_KGT_FILE_BUFFER_00433240.player2_cursor_x) *
-                                        0x10000);
-                pOVar7->pos_player_direction = 1;
+                kgtoCharSelectObject =
+                     kgtoNewEngineObject(READ_SCRIPT,iVar1 + 0x4f,
+                                         (gkgtKgtSystem.player2_selection_width * iVar2 +
+                                         (int)gkgtKgtSystem.iPlayerTwoCursorX) * 0x10000,
+                                         (gkgtKgtSystem.player2_selection_height * iVar2 + 0x1e0 +
+                                         (int)gkgtKgtSystem.iPlayerTwoCursorY) * 0x10000);
+                kgtoCharSelectObject->iPlayerLookingRight = 1;
               }
-              iVar10 = (&GAME_STATE.char_select_var_a)[local_14];
-              pOVar7->obj_type = 1;
-              *(OBJ_STRUCT **)((int)INT_ARRAY_00424e7a + (iVar10 + hovered_character_story) * 4 + 6)
-                   = pOVar7;
-              pOVar7->player_file_buffer = iVar9;
-              uVar1 = PLAYER_KGT_BUFFER[iVar9].character_select_pic_skill_idx;
-              pOVar7->action_idx = (uint)uVar1;
-              uVar1 = PLAYER_KGT_BUFFER[iVar9].kgt_core.p_actions_alloc[uVar1].starting_step_idx;
-              pOVar7->unk_bitmask = pOVar7->unk_bitmask | 0x40000000;
-              pOVar4 = PTR_POSS_CURRENT_OBJ;
-              *(uint *)&pOVar7->actionscript_idx = (uint)uVar1;
-              (&GAME_STATE.char_select_var_a)[local_14] = iVar10 + 1;
-              piVar11 = &local_8->col;
+              iVar4 = (&gkgtGameState.char_select_var_a)[local_14];
+              kgtoCharSelectObject->iObjectType = STORY?_ENGINE_OBJECT;
+              *(kgtEngineObject **)
+               ((int)INT_ARRAY_00424e7a + (iVar4 + iStoryModeCharacterHovered) * 4 + 6) =
+                   kgtoCharSelectObject;
+              kgtoCharSelectObject->iPlayerIdx = idx;
+              iSkillIdxCharSelectPicVs = gkgtLoadedCharacter[idx].shSkillIdxCharSelectPic;
+              kgtoCharSelectObject->iSkillIdx = (uint)iSkillIdxCharSelectPicVs;
+              iSkillIdxCharSelectPicVs =
+                   gkgtLoadedCharacter[idx].kgtCore.pSkillsAlloc[iSkillIdxCharSelectPicVs].
+                   shStartingStepIdx;
+              kgtoCharSelectObject->unk_bitmask = kgtoCharSelectObject->unk_bitmask | 0x40000000;
+              pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+              *(uint *)&kgtoCharSelectObject->iSkillScriptIdx = (uint)iSkillIdxCharSelectPicVs;
+              (&gkgtGameState.char_select_var_a)[local_14] = iVar4 + 1;
+              piPlayerColumn = pkgtkoVsCursor_2;
             }
             else {
               *local_10 = 1;
               if (local_14 == 0) {
-                hovered_character_story =
-                     new_kgt_scriptread_obj_with_action_idx
-                               (DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_vs_cursor_after_input,0x65
-                                ,0,0);
-                pOVar4 = PTR_POSS_CURRENT_OBJ;
-                GAME_STATE.character_chosen_flag_player_0 = 1;
-                PTR_POSS_CURRENT_OBJ->timer_mod_10 = hovered_character_story;
+                kgtoCharSelectObject =
+                     kgtoNewObjectForSkillIdx
+                               ((kgtEngineObject *)(gkgtKgtSystem._73748_4_ & 0xffff),0x65,0,0,
+                                unaff_EDI);
+                pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+                gkgtGameState.iPlayerOneChoseCharacterFlag = 1;
+                gpkgtCurrentEngineObject->timer_mod_10 = (int)kgtoCharSelectObject;
               }
               else {
-                hovered_character_story =
-                     new_kgt_scriptread_obj_with_action_idx
-                               (DAT_KGT_FILE_BUFFER_00433240.skill_idx_2p_vs_cursor_after_input,0x65
-                                ,0,0);
-                pOVar4 = PTR_POSS_CURRENT_OBJ;
-                (&GAME_STATE.character_chosen_flag_player_0)[local_14] = 1;
-                pOVar4->timer_div_ten_mod_10 = hovered_character_story;
+                kgtoCharSelectObject =
+                     kgtoNewObjectForSkillIdx
+                               ((kgtEngineObject *)((uint)gkgtKgtSystem._73748_4_ >> 0x10),0x65,0,0,
+                                unaff_EDI);
+                pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+                (&gkgtGameState.iPlayerOneChoseCharacterFlag)[local_14] = 1;
+                pkgtCurrentEngineObject->timer_div_ten_mod_10 = (int)kgtoCharSelectObject;
               }
             }
           }
         }
         else {
-          iVar5 = hovered_character_story + 3;
-          if (GAME_STATE.CHAR_SELECT[local_14] == -1) {
-            if (((iVar10 < 0x32) &&
-                (DAT_KGT_FILE_BUFFER_00433240.character_names[iVar10][0] != '\0')) &&
-               ((DAT_KGT_FILE_BUFFER_00433240.story_mode_setting_check_array[iVar10 + -2] & 2U) != 0
-               )) {
-              GAME_STATE.CHAR_SELECT[local_14] = iVar10;
-              READ_CHARACTER_FILE(iVar5,iVar10);
+          iVar1 = iStoryModeCharacterHovered + 3;
+          if (gkgtGameState.iCharSelect[local_14] == -1) {
+            if (((iVar4 < 0x32) && (gkgtKgtSystem.gsCharacterName[iVar4][0] != '\0')) &&
+               ((gkgtKgtSystem.giCharacterHasStoryModeFlags[iVar4] & 2U) != 0)) {
+              gkgtGameState.iCharSelect[local_14] = iVar4;
+              iOpenCharacterFile(iVar1,iVar4);
               if (local_14 == 0) {
-                pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.
-                                                    rows_in_select_screen << 0x10,
-                                        (DAT_KGT_FILE_BUFFER_00433240.player1_cursor_x + 0x1e0) *
-                                        0x10000);
+                pkgtCurrentEngineObject =
+                     kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                         (int)gkgtKgtSystem.iPlayerOneCursorX << 0x10,
+                                         (gkgtKgtSystem.iPlayerOneCursorY + 0x1e0) * 0x10000);
               }
               else {
-                pOVar4 = FIND_EMPTY_OBJ(4,0x50,(int)DAT_KGT_FILE_BUFFER_00433240.
-                                                    player1_selection_height << 0x10,
-                                        (DAT_KGT_FILE_BUFFER_00433240.player2_cursor_x + 0x1e0) *
-                                        0x10000);
-                pOVar4->pos_player_direction = 1;
+                pkgtCurrentEngineObject =
+                     kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                         (int)gkgtKgtSystem.iPlayerTwoCursorX << 0x10,
+                                         (gkgtKgtSystem.iPlayerTwoCursorY + 0x1e0) * 0x10000);
+                pkgtCurrentEngineObject->iPlayerLookingRight = 1;
               }
-              pOVar4->player_file_buffer = iVar5;
-              pOVar4->obj_type = 1;
-              local_4->jmp_idx = (Jumptable_A_endpoints)pOVar4;
-              uVar1 = PLAYER_KGT_BUFFER[iVar5].character_select_pic_skill_idx;
-              pOVar4->action_idx = (uint)uVar1;
+              pkgtCurrentEngineObject->iPlayerIdx = iVar1;
+              pkgtCurrentEngineObject->iObjectType = STORY?_ENGINE_OBJECT;
+              kgtoChildObject_B->iJumpIdx = (kgtJumptableEndpoints)pkgtCurrentEngineObject;
+              iSkillIdxCharSelectPicVs = gkgtLoadedCharacter[iVar1].shSkillIdxCharSelectPic;
+              pkgtCurrentEngineObject->iSkillIdx = (uint)iSkillIdxCharSelectPicVs;
                     // initially setting the obj bitmask here
-              *(uint *)&pOVar4->actionscript_idx =
-                   (uint)(ushort)PLAYER_KGT_BUFFER[iVar5].kgt_core.p_actions_alloc[uVar1].
-                                 starting_step_idx;
-              pOVar4->unk_bitmask = pOVar4->unk_bitmask | 0x40000000;
-              pOVar4 = PTR_POSS_CURRENT_OBJ;
+              *(uint *)&pkgtCurrentEngineObject->iSkillScriptIdx =
+                   (uint)(ushort)gkgtLoadedCharacter[iVar1].kgtCore.pSkillsAlloc
+                                 [iSkillIdxCharSelectPicVs].shStartingStepIdx;
+              pkgtCurrentEngineObject->unk_bitmask =
+                   pkgtCurrentEngineObject->unk_bitmask | 0x40000000;
+              pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
               goto LAB_0040752f;
             }
           }
           else {
-            reset_all_objects_for_player(iVar5);
-            pOVar4 = PTR_POSS_CURRENT_OBJ;
-            GAME_STATE.CHAR_SELECT[local_14] = -1;
+            vResetObjectsForPlayerIdx(iVar1);
+            pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+            gkgtGameState.iCharSelect[local_14] = -1;
           }
         }
       }
       local_14 = local_14 + 1;
     } while (local_14 < 2);
-    if (((GAME_STATE.character_chosen_flag_player_0 != 0) &&
-        (GAME_STATE.character_chosen_flag_player_1 != 0)) &&
-       (hovered_character_story = UNK_CHAR_SELECT_GLOBAL_A + 1,
-       bVar2 = 100 < UNK_CHAR_SELECT_GLOBAL_A, UNK_CHAR_SELECT_GLOBAL_A = hovered_character_story,
-       bVar2)) {
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
-      PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
-      FIND_EMPTY_OBJ(14,0x7f,0,0);
+    if (((gkgtGameState.iPlayerOneChoseCharacterFlag != 0) &&
+        (gkgtGameState.iCharacterChosenFlagPlayerOne != 0)) &&
+       (iStoryModeCharacterHovered = giBattlePrestartTimer + 1,
+       bHasWaitedMoreThanASecond = 100 < giBattlePrestartTimer,
+       giBattlePrestartTimer = iStoryModeCharacterHovered, bHasWaitedMoreThanASecond)) {
+      vResetObjectsAndSpeed();
+      gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
+      kgtoNewEngineObject(BATTLE_STATE,0x7f,0,0);
       return;
     }
   }
@@ -6645,126 +6723,125 @@ LAB_0040752f:
 
 
 
-void __fastcall FUN_00407d70(OBJ_STRUCT *param_1)
+void __fastcall FUN_00407d70(kgtEngineObject *param_1)
 
 {
   ushort uVar1;
-  kgt_skill_struct *pkVar2;
+  kgtSkillHeader *pkVar2;
   int iVar3;
-  OBJ_STRUCT *pOVar4;
-  OBJ_STRUCT *pOVar5;
-  OBJ_STRUCT *pOVar6;
+  kgtEngineObject *pkVar4;
+  kgtEngineObject *pkVar5;
+  kgtEngineObject *pkVar6;
   uint uVar7;
   int iVar8;
   
   iVar8 = 0;
-  if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    iVar3 = FUN_open_demo_file_00403fc0((uint)(byte)DAT_KGT_FILE_BUFFER_00433240._p_demo_script_idx)
-    ;
+  if (gpkgtCurrentEngineObject->iProcessStep == 0) {
+    gpkgtCurrentEngineObject->iProcessStep = 1;
+    iVar3 = iOpenDemoFile((uint)(byte)gkgtKgtSystem.cStoryModeDemoIdx);
     if (iVar3 == 0) {
-      spawn_scriptread_obj_for_each_demo_skill();
+      vSpawnEngineObjectForDemoSkills();
     }
-    pOVar5 = PTR_POSS_CURRENT_OBJ;
-    GAME_STATE.CHAR_SELECT[0] = 0;
-    GAME_STATE.CHAR_SELECT[1] = 0;
-    PTR_POSS_CURRENT_OBJ->player_file_buffer = -1;
-    pOVar5->obj_type = ~0;
-    pOVar5->obj_ptr_b = (OBJ_STRUCT *)0xffffffff;
-    pOVar5->obj_ptr_a = (OBJ_STRUCT *)0xffffffff;
-    unk_y_position = 0;
-    unk_x_position = 0x1e0;
-    GAME_STATE.over3kunder4kcheck = 2000;
+    pkVar5 = gpkgtCurrentEngineObject;
+    gkgtGameState.iCharSelect[0] = 0;
+    gkgtGameState.iCharSelect[1] = 0;
+    gpkgtCurrentEngineObject->iPlayerIdx = -1;
+    pkVar5->iObjectType = ~PLAYER_ENGINE_OBJECT;
+    pkVar5->obj_ptr_b = (kgtEngineObject *)0xffffffff;
+    pkVar5->obj_ptr_a = (kgtEngineObject *)0xffffffff;
+    unk_x_position = 0;
+    unk_y_pos2 = 0x1e0;
+    gkgtGameState.iGameStateNumber = 2000;
   }
   else {
-    pOVar5 = PTR_POSS_CURRENT_OBJ;
-    if (PTR_POSS_CURRENT_OBJ->object_process_step != 1) {
+    pkVar5 = gpkgtCurrentEngineObject;
+    if (gpkgtCurrentEngineObject->iProcessStep != 1) {
       return;
     }
   }
-  if (GAME_STATE.GAME_MODE == 1P_story) {
-    if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + UNK_KGT_PLAYER_BUFFER_IDX) & 5) != 0) {
-      FUN_00406db0(&GAME_STATE);
-      pOVar5 = PTR_POSS_CURRENT_OBJ;
+  if (gkgtGameState.kgtGameMode == 1P_story) {
+    if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 5) != 0) {
+      FUN_00406db0(&gkgtGameState);
+      pkVar5 = gpkgtCurrentEngineObject;
     }
-    if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + UNK_KGT_PLAYER_BUFFER_IDX) & 10) != 0) {
-      FUN_00406e00(&GAME_STATE);
-      pOVar5 = PTR_POSS_CURRENT_OBJ;
+    if ((*(byte *)(giLastInputCleaned + giStoryModePlayerIdx) & 10) != 0) {
+      FUN_00406e00(&gkgtGameState);
+      pkVar5 = gpkgtCurrentEngineObject;
     }
-    iVar8 = UNK_KGT_PLAYER_BUFFER_IDX;
-    if (GAME_STATE.CHAR_SELECT[0] != pOVar5->player_file_buffer) {
-      if (pOVar5->player_file_buffer != -1) {
-        pOVar5->obj_ptr_b->jmp_idx = reset_index;
+    iVar8 = giStoryModePlayerIdx;
+    if (gkgtGameState.iCharSelect[0] != pkVar5->iPlayerIdx) {
+      if (pkVar5->iPlayerIdx != -1) {
+        pkVar5->obj_ptr_b->iJumpIdx = RESET_IDX;
       }
-      pOVar6 = FIND_EMPTY_OBJ(4,0x50,iVar8 * 0xc80000 + 0xdc0000,0x3980000);
-      pOVar5 = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->obj_ptr_b = pOVar6;
-      iVar8 = GAME_STATE.CHAR_SELECT[0];
-      pOVar5->player_file_buffer = GAME_STATE.CHAR_SELECT[0];
-      READ_CHARACTER_FILE(0,iVar8);
-      pkVar2 = PLAYER_KGT_BUFFER[0].kgt_core.p_actions_alloc;
-      uVar7 = (uint)(ushort)PLAYER_KGT_BUFFER[0].SectionE_default_0x19;
-      pOVar5 = PTR_POSS_CURRENT_OBJ->obj_ptr_b;
-      pOVar5->obj_type = 1;
-      pOVar5->player_file_buffer = 0;
-      pOVar5->action_idx = uVar7;
-      *(uint *)&pOVar5->actionscript_idx = (uint)(ushort)pkVar2[uVar7].starting_step_idx;
-      pOVar5->unk_bitmask = pOVar5->unk_bitmask | 0x40000000;
+      pkVar6 = kgtoNewEngineObject(READ_SCRIPT,0x50,iVar8 * 0xc80000 + 0xdc0000,0x3980000);
+      pkVar5 = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->obj_ptr_b = pkVar6;
+      iVar8 = gkgtGameState.iCharSelect[0];
+      pkVar5->iPlayerIdx = gkgtGameState.iCharSelect[0];
+      iOpenCharacterFile(0,iVar8);
+      pkVar2 = gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc;
+      uVar7 = (uint)(ushort)gkgtLoadedCharacter[0].shSkillIdxStageFacePic;
+      pkVar5 = gpkgtCurrentEngineObject->obj_ptr_b;
+      pkVar5->iObjectType = STORY?_ENGINE_OBJECT;
+      pkVar5->iPlayerIdx = 0;
+      pkVar5->iSkillIdx = uVar7;
+      *(uint *)&pkVar5->iSkillScriptIdx = (uint)(ushort)pkVar2[uVar7].shStartingStepIdx;
+      pkVar5->unk_bitmask = pkVar5->unk_bitmask | 0x40000000;
     }
-    if ((LAST_INPUT_DIFFERENCE[UNK_KGT_PLAYER_BUFFER_IDX] & 0x3f0U) != 0) {
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
-      STORY_MODE_IDX = UNK_KGT_PLAYER_BUFFER_IDX;
-      PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
-      HANDLE_STORY_MODE();
+    if ((giLastInputXor[giStoryModePlayerIdx] & 0x3f0U) != 0) {
+      vResetObjectsAndSpeed();
+      giStoryModePlayerIdx_2 = giStoryModePlayerIdx;
+      gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
+      vProgressStoryMode();
     }
   }
-  else if ((0 < (int)GAME_STATE.GAME_MODE) &&
-          (pOVar6 = param_1, pOVar4 = param_1, (int)GAME_STATE.GAME_MODE < 3)) {
+  else if ((0 < (int)gkgtGameState.kgtGameMode) &&
+          (pkVar6 = param_1, pkVar4 = param_1, (int)gkgtGameState.kgtGameMode < 3)) {
     do {
       if (iVar8 == 0) {
-        param_1 = (OBJ_STRUCT *)&pOVar5->player_file_buffer;
-        pOVar6 = (OBJ_STRUCT *)&pOVar5->obj_ptr_b;
+        param_1 = (kgtEngineObject *)&pkVar5->iPlayerIdx;
+        pkVar6 = (kgtEngineObject *)&pkVar5->obj_ptr_b;
 LAB_00407e49:
-        pOVar4 = (OBJ_STRUCT *)pOVar6->jmp_idx;
+        pkVar4 = (kgtEngineObject *)pkVar6->iJumpIdx;
       }
       else if (iVar8 == 1) {
-        param_1 = (OBJ_STRUCT *)&pOVar5->obj_type;
-        pOVar6 = (OBJ_STRUCT *)&pOVar5->obj_ptr_a;
+        param_1 = (kgtEngineObject *)&pkVar5->iObjectType;
+        pkVar6 = (kgtEngineObject *)&pkVar5->obj_ptr_a;
         goto LAB_00407e49;
       }
-      if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + iVar8) & 5) != 0) {
-        FUN_00406db0(GAME_STATE.CHAR_SELECT + iVar8);
-        pOVar5 = PTR_POSS_CURRENT_OBJ;
+      if ((*(byte *)(giLastInputCleaned + iVar8) & 5) != 0) {
+        FUN_00406db0(gkgtGameState.iCharSelect + iVar8);
+        pkVar5 = gpkgtCurrentEngineObject;
       }
-      if ((*(byte *)(LAST_INPUT_BITWISE_TESTED + iVar8) & 10) != 0) {
-        FUN_00406e00(GAME_STATE.CHAR_SELECT + iVar8);
-        pOVar5 = PTR_POSS_CURRENT_OBJ;
+      if ((*(byte *)(giLastInputCleaned + iVar8) & 10) != 0) {
+        FUN_00406e00(gkgtGameState.iCharSelect + iVar8);
+        pkVar5 = gpkgtCurrentEngineObject;
       }
-      if ((OBJ_STRUCT *)GAME_STATE.CHAR_SELECT[iVar8] != (OBJ_STRUCT *)param_1->jmp_idx) {
-        if ((OBJ_STRUCT *)param_1->jmp_idx != (OBJ_STRUCT *)0xffffffff) {
-          pOVar4->jmp_idx = reset_index;
+      if ((kgtEngineObject *)gkgtGameState.iCharSelect[iVar8] !=
+          (kgtEngineObject *)param_1->iJumpIdx) {
+        if ((kgtEngineObject *)param_1->iJumpIdx != (kgtEngineObject *)0xffffffff) {
+          pkVar4->iJumpIdx = RESET_IDX;
         }
-        pOVar4 = FIND_EMPTY_OBJ(4,0x50,iVar8 * 0xc80000 + 0xdc0000,0x3980000);
-        pOVar5 = (OBJ_STRUCT *)GAME_STATE.CHAR_SELECT[iVar8];
-        pOVar6->jmp_idx = (Jumptable_A_endpoints)pOVar4;
-        param_1->jmp_idx = (Jumptable_A_endpoints)pOVar5;
-        READ_CHARACTER_FILE(iVar8,pOVar5);
-        pOVar4->obj_type = 1;
-        pOVar4->player_file_buffer = iVar8;
-        uVar1 = PLAYER_KGT_BUFFER[iVar8].SectionE_default_0x19;
-        pOVar4->action_idx = (uint)uVar1;
-        *(uint *)&pOVar4->actionscript_idx =
-             (uint)(ushort)PLAYER_KGT_BUFFER[iVar8].kgt_core.p_actions_alloc[uVar1].
-                           starting_step_idx;
-        pOVar4->unk_bitmask = pOVar4->unk_bitmask | 0x40000000;
-        pOVar5 = PTR_POSS_CURRENT_OBJ;
+        pkVar4 = kgtoNewEngineObject(READ_SCRIPT,0x50,iVar8 * 0xc80000 + 0xdc0000,0x3980000);
+        pkVar5 = (kgtEngineObject *)gkgtGameState.iCharSelect[iVar8];
+        pkVar6->iJumpIdx = (kgtJumptableEndpoints)pkVar4;
+        param_1->iJumpIdx = (kgtJumptableEndpoints)pkVar5;
+        iOpenCharacterFile(iVar8,pkVar5);
+        pkVar4->iObjectType = STORY?_ENGINE_OBJECT;
+        pkVar4->iPlayerIdx = iVar8;
+        uVar1 = gkgtLoadedCharacter[iVar8].shSkillIdxStageFacePic;
+        pkVar4->iSkillIdx = (uint)uVar1;
+        *(uint *)&pkVar4->iSkillScriptIdx =
+             (uint)(ushort)gkgtLoadedCharacter[iVar8].kgtCore.pSkillsAlloc[uVar1].shStartingStepIdx;
+        pkVar4->unk_bitmask = pkVar4->unk_bitmask | 0x40000000;
+        pkVar5 = gpkgtCurrentEngineObject;
       }
       iVar8 = iVar8 + 1;
     } while (iVar8 < 2);
-    if ((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0x3f0) != 0) {
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
-      PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
-      FIND_EMPTY_OBJ(0xe,0x7f,0,0);
+    if ((giLastInputXor_2 & 0x3f0) != 0) {
+      vResetObjectsAndSpeed();
+      gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
+      kgtoNewEngineObject(BATTLE_STATE,0x7f,0,0);
       return;
     }
   }
@@ -6779,190 +6856,201 @@ LAB_00407e49:
 // 
 // Step 5 looks like menu traversing?
 
-void Poss_Menu_traversal(void)
+void vjmpMenuTraversal(void)
 
 {
   short sVar1;
-  int iVar2;
-  uint uVar3;
+  int err;
+  uint uVar2;
+  kgtEngineObject *pkVar3;
   int *pOVar5;
-  OBJ_STRUCT *pOVar4;
+  int unaff_ESI;
   bool has_story_mode;
-  kgt_skill_step_struct *local_c [3];
-  kgt_obj_type newObj;
+  kgtSkill *kgtTitleCursor [3];
+  kgtEngineObject *newObj;
+  kgtEngineObject *pkgtCurrentEngineObject;
   char sys_bitmask;
   
-  pOVar4 = PTR_POSS_CURRENT_OBJ;
-  sys_bitmask = DAT_KGT_FILE_BUFFER_00433240.system_bitmask;
-  switch(PTR_POSS_CURRENT_OBJ->object_process_step) {
+  pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+  sys_bitmask = gkgtKgtSystem.cSystemBitmask;
+  switch(gpkgtCurrentEngineObject->iProcessStep) {
   case 0:
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    GAME_STATE.over3kunder4kcheck = 1000;
-    GAME_STATE.poss_current_round_count = 0;
-    RESET_OBJECTS_AND_SET_GAME_SPEED();
-    if (DAT_KGT_FILE_BUFFER_00433240.opening_demo_idx == '\0') {
-      PTR_POSS_CURRENT_OBJ->object_process_step = 2;
+    gpkgtCurrentEngineObject->iProcessStep = 1;
+    gkgtGameState.iGameStateNumber = 1000;
+    gkgtGameState.iCurrentRound = 0;
+    vResetObjectsAndSpeed();
+    if (gkgtKgtSystem.iOpeningDemoIdx == '\0') {
+      gpkgtCurrentEngineObject->iProcessStep = 2;
       return;
     }
-    iVar2 = FUN_open_demo_file_00403fc0((uint)(byte)DAT_KGT_FILE_BUFFER_00433240.opening_demo_idx);
-    if (iVar2 == 0) {
-      spawn_scriptread_obj_for_each_demo_skill();
+    err = iOpenDemoFile((uint)(byte)gkgtKgtSystem.iOpeningDemoIdx);
+    if (err == 0) {
+      vSpawnEngineObjectForDemoSkills();
       return;
     }
     break;
   case 1:
-    if (PTR_POSS_CURRENT_OBJ->player_file_buffer < 10) {
-      PTR_POSS_CURRENT_OBJ->player_file_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer + 1;
+    if (gpkgtCurrentEngineObject->iPlayerIdx < 10) {
+      gpkgtCurrentEngineObject->iPlayerIdx = gpkgtCurrentEngineObject->iPlayerIdx + 1;
       return;
     }
-    if (((byte)UNK_FLAG_00424f04 & 1) == 0) {
-      if ((UNK_FLAG_00424f08 != 0) &&
-         (UNK_FLAG_00424f08 = UNK_FLAG_00424f08 + -1, UNK_FLAG_00424f08 == 0)) {
-        PTR_POSS_CURRENT_OBJ->object_process_step = 2;
+    if (((byte)giDemoSkipWithInput & 1) == 0) {
+      if ((giDemoTime != 0) && (giDemoTime = giDemoTime + -1, giDemoTime == 0)) {
+        gpkgtCurrentEngineObject->iProcessStep = 2;
         return;
       }
     }
     else {
-      if ((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0x3f0) == 0) {
-        PTR_POSS_CURRENT_OBJ->obj_type = 1;
+      if ((giLastInputXor_2 & 0x3f0) == 0) {
+        gpkgtCurrentEngineObject->iObjectType = STORY?_ENGINE_OBJECT;
         return;
       }
-      if (PTR_POSS_CURRENT_OBJ->obj_type != 0) {
-        PTR_POSS_CURRENT_OBJ->object_process_step = 2;
+      if (gpkgtCurrentEngineObject->iObjectType != PLAYER_ENGINE_OBJECT) {
+        gpkgtCurrentEngineObject->iProcessStep = 2;
         return;
       }
     }
     break;
   case 2:
-    RESET_OBJECTS_AND_SET_GAME_SPEED();
-    iVar2 = FUN_open_demo_file_00403fc0(DAT_KGT_FILE_BUFFER_00433240._67164_4_ & 0xff);
-    if (iVar2 == 0) {
-      spawn_scriptread_obj_for_each_demo_skill();
+    vResetObjectsAndSpeed();
+    err = iOpenDemoFile(gkgtKgtSystem._67164_4_ & 0xff);
+    if (err == 0) {
+      vSpawnEngineObjectForDemoSkills();
     }
-    pOVar4 = PTR_POSS_CURRENT_OBJ;
-    PTR_POSS_CURRENT_OBJ->obj_ptr_b = (OBJ_STRUCT *)UNK_FLAG_00424f08;
-    if ((DAT_KGT_FILE_BUFFER_00433240.system_bitmask & 0x40U) == 0) {
+    pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+    gpkgtCurrentEngineObject->obj_ptr_b = (kgtEngineObject *)giDemoTime;
+    if ((gkgtKgtSystem.cSystemBitmask & 0x40U) == 0) {
                     // Triggers if system_bitmask shows cursor stays
-      pOVar4->object_process_step = 4;
+      pkgtCurrentEngineObject->iProcessStep = 4;
       return;
     }
-    pOVar4->object_process_step = pOVar4->object_process_step + 1;
+    pkgtCurrentEngineObject->iProcessStep = pkgtCurrentEngineObject->iProcessStep + 1;
     return;
   case 3:
-    if (LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME != 0) {
-      PTR_POSS_CURRENT_OBJ->object_process_step = 4;
+    if (giLastInputXor_2 != 0) {
+      gpkgtCurrentEngineObject->iProcessStep = 4;
       return;
     }
-    if (((DAT_KGT_FILE_BUFFER_00433240.opening_demo_idx != '\0') &&
-        (PTR_POSS_CURRENT_OBJ->obj_ptr_b != (OBJ_STRUCT *)0x0)) &&
-       (pOVar4 = (OBJ_STRUCT *)((int)&PTR_POSS_CURRENT_OBJ->obj_ptr_b[-1].parent_obj + 3),
-       PTR_POSS_CURRENT_OBJ->obj_ptr_b = pOVar4, pOVar4 == (OBJ_STRUCT *)0x0)) {
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
-      PTR_POSS_CURRENT_OBJ->object_process_step = 0;
+    if (((gkgtKgtSystem.iOpeningDemoIdx != '\0') &&
+        (gpkgtCurrentEngineObject->obj_ptr_b != (kgtEngineObject *)0x0)) &&
+       (pkgtCurrentEngineObject =
+             (kgtEngineObject *)((int)&gpkgtCurrentEngineObject->obj_ptr_b[-1].parent_obj + 3),
+       gpkgtCurrentEngineObject->obj_ptr_b = pkgtCurrentEngineObject,
+       pkgtCurrentEngineObject == (kgtEngineObject *)0x0)) {
+      vResetObjectsAndSpeed();
+      gpkgtCurrentEngineObject->iProcessStep = 0;
       return;
     }
     break;
   case 4:
-    POSS_STORY_ARRAY = -1;
-    SDWORD_00424f2c = -1;
-    PTR_POSS_CURRENT_OBJ->object_process_step = 5;
+    giCurrentStoryStep[0] = -1;
+    giCurrentStoryStep[1] = -1;
+    gpkgtCurrentEngineObject->iProcessStep = 5;
+                    // Has story mode
     has_story_mode = (sys_bitmask & 0x4U) != 0;
+                    // To-do: Replace these weird array indices with direct reference to the
+                    // variable
     if (has_story_mode) {
-      GAME_MODE_ASSIGNMENT_ = 0;
+      giHasStoryMode = 0;
     }
-    uVar3 = (uint)has_story_mode;
+    uVar2 = (uint)has_story_mode;
+                    // Has versus mode
     if ((sys_bitmask & 0x8U) != 0) {
-      (&GAME_MODE_ASSIGNMENT_)[uVar3] = 1;
-      uVar3 = uVar3 + 1;
+      (&giHasStoryMode)[uVar2] = 1;
+      uVar2 = uVar2 + 1;
     }
+                    // Has team versus mode
     if ((sys_bitmask & 0x10U) != 0) {
-      (&GAME_MODE_ASSIGNMENT_)[uVar3] = 2;
-      uVar3 = uVar3 + 1;
+      (&giHasStoryMode)[uVar2] = 2;
+      uVar2 = uVar2 + 1;
     }
-    if (uVar3 == 0) {
-      pOVar4->jmp_idx = reset_index;
+    if (uVar2 == 0) {
+      pkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
       return;
     }
-    GAME_MODE_ASSIGNMENT_UPPER = uVar3 - 1;
-    newObj = new_kgt_scriptread_obj_with_action_idx
-                       (DAT_KGT_FILE_BUFFER_00433240.skill_idx_title_cursor,0x65,0,0);
-    pOVar4 = PTR_POSS_CURRENT_OBJ;
-    PLAYER_KGT_BUFFER[0].story_mode_unk_var_a = 0;
-    PLAYER_KGT_BUFFER[1].story_mode_unk_var_a = 0;
-                    // I think that above return value always comes out to four?
-    PTR_POSS_CURRENT_OBJ->obj_type = newObj;
-    GAME_STATE.over3kunder4kcheck = 1000;
+    giAmountOfGameModes = uVar2 - 1;
+    pkVar3 = kgtoNewObjectForSkillIdx
+                       ((kgtEngineObject *)(gkgtKgtSystem._73732_4_ & 0xffff),0x65,0,0,unaff_ESI);
+    pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+    gkgtLoadedCharacter[0].iPossiblyVictoriesCount = 0;
+    gkgtLoadedCharacter[1].iPossiblyVictoriesCount = 0;
+    gpkgtCurrentEngineObject->iObjectType = (kgtEngineObjectTypes)pkVar3;
+    gkgtGameState.iGameStateNumber = 1000;
     goto LAB_0040830b;
   case 5:
 LAB_0040830b:
-    if (LAST_INPUT_OR_VALUE_EVERY_FRAME == 0) {
-      pOVar4->param_3 = 0;
+    if (giLastInput_2 == 0) {
+      pkgtCurrentEngineObject->iParam3 = 0;
     }
-    else if (((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0b00000101) == 0) ||
-            (pOVar4->param_3 != 0)) {
-      if (((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0b00001010) == 0) || (pOVar4->param_3 != 0)
-         ) {
-        if (((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0b0000001111110000) != 0) &&
-           (pOVar4->param_3 == 0)) {
-          if ((LAST_INPUT_DIFFERENCE[0] & 0b0000001111110000U) != 0) {
-            UNK_KGT_PLAYER_BUFFER_IDX = 0;
+    else if (((giLastInputXor_2 & 0b00000101) == 0) || (pkgtCurrentEngineObject->iParam3 != 0)) {
+      if (((giLastInputXor_2 & 0b00001010) == 0) || (pkgtCurrentEngineObject->iParam3 != 0)) {
+                    // Used for moving up/down the menu and then clicking a button
+        if (((giLastInputXor_2 & 0b0000001111110000) != 0) &&
+           (pkgtCurrentEngineObject->iParam3 == 0)) {
+          if ((giLastInputXor[0] & 0b0000001111110000U) != 0) {
+            giStoryModePlayerIdx = 0;
           }
-          if ((LAST_INPUT_DIFFERENCE[1] & 0b0000001111110000U) != 0) {
-            UNK_KGT_PLAYER_BUFFER_IDX = 1;
+          if ((giLastInputXor[1] & 0b0000001111110000U) != 0) {
+            giStoryModePlayerIdx = 1;
           }
-          GAME_STATE.GAME_MODE = (&GAME_MODE_ASSIGNMENT_)[GAME_MODE_ASSIGNMENT_IDX_];
-          if (GAME_STATE.GAME_MODE == 1P_story) {
-            is_story_mode = 1;
+          gkgtGameState.kgtGameMode = (&giHasStoryMode)[giMenuSelectionIdx];
+          if (gkgtGameState.kgtGameMode == 1P_story) {
+            iIsStoryModeFlag = 1;
           }
-          else if ((GAME_STATE.GAME_MODE == VS_single) || (GAME_STATE.GAME_MODE == VS_team)) {
-            is_story_mode = 0;
+          else if ((gkgtGameState.kgtGameMode == VS_single) ||
+                  (gkgtGameState.kgtGameMode == VS_team)) {
+            iIsStoryModeFlag = 0;
           }
-          FIND_EMPTY_OBJ(10,0x7f,0,0);
-          pOVar4 = PTR_POSS_CURRENT_OBJ;
-          PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
+          kgtoNewEngineObject(CHARACTER_SELECT_SCREEN,0x7f,0,0);
+          pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+          gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
         }
       }
       else {
-        GAME_MODE_ASSIGNMENT_IDX_ = GAME_MODE_ASSIGNMENT_IDX_ + 1;
-        if (GAME_MODE_ASSIGNMENT_UPPER < GAME_MODE_ASSIGNMENT_IDX_) {
-          GAME_MODE_ASSIGNMENT_IDX_ = 0;
+        giMenuSelectionIdx = giMenuSelectionIdx + 1;
+        if (giAmountOfGameModes < giMenuSelectionIdx) {
+          giMenuSelectionIdx = 0;
         }
-        pOVar4->param_3 = 1;
+        pkgtCurrentEngineObject->iParam3 = 1;
       }
     }
     else {
-      GAME_MODE_ASSIGNMENT_IDX_ = GAME_MODE_ASSIGNMENT_IDX_ + -1;
-      if (GAME_MODE_ASSIGNMENT_IDX_ < 0) {
-        GAME_MODE_ASSIGNMENT_IDX_ = GAME_MODE_ASSIGNMENT_UPPER;
+      giMenuSelectionIdx = giMenuSelectionIdx + -1;
+      if (giMenuSelectionIdx < 0) {
+        giMenuSelectionIdx = giAmountOfGameModes;
       }
-      pOVar4->param_3 = 1;
+      pkgtCurrentEngineObject->iParam3 = 1;
     }
-    local_c[0] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
-                 (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [(uint)DAT_KGT_FILE_BUFFER_00433240._73732_4_ >> 0x10].starting_step_idx;
-    local_c[1] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
-                 (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [DAT_KGT_FILE_BUFFER_00433240._73736_4_ & 0xffff].starting_step_idx;
-    local_c[2] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
-                 (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [DAT_KGT_FILE_BUFFER_00433240._73752_4_ & 0xffff].starting_step_idx;
-    newObj = pOVar4->obj_type;
-    sVar1 = *(short *)&local_c[(&GAME_MODE_ASSIGNMENT_)[GAME_MODE_ASSIGNMENT_IDX_]]->field_0x3;
-    *(int *)(newObj + 8) =
-         (int)*(short *)&local_c[(&GAME_MODE_ASSIGNMENT_)[GAME_MODE_ASSIGNMENT_IDX_]]->field_0x1 <<
-         0x10;
-    *(int *)(newObj + 0xc) = (int)sVar1 << 0x10;
-    if ((((DAT_KGT_FILE_BUFFER_00433240.opening_demo_idx != '\0') ||
-         ((DAT_KGT_FILE_BUFFER_00433240.system_bitmask & 0x40U) != 0)) &&
-        (pOVar4->obj_ptr_b != (OBJ_STRUCT *)0x0)) &&
-       (pOVar5 = (int *)((int)&pOVar4->obj_ptr_b[-1].parent_obj + 3),
-       pOVar4->obj_ptr_b = (OBJ_STRUCT *)pOVar5, pOVar5 == (int *)0x0)) {
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
-      PTR_POSS_CURRENT_OBJ->object_process_step = 0;
+                    // Title cursor
+    kgtTitleCursor[0] =
+         gkgtKgtSystem.kgtCore.pSkillScriptsAlloc +
+         (ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc[(uint)gkgtKgtSystem._73732_4_ >> 0x10].
+                 shStartingStepIdx;
+                    // Position for vs mode
+    kgtTitleCursor[1] =
+         gkgtKgtSystem.kgtCore.pSkillScriptsAlloc +
+         (ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc[gkgtKgtSystem._73736_4_ & 0xffff].
+                 shStartingStepIdx;
+                    // Position for team battle
+    kgtTitleCursor[2] =
+         gkgtKgtSystem.kgtCore.pSkillScriptsAlloc +
+         (ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc[gkgtKgtSystem._73752_4_ & 0xffff].
+                 shStartingStepIdx;
+    newObj = (kgtEngineObject *)pkgtCurrentEngineObject->iObjectType;
+    sVar1 = *(short *)&kgtTitleCursor[(&giHasStoryMode)[giMenuSelectionIdx]]->field_0x3;
+    newObj->iParam3 =
+         (int)*(short *)&kgtTitleCursor[(&giHasStoryMode)[giMenuSelectionIdx]]->field_0x1 << 0x10;
+    newObj->iParam4 = (int)sVar1 << 0x10;
+    if ((((gkgtKgtSystem.iOpeningDemoIdx != '\0') || ((gkgtKgtSystem.cSystemBitmask & 0x40U) != 0))
+        && (pkgtCurrentEngineObject->obj_ptr_b != (kgtEngineObject *)0x0)) &&
+       (pOVar5 = (int *)((int)&pkgtCurrentEngineObject->obj_ptr_b[-1].parent_obj + 3),
+       pkgtCurrentEngineObject->obj_ptr_b = (kgtEngineObject *)pOVar5, pOVar5 == (int *)0x0)) {
+      vResetObjectsAndSpeed();
+      gpkgtCurrentEngineObject->iProcessStep = 0;
       return;
     }
-    if (LAST_INPUT_OR_VALUE_EVERY_FRAME != 0) {
-      pOVar4->obj_ptr_b = (OBJ_STRUCT *)UNK_FLAG_00424f08;
+    if (giLastInput_2 != 0) {
+      pkgtCurrentEngineObject->obj_ptr_b = (kgtEngineObject *)giDemoTime;
     }
   }
   return;
@@ -6972,66 +7060,63 @@ LAB_0040830b:
 
 // Vaguely looks like it might be a story-mode failstate?
 
-void Jump_13(void)
+void vjmpGameOverScreen(void)
 
 {
   short sVar1;
   int iVar2;
-  kgt_obj_type kVar3;
-  OBJ_STRUCT *pOVar4;
-  kgt_skill_step_struct *local_8 [2];
+  kgtEngineObject *pkVar3;
+  int in_stack_fffffff8;
+  kgtEngineObject *kVar2;
   
-  pOVar4 = PTR_POSS_CURRENT_OBJ;
-  if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    RESET_OBJECTS_AND_SET_GAME_SPEED();
+  pkVar3 = gpkgtCurrentEngineObject;
+  if (gpkgtCurrentEngineObject->iProcessStep == 0) {
+    gpkgtCurrentEngineObject->iProcessStep = 1;
+    vResetObjectsAndSpeed();
                     // opens game over demo here
-    iVar2 = FUN_open_demo_file_00403fc0(DAT_KGT_FILE_BUFFER_00433240._67168_4_ & 0xff);
+    iVar2 = iOpenDemoFile(gkgtKgtSystem._67168_4_ & 0xff);
     if (iVar2 == 0) {
-      spawn_scriptread_obj_for_each_demo_skill();
+      vSpawnEngineObjectForDemoSkills();
     }
-    kVar3 = new_kgt_scriptread_obj_with_action_idx
-                      (DAT_KGT_FILE_BUFFER_00433240.skill_idx_continue_cursor,0x65,0,0);
-    GAME_STATE.over3kunder4kcheck = 4000;
-    PTR_POSS_CURRENT_OBJ->obj_type = kVar3;
+    pkVar3 = kgtoNewObjectForSkillIdx
+                       ((kgtEngineObject *)(uint)(ushort)gkgtKgtSystem.skill_idx_continue_cursor,
+                        0x65,0,0,in_stack_fffffff8);
+    gkgtGameState.iGameStateNumber = 4000;
+    gpkgtCurrentEngineObject->iObjectType = (kgtEngineObjectTypes)pkVar3;
   }
-  else if (PTR_POSS_CURRENT_OBJ->object_process_step == 1) {
-    if (LAST_INPUT_OR_VALUE_EVERY_FRAME == 0) {
-      PTR_POSS_CURRENT_OBJ->param_3 = 0;
+  else if (gpkgtCurrentEngineObject->iProcessStep == 1) {
+    if (giLastInput_2 == 0) {
+      gpkgtCurrentEngineObject->iParam3 = 0;
     }
-    else if (((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0b00001111) == 0) ||
-            (PTR_POSS_CURRENT_OBJ->param_3 != 0)) {
-      if (((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0b0000001111110000) != 0) &&
-         (PTR_POSS_CURRENT_OBJ->param_3 == 0)) {
-        RESET_OBJECTS_AND_SET_GAME_SPEED();
-        if (PTR_POSS_CURRENT_OBJ->obj_ptr_b == (OBJ_STRUCT *)0x0) {
-          GAME_STATE.poss_current_round_count = story_mode_current_round;
-          PLAYER_KGT_BUFFER[0].story_mode_unk_var_a = story_mode_p0_unk_var;
-          PLAYER_KGT_BUFFER[1].story_mode_unk_var_a = story_mode_p1_unk_var;
-          (&POSS_STORY_ARRAY)[STORY_MODE_IDX] = (&POSS_STORY_ARRAY)[STORY_MODE_IDX] + -1;
-          HANDLE_STORY_MODE();
+    else if (((giLastInputXor_2 & 0b00001111) == 0) || (gpkgtCurrentEngineObject->iParam3 != 0)) {
+      if (((giLastInputXor_2 & 0b0000001111110000) != 0) && (gpkgtCurrentEngineObject->iParam3 == 0)
+         ) {
+        vResetObjectsAndSpeed();
+        if (gpkgtCurrentEngineObject->obj_ptr_b == (kgtEngineObject *)0x0) {
+          gkgtGameState.iCurrentRound = giStoryModeCurrentRound;
+          gkgtLoadedCharacter[0].iPossiblyVictoriesCount = story_mode_p0_unk_var;
+          gkgtLoadedCharacter[1].iPossiblyVictoriesCount = story_mode_p1_unk_var;
+          giCurrentStoryStep[giStoryModePlayerIdx_2] =
+               giCurrentStoryStep[giStoryModePlayerIdx_2] + -1;
+          vProgressStoryMode();
         }
-        else if (PTR_POSS_CURRENT_OBJ->obj_ptr_b == (OBJ_STRUCT *)0x1) {
-          FIND_EMPTY_OBJ(0xc,0x7f,0,0);
+        else if (gpkgtCurrentEngineObject->obj_ptr_b == (kgtEngineObject *)0x1) {
+          kgtoNewEngineObject(MENU_TRAVERSAL,0x7f,0,0);
         }
-        pOVar4 = PTR_POSS_CURRENT_OBJ;
-        PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
+        pkVar3 = gpkgtCurrentEngineObject;
+        gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
       }
     }
     else {
-      PTR_POSS_CURRENT_OBJ->obj_ptr_b = (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b ^ 1);
-      pOVar4->param_3 = 1;
+      gpkgtCurrentEngineObject->obj_ptr_b =
+           (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b ^ 1);
+      pkVar3->iParam3 = 1;
     }
-    local_8[0] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
-                 (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [DAT_KGT_FILE_BUFFER_00433240._73740_4_ & 0xffff].starting_step_idx;
-    kVar3 = pOVar4->obj_type;
-    local_8[1] = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc +
-                 (ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                         [(uint)DAT_KGT_FILE_BUFFER_00433240._73740_4_ >> 0x10].starting_step_idx;
-    sVar1 = *(short *)&local_8[(int)pOVar4->obj_ptr_b]->field_0x3;
-    *(int *)(kVar3 + 8) = (int)*(short *)&local_8[(int)pOVar4->obj_ptr_b]->field_0x1 << 0x10;
-    *(int *)(kVar3 + 0xc) = (int)sVar1 << 0x10;
+    kVar2 = (kgtEngineObject *)pkVar3->iObjectType;
+    sVar1 = *(short *)(*(int *)(&stack0xfffffff8 + (int)pkVar3->obj_ptr_b * 4) + 3);
+    kVar2->iParam3 =
+         (int)*(short *)(*(int *)(&stack0xfffffff8 + (int)pkVar3->obj_ptr_b * 4) + 1) << 0x10;
+    kVar2->iParam4 = (int)sVar1 << 0x10;
     return;
   }
   return;
@@ -7048,428 +7133,453 @@ void Jump_13(void)
 //           current_obj = FIND_EMPTY_OBJ(3,13,0,0);
 //           current_obj->object_process_step = 14;
 
-void Handle_Battle_State(void)
+void vjmpHandleBattleState(void)
 
 {
-  byte bVar1;
-  ushort uVar2;
+  ushort uVar1;
+  int iVar2;
   kgt_offset_to_health piVar4;
   kgt_0xe03f_struct_ptr_57185_int piVar7;
-  OBJ_STRUCT *new_story_obj;
+  kgtEngineObject *pkgtoNewStoryObject;
+  kgtEngineObject *pkgtoNewObject_A;
+  kgtEngineObject *pkgtoNewObject_B;
+  int pkgtoAniRoundEntimeObject;
   OBJ_STRUCT_ptr_342_int piVar5;
-  unk_player_kgt_intern_struct_ptr_50_int piVar6;
-  int iVar3;
-  unk_player_kgt_intern_struct_ptr_62_int piVar10;
-  unk_player_kgt_intern_struct_ptr_62_int piVar9;
-  uint one_up;
+  kgt_character_struct_ptr_57275_int piVar6;
+  uint cWhenTimeOverWinner;
+  int iYouWinTime;
+  int *piVar10;
+  int iYouLoseTime;
+  int *piVar9;
+  int iDrawTime;
+  uint iSkillIdxYouDraw;
+  int iYouDrawTime_510;
   uint skill_round_ani_endtime;
   kgt_character_struct_ptr_57105_int piVar12;
-  int *piVar13;
-  int current_player_idx;
-  character_story_entry_cpu *pcVar14;
-  uint story_step_starting_x_pos;
+  int *piVar3;
+  int i_200;
+  kgtStoryEntryCpu *pkVar4;
+  uint iStoryPlayerStartXPos;
   kgt_0xe03f_struct_ptr_57185_int piVar8;
   int script_obj_amt;
-  uint is_health_zero;
+  uint bIsHealthZero;
   kgt_character_struct_ptr_57105_int piVar11;
-  character_story_entry_cpu_ptr_19_char pcVar15;
-  int obj_step;
-  character_story_entry_cpu_ptr_7_short cpu_start_pos;
+  kgtStoryEntryCpu_ptr_19_char pcVar15;
+  int i_300;
+  int unaff_EDI;
+  character_story_entry_cpu_ptr_7_short iCpuStartPos;
   int i;
-  bool is_1p_story;
-  int player_file_idx;
+  bool bIsTimeOver;
+  bool bIsStoryMode;
+  int iPlayerFileIdx;
   int local_8;
   int unk_a;
-  int player_file_idx2;
-  OBJ_STRUCT *current_obj;
+  int iRoundAniEndTime;
+  int iCurrentStoryStep;
+  int iRoundAniStartTime;
+  byte cWhenTimeTarget;
+  short iSkillIdxRoundAniStartTime;
+  kgtEngineObject *pkgtoCurrentEngineObject;
   uint skill_idx_draw;
-  short skill_idx_round_startTime;
   
-  current_obj = PTR_POSS_CURRENT_OBJ;
+  pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
                     // If paused, check for unpause (via start) case, a+b+c -> return to menu case,
                     // otherwise just return
-  if (GAME_STATE.pause_flag != 0) {
-    if (LAST_INPUT_OR_VALUE_EVERY_FRAME == 0b01110000) {
-      GAME_STATE.pause_flag = 0;
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
-      PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
-      FIND_EMPTY_OBJ(12,0x7f,0,0);
+  if (gkgtGameState.iIsPausedFlag != 0) {
+    if (giLastInput_2 == 0b01110000) {
+      gkgtGameState.iIsPausedFlag = 0;
+      vResetObjectsAndSpeed();
+      gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
+      kgtoNewEngineObject(MENU_TRAVERSAL,0x7f,0,0);
       return;
     }
-    if ((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 0b0000010000000000) == 0) {
+    if ((giLastInputXor_2 & 0b0000010000000000) == 0) {
       return;
     }
-    reset_all_objects_with_action(DAT_KGT_FILE_BUFFER_00433240.skill_idx_pause);
-    GAME_STATE.pause_flag = 0;
+    vResetAllObjectsWithSkillIdx(gkgtKgtSystem.shSkillIdxPause);
+    gkgtGameState.iIsPausedFlag = 0;
     return;
   }
   i = 1024;
                     // If start button then pause
-  if ((LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME & 1024) != 0) {
-    GAME_STATE.pause_flag = 1;
-    new_kgt_scriptread_obj_with_action_idx(DAT_KGT_FILE_BUFFER_00433240.skill_idx_pause,0x78,0,0);
+  if ((giLastInputXor_2 & 1024) != 0) {
+    gkgtGameState.iIsPausedFlag = 1;
+    kgtoNewObjectForSkillIdx
+              ((kgtEngineObject *)(uint)(ushort)gkgtKgtSystem.shSkillIdxPause,0x78,0,0,unaff_EDI);
     return;
   }
-  obj_step = PTR_POSS_CURRENT_OBJ->object_process_step;
-  if (obj_step < 511) {
-    if (obj_step == 510) {
-      one_up = DAT_KGT_FILE_BUFFER_00433240._73640_4_ & 0xffff;
-      PTR_POSS_CURRENT_OBJ->object_process_step = 511;
-      i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc(one_up,0x65,0,0);
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
+  iVar2 = gpkgtCurrentEngineObject->iProcessStep;
+  if (iVar2 < 511) {
+    if (iVar2 == 510) {
+      iSkillIdxYouDraw = gkgtKgtSystem._73640_4_ & 0xffff;
+      gpkgtCurrentEngineObject->iProcessStep = 511;
+      iYouDrawTime_510 = kgtSpawnNewEngineObjectReturnSkillField0x1(iSkillIdxYouDraw,0x65,0,0);
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->iPlayerIdx = iYouDrawTime_510;
 LAB_00409394:
-      PLAYER_KGT_BUFFER[1].w_ko_unk_var = 3;
-      PLAYER_KGT_BUFFER[0].w_ko_unk_var = 3;
-      PLAYER_KGT_BUFFER[0].story_mode_unk_var_a = PLAYER_KGT_BUFFER[0].story_mode_unk_var_a + 1;
-      PLAYER_KGT_BUFFER[1].story_mode_unk_var_a = PLAYER_KGT_BUFFER[1].story_mode_unk_var_a + 1;
+      gkgtLoadedCharacter[1].iDoubleKoWinnerDeterminer = 3;
+      gkgtLoadedCharacter[0].iDoubleKoWinnerDeterminer = 3;
+      gkgtLoadedCharacter[0].iPossiblyVictoriesCount =
+           gkgtLoadedCharacter[0].iPossiblyVictoriesCount + 1;
+      gkgtLoadedCharacter[1].iPossiblyVictoriesCount =
+           gkgtLoadedCharacter[1].iPossiblyVictoriesCount + 1;
     }
     else {
-      if (obj_step < 201) {
-        if (obj_step == 200) {
-          if ((-1 < GAME_STATE.gameTimerInFrames) &&
-             (GAME_STATE.gameTimerInFrames = GAME_STATE.gameTimerInFrames + -1,
-             GAME_STATE.gameTimerInFrames < 0)) {
-            PTR_POSS_CURRENT_OBJ->player_file_buffer = 0;
-            GAME_STATE.gameTimerInFrames = 0;
-            current_obj->object_process_step = 300;
+      if (iVar2 < 201) {
+        if (iVar2 == 200) {
+                    // *** PROCESS STEP 200 ***
+          if ((-1 < gkgtGameState.iGameTimerInFrames) &&
+             (gkgtGameState.iGameTimerInFrames = gkgtGameState.iGameTimerInFrames + -1,
+             gkgtGameState.iGameTimerInFrames < 0)) {
+                    // This if block counts down the timer and checks if it's 0 or below
+            gpkgtCurrentEngineObject->iPlayerIdx = 0;
+            gkgtGameState.iGameTimerInFrames = 0;
+            pkgtoCurrentEngineObject->iProcessStep = 300;
           }
-          if (GAME_STATE.GAME_MODE == 1P_story) {
-            is_health_zero = (uint)(PLAYER_KGT_BUFFER[0].health == 0);
-            current_player_idx = 0;
-            piVar6 = &PLAYER_KGT_BUFFER[0].something_to_do_with_starting_health2;
+          if (gkgtGameState.kgtGameMode == 1P_story) {
+            bIsHealthZero = (uint)(gkgtLoadedCharacter[0].iHealth == 0);
+            i_200 = 0;
+            piVar6 = &gkgtLoadedCharacter[0].something_to_do_with_starting_health2;
             do {
-              if (99 < ADJ(piVar6)->health) {
-                is_health_zero = current_player_idx + 2;
+              if (99 < ADJ(piVar6)->something_to_do_with_starting_health2) {
+                bIsHealthZero = i_200 + 2;
               }
-              piVar6 = (unk_player_kgt_intern_struct_ptr_50_int)((int)piVar6 + 0xe03f);
-              current_player_idx = current_player_idx + 1;
+              piVar6 = (kgt_character_struct_ptr_57275_int)((int)piVar6 + 0xe03f);
+              i_200 = i_200 + 1;
             } while ((int)piVar6 < 0x54ff33);
-            if (is_health_zero != 0) {
-              current_obj->player_file_buffer = 0;
-              current_obj->object_process_step = 300;
+            if (bIsHealthZero != 0) {
+              pkgtoCurrentEngineObject->iPlayerIdx = 0;
+              pkgtoCurrentEngineObject->iProcessStep = 300;
             }
           }
-          else if ((0 < (int)GAME_STATE.GAME_MODE) && ((int)GAME_STATE.GAME_MODE < 3)) {
+          else if ((0 < (int)gkgtGameState.kgtGameMode) && ((int)gkgtGameState.kgtGameMode < 3)) {
             script_obj_amt = 0;
-            piVar5 = &OBJ_ARRAY[0].player_file_buffer;
+            piVar5 = &kgtEngineObjects[0].iPlayerIdx;
             do {
                     // Do...while loop counts how many script objects of type 0
-              if (((ADJ(piVar5).jmp_idx == 4) && (ADJ(piVar5)->obj_type == 0)) &&
-                 (PLAYER_KGT_BUFFER[ADJ(piVar5)->player_file_buffer].health != 0)) {
+              if (((ADJ(piVar5).iJumpIdx == READ_SCRIPT) &&
+                  (ADJ(piVar5)->iObjectType == PLAYER_ENGINE_OBJECT)) &&
+                 (gkgtLoadedCharacter[ADJ(piVar5)->iPlayerIdx].iHealth != 0)) {
                 script_obj_amt = script_obj_amt + 1;
               }
               piVar5 = (OBJ_STRUCT_ptr_342_int)((int)piVar5 + 0x17e);
               i = i + -1;
             } while (i != 0);
             if (script_obj_amt < 2) {
-              current_obj->player_file_buffer = 0;
-              current_obj->object_process_step = 300;
+              pkgtoCurrentEngineObject->iPlayerIdx = 0;
+              pkgtoCurrentEngineObject->iProcessStep = 300;
             }
           }
           if (DAT_00424718 == 0) {
             return;
           }
-          current_obj->object_process_step = 300;
+          pkgtoCurrentEngineObject->iProcessStep = 300;
           DAT_00424718 = 0;
-          GAME_STATE.round_start_is0 = 2;
+          gkgtGameState.iRoundMode = 2;
+                    // *** PROCESS STEP 200 END ***
           return;
         }
-        switch(obj_step) {
+        switch(iVar2) {
         case 0:
                     // FIRST FRAME
-          PTR_POSS_CURRENT_OBJ->object_process_step = 1;
+          gpkgtCurrentEngineObject->iProcessStep = 1;
         case 1:
                     // SECOND FRAME
-          current_obj->player_file_buffer = 0;
-          current_obj->object_process_step = 100;
-          RESET_OBJECTS_AND_SET_GAME_SPEED();
+          pkgtoCurrentEngineObject->iPlayerIdx = 0;
+          pkgtoCurrentEngineObject->iProcessStep = 100;
+          vResetObjectsAndSpeed();
           DAT_VAR_BATTLE_STATE_A = 0;
-          DAT_VAR_BATTLE_STATE_B = 0;
+          giRoundsNotWon = 0;
                     // Bug: The game actually doesn't allow you to select a stage.
-          GAME_STATE.TESTPLAY_STAGENB = UINT_TESTPLAY_STAGENB;
-          if (GAME_STATE.GAME_MODE == 1P_story) {
-            Open_Stage_File((byte)PLAYER_KGT_BUFFER[0].character_story_entries
-                                  [(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].stage - 1);
+          gkgtGameState.iConfigTestplayStageNb = giConfigTestplayStageNb;
+          if (gkgtGameState.kgtGameMode == 1P_story) {
+            iOpenStageFile((byte)gkgtLoadedCharacter[0].kgtStoryEntries
+                                 [giCurrentStoryStep[giStoryModePlayerIdx_2]].cStageIdx - 1);
                     // if mask is not set to 'carry_over'
-            if ((PLAYER_KGT_BUFFER[0].character_story_entries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
-                 when_defeat_and_1st_round_bitmask & 2U) == 0) {
-              GAME_STATE.poss_current_round_count = 0;
-              PLAYER_KGT_BUFFER[0].story_mode_unk_var_a = 0;
-              PLAYER_KGT_BUFFER[1].story_mode_unk_var_a = 0;
+            if ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
+                 cWhenDefeatAndFirstRoundBitmask & 2U) == 0) {
+              gkgtGameState.iCurrentRound = 0;
+              gkgtLoadedCharacter[0].iPossiblyVictoriesCount = 0;
+              gkgtLoadedCharacter[1].iPossiblyVictoriesCount = 0;
             }
             else {
-              story_mode_p0_unk_var = PLAYER_KGT_BUFFER[0].story_mode_unk_var_a;
-              story_mode_p1_unk_var = PLAYER_KGT_BUFFER[1].story_mode_unk_var_a;
+              story_mode_p0_unk_var = gkgtLoadedCharacter[0].iPossiblyVictoriesCount;
+              story_mode_p1_unk_var = gkgtLoadedCharacter[1].iPossiblyVictoriesCount;
             }
-            GAME_STATE.poss_wins_needed =
-                 (UINT)(byte)PLAYER_KGT_BUFFER[0].character_story_entries
-                             [(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].number_of_rounds;
-            story_mode_current_round = GAME_STATE.poss_current_round_count;
+            gkgtGameState.iRoundsAmount =
+                 (UINT)(byte)gkgtLoadedCharacter[0].kgtStoryEntries
+                             [giCurrentStoryStep[giStoryModePlayerIdx_2]].cRoundsAmount;
+            giStoryModeCurrentRound = gkgtGameState.iCurrentRound;
           }
-          else if (GAME_STATE.GAME_MODE == VS_single) {
+          else if (gkgtGameState.kgtGameMode == VS_single) {
                     // Set rounds, wins needed, load each character
-            GAME_STATE.poss_current_round_count = 0;
-            GAME_STATE.poss_wins_needed = UINT___OF_ROUNDS_00430124;
-            Open_Stage_File(UINT_TESTPLAY_STAGENB);
-            READ_CHARACTER_FILE(0,GAME_STATE.CHAR_SELECT[0]);
-            READ_CHARACTER_FILE(1,GAME_STATE.CHAR_SELECT[1]);
+            gkgtGameState.iCurrentRound = 0;
+            gkgtGameState.iRoundsAmount = giConfigNumberOfRounds;
+            iOpenStageFile(giConfigTestplayStageNb);
+                    // BUG: Why are we reloading the character file after loading it on the select
+                    // screen? Only mode it doesn't do this is story mode.
+            iOpenCharacterFile(0,gkgtGameState.iCharSelect[0]);
+            iOpenCharacterFile(1,gkgtGameState.iCharSelect[1]);
           }
-          else if (GAME_STATE.GAME_MODE == VS_team) {
-            GAME_STATE.poss_current_round_count = 0;
-            Open_Stage_File(UINT_TESTPLAY_STAGENB);
-            GAME_STATE.poss_wins_needed = GAME_STATE.PTR_TO___OF_ROUNDS_TEAM_VS_00470064;
-            GAME_STATE.char_select_var_a = 0;
-            GAME_STATE.char_select_var_b = 0;
-            GAME_STATE.field163_0xec = -1;
-            READ_CHARACTER_FILE(0,GAME_STATE.CHAR_SELECT[0]);
-            READ_CHARACTER_FILE(1,GAME_STATE.CHAR_SELECT[1]);
+          else if (gkgtGameState.kgtGameMode == VS_team) {
+            gkgtGameState.iCurrentRound = 0;
+            iOpenStageFile(giConfigTestplayStageNb);
+            gkgtGameState.iRoundsAmount = gkgtGameState.iConfigNumberOfRoundsTeamVs;
+            gkgtGameState.char_select_var_a = 0;
+            gkgtGameState.char_select_var_b = 0;
+            gkgtGameState.unk_player_buffer_a = -1;
+            iOpenCharacterFile(0,gkgtGameState.iCharSelect[0]);
+            iOpenCharacterFile(1,gkgtGameState.iCharSelect[1]);
           }
-          if (GAME_STATE.GAME_MODE == 1P_story) {
-            if ((int)GAME_STATE.poss_wins_needed <= GAME_STATE.poss_current_round_count) {
-              SET_DEBUG_INFO(s_HAN_HIRAGANA_KATAKANA__0041f014,0x4040ff);
-              HANDLE_STORY_MODE();
-              PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
-              GAME_STATE.over3kunder4kcheck = 3000;
+          if (gkgtGameState.kgtGameMode == 1P_story) {
+            if ((int)gkgtGameState.iRoundsAmount <= gkgtGameState.iCurrentRound) {
+              iSetDebugInfo(gsNumberOfRoundsHasReachedNumberOfWins,0x4040ff);
+              vProgressStoryMode();
+              gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
+              gkgtGameState.iGameStateNumber = 3000;
               return;
             }
           }
-          else if (GAME_STATE.GAME_MODE != VS_single) {
-            GAME_STATE.over3kunder4kcheck = 3000;
+          else if (gkgtGameState.kgtGameMode != VS_single) {
+            gkgtGameState.iGameStateNumber = 3000;
             return;
           }
-          if (GAME_STATE.poss_wins_needed == 0) {
-            SET_DEBUG_INFO(s_HAN_HIRAGANA_Error_0041f044,0x4040ff);
-            if (GAME_STATE.GAME_MODE == 1P_story) {
-              HANDLE_STORY_MODE();
-              PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
+          if (gkgtGameState.iRoundsAmount == 0) {
+            iSetDebugInfo(gsErrorNumberOfRoundsIsZero,0x4040ff);
+            if (gkgtGameState.kgtGameMode == 1P_story) {
+              vProgressStoryMode();
+              gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
             }
-            else if ((0 < (int)GAME_STATE.GAME_MODE) && ((int)GAME_STATE.GAME_MODE < 3)) {
-                    // Kick back to menu if there is an error with amount of wins needed
-              FIND_EMPTY_OBJ(12,0x7f,0,0);
-              GAME_STATE.over3kunder4kcheck = 3000;
+            else if ((0 < (int)gkgtGameState.kgtGameMode) && ((int)gkgtGameState.kgtGameMode < 3)) {
+                    // Kick back to menu if there is an error with game mode
+              kgtoNewEngineObject(MENU_TRAVERSAL,0x7f,0,0);
+              gkgtGameState.iGameStateNumber = 3000;
               return;
             }
           }
-          GAME_STATE.over3kunder4kcheck = 3000;
+          gkgtGameState.iGameStateNumber = 3000;
           return;
         default:
           return;
         case 100:
                     // THIRD FRAME, 100 series is round start logic
-          PTR_POSS_CURRENT_OBJ->object_process_step = 101;
-          GAME_STATE.poss_current_round_count = GAME_STATE.poss_current_round_count + 1;
-          unk_x_position = 0;
-          GAME_STATE.round_start_is0 = 0;
-          piVar4 = &PLAYER_KGT_BUFFER[0].health;
+          gpkgtCurrentEngineObject->iProcessStep = 101;
+          gkgtGameState.iCurrentRound = gkgtGameState.iCurrentRound + 1;
+          unk_y_pos2 = 0;
+          gkgtGameState.iRoundMode = 0;
+          piVar4 = &gkgtLoadedCharacter[0].iHealth;
           do {
             ADJ(piVar4)->something_to_do_with_starting_health2 = 0;
-            ADJ(piVar4)->health = 0;
-            ADJ(piVar4)->life_gauge_max2 = 1;
+            ADJ(piVar4)->iHealth = 0;
+            ADJ(piVar4)->iLifeGaugeMax_2 = 1;
             piVar4 = (kgt_offset_to_health)((int)piVar4 + 0xe03f);
           } while ((int)piVar4 < 0x54fe7d);
-          if (GAME_STATE.GAME_MODE == 1P_story) {
+          if (gkgtGameState.kgtGameMode == 1P_story) {
             local_8 = 1;
-            i = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
-            new_story_obj =
-                 FIND_EMPTY_OBJ(4,0x50,(uint)(ushort)PLAYER_KGT_BUFFER[0].character_story_entries[i]
-                                                     .player_start_x_pos << 0x10,0x3980000);
-            new_story_obj->player_file_buffer = 0;
-            story_step_starting_x_pos =
-                 (uint)(ushort)PLAYER_KGT_BUFFER[0].character_story_entries[i].player_start_x_pos;
-            player_file_idx = 0;
-            piVar8 = &PLAYER_KGT_BUFFER[1].cpu_level;
+            i = giCurrentStoryStep[giStoryModePlayerIdx_2];
+            pkgtoNewStoryObject =
+                 kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                     (uint)(ushort)gkgtLoadedCharacter[0].kgtStoryEntries[i].
+                                                   shPlayerStartXPos << 0x10,0x3980000);
+            pkgtoNewStoryObject->iPlayerIdx = 0;
+            iStoryPlayerStartXPos =
+                 (uint)(ushort)gkgtLoadedCharacter[0].kgtStoryEntries[i].shPlayerStartXPos;
+            iPlayerFileIdx = 0;
+            piVar8 = &gkgtLoadedCharacter[1].iCpuLevel;
                     // input story mode CPUs
-            cpu_start_pos =
-                 &PLAYER_KGT_BUFFER[0].character_story_entries[i].character_story_entry_cpu_array[0]
-                  .start_pos;
+            iCpuStartPos = &gkgtLoadedCharacter[0].kgtStoryEntries[i].kgtStoryEntryCPUs[0].
+                            shStartPos;
             do {
-              if (ADJ(cpu_start_pos)->character != '\0') {
-                current_obj = FIND_EMPTY_OBJ(4,0x50,(uint)(ushort)ADJ(cpu_start_pos)->start_pos <<
-                                                    0x10,0x3980000);
-                current_obj->player_file_buffer = player_file_idx + 1;
-                uVar2 = ADJ(cpu_start_pos)->start_pos;
-                ADJ(piVar8)->unk_CPU_var_initial_1 = 1;
-                story_step_starting_x_pos = story_step_starting_x_pos + uVar2;
+              if (ADJ(iCpuStartPos)->cCharacterIdx != '\0') {
+                pkgtoCurrentEngineObject =
+                     kgtoNewEngineObject(READ_SCRIPT,0x50,
+                                         (uint)(ushort)ADJ(iCpuStartPos)->shStartPos << 0x10,
+                                         0x3980000);
+                pkgtoCurrentEngineObject->iPlayerIdx = iPlayerFileIdx + 1;
+                uVar1 = ADJ(iCpuStartPos)->shStartPos;
+                ADJ(piVar8)->iNotTestplayPlayerCpu = 1;
+                iStoryPlayerStartXPos = iStoryPlayerStartXPos + uVar1;
                 local_8 = local_8 + 1;
-                ADJ(piVar8)->cpu_level = (uint)(byte)ADJ(cpu_start_pos)->cpu_level;
-                if (100 < ADJ(piVar8)->cpu_level) {
-                  ADJ(piVar8)->cpu_level = 100;
+                ADJ(piVar8)->iCpuLevel = (uint)(byte)ADJ(iCpuStartPos)->cCpuLevel;
+                if (100 < ADJ(piVar8)->iCpuLevel) {
+                  ADJ(piVar8)->iCpuLevel = 100;
                 }
-                ADJ(piVar8)->TESTPLAY_PLAYER_CPU = 1;
+                ADJ(piVar8)->iTestplayPlayerCpu = 1;
               }
               piVar8 = (kgt_0xe03f_struct_ptr_57185_int)((int)piVar8 + 0xe03f);
-              player_file_idx = player_file_idx + 1;
+              iPlayerFileIdx = iPlayerFileIdx + 1;
                     // Half the size of a cpu entry struct, essentially just skips every other
                     // player entry
-              cpu_start_pos = cpu_start_pos + 0xd;
+              iCpuStartPos = iCpuStartPos + 0xd;
             } while ((int)piVar8 < 0x54fed9);
-            GAME_STATE.hit_player_buffer = -1;
-            unk_y_position = (int)story_step_starting_x_pos / local_8 + -0x140;
+            gkgtGameState.iAttackedPlayerBuffer = -1;
+            unk_x_position = (int)iStoryPlayerStartXPos / local_8 + -0x140;
                     // BUG: Story fights receive one less second of time than they should
-            GAME_STATE.gameTimerInFrames =
-                 (uint)(ushort)PLAYER_KGT_BUFFER[0].character_story_entries[i].time * 100 + -1;
+            gkgtGameState.iGameTimerInFrames =
+                 (uint)(ushort)gkgtLoadedCharacter[0].kgtStoryEntries[i].shTime * 100 + -1;
           }
-          else if (GAME_STATE.GAME_MODE == VS_single) {
-            if (APPMODE != TEST_F) {
-              PLAYER_KGT_BUFFER[0].unk_CPU_var_initial_1 = 0;
-              PLAYER_KGT_BUFFER[1].unk_CPU_var_initial_1 = 0;
+          else if (gkgtGameState.kgtGameMode == VS_single) {
+            if (giAppmode != TEST_F) {
+              gkgtLoadedCharacter[0].iNotTestplayPlayerCpu = 0;
+              gkgtLoadedCharacter[1].iNotTestplayPlayerCpu = 0;
             }
                     // Seems to spawn player-interactive script objects?
-            current_obj = FIND_EMPTY_OBJ(4,0x50,0x1860000,0x3980000);
-            current_obj->player_file_buffer = 0;
-            current_obj = FIND_EMPTY_OBJ(4,0x50,0x37a0000,0x3980000);
-            current_obj->player_file_buffer = 1;
-            GAME_STATE.gameTimerInFrames = UINT_TESTPLAY_TIME * 100 + -1;
+            pkgtoCurrentEngineObject = kgtoNewEngineObject(READ_SCRIPT,0x50,0x1860000,0x3980000);
+            pkgtoCurrentEngineObject->iPlayerIdx = 0;
+            pkgtoCurrentEngineObject = kgtoNewEngineObject(READ_SCRIPT,0x50,0x37a0000,0x3980000);
+            pkgtoCurrentEngineObject->iPlayerIdx = 1;
+            gkgtGameState.iGameTimerInFrames = giConfigTestplayTime * 100 + -1;
           }
-          else if (GAME_STATE.GAME_MODE == VS_team) {
-            if (APPMODE != TEST_F) {
-              PLAYER_KGT_BUFFER[0].unk_CPU_var_initial_1 = 0;
-              PLAYER_KGT_BUFFER[1].unk_CPU_var_initial_1 = 0;
+          else if (gkgtGameState.kgtGameMode == VS_team) {
+            if (giAppmode != TEST_F) {
+              gkgtLoadedCharacter[0].iNotTestplayPlayerCpu = 0;
+              gkgtLoadedCharacter[1].iNotTestplayPlayerCpu = 0;
             }
-            GAME_STATE.field163_0xec = -1;
-            piVar7 = &PLAYER_KGT_BUFFER[0].poss_relating_to_player_idx;
+            gkgtGameState.unk_player_buffer_a = -1;
+            piVar7 = &gkgtLoadedCharacter[0].iColorInt;
             do {
-              ADJ(piVar7)->cpu_level = -1;
+              ADJ(piVar7)->iCpuLevel = -1;
               piVar7 = (kgt_0xe03f_struct_ptr_57185_int)((int)piVar7 + 0xe03f);
             } while ((int)piVar7 < 0x54ff83);
-            READ_CHARACTER_FILE(0,GAME_STATE.CHAR_SELECT[GAME_STATE.char_select_var_a + 0x13]);
-            READ_CHARACTER_FILE(1,GAME_STATE.CHAR_SELECT[GAME_STATE.char_select_var_b + 0x17]);
-            current_obj = FIND_EMPTY_OBJ(4,0x50,0x1860000,0x3980000);
-            current_obj->player_file_buffer = 0;
-            current_obj = FIND_EMPTY_OBJ(4,0x50,0x37a0000,0x3980000);
-            current_obj->player_file_buffer = 1;
-            unk_y_position = 320;
-            GAME_STATE.gameTimerInFrames = UINT_TESTPLAY_TIME * 100 + -1;
-            PLAYER_KGT_BUFFER[0].poss_relating_to_player_idx =
-                 (&GAME_STATE.action_btn_pressed_player_0)[GAME_STATE.char_select_var_a];
-            PLAYER_KGT_BUFFER[1].poss_relating_to_player_idx =
-                 (&GAME_STATE.action_btn_pressed_player_1)[GAME_STATE.char_select_var_b];
+            iOpenCharacterFile(0,gkgtGameState.iCharSelect[gkgtGameState.char_select_var_a + 0x13]);
+            iOpenCharacterFile(1,gkgtGameState.iCharSelect[gkgtGameState.char_select_var_b + 0x17]);
+            pkgtoCurrentEngineObject = kgtoNewEngineObject(READ_SCRIPT,0x50,0x1860000,0x3980000);
+            pkgtoCurrentEngineObject->iPlayerIdx = 0;
+            pkgtoCurrentEngineObject = kgtoNewEngineObject(READ_SCRIPT,0x50,0x37a0000,0x3980000);
+            pkgtoCurrentEngineObject->iPlayerIdx = 1;
+            unk_x_position = 320;
+            gkgtGameState.iGameTimerInFrames = giConfigTestplayTime * 100 + -1;
+            gkgtLoadedCharacter[0].iColorInt =
+                 (&gkgtGameState.iActionButtonPressedPlayerOne)[gkgtGameState.char_select_var_a];
+            gkgtLoadedCharacter[1].iColorInt =
+                 (&gkgtGameState.iActionButtedPressedPlayerTwo)[gkgtGameState.char_select_var_b];
           }
-          setup_stage_spawn_scripts();
-          FIND_EMPTY_OBJ(15,0xf,0,0);
-          current_obj = FIND_EMPTY_OBJ(3,1,0,0);
-          current_obj->object_process_step = 12;
-          current_obj = FIND_EMPTY_OBJ(3,13,0,0);
-          current_obj->object_process_step = 14;
-          current_obj = PTR_POSS_CURRENT_OBJ;
-          skill_idx_round_startTime = DAT_KGT_FILE_BUFFER_00433240.skill_idx_round_ani_starttime;
-          PTR_POSS_CURRENT_OBJ->param_3 = 0x140;
-          current_obj->param_4 = 150;
-          current_obj->player_file_buffer = 100;
-          UNK_STAGE_FILES_00445740.pic_sway_x = 0;
-          UNK_STAGE_FILES_00445740.field1046_0x266d = 0;
-          UNK_STAGE_FILES_00445740.x_shake = 0;
-          UNK_STAGE_FILES_00445740.pic_sway_x_duration = 0;
-          UNK_STAGE_FILES_00445740.pic_sway_x_duration_2 = 0;
-          UNK_STAGE_FILES_00445740.pic_sway_y = 0;
-          UNK_STAGE_FILES_00445740.field1051_0x2681 = 0;
-          UNK_STAGE_FILES_00445740.y_shake = 0;
-          UNK_STAGE_FILES_00445740.pic_sway_y_duration = 0;
-          UNK_STAGE_FILES_00445740.pic_sway_y_duration_2 = 0;
-          current_obj->object_process_step = 110;
-          i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                        (skill_idx_round_startTime,0x65,0,0);
-          PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
+          vSpawnStageScripts();
+          kgtoNewEngineObject(BATTLE_UI,0xf,0,0);
+          pkgtoNewObject_A = kgtoNewEngineObject(3,1,0,0);
+          pkgtoNewObject_A->iProcessStep = 12;
+          pkgtoNewObject_B = kgtoNewEngineObject(3,13,0,0);
+          pkgtoNewObject_B->iProcessStep = 14;
+          pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+          iSkillIdxRoundAniStartTime = gkgtKgtSystem.shSkillIdxRoundAniStartTime;
+          gpkgtCurrentEngineObject->iParam3 = 0x140;
+          pkgtoCurrentEngineObject->iParam4 = 150;
+          pkgtoCurrentEngineObject->iPlayerIdx = 100;
+          giPicSwayX = 0;
+          giShakeX = 0;
+          giPicShakeX = 0;
+          giPicSwayXDuration = 0;
+          giPicSwayXDuration_2 = 0;
+          giPicSwayY = 0;
+          giShakeY = 0;
+          giPicShakeY = 0;
+          giPicSwayYDuration = 0;
+          giPicSwayYDuration_2 = 0;
+          pkgtoCurrentEngineObject->iProcessStep = 110;
+          i = kgtSpawnNewEngineObjectReturnSkillField0x1(iSkillIdxRoundAniStartTime,0x65,0,0);
+          gpkgtCurrentEngineObject->iPlayerIdx = i;
           return;
         case 0x6e:
                     // FOURTH FRAME
-          player_file_idx2 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-          PTR_POSS_CURRENT_OBJ->player_file_buffer = player_file_idx2 + -1;
-          if (0 < player_file_idx2) {
+          iRoundAniStartTime = gpkgtCurrentEngineObject->iPlayerIdx;
+          gpkgtCurrentEngineObject->iPlayerIdx = iRoundAniStartTime + -1;
+          if (0 < iRoundAniStartTime) {
             return;
           }
-          is_1p_story = GAME_STATE.GAME_MODE == 1P_story;
-          current_obj->object_process_step = current_obj->object_process_step + 1;
+          bIsStoryMode = gkgtGameState.kgtGameMode == 1P_story;
+          pkgtoCurrentEngineObject->iProcessStep = pkgtoCurrentEngineObject->iProcessStep + 1;
                     // options bitmask -> show round #
-          if ((is_1p_story) &&
-             ((PLAYER_KGT_BUFFER[0].character_story_entries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
-               options_bitmask & 1U) == 0)) {
-            current_obj->player_file_buffer = 0;
+          if ((bIsStoryMode) &&
+             ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
+               cOptionsBitmask & 1U) == 0)) {
+            pkgtoCurrentEngineObject->iPlayerIdx = 0;
             return;
           }
-          if (GAME_STATE.poss_current_round_count < 10) {
-            i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                          ((&DAT_KGT_FILE_BUFFER_00433240.skill_idx_round_ani_endtime)
-                           [GAME_STATE.poss_current_round_count],0x65,0,0);
-            current_obj = PTR_POSS_CURRENT_OBJ;
-            PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
+          if (gkgtGameState.iCurrentRound < 10) {
+            pkgtoAniRoundEntimeObject =
+                 kgtSpawnNewEngineObjectReturnSkillField0x1
+                           ((&gkgtKgtSystem.shSkillIdxRoundAniEndtime)[gkgtGameState.iCurrentRound],
+                            0x65,0,0);
+            pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+            gpkgtCurrentEngineObject->iPlayerIdx = pkgtoAniRoundEntimeObject;
           }
           else {
-            current_obj->player_file_buffer = 0;
+            pkgtoCurrentEngineObject->iPlayerIdx = 0;
           }
         case 0x6f:
-          i = current_obj->player_file_buffer;
-          current_obj->player_file_buffer = i + -1;
-          if (0 < i) {
+          iRoundAniEndTime = pkgtoCurrentEngineObject->iPlayerIdx;
+          pkgtoCurrentEngineObject->iPlayerIdx = iRoundAniEndTime + -1;
+          if (0 < iRoundAniEndTime) {
             return;
           }
-                    // process step 112 
-          is_1p_story = GAME_STATE.GAME_MODE == 1P_story;
-          current_obj->object_process_step = current_obj->object_process_step + 1;
+                    // process step 111 
+          bIsStoryMode = gkgtGameState.kgtGameMode == 1P_story;
+          pkgtoCurrentEngineObject->iProcessStep = pkgtoCurrentEngineObject->iProcessStep + 1;
                     // options bitmask -> fighting spirit indicate
-          if ((is_1p_story) &&
-             ((PLAYER_KGT_BUFFER[0].character_story_entries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
-               options_bitmask & 2U) == 0)) {
-            current_obj->player_file_buffer = 0;
+          if ((bIsStoryMode) &&
+             ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
+               cOptionsBitmask & 2U) == 0)) {
+            pkgtoCurrentEngineObject->iPlayerIdx = 0;
             return;
           }
-          i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                        (DAT_KGT_FILE_BUFFER_00433240.skill_idx_spirits,0x65,0,0);
-          current_obj = PTR_POSS_CURRENT_OBJ;
-          PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
+          i = kgtSpawnNewEngineObjectReturnSkillField0x1(gkgtKgtSystem.shSkillIdxSpirits,0x65,0,0);
+          pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+          gpkgtCurrentEngineObject->iPlayerIdx = i;
         case 0x70:
-          i = current_obj->player_file_buffer;
-          current_obj->player_file_buffer = i + -1;
+          i = pkgtoCurrentEngineObject->iPlayerIdx;
+          pkgtoCurrentEngineObject->iPlayerIdx = i + -1;
           if (0 < i) {
             return;
           }
-          current_obj->object_process_step = current_obj->object_process_step + 1;
+          pkgtoCurrentEngineObject->iProcessStep = pkgtoCurrentEngineObject->iProcessStep + 1;
         case 0x71:
-          current_obj->object_process_step = 200;
-          GAME_STATE.round_start_is0 = 1;
+          pkgtoCurrentEngineObject->iProcessStep = 200;
+          gkgtGameState.iRoundMode = 1;
           return;
         }
       }
-      switch(obj_step) {
+      switch(iVar2) {
       case 300:
-        piVar11 = &PLAYER_KGT_BUFFER[0].life_gauge_max2;
+        piVar11 = &gkgtLoadedCharacter[0].iLifeGaugeMax_2;
         do {
-          if (ADJ(piVar11)->life_gauge_max2 == 0) {
-            ADJ(piVar11)->wins_accumulated = 0;
+          if (ADJ(piVar11)->iLifeGaugeMax_2 == 0) {
+            ADJ(piVar11)->iUnknownBattleStateVariable_A = 0;
           }
           else {
-            ADJ(piVar11)->wins_accumulated =
-                 (ADJ(piVar11)->health * 1000) / ADJ(piVar11)->life_gauge_max2;
+            ADJ(piVar11)->iUnknownBattleStateVariable_A =
+                 (ADJ(piVar11)->iHealth * 1000) / ADJ(piVar11)->iLifeGaugeMax_2;
           }
           piVar11 = (kgt_character_struct_ptr_57105_int)((int)piVar11 + 0xe03f);
         } while ((int)piVar11 < 0x54fe89);
-        if (GAME_STATE.GAME_MODE == 1P_story) {
-          i = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
-          if (GAME_STATE.gameTimerInFrames == 0) {
-            skill_idx_draw =
-                 (uint)(byte)PLAYER_KGT_BUFFER[0].character_story_entries[i].when_time_over;
-            if (((PLAYER_KGT_BUFFER[0].wins_accumulated <
-                  PLAYER_KGT_BUFFER[skill_idx_draw + 1].wins_accumulated) &&
-                (PLAYER_KGT_BUFFER[skill_idx_draw + 1].life_gauge_max2 != 0)) &&
-               (PLAYER_KGT_BUFFER[skill_idx_draw + 1].unk_CPU_var_initial_1 != 0)) {
-              PLAYER_KGT_BUFFER[skill_idx_draw + 1].something_to_do_with_starting_health2 =
-                   PLAYER_KGT_BUFFER[skill_idx_draw + 1].something_to_do_with_starting_health2 +
-                   (uint)(byte)PLAYER_KGT_BUFFER[0].character_story_entries[i].when_time_over_number
-              ;
+        if (gkgtGameState.kgtGameMode == 1P_story) {
+          iCurrentStoryStep = giCurrentStoryStep[giStoryModePlayerIdx_2];
+          if (gkgtGameState.iGameTimerInFrames == 0) {
+            cWhenTimeOverWinner =
+                 (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].cWhenTimeOver
+            ;
+            if (((gkgtLoadedCharacter[0].iUnknownBattleStateVariable_A <
+                  gkgtLoadedCharacter[cWhenTimeOverWinner + 1].iUnknownBattleStateVariable_A) &&
+                (gkgtLoadedCharacter[cWhenTimeOverWinner + 1].iLifeGaugeMax_2 != 0)) &&
+               (gkgtLoadedCharacter[cWhenTimeOverWinner + 1].iNotTestplayPlayerCpu != 0)) {
+              gkgtLoadedCharacter[cWhenTimeOverWinner + 1].something_to_do_with_starting_health2 =
+                   gkgtLoadedCharacter[cWhenTimeOverWinner + 1].
+                   something_to_do_with_starting_health2 +
+                   (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].
+                               cWhenTimeOverNumber;
             }
-            piVar12 = &PLAYER_KGT_BUFFER[1].life_gauge_max2;
-            pcVar15 = &PLAYER_KGT_BUFFER[0].character_story_entries[i].
-                       character_story_entry_cpu_array[0].when_time_target;
+            piVar12 = &gkgtLoadedCharacter[1].iLifeGaugeMax_2;
+            pcVar15 = &gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].kgtStoryEntryCPUs
+                       [0].cWhenTimeTarget;
             do {
-              if (ADJ(piVar12)->unk_CPU_var_initial_1 != 0) {
-                bVar1 = ADJ(pcVar15)->when_time_target;
-                if ((((PLAYER_KGT_BUFFER[bVar1].life_gauge_max2 != 0) &&
-                     ((PLAYER_KGT_BUFFER[bVar1].unk_CPU_var_initial_1 != 0 || (bVar1 == 0)))) &&
-                    (ADJ(piVar12)->life_gauge_max2 != 0)) &&
-                   (ADJ(piVar12)->wins_accumulated < PLAYER_KGT_BUFFER[bVar1].wins_accumulated)) {
-                  PLAYER_KGT_BUFFER[bVar1].something_to_do_with_starting_health2 =
-                       PLAYER_KGT_BUFFER[bVar1].something_to_do_with_starting_health2 +
+              if (ADJ(piVar12)->iNotTestplayPlayerCpu != 0) {
+                cWhenTimeTarget = ADJ(pcVar15)->cWhenTimeTarget;
+                if ((((gkgtLoadedCharacter[cWhenTimeTarget].iLifeGaugeMax_2 != 0) &&
+                     ((gkgtLoadedCharacter[cWhenTimeTarget].iNotTestplayPlayerCpu != 0 ||
+                      (cWhenTimeTarget == 0)))) && (ADJ(piVar12)->iLifeGaugeMax_2 != 0)) &&
+                   (ADJ(piVar12)->iUnknownBattleStateVariable_A <
+                    gkgtLoadedCharacter[cWhenTimeTarget].iUnknownBattleStateVariable_A)) {
+                  gkgtLoadedCharacter[cWhenTimeTarget].something_to_do_with_starting_health2 =
+                       gkgtLoadedCharacter[cWhenTimeTarget].something_to_do_with_starting_health2 +
                        (uint)(byte)ADJ(pcVar15)->field_0x14;
                 }
               }
@@ -7477,89 +7587,95 @@ LAB_00409394:
               pcVar15 = pcVar15 + 0x1a;
             } while ((int)piVar12 < 0x54fe89);
           }
-          obj_step = 0;
-          piVar13 = &PLAYER_KGT_BUFFER[1].something_to_do_with_starting_health2;
-          pcVar14 = PLAYER_KGT_BUFFER[0].character_story_entries[i].character_story_entry_cpu_array;
-          i = PLAYER_KGT_BUFFER[0].something_to_do_with_starting_health2;
+          i_300 = 0;
+          piVar3 = &gkgtLoadedCharacter[1].something_to_do_with_starting_health2;
+          pkVar4 = gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].kgtStoryEntryCPUs;
+          i = gkgtLoadedCharacter[0].something_to_do_with_starting_health2;
           do {
-            iVar3 = *piVar13;
-            if (99 < iVar3) {
-              if (((undefined1  [26])*pcVar14 & (undefined1  [26])0x200) == (undefined1  [26])0x0) {
-                if (obj_step < iVar3) {
-                  obj_step = iVar3;
+            iVar2 = *piVar3;
+                    // Testing storyEntryCPU.shBitmask for 0x02, a.k.a. time value?
+            if (99 < iVar2) {
+              if (((undefined1  [26])*pkVar4 & (undefined1  [26])0x200) == (undefined1  [26])0x0) {
+                if (i_300 < iVar2) {
+                  i_300 = iVar2;
                 }
               }
-              else if (i < iVar3) {
-                i = iVar3;
+              else if (i < iVar2) {
+                i = iVar2;
               }
             }
-            piVar13 = (int *)((int)piVar13 + 0xe03f);
-            pcVar14 = pcVar14 + 1;
-          } while ((int)piVar13 < 0x54ff33);
-          if (i == obj_step) {
-            SET_DEBUG_INFO(s_KATAKANA__0041f05c,0xffff1f);
-            PTR_POSS_CURRENT_OBJ->object_process_step = 0x1ae;
-            DAT_VAR_BATTLE_STATE_B = DAT_VAR_BATTLE_STATE_B + 1;
+            piVar3 = (int *)((int)piVar3 + 0xe03f);
+            pkVar4 = pkVar4 + 1;
+          } while ((int)piVar3 < 0x54ff33);
+          if (i == i_300) {
+            iSetDebugInfo(gsStoryDraw,0xffff1f);
+            gpkgtCurrentEngineObject->iProcessStep = 0x1ae;
+            giRoundsNotWon = giRoundsNotWon + 1;
             return;
           }
-          if (obj_step < i) {
-            SET_DEBUG_INFO(s_HAN_KATAKANA__0041f070,0xffff1f);
-            PTR_POSS_CURRENT_OBJ->object_process_step = 0x19a;
+          if (i_300 < i) {
+            iSetDebugInfo(gsStorySuccess,0xffff1f);
+            gpkgtCurrentEngineObject->iProcessStep = 0x19a;
             return;
           }
-          SET_DEBUG_INFO(s_HAN_KATAKANA__0041f080,0xffff1f);
-          DAT_VAR_BATTLE_STATE_B = DAT_VAR_BATTLE_STATE_B + 1;
-          PTR_POSS_CURRENT_OBJ->object_process_step = 0x1a4;
+          iSetDebugInfo(gsStoryFailure,0xffff1f);
+          giRoundsNotWon = giRoundsNotWon + 1;
+          gpkgtCurrentEngineObject->iProcessStep = 0x1a4;
           return;
         }
-        if ((int)GAME_STATE.GAME_MODE < 1) {
+        if ((int)gkgtGameState.kgtGameMode < 1) {
           return;
         }
-        if (2 < (int)GAME_STATE.GAME_MODE) {
+        if (2 < (int)gkgtGameState.kgtGameMode) {
           return;
         }
-        if (PLAYER_KGT_BUFFER[0].wins_accumulated == 0) {
-          if (PLAYER_KGT_BUFFER[1].wins_accumulated == 0) {
-            current_obj->object_process_step = 540;
-            SET_DEBUG_INFO(s_w_ko_0041f0a0,0xffff1f);
+        if (gkgtLoadedCharacter[0].iUnknownBattleStateVariable_A == 0) {
+          if (gkgtLoadedCharacter[1].iUnknownBattleStateVariable_A == 0) {
+            pkgtoCurrentEngineObject->iProcessStep = 540;
+            iSetDebugInfo(gsWKo,0xffff1f);
             return;
           }
         }
-        else if (PLAYER_KGT_BUFFER[0].wins_accumulated == PLAYER_KGT_BUFFER[1].wins_accumulated) {
-          current_obj->object_process_step = 510;
-          SET_DEBUG_INFO(s_draw_0041f0a8,0xffff1f);
+        else if (gkgtLoadedCharacter[0].iUnknownBattleStateVariable_A ==
+                 gkgtLoadedCharacter[1].iUnknownBattleStateVariable_A) {
+          pkgtoCurrentEngineObject->iProcessStep = 510;
+          iSetDebugInfo(gsDraw,0xffff1f);
           return;
         }
-        if (PLAYER_KGT_BUFFER[1].wins_accumulated < PLAYER_KGT_BUFFER[0].wins_accumulated) {
-          current_obj->object_process_step = 520;
-          SET_DEBUG_INFO(s_1p_win_0041f0b0,0xffff1f);
+        if (gkgtLoadedCharacter[1].iUnknownBattleStateVariable_A <
+            gkgtLoadedCharacter[0].iUnknownBattleStateVariable_A) {
+          pkgtoCurrentEngineObject->iProcessStep = 520;
+          iSetDebugInfo(gs1pWin,0xffff1f);
           return;
         }
-        current_obj->object_process_step = 530;
-        SET_DEBUG_INFO(s_2p_win_0041f0b8,0xffff1f);
+        pkgtoCurrentEngineObject->iProcessStep = 530;
+        iSetDebugInfo(gs2pWin,0xffff1f);
+                    // *** CASE 300 END ***
         return;
       default:
         return;
       case 0x19a:
-        PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
-        iVar3 = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                          (DAT_KGT_FILE_BUFFER_00433240._73632_4_ & 0xffff,0x65,0,0);
-        current_obj = PTR_POSS_CURRENT_OBJ;
-        obj_step = GAME_STATE.gameTimerInFrames;
-        i = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
-        PTR_POSS_CURRENT_OBJ->player_file_buffer = iVar3;
-        PLAYER_KGT_BUFFER[0].story_mode_unk_var_a = PLAYER_KGT_BUFFER[0].story_mode_unk_var_a + 1;
-        PLAYER_KGT_BUFFER[0].w_ko_unk_var = 1;
-        piVar10 = &PLAYER_KGT_BUFFER[1].w_ko_unk_var;
-        pcVar14 = PLAYER_KGT_BUFFER[0].character_story_entries[i].character_story_entry_cpu_array;
+        gpkgtCurrentEngineObject->iProcessStep = iVar2 + 1;
+                    // 'You win' skill
+        iYouWinTime = kgtSpawnNewEngineObjectReturnSkillField0x1
+                                (gkgtKgtSystem._73632_4_ & 0xffff,0x65,0,0);
+        pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+        iVar2 = gkgtGameState.iGameTimerInFrames;
+        i = giCurrentStoryStep[giStoryModePlayerIdx_2];
+        gpkgtCurrentEngineObject->iPlayerIdx = iYouWinTime;
+        gkgtLoadedCharacter[0].iPossiblyVictoriesCount =
+             gkgtLoadedCharacter[0].iPossiblyVictoriesCount + 1;
+        gkgtLoadedCharacter[0].iDoubleKoWinnerDeterminer = 1;
+        piVar10 = &gkgtLoadedCharacter[1].iDoubleKoWinnerDeterminer;
+        pkVar4 = gkgtLoadedCharacter[0].kgtStoryEntries[i].kgtStoryEntryCPUs;
         do {
-          if ((ADJ(piVar10)->round_start_var_d == 0) &&
-             (ADJ(piVar10)->round_start_var_d = 3 - (uint)(obj_step != 0),
-             ((undefined1  [26])*pcVar14 & (undefined1  [26])0x200) != (undefined1  [26])0x0)) {
-            ADJ(piVar10)->round_start_var_d = 1;
+          if ((*piVar10 == 0) &&
+             (*piVar10 = 3 - (uint)(iVar2 != 0),
+             ((undefined1  [26])*pkVar4 & (undefined1  [26])0x200) != (undefined1  [26])0x0)) {
+            *piVar10 = 1;
           }
-          piVar10 = (unk_player_kgt_intern_struct_ptr_62_int)((int)piVar10 + 0xe03f);
-          pcVar14 = pcVar14 + 1;
+          piVar10 = (int *)((int)piVar10 + 0xe03f);
+          pkVar4 = pkVar4 + 1;
         } while ((int)piVar10 < 0x54ff7f);
         break;
       case 0x19b:
@@ -7567,205 +7683,208 @@ LAB_00409394:
       case 0x1af:
         break;
       case 0x1a4:
-        PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
-        i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                      ((uint)DAT_KGT_FILE_BUFFER_00433240._73632_4_ >> 0x10,0x65,0,0);
-        current_obj = PTR_POSS_CURRENT_OBJ;
-        is_1p_story = GAME_STATE.gameTimerInFrames != 0;
-        PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
-        PLAYER_KGT_BUFFER[0].w_ko_unk_var = 3 - (uint)is_1p_story;
-        PLAYER_KGT_BUFFER[1].story_mode_unk_var_a = PLAYER_KGT_BUFFER[1].story_mode_unk_var_a + 1;
-        piVar9 = &PLAYER_KGT_BUFFER[1].w_ko_unk_var;
-        pcVar14 = PLAYER_KGT_BUFFER[0].character_story_entries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
-                  character_story_entry_cpu_array;
+        gpkgtCurrentEngineObject->iProcessStep = iVar2 + 1;
+        iYouLoseTime = kgtSpawnNewEngineObjectReturnSkillField0x1
+                                 ((uint)gkgtKgtSystem._73632_4_ >> 0x10,0x65,0,0);
+        pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+        bIsTimeOver = gkgtGameState.iGameTimerInFrames != 0;
+        gpkgtCurrentEngineObject->iPlayerIdx = iYouLoseTime;
+        gkgtLoadedCharacter[0].iDoubleKoWinnerDeterminer = 3 - (uint)bIsTimeOver;
+        gkgtLoadedCharacter[1].iPossiblyVictoriesCount =
+             gkgtLoadedCharacter[1].iPossiblyVictoriesCount + 1;
+        piVar9 = &gkgtLoadedCharacter[1].iDoubleKoWinnerDeterminer;
+        pkVar4 = gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
+                 kgtStoryEntryCPUs;
         do {
-          if ((ADJ(piVar9)->round_start_var_d == 0) &&
-             (ADJ(piVar9)->round_start_var_d = 1,
-             ((undefined1  [26])*pcVar14 & (undefined1  [26])0x200) != (undefined1  [26])0x0)) {
-            ADJ(piVar9)->round_start_var_d = 3;
+          if ((*piVar9 == 0) &&
+             (*piVar9 = 1,
+             ((undefined1  [26])*pkVar4 & (undefined1  [26])0x200) != (undefined1  [26])0x0)) {
+            *piVar9 = 3;
           }
-          piVar9 = (unk_player_kgt_intern_struct_ptr_62_int)((int)piVar9 + 0xe03f);
-          pcVar14 = pcVar14 + 1;
+          piVar9 = (int *)((int)piVar9 + 0xe03f);
+          pkVar4 = pkVar4 + 1;
         } while ((int)piVar9 < 0x54ff7f);
         break;
       case 0x1ae:
-        PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
-        i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                      (DAT_KGT_FILE_BUFFER_00433240._73640_4_ & 0xffff,0x65,0,0);
-        current_obj = PTR_POSS_CURRENT_OBJ;
-        PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
-        PLAYER_KGT_BUFFER[2].w_ko_unk_var = 3;
-        PLAYER_KGT_BUFFER[3].w_ko_unk_var = 3;
-        PLAYER_KGT_BUFFER[4].w_ko_unk_var = 3;
-        PLAYER_KGT_BUFFER[5].w_ko_unk_var = 3;
-        PLAYER_KGT_BUFFER[6].w_ko_unk_var = 3;
-        PLAYER_KGT_BUFFER[7].w_ko_unk_var = 3;
+        gpkgtCurrentEngineObject->iProcessStep = iVar2 + 1;
+        iDrawTime = kgtSpawnNewEngineObjectReturnSkillField0x1
+                              (gkgtKgtSystem._73640_4_ & 0xffff,0x65,0,0);
+        pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+        gpkgtCurrentEngineObject->iPlayerIdx = iDrawTime;
+        gkgtLoadedCharacter[2].iDoubleKoWinnerDeterminer = 3;
+        gkgtLoadedCharacter[3].iDoubleKoWinnerDeterminer = 3;
+        gkgtLoadedCharacter[4].iDoubleKoWinnerDeterminer = 3;
+        gkgtLoadedCharacter[5].iDoubleKoWinnerDeterminer = 3;
+        gkgtLoadedCharacter[6].iDoubleKoWinnerDeterminer = 3;
+        gkgtLoadedCharacter[7].iDoubleKoWinnerDeterminer = 3;
         goto LAB_00409394;
       }
     }
 switchD_00408f61_caseD_19b:
-    i = current_obj->player_file_buffer;
-    current_obj->player_file_buffer = i + -1;
+    i = pkgtoCurrentEngineObject->iPlayerIdx;
+    pkgtoCurrentEngineObject->iPlayerIdx = i + -1;
     if (0 < i) {
       return;
     }
-    current_obj->object_process_step = 0x384;
+    pkgtoCurrentEngineObject->iProcessStep = 0x384;
     return;
   }
-  if (532 < obj_step) {
-    if (obj_step < 901) {
-      if (obj_step != 900) {
-        current_obj = PTR_POSS_CURRENT_OBJ;
-        if (obj_step != 533) {
-          if (obj_step == 540) {
-                    // Called 'W KO'?
-                    // 
-                    // this grabs the draw skill idx.
-            skill_idx_draw = (uint)DAT_KGT_FILE_BUFFER_00433240._73640_4_ >> 0x10;
-            PTR_POSS_CURRENT_OBJ->object_process_step = 541;
-            i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                          (skill_idx_draw,0x65,0,0);
-            current_obj = PTR_POSS_CURRENT_OBJ;
-            PLAYER_KGT_BUFFER[0].story_mode_unk_var_a =
-                 PLAYER_KGT_BUFFER[0].story_mode_unk_var_a + 1;
-            PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
-            PLAYER_KGT_BUFFER[0].w_ko_unk_var = 2;
-            PLAYER_KGT_BUFFER[1].w_ko_unk_var = 2;
-            PLAYER_KGT_BUFFER[1].story_mode_unk_var_a =
-                 PLAYER_KGT_BUFFER[1].story_mode_unk_var_a + 1;
+  if (532 < iVar2) {
+    if (iVar2 < 901) {
+      if (iVar2 != 900) {
+        pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+        if (iVar2 != 533) {
+          if (iVar2 == 540) {
+                    // Double KO
+            skill_idx_draw = (uint)gkgtKgtSystem._73640_4_ >> 0x10;
+            gpkgtCurrentEngineObject->iProcessStep = 541;
+            i = kgtSpawnNewEngineObjectReturnSkillField0x1(skill_idx_draw,0x65,0,0);
+            pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+            gkgtLoadedCharacter[0].iPossiblyVictoriesCount =
+                 gkgtLoadedCharacter[0].iPossiblyVictoriesCount + 1;
+            gpkgtCurrentEngineObject->iPlayerIdx = i;
+            gkgtLoadedCharacter[0].iDoubleKoWinnerDeterminer = 2;
+            gkgtLoadedCharacter[1].iDoubleKoWinnerDeterminer = 2;
+            gkgtLoadedCharacter[1].iPossiblyVictoriesCount =
+                 gkgtLoadedCharacter[1].iPossiblyVictoriesCount + 1;
           }
-          else if (obj_step != 0x21d) {
+          else if (iVar2 != 0x21d) {
             return;
           }
         }
-        i = current_obj->player_file_buffer;
-        current_obj->player_file_buffer = i + -1;
+        i = pkgtoCurrentEngineObject->iPlayerIdx;
+        pkgtoCurrentEngineObject->iPlayerIdx = i + -1;
         if (0 < i) {
           return;
         }
-        current_obj->object_process_step = 900;
+        pkgtoCurrentEngineObject->iProcessStep = 900;
         return;
       }
-      skill_round_ani_endtime = DAT_KGT_FILE_BUFFER_00433240._73604_4_ & 0xffff;
-      PTR_POSS_CURRENT_OBJ->object_process_step = 901;
-      i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                    (skill_round_ani_endtime,0x65,0,0);
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
+      skill_round_ani_endtime = gkgtKgtSystem._73604_4_ & 0xffff;
+      gpkgtCurrentEngineObject->iProcessStep = 901;
+      i = kgtSpawnNewEngineObjectReturnSkillField0x1(skill_round_ani_endtime,0x65,0,0);
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->iPlayerIdx = i;
 LAB_004096ed:
-      i = current_obj->player_file_buffer;
-      current_obj->player_file_buffer = i + -1;
+      i = pkgtoCurrentEngineObject->iPlayerIdx;
+      pkgtoCurrentEngineObject->iPlayerIdx = i + -1;
       if (0 < i) {
         return;
       }
-      current_obj->object_process_step = current_obj->object_process_step + 1;
+      pkgtoCurrentEngineObject->iProcessStep = pkgtoCurrentEngineObject->iProcessStep + 1;
     }
     else {
-      current_obj = PTR_POSS_CURRENT_OBJ;
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
                     // CASE 901
-      if (obj_step == 901) goto LAB_004096ed;
-      if (obj_step != 902) {
+      if (iVar2 == 901) goto LAB_004096ed;
+      if (iVar2 != 902) {
         return;
       }
     }
-    if (((int)GAME_STATE.poss_wins_needed <= PLAYER_KGT_BUFFER[0].story_mode_unk_var_a) ||
-       ((int)GAME_STATE.poss_wins_needed <= PLAYER_KGT_BUFFER[1].story_mode_unk_var_a)) {
+    if (((int)gkgtGameState.iRoundsAmount <= gkgtLoadedCharacter[0].iPossiblyVictoriesCount) ||
+       ((int)gkgtGameState.iRoundsAmount <= gkgtLoadedCharacter[1].iPossiblyVictoriesCount)) {
                     // CASE 902, basically.
-      if (GAME_STATE.GAME_MODE == 1P_story) {
-        if ((PLAYER_KGT_BUFFER[0].story_mode_unk_var_a <= PLAYER_KGT_BUFFER[1].story_mode_unk_var_a)
-           && ((PLAYER_KGT_BUFFER[0].character_story_entries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
-                when_defeat_and_1st_round_bitmask & 1U) != 0)) {
-          FIND_EMPTY_OBJ(13,0x7f,0,0);
+      if (gkgtGameState.kgtGameMode == 1P_story) {
+        if ((gkgtLoadedCharacter[0].iPossiblyVictoriesCount <=
+             gkgtLoadedCharacter[1].iPossiblyVictoriesCount) &&
+           ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
+             cWhenDefeatAndFirstRoundBitmask & 1U) != 0)) {
+          kgtoNewEngineObject(13,0x7f,0,0);
           return;
         }
-        HANDLE_STORY_MODE();
-        PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
+        vProgressStoryMode();
+        gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
         return;
       }
-      if ((int)GAME_STATE.GAME_MODE < 1) {
+      if ((int)gkgtGameState.kgtGameMode < 1) {
         return;
       }
-      if (2 < (int)GAME_STATE.GAME_MODE) {
+      if (2 < (int)gkgtGameState.kgtGameMode) {
         return;
       }
-      goto LAB_00409825;
+      goto return_to_css;
     }
-    if (GAME_STATE.GAME_MODE != VS_team) goto LAB_004097f0;
-    if (PLAYER_KGT_BUFFER[0].wins_accumulated == 0) {
-      if (PLAYER_KGT_BUFFER[1].wins_accumulated == 0) goto LAB_00409764;
+    if (gkgtGameState.kgtGameMode != VS_team) goto LAB_004097f0;
+    if (gkgtLoadedCharacter[0].iUnknownBattleStateVariable_A == 0) {
+      if (gkgtLoadedCharacter[1].iUnknownBattleStateVariable_A == 0) goto LAB_00409764;
 LAB_0040978a:
-      if (PLAYER_KGT_BUFFER[0].wins_accumulated <= PLAYER_KGT_BUFFER[1].wins_accumulated) {
-        GAME_STATE.char_select_var_a = GAME_STATE.char_select_var_a + 1;
+      if (gkgtLoadedCharacter[0].iUnknownBattleStateVariable_A <=
+          gkgtLoadedCharacter[1].iUnknownBattleStateVariable_A) {
+        gkgtGameState.char_select_var_a = gkgtGameState.char_select_var_a + 1;
       }
       else {
-        GAME_STATE.char_select_var_b = GAME_STATE.char_select_var_b + 1;
+        gkgtGameState.char_select_var_b = gkgtGameState.char_select_var_b + 1;
       }
-      GAME_STATE.field163_0xec =
-           (int)(PLAYER_KGT_BUFFER[0].wins_accumulated <= PLAYER_KGT_BUFFER[1].wins_accumulated);
-      GAME_STATE.field164_0xf0 = PLAYER_KGT_BUFFER[GAME_STATE.field163_0xec].health;
-      GAME_STATE.field165_0xf4 = PLAYER_KGT_BUFFER[GAME_STATE.field163_0xec].special_gauge_tokens;
-      GAME_STATE.field166_0xf8 = PLAYER_KGT_BUFFER[GAME_STATE.field163_0xec].special_gauge;
+      gkgtGameState.unk_player_buffer_a =
+           (int)(gkgtLoadedCharacter[0].iUnknownBattleStateVariable_A <=
+                gkgtLoadedCharacter[1].iUnknownBattleStateVariable_A);
+      gkgtGameState.iTempHealth = gkgtLoadedCharacter[gkgtGameState.unk_player_buffer_a].iHealth;
+      gkgtGameState.iTempSpecialGaugeTokens =
+           gkgtLoadedCharacter[gkgtGameState.unk_player_buffer_a].iSpecialGaugeTokens;
+      gkgtGameState.iTempSpecialGauge =
+           gkgtLoadedCharacter[gkgtGameState.unk_player_buffer_a].iSpecialGauge;
     }
     else {
-      if (PLAYER_KGT_BUFFER[0].wins_accumulated != PLAYER_KGT_BUFFER[1].wins_accumulated)
-      goto LAB_0040978a;
+      if (gkgtLoadedCharacter[0].iUnknownBattleStateVariable_A !=
+          gkgtLoadedCharacter[1].iUnknownBattleStateVariable_A) goto LAB_0040978a;
 LAB_00409764:
-      GAME_STATE.char_select_var_a = GAME_STATE.char_select_var_a + 1;
-      GAME_STATE.char_select_var_b = GAME_STATE.char_select_var_b + 1;
-      GAME_STATE.field163_0xec = -1;
+      gkgtGameState.char_select_var_a = gkgtGameState.char_select_var_a + 1;
+      gkgtGameState.char_select_var_b = gkgtGameState.char_select_var_b + 1;
+      gkgtGameState.unk_player_buffer_a = -1;
     }
-    if ((GAME_STATE.char_select_var_a <= GAME_STATE.PTR_TO___OF_ROUNDS_TEAM_VS_00470064) &&
-       (GAME_STATE.char_select_var_b <= GAME_STATE.PTR_TO___OF_ROUNDS_TEAM_VS_00470064)) {
+    if ((gkgtGameState.char_select_var_a <= gkgtGameState.iConfigNumberOfRoundsTeamVs) &&
+       (gkgtGameState.char_select_var_b <= gkgtGameState.iConfigNumberOfRoundsTeamVs)) {
 LAB_004097f0:
-      current_obj->player_file_buffer = 0;
-      current_obj->object_process_step = 100;
-      RESET_OBJECTS_AND_SET_GAME_SPEED();
+      pkgtoCurrentEngineObject->iPlayerIdx = 0;
+      pkgtoCurrentEngineObject->iProcessStep = 100;
+      vResetObjectsAndSpeed();
       return;
     }
-LAB_00409825:
-    FIND_EMPTY_OBJ(10,0x7f,0,0);
+return_to_css:
+    kgtoNewEngineObject(CHARACTER_SELECT_SCREEN,0x7f,0,0);
     return;
   }
-  current_obj = PTR_POSS_CURRENT_OBJ;
-  if (obj_step == 532) goto LAB_004095b0;
-  switch(obj_step) {
+  pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+  if (iVar2 == 532) goto LAB_004095b0;
+  switch(iVar2) {
   case 0x1ff:
   case 0x20b:
     goto switchD_00408f61_caseD_19b;
   default:
     break;
   case 0x208:
-    PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
-    i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                  (DAT_KGT_FILE_BUFFER_00433240._73628_4_ & 0xffff,0x65,0,0);
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    PLAYER_KGT_BUFFER[0].w_ko_unk_var = 1;
-    is_1p_story = GAME_STATE.gameTimerInFrames != 0;
-    PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
-    PLAYER_KGT_BUFFER[1].w_ko_unk_var = 3 - (uint)is_1p_story;
-    PLAYER_KGT_BUFFER[0].story_mode_unk_var_a = PLAYER_KGT_BUFFER[0].story_mode_unk_var_a + 1;
+    gpkgtCurrentEngineObject->iProcessStep = iVar2 + 1;
+    i = kgtSpawnNewEngineObjectReturnSkillField0x1(gkgtKgtSystem._73628_4_ & 0xffff,0x65,0,0);
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+    gkgtLoadedCharacter[0].iDoubleKoWinnerDeterminer = 1;
+    bIsStoryMode = gkgtGameState.iGameTimerInFrames != 0;
+    gpkgtCurrentEngineObject->iPlayerIdx = i;
+    gkgtLoadedCharacter[1].iDoubleKoWinnerDeterminer = 3 - (uint)bIsStoryMode;
+    gkgtLoadedCharacter[0].iPossiblyVictoriesCount =
+         gkgtLoadedCharacter[0].iPossiblyVictoriesCount + 1;
   case 0x209:
-    i = current_obj->player_file_buffer;
-    current_obj->player_file_buffer = i + -1;
+    i = pkgtoCurrentEngineObject->iPlayerIdx;
+    pkgtoCurrentEngineObject->iPlayerIdx = i + -1;
     if (i < 1) {
-      skill_idx_draw = DAT_KGT_FILE_BUFFER_00433240._73636_4_ & 0xffff;
-      current_obj->object_process_step = current_obj->object_process_step + 1;
-      i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc(skill_idx_draw,0x65,0,0);
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
+                    // Not the draw skill idx
+      skill_idx_draw = gkgtKgtSystem._73636_4_ & 0xffff;
+      pkgtoCurrentEngineObject->iProcessStep = pkgtoCurrentEngineObject->iProcessStep + 1;
+      i = kgtSpawnNewEngineObjectReturnSkillField0x1(skill_idx_draw,0x65,0,0);
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->iPlayerIdx = i;
 switchD_00409414_caseD_20a:
-      i = current_obj->player_file_buffer;
-      current_obj->player_file_buffer = i + -1;
+      i = pkgtoCurrentEngineObject->iPlayerIdx;
+      pkgtoCurrentEngineObject->iPlayerIdx = i + -1;
       if (i < 1) {
-        if (PLAYER_KGT_BUFFER[0].health != PLAYER_KGT_BUFFER[0].life_gauge_max2) {
-          current_obj->object_process_step = 900;
+        if (gkgtLoadedCharacter[0].iHealth != gkgtLoadedCharacter[0].iLifeGaugeMax_2) {
+          pkgtoCurrentEngineObject->iProcessStep = 900;
           return;
         }
 LAB_004095e8:
-        current_obj->object_process_step = current_obj->object_process_step + 1;
-        i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                      ((uint)DAT_KGT_FILE_BUFFER_00433240._73628_4_ >> 0x10,0x65,0,0);
-        PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
+        pkgtoCurrentEngineObject->iProcessStep = pkgtoCurrentEngineObject->iProcessStep + 1;
+        i = kgtSpawnNewEngineObjectReturnSkillField0x1
+                      ((uint)gkgtKgtSystem._73628_4_ >> 0x10,0x65,0,0);
+        gpkgtCurrentEngineObject->iPlayerIdx = i;
         return;
       }
     }
@@ -7773,32 +7892,32 @@ LAB_004095e8:
   case 0x20a:
     goto switchD_00409414_caseD_20a;
   case 0x212:
-    PTR_POSS_CURRENT_OBJ->object_process_step = obj_step + 1;
-    i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                  (DAT_KGT_FILE_BUFFER_00433240._73628_4_ & 0xffff,0x65,0,0);
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    PLAYER_KGT_BUFFER[1].w_ko_unk_var = 1;
-    is_1p_story = GAME_STATE.gameTimerInFrames != 0;
-    PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
-    PLAYER_KGT_BUFFER[0].w_ko_unk_var = 3 - (uint)is_1p_story;
-    PLAYER_KGT_BUFFER[1].story_mode_unk_var_a = PLAYER_KGT_BUFFER[1].story_mode_unk_var_a + 1;
+    gpkgtCurrentEngineObject->iProcessStep = iVar2 + 1;
+    i = kgtSpawnNewEngineObjectReturnSkillField0x1(gkgtKgtSystem._73628_4_ & 0xffff,0x65,0,0);
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+    gkgtLoadedCharacter[1].iDoubleKoWinnerDeterminer = 1;
+    bIsStoryMode = gkgtGameState.iGameTimerInFrames != 0;
+    gpkgtCurrentEngineObject->iPlayerIdx = i;
+    gkgtLoadedCharacter[0].iDoubleKoWinnerDeterminer = 3 - (uint)bIsStoryMode;
+    gkgtLoadedCharacter[1].iPossiblyVictoriesCount =
+         gkgtLoadedCharacter[1].iPossiblyVictoriesCount + 1;
   case 0x213:
-    i = current_obj->player_file_buffer;
-    current_obj->player_file_buffer = i + -1;
+    i = pkgtoCurrentEngineObject->iPlayerIdx;
+    pkgtoCurrentEngineObject->iPlayerIdx = i + -1;
     if (i < 1) {
-      current_obj->object_process_step = current_obj->object_process_step + 1;
-      i = new_kgt_file_obj_with_action_idx_ret_new_actionscripts_alloc
-                    ((uint)DAT_KGT_FILE_BUFFER_00433240._73636_4_ >> 0x10,0x65,0,0);
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->player_file_buffer = i;
+      pkgtoCurrentEngineObject->iProcessStep = pkgtoCurrentEngineObject->iProcessStep + 1;
+      i = kgtSpawnNewEngineObjectReturnSkillField0x1((uint)gkgtKgtSystem._73636_4_ >> 0x10,0x65,0,0)
+      ;
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->iPlayerIdx = i;
 LAB_004095b0:
-      i = current_obj->player_file_buffer;
-      current_obj->player_file_buffer = i + -1;
+      i = pkgtoCurrentEngineObject->iPlayerIdx;
+      pkgtoCurrentEngineObject->iPlayerIdx = i + -1;
       if (0 < i) {
         return;
       }
-      if (PLAYER_KGT_BUFFER[1].health != PLAYER_KGT_BUFFER[1].life_gauge_max2) {
-        current_obj->object_process_step = 900;
+      if (gkgtLoadedCharacter[1].iHealth != gkgtLoadedCharacter[1].iLifeGaugeMax_2) {
+        pkgtoCurrentEngineObject->iProcessStep = 900;
         return;
       }
       goto LAB_004095e8;
@@ -7812,7 +7931,7 @@ LAB_004095b0:
 // Looks to be first function entered in main loop, when objects are first initialized in
 // EMPTY_OBJECTS() they are given '2' for jump_idx
 
-void Start_Game__(void)
+void vjmpStartGame(void)
 
 {
   char cVar1;
@@ -7823,25 +7942,27 @@ void Start_Game__(void)
   int iVar5;
   int *piVar6;
   int idx;
-  UNK_VERSUS_SELECTION_STRUCT *pUVar7;
   char program_name [254];
   char acStack_102 [258];
+  kgtJumptableEndpoints iNextJump;
+  kgtGameState *gameState;
   UINT player0_nb;
   UINT player1_nb;
   
-  if (PTR_POSS_CURRENT_OBJ->object_process_step != 0) {
+  if (gpkgtCurrentEngineObject->iProcessStep != 0) {
     return;
   }
-  PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-  pUVar7 = &GAME_STATE;
+  gpkgtCurrentEngineObject->iProcessStep = 1;
+  gameState = &gkgtGameState;
+                    // Clear the char_select array
   for (idx = 8; idx != 0; idx = idx + -1) {
-    pUVar7->CHAR_SELECT[0] = -1;
-    pUVar7 = (UNK_VERSUS_SELECTION_STRUCT *)(pUVar7->CHAR_SELECT + 1);
+    gameState->iCharSelect[0] = -1;
+    gameState = (kgtGameState *)(gameState->iCharSelect + 1);
   }
-  INT_00424708 = 0;
-  INT_00447f28 = 1;
-  Load_external_image(&UNK_STRUCT_A_00424f60.bmpInfo,s_RC_BMP_text_0041f0cc,s_text_bmp_0041f0c0,0);
-  if (APPMODE == NORMAL) {
+  giStartGameUnusedA = 0;
+  giStartGameUnusedB = 1;
+  iLoadExternalImage(&UNK_DRAW_STRUCT_A.bmpInfo,gsRcBmpText,gsTextBmp,0);
+  if (giAppmode == NORMAL) {
     idx = 0;
     pCVar3 = GetCommandLineA();
     _sprintf(acStack_102 + 2,s__s_0041f0d8,pCVar3);
@@ -7859,33 +7980,33 @@ void Start_Game__(void)
     program_name[idx] = '\0';
     if ((((program_name[0] == 'K') || (program_name[0] == 'k')) &&
         ((program_name[1] == 'G' || (program_name[1] == 'g')))) &&
-       ((program_name[2] == 'T' || (program_name[2] == 't')))) goto LAB_00409b67;
+       ((program_name[2] == 'T' || (program_name[2] == 't')))) goto Testing_mode_processing;
     _sprintf(program_name,s__s_kgt_0041f0dc,program_name);
-    r = FUN_Opens__kgt_file(program_name);
+    r = iOpenKgtSystemFile(program_name);
     if (r != 0) {
       PostQuitMessage(0);
       return;
     }
   }
   else {
-LAB_00409b67:
+Testing_mode_processing:
     bVar2 = false;
     idx = 0;
     do {
-      cVar1 = (&CHAR_00h_0043022a)[idx];
+      cVar1 = (&gcUnknownTestingCharacters)[idx];
       acStack_102[idx] = cVar1;
       if ((!bVar2) && (cVar1 == '\\')) {
         bVar2 = true;
         acStack_102[idx + 1] = '\0';
       }
-      iVar5 = idx + 0xfd;
+      iVar5 = idx + 253;
       idx = idx + -1;
     } while (-1 < iVar5);
     SetCurrentDirectoryA(program_name);
     iVar5 = 0;
     idx = 0;
     do {
-      cVar1 = (&lpReturnedString_0043012c)[idx];
+      cVar1 = (&gsConfigReturnedFilename)[idx];
       program_name[iVar5] = cVar1;
       if (cVar1 == '\0') break;
       if (cVar1 == '\\') {
@@ -7894,657 +8015,683 @@ LAB_00409b67:
       idx = idx + 1;
       iVar5 = iVar5 + 1;
     } while (idx < 0x100);
-    idx = FUN_Opens__kgt_file(program_name);
+    idx = iOpenKgtSystemFile(program_name);
     if (idx != 0) {
       PostQuitMessage(0);
       return;
     }
   }
-  player1_nb = UINT_TESTPLAY_PLAYER1_NB;
-  player0_nb = UINT_TESTPLAY_PLAYER0_NB;
-  piVar6 = GAME_STATE.CHAR_SELECT;
-  GAME_STATE.CHAR_SELECT[0] = UINT_TESTPLAY_PLAYER0_NB;
+  player1_nb = giConfigTestplayPlayer1Nb;
+  player0_nb = giConfigTestplayPlayer0Nb;
+  piVar6 = gkgtGameState.iCharSelect;
+  gkgtGameState.iCharSelect[0] = giConfigTestplayPlayer0Nb;
   for (idx = 7; piVar6 = piVar6 + 1, idx != 0; idx = idx + -1) {
     *piVar6 = player1_nb;
   }
-  GAME_STATE.TESTPLAY_STAGENB = UINT_TESTPLAY_STAGENB;
-  if (APPMODE == NORMAL) {
-    idx = 17;
+  gkgtGameState.iConfigTestplayStageNb = giConfigTestplayStageNb;
+  if (giAppmode == NORMAL) {
+    iNextJump = DISPLAY_TITLE_SCREEN;
   }
-  else if (APPMODE == TEST_T) {
-    idx = 12;
+  else if (giAppmode == TEST_T) {
+    iNextJump = MENU_TRAVERSAL;
   }
   else {
-    if (APPMODE != TEST_F) goto LAB_00409ce3;
+    if (giAppmode != TEST_F) goto LAB_00409ce3;
                     // TEST_S or TEST_D
-    piVar6 = &PLAYER_KGT_BUFFER[0].poss_relating_to_player_idx;
-    pUVar7 = &GAME_STATE;
+    piVar6 = &gkgtLoadedCharacter[0].iColorInt;
+    gameState = &gkgtGameState;
     for (idx = 8; idx != 0; idx = idx + -1) {
-      pUVar7->CHAR_SELECT[0] = -1;
-      pUVar7 = (UNK_VERSUS_SELECTION_STRUCT *)(pUVar7->CHAR_SELECT + 1);
+      gameState->iCharSelect[0] = -1;
+      gameState = (kgtGameState *)(gameState->iCharSelect + 1);
     }
     do {
       *piVar6 = -1;
       piVar6 = (int *)((int)piVar6 + 0xe03f);
     } while ((int)piVar6 < 0x54ff83);
-    GAME_STATE.GAME_MODE = VS_single;
-    GAME_STATE.CHAR_SELECT[0] = player0_nb;
-    GAME_STATE.CHAR_SELECT[1] = player1_nb;
-    if (UINT_TESTPLAY_PLAYER0_CPU != 0) {
-      PLAYER_KGT_BUFFER[0].cpu_level = 100;
-      PLAYER_KGT_BUFFER[0].TESTPLAY_PLAYER_CPU = UINT_TESTPLAY_PLAYER0_CPU;
+    gkgtGameState.kgtGameMode = VS_single;
+    gkgtGameState.iCharSelect[0] = player0_nb;
+    gkgtGameState.iCharSelect[1] = player1_nb;
+    if (giConfigTestplayerPlayer0Cpu != 0) {
+      gkgtLoadedCharacter[0].iCpuLevel = 100;
+      gkgtLoadedCharacter[0].iTestplayPlayerCpu = giConfigTestplayerPlayer0Cpu;
     }
-    PLAYER_KGT_BUFFER[0].unk_CPU_var_initial_1 = (int)(UINT_TESTPLAY_PLAYER0_CPU != 0);
-    if (UINT_TESTPLAY_PLAYER1_CPU != 0) {
-      PLAYER_KGT_BUFFER[1].cpu_level = 100;
-      PLAYER_KGT_BUFFER[1].TESTPLAY_PLAYER_CPU = UINT_TESTPLAY_PLAYER1_CPU;
+    gkgtLoadedCharacter[0].iNotTestplayPlayerCpu = (int)(giConfigTestplayerPlayer0Cpu != 0);
+    if (giConfigTestplayPlayer1Cpu != 0) {
+      gkgtLoadedCharacter[1].iCpuLevel = 100;
+      gkgtLoadedCharacter[1].iTestplayPlayerCpu = giConfigTestplayPlayer1Cpu;
     }
-    PLAYER_KGT_BUFFER[1].unk_CPU_var_initial_1 = (int)(UINT_TESTPLAY_PLAYER1_CPU != 0);
-    PLAYER_KGT_BUFFER[0].poss_relating_to_player_idx = 0;
-    PLAYER_KGT_BUFFER[1].poss_relating_to_player_idx = 1;
-    GAME_STATE.pause_flag = 0;
-    idx = 14;
+    gkgtLoadedCharacter[1].iNotTestplayPlayerCpu = (int)(giConfigTestplayPlayer1Cpu != 0);
+    gkgtLoadedCharacter[0].iColorInt = 0;
+    gkgtLoadedCharacter[1].iColorInt = 1;
+    gkgtGameState.iIsPausedFlag = 0;
+    iNextJump = BATTLE_STATE;
   }
-  FIND_EMPTY_OBJ(idx,127,0,0);
+  kgtoNewEngineObject(iNextJump,127,0,0);
 LAB_00409ce3:
-  PTR_POSS_CURRENT_OBJ->jmp_idx = reset_index;
+  gpkgtCurrentEngineObject->iJumpIdx = RESET_IDX;
   return;
 }
 
 
 
-void handle_battle_UI(void)
+void vjmpHandleBattleInterface(void)
 
 {
   short sVar1;
   int iVar2;
   kgt_character_struct_ptr_57121_short psVar5;
-  OBJ_STRUCT *new_obj;
+  kgtEngineObject *new_obj;
   int action_alloc_offset;
-  OBJ_STRUCT *new_object_b;
-  OBJ_STRUCT *new_object_c;
-  OBJ_STRUCT *new_jump4_obj;
-  Offset_57119 piVar6;
-  OBJ_STRUCT *pOVar3;
+  kgtEngineObject *new_object_b;
+  kgtEngineObject *new_object_c;
+  kgtEngineObject *pkgtoNewEngineObject;
+  kgtEngineObject *new_jump4_obj;
+  int *piVar6;
+  kgtEngineObject *pkVar3;
   short uVar10;
-  uint one_up0x37;
-  kgt_skill_struct *actions_alloc;
+  uint iSkillIdxVictoryMark;
+  kgtSkillHeader *pSkillsAlloc;
+  uint iSkillIdxStageFacePic;
   int i;
-  sdword sVar4;
+  sdword iAttackedPlayerBuffer;
   int script_0x1;
+  int iHealthyIndividuals;
   int script_0x3;
   sdword local_4;
+  ushort iSkillStartingStepVictoryMark2P;
+  int iSpecialGaugeTokens;
+  kgtEngineObject *kgto2pFaceObj;
+  int iSpecialGaugeTokens_2;
+  kgtEngineObject *pkgtoMultiUseVariable;
+  kgtEngineObject *kgtoOtherObject;
+  kgtEngineObject *object_2;
+  kgtEngineObject *object_3;
   int unk_player_var;
   bool b;
-  OBJ_STRUCT *current_obj;
+  ushort iSkillStartingStepVictoryMark1P;
+  kgtEngineObject *pkgtoCurrentEngineObject;
   char script_0x5;
   char script_0x6;
-  ushort script_idx;
   
-  if ((GAME_STATE.jump_15_var_a != 0) &&
-     (GAME_STATE.jump_15_var_a = GAME_STATE.jump_15_var_a + -1, GAME_STATE.jump_15_var_a == 0)) {
-    GAME_STATE.hit_player_buffer = -1;
+  if ((gkgtGameState.jump_15_var_a != 0) &&
+     (gkgtGameState.jump_15_var_a = gkgtGameState.jump_15_var_a + -1,
+     gkgtGameState.jump_15_var_a == 0)) {
+    gkgtGameState.iAttackedPlayerBuffer = -1;
   }
-  if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
-    psVar5 = &PLAYER_KGT_BUFFER[0].special_stock_gauge_max2;
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
+  if (gpkgtCurrentEngineObject->iProcessStep == 0) {
+    psVar5 = &gkgtLoadedCharacter[0].iSpecialStockGaugeMax_2;
+    gpkgtCurrentEngineObject->iProcessStep = 1;
     do {
-      if (ADJ(psVar5)->life_gauge_max2 == 0) {
-        ADJ(psVar5)->life_gauge_max2 = 1;
+      if (ADJ(psVar5)->iLifeGaugeMax_2 == 0) {
+        ADJ(psVar5)->iLifeGaugeMax_2 = 1;
       }
-      if (ADJ(psVar5)->special_stock_gauge_max2 == 0) {
-        ADJ(psVar5)->special_stock_gauge_max2 = 1;
+      if (ADJ(psVar5)->iSpecialStockGaugeMax_2 == 0) {
+        ADJ(psVar5)->iSpecialStockGaugeMax_2 = 1;
       }
       psVar5 = (kgt_character_struct_ptr_57121_short)((int)psVar5 + 0xe03f);
     } while ((int)psVar5 < 0x54fe99);
-    FIND_EMPTY_OBJ(6,1,0,0);
-    script_idx = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc[0x4c].starting_step_idx;
+    kgtoNewEngineObject(UPDATE_TIMER,1,0,0);
+                    // BUG: Direct reference to default skill instead of using variable
+                    // Pos: Victory mark 1p
+    iSkillStartingStepVictoryMark1P = gkgtKgtSystem.kgtCore.pSkillsAlloc[0x4c].shStartingStepIdx;
     i = 0;
     b = false;
-    script_0x5 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc[script_idx].field_0x5;
-    script_0x6 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc[script_idx].field_0x6;
-    script_0x1 = (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc
-                                 [script_idx].field_0x1 << 0x10;
-    script_0x3 = (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc
-                                 [script_idx].field_0x3 << 0x10;
+    script_0x5 = gkgtKgtSystem.kgtCore.pSkillScriptsAlloc[iSkillStartingStepVictoryMark1P].field_0x5
+    ;
+    script_0x6 = gkgtKgtSystem.kgtCore.pSkillScriptsAlloc[iSkillStartingStepVictoryMark1P].field_0x6
+    ;
+    script_0x1 = (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                 [iSkillStartingStepVictoryMark1P].field_0x1 << 0x10;
+    script_0x3 = (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                 [iSkillStartingStepVictoryMark1P].field_0x3 << 0x10;
                     // Spawns a script object for each round?
-    actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    if (0 < GAME_STATE.poss_wins_needed) {
+    pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+    if (0 < gkgtGameState.iRoundsAmount) {
       do {
-        new_obj = FIND_EMPTY_OBJ(4,0x65,script_0x1,script_0x3);
-        iVar2 = PLAYER_KGT_BUFFER[0].story_mode_unk_var_a;
-        new_obj->obj_type = main_kgt_file;
+        new_obj = kgtoNewEngineObject(READ_SCRIPT,0x65,script_0x1,script_0x3);
+        iVar2 = gkgtLoadedCharacter[0].iPossiblyVictoriesCount;
+        new_obj->iObjectType = SYSTEM_ENGINE_OBJECT;
         if (i < iVar2) {
-          one_up0x37 = (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.skill_idx_victory_mark_on;
-          new_obj->skill_idx_2 = one_up0x37;
-          new_obj->action_idx = one_up0x37;
+          iSkillIdxVictoryMark = (uint)(ushort)gkgtKgtSystem.shSkillIdxVictoryMarkOn;
+          new_obj->iSkillIdx_2 = iSkillIdxVictoryMark;
+          new_obj->iSkillIdx = iSkillIdxVictoryMark;
         }
         else {
-                    // 56
-          one_up0x37 = DAT_KGT_FILE_BUFFER_00433240._73688_4_ & 0xffff;
-          new_obj->skill_idx_2 = one_up0x37;
-          new_obj->action_idx = one_up0x37;
-          current_obj = PTR_POSS_CURRENT_OBJ;
+                    // skill idx victory mark off
+          iSkillIdxVictoryMark = gkgtKgtSystem._73688_4_ & 0xffff;
+          new_obj->iSkillIdx_2 = iSkillIdxVictoryMark;
+          new_obj->iSkillIdx = iSkillIdxVictoryMark;
+          pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
           if (!b) {
             b = true;
-            PTR_POSS_CURRENT_OBJ->player_file_buffer = (int)new_obj;
-            current_obj->obj_type = iVar2;
+            gpkgtCurrentEngineObject->iPlayerIdx = (int)new_obj;
+            pkgtoCurrentEngineObject->iObjectType = iVar2;
           }
         }
-        actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-        *(uint *)&new_obj->actionscript_idx =
-             (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                           [new_obj->action_idx].starting_step_idx;
+        pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+        *(uint *)&new_obj->iSkillScriptIdx =
+             (uint)(ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc[new_obj->iSkillIdx].shStartingStepIdx;
         script_0x1 = script_0x1 + script_0x5 * 0x10000;
         script_0x3 = script_0x3 + script_0x6 * 0x10000;
         i = i + 1;
-      } while (i < GAME_STATE.poss_wins_needed);
+      } while (i < gkgtGameState.iRoundsAmount);
     }
     b = false;
-    script_idx = actions_alloc[0x4d].starting_step_idx;
-    script_0x5 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc[script_idx].field_0x6;
-    local_4 = (char)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc[script_idx].
+                    // BUG: Direct reference to default skill instead of using variable
+                    // Pos: Victory mark 2p
+    iSkillStartingStepVictoryMark2P = pSkillsAlloc[0x4d].shStartingStepIdx;
+    script_0x5 = gkgtKgtSystem.kgtCore.pSkillScriptsAlloc[iSkillStartingStepVictoryMark2P].field_0x6
+    ;
+    local_4 = (char)gkgtKgtSystem.kgtCore.pSkillScriptsAlloc[iSkillStartingStepVictoryMark2P].
                     field_0x5 * 0x10000;
     i = 0;
-    script_0x1 = (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc
-                                 [script_idx].field_0x1 << 0x10;
-    script_0x3 = (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc
-                                 [script_idx].field_0x3 << 0x10;
-    if (0 < GAME_STATE.poss_wins_needed) {
+    script_0x1 = (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                 [iSkillStartingStepVictoryMark2P].field_0x1 << 0x10;
+    script_0x3 = (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                 [iSkillStartingStepVictoryMark2P].field_0x3 << 0x10;
+    if (0 < gkgtGameState.iRoundsAmount) {
       do {
-        current_obj = FIND_EMPTY_OBJ(4,0x65,script_0x1,script_0x3);
-        iVar2 = PLAYER_KGT_BUFFER[1].story_mode_unk_var_a;
-        current_obj->obj_type = main_kgt_file;
+        pkgtoCurrentEngineObject = kgtoNewEngineObject(READ_SCRIPT,0x65,script_0x1,script_0x3);
+        iVar2 = gkgtLoadedCharacter[1].iPossiblyVictoriesCount;
+        pkgtoCurrentEngineObject->iObjectType = SYSTEM_ENGINE_OBJECT;
         if (i < iVar2) {
-          one_up0x37 = (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.skill_idx_victory_mark_on;
-          current_obj->skill_idx_2 = one_up0x37;
-          current_obj->action_idx = one_up0x37;
+          iSkillIdxVictoryMark = (uint)(ushort)gkgtKgtSystem.shSkillIdxVictoryMarkOn;
+          pkgtoCurrentEngineObject->iSkillIdx_2 = iSkillIdxVictoryMark;
+          pkgtoCurrentEngineObject->iSkillIdx = iSkillIdxVictoryMark;
         }
         else {
-          one_up0x37 = DAT_KGT_FILE_BUFFER_00433240._73688_4_ & 0xffff;
-          current_obj->skill_idx_2 = one_up0x37;
-          current_obj->action_idx = one_up0x37;
-          pOVar3 = PTR_POSS_CURRENT_OBJ;
+          iSkillIdxVictoryMark = gkgtKgtSystem._73688_4_ & 0xffff;
+          pkgtoCurrentEngineObject->iSkillIdx_2 = iSkillIdxVictoryMark;
+          pkgtoCurrentEngineObject->iSkillIdx = iSkillIdxVictoryMark;
+          pkVar3 = gpkgtCurrentEngineObject;
           if (!b) {
             b = true;
-            PTR_POSS_CURRENT_OBJ->obj_ptr_b = current_obj;
-            pOVar3->obj_ptr_a = (OBJ_STRUCT *)iVar2;
+            gpkgtCurrentEngineObject->obj_ptr_b = pkgtoCurrentEngineObject;
+            pkVar3->obj_ptr_a = (kgtEngineObject *)iVar2;
           }
         }
-        actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-        *(uint *)&current_obj->actionscript_idx =
-             (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc
-                           [current_obj->action_idx].starting_step_idx;
+        pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+        *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             (uint)(ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc[pkgtoCurrentEngineObject->iSkillIdx].
+                           shStartingStepIdx;
         script_0x1 = script_0x1 + local_4;
         script_0x3 = script_0x3 + script_0x5 * 0x10000;
         i = i + 1;
-      } while (i < GAME_STATE.poss_wins_needed);
+      } while (i < gkgtGameState.iRoundsAmount);
     }
-    if (GAME_STATE.GAME_MODE == 1P_story) {
-      if ((ushort)PLAYER_KGT_BUFFER[0].kgt_core.p_actions_alloc
-                  [(ushort)PLAYER_KGT_BUFFER[0].SectionE_default_0x19].starting_step_idx + 1 <
-          (uint)(ushort)PLAYER_KGT_BUFFER[0].kgt_core.p_actions_alloc
-                        [PLAYER_KGT_BUFFER[0]._30120_4_ & 0xffff].starting_step_idx) {
-        current_obj = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                            p_actionscripts_alloc
-                                                            [(ushort)actions_alloc[0x48].
-                                                                     starting_step_idx].field_0x1 <<
-                                            0x10,
-                                     (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                     p_actionscripts_alloc
-                                                     [(ushort)actions_alloc[0x48].starting_step_idx]
-                                                     .field_0x3 << 0x10);
-        actions_alloc = PLAYER_KGT_BUFFER[0].kgt_core.p_actions_alloc;
-        one_up0x37 = (uint)(ushort)PLAYER_KGT_BUFFER[0].SectionE_default_0x19;
-        current_obj->skill_idx_2 = one_up0x37;
-        current_obj->action_idx = one_up0x37;
-        current_obj->player_file_buffer = 0;
-        current_obj->obj_type = 1;
-        *(uint *)&current_obj->actionscript_idx =
-             (uint)(ushort)actions_alloc[one_up0x37].starting_step_idx;
+                    // Stage Face Pic and R1
+    if (gkgtGameState.kgtGameMode == 1P_story) {
+      if ((ushort)gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc
+                  [(ushort)gkgtLoadedCharacter[0].shSkillIdxStageFacePic].shStartingStepIdx + 1 <
+          (uint)(ushort)gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc
+                        [gkgtLoadedCharacter[0]._30120_4_ & 0xffff].shStartingStepIdx) {
+        pkgtoNewEngineObject =
+             kgtoNewEngineObject(READ_SCRIPT,0x65,
+                                 (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                 [(ushort)pSkillsAlloc[0x48].shStartingStepIdx].
+                                                 field_0x1 << 0x10,
+                                 (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                 [(ushort)pSkillsAlloc[0x48].shStartingStepIdx].
+                                                 field_0x3 << 0x10);
+        pSkillsAlloc = gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc;
+        iSkillIdxStageFacePic = (uint)(ushort)gkgtLoadedCharacter[0].shSkillIdxStageFacePic;
+        pkgtoNewEngineObject->iSkillIdx_2 = iSkillIdxStageFacePic;
+        pkgtoNewEngineObject->iSkillIdx = iSkillIdxStageFacePic;
+        pkgtoNewEngineObject->iPlayerIdx = 0;
+        pkgtoNewEngineObject->iObjectType = STORY?_ENGINE_OBJECT;
+        *(uint *)&pkgtoNewEngineObject->iSkillScriptIdx =
+             (uint)(ushort)pSkillsAlloc[iSkillIdxStageFacePic].shStartingStepIdx;
       }
     }
-    else if ((0 < (int)GAME_STATE.GAME_MODE) && ((int)GAME_STATE.GAME_MODE < 3)) {
-      new_object_b = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                           p_actionscripts_alloc
-                                                           [(ushort)actions_alloc[0x48].
-                                                                    starting_step_idx].field_0x1 <<
-                                           0x10,
-                                    (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                    p_actionscripts_alloc
-                                                    [(ushort)actions_alloc[0x48].starting_step_idx].
-                                                    field_0x3 << 0x10);
-      actions_alloc = PLAYER_KGT_BUFFER[0].kgt_core.p_actions_alloc;
-      one_up0x37 = (uint)(ushort)PLAYER_KGT_BUFFER[0].SectionE_default_0x19;
-      new_object_b->skill_idx_2 = one_up0x37;
-      new_object_b->action_idx = one_up0x37;
-      new_object_b->player_file_buffer = 0;
-      new_object_b->obj_type = 1;
-      *(uint *)&new_object_b->actionscript_idx =
-           (uint)(ushort)actions_alloc[one_up0x37].starting_step_idx;
-      new_object_c = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                           p_actionscripts_alloc
-                                                           [(ushort)DAT_KGT_FILE_BUFFER_00433240.
-                                                                    kgt_core.p_actions_alloc[0x49].
-                                                                    starting_step_idx].field_0x1 <<
-                                           0x10,
-                                    (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                    p_actionscripts_alloc
-                                                    [(ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                             p_actions_alloc[0x49].starting_step_idx
-                                                    ].field_0x3 << 0x10);
-      actions_alloc = PLAYER_KGT_BUFFER[1].kgt_core.p_actions_alloc;
-      one_up0x37 = (uint)(ushort)PLAYER_KGT_BUFFER[1].SectionE_default_0x19;
-      new_object_c->skill_idx_2 = one_up0x37;
-      new_object_c->action_idx = one_up0x37;
-      new_object_c->player_file_buffer = 1;
-      new_object_c->obj_type = 1;
-      new_object_c->pos_player_direction = 1;
-      *(uint *)&new_object_c->actionscript_idx =
-           (uint)(ushort)actions_alloc[one_up0x37].starting_step_idx;
+    else if ((0 < (int)gkgtGameState.kgtGameMode) && ((int)gkgtGameState.kgtGameMode < 3)) {
+                    // Pos 1p face
+      new_object_b = kgtoNewEngineObject(READ_SCRIPT,0x65,
+                                         (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                         [(ushort)pSkillsAlloc[0x48].
+                                                                  shStartingStepIdx].field_0x1 <<
+                                         0x10,(int)*(short *)&gkgtKgtSystem.kgtCore.
+                                                              pSkillScriptsAlloc
+                                                              [(ushort)pSkillsAlloc[0x48].
+                                                                       shStartingStepIdx].field_0x3
+                                              << 0x10);
+      pSkillsAlloc = gkgtLoadedCharacter[0].kgtCore.pSkillsAlloc;
+      iSkillIdxVictoryMark = (uint)(ushort)gkgtLoadedCharacter[0].shSkillIdxStageFacePic;
+      new_object_b->iSkillIdx_2 = iSkillIdxVictoryMark;
+      new_object_b->iSkillIdx = iSkillIdxVictoryMark;
+      new_object_b->iPlayerIdx = 0;
+      new_object_b->iObjectType = STORY?_ENGINE_OBJECT;
+      *(uint *)&new_object_b->iSkillScriptIdx =
+           (uint)(ushort)pSkillsAlloc[iSkillIdxVictoryMark].shStartingStepIdx;
+                    // Pos 2p face
+      new_object_c = kgtoNewEngineObject(READ_SCRIPT,0x65,
+                                         (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                         [(ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc
+                                                                  [0x49].shStartingStepIdx].
+                                                         field_0x1 << 0x10,
+                                         (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                         [(ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc
+                                                                  [0x49].shStartingStepIdx].
+                                                         field_0x3 << 0x10);
+      pSkillsAlloc = gkgtLoadedCharacter[1].kgtCore.pSkillsAlloc;
+      iSkillIdxVictoryMark = (uint)(ushort)gkgtLoadedCharacter[1].shSkillIdxStageFacePic;
+      new_object_c->iSkillIdx_2 = iSkillIdxVictoryMark;
+      new_object_c->iSkillIdx = iSkillIdxVictoryMark;
+      new_object_c->iPlayerIdx = 1;
+      new_object_c->iObjectType = STORY?_ENGINE_OBJECT;
+      new_object_c->iPlayerLookingRight = 1;
+      *(uint *)&new_object_c->iSkillScriptIdx =
+           (uint)(ushort)pSkillsAlloc[iSkillIdxVictoryMark].shStartingStepIdx;
     }
-    new_jump4_obj = FIND_EMPTY_OBJ(4,0x65,0,0);
-    actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    one_up0x37 = (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.skill_idx_1p_life_gauge;
-    new_jump4_obj->skill_idx_2 = one_up0x37;
-    new_jump4_obj->action_idx = one_up0x37;
-    script_idx = actions_alloc[one_up0x37].starting_step_idx;
-    new_jump4_obj->obj_type = main_kgt_file;
-    *(uint *)&new_jump4_obj->actionscript_idx = (uint)script_idx;
-    new_jump4_obj->player_file_buffer = 10;
-    current_obj = FIND_EMPTY_OBJ(4,0x65,0,0);
-    actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    one_up0x37 = DAT_KGT_FILE_BUFFER_00433240._73712_4_ & 0xffff;
-    current_obj->skill_idx_2 = one_up0x37;
-    current_obj->action_idx = one_up0x37;
-    script_idx = actions_alloc[one_up0x37].starting_step_idx;
-    current_obj->obj_type = main_kgt_file;
-    *(uint *)&current_obj->actionscript_idx = (uint)script_idx;
-    current_obj->player_file_buffer = 0xb;
-    current_obj = FIND_EMPTY_OBJ(4,0x65,0,0);
-    actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    one_up0x37 = (uint)DAT_KGT_FILE_BUFFER_00433240._73712_4_ >> 0x10;
-    current_obj->skill_idx_2 = one_up0x37;
-    current_obj->action_idx = one_up0x37;
-    script_idx = actions_alloc[one_up0x37].starting_step_idx;
-    current_obj->obj_type = main_kgt_file;
-    *(uint *)&current_obj->actionscript_idx = (uint)script_idx;
-    current_obj->player_file_buffer = 0x14;
-    current_obj = FIND_EMPTY_OBJ(4,0x65,0,0);
-    one_up0x37 = DAT_KGT_FILE_BUFFER_00433240._73716_4_ & 0xffff;
-    current_obj->obj_type = main_kgt_file;
-    current_obj->skill_idx_2 = one_up0x37;
-    current_obj->action_idx = one_up0x37;
-    current_obj->player_file_buffer = 0x15;
-    actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    *(uint *)&current_obj->actionscript_idx =
-         (uint)(ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc[one_up0x37].
-                       starting_step_idx;
-    pOVar3 = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                   p_actionscripts_alloc
-                                                   [(ushort)actions_alloc[0x4a].starting_step_idx].
-                                                   field_0x1 << 0x10,
-                            (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                            p_actionscripts_alloc
-                                            [(ushort)actions_alloc[0x4a].starting_step_idx].
-                                            field_0x3 << 0x10);
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    pOVar3->obj_type = main_kgt_file;
-    current_obj->timer_mod_10 = (int)pOVar3;
-    pOVar3 = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                   p_actionscripts_alloc
-                                                   [(ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                            p_actions_alloc[0x4b].starting_step_idx]
-                                                   .field_0x1 << 0x10,
-                            (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                            p_actionscripts_alloc
-                                            [(ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                     p_actions_alloc[0x4b].starting_step_idx].
-                                            field_0x3 << 0x10);
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    sVar4 = GAME_STATE.hit_player_buffer;
-    pOVar3->obj_type = main_kgt_file;
-    current_obj->timer_div_100_mod_10 = (int)pOVar3;
-    current_obj->field88_0x172 = -1;
-    current_obj->timer_div_ten_mod_10 = -1;
+    new_jump4_obj = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
+    pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+    iSkillIdxVictoryMark = (uint)(ushort)gkgtKgtSystem.skill_idx_1p_life_gauge;
+    new_jump4_obj->iSkillIdx_2 = iSkillIdxVictoryMark;
+    new_jump4_obj->iSkillIdx = iSkillIdxVictoryMark;
+    iSkillStartingStepVictoryMark1P = pSkillsAlloc[iSkillIdxVictoryMark].shStartingStepIdx;
+    new_jump4_obj->iObjectType = SYSTEM_ENGINE_OBJECT;
+    *(uint *)&new_jump4_obj->iSkillScriptIdx = (uint)iSkillStartingStepVictoryMark1P;
+    new_jump4_obj->iPlayerIdx = 10;
+    pkgtoCurrentEngineObject = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
+    pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+    iSkillIdxVictoryMark = gkgtKgtSystem._73712_4_ & 0xffff;
+    pkgtoCurrentEngineObject->iSkillIdx_2 = iSkillIdxVictoryMark;
+    pkgtoCurrentEngineObject->iSkillIdx = iSkillIdxVictoryMark;
+    iSkillStartingStepVictoryMark1P = pSkillsAlloc[iSkillIdxVictoryMark].shStartingStepIdx;
+    pkgtoCurrentEngineObject->iObjectType = SYSTEM_ENGINE_OBJECT;
+    *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx = (uint)iSkillStartingStepVictoryMark1P;
+    pkgtoCurrentEngineObject->iPlayerIdx = 0xb;
+    pkgtoCurrentEngineObject = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
+    pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+    iSkillIdxVictoryMark = (uint)gkgtKgtSystem._73712_4_ >> 0x10;
+    pkgtoCurrentEngineObject->iSkillIdx_2 = iSkillIdxVictoryMark;
+    pkgtoCurrentEngineObject->iSkillIdx = iSkillIdxVictoryMark;
+    iSkillStartingStepVictoryMark1P = pSkillsAlloc[iSkillIdxVictoryMark].shStartingStepIdx;
+    pkgtoCurrentEngineObject->iObjectType = SYSTEM_ENGINE_OBJECT;
+    *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx = (uint)iSkillStartingStepVictoryMark1P;
+    pkgtoCurrentEngineObject->iPlayerIdx = 0x14;
+    pkgtoCurrentEngineObject = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
+    iSkillIdxVictoryMark = gkgtKgtSystem._73716_4_ & 0xffff;
+    pkgtoCurrentEngineObject->iObjectType = SYSTEM_ENGINE_OBJECT;
+    pkgtoCurrentEngineObject->iSkillIdx_2 = iSkillIdxVictoryMark;
+    pkgtoCurrentEngineObject->iSkillIdx = iSkillIdxVictoryMark;
+    pkgtoCurrentEngineObject->iPlayerIdx = 0x15;
+    pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+    *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+         (uint)(ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc[iSkillIdxVictoryMark].shStartingStepIdx;
+    pkVar3 = kgtoNewEngineObject(READ_SCRIPT,0x65,
+                                 (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                 [(ushort)pSkillsAlloc[0x4a].shStartingStepIdx].
+                                                 field_0x1 << 0x10,
+                                 (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                 [(ushort)pSkillsAlloc[0x4a].shStartingStepIdx].
+                                                 field_0x3 << 0x10);
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+    pkVar3->iObjectType = SYSTEM_ENGINE_OBJECT;
+    pkgtoCurrentEngineObject->timer_mod_10 = (int)pkVar3;
+    pkVar3 = kgtoNewEngineObject(READ_SCRIPT,0x65,
+                                 (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                 [(ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc[0x4b].
+                                                          shStartingStepIdx].field_0x1 << 0x10,
+                                 (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                 [(ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc[0x4b].
+                                                          shStartingStepIdx].field_0x3 << 0x10);
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+    iAttackedPlayerBuffer = gkgtGameState.iAttackedPlayerBuffer;
+    pkVar3->iObjectType = SYSTEM_ENGINE_OBJECT;
+    pkgtoCurrentEngineObject->timer_div_100_mod_10 = (int)pkVar3;
+    pkgtoCurrentEngineObject->field88_0x172 = -1;
+    pkgtoCurrentEngineObject->timer_div_ten_mod_10 = -1;
   }
   else {
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    sVar4 = GAME_STATE.hit_player_buffer;
-    if (PTR_POSS_CURRENT_OBJ->object_process_step != 1) {
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+    iAttackedPlayerBuffer = gkgtGameState.iAttackedPlayerBuffer;
+                    // *** SECOND FRAME ***
+    if (gpkgtCurrentEngineObject->iProcessStep != 1) {
       return;
     }
   }
-  i = PLAYER_KGT_BUFFER[0].special_gauge_tokens;
-  actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-  if (GAME_STATE.GAME_MODE == 1P_story) {
-    script_0x1 = 0;
+                    // *** BOTH FRAMES ***
+  iSpecialGaugeTokens = gkgtLoadedCharacter[0].iSpecialGaugeTokens;
+  pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+  if (gkgtGameState.kgtGameMode == 1P_story) {
+    iHealthyIndividuals = 0;
     i = 1;
-    piVar6 = (Offset_57119)&PLAYER_KGT_BUFFER[1].health;
+    piVar6 = &gkgtLoadedCharacter[1].iHealth;
     do {
-      if (*(int *)piVar6 != 0) {
-        script_0x1 = script_0x1 + 1;
+      if (*piVar6 != 0) {
+        iHealthyIndividuals = iHealthyIndividuals + 1;
         local_4 = i;
       }
-      piVar6 = (Offset_57119)((int)piVar6 + 0xe03f);
+      piVar6 = (int *)((int)piVar6 + 0xe03f);
       i = i + 1;
     } while ((int)piVar6 < 0x54fe7d);
-    if (script_0x1 == 1) {
-      sVar4 = local_4;
-      GAME_STATE.hit_player_buffer = local_4;
+    if (iHealthyIndividuals == 1) {
+      iAttackedPlayerBuffer = local_4;
+      gkgtGameState.iAttackedPlayerBuffer = local_4;
     }
-    if ((*(int **)&current_obj->field_0x176 != (int *)0x0) &&
-       (**(int **)&current_obj->field_0x176 == 1)) {
-      *(undefined4 *)&current_obj->field_0x176 = 0;
+    if (((int *)pkgtoCurrentEngineObject->iMultiUsePosVariable != (int *)0x0) &&
+       (*(int *)pkgtoCurrentEngineObject->iMultiUsePosVariable == 1)) {
+      pkgtoCurrentEngineObject->iMultiUsePosVariable = 0;
     }
-    if (sVar4 == -1) {
-      if (*(undefined4 **)&current_obj->field_0x176 != (undefined4 *)0x0) {
-        **(undefined4 **)&current_obj->field_0x176 = 1;
-        *(undefined4 *)&current_obj->field_0x176 = 0;
+    if (iAttackedPlayerBuffer == -1) {
+      if ((undefined4 *)pkgtoCurrentEngineObject->iMultiUsePosVariable != (undefined4 *)0x0) {
+        *(undefined4 *)pkgtoCurrentEngineObject->iMultiUsePosVariable = 1;
+        pkgtoCurrentEngineObject->iMultiUsePosVariable = 0;
       }
     }
     else {
-      i = *(int *)&current_obj->field_0x176;
-      if (i == 0) {
-        pOVar3 = FIND_EMPTY_OBJ(4,0x65,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                       p_actionscripts_alloc
-                                                       [(ushort)DAT_KGT_FILE_BUFFER_00433240.
-                                                                kgt_core.p_actions_alloc[0x49].
-                                                                starting_step_idx].field_0x1 << 0x10
-                                ,(int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                 p_actionscripts_alloc
-                                                 [(ushort)DAT_KGT_FILE_BUFFER_00433240.kgt_core.
-                                                          p_actions_alloc[0x49].starting_step_idx].
-                                                 field_0x3 << 0x10);
-        current_obj = PTR_POSS_CURRENT_OBJ;
-        sVar4 = GAME_STATE.hit_player_buffer;
-        *(OBJ_STRUCT **)&PTR_POSS_CURRENT_OBJ->field_0x176 = pOVar3;
-        one_up0x37 = (uint)(ushort)PLAYER_KGT_BUFFER[sVar4].SectionE_default_0x19;
-        pOVar3->obj_type = 1;
-        pOVar3->skill_idx_2 = one_up0x37;
-        pOVar3->action_idx = one_up0x37;
-        pOVar3->player_file_buffer = sVar4;
-        actions_alloc = PLAYER_KGT_BUFFER[sVar4].kgt_core.p_actions_alloc;
-        pOVar3->pos_player_direction = 1;
-        script_idx = actions_alloc[one_up0x37].starting_step_idx;
-        current_obj->param_3 = 1;
-        *(uint *)&pOVar3->actionscript_idx = (uint)script_idx;
+      kgto2pFaceObj = (kgtEngineObject *)pkgtoCurrentEngineObject->iMultiUsePosVariable;
+      if (kgto2pFaceObj == (kgtEngineObject *)0x0) {
+        pkVar3 = kgtoNewEngineObject(READ_SCRIPT,0x65,
+                                     (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                     [(ushort)gkgtKgtSystem.kgtCore.pSkillsAlloc
+                                                              [0x49].shStartingStepIdx].field_0x1 <<
+                                     0x10,(int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc
+                                                          [(ushort)gkgtKgtSystem.kgtCore.
+                                                                   pSkillsAlloc[0x49].
+                                                                   shStartingStepIdx].field_0x3 <<
+                                          0x10);
+        pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+        iAttackedPlayerBuffer = gkgtGameState.iAttackedPlayerBuffer;
+        gpkgtCurrentEngineObject->iMultiUsePosVariable = (int)pkVar3;
+        iSkillIdxVictoryMark =
+             (uint)(ushort)gkgtLoadedCharacter[iAttackedPlayerBuffer].shSkillIdxStageFacePic;
+        pkVar3->iObjectType = STORY?_ENGINE_OBJECT;
+        pkVar3->iSkillIdx_2 = iSkillIdxVictoryMark;
+        pkVar3->iSkillIdx = iSkillIdxVictoryMark;
+        pkVar3->iPlayerIdx = iAttackedPlayerBuffer;
+        pSkillsAlloc = gkgtLoadedCharacter[iAttackedPlayerBuffer].kgtCore.pSkillsAlloc;
+        pkVar3->iPlayerLookingRight = 1;
+        iSkillStartingStepVictoryMark1P = pSkillsAlloc[iSkillIdxVictoryMark].shStartingStepIdx;
+        pkgtoCurrentEngineObject->iParam3 = 1;
+        *(uint *)&pkVar3->iSkillScriptIdx = (uint)iSkillStartingStepVictoryMark1P;
       }
-      else if (*(int *)(i + 0x156) != sVar4) {
-        *(sdword *)(i + 0x156) = sVar4;
-        one_up0x37 = (uint)(ushort)PLAYER_KGT_BUFFER[sVar4].SectionE_default_0x19;
-        *(uint *)(i + 0x34) = one_up0x37;
-        *(uint *)(i + 0x30) = one_up0x37;
-        script_idx = PLAYER_KGT_BUFFER[sVar4].kgt_core.p_actions_alloc[one_up0x37].starting_step_idx
-        ;
-        *(undefined4 *)(i + 0x10) = 0;
-        *(uint *)(i + 0x2c) = (uint)script_idx;
+      else if (kgto2pFaceObj->iPlayerIdx != iAttackedPlayerBuffer) {
+        kgto2pFaceObj->iPlayerIdx = iAttackedPlayerBuffer;
+        iSkillIdxVictoryMark =
+             (uint)(ushort)gkgtLoadedCharacter[iAttackedPlayerBuffer].shSkillIdxStageFacePic;
+        kgto2pFaceObj->iSkillIdx_2 = iSkillIdxVictoryMark;
+        kgto2pFaceObj->iSkillIdx = iSkillIdxVictoryMark;
+        iSkillStartingStepVictoryMark1P =
+             gkgtLoadedCharacter[iAttackedPlayerBuffer].kgtCore.pSkillsAlloc[iSkillIdxVictoryMark].
+             shStartingStepIdx;
+        kgto2pFaceObj->iDrawFlag = 0;
+        *(uint *)&kgto2pFaceObj->iSkillScriptIdx = (uint)iSkillStartingStepVictoryMark1P;
       }
     }
-    i = PLAYER_KGT_BUFFER[0].special_gauge_tokens;
-    actions_alloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    if (current_obj->timer_div_ten_mod_10 != PLAYER_KGT_BUFFER[0].special_gauge_tokens) {
-      current_obj->timer_div_ten_mod_10 = PLAYER_KGT_BUFFER[0].special_gauge_tokens;
-      script_idx = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_special_stock_number_0)[i];
-      i = current_obj->timer_mod_10;
-      *(uint *)(i + 0x34) = (uint)script_idx;
-      *(uint *)(i + 0x30) = (uint)script_idx;
-      *(undefined4 *)(i + 0x3c) = 0;
-      *(uint *)(i + 0x2c) = (uint)(ushort)actions_alloc[*(int *)(i + 0x30)].starting_step_idx;
+    iSpecialGaugeTokens_2 = gkgtLoadedCharacter[0].iSpecialGaugeTokens;
+    pSkillsAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+    if (pkgtoCurrentEngineObject->timer_div_ten_mod_10 != gkgtLoadedCharacter[0].iSpecialGaugeTokens
+       ) {
+      pkgtoCurrentEngineObject->timer_div_ten_mod_10 = gkgtLoadedCharacter[0].iSpecialGaugeTokens;
+      iSkillStartingStepVictoryMark1P =
+           (&gkgtKgtSystem.iSkillIdxSpecialStockNumberZero)[iSpecialGaugeTokens_2];
+      pkgtoMultiUseVariable = (kgtEngineObject *)pkgtoCurrentEngineObject->timer_mod_10;
+      pkgtoMultiUseVariable->iSkillIdx_2 = (uint)iSkillStartingStepVictoryMark1P;
+      pkgtoMultiUseVariable->iSkillIdx = (uint)iSkillStartingStepVictoryMark1P;
+      pkgtoMultiUseVariable->iImageWaitFrames = 0;
+      *(uint *)&pkgtoMultiUseVariable->iSkillScriptIdx =
+           (uint)(ushort)pSkillsAlloc[pkgtoMultiUseVariable->iSkillIdx].shStartingStepIdx;
     }
     i = 1;
-    if ((GAME_STATE.GAME_MODE == 1P_story) && (i = sVar4, sVar4 == -1)) {
-      current_obj->field88_0x172 = -1;
-      *(undefined4 *)(current_obj->timer_div_100_mod_10 + 0x10) = 0;
-      *(undefined4 *)(current_obj->timer_div_100_mod_10 + 0x3c) = 0xffffffff;
+    if ((gkgtGameState.kgtGameMode == 1P_story) &&
+       (i = iAttackedPlayerBuffer, iAttackedPlayerBuffer == -1)) {
+      pkgtoCurrentEngineObject->field88_0x172 = -1;
+                    // Draw flag and image wait frames
+      *(undefined4 *)(pkgtoCurrentEngineObject->timer_div_100_mod_10 + 0x10) = 0;
+      *(undefined4 *)(pkgtoCurrentEngineObject->timer_div_100_mod_10 + 0x3c) = 0xffffffff;
       goto LAB_0040a584;
     }
-    i = PLAYER_KGT_BUFFER[i].special_gauge_tokens;
-    if (current_obj->field88_0x172 == i) goto LAB_0040a584;
-    current_obj->field88_0x172 = i;
-    script_idx = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_special_stock_number_0)[i];
-    i = current_obj->timer_div_100_mod_10;
-    *(uint *)(i + 0x34) = (uint)script_idx;
-    *(uint *)(i + 0x30) = (uint)script_idx;
-    *(undefined4 *)(i + 0x3c) = 0;
+    i = gkgtLoadedCharacter[i].iSpecialGaugeTokens;
+    if (pkgtoCurrentEngineObject->field88_0x172 == i) goto LAB_0040a584;
+    pkgtoCurrentEngineObject->field88_0x172 = i;
+    iSkillStartingStepVictoryMark1P = (&gkgtKgtSystem.iSkillIdxSpecialStockNumberZero)[i];
+    object_2 = (kgtEngineObject *)pkgtoCurrentEngineObject->timer_div_100_mod_10;
+    object_2->iSkillIdx_2 = (uint)iSkillStartingStepVictoryMark1P;
+    object_2->iSkillIdx = (uint)iSkillStartingStepVictoryMark1P;
+    object_2->iImageWaitFrames = 0;
   }
   else {
-    if (((int)GAME_STATE.GAME_MODE < 1) || (2 < (int)GAME_STATE.GAME_MODE)) goto LAB_0040a584;
-    if (current_obj->timer_div_ten_mod_10 != PLAYER_KGT_BUFFER[0].special_gauge_tokens) {
-      current_obj->timer_div_ten_mod_10 = PLAYER_KGT_BUFFER[0].special_gauge_tokens;
-      script_idx = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_special_stock_number_0)[i];
-      i = current_obj->timer_mod_10;
-      *(uint *)(i + 0x34) = (uint)script_idx;
-      *(uint *)(i + 0x30) = (uint)script_idx;
-      *(undefined4 *)(i + 0x3c) = 0;
-      *(uint *)(i + 0x2c) = (uint)(ushort)actions_alloc[*(int *)(i + 0x30)].starting_step_idx;
+    if (((int)gkgtGameState.kgtGameMode < 1) || (2 < (int)gkgtGameState.kgtGameMode))
+    goto LAB_0040a584;
+    if (pkgtoCurrentEngineObject->timer_div_ten_mod_10 != gkgtLoadedCharacter[0].iSpecialGaugeTokens
+       ) {
+      pkgtoCurrentEngineObject->timer_div_ten_mod_10 = gkgtLoadedCharacter[0].iSpecialGaugeTokens;
+      iSkillStartingStepVictoryMark1P =
+           (&gkgtKgtSystem.iSkillIdxSpecialStockNumberZero)[iSpecialGaugeTokens];
+      object_3 = (kgtEngineObject *)pkgtoCurrentEngineObject->timer_mod_10;
+      object_3->iSkillIdx_2 = (uint)iSkillStartingStepVictoryMark1P;
+      object_3->iSkillIdx = (uint)iSkillStartingStepVictoryMark1P;
+      object_3->iImageWaitFrames = 0;
+      *(uint *)&object_3->iSkillScriptIdx =
+           (uint)(ushort)pSkillsAlloc[object_3->iSkillIdx].shStartingStepIdx;
     }
-    i = PLAYER_KGT_BUFFER[1].special_gauge_tokens;
-    if (current_obj->field88_0x172 == PLAYER_KGT_BUFFER[1].special_gauge_tokens) goto LAB_0040a584;
-    current_obj->field88_0x172 = PLAYER_KGT_BUFFER[1].special_gauge_tokens;
-    script_idx = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_special_stock_number_0)[i];
-    i = current_obj->timer_div_100_mod_10;
-    *(uint *)(i + 0x34) = (uint)script_idx;
-    *(uint *)(i + 0x30) = (uint)script_idx;
-    *(undefined4 *)(i + 0x3c) = 0;
+    i = gkgtLoadedCharacter[1].iSpecialGaugeTokens;
+    if (pkgtoCurrentEngineObject->field88_0x172 == gkgtLoadedCharacter[1].iSpecialGaugeTokens)
+    goto LAB_0040a584;
+    pkgtoCurrentEngineObject->field88_0x172 = gkgtLoadedCharacter[1].iSpecialGaugeTokens;
+    iSkillStartingStepVictoryMark1P = (&gkgtKgtSystem.iSkillIdxSpecialStockNumberZero)[i];
+    object_2 = (kgtEngineObject *)pkgtoCurrentEngineObject->timer_div_100_mod_10;
+    object_2->iSkillIdx_2 = (uint)iSkillStartingStepVictoryMark1P;
+    object_2->iSkillIdx = (uint)iSkillStartingStepVictoryMark1P;
+    object_2->iImageWaitFrames = 0;
   }
-  *(uint *)(i + 0x2c) = (uint)(ushort)actions_alloc[*(int *)(i + 0x30)].starting_step_idx;
+  *(uint *)&object_2->iSkillScriptIdx =
+       (uint)(ushort)pSkillsAlloc[object_2->iSkillIdx].shStartingStepIdx;
 LAB_0040a584:
-  sVar1 = DAT_KGT_FILE_BUFFER_00433240.skill_idx_victory_mark_on;
-  if (current_obj->obj_type != PLAYER_KGT_BUFFER[0].story_mode_unk_var_a) {
-    current_obj->obj_type = PLAYER_KGT_BUFFER[0].story_mode_unk_var_a;
-    i = current_obj->player_file_buffer;
-    one_up0x37 = (uint)(ushort)sVar1;
-    *(uint *)(i + 0x34) = one_up0x37;
-    *(uint *)(i + 0x30) = one_up0x37;
-    *(uint *)(i + 0x2c) = (uint)(ushort)actions_alloc[one_up0x37].starting_step_idx;
-    *(undefined4 *)(i + 0x3c) = 0;
+  sVar1 = gkgtKgtSystem.shSkillIdxVictoryMarkOn;
+  if (pkgtoCurrentEngineObject->iObjectType != gkgtLoadedCharacter[0].iPossiblyVictoriesCount) {
+    pkgtoCurrentEngineObject->iObjectType = gkgtLoadedCharacter[0].iPossiblyVictoriesCount;
+    kgtoOtherObject = (kgtEngineObject *)pkgtoCurrentEngineObject->iPlayerIdx;
+    iSkillIdxVictoryMark = (uint)(ushort)sVar1;
+    kgtoOtherObject->iSkillIdx_2 = iSkillIdxVictoryMark;
+    kgtoOtherObject->iSkillIdx = iSkillIdxVictoryMark;
+    *(uint *)&kgtoOtherObject->iSkillScriptIdx =
+         (uint)(ushort)pSkillsAlloc[iSkillIdxVictoryMark].shStartingStepIdx;
+    kgtoOtherObject->iImageWaitFrames = 0;
   }
-  if (current_obj->obj_ptr_a != (OBJ_STRUCT *)PLAYER_KGT_BUFFER[1].story_mode_unk_var_a) {
-    current_obj->obj_ptr_a = (OBJ_STRUCT *)PLAYER_KGT_BUFFER[1].story_mode_unk_var_a;
-    current_obj = current_obj->obj_ptr_b;
-    one_up0x37 = (uint)(ushort)sVar1;
-    current_obj->skill_idx_2 = one_up0x37;
-    current_obj->action_idx = one_up0x37;
-    *(uint *)&current_obj->actionscript_idx =
-         (uint)(ushort)actions_alloc[one_up0x37].starting_step_idx;
-    current_obj->image_wait_frames = 0;
+  if (pkgtoCurrentEngineObject->obj_ptr_a !=
+      (kgtEngineObject *)gkgtLoadedCharacter[1].iPossiblyVictoriesCount) {
+    pkgtoCurrentEngineObject->obj_ptr_a =
+         (kgtEngineObject *)gkgtLoadedCharacter[1].iPossiblyVictoriesCount;
+    pkgtoCurrentEngineObject = pkgtoCurrentEngineObject->obj_ptr_b;
+    iSkillIdxVictoryMark = (uint)(ushort)sVar1;
+    pkgtoCurrentEngineObject->iSkillIdx_2 = iSkillIdxVictoryMark;
+    pkgtoCurrentEngineObject->iSkillIdx = iSkillIdxVictoryMark;
+    *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+         (uint)(ushort)pSkillsAlloc[iSkillIdxVictoryMark].shStartingStepIdx;
+    pkgtoCurrentEngineObject->iImageWaitFrames = 0;
   }
   return;
 }
 
 
 
-void update_timer_and_ui(void)
+void vjmpUpdateTimerAndUi(void)
 
 {
   short sVar1;
-  kgt_obj_type kVar4;
-  OBJ_STRUCT *pOVar6;
+  kgtEngineObject *pkVar2;
   uint unlimited_sign;
   int timer_div_ten_mod_10;
   int timer_div_100_mod_10;
-  kgt_skill_struct *skillAlloc;
+  kgtSkillHeader *skillAlloc;
   int *pOVar5;
   int timer_seconds;
-  OBJ_STRUCT *kVar2;
-  OBJ_STRUCT *kVar3;
+  kgtEngineObject *kVar2;
+  kgtEngineObject *kVar3;
+  kgtEngineObject *kVar4;
   ushort _x47starting_step;
   int current_step;
-  OBJ_STRUCT *pCurrObj;
-  kgt_skill_step_struct *scriptAlloc;
+  kgtEngineObject *pCurrObj;
+  kgtSkill *scriptAlloc;
   int timer;
   
-  pCurrObj = PTR_POSS_CURRENT_OBJ;
-  timer = GAME_STATE.gameTimerInFrames;
-  current_step = PTR_POSS_CURRENT_OBJ->object_process_step;
+  pCurrObj = gpkgtCurrentEngineObject;
+  timer = gkgtGameState.iGameTimerInFrames;
+  current_step = gpkgtCurrentEngineObject->iProcessStep;
   if (current_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
+    gpkgtCurrentEngineObject->iProcessStep = 1;
     if (timer < 0) {
-      pCurrObj->object_process_step = 2;
+      pCurrObj->iProcessStep = 2;
       return;
     }
-    pOVar6 = FIND_EMPTY_OBJ(4,0x65,0,0);
-    pCurrObj = PTR_POSS_CURRENT_OBJ;
-    pOVar6->obj_type = main_kgt_file;
-    pCurrObj->obj_ptr_a = pOVar6;
-    pOVar6->param_3 = 0x27100000;
-    pOVar6 = FIND_EMPTY_OBJ(4,0x65,0,0);
-    pCurrObj = PTR_POSS_CURRENT_OBJ;
-    pOVar6->obj_type = main_kgt_file;
-    pCurrObj->obj_ptr_b = pOVar6;
-    pOVar6->param_3 = 0x27100000;
-    pOVar6 = FIND_EMPTY_OBJ(4,0x65,0,0);
-    pCurrObj = PTR_POSS_CURRENT_OBJ;
-    pOVar6->obj_type = main_kgt_file;
-    pOVar6->param_3 = 0x27100000;
-    pCurrObj->obj_type = (kgt_obj_type)pOVar6;
-    pOVar6->image_wait_frames = 1000000;
-    skillAlloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    pCurrObj->obj_ptr_b->image_wait_frames = 1000000;
-    pCurrObj->obj_ptr_a->image_wait_frames = 1000000;
+    pkVar2 = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
+    pCurrObj = gpkgtCurrentEngineObject;
+    pkVar2->iObjectType = SYSTEM_ENGINE_OBJECT;
+    pCurrObj->obj_ptr_a = pkVar2;
+    pkVar2->iParam3 = 0x27100000;
+    pkVar2 = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
+    pCurrObj = gpkgtCurrentEngineObject;
+    pkVar2->iObjectType = SYSTEM_ENGINE_OBJECT;
+    pCurrObj->obj_ptr_b = pkVar2;
+    pkVar2->iParam3 = 0x27100000;
+    pkVar2 = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
+    pCurrObj = gpkgtCurrentEngineObject;
+    pkVar2->iObjectType = SYSTEM_ENGINE_OBJECT;
+    pkVar2->iParam3 = 0x27100000;
+    pCurrObj->iObjectType = (kgtEngineObjectTypes)pkVar2;
+    pkVar2->iImageWaitFrames = 1000000;
+    skillAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+    pCurrObj->obj_ptr_b->iImageWaitFrames = 1000000;
+    pCurrObj->obj_ptr_a->iImageWaitFrames = 1000000;
     pCurrObj->timer_div_100_mod_10 = -1;
-                    // GLITCH: Direct reference of built-in system skill.
+                    // BUG: Direct reference of built-in system skill.
                     // 
                     // References Position:Timer skill block
-    _x47starting_step = skillAlloc[0x47].starting_step_idx;
+    _x47starting_step = skillAlloc[0x47].shStartingStepIdx;
     pCurrObj->timer_div_ten_mod_10 = -1;
     pCurrObj->timer_mod_10 = -1;
-    scriptAlloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc;
-    pCurrObj->param_3 =
-         (int)*(short *)&DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc
-                         [_x47starting_step].field_0x1 << 0x10;
-    pCurrObj->param_4 = (int)*(short *)&scriptAlloc[_x47starting_step].field_0x3 << 0x10;
-    *(uint *)&pCurrObj->field_0x176 = (uint)(byte)scriptAlloc[_x47starting_step].field_0x5 << 0x10;
-    current_step = pCurrObj->param_4;
+    scriptAlloc = gkgtKgtSystem.kgtCore.pSkillScriptsAlloc;
+    pCurrObj->iParam3 =
+         (int)*(short *)&gkgtKgtSystem.kgtCore.pSkillScriptsAlloc[_x47starting_step].field_0x1 <<
+         0x10;
+    pCurrObj->iParam4 = (int)*(short *)&scriptAlloc[_x47starting_step].field_0x3 << 0x10;
+    pCurrObj->iMultiUsePosVariable = (uint)(byte)scriptAlloc[_x47starting_step].field_0x5 << 0x10;
+    current_step = pCurrObj->iParam4;
                     // param_4
-    *(int *)(pCurrObj->obj_type + 0xc) = current_step;
-    pCurrObj->obj_ptr_b->param_4 = current_step;
-    pCurrObj->obj_ptr_a->param_4 = current_step;
+    *(int *)(pCurrObj->iObjectType + 0xc) = current_step;
+    pCurrObj->obj_ptr_b->iParam4 = current_step;
+    pCurrObj->obj_ptr_a->iParam4 = current_step;
   }
   else {
-    skillAlloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
+    skillAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
     if (current_step != 1) {
       if (current_step != 2) {
         return;
       }
-      PTR_POSS_CURRENT_OBJ->object_process_step = 3;
-      pOVar6 = FIND_EMPTY_OBJ(4,0x65,0,0);
-      pCurrObj = PTR_POSS_CURRENT_OBJ;
-      scriptAlloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc;
-      skillAlloc = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-      pOVar6->obj_type = main_kgt_file;
-      pCurrObj->obj_ptr_b = pOVar6;
-      _x47starting_step = skillAlloc[0x47].starting_step_idx;
+      gpkgtCurrentEngineObject->iProcessStep = 3;
+      pkVar2 = kgtoNewEngineObject(READ_SCRIPT,0x65,0,0);
+      pCurrObj = gpkgtCurrentEngineObject;
+      scriptAlloc = gkgtKgtSystem.kgtCore.pSkillScriptsAlloc;
+      skillAlloc = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+      pkVar2->iObjectType = SYSTEM_ENGINE_OBJECT;
+      pCurrObj->obj_ptr_b = pkVar2;
+      _x47starting_step = skillAlloc[0x47].shStartingStepIdx;
       sVar1 = *(short *)&scriptAlloc[_x47starting_step].field_0x3;
-      pOVar6->param_3 = (int)*(short *)&scriptAlloc[_x47starting_step].field_0x1 << 0x10;
-      pOVar6->param_4 = (int)sVar1 << 0x10;
-      unlimited_sign = DAT_KGT_FILE_BUFFER_00433240._73644_4_ & 0xffff;
-      pOVar6->skill_idx_2 = unlimited_sign;
-      pOVar6->action_idx = unlimited_sign;
-      *(uint *)&pOVar6->actionscript_idx =
-           (uint)(ushort)skillAlloc[unlimited_sign].starting_step_idx;
+      pkVar2->iParam3 = (int)*(short *)&scriptAlloc[_x47starting_step].field_0x1 << 0x10;
+      pkVar2->iParam4 = (int)sVar1 << 0x10;
+      unlimited_sign = gkgtKgtSystem._73644_4_ & 0xffff;
+      pkVar2->iSkillIdx_2 = unlimited_sign;
+      pkVar2->iSkillIdx = unlimited_sign;
+      *(uint *)&pkVar2->iSkillScriptIdx = (uint)(ushort)skillAlloc[unlimited_sign].shStartingStepIdx
+      ;
       return;
     }
   }
-  if (GAME_STATE.gameTimerInFrames < 0) {
-    pCurrObj->player_file_buffer = 0;
+  if (gkgtGameState.iGameTimerInFrames < 0) {
+    pCurrObj->iPlayerIdx = 0;
   }
   else {
-    pCurrObj->player_file_buffer = GAME_STATE.gameTimerInFrames / 100;
+    pCurrObj->iPlayerIdx = gkgtGameState.iGameTimerInFrames / 100;
   }
-  timer_seconds = pCurrObj->player_file_buffer;
+  timer_seconds = pCurrObj->iPlayerIdx;
   if (9 < timer_seconds) {
     if (99 < timer_seconds) {
       if (timer_seconds % 10 != pCurrObj->timer_mod_10) {
                     // Once per 10 seconds
         pCurrObj->timer_mod_10 = timer_seconds % 10;
-        kVar3 = (OBJ_STRUCT *)pCurrObj->obj_type;
-        timer_seconds = pCurrObj->player_file_buffer;
-        kVar3->param_3 = *(int *)&pCurrObj->field_0x176 + pCurrObj->param_3;
-        _x47starting_step =
-             (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[timer_seconds % 10];
-        kVar3->skill_idx_2 = (uint)_x47starting_step;
-        kVar3->action_idx = (uint)_x47starting_step;
-        kVar3->image_wait_frames = 0;
-        *(uint *)&kVar3->actionscript_idx =
-             (uint)(ushort)skillAlloc[kVar3->action_idx].starting_step_idx;
+        kVar3 = (kgtEngineObject *)pCurrObj->iObjectType;
+        timer_seconds = pCurrObj->iPlayerIdx;
+        kVar3->iParam3 = pCurrObj->iMultiUsePosVariable + pCurrObj->iParam3;
+        _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[timer_seconds % 10];
+        kVar3->iSkillIdx_2 = (uint)_x47starting_step;
+        kVar3->iSkillIdx = (uint)_x47starting_step;
+        kVar3->iImageWaitFrames = 0;
+        *(uint *)&kVar3->iSkillScriptIdx =
+             (uint)(ushort)skillAlloc[kVar3->iSkillIdx].shStartingStepIdx;
       }
       timer_div_ten_mod_10 = (timer_seconds / 10) % 10;
       if (timer_div_ten_mod_10 != pCurrObj->timer_div_ten_mod_10) {
                     // once per second
         pCurrObj->timer_div_ten_mod_10 = timer_div_ten_mod_10;
-        pOVar6 = pCurrObj->obj_ptr_b;
-        timer_seconds = pCurrObj->player_file_buffer;
-        pOVar6->param_3 = pCurrObj->param_3;
-        _x47starting_step =
-             (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[(timer_seconds / 10) % 10];
-        pOVar6->skill_idx_2 = (uint)_x47starting_step;
-        pOVar6->action_idx = (uint)_x47starting_step;
-        pOVar6->image_wait_frames = 0;
-        *(uint *)&pOVar6->actionscript_idx =
-             (uint)(ushort)skillAlloc[pOVar6->action_idx].starting_step_idx;
+        pkVar2 = pCurrObj->obj_ptr_b;
+        timer_seconds = pCurrObj->iPlayerIdx;
+        pkVar2->iParam3 = pCurrObj->iParam3;
+        _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[(timer_seconds / 10) % 10];
+        pkVar2->iSkillIdx_2 = (uint)_x47starting_step;
+        pkVar2->iSkillIdx = (uint)_x47starting_step;
+        pkVar2->iImageWaitFrames = 0;
+        *(uint *)&pkVar2->iSkillScriptIdx =
+             (uint)(ushort)skillAlloc[pkVar2->iSkillIdx].shStartingStepIdx;
       }
       timer_div_100_mod_10 = (timer_seconds / 100) % 10;
       if (timer_div_100_mod_10 != pCurrObj->timer_div_100_mod_10) {
         pCurrObj->timer_div_100_mod_10 = timer_div_100_mod_10;
-        pOVar6 = pCurrObj->obj_ptr_a;
-        current_step = pCurrObj->player_file_buffer;
-        pOVar6->param_3 = pCurrObj->param_3 - *(int *)&pCurrObj->field_0x176;
-        _x47starting_step =
-             (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[(current_step / 100) % 10];
-        pOVar6->skill_idx_2 = (uint)_x47starting_step;
-        pOVar6->action_idx = (uint)_x47starting_step;
-        pOVar6->image_wait_frames = 0;
-        *(uint *)&pOVar6->actionscript_idx =
-             (uint)(ushort)skillAlloc[pOVar6->action_idx].starting_step_idx;
+        pkVar2 = pCurrObj->obj_ptr_a;
+        current_step = pCurrObj->iPlayerIdx;
+        pkVar2->iParam3 = pCurrObj->iParam3 - pCurrObj->iMultiUsePosVariable;
+        _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[(current_step / 100) % 10];
+        pkVar2->iSkillIdx_2 = (uint)_x47starting_step;
+        pkVar2->iSkillIdx = (uint)_x47starting_step;
+        pkVar2->iImageWaitFrames = 0;
+        *(uint *)&pkVar2->iSkillScriptIdx =
+             (uint)(ushort)skillAlloc[pkVar2->iSkillIdx].shStartingStepIdx;
       }
       return;
     }
     if (timer_seconds % 10 != pCurrObj->timer_mod_10) {
       pCurrObj->timer_mod_10 = timer_seconds % 10;
-      kVar2 = (OBJ_STRUCT *)pCurrObj->obj_type;
-      timer_seconds = pCurrObj->player_file_buffer;
-      kVar2->param_3 = *(int *)&pCurrObj->field_0x176 / 2 + pCurrObj->param_3;
-      _x47starting_step =
-           (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[timer_seconds % 10];
-      kVar2->skill_idx_2 = (uint)_x47starting_step;
-      kVar2->action_idx = (uint)_x47starting_step;
-      kVar2->image_wait_frames = 0;
-      *(uint *)&kVar2->actionscript_idx =
-           (uint)(ushort)skillAlloc[kVar2->action_idx].starting_step_idx;
+      kVar2 = (kgtEngineObject *)pCurrObj->iObjectType;
+      timer_seconds = pCurrObj->iPlayerIdx;
+      kVar2->iParam3 = pCurrObj->iMultiUsePosVariable / 2 + pCurrObj->iParam3;
+      _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[timer_seconds % 10];
+      kVar2->iSkillIdx_2 = (uint)_x47starting_step;
+      kVar2->iSkillIdx = (uint)_x47starting_step;
+      kVar2->iImageWaitFrames = 0;
+      *(uint *)&kVar2->iSkillScriptIdx =
+           (uint)(ushort)skillAlloc[kVar2->iSkillIdx].shStartingStepIdx;
     }
     current_step = (timer_seconds / 10) % 10;
     if (current_step != pCurrObj->timer_div_ten_mod_10) {
       pCurrObj->timer_div_ten_mod_10 = current_step;
-      pOVar6 = pCurrObj->obj_ptr_b;
-      pOVar6->param_3 = pCurrObj->param_3 - *(int *)&pCurrObj->field_0x176 / 2;
-      _x47starting_step =
-           (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)
-           [(pCurrObj->player_file_buffer / 10) % 10];
-      pOVar6->skill_idx_2 = (uint)_x47starting_step;
-      pOVar6->action_idx = (uint)_x47starting_step;
-      pOVar6->image_wait_frames = 0;
-      *(uint *)&pOVar6->actionscript_idx =
-           (uint)(ushort)skillAlloc[pOVar6->action_idx].starting_step_idx;
+      pkVar2 = pCurrObj->obj_ptr_b;
+      pkVar2->iParam3 = pCurrObj->iParam3 - pCurrObj->iMultiUsePosVariable / 2;
+      _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[(pCurrObj->iPlayerIdx / 10) % 10]
+      ;
+      pkVar2->iSkillIdx_2 = (uint)_x47starting_step;
+      pkVar2->iSkillIdx = (uint)_x47starting_step;
+      pkVar2->iImageWaitFrames = 0;
+      *(uint *)&pkVar2->iSkillScriptIdx =
+           (uint)(ushort)skillAlloc[pkVar2->iSkillIdx].shStartingStepIdx;
     }
-    pCurrObj->obj_ptr_a->param_3 = 0x27100000;
+    pCurrObj->obj_ptr_a->iParam3 = 0x27100000;
     return;
   }
   if (timer_seconds % 10 != pCurrObj->timer_mod_10) {
     pCurrObj->timer_mod_10 = timer_seconds % 10;
-    kVar4 = pCurrObj->obj_type;
-    current_step = pCurrObj->player_file_buffer;
-    *(int *)(kVar4 + 8) = pCurrObj->param_3;
-    _x47starting_step = (&DAT_KGT_FILE_BUFFER_00433240.skill_idx_time_number_0)[current_step % 10];
-    *(uint *)(kVar4 + 0x34) = (uint)_x47starting_step;
-    *(uint *)(kVar4 + 0x30) = (uint)_x47starting_step;
-    *(undefined4 *)(kVar4 + 0x3c) = 0;
-    *(uint *)(kVar4 + 0x2c) = (uint)(ushort)skillAlloc[*(int *)(kVar4 + 0x30)].starting_step_idx;
+    kVar4 = (kgtEngineObject *)pCurrObj->iObjectType;
+    current_step = pCurrObj->iPlayerIdx;
+    kVar4->iParam3 = pCurrObj->iParam3;
+    _x47starting_step = (&gkgtKgtSystem.skill_idx_time_number_0)[current_step % 10];
+    kVar4->iSkillIdx_2 = (uint)_x47starting_step;
+    kVar4->iSkillIdx = (uint)_x47starting_step;
+    kVar4->iImageWaitFrames = 0;
+    *(uint *)&kVar4->iSkillScriptIdx = (uint)(ushort)skillAlloc[kVar4->iSkillIdx].shStartingStepIdx;
   }
-  pOVar6 = pCurrObj->obj_ptr_a;
-  pCurrObj->obj_ptr_b->param_3 = 0x27100000;
-  pOVar6->param_3 = 0x27100000;
+  pkVar2 = pCurrObj->obj_ptr_a;
+  pCurrObj->obj_ptr_b->iParam3 = 0x27100000;
+  pkVar2->iParam3 = 0x27100000;
   return;
 }
 
@@ -8554,58 +8701,57 @@ void FUN_0040ab10(void)
 
 {
   byte bVar1;
-  kgt_skill_struct *pkVar2;
-  OBJ_STRUCT *pOVar3;
-  int iVar4;
-  OBJ_STRUCT *pOVar5;
+  kgtSkillHeader *pkVar2;
+  kgtEngineObject *pkVar3;
+  kgtEngineObject *pkVar4;
+  uint uVar5;
   uint uVar6;
-  uint uVar7;
-  kgt_obj_type kVar8;
-  int iVar9;
+  kgtEngineObjectTypes kVar7;
+  int iVar8;
+  int unaff_EDI;
   
-  pOVar5 = PTR_POSS_CURRENT_OBJ;
-  if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    pOVar3 = (OBJ_STRUCT *)
-             new_kgt_scriptread_obj_with_action_idx
-                       (DAT_KGT_FILE_BUFFER_00433240.skill_idx_hit_letter_hit,0x65,pOVar5->param_3,
-                        pOVar5->param_4);
-    pOVar5 = PTR_POSS_CURRENT_OBJ;
-    pkVar2 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-    uVar7 = pOVar3->unk_bitmask;
-    PTR_POSS_CURRENT_OBJ->obj_ptr_a = pOVar3;
-    pOVar3->unk_bitmask = uVar7 | 0x40000000;
-    bVar1 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc
-            [(ushort)pkVar2[1].starting_step_idx]._2;
-    iVar9 = 0;
-    uVar7 = pOVar5->player_file_buffer;
-    for (uVar6 = uVar7; 9 < uVar6; uVar6 = uVar6 / 10) {
-      iVar9 = iVar9 + 1;
+  pkVar4 = gpkgtCurrentEngineObject;
+  if (gpkgtCurrentEngineObject->iProcessStep == 0) {
+    gpkgtCurrentEngineObject->iProcessStep = 1;
+    pkVar3 = kgtoNewObjectForSkillIdx
+                       ((kgtEngineObject *)(uint)(ushort)gkgtKgtSystem.skill_idx_hit_letter_hit,0x65
+                        ,pkVar4->iParam3,pkVar4->iParam4,unaff_EDI);
+    pkVar4 = gpkgtCurrentEngineObject;
+    pkVar2 = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+    uVar6 = pkVar3->unk_bitmask;
+    gpkgtCurrentEngineObject->obj_ptr_a = pkVar3;
+    pkVar3->unk_bitmask = uVar6 | 0x40000000;
+    bVar1 = gkgtKgtSystem.kgtCore.pSkillScriptsAlloc[(ushort)pkVar2[1].shStartingStepIdx].field_0x2;
+    iVar8 = 0;
+    uVar6 = pkVar4->iPlayerIdx;
+    for (uVar5 = uVar6; 9 < uVar5; uVar5 = uVar5 / 10) {
+      iVar8 = iVar8 + 1;
     }
-    if ((DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actionscripts_alloc
-         [(ushort)pkVar2[1].starting_step_idx].field_0x1 & 1) != 0) {
-      pOVar5->param_3 = pOVar5->param_3 + iVar9 * (uint)bVar1 * 0x10000;
+    if ((gkgtKgtSystem.kgtCore.pSkillScriptsAlloc[(ushort)pkVar2[1].shStartingStepIdx].field_0x1 & 1
+        ) != 0) {
+      pkVar4->iParam3 = pkVar4->iParam3 + iVar8 * (uint)bVar1 * 0x10000;
     }
-    for (iVar9 = iVar9 + 1; iVar9 != 0; iVar9 = iVar9 + -1) {
-      iVar4 = new_kgt_scriptread_obj_with_action_idx
-                        ((&DAT_KGT_FILE_BUFFER_00433240.skill_idx_hit_number_0)[uVar7 % 10],0x65,
-                         pOVar5->param_3,pOVar5->param_4);
-      pOVar5 = PTR_POSS_CURRENT_OBJ;
-      *(uint *)(iVar4 + 0x28) = *(uint *)(iVar4 + 0x28) | 0x40000000;
-      uVar7 = uVar7 / 10;
-      pOVar5->param_3 = pOVar5->param_3 + (uint)bVar1 * -0x10000;
+    for (iVar8 = iVar8 + 1; iVar8 != 0; iVar8 = iVar8 + -1) {
+      pkVar3 = kgtoNewObjectForSkillIdx
+                         ((kgtEngineObject *)
+                          (uint)(ushort)(&gkgtKgtSystem.skill_idx_hit_number_0)[uVar6 % 10],0x65,
+                          pkVar4->iParam3,pkVar4->iParam4,unaff_EDI);
+      pkVar4 = gpkgtCurrentEngineObject;
+      pkVar3->unk_bitmask = pkVar3->unk_bitmask | 0x40000000;
+      uVar6 = uVar6 / 10;
+      pkVar4->iParam3 = pkVar4->iParam3 + (uint)bVar1 * -0x10000;
     }
   }
-  else if (PTR_POSS_CURRENT_OBJ->object_process_step != 1) {
+  else if (gpkgtCurrentEngineObject->iProcessStep != 1) {
     return;
   }
-  if (pOVar5->player_file_buffer < (int)pOVar5->obj_ptr_b->jmp_idx) {
-    pOVar5->obj_type = 1000;
+  if (pkVar4->iPlayerIdx < (int)pkVar4->obj_ptr_b->iJumpIdx) {
+    pkVar4->iObjectType = 1000;
   }
-  kVar8 = pOVar5->obj_type + 1;
-  pOVar5->obj_type = kVar8;
-  if (200 < (int)kVar8) {
-    pOVar5->jmp_idx = reset_index;
+  kVar7 = pkVar4->iObjectType + STORY?_ENGINE_OBJECT;
+  pkVar4->iObjectType = kVar7;
+  if (200 < (int)kVar7) {
+    pkVar4->iJumpIdx = RESET_IDX;
   }
   return;
 }
@@ -8615,42 +8761,42 @@ void FUN_0040ab10(void)
 void set_unk_obj_vars(void)
 
 {
-  OBJ_STRUCT *pOVar1;
+  kgtEngineObject *pkVar1;
   int iVar2;
   
-  pOVar1 = PTR_POSS_CURRENT_OBJ;
-  if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    pOVar1->drawing_flag = -3;
-    if (pOVar1->obj_type == 1) {
-      pOVar1->x_momentum = 3;
-      if (pOVar1->pos_player_direction != 0) {
-        pOVar1->x_momentum = -3;
+  pkVar1 = gpkgtCurrentEngineObject;
+  if (gpkgtCurrentEngineObject->iProcessStep == 0) {
+    gpkgtCurrentEngineObject->iProcessStep = 1;
+    pkVar1->iDrawFlag = -3;
+    if (pkVar1->iObjectType == STORY?_ENGINE_OBJECT) {
+      pkVar1->iXMomentum = 3;
+      if (pkVar1->iPlayerLookingRight != 0) {
+        pkVar1->iXMomentum = -3;
       }
     }
-    else if ((pOVar1->obj_type == main_kgt_file) &&
-            (pOVar1->x_momentum = -1, pOVar1->pos_player_direction != 0)) {
-      pOVar1->x_momentum = -1;
+    else if ((pkVar1->iObjectType == SYSTEM_ENGINE_OBJECT) &&
+            (pkVar1->iXMomentum = -1, pkVar1->iPlayerLookingRight != 0)) {
+      pkVar1->iXMomentum = -1;
     }
   }
-  else if (PTR_POSS_CURRENT_OBJ->object_process_step != 1) {
+  else if (gpkgtCurrentEngineObject->iProcessStep != 1) {
     return;
   }
-  if (pOVar1->obj_type == 1) {
-    pOVar1->color_blue = pOVar1->color_blue + -1;
+  if (pkVar1->iObjectType == STORY?_ENGINE_OBJECT) {
+    pkVar1->iColorBlue = pkVar1->iColorBlue + -1;
   }
   else {
-    if (pOVar1->obj_type != main_kgt_file) goto LAB_0040accc;
-    pOVar1->color_red = pOVar1->color_red + -1;
+    if (pkVar1->iObjectType != SYSTEM_ENGINE_OBJECT) goto LAB_0040accc;
+    pkVar1->iColorRed = pkVar1->iColorRed + -1;
   }
-  pOVar1->color_green = pOVar1->color_green + -1;
+  pkVar1->iColorGreen = pkVar1->iColorGreen + -1;
 LAB_0040accc:
-  iVar2 = pOVar1->player_file_buffer + 1;
-  pOVar1->player_file_buffer = iVar2;
+  iVar2 = pkVar1->iPlayerIdx + 1;
+  pkVar1->iPlayerIdx = iVar2;
   if (30 < iVar2) {
-    pOVar1->jmp_idx = reset_index;
+    pkVar1->iJumpIdx = RESET_IDX;
   }
-  pOVar1->param_3 = pOVar1->param_3 + pOVar1->x_momentum;
+  pkVar1->iParam3 = pkVar1->iParam3 + pkVar1->iXMomentum;
   return;
 }
 
@@ -8662,98 +8808,99 @@ LAB_0040accc:
 // 
 // At end, spawns a new obj of idx 12.
 
-void FUN_PROB_DISPLAY_TITLE_SCREENS_0040ad00(void)
+void vjmpDisplayTitleScreens(void)
 
 {
-  OBJ_STRUCT *pOVar1;
-  int iVar2;
+  int iVar1;
   char *resource_name;
   char *lpFileName;
+  kgtEngineObject *kgtCurrentObj;
   
-  pOVar1 = PTR_POSS_CURRENT_OBJ;
-  switch(PTR_POSS_CURRENT_OBJ->object_process_step) {
+  kgtCurrentObj = gpkgtCurrentEngineObject;
+  switch(gpkgtCurrentEngineObject->iProcessStep) {
   case 0:
-    GAME_STATE.over3kunder4kcheck = 1000;
-    RESET_OBJECTS_AND_SET_GAME_SPEED();
-    pOVar1 = PTR_POSS_CURRENT_OBJ;
-    PTR_POSS_CURRENT_OBJ->object_process_step = PTR_POSS_CURRENT_OBJ->object_process_step + 1;
-    pOVar1->drawing_flag = 3;
-    pOVar1->color_blue = 0;
-    pOVar1->color_green = 0;
-    pOVar1->color_red = 0;
-    Load_external_image((kgtBMPINFO *)(&UNK_STRUCT_A_00424f60.field0_0x0 + pOVar1->drawing_flag * 5)
-                        ,s_RC_BMP_01_0041f0ec,s_1_bmp_0041f0e4,0);
-    pOVar1 = PTR_POSS_CURRENT_OBJ;
-    PTR_POSS_CURRENT_OBJ->player_file_buffer = 300;
-    *(undefined4 *)&pOVar1->color_blendtype = 5;
+    gkgtGameState.iGameStateNumber = 1000;
+    vResetObjectsAndSpeed();
+    kgtCurrentObj = gpkgtCurrentEngineObject;
+    gpkgtCurrentEngineObject->iProcessStep = gpkgtCurrentEngineObject->iProcessStep + 1;
+    kgtCurrentObj->iDrawFlag = 3;
+    kgtCurrentObj->iColorBlue = 0;
+    kgtCurrentObj->iColorGreen = 0;
+    kgtCurrentObj->iColorRed = 0;
+    iLoadExternalImage((kgtBMPINFO *)(&UNK_DRAW_STRUCT_A.field0_0x0 + kgtCurrentObj->iDrawFlag * 5),
+                       gsRcBmp01,gs1Bmp,0);
+    kgtCurrentObj = gpkgtCurrentEngineObject;
+    gpkgtCurrentEngineObject->iPlayerIdx = 300;
+    *(undefined4 *)&kgtCurrentObj->iColorBlendtype = 5;
     return;
   case 1:
   case 3:
     goto joined_r0x0040ae88;
   case 2:
-    PTR_POSS_CURRENT_OBJ->color_red = PTR_POSS_CURRENT_OBJ->color_red + -2;
-    pOVar1->color_green = pOVar1->color_green + -2;
-    pOVar1->color_blue = pOVar1->color_blue + -1;
-    iVar2 = pOVar1->player_file_buffer + -1;
-    pOVar1->player_file_buffer = iVar2;
-    if (iVar2 < 1) {
-      lpFileName = s_2_bmp_0041f0f8;
-      pOVar1->object_process_step = pOVar1->object_process_step + 1;
-      pOVar1->drawing_flag = 3;
-      pOVar1->color_blue = 0;
-      pOVar1->color_green = 0;
-      pOVar1->color_red = 0;
-      resource_name = s_RC_BMP_02_0041f100;
-LAB_0040ae57:
-      Load_external_image((kgtBMPINFO *)
-                          (&UNK_STRUCT_A_00424f60.field0_0x0 + pOVar1->drawing_flag * 5),
-                          resource_name,lpFileName,0);
-      PTR_POSS_CURRENT_OBJ->player_file_buffer = 300;
+    gpkgtCurrentEngineObject->iColorRed = gpkgtCurrentEngineObject->iColorRed + -2;
+    kgtCurrentObj->iColorGreen = kgtCurrentObj->iColorGreen + -2;
+    kgtCurrentObj->iColorBlue = kgtCurrentObj->iColorBlue + -1;
+    iVar1 = kgtCurrentObj->iPlayerIdx + -1;
+    kgtCurrentObj->iPlayerIdx = iVar1;
+    if (iVar1 < 1) {
+      lpFileName = gs2Bmp;
+      kgtCurrentObj->iProcessStep = kgtCurrentObj->iProcessStep + 1;
+      kgtCurrentObj->iDrawFlag = 3;
+      kgtCurrentObj->iColorBlue = 0;
+      kgtCurrentObj->iColorGreen = 0;
+      kgtCurrentObj->iColorRed = 0;
+      resource_name = gsRcBmp02;
+Load_external_image:
+      iLoadExternalImage((kgtBMPINFO *)
+                         (&UNK_DRAW_STRUCT_A.field0_0x0 + kgtCurrentObj->iDrawFlag * 5),
+                         resource_name,lpFileName,0);
+      gpkgtCurrentEngineObject->iPlayerIdx = 300;
       return;
     }
     break;
   case 4:
-    PTR_POSS_CURRENT_OBJ->color_red = PTR_POSS_CURRENT_OBJ->color_red + -2;
-    pOVar1->color_green = pOVar1->color_green + -2;
-    pOVar1->color_blue = pOVar1->color_blue + -1;
-    iVar2 = pOVar1->player_file_buffer + -1;
-    pOVar1->player_file_buffer = iVar2;
-    if (iVar2 < 1) {
-      lpFileName = s_3_bmp_0041f10c;
-      pOVar1->object_process_step = pOVar1->object_process_step + 1;
-      pOVar1->drawing_flag = 3;
-      pOVar1->color_blue = 0;
-      pOVar1->color_green = 0;
-      pOVar1->color_red = 0;
-      resource_name = s_RC_BMP_03_0041f114;
-      goto LAB_0040ae57;
+    gpkgtCurrentEngineObject->iColorRed = gpkgtCurrentEngineObject->iColorRed + -2;
+    kgtCurrentObj->iColorGreen = kgtCurrentObj->iColorGreen + -2;
+    kgtCurrentObj->iColorBlue = kgtCurrentObj->iColorBlue + -1;
+    iVar1 = kgtCurrentObj->iPlayerIdx + -1;
+    kgtCurrentObj->iPlayerIdx = iVar1;
+    if (iVar1 < 1) {
+      lpFileName = s3Bmp;
+      kgtCurrentObj->iProcessStep = kgtCurrentObj->iProcessStep + 1;
+      kgtCurrentObj->iDrawFlag = 3;
+      kgtCurrentObj->iColorBlue = 0;
+      kgtCurrentObj->iColorGreen = 0;
+      kgtCurrentObj->iColorRed = 0;
+      resource_name = gsRcBmp03;
+      goto Load_external_image;
     }
     break;
   case 5:
 joined_r0x0040ae88:
-    if (LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME != 0) {
-      PTR_POSS_CURRENT_OBJ->player_file_buffer = 0;
+                    // Checking for button presses
+    if (giLastInputXor_2 != 0) {
+      gpkgtCurrentEngineObject->iPlayerIdx = 0;
     }
-    iVar2 = pOVar1->player_file_buffer + -1;
-    pOVar1->player_file_buffer = iVar2;
-    if (iVar2 < 1) {
-      pOVar1->object_process_step = pOVar1->object_process_step + 1;
-      pOVar1->player_file_buffer = 10;
-      pOVar1->color_blue = -0x14;
-      pOVar1->color_green = -0x14;
-      pOVar1->color_red = -0x14;
+    iVar1 = kgtCurrentObj->iPlayerIdx + -1;
+    kgtCurrentObj->iPlayerIdx = iVar1;
+    if (iVar1 < 1) {
+      kgtCurrentObj->iProcessStep = kgtCurrentObj->iProcessStep + 1;
+      kgtCurrentObj->iPlayerIdx = 10;
+      kgtCurrentObj->iColorBlue = -0x14;
+      kgtCurrentObj->iColorGreen = -0x14;
+      kgtCurrentObj->iColorRed = -0x14;
       return;
     }
     break;
   case 6:
-    PTR_POSS_CURRENT_OBJ->color_red = PTR_POSS_CURRENT_OBJ->color_red + -2;
-    pOVar1->color_green = pOVar1->color_green + -2;
-    pOVar1->color_blue = pOVar1->color_blue + -1;
-    iVar2 = pOVar1->player_file_buffer + -1;
-    pOVar1->player_file_buffer = iVar2;
-    if (iVar2 < 1) {
-      pOVar1->object_process_step = pOVar1->object_process_step + 1;
-      FIND_EMPTY_OBJ(12,0x7f,0,0);
+    gpkgtCurrentEngineObject->iColorRed = gpkgtCurrentEngineObject->iColorRed + -2;
+    kgtCurrentObj->iColorGreen = kgtCurrentObj->iColorGreen + -2;
+    kgtCurrentObj->iColorBlue = kgtCurrentObj->iColorBlue + -1;
+    iVar1 = kgtCurrentObj->iPlayerIdx + -1;
+    kgtCurrentObj->iPlayerIdx = iVar1;
+    if (iVar1 < 1) {
+      kgtCurrentObj->iProcessStep = kgtCurrentObj->iProcessStep + 1;
+      kgtoNewEngineObject(MENU_TRAVERSAL,0x7f,0,0);
     }
   }
   return;
@@ -8764,7 +8911,7 @@ joined_r0x0040ae88:
 void __thiscall Jump_3(void)
 
 {
-  OBJ_STRUCT *pOVar1;
+  kgtEngineObject *pkVar1;
   uint rand;
   OBJ_STRUCT_ptr_342_int piVar4;
   OBJ_STRUCT_ptr_342_int piVar5;
@@ -8774,65 +8921,64 @@ void __thiscall Jump_3(void)
   int iVar3;
   bool is_1p_story;
   int i;
-  OBJ_STRUCT *current_obj;
+  kgtEngineObject *current_obj;
   GAME_MODES game_mode;
   
-  current_obj = PTR_POSS_CURRENT_OBJ;
-  switch(PTR_POSS_CURRENT_OBJ->object_process_step) {
+  current_obj = gpkgtCurrentEngineObject;
+  switch(gpkgtCurrentEngineObject->iProcessStep) {
   case 0:
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
+    gpkgtCurrentEngineObject->iProcessStep = 1;
     return;
   case 10:
-    PTR_POSS_CURRENT_OBJ->object_process_step = 11;
-    current_obj->drawing_flag = current_obj->param2_maybe_50_or_46;
-    Load_external_image((kgtBMPINFO *)
-                        (&UNK_STRUCT_A_00424f60.field0_0x0 + current_obj->param2_maybe_50_or_46 * 5)
-                        ,s_bg_001_0_bmp_0041f120,&bg_001_0_poss_filename,0);
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    PTR_POSS_CURRENT_OBJ->param_3 = 0;
-    current_obj->param_4 = 0;
+    gpkgtCurrentEngineObject->iProcessStep = 11;
+    current_obj->iDrawFlag = current_obj->iParam2;
+    iLoadExternalImage((kgtBMPINFO *)(&UNK_DRAW_STRUCT_A.field0_0x0 + current_obj->iParam2 * 5),
+                       s_bg_001_0_bmp_0041f120,&bg_001_0_poss_filename,0);
+    current_obj = gpkgtCurrentEngineObject;
+    gpkgtCurrentEngineObject->iParam3 = 0;
+    current_obj->iParam4 = 0;
     return;
   case 0xc:
-    PTR_POSS_CURRENT_OBJ->param_3 = 320;
-    current_obj->param_4 = 0;
-    next_pbuffer = current_obj->player_file_buffer + 1;
-    current_obj->player_file_buffer = next_pbuffer;
+    gpkgtCurrentEngineObject->iParam3 = 320;
+    current_obj->iParam4 = 0;
+    next_pbuffer = current_obj->iPlayerIdx + 1;
+    current_obj->iPlayerIdx = next_pbuffer;
     if (0 < next_pbuffer) {
-      current_obj->player_file_buffer = 0;
-      current_obj->object_process_step = current_obj->object_process_step + 1;
+      current_obj->iPlayerIdx = 0;
+      current_obj->iProcessStep = current_obj->iProcessStep + 1;
       goto switchD_0040af51_caseD_d;
     }
     break;
   case 0xd:
 switchD_0040af51_caseD_d:
-    if (current_obj->param_3 < -0x1400000) {
-      next_pbuffer = current_obj->player_file_buffer + 1000;
+    if (current_obj->iParam3 < -0x1400000) {
+      next_pbuffer = current_obj->iPlayerIdx + 1000;
     }
     else {
-      next_pbuffer = current_obj->player_file_buffer + -1000;
+      next_pbuffer = current_obj->iPlayerIdx + -1000;
     }
-    current_obj->player_file_buffer = next_pbuffer;
-    game_mode = GAME_STATE.GAME_MODE;
-    is_1p_story = GAME_STATE.GAME_MODE == 1P_story;
-    current_obj->param_3 = current_obj->param_3 + next_pbuffer;
+    current_obj->iPlayerIdx = next_pbuffer;
+    game_mode = gkgtGameState.kgtGameMode;
+    is_1p_story = gkgtGameState.kgtGameMode == 1P_story;
+    current_obj->iParam3 = current_obj->iParam3 + next_pbuffer;
     if (is_1p_story) {
-      unk_x_position =
-           (((int)(PLAYER_KGT_BUFFER[0].pos_y_pos +
-                  (PLAYER_KGT_BUFFER[0].pos_y_pos >> 0x1f & 0xffffU)) >> 0x10) + -320 +
-           unk_x_position) / 2;
+      unk_y_pos2 = (((int)(gkgtLoadedCharacter[0].iCurrentYPos +
+                          (gkgtLoadedCharacter[0].iCurrentYPos >> 0x1f & 0xffffU)) >> 0x10) + -320 +
+                   unk_y_pos2) / 2;
                     // WALL option
-      if ((PLAYER_KGT_BUFFER[0].character_story_entries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
-           options_bitmask & 0x4U) == 0) {
-        if (PLAYER_KGT_BUFFER[0].health == 0) {
+      if ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
+           cOptionsBitmask & 0x4U) == 0) {
+        if (gkgtLoadedCharacter[0].iHealth == 0) {
           iVar3 = 0;
           next_pbuffer = 0;
-          piVar6 = &OBJ_ARRAY[0].player_file_buffer;
+          piVar6 = &kgtEngineObjects[0].iPlayerIdx;
           i = 1024;
           do {
-            if (((ADJ(piVar6).jmp_idx == 4) && (ADJ(piVar6)->obj_type == 0)) &&
-               (PLAYER_KGT_BUFFER[ADJ(piVar6)->player_file_buffer].health != 0)) {
+            if (((ADJ(piVar6).iJumpIdx == READ_SCRIPT) &&
+                (ADJ(piVar6)->iObjectType == PLAYER_ENGINE_OBJECT)) &&
+               (gkgtLoadedCharacter[ADJ(piVar6)->iPlayerIdx].iHealth != 0)) {
               next_pbuffer = next_pbuffer +
-                             ((int)(ADJ(piVar6)->param_3 + (ADJ(piVar6)->param_3 >> 0x1f & 0xffffU))
+                             ((int)(ADJ(piVar6)->iParam3 + (ADJ(piVar6)->iParam3 >> 0x1f & 0xffffU))
                              >> 0x10);
               iVar3 = iVar3 + 1;
             }
@@ -8840,23 +8986,23 @@ switchD_0040af51_caseD_d:
             i = i + -1;
           } while (i != 0);
           if (iVar3 != 0) {
-            next_pbuffer = (next_pbuffer / iVar3 - unk_y_position) + -320;
-            unk_y_position =
-                 unk_y_position + ((int)(next_pbuffer + (next_pbuffer >> 0x1f & 0xfU)) >> 4);
+            next_pbuffer = (next_pbuffer / iVar3 - unk_x_position) + -320;
+            unk_x_position =
+                 unk_x_position + ((int)(next_pbuffer + (next_pbuffer >> 0x1f & 0xfU)) >> 4);
           }
         }
         else {
           iVar3 = 0;
           next_pbuffer = 0;
-          piVar5 = &OBJ_ARRAY[0].player_file_buffer;
+          piVar5 = &kgtEngineObjects[0].iPlayerIdx;
           i = 1024;
           do {
-            if (((ADJ(piVar5).jmp_idx == 4) && (ADJ(piVar5)->obj_type == 0)) &&
-               ((PLAYER_KGT_BUFFER[ADJ(piVar5)->player_file_buffer].health != 0 &&
-                (PLAYER_KGT_BUFFER[ADJ(piVar5)->player_file_buffer].script_reading_01_field5 != 0)))
-               ) {
+            if (((ADJ(piVar5).iJumpIdx == READ_SCRIPT) &&
+                (ADJ(piVar5)->iObjectType == PLAYER_ENGINE_OBJECT)) &&
+               ((gkgtLoadedCharacter[ADJ(piVar5)->iPlayerIdx].iHealth != 0 &&
+                (gkgtLoadedCharacter[ADJ(piVar5)->iPlayerIdx].unknown_online_var_a != 0)))) {
               next_pbuffer = next_pbuffer +
-                             ((int)(ADJ(piVar5)->param_3 + (ADJ(piVar5)->param_3 >> 0x1f & 0xffffU))
+                             ((int)(ADJ(piVar5)->iParam3 + (ADJ(piVar5)->iParam3 >> 0x1f & 0xffffU))
                              >> 0x10);
               iVar3 = iVar3 + 1;
             }
@@ -8864,8 +9010,8 @@ switchD_0040af51_caseD_d:
             i = i + -1;
           } while (i != 0);
           if (iVar3 != 0) {
-            iVar2 = (int)(PLAYER_KGT_BUFFER[0].pos_x_pos +
-                         (PLAYER_KGT_BUFFER[0].pos_x_pos >> 0x1f & 0xffffU)) >> 0x10;
+            iVar2 = (int)(gkgtLoadedCharacter[0].iCurrentXPos +
+                         (gkgtLoadedCharacter[0].iCurrentXPos >> 0x1f & 0xffffU)) >> 0x10;
             iVar3 = (next_pbuffer / iVar3 + iVar2) / 2;
             for (next_pbuffer = iVar3 + 0x118; next_pbuffer < iVar2; next_pbuffer = next_pbuffer + 1
                 ) {
@@ -8875,104 +9021,104 @@ switchD_0040af51_caseD_d:
                 next_pbuffer = next_pbuffer + -1) {
               iVar3 = iVar3 + -1;
             }
-            next_pbuffer = (iVar3 - unk_y_position) + -0x140;
-            unk_y_position =
-                 unk_y_position + ((int)(next_pbuffer + (next_pbuffer >> 0x1f & 3U)) >> 2);
+            next_pbuffer = (iVar3 - unk_x_position) + -0x140;
+            unk_x_position =
+                 unk_x_position + ((int)(next_pbuffer + (next_pbuffer >> 0x1f & 3U)) >> 2);
           }
         }
       }
       else {
         next_pbuffer = 0;
         iVar3 = 0;
-        piVar4 = &PLAYER_KGT_BUFFER[0].pos_x_pos;
+        piVar4 = &gkgtLoadedCharacter[0].iCurrentXPos;
         do {
           if (*(int *)((int)ADJ(piVar4)->hitbox_guard_array + 0x41) != 0) {
             next_pbuffer = next_pbuffer +
-                           ((int)(ADJ(piVar4)->player_file_buffer +
-                                 (ADJ(piVar4)->player_file_buffer >> 0x1f & 0xffffU)) >> 0x10);
+                           ((int)(ADJ(piVar4)->iPlayerIdx +
+                                 (ADJ(piVar4)->iPlayerIdx >> 0x1f & 0xffffU)) >> 0x10);
             iVar3 = iVar3 + 1;
           }
           piVar4 = (OBJ_STRUCT_ptr_342_int)((int)piVar4 + 0xe03f);
         } while ((int)piVar4 < 0x54feb9);
         if (iVar3 != 0) {
-          unk_y_position = (next_pbuffer / iVar3 + -0x140 + unk_y_position) / 2;
+          unk_x_position = (next_pbuffer / iVar3 + -0x140 + unk_x_position) / 2;
         }
       }
     }
     else if ((0 < (int)game_mode) && ((int)game_mode < 3)) {
-      unk_y_position =
-           (((int)(PLAYER_KGT_BUFFER[1].pos_x_pos + PLAYER_KGT_BUFFER[0].pos_x_pos +
-                  (PLAYER_KGT_BUFFER[1].pos_x_pos + PLAYER_KGT_BUFFER[0].pos_x_pos >> 0x1f &
-                  0x1ffffU)) >> 0x11) + -0x140 + unk_y_position) / 2;
       unk_x_position =
-           (((int)(PLAYER_KGT_BUFFER[1].pos_y_pos + PLAYER_KGT_BUFFER[0].pos_y_pos +
-                  (PLAYER_KGT_BUFFER[1].pos_y_pos + PLAYER_KGT_BUFFER[0].pos_y_pos >> 0x1f &
-                  0x1ffffU)) >> 0x11) + -0x140 + unk_x_position) / 2;
-    }
-    if (unk_y_position < 0) {
-      unk_y_position = 0;
-    }
-    else if (0x280 < unk_y_position) {
-      unk_y_position = 0x280;
+           (((int)(gkgtLoadedCharacter[1].iCurrentXPos + gkgtLoadedCharacter[0].iCurrentXPos +
+                  (gkgtLoadedCharacter[1].iCurrentXPos + gkgtLoadedCharacter[0].iCurrentXPos >> 0x1f
+                  & 0x1ffffU)) >> 0x11) + -0x140 + unk_x_position) / 2;
+      unk_y_pos2 = (((int)(gkgtLoadedCharacter[1].iCurrentYPos + gkgtLoadedCharacter[0].iCurrentYPos
+                          + (gkgtLoadedCharacter[1].iCurrentYPos +
+                             gkgtLoadedCharacter[0].iCurrentYPos >> 0x1f & 0x1ffffU)) >> 0x11) +
+                    -0x140 + unk_y_pos2) / 2;
     }
     if (unk_x_position < 0) {
       unk_x_position = 0;
     }
-    else if (0x1e0 < unk_x_position) {
-      unk_x_position = 0x1e0;
+    else if (0x280 < unk_x_position) {
+      unk_x_position = 0x280;
     }
-    next_pbuffer = unk_x_position * -0x10000;
-    current_obj->param_3 = unk_y_position * -0x10000;
-    current_obj->param_4 = next_pbuffer;
+    if (unk_y_pos2 < 0) {
+      unk_y_pos2 = 0;
+    }
+    else if (0x1e0 < unk_y_pos2) {
+      unk_y_pos2 = 0x1e0;
+    }
+    next_pbuffer = unk_y_pos2 * -0x10000;
+    current_obj->iParam3 = unk_x_position * -0x10000;
+    current_obj->iParam4 = next_pbuffer;
     return;
   case 0xe:
-    PTR_POSS_CURRENT_OBJ->object_process_step = 15;
-    current_obj->drawing_flag = -2;
+    gpkgtCurrentEngineObject->iProcessStep = 15;
+    current_obj->iDrawFlag = -2;
     return;
   case 0x10:
-    PTR_POSS_CURRENT_OBJ->object_process_step = 0x11;
-    current_obj->drawing_flag = -4;
-    current_obj->param_3 = 0;
-    current_obj->param_4 = 0;
-    current_obj->obj_type = 1;
+    gpkgtCurrentEngineObject->iProcessStep = 0x11;
+    current_obj->iDrawFlag = -4;
+    current_obj->iParam3 = 0;
+    current_obj->iParam4 = 0;
+    current_obj->iObjectType = STORY?_ENGINE_OBJECT;
   case 0x11:
-    rand = current_obj->player_file_buffer + 1;
-    current_obj->player_file_buffer = rand;
+    rand = current_obj->iPlayerIdx + 1;
+    current_obj->iPlayerIdx = rand;
     if ((rand & 3) == 0) {
-      next_pbuffer = current_obj->color_red + current_obj->obj_type;
-      current_obj->color_red = next_pbuffer;
+      next_pbuffer = current_obj->iColorRed + current_obj->iObjectType;
+      current_obj->iColorRed = next_pbuffer;
       if ((0x1e < next_pbuffer) || (next_pbuffer < 0)) {
-        current_obj->obj_type = -current_obj->obj_type;
+        current_obj->iObjectType = -current_obj->iObjectType;
       }
     }
-    current_obj->color_blue = current_obj->color_red;
-    current_obj->color_green = current_obj->color_red;
+    current_obj->iColorBlue = current_obj->iColorRed;
+    current_obj->iColorGreen = current_obj->iColorRed;
     return;
   case 0x14:
-    PTR_POSS_CURRENT_OBJ->object_process_step = 0x15;
-    current_obj->drawing_flag = current_obj->param2_maybe_50_or_46;
+    gpkgtCurrentEngineObject->iProcessStep = 0x15;
+    current_obj->iDrawFlag = current_obj->iParam2;
   case 0x15:
     rand = _rand();
-    pOVar1 = PTR_POSS_CURRENT_OBJ;
+    pkVar1 = gpkgtCurrentEngineObject;
     current_obj->obj_ptr_b =
-         (OBJ_STRUCT *)((int)&current_obj->obj_ptr_b->jmp_idx + (rand & 1) & 0x3f);
+         (kgtEngineObject *)((int)&current_obj->obj_ptr_b->iJumpIdx + (rand & 1) & 0x3f);
     rand = _rand();
-    pOVar1->obj_ptr_a = (OBJ_STRUCT *)((int)&pOVar1->obj_ptr_a->jmp_idx + (rand & 1) & 0x3f);
+    pkVar1->obj_ptr_a = (kgtEngineObject *)((int)&pkVar1->obj_ptr_a->iJumpIdx + (rand & 1) & 0x3f);
     _rand();
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    PTR_POSS_CURRENT_OBJ->obj_ptr_b = (OBJ_STRUCT *)0x20;
-    current_obj->obj_ptr_a = (OBJ_STRUCT *)0x20;
+    current_obj = gpkgtCurrentEngineObject;
+    gpkgtCurrentEngineObject->obj_ptr_b = (kgtEngineObject *)0x20;
+    current_obj->obj_ptr_a = (kgtEngineObject *)0x20;
     current_obj->timer_mod_10 = 0x20;
     return;
   case 0x1e:
-    PTR_POSS_CURRENT_OBJ->object_process_step = 0x1f;
-    current_obj->drawing_flag = -10;
-    current_obj->obj_type = 1;
+    gpkgtCurrentEngineObject->iProcessStep = 0x1f;
+    current_obj->iDrawFlag = -10;
+    current_obj->iObjectType = STORY?_ENGINE_OBJECT;
   case 0x1f:
-    next_pbuffer = current_obj->player_file_buffer + current_obj->obj_type;
-    current_obj->player_file_buffer = next_pbuffer;
+    next_pbuffer = current_obj->iPlayerIdx + current_obj->iObjectType;
+    current_obj->iPlayerIdx = next_pbuffer;
     if ((next_pbuffer < 1) || (99 < next_pbuffer)) {
-      current_obj->obj_type = -current_obj->obj_type;
+      current_obj->iObjectType = -current_obj->iObjectType;
     }
   }
   return;
@@ -9066,7 +9212,7 @@ void draw_func_b(undefined4 *param_1,int param_2,short *param_3,int param_4,int 
         else {
           iVar19 = 0x1f;
         }
-        if (UINT_GAME_SCREEN_MODE_2 == 0) {
+        if (giGameScreenMode_2 == 0) {
           *param_3 = ((short)iVar6 * 0x20 + (short)iVar13) * 0x20 + (short)iVar19;
         }
         else {
@@ -9123,7 +9269,7 @@ void draw_func_b(undefined4 *param_1,int param_2,short *param_3,int param_4,int 
       return;
     case 1:
       iVar8 = param_4;
-      if (UINT_GAME_SCREEN_MODE_2 != 0) {
+      if (giGameScreenMode_2 != 0) {
         do {
           do {
             if ((&DAT_004d1a20)[*param_6] != 0) {
@@ -9159,7 +9305,7 @@ void draw_func_b(undefined4 *param_1,int param_2,short *param_3,int param_4,int 
       return;
     case 2:
       iVar8 = param_4;
-      if (UINT_GAME_SCREEN_MODE_2 != 0) {
+      if (giGameScreenMode_2 != 0) {
         param_6 = (byte *)param_5;
         do {
           param_5 = param_4;
@@ -9209,7 +9355,7 @@ void draw_func_b(undefined4 *param_1,int param_2,short *param_3,int param_4,int 
       } while (param_5 != 0);
       return;
     case 3:
-      if (UINT_GAME_SCREEN_MODE_2 != 0) {
+      if (giGameScreenMode_2 != 0) {
         param_10 = param_5;
         do {
           param_6 = (byte *)param_4;
@@ -9242,7 +9388,7 @@ void draw_func_b(undefined4 *param_1,int param_2,short *param_3,int param_4,int 
         return;
       }
       param_10 = param_5;
-      UINT_GAME_SCREEN_MODE_2 = 0;
+      giGameScreenMode_2 = 0;
       do {
         param_6 = (byte *)param_4;
         do {
@@ -9273,7 +9419,7 @@ void draw_func_b(undefined4 *param_1,int param_2,short *param_3,int param_4,int 
       } while (param_10 != 0);
       return;
     case 4:
-      if (UINT_GAME_SCREEN_MODE_2 != 0) {
+      if (giGameScreenMode_2 != 0) {
         local_8 = param_5;
         do {
           param_5 = param_4;
@@ -9299,7 +9445,7 @@ void draw_func_b(undefined4 *param_1,int param_2,short *param_3,int param_4,int 
         return;
       }
       local_8 = param_5;
-      UINT_GAME_SCREEN_MODE_2 = 0;
+      giGameScreenMode_2 = 0;
       do {
         param_5 = param_4;
         do {
@@ -9369,7 +9515,7 @@ void draw_func_a(int param_1,int param_2,uint param_3,int param_4,int param_5,ui
     param_4 = 0x1e0 - param_2;
   }
   if ((0 < param_4) && (0 < (int)param_3)) {
-    if (UINT_GAME_SCREEN_MODE_2 != 0) {
+    if (giGameScreenMode_2 != 0) {
       param_6 = (param_6 & 0xf) + (param_6 & 0xfffffff0) * 2;
     }
     iVar4 = 0x280 - param_3;
@@ -9392,7 +9538,7 @@ void draw_func_a(int param_1,int param_2,uint param_3,int param_4,int param_5,ui
     }
     else if (param_5 == 1) {
       uVar1 = (ushort)((int)param_6 >> 1);
-      if (UINT_GAME_SCREEN_MODE_2 != 0) {
+      if (giGameScreenMode_2 != 0) {
         uVar2 = param_3;
         do {
           do {
@@ -9509,11 +9655,42 @@ void FUN_0040c0a0(char *param_1,int param_2,undefined4 param_3,undefined4 param_
 
 
 
-void JUMPTABLE_JUMP_0040c130(void)
+// Object spawn order
+// 2,0,0,0
+// 17,127,0,0 (only if non-testing mode)
+// 12,0x7f,0,0 <-- Menu Traversal
+// - 4,0xc,0,0 (one for each skill of the demo, one of these will have 100 as the second argument)
+// for opening demo
+// - 4,0xc,0,0 (one for each skill of the demo, one of these will have 100 as the second argument)
+// for title demo
+// - 4,0x65,0,0 (action idx is title cursor)
+// 10,0x7f,0,0 <-- Character select screen
+// - 4,0xc,0,0 (one for each skill of the 1p or vs single demo, one of these will have 100 as the
+// second argument) for title demo
+// - 4,0x65,0,0 (action idx is 0x54) 
+// - 4,0x65,0,0 (action idx is 0x55) (only if mode is not 1p story) (1p/2p_vs_cursor_after_input
+// skills)
+// - 4,0x50, player1_cursor_x, player_cursor_y + 480 (both are cast as ints) (obj_type is 1,
+// player_file_buffer is 0, action_idx is [from player list] 0x32?)
+// 14,0x7f,0,0 <-- Setup/handle battle state
+// - 4, 0x50, 0x1860000, 0x3980000 (player_file_buffer is 0)
+// - 4, 0x50, 0x1860000, 0x3980000 (player_file_buffer is 1)
+// -- various stage scripts idc
+// - 15,0xf,0,0
+// -- 6,1,0,0 <-- update_timer_and_ui
+// -- 4,0x65,?,? action_idx is either victory_mark_on or off) (param_3 and param_4 are inputs from
+// the kgt skill block 0x4c)
+// -- 4,0x65,?,? action_idx is either 0x37 or 56 (decimal) (param_3 and param_4 are inputs from the
+// kgt skill block 0x4d)
+// - 3,1,0,0 (process step is 12) (this might be controlling the camera in some manner)
+// - 3,13,0,0 (process step is 14) (I am not sure this does anything at all, just sets obj's drawing
+// flag to -2?)
+// - 4,0x65,0,0 (action_idx is 32)
+
+void vJumptableJump(void)
 
 {
-  (*(code *)(&PTR_POSS_GAMESTATE_JUMPTABLE.PTR_POSS_GAMESTATE_JUMPTABLE)
-            [PTR_POSS_CURRENT_OBJ->jmp_idx])();
+  (*(code *)(&gpGamestateJumptable.vEmptyFunction)[gpkgtCurrentEngineObject->iJumpIdx])();
   return;
 }
 
@@ -9587,7 +9764,7 @@ void draw_func_c(int param_1,byte *param_2,int param_3,int param_4,int param_5,i
       param_4 = param_6 - *(int *)(param_1 + 4);
     }
     param_8 = param_7;
-    switch(*(undefined4 *)&PTR_POSS_CURRENT_OBJ->color_blendtype) {
+    switch(*(undefined4 *)&gpkgtCurrentEngineObject->iColorBlendtype) {
     case 0:
       iVar5 = param_6;
       pbVar13 = param_2;
@@ -9612,7 +9789,7 @@ void draw_func_c(int param_1,byte *param_2,int param_3,int param_4,int param_5,i
       iVar5 = param_6;
       pbVar13 = param_2;
       param_2 = (byte *)param_7;
-      if (UINT_GAME_SCREEN_MODE_2 == 0) {
+      if (giGameScreenMode_2 == 0) {
         do {
           do {
             uVar1 = *(ushort *)(param_3 + (uint)*pbVar13 * 2);
@@ -9651,7 +9828,7 @@ void draw_func_c(int param_1,byte *param_2,int param_3,int param_4,int param_5,i
       iVar5 = param_6;
       param_1 = param_7;
       param_2 = (byte *)param_7;
-      if (UINT_GAME_SCREEN_MODE_2 == 0) {
+      if (giGameScreenMode_2 == 0) {
         do {
           do {
             uVar1 = *(ushort *)(param_3 + (uint)*pbVar13 * 2);
@@ -9701,7 +9878,7 @@ void draw_func_c(int param_1,byte *param_2,int param_3,int param_4,int param_5,i
       } while (param_1 != 0);
       return;
     case 3:
-      if (UINT_GAME_SCREEN_MODE_2 == 0) {
+      if (giGameScreenMode_2 == 0) {
         do {
           param_1 = param_6;
           do {
@@ -9762,10 +9939,10 @@ void draw_func_c(int param_1,byte *param_2,int param_3,int param_4,int param_5,i
       } while (param_8 != 0);
       return;
     case 4:
-      uVar1 = *(ushort *)&PTR_POSS_CURRENT_OBJ->color_alpha;
+      uVar1 = *(ushort *)&gpkgtCurrentEngineObject->color_alpha;
       iVar5 = CONCAT22((short)((uint)iVar14 >> 0x10),uVar1);
       uVar15 = 0x20 - iVar5;
-      if (UINT_GAME_SCREEN_MODE_2 != 0) {
+      if (giGameScreenMode_2 != 0) {
         do {
           param_1 = param_6;
           do {
@@ -9823,17 +10000,17 @@ void FUN_0040c860(int param_1,undefined4 param_2,int param_3)
   int iVar1;
   
   if (param_1 != 0) {
-    iVar1 = PTR_POSS_CURRENT_OBJ->param_3;
+    iVar1 = gpkgtCurrentEngineObject->iParam3;
     if (param_3 == 0) {
       iVar1 = ((int)(iVar1 + (iVar1 >> 0x1f & 0xffffU)) >> 0x10) + (int)*(short *)(param_1 + 1);
     }
     else {
       iVar1 = ((int)(iVar1 + (iVar1 >> 0x1f & 0xffffU)) >> 0x10) - (int)*(short *)(param_1 + 1);
     }
-    draw_func_a((iVar1 - unk_y_position) - (int)*(short *)(param_1 + 5),
-                ((((int)(PTR_POSS_CURRENT_OBJ->param_4 +
-                        (PTR_POSS_CURRENT_OBJ->param_4 >> 0x1f & 0xffffU)) >> 0x10) +
-                 (int)*(short *)(param_1 + 3)) - unk_x_position) - (int)*(short *)(param_1 + 7),
+    draw_func_a((iVar1 - unk_x_position) - (int)*(short *)(param_1 + 5),
+                ((((int)(gpkgtCurrentEngineObject->iParam4 +
+                        (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10) +
+                 (int)*(short *)(param_1 + 3)) - unk_y_pos2) - (int)*(short *)(param_1 + 7),
                 *(short *)(param_1 + 5) * 2,*(short *)(param_1 + 7) * 2,1,param_2);
   }
   return;
@@ -9850,18 +10027,18 @@ void FUN_0040c900(int param_1,undefined4 param_2,int param_3)
   int iVar4;
   
   if (param_1 != 0) {
-    iVar2 = PTR_POSS_CURRENT_OBJ->param_3;
+    iVar2 = gpkgtCurrentEngineObject->iParam3;
     if (param_3 == 0) {
       iVar2 = ((int)(iVar2 + (iVar2 >> 0x1f & 0xffffU)) >> 0x10) + (int)*(short *)(param_1 + 1);
     }
     else {
       iVar2 = ((int)(iVar2 + (iVar2 >> 0x1f & 0xffffU)) >> 0x10) - (int)*(short *)(param_1 + 1);
     }
-    iVar4 = ((((int)(PTR_POSS_CURRENT_OBJ->param_4 +
-                    (PTR_POSS_CURRENT_OBJ->param_4 >> 0x1f & 0xffffU)) >> 0x10) +
-             (int)*(short *)(param_1 + 3)) - unk_x_position) - (int)*(short *)(param_1 + 7);
+    iVar4 = ((((int)(gpkgtCurrentEngineObject->iParam4 +
+                    (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10) +
+             (int)*(short *)(param_1 + 3)) - unk_y_pos2) - (int)*(short *)(param_1 + 7);
     iVar1 = *(short *)(param_1 + 7) * 2;
-    iVar3 = (iVar2 - unk_y_position) - (int)*(short *)(param_1 + 5);
+    iVar3 = (iVar2 - unk_x_position) - (int)*(short *)(param_1 + 5);
     iVar2 = *(short *)(param_1 + 5) * 2;
     draw_func_a(iVar3,iVar4,1,iVar1,1,param_2);
     draw_func_a(iVar3,iVar4,iVar2,1,1,param_2);
@@ -9873,45 +10050,52 @@ void FUN_0040c900(int param_1,undefined4 param_2,int param_3)
 
 
 
-void psuedo_rand(int *param_1)
+void vCalculateShake(int *seed)
 
 {
-  int iVar1;
-  int rand;
+  int iPicShake;
+  int shake;
   
-  if (param_1[3] == 0) {
+                    // giPicSwayX/YDuration
+  if (seed[3] == 0) {
     return;
   }
-  iVar1 = param_1[3] + -1;
-  param_1[3] = iVar1;
-  if (iVar1 == 0) {
-    param_1[1] = 0;
+  iPicShake = seed[3] + -1;
+  seed[3] = iPicShake;
+  if (iPicShake == 0) {
+                    // unknown int
+    seed[1] = 0;
     return;
   }
-  iVar1 = (iVar1 * 100) / param_1[4];
-  switch(*param_1) {
+  iPicShake = (iPicShake * 100) / seed[4];
+  switch(*seed) {
   case 1:
-    rand = (param_1[2] * iVar1) / 100;
+                    // Fade out shake
+    shake = (seed[2] * iPicShake) / 100;
     break;
   case 2:
-    rand = ((100 - iVar1) * param_1[2]) / 100;
+                    // Fade in shake
+    shake = ((100 - iPicShake) * seed[2]) / 100;
     break;
   case 3:
-    rand = param_1[2];
+                    // Fixed shake
+    shake = seed[2];
     break;
   case 4:
-    iVar1 = param_1[2];
-    if (iVar1 == 0) goto switchD_0040ca13_default;
-    rand = _rand();
-    rand = rand % iVar1;
+                    // Random
+    iPicShake = seed[2];
+                    // Above is giPicShakeX/Y
+    if (iPicShake == 0) goto switchD_0040ca13_default;
+    shake = _rand();
+    shake = shake % iPicShake;
     break;
   default:
     goto switchD_0040ca13_default;
   }
-  param_1[1] = rand;
+  seed[1] = shake;
 switchD_0040ca13_default:
-  if (((byte)INT_004456fc & 1) != 0) {
-    param_1[1] = -param_1[1];
+  if (((byte)giReverseShakeDirection & 1) != 0) {
+    seed[1] = -seed[1];
   }
   return;
 }
@@ -9922,12 +10106,12 @@ void FUN_0040ca90(int *param_1)
 
 {
   int iVar1;
-  OBJ_STRUCT *pOVar2;
+  kgtEngineObject *pkVar2;
   int iVar3;
   int rand;
   int iVar4;
   
-  pOVar2 = PTR_POSS_CURRENT_OBJ;
+  pkVar2 = gpkgtCurrentEngineObject;
   if (param_1[5] != 0) {
     iVar3 = (param_1[5] * 100) / param_1[10];
     iVar1 = *param_1;
@@ -9938,35 +10122,35 @@ void FUN_0040ca90(int *param_1)
           return;
         }
         rand = _rand();
-        pOVar2 = PTR_POSS_CURRENT_OBJ;
+        pkVar2 = gpkgtCurrentEngineObject;
         rand = rand % 100;
         iVar4 = 100 - rand;
         iVar1 = param_1[7];
-        PTR_POSS_CURRENT_OBJ->color_red = (param_1[1] * iVar4 + param_1[6] * rand) / 100;
+        gpkgtCurrentEngineObject->iColorRed = (param_1[1] * iVar4 + param_1[6] * rand) / 100;
         iVar3 = param_1[8];
-        pOVar2->color_green = (param_1[2] * iVar4 + iVar1 * rand) / 100;
-        pOVar2->color_blue = (param_1[3] * iVar4 + iVar3 * rand) / 100;
-        *(int *)&pOVar2->color_alpha = (param_1[4] * iVar4 + param_1[9] * rand) / 100;
+        pkVar2->iColorGreen = (param_1[2] * iVar4 + iVar1 * rand) / 100;
+        pkVar2->iColorBlue = (param_1[3] * iVar4 + iVar3 * rand) / 100;
+        *(int *)&pkVar2->color_alpha = (param_1[4] * iVar4 + param_1[9] * rand) / 100;
         return;
       }
-      if (((byte)INT_004456fc & 1) != 0) {
+      if (((byte)giReverseShakeDirection & 1) != 0) {
         iVar1 = param_1[7];
-        PTR_POSS_CURRENT_OBJ->color_red = param_1[6];
+        gpkgtCurrentEngineObject->iColorRed = param_1[6];
         iVar3 = param_1[8];
-        pOVar2->color_green = iVar1;
+        pkVar2->iColorGreen = iVar1;
         iVar1 = param_1[9];
-        pOVar2->color_blue = iVar3;
-        *(int *)&pOVar2->color_alpha = iVar1;
+        pkVar2->iColorBlue = iVar3;
+        *(int *)&pkVar2->color_alpha = iVar1;
         return;
       }
     }
     iVar1 = param_1[2];
-    PTR_POSS_CURRENT_OBJ->color_red = (param_1[1] * rand + param_1[6] * iVar3) / 100;
+    gpkgtCurrentEngineObject->iColorRed = (param_1[1] * rand + param_1[6] * iVar3) / 100;
     iVar4 = param_1[3];
-    pOVar2->color_green = (iVar1 * rand + param_1[7] * iVar3) / 100;
+    pkVar2->iColorGreen = (iVar1 * rand + param_1[7] * iVar3) / 100;
     iVar1 = param_1[4];
-    pOVar2->color_blue = (iVar4 * rand + param_1[8] * iVar3) / 100;
-    *(int *)&pOVar2->color_alpha = (iVar1 * rand + param_1[9] * iVar3) / 100;
+    pkVar2->iColorBlue = (iVar4 * rand + param_1[8] * iVar3) / 100;
+    *(int *)&pkVar2->color_alpha = (iVar1 * rand + param_1[9] * iVar3) / 100;
   }
   return;
 }
@@ -9976,34 +10160,34 @@ void FUN_0040ca90(int *param_1)
 void draw_func_d(void)
 
 {
-  KGT_IMG_HEADER *pKVar1;
+  kgtImageHeader *pkVar1;
   char cVar2;
   char cVar3;
   byte bVar4;
   ushort uVar5;
   ushort uVar6;
-  kgt_skill_step_struct *pkVar7;
+  kgtSkill *pkVar7;
   int iVar8;
-  kgt_pal_color kVar9;
+  kgtPallette kVar9;
   int iVar10;
   int iVar11;
   int iVar12;
   int iVar13;
   int iVar14;
-  kgt_skill_step_struct *pkVar15;
+  kgtSkill *pkVar15;
   UINT UVar16;
-  KGT_IMG_HEADER *pKVar17;
+  kgtImageHeader *pkVar17;
   uint uVar18;
   int iVar19;
-  kgt_pal_color *pkVar20;
+  kgtPallette *pkVar20;
   int rand;
   int iVar21;
-  undefined *puVar22;
+  int *piVar22;
   int iVar23;
   ushort *pDIB_bitmap;
   ushort *puVar24;
   uint uVar25;
-  OBJ_STRUCT *pOVar;
+  kgtEngineObject *pOVar;
   int iVar26;
   ushort *puVar27;
   int iVar28;
@@ -10017,20 +10201,20 @@ void draw_func_d(void)
   int iVar35;
   short *psVar36;
   bool bVar37;
-  kgt_pal_color *local_68;
+  kgtPallette *local_68;
   uint local_60;
-  kgt_mainKGT *local_58;
+  kgtSystem *local_58;
   uint local_48;
-  kgt_pal_color *local_44;
+  kgtPallette *local_44;
   int local_38;
   int local_34;
-  kgt_pal_color *local_24;
-  KGT_IMG_HEADER *local_18;
+  kgtPallette *local_24;
+  kgtImageHeader *local_18;
   int i;
   int draw_flag;
   
-  pOVar = PTR_POSS_CURRENT_OBJ;
-  draw_flag = PTR_POSS_CURRENT_OBJ->drawing_flag;
+  pOVar = gpkgtCurrentEngineObject;
+  draw_flag = gpkgtCurrentEngineObject->iDrawFlag;
   if (draw_flag != -1) {
     if (draw_flag < 1) {
       switch(draw_flag) {
@@ -10040,94 +10224,98 @@ void draw_func_d(void)
       default:
         return;
       case -8:
-        draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + -0x100,PTR_POSS_CURRENT_OBJ->param_4,
-                    0xc0,0x40,0x200,0x240,0,PTR_POSS_CURRENT_OBJ->color_red,
-                    PTR_POSS_CURRENT_OBJ->color_green,PTR_POSS_CURRENT_OBJ->color_blue);
+        draw_func_b(0x424f74,gpkgtCurrentEngineObject->iParam3 + -0x100,
+                    gpkgtCurrentEngineObject->iParam4,0xc0,0x40,0x200,0x240,0,
+                    gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                    gpkgtCurrentEngineObject->iColorBlue);
         return;
       case -7:
-        draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + -0xc0,PTR_POSS_CURRENT_OBJ->param_4,
-                    0x100,0x40,0,0x240,0,PTR_POSS_CURRENT_OBJ->color_red,
-                    PTR_POSS_CURRENT_OBJ->color_green,PTR_POSS_CURRENT_OBJ->color_blue);
-        if (GAME_STATE.poss_current_round_count / 10 != 0) {
-          draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + 0x40,PTR_POSS_CURRENT_OBJ->param_4,
-                      0x40,0x40,(GAME_STATE.poss_current_round_count / 10) * 0x40,0x200,0,
-                      PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
-                      PTR_POSS_CURRENT_OBJ->color_blue);
+        draw_func_b(0x424f74,gpkgtCurrentEngineObject->iParam3 + -0xc0,
+                    gpkgtCurrentEngineObject->iParam4,0x100,0x40,0,0x240,0,
+                    gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                    gpkgtCurrentEngineObject->iColorBlue);
+        if (gkgtGameState.iCurrentRound / 10 != 0) {
+          draw_func_b(0x424f74,gpkgtCurrentEngineObject->iParam3 + 0x40,
+                      gpkgtCurrentEngineObject->iParam4,0x40,0x40,
+                      (gkgtGameState.iCurrentRound / 10) * 0x40,0x200,0,
+                      gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                      gpkgtCurrentEngineObject->iColorBlue);
         }
-        draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + 0x80,PTR_POSS_CURRENT_OBJ->param_4,0x40
-                    ,0x40,GAME_STATE.poss_current_round_count % 10 << 6,0x200,0,
-                    PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
-                    PTR_POSS_CURRENT_OBJ->color_blue);
-        draw_func_b(0x424f74,PTR_POSS_CURRENT_OBJ->param_3 + -0x80,
-                    PTR_POSS_CURRENT_OBJ->param_4 + 0x40,0x100,0x5c,0x100,0x240,0,
-                    PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
-                    PTR_POSS_CURRENT_OBJ->color_blue);
+        draw_func_b(0x424f74,gpkgtCurrentEngineObject->iParam3 + 0x80,
+                    gpkgtCurrentEngineObject->iParam4,0x40,0x40,
+                    gkgtGameState.iCurrentRound % 10 << 6,0x200,0,
+                    gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                    gpkgtCurrentEngineObject->iColorBlue);
+        draw_func_b(0x424f74,gpkgtCurrentEngineObject->iParam3 + -0x80,
+                    gpkgtCurrentEngineObject->iParam4 + 0x40,0x100,0x5c,0x100,0x240,0,
+                    gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                    gpkgtCurrentEngineObject->iColorBlue);
         return;
       case -6:
-        FUN_0040bfb0(PTR_POSS_CURRENT_OBJ->player_file_buffer,
-                     PTR_POSS_CURRENT_OBJ->param_3 - unk_y_position,
-                     PTR_POSS_CURRENT_OBJ->param_4 - unk_x_position,4,
-                     PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
-                     PTR_POSS_CURRENT_OBJ->color_blue);
-        draw_func_b(0x424f74,(PTR_POSS_CURRENT_OBJ->param_3 - unk_y_position) + 0x20,
-                    PTR_POSS_CURRENT_OBJ->param_4 - unk_x_position,0x60,0x20,0,0x40,4,
-                    PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
-                    PTR_POSS_CURRENT_OBJ->color_blue);
+        FUN_0040bfb0(gpkgtCurrentEngineObject->iPlayerIdx,
+                     gpkgtCurrentEngineObject->iParam3 - unk_x_position,
+                     gpkgtCurrentEngineObject->iParam4 - unk_y_pos2,4,
+                     gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                     gpkgtCurrentEngineObject->iColorBlue);
+        draw_func_b(0x424f74,(gpkgtCurrentEngineObject->iParam3 - unk_x_position) + 0x20,
+                    gpkgtCurrentEngineObject->iParam4 - unk_y_pos2,0x60,0x20,0,0x40,4,
+                    gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                    gpkgtCurrentEngineObject->iColorBlue);
         return;
       case -5:
-        FUN_0040bed0(PTR_POSS_CURRENT_OBJ->player_file_buffer,PTR_POSS_CURRENT_OBJ->param_3,
-                     PTR_POSS_CURRENT_OBJ->param_4,0,PTR_POSS_CURRENT_OBJ->color_red,
-                     PTR_POSS_CURRENT_OBJ->color_green,PTR_POSS_CURRENT_OBJ->color_blue);
+        FUN_0040bed0(gpkgtCurrentEngineObject->iPlayerIdx,gpkgtCurrentEngineObject->iParam3,
+                     gpkgtCurrentEngineObject->iParam4,0,gpkgtCurrentEngineObject->iColorRed,
+                     gpkgtCurrentEngineObject->iColorGreen,gpkgtCurrentEngineObject->iColorBlue);
         return;
       case -4:
-        draw_func_b(0x424f74,(int)(PTR_POSS_CURRENT_OBJ->param_3 +
-                                  (PTR_POSS_CURRENT_OBJ->param_3 >> 0x1f & 0xffffU)) >> 0x10,
-                    (int)(PTR_POSS_CURRENT_OBJ->param_4 +
-                         (PTR_POSS_CURRENT_OBJ->param_4 >> 0x1f & 0xffffU)) >> 0x10,0x200,0x200,0,0,
-                    4,PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
-                    PTR_POSS_CURRENT_OBJ->color_blue);
+        draw_func_b(0x424f74,(int)(gpkgtCurrentEngineObject->iParam3 +
+                                  (gpkgtCurrentEngineObject->iParam3 >> 0x1f & 0xffffU)) >> 0x10,
+                    (int)(gpkgtCurrentEngineObject->iParam4 +
+                         (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10,0x200,0x200,
+                    0,0,4,gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                    gpkgtCurrentEngineObject->iColorBlue);
         return;
       case -3:
-        draw_func_b(0x424f74,(PTR_POSS_CURRENT_OBJ->param_3 - unk_y_position) + -0x40,
-                    (PTR_POSS_CURRENT_OBJ->param_4 - unk_x_position) + -0x40,0x80,0x80,
-                    ((int)(PTR_POSS_CURRENT_OBJ->player_file_buffer +
-                          (PTR_POSS_CURRENT_OBJ->player_file_buffer >> 0x1f & 7U)) >> 3) << 7,
-                    PTR_POSS_CURRENT_OBJ->obj_type << 7,
-                    PTR_POSS_CURRENT_OBJ->pos_player_direction * 0x40000000 + 2,
-                    PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
-                    PTR_POSS_CURRENT_OBJ->color_blue);
+        draw_func_b(0x424f74,(gpkgtCurrentEngineObject->iParam3 - unk_x_position) + -0x40,
+                    (gpkgtCurrentEngineObject->iParam4 - unk_y_pos2) + -0x40,0x80,0x80,
+                    ((int)(gpkgtCurrentEngineObject->iPlayerIdx +
+                          (gpkgtCurrentEngineObject->iPlayerIdx >> 0x1f & 7U)) >> 3) << 7,
+                    gpkgtCurrentEngineObject->iObjectType << 7,
+                    gpkgtCurrentEngineObject->iPlayerLookingRight * 0x40000000 + 2,
+                    gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                    gpkgtCurrentEngineObject->iColorBlue);
         return;
       case -2:
-        puVar32 = &OBJ_ARRAY[0].unk_bitmask;
+        puVar32 = &kgtEngineObjects[0].unk_bitmask;
         i = 0x400;
         do {
-          if (((ADJ(puVar32).jmp_idx == 4) && (ADJ(puVar32)->drawing_flag == -1)) &&
+          if (((ADJ(puVar32).iJumpIdx == READ_SCRIPT) && (ADJ(puVar32)->iDrawFlag == -1)) &&
              ((ADJ(puVar32)->unk_bitmask & 0x80000000U) != 0)) {
             draw_flag = ADJ(puVar32)->compare_to_param_4;
-            iVar23 = ADJ(puVar32)->param_4 - draw_flag;
+            iVar23 = ADJ(puVar32)->iParam4 - draw_flag;
             iVar23 = (int)(iVar23 + (iVar23 >> 0x1f & 0xfffffU)) >> 0x14;
-            pOVar->color_blue = iVar23;
-            pOVar->color_green = iVar23;
-            pOVar->color_red = iVar23;
-            draw_func_b(0x424f74,(((int)(ADJ(puVar32)->param_3 +
-                                        (ADJ(puVar32)->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
-                                 unk_y_position) + -0x38,
-                        (((int)(draw_flag + (draw_flag >> 0x1f & 0xffffU)) >> 0x10) - unk_x_position
-                        ) + -0x10,0x80,0x20,0,0x60,3,iVar23,pOVar->color_green,pOVar->color_blue);
-            pOVar = PTR_POSS_CURRENT_OBJ;
+            pOVar->iColorBlue = iVar23;
+            pOVar->iColorGreen = iVar23;
+            pOVar->iColorRed = iVar23;
+            draw_func_b(0x424f74,(((int)(ADJ(puVar32)->iParam3 +
+                                        (ADJ(puVar32)->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
+                                 unk_x_position) + -0x38,
+                        (((int)(draw_flag + (draw_flag >> 0x1f & 0xffffU)) >> 0x10) - unk_y_pos2) +
+                        -0x10,0x80,0x20,0,0x60,3,iVar23,pOVar->iColorGreen,pOVar->iColorBlue);
+            pOVar = gpkgtCurrentEngineObject;
           }
           puVar32 = (OBJ_STRUCT_ptr_40_undefined)((int)puVar32 + 0x17e);
           i = i + -1;
         } while (i != 0);
         return;
       }
-      for (draw_flag = PTR_POSS_CURRENT_OBJ->player_file_buffer / 0x14; draw_flag != 0;
+      for (draw_flag = gpkgtCurrentEngineObject->iPlayerIdx / 0x14; draw_flag != 0;
           draw_flag = draw_flag + -1) {
         puVar27 = pDIB_bitmap + 1;
         puVar30 = pDIB_bitmap + 0x280;
         puVar34 = pDIB_bitmap + 0x281;
         ppvBits_A = pDIB_bitmap;
-        if (UINT_GAME_SCREEN_MODE_2 == 0) {
+        if (giGameScreenMode_2 == 0) {
           i = 0x1de;
           do {
             iVar23 = 0x27e;
@@ -10173,79 +10361,78 @@ void draw_func_d(void)
       return;
     }
     iVar23 = draw_flag * 0x14;
-    if ((&UNK_STRUCT_A_00424f60.field0_0x0)[draw_flag * 5] == 0) {
+    if ((&UNK_DRAW_STRUCT_A.field0_0x0)[draw_flag * 5] == 0) {
       return;
     }
-    if (*(int *)(&UNK_STRUCT_A_00424f60.field_0x10 + iVar23) != 0) {
-      func_0x004140c0(DAT_Global_Alloc_Memory_00425a44,
-                      (&UNK_STRUCT_A_00424f60.field0_0x0)[draw_flag * 5],
-                      *(int *)(&UNK_STRUCT_A_00424f60.field_0x10 + iVar23));
+    if (*(int *)(&UNK_DRAW_STRUCT_A.field_0x10 + iVar23) != 0) {
+      func_0x004140c0(gpGlobalMemoryAlloc,(&UNK_DRAW_STRUCT_A.field0_0x0)[draw_flag * 5],
+                      *(int *)(&UNK_DRAW_STRUCT_A.field_0x10 + iVar23));
     }
-    draw_func_b(&UNK_STRUCT_A_00424f60.field0_0x0 + draw_flag * 5,
-                (int)(PTR_POSS_CURRENT_OBJ->param_3 +
-                     (PTR_POSS_CURRENT_OBJ->param_3 >> 0x1f & 0xffffU)) >> 0x10,
-                (int)(PTR_POSS_CURRENT_OBJ->param_4 +
-                     (PTR_POSS_CURRENT_OBJ->param_4 >> 0x1f & 0xffffU)) >> 0x10,
-                *(undefined4 *)(&UNK_STRUCT_A_00424f60.field_0x4 + iVar23),
-                *(undefined4 *)(&UNK_STRUCT_A_00424f60.field_0x8 + iVar23),0,0,
-                *(undefined4 *)&PTR_POSS_CURRENT_OBJ->color_blendtype,
-                PTR_POSS_CURRENT_OBJ->color_red,PTR_POSS_CURRENT_OBJ->color_green,
-                PTR_POSS_CURRENT_OBJ->color_blue);
+    draw_func_b(&UNK_DRAW_STRUCT_A.field0_0x0 + draw_flag * 5,
+                (int)(gpkgtCurrentEngineObject->iParam3 +
+                     (gpkgtCurrentEngineObject->iParam3 >> 0x1f & 0xffffU)) >> 0x10,
+                (int)(gpkgtCurrentEngineObject->iParam4 +
+                     (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10,
+                *(undefined4 *)(&UNK_DRAW_STRUCT_A.field_0x4 + iVar23),
+                *(undefined4 *)(&UNK_DRAW_STRUCT_A.field_0x8 + iVar23),0,0,
+                *(undefined4 *)&gpkgtCurrentEngineObject->iColorBlendtype,
+                gpkgtCurrentEngineObject->iColorRed,gpkgtCurrentEngineObject->iColorGreen,
+                gpkgtCurrentEngineObject->iColorBlue);
     return;
   }
-  switch(PTR_POSS_CURRENT_OBJ->obj_type) {
-  case 0:
-  case 1:
-  case player_file:
-    local_58 = (kgt_mainKGT *)(PLAYER_KGT_BUFFER + PTR_POSS_CURRENT_OBJ->player_file_buffer);
+  switch(gpkgtCurrentEngineObject->iObjectType) {
+  case PLAYER_ENGINE_OBJECT:
+  case STORY?_ENGINE_OBJECT:
+  case CHARACTER_ENGINE_OBJECT:
+    local_58 = (kgtSystem *)(gkgtLoadedCharacter + gpkgtCurrentEngineObject->iPlayerIdx);
     break;
-  case main_kgt_file:
-    local_58 = &DAT_KGT_FILE_BUFFER_00433240;
+  case SYSTEM_ENGINE_OBJECT:
+    local_58 = &gkgtKgtSystem;
     break;
-  case demo_file:
-    local_58 = (kgt_mainKGT *)&UNK_DEMO_FILE_BUFFER_00425a60;
+  case DEMO_ENGINE_OBJECT:
+    local_58 = (kgtSystem *)&gkgtLoadedDemo;
     break;
-  case stage_file:
-    local_58 = (kgt_mainKGT *)&UNK_STAGE_FILES_00445740;
+  case STAGE_ENGINE_OBJECT:
+    local_58 = (kgtSystem *)&gkgtLoadedStage;
   }
-  draw_flag = *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx;
-  pkVar7 = (local_58->kgt_core).p_actionscripts_alloc;
-  pKVar1 = (local_58->kgt_core).p_img_headers_alloc +
+  draw_flag = *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx;
+  pkVar7 = (local_58->kgtCore).pSkillScriptsAlloc;
+  pkVar1 = (local_58->kgtCore).p_img_headers_alloc +
            (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0x1fff);
-  if (pKVar1->p_img_alloc == (void *)0x0) {
+  if (pkVar1->pAlloc == (int *)0x0) {
     return;
   }
-  iVar23 = pKVar1->height;
-  iVar8 = pKVar1->width;
+  iVar23 = pkVar1->iHeight;
+  iVar8 = pkVar1->iWidth;
   local_60 = (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0x4000) >> 0xe;
-  if ((int)PTR_POSS_CURRENT_OBJ->obj_type < 2) {
+  if ((int)gpkgtCurrentEngineObject->iObjectType < 2) {
     if (*(int *)(local_58->empty_e + 0xbaf) < 0) {
-      local_44 = (local_58->kgt_core).pallette_1;
+      local_44 = (local_58->kgtCore).pallette_1;
     }
     else {
-      local_44 = (local_58->kgt_core).pallette_1 + *(int *)(local_58->empty_e + 0xbaf) * 0x108;
+      local_44 = (local_58->kgtCore).pallette_1 + *(int *)(local_58->empty_e + 0xbaf) * 0x108;
     }
   }
   else {
-    local_44 = (local_58->kgt_core).pallette_1;
+    local_44 = (local_58->kgtCore).pallette_1;
   }
-  if (PTR_POSS_CURRENT_OBJ->_x650_index != 0) {
-    uVar18 = (uint)(byte)PTR_POSS_CURRENT_OBJ->_x650_index;
+  if (gpkgtCurrentEngineObject->_x650_index != 0) {
+    uVar18 = (uint)(byte)gpkgtCurrentEngineObject->_x650_index;
     iVar35 = uVar18 * 0x650;
-    if (*(char *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37]
-                 + 4) != '\0') {
-      iVar33 = *(int *)&PTR_POSS_CURRENT_OBJ->color_blendtype;
-      kVar9 = UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37];
-      *(uint *)&PTR_POSS_CURRENT_OBJ->color_blendtype = (uint)*(byte *)((int)kVar9 + 5);
-      iVar29 = pOVar->color_red;
-      iVar26 = pOVar->color_green;
-      iVar10 = pOVar->color_blue;
+    if (*(char *)((int)gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37] + 4) !=
+        '\0') {
+      iVar33 = *(int *)&gpkgtCurrentEngineObject->iColorBlendtype;
+      kVar9 = gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37];
+      *(uint *)&gpkgtCurrentEngineObject->iColorBlendtype = (uint)*(byte *)((int)kVar9 + 5);
+      iVar29 = pOVar->iColorRed;
+      iVar26 = pOVar->iColorGreen;
+      iVar10 = pOVar->iColorBlue;
       iVar11 = *(int *)&pOVar->color_alpha;
       uVar25 = (uint)*(byte *)((int)kVar9 + 3);
-      local_18 = (KGT_IMG_HEADER *)0x0;
+      local_18 = (kgtImageHeader *)0x0;
       local_34 = 0;
-      iVar19 = ((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x36] -
-               uVar25) + 100;
+      iVar19 = ((int)gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x36] - uVar25)
+               + 100;
       iVar31 = iVar33;
       if (uVar25 != 0) {
         do {
@@ -10253,26 +10440,26 @@ void draw_func_d(void)
           iVar12 = *(int *)(iVar19 * 0x10 + 0x44794c + iVar35);
           iVar32 = iVar19 * 0x10 + 0x447930 + iVar35;
           local_48 = *(uint *)(iVar32 + 0x18) & 3;
-          pKVar17 = local_18;
+          pkVar17 = local_18;
           if (iVar12 == 0) goto LAB_0040d4a6;
           uVar5 = *(ushort *)(iVar12 + 3);
-          pKVar17 = (local_58->kgt_core).p_img_headers_alloc + (uVar5 & 0x1fff);
-          local_68 = pKVar17->p_img_alloc;
-          if (local_68 == (kgt_pal_color *)0x0) goto LAB_0040d4a6;
-          iVar13 = pKVar17->height;
-          iVar14 = pKVar17->width;
-          if (pKVar17->size_bytes == 0) {
+          pkVar17 = (local_58->kgtCore).p_img_headers_alloc + (uVar5 & 0x1fff);
+          local_68 = (kgtPallette *)pkVar17->pAlloc;
+          if (local_68 == (kgtPallette *)0x0) goto LAB_0040d4a6;
+          iVar13 = pkVar17->iHeight;
+          iVar14 = pkVar17->iWidth;
+          if (pkVar17->iSize == 0) {
             pkVar20 = local_68;
-            if ((pKVar17->add_1024_flag & 1) != 0) goto LAB_0040ce6d;
+            if ((pkVar17->unk & 1) != 0) goto LAB_0040ce6d;
           }
           else {
-            if (pKVar17 != local_18) {
-              func_0x004140c0(DAT_Global_Alloc_Memory_00425a44,local_68,pKVar17->size_bytes);
-              pOVar = PTR_POSS_CURRENT_OBJ;
+            if (pkVar17 != local_18) {
+              func_0x004140c0(gpGlobalMemoryAlloc,local_68,pkVar17->iSize);
+              pOVar = gpkgtCurrentEngineObject;
             }
-            pkVar20 = DAT_Global_Alloc_Memory_00425a44;
-            if ((pKVar17->add_1024_flag & 1) == 0) {
-              local_68 = DAT_Global_Alloc_Memory_00425a44;
+            pkVar20 = gpGlobalMemoryAlloc;
+            if ((pkVar17->unk & 1) == 0) {
+              local_68 = gpGlobalMemoryAlloc;
             }
             else {
 LAB_0040ce6d:
@@ -10280,48 +10467,48 @@ LAB_0040ce6d:
               local_44 = pkVar20;
             }
           }
-          kVar9 = UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37];
+          kVar9 = gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37];
           switch(*(undefined1 *)((int)kVar9 + 6)) {
           case 0:
-            pOVar->color_red = iVar29;
-            pOVar->color_green = iVar26;
-            pOVar->color_blue = iVar10;
+            pOVar->iColorRed = iVar29;
+            pOVar->iColorGreen = iVar26;
+            pOVar->iColorBlue = iVar10;
             iVar21 = iVar11;
             break;
           case 2:
 switchD_0040ce8e_caseD_2:
             iVar21 = (int)(((uint)*(byte *)((int)kVar9 + 4) * local_34 +
-                           (int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes
-                                [uVar18 * 0x194 + 0x38]) * 100) /
+                           (int)gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x38]
+                           ) * 100) /
                      (int)((uint)*(byte *)((int)kVar9 + 3) * (uint)*(byte *)((int)kVar9 + 4));
             rand = 100 - iVar21;
             cVar2 = *(char *)((int)kVar9 + 8);
-            pOVar->color_red = (*(char *)((int)kVar9 + 7) * rand + iVar21 * iVar29) / 100;
+            pOVar->iColorRed = (*(char *)((int)kVar9 + 7) * rand + iVar21 * iVar29) / 100;
             cVar3 = *(char *)((int)kVar9 + 9);
-            pOVar->color_green = (cVar2 * rand + iVar21 * iVar26) / 100;
-            pOVar->color_blue = (cVar3 * rand + iVar21 * iVar10) / 100;
+            pOVar->iColorGreen = (cVar2 * rand + iVar21 * iVar26) / 100;
+            pOVar->iColorBlue = (cVar3 * rand + iVar21 * iVar10) / 100;
             rand = *(char *)((int)kVar9 + 10) * rand;
             goto LAB_0040d031;
           case 3:
-            if (((byte)INT_004456fc & 1) == 0) goto switchD_0040ce8e_caseD_2;
+            if (((byte)giReverseShakeDirection & 1) == 0) goto switchD_0040ce8e_caseD_2;
           case 1:
             cVar2 = *(char *)((int)kVar9 + 8);
-            pOVar->color_red = (int)*(char *)((int)kVar9 + 7);
-            pOVar->color_green = (int)cVar2;
+            pOVar->iColorRed = (int)*(char *)((int)kVar9 + 7);
+            pOVar->iColorGreen = (int)cVar2;
             cVar2 = *(char *)((int)kVar9 + 10);
-            pOVar->color_blue = (int)*(char *)((int)kVar9 + 9);
+            pOVar->iColorBlue = (int)*(char *)((int)kVar9 + 9);
             iVar21 = (int)cVar2;
             break;
           case 4:
             rand = _rand();
-            pOVar = PTR_POSS_CURRENT_OBJ;
+            pOVar = gpkgtCurrentEngineObject;
             rand = rand % 100;
             iVar21 = 100 - rand;
-            kVar9 = UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37];
-            PTR_POSS_CURRENT_OBJ->color_red =
+            kVar9 = gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar18 * 0x194 + 0x37];
+            gpkgtCurrentEngineObject->iColorRed =
                  (*(char *)((int)kVar9 + 7) * rand + iVar21 * iVar29) / 100;
-            pOVar->color_green = (*(char *)((int)kVar9 + 8) * rand + iVar21 * iVar26) / 100;
-            pOVar->color_blue = (*(char *)((int)kVar9 + 9) * rand + iVar21 * iVar10) / 100;
+            pOVar->iColorGreen = (*(char *)((int)kVar9 + 8) * rand + iVar21 * iVar26) / 100;
+            pOVar->iColorBlue = (*(char *)((int)kVar9 + 9) * rand + iVar21 * iVar10) / 100;
             rand = *(char *)((int)kVar9 + 10) * rand;
 LAB_0040d031:
             iVar21 = (rand + iVar21 * iVar11) / 100;
@@ -10332,7 +10519,7 @@ LAB_0040d031:
           *(int *)&pOVar->color_alpha = iVar21;
 switchD_0040ce8e_default:
           psVar36 = &DAT_004d1a20;
-          local_18 = (KGT_IMG_HEADER *)0x100;
+          local_18 = (kgtImageHeader *)0x100;
           pkVar20 = local_44;
           do {
             kVar9 = *pkVar20;
@@ -10340,7 +10527,7 @@ switchD_0040ce8e_default:
               *psVar36 = 0;
             }
             else {
-              iVar21 = (((uint)kVar9 >> 0x10 & 0xff) >> 3) + pOVar->color_red;
+              iVar21 = (((uint)kVar9 >> 0x10 & 0xff) >> 3) + pOVar->iColorRed;
               if (iVar21 < 0x20) {
                 if (iVar21 < 0) {
                   iVar21 = 0;
@@ -10349,7 +10536,7 @@ switchD_0040ce8e_default:
               else {
                 iVar21 = 0x1f;
               }
-              rand = (((uint)kVar9 >> 8 & 0xff) >> 3) + pOVar->color_green;
+              rand = (((uint)kVar9 >> 8 & 0xff) >> 3) + pOVar->iColorGreen;
               if (rand < 0x20) {
                 if (rand < 0) {
                   rand = 0;
@@ -10358,7 +10545,7 @@ switchD_0040ce8e_default:
               else {
                 rand = 0x1f;
               }
-              iVar28 = (uint)((byte)pkVar20->b >> 3) + pOVar->color_blue;
+              iVar28 = (uint)((byte)pkVar20->b >> 3) + pOVar->iColorBlue;
               if (iVar28 < 0x20) {
                 if (iVar28 < 0) {
                   iVar28 = 0;
@@ -10370,7 +10557,7 @@ switchD_0040ce8e_default:
               if (iVar28 + rand + iVar21 == 0) {
                 iVar28 = 1;
               }
-              if (UINT_GAME_SCREEN_MODE_2 == 0) {
+              if (giGameScreenMode_2 == 0) {
                 *psVar36 = ((short)iVar21 * 0x20 + (short)rand) * 0x20 + (short)iVar28;
               }
               else {
@@ -10379,33 +10566,33 @@ switchD_0040ce8e_default:
             }
             psVar36 = psVar36 + 1;
             pkVar20 = pkVar20 + 1;
-            local_18 = (KGT_IMG_HEADER *)((int)local_18 + -1);
-          } while (local_18 != (KGT_IMG_HEADER *)0x0);
-          switch(pOVar->obj_type) {
-          case 0:
-          case 1:
-          case player_file:
+            local_18 = (kgtImageHeader *)((int)local_18 + -1);
+          } while (local_18 != (kgtImageHeader *)0x0);
+          switch(pOVar->iObjectType) {
+          case PLAYER_ENGINE_OBJECT:
+          case STORY?_ENGINE_OBJECT:
+          case CHARACTER_ENGINE_OBJECT:
             if ((*(byte *)(iVar32 + 0x18) & 4) == 0) {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = (((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) -
-                       ((uint)pKVar17->height >> 1)) + (int)*(short *)(iVar12 + 5);
+                       ((uint)pkVar17->iHeight >> 1)) + (int)*(short *)(iVar12 + 5);
             }
             else {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = ((((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) -
-                        (int)*(short *)(iVar12 + 5)) + ((uint)pKVar17->height >> 1)) -
-                       pKVar17->height;
+                        (int)*(short *)(iVar12 + 5)) + ((uint)pkVar17->iHeight >> 1)) -
+                       pkVar17->iHeight;
               local_48 = local_48 ^ 1;
             }
             iVar32 = ((int)*(short *)(iVar12 + 7) +
                      ((int)(*(int *)(iVar32 + 0x14) + (*(int *)(iVar32 + 0x14) >> 0x1f & 0xffffU))
-                     >> 0x10)) - pKVar17->width;
+                     >> 0x10)) - pkVar17->iWidth;
             if ((pOVar->unk_bitmask & 0x40000000U) == 0) goto LAB_0040d43d;
-            iVar31 = (iVar31 - unk_y_position) + UNK_STAGE_FILES_00445740.field1046_0x266d;
-            local_38 = (iVar32 - unk_x_position) + UNK_STAGE_FILES_00445740.field1051_0x2681;
+            iVar31 = (iVar31 - unk_x_position) + giShakeX;
+            local_38 = (iVar32 - unk_y_pos2) + giShakeY;
             break;
-          case main_kgt_file:
-          case demo_file:
+          case SYSTEM_ENGINE_OBJECT:
+          case DEMO_ENGINE_OBJECT:
             if ((*(byte *)(iVar32 + 0x18) & 4) == 0) {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = ((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) +
@@ -10414,20 +10601,20 @@ switchD_0040ce8e_default:
             else {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = (((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) -
-                       (int)*(short *)(iVar12 + 5)) - pKVar17->height;
+                       (int)*(short *)(iVar12 + 5)) - pkVar17->iHeight;
               local_48 = local_48 ^ 1;
             }
             iVar32 = ((int)(*(int *)(iVar32 + 0x14) + (*(int *)(iVar32 + 0x14) >> 0x1f & 0xffffU))
                      >> 0x10) + (int)*(short *)(iVar12 + 7);
             if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
-              iVar31 = iVar31 - unk_y_position;
-              iVar32 = iVar32 - unk_x_position;
+              iVar31 = iVar31 - unk_x_position;
+              iVar32 = iVar32 - unk_y_pos2;
             }
 LAB_0040d43d:
-            iVar31 = iVar31 + UNK_STAGE_FILES_00445740.field1046_0x266d;
-            local_38 = iVar32 + UNK_STAGE_FILES_00445740.field1051_0x2681;
+            iVar31 = iVar31 + giShakeX;
+            local_38 = iVar32 + giShakeY;
             break;
-          case stage_file:
+          case STAGE_ENGINE_OBJECT:
             if ((*(byte *)(iVar32 + 0x18) & 4) == 0) {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = ((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) +
@@ -10436,33 +10623,33 @@ LAB_0040d43d:
             else {
               iVar31 = *(int *)((iVar19 + 1) * 0x10 + 0x447930 + iVar35);
               iVar31 = (((int)(iVar31 + (iVar31 >> 0x1f & 0xffffU)) >> 0x10) -
-                       (int)*(short *)(iVar12 + 5)) - pKVar17->height;
+                       (int)*(short *)(iVar12 + 5)) - pkVar17->iHeight;
               local_48 = local_48 ^ 1;
             }
             iVar32 = ((int)(*(int *)(iVar32 + 0x14) + (*(int *)(iVar32 + 0x14) >> 0x1f & 0xffffU))
                      >> 0x10) + (int)*(short *)(iVar12 + 7);
             if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
-              iVar31 = iVar31 - unk_y_position;
-              iVar32 = iVar32 - unk_x_position;
+              iVar31 = iVar31 - unk_x_position;
+              iVar32 = iVar32 - unk_y_pos2;
             }
-            iVar31 = iVar31 + UNK_STAGE_FILES_00445740.field1046_0x266d;
-            iVar12 = pOVar->stage_skillscript_idx;
-            local_38 = iVar32 + UNK_STAGE_FILES_00445740.field1051_0x2681;
-            pkVar15 = (local_58->kgt_core).p_actionscripts_alloc;
+            iVar31 = iVar31 + giShakeX;
+            iVar12 = pOVar->iStageSkillstepIdx;
+            local_38 = iVar32 + giShakeY;
+            pkVar15 = (local_58->kgtCore).pSkillScriptsAlloc;
             if ((pkVar15[iVar12].field_0x1 & 8) != 0) {
-              uVar25 = (uint)*(short *)&pkVar15[iVar12]._2;
-              iVar32 = (int)((ulonglong)((longlong)(int)(uVar25 * unk_y_position) * -0x51eb851f) >>
+              uVar25 = (uint)*(short *)&pkVar15[iVar12].field_0x2;
+              iVar32 = (int)((ulonglong)((longlong)(int)(uVar25 * unk_x_position) * -0x51eb851f) >>
                             0x20);
               iVar31 = iVar31 + ((iVar32 >> 5) - (iVar32 >> 0x1f));
-              if (*(short *)&pkVar15[iVar12]._2 < 0) {
+              if (*(short *)&pkVar15[iVar12].field_0x2 < 0) {
                 iVar31 = iVar31 + (int)(((uVar25 ^ (int)uVar25 >> 0x1f) - ((int)uVar25 >> 0x1f)) *
                                        -0x40) / 10;
               }
             }
             if ((pkVar15[iVar12].field_0x1 & 0x10) != 0) {
               uVar25 = (uint)*(short *)&pkVar15[iVar12].field_0x4;
-              iVar32 = (int)((ulonglong)((longlong)(int)(uVar25 * unk_x_position) * -0x51eb851f) >>
-                            0x20);
+              iVar32 = (int)((ulonglong)((longlong)(int)(uVar25 * unk_y_pos2) * -0x51eb851f) >> 0x20
+                            );
               local_38 = local_38 + ((iVar32 >> 5) - (iVar32 >> 0x1f));
               if (*(short *)&pkVar15[iVar12].field_0x4 < 0) {
                 local_38 = local_38 +
@@ -10471,70 +10658,70 @@ LAB_0040d43d:
               }
             }
           }
-          draw_func_c(pKVar17,local_68,&DAT_004d1a20,iVar31,local_38,iVar13,iVar14,
+          draw_func_c(pkVar17,local_68,&DAT_004d1a20,iVar31,local_38,iVar13,iVar14,
                       (uVar5 & 0xc000) + local_48);
-          pOVar = PTR_POSS_CURRENT_OBJ;
+          pOVar = gpkgtCurrentEngineObject;
 LAB_0040d4a6:
-          local_18 = pKVar17;
+          local_18 = pkVar17;
           local_34 = local_34 + 1;
           iVar19 = iVar19 + 1;
         } while (local_34 <
-                 (int)(uint)*(byte *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes
+                 (int)(uint)*(byte *)((int)gkgtLoadedStage.kgt_core.pallette_extra_bytes
                                            [uVar18 * 0x194 + 0x37] + 3));
       }
-      *(int *)&pOVar->color_blendtype = iVar33;
-      pOVar->color_red = iVar29;
-      pOVar->color_green = iVar26;
-      pOVar->color_blue = iVar10;
+      *(int *)&pOVar->iColorBlendtype = iVar33;
+      pOVar->iColorRed = iVar29;
+      pOVar->iColorGreen = iVar26;
+      pOVar->iColorBlue = iVar10;
       *(int *)&pOVar->color_alpha = iVar11;
     }
   }
   local_24 = local_44;
-  if (pKVar1->size_bytes == 0) {
-    pkVar20 = pKVar1->p_img_alloc;
+  if (pkVar1->iSize == 0) {
+    pkVar20 = (kgtPallette *)pkVar1->pAlloc;
     local_68 = pkVar20;
-    if ((pKVar1->add_1024_flag & 1) != 0) {
+    if ((pkVar1->unk & 1) != 0) {
       local_68 = pkVar20 + 0x100;
       local_24 = pkVar20;
     }
   }
   else {
-    func_0x004140c0(DAT_Global_Alloc_Memory_00425a44,pKVar1->p_img_alloc,pKVar1->size_bytes);
-    pOVar = PTR_POSS_CURRENT_OBJ;
-    if ((pKVar1->add_1024_flag & 1) == 0) {
-      local_68 = DAT_Global_Alloc_Memory_00425a44;
+    func_0x004140c0(gpGlobalMemoryAlloc,pkVar1->pAlloc,pkVar1->iSize);
+    pOVar = gpkgtCurrentEngineObject;
+    if ((pkVar1->unk & 1) == 0) {
+      local_68 = gpGlobalMemoryAlloc;
     }
     else {
-      local_24 = DAT_Global_Alloc_Memory_00425a44;
-      local_68 = DAT_Global_Alloc_Memory_00425a44 + 0x100;
+      local_24 = gpGlobalMemoryAlloc;
+      local_68 = gpGlobalMemoryAlloc + 0x100;
     }
   }
-  switch(pOVar->obj_type) {
-  case 0:
-  case 1:
-  case player_file:
-    puVar22 = (undefined *)(pOVar->player_file_buffer * 0xe03f + 0x4dfd93);
+  switch(pOVar->iObjectType) {
+  case PLAYER_ENGINE_OBJECT:
+  case STORY?_ENGINE_OBJECT:
+  case CHARACTER_ENGINE_OBJECT:
+    piVar22 = (int *)(pOVar->iPlayerIdx * 0xe03f + 0x4dfd93);
     break;
-  case main_kgt_file:
-    puVar22 = &system_flash;
+  case SYSTEM_ENGINE_OBJECT:
+    piVar22 = (int *)&system_flash;
     break;
   default:
     goto switchD_0040d56f_caseD_3;
-  case stage_file:
-    puVar22 = (undefined *)0x447d7d;
+  case STAGE_ENGINE_OBJECT:
+    piVar22 = &giPalletteFlash;
   }
-  FUN_0040ca90(puVar22);
-  pOVar = PTR_POSS_CURRENT_OBJ;
+  FUN_0040ca90(piVar22);
+  pOVar = gpkgtCurrentEngineObject;
 switchD_0040d56f_caseD_3:
   psVar36 = &DAT_004d1a20;
-  local_18 = (KGT_IMG_HEADER *)0x100;
+  local_18 = (kgtImageHeader *)0x100;
   do {
     kVar9 = *local_24;
     if (((uint)kVar9 & 0xffffff) == 0) {
       *psVar36 = 0;
     }
     else {
-      iVar35 = (((uint)kVar9 >> 0x10 & 0xff) >> 3) + pOVar->color_red;
+      iVar35 = (((uint)kVar9 >> 0x10 & 0xff) >> 3) + pOVar->iColorRed;
       if (iVar35 < 0x20) {
         if (iVar35 < 0) {
           iVar35 = 0;
@@ -10543,7 +10730,7 @@ switchD_0040d56f_caseD_3:
       else {
         iVar35 = 0x1f;
       }
-      iVar19 = (((uint)kVar9 >> 8 & 0xff) >> 3) + pOVar->color_green;
+      iVar19 = (((uint)kVar9 >> 8 & 0xff) >> 3) + pOVar->iColorGreen;
       if (iVar19 < 0x20) {
         if (iVar19 < 0) {
           iVar19 = 0;
@@ -10552,7 +10739,7 @@ switchD_0040d56f_caseD_3:
       else {
         iVar19 = 0x1f;
       }
-      iVar33 = (uint)((byte)local_24->b >> 3) + pOVar->color_blue;
+      iVar33 = (uint)((byte)local_24->b >> 3) + pOVar->iColorBlue;
       if (iVar33 < 0x20) {
         if (iVar33 < 0) {
           iVar33 = 0;
@@ -10564,164 +10751,163 @@ switchD_0040d56f_caseD_3:
       if (iVar33 + iVar19 + iVar35 == 0) {
         iVar33 = 1;
       }
-      if (UINT_GAME_SCREEN_MODE_2 == 0) {
+      if (giGameScreenMode_2 == 0) {
         *psVar36 = ((short)iVar35 * 0x20 + (short)iVar19) * 0x20 + (short)iVar33;
       }
       else {
         *psVar36 = ((short)iVar35 * 0x20 + (short)iVar19) * 0x40 + (short)iVar33;
       }
     }
-    UVar16 = UINT_TESTPLAY_HITJUDGE_2_0042470c;
+    UVar16 = giConfigTestplayHitjudge_2;
     psVar36 = psVar36 + 1;
     local_24 = local_24 + 1;
-    local_18 = (KGT_IMG_HEADER *)((int)local_18 + -1);
-  } while (local_18 != (KGT_IMG_HEADER *)0x0);
+    local_18 = (kgtImageHeader *)((int)local_18 + -1);
+  } while (local_18 != (kgtImageHeader *)0x0);
   iVar35 = iVar23;
-  switch(pOVar->obj_type) {
-  case 0:
-  case 1:
-  case player_file:
-    if (*(int *)&pOVar->time_method_number_in_frames != -1) {
-      if ((pOVar->pos_player_direction == 0) || ((pkVar7[draw_flag + -1].field_0x9 & 1) != 0)) {
-        iVar35 = ((int)*(short *)&pkVar7[draw_flag + -1].field_0x5 - ((uint)pKVar1->height >> 1)) +
-                 ((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10);
+  switch(pOVar->iObjectType) {
+  case PLAYER_ENGINE_OBJECT:
+  case STORY?_ENGINE_OBJECT:
+  case CHARACTER_ENGINE_OBJECT:
+    if (*(int *)&pOVar->iOpponentDowntimeInFrames != -1) {
+      if ((pOVar->iPlayerLookingRight == 0) || ((pkVar7[draw_flag + -1].field_0x9 & 1) != 0)) {
+        iVar35 = ((int)*(short *)&pkVar7[draw_flag + -1].field_0x5 - ((uint)pkVar1->iHeight >> 1)) +
+                 ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10);
       }
       else {
-        iVar35 = ((((uint)pKVar1->height >> 1) - (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) +
-                 ((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10)) -
-                 pKVar1->height;
+        iVar35 = ((((uint)pkVar1->iHeight >> 1) - (int)*(short *)&pkVar7[draw_flag + -1].field_0x5)
+                 + ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10)) -
+                 pkVar1->iHeight;
         local_60 = local_60 ^ 1;
       }
       iVar19 = ((int)*(short *)&pkVar7[draw_flag + -1].field_0x7 +
-               ((int)(pOVar->param_4 + (pOVar->param_4 >> 0x1f & 0xffffU)) >> 0x10)) - pKVar1->width
-      ;
+               ((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10)) -
+               pkVar1->iWidth;
       if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
-        iVar35 = iVar35 - (UNK_STAGE_FILES_00445740.field1046_0x266d + unk_y_position);
-        iVar19 = iVar19 - (UNK_STAGE_FILES_00445740.field1051_0x2681 + unk_x_position);
+        iVar35 = iVar35 - (giShakeX + unk_x_position);
+        iVar19 = iVar19 - (giShakeY + unk_y_pos2);
       }
-      if (UINT_TESTPLAY_HITJUDGE_2_0042470c != 0) {
+      if (giConfigTestplayHitjudge_2 != 0) {
         iVar33 = 0x4c;
         do {
           FUN_0040c860(*(undefined4 *)((int)pOVar->hitbox_guard_array + iVar33),
                        PTR_SecondLinkerMember_16_29_000003e4_string_4__8_0041eda4,local_60);
           bVar37 = iVar33 != 0;
-          pOVar = PTR_POSS_CURRENT_OBJ;
+          pOVar = gpkgtCurrentEngineObject;
           iVar33 = iVar33 + -4;
         } while (bVar37);
         iVar33 = 0x4c;
         do {
-          FUN_0040c860(*(undefined4 *)((int)PTR_POSS_CURRENT_OBJ->hitbox_attack_array + iVar33),
+          FUN_0040c860(*(undefined4 *)((int)gpkgtCurrentEngineObject->kgtHitboxAttacks + iVar33),
                        DAT_0041eda0,local_60);
           bVar37 = iVar33 != 0;
           iVar33 = iVar33 + -4;
         } while (bVar37);
       }
-      draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar35,iVar19,iVar23,iVar8,
+      draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar35,iVar19,iVar23,iVar8,
                   (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
       if (UVar16 == 0) {
         return;
       }
       draw_flag = 0x4c;
       do {
-        FUN_0040c900(*(undefined4 *)((int)PTR_POSS_CURRENT_OBJ->hitbox_guard_array + draw_flag),
+        FUN_0040c900(*(undefined4 *)((int)gpkgtCurrentEngineObject->hitbox_guard_array + draw_flag),
                      PTR_SecondLinkerMember_16_29_000003e4_string_4__8_0041eda4,local_60);
         bVar37 = draw_flag != 0;
         draw_flag = draw_flag + -4;
       } while (bVar37);
       draw_flag = 0x4c;
       do {
-        FUN_0040c900(*(undefined4 *)((int)PTR_POSS_CURRENT_OBJ->hitbox_attack_array + draw_flag),
+        FUN_0040c900(*(undefined4 *)((int)gpkgtCurrentEngineObject->kgtHitboxAttacks + draw_flag),
                      DAT_0041eda0,local_60);
         bVar37 = draw_flag != 0;
         draw_flag = draw_flag + -4;
       } while (bVar37);
-      if (PTR_POSS_CURRENT_OBJ->obj_type != 0) {
+      if (gpkgtCurrentEngineObject->iObjectType != PLAYER_ENGINE_OBJECT) {
         return;
       }
-      draw_func_b(0x424f74,(((int)(PTR_POSS_CURRENT_OBJ->param_3 +
-                                  (PTR_POSS_CURRENT_OBJ->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
-                           unk_y_position) + -0x20,
-                  (((int)(PTR_POSS_CURRENT_OBJ->param_4 +
-                         (PTR_POSS_CURRENT_OBJ->param_4 >> 0x1f & 0xffffU)) >> 0x10) -
-                  unk_x_position) + -0x40,0x40,0x20,
-                  (((int)PTR_POSS_CURRENT_OBJ->obj_ptr_b >> 2 & 3U) + 4) * 0x40,0x60,0,0,0,0);
-      draw_func_b(0x424f74,(((int)(PTR_POSS_CURRENT_OBJ->param_3 +
-                                  (PTR_POSS_CURRENT_OBJ->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
-                           unk_y_position) + -0x20,
-                  (((int)(PTR_POSS_CURRENT_OBJ->param_4 +
-                         (PTR_POSS_CURRENT_OBJ->param_4 >> 0x1f & 0xffffU)) >> 0x10) -
-                  unk_x_position) + -0x20,0x40,0x20,
-                  (((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 3) + 4) * 0x40,0x40,0,0,0,0);
+      draw_func_b(0x424f74,(((int)(gpkgtCurrentEngineObject->iParam3 +
+                                  (gpkgtCurrentEngineObject->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
+                           unk_x_position) + -0x20,
+                  (((int)(gpkgtCurrentEngineObject->iParam4 +
+                         (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10) -
+                  unk_y_pos2) + -0x40,0x40,0x20,
+                  (((int)gpkgtCurrentEngineObject->obj_ptr_b >> 2 & 3U) + 4) * 0x40,0x60,0,0,0,0);
+      draw_func_b(0x424f74,(((int)(gpkgtCurrentEngineObject->iParam3 +
+                                  (gpkgtCurrentEngineObject->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
+                           unk_x_position) + -0x20,
+                  (((int)(gpkgtCurrentEngineObject->iParam4 +
+                         (gpkgtCurrentEngineObject->iParam4 >> 0x1f & 0xffffU)) >> 0x10) -
+                  unk_y_pos2) + -0x20,0x40,0x20,
+                  (((uint)gpkgtCurrentEngineObject->obj_ptr_b & 3) + 4) * 0x40,0x40,0,0,0,0);
       return;
     }
     uVar5 = *(ushort *)&pkVar7[draw_flag + -1].field_0x3;
-    local_60 = (*(OBJ_STRUCT **)(local_58->empty_e + 0xa9d))->pos_player_direction;
+    local_60 = (*(kgtEngineObject **)(local_58->empty_e + 0xa9d))->iPlayerLookingRight;
     if ((uVar5 & 0x4000) != 0) {
       local_60 = local_60 ^ 1;
     }
     if (local_60 == 0) {
-      iVar19 = ((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10) +
+      iVar19 = ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) +
                (int)*(short *)&pkVar7[draw_flag + -1].field_0x5;
     }
     else {
-      iVar19 = (((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
-               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pKVar1->height;
+      iVar19 = (((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
+               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pkVar1->iHeight;
     }
     if ((uVar5 & 0x8000) == 0) {
-      iVar33 = ((int)(pOVar->param_4 + (pOVar->param_4 >> 0x1f & 0xffffU)) >> 0x10) +
+      iVar33 = ((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10) +
                (int)*(short *)&pkVar7[draw_flag + -1].field_0x7;
     }
     else {
-      iVar33 = (((int)(pOVar->param_4 + (pOVar->param_4 >> 0x1f & 0xffffU)) >> 0x10) -
-               (int)*(short *)&pkVar7[draw_flag + -1].field_0x7) - pKVar1->width;
+      iVar33 = (((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10) -
+               (int)*(short *)&pkVar7[draw_flag + -1].field_0x7) - pkVar1->iWidth;
     }
     if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
-      iVar19 = iVar19 - unk_y_position;
-      iVar33 = iVar33 - unk_x_position;
+      iVar19 = iVar19 - unk_x_position;
+      iVar33 = iVar33 - unk_y_pos2;
     }
-    iVar33 = iVar33 + UNK_STAGE_FILES_00445740.field1051_0x2681;
+    iVar33 = iVar33 + giShakeY;
     local_60 = uVar5 & 0xc000 | local_60;
-    iVar19 = iVar19 + UNK_STAGE_FILES_00445740.field1046_0x266d;
+    iVar19 = iVar19 + giShakeX;
     goto LAB_0040d790;
-  case main_kgt_file:
-  case demo_file:
-    if (pOVar->pos_player_direction == 0) {
-      iVar19 = ((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10) +
+  case SYSTEM_ENGINE_OBJECT:
+  case DEMO_ENGINE_OBJECT:
+    if (pOVar->iPlayerLookingRight == 0) {
+      iVar19 = ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) +
                (int)*(short *)&pkVar7[draw_flag + -1].field_0x5;
     }
     else {
-      iVar19 = (((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
-               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pKVar1->height;
+      iVar19 = (((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
+               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pkVar1->iHeight;
       local_60 = local_60 ^ 1;
     }
-    iVar33 = ((int)(pOVar->param_4 + (pOVar->param_4 >> 0x1f & 0xffffU)) >> 0x10) +
+    iVar33 = ((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10) +
              (int)*(short *)&pkVar7[draw_flag + -1].field_0x7;
     if ((pOVar->unk_bitmask & 0x40000000U) != 0) {
-      iVar19 = iVar19 - (UNK_STAGE_FILES_00445740.field1046_0x266d + unk_y_position);
-      iVar33 = iVar33 - (UNK_STAGE_FILES_00445740.field1051_0x2681 + unk_x_position);
+      iVar19 = iVar19 - (giShakeX + unk_x_position);
+      iVar33 = iVar33 - (giShakeY + unk_y_pos2);
     }
     break;
-  case stage_file:
-    if (pOVar->pos_player_direction == 0) {
-      iVar35 = ((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10) +
+  case STAGE_ENGINE_OBJECT:
+    if (pOVar->iPlayerLookingRight == 0) {
+      iVar35 = ((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) +
                (int)*(short *)&pkVar7[draw_flag + -1].field_0x5;
     }
     else {
-      iVar35 = (((int)(pOVar->param_3 + (pOVar->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
-               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pKVar1->height;
+      iVar35 = (((int)(pOVar->iParam3 + (pOVar->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
+               (int)*(short *)&pkVar7[draw_flag + -1].field_0x5) - pkVar1->iHeight;
       local_60 = local_60 ^ 1;
     }
-    iVar35 = iVar35 + UNK_STAGE_FILES_00445740.field1046_0x266d;
-    iVar19 = pOVar->stage_skillscript_idx;
+    iVar35 = iVar35 + giShakeX;
+    iVar19 = pOVar->iStageSkillstepIdx;
     iVar33 = (int)*(short *)&pkVar7[draw_flag + -1].field_0x7 +
-             UNK_STAGE_FILES_00445740.field1051_0x2681 +
-             ((int)(pOVar->param_4 + (pOVar->param_4 >> 0x1f & 0xffffU)) >> 0x10);
-    pkVar15 = (local_58->kgt_core).p_actionscripts_alloc;
+             giShakeY + ((int)(pOVar->iParam4 + (pOVar->iParam4 >> 0x1f & 0xffffU)) >> 0x10);
+    pkVar15 = (local_58->kgtCore).pSkillScriptsAlloc;
     if ((pkVar15[iVar19].field_0x1 & 8) != 0) {
-      uVar18 = (uint)*(short *)&pkVar15[iVar19]._2;
-      iVar29 = (int)((ulonglong)((longlong)(int)(uVar18 * unk_y_position) * -0x51eb851f) >> 0x20);
+      uVar18 = (uint)*(short *)&pkVar15[iVar19].field_0x2;
+      iVar29 = (int)((ulonglong)((longlong)(int)(uVar18 * unk_x_position) * -0x51eb851f) >> 0x20);
       iVar35 = iVar35 + ((iVar29 >> 5) - (iVar29 >> 0x1f));
-      if (*(short *)&pkVar15[iVar19]._2 < 0) {
+      if (*(short *)&pkVar15[iVar19].field_0x2 < 0) {
         iVar35 = iVar35 + (int)(((uVar18 ^ (int)uVar18 >> 0x1f) - ((int)uVar18 >> 0x1f)) * -0x40) /
                           10;
       }
@@ -10729,7 +10915,7 @@ switchD_0040d56f_caseD_3:
     bVar4 = pkVar15[iVar19].field_0x1;
     if ((bVar4 & 0x10) != 0) {
       uVar18 = (uint)*(short *)&pkVar15[iVar19].field_0x4;
-      iVar29 = (int)((ulonglong)((longlong)(int)(uVar18 * unk_x_position) * -0x51eb851f) >> 0x20);
+      iVar29 = (int)((ulonglong)((longlong)(int)(uVar18 * unk_y_pos2) * -0x51eb851f) >> 0x20);
       iVar33 = iVar33 + ((iVar29 >> 5) - (iVar29 >> 0x1f));
       if (*(short *)&pkVar15[iVar19].field_0x4 < 0) {
         iVar33 = iVar33 + (int)(((uVar18 ^ (int)uVar18 >> 0x1f) - ((int)uVar18 >> 0x1f)) * -0x30) /
@@ -10738,7 +10924,7 @@ switchD_0040d56f_caseD_3:
     }
     if ((bVar4 & 2) == 0) {
       if ((bVar4 & 4) == 0) {
-        draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
+        draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
                     (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
         return;
       }
@@ -10746,7 +10932,7 @@ switchD_0040d56f_caseD_3:
       }
       if (iVar33 < 0x1e0) {
         do {
-          draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
+          draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
                       (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
           iVar33 = iVar33 + iVar8;
         } while (iVar33 < 0x1e0);
@@ -10758,7 +10944,7 @@ switchD_0040d56f_caseD_3:
       }
       if (iVar35 < 0x280) {
         do {
-          draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
+          draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar35,iVar33,iVar23,iVar8,
                       (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
           iVar35 = iVar35 + iVar23;
         } while (iVar35 < 0x280);
@@ -10774,7 +10960,7 @@ switchD_0040d56f_caseD_3:
       if (iVar33 < 0x1e0) {
         do {
           for (; iVar19 < 0x280; iVar19 = iVar19 + iVar23) {
-            draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar19,iVar33,iVar23,iVar8,
+            draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar19,iVar33,iVar23,iVar8,
                         (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60);
           }
           iVar33 = iVar33 + iVar8;
@@ -10786,205 +10972,210 @@ switchD_0040d56f_caseD_3:
   default:
     return;
   }
-  switch(pOVar->player_file_buffer) {
+  switch(pOVar->iPlayerIdx) {
   case 10:
-    if (PLAYER_KGT_BUFFER[0].life_gauge_max2 != 0) {
-      iVar35 = (PLAYER_KGT_BUFFER[0].health * iVar23) / PLAYER_KGT_BUFFER[0].life_gauge_max2;
-      local_68 = (kgt_pal_color *)((int)local_68 + (iVar23 - iVar35));
+    if (gkgtLoadedCharacter[0].iLifeGaugeMax_2 != 0) {
+      iVar35 = (gkgtLoadedCharacter[0].iHealth * iVar23) / gkgtLoadedCharacter[0].iLifeGaugeMax_2;
+      local_68 = (kgtPallette *)((int)local_68 + (iVar23 - iVar35));
       iVar19 = iVar19 + (iVar23 - iVar35);
     }
     break;
   case 0xb:
     iVar29 = 1;
-    if ((GAME_STATE.GAME_MODE == 1P_story) &&
-       (iVar29 = GAME_STATE.hit_player_buffer, GAME_STATE.hit_player_buffer == -1)) {
+    if ((gkgtGameState.kgtGameMode == 1P_story) &&
+       (iVar29 = gkgtGameState.iAttackedPlayerBuffer, gkgtGameState.iAttackedPlayerBuffer == -1)) {
       return;
     }
-    iVar26 = PLAYER_KGT_BUFFER[iVar29].life_gauge_max2;
+    iVar26 = gkgtLoadedCharacter[iVar29].iLifeGaugeMax_2;
     if (iVar26 != 0) {
-      iVar35 = PLAYER_KGT_BUFFER[iVar29].health;
+      iVar35 = gkgtLoadedCharacter[iVar29].iHealth;
 LAB_0040de77:
       iVar35 = (iVar35 * iVar23) / iVar26;
     }
     break;
   case 0x14:
-    if (PLAYER_KGT_BUFFER[0].special_stock_gauge_max2 != 0) {
-      iVar35 = (PLAYER_KGT_BUFFER[0].special_gauge * iVar23) /
-               PLAYER_KGT_BUFFER[0].special_stock_gauge_max2;
-      local_68 = (kgt_pal_color *)((int)local_68 + (iVar23 - iVar35));
+    if (gkgtLoadedCharacter[0].iSpecialStockGaugeMax_2 != 0) {
+      iVar35 = (gkgtLoadedCharacter[0].iSpecialGauge * iVar23) /
+               gkgtLoadedCharacter[0].iSpecialStockGaugeMax_2;
+      local_68 = (kgtPallette *)((int)local_68 + (iVar23 - iVar35));
       iVar19 = iVar19 + (iVar23 - iVar35);
     }
     break;
   case 0x15:
     iVar29 = 1;
-    if ((GAME_STATE.GAME_MODE == 1P_story) &&
-       (iVar29 = GAME_STATE.hit_player_buffer, GAME_STATE.hit_player_buffer == -1)) {
+    if ((gkgtGameState.kgtGameMode == 1P_story) &&
+       (iVar29 = gkgtGameState.iAttackedPlayerBuffer, gkgtGameState.iAttackedPlayerBuffer == -1)) {
       return;
     }
-    iVar26 = PLAYER_KGT_BUFFER[iVar29].special_stock_gauge_max2;
+    iVar26 = gkgtLoadedCharacter[iVar29].iSpecialStockGaugeMax_2;
     if (iVar26 != 0) {
-      iVar35 = PLAYER_KGT_BUFFER[iVar29].special_gauge;
+      iVar35 = gkgtLoadedCharacter[iVar29].iSpecialGauge;
       goto LAB_0040de77;
     }
   }
   local_60 = (*(ushort *)&pkVar7[draw_flag + -1].field_0x3 & 0xc000) + local_60;
 LAB_0040d790:
-  draw_func_c(pKVar1,local_68,&DAT_004d1a20,iVar19,iVar33,iVar35,iVar8,local_60);
+  draw_func_c(pkVar1,local_68,&DAT_004d1a20,iVar19,iVar33,iVar35,iVar8,local_60);
   return;
 }
 
 
 
-void FUN_0040e4a0(void)
+void vStoryHitboxCheck(void)
 
 {
-  kgt_pal_color *pkVar1;
-  OBJ_STRUCT *pOVar2;
-  OBJ_STRUCT **ppOVar3;
-  int iVar4;
+  kgtPallette *pkVar1;
+  kgtEngineObject **ppkVar2;
+  int iVar3;
+  kgtEngineObject *pkgtoCurrentEngineObject;
   
-  pOVar2 = PTR_POSS_CURRENT_OBJ;
-  if (PTR_POSS_CURRENT_OBJ->obj_type == 1) {
-    iVar4 = 10;
-    ppOVar3 = PLAYER_KGT_BUFFER[PTR_POSS_CURRENT_OBJ->player_file_buffer].object_mNumbers;
+  pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+  if (gpkgtCurrentEngineObject->iObjectType == STORY?_ENGINE_OBJECT) {
+    iVar3 = 10;
+                    // This is checking if equal to one, not the entire object...
+    ppkVar2 = gkgtLoadedCharacter[gpkgtCurrentEngineObject->iPlayerIdx].object_mNumbers;
     do {
-      if (*ppOVar3 == pOVar2) {
-        *ppOVar3 = (OBJ_STRUCT *)0x0;
+      if (*ppkVar2 == pkgtoCurrentEngineObject) {
+        *ppkVar2 = (kgtEngineObject *)0x0;
       }
-      ppOVar3 = ppOVar3 + 1;
-      iVar4 = iVar4 + -1;
-    } while (iVar4 != 0);
+      ppkVar2 = ppkVar2 + 1;
+      iVar3 = iVar3 + -1;
+    } while (iVar3 != 0);
   }
-  if (pOVar2->_x650_index != 0) {
-    pkVar1 = UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes +
-             (uint)(byte)pOVar2->_x650_index * 0x194 + 0x35;
+  if (pkgtoCurrentEngineObject->_x650_index != 0) {
+    pkVar1 = gkgtLoadedStage.kgt_core.pallette_extra_bytes +
+             (uint)(byte)pkgtoCurrentEngineObject->_x650_index * 0x194 + 0x35;
     pkVar1->b = '\0';
     pkVar1->g = '\0';
     pkVar1->r = '\0';
     pkVar1->field3_0x3 = '\0';
   }
-  pOVar2->jmp_idx = reset_index;
+  pkgtoCurrentEngineObject->iJumpIdx = RESET_IDX;
   return;
 }
 
 
 
-void obj_reset_values(void)
+void iResetDsSkillIndices(void)
 
 {
-  OBJ_STRUCT *pOVar1;
+  kgtEngineObject *pkVar1;
   
-  pOVar1 = PTR_POSS_CURRENT_OBJ;
-  if ((int)PTR_POSS_CURRENT_OBJ->obj_type < 2) {
-    PTR_POSS_CURRENT_OBJ->stage_action_idx = 0;
-    pOVar1->stage_skillscript_idx = 0;
-    pOVar1->case2_var_b = 0;
-    pOVar1->case2_var_d = 0;
-    pOVar1->case2_var_e = 0;
-    pOVar1->case2_var_f = 0;
+  pkVar1 = gpkgtCurrentEngineObject;
+  if ((int)gpkgtCurrentEngineObject->iObjectType < 2) {
+    gpkgtCurrentEngineObject->iDsLandingSkillIdx = 0;
+    pkVar1->iStageSkillstepIdx = 0;
+    pkVar1->iDsAttackHitsSkillIdx = 0;
+    pkVar1->iDsHotToWallIdx = 0;
+    pkVar1->iDsInOffsetSkillIdx = 0;
+    pkVar1->iDsWhileThrowDo = 0;
   }
   return;
 }
 
 
 
-void obj_0x129_to_0(OBJ_STRUCT *obj)
+void vResetReactionSkillBlock(kgtEngineObject *obj)
 
 {
-  obj->reaction_skillblock = (kgt_skill_step_struct *)0x0;
+  obj->reaction_skillblock = (kgtSkill *)0x0;
   return;
 }
 
 
 
-void memzero_mystery_arrays(OBJ_STRUCT *param_1)
+void vMemzeroHitboxArrays(kgtEngineObject *param_1)
 
 {
-  memzero(param_1->hitbox_guard_array,0x50);
-  memzero(param_1->hitbox_attack_array,0x50);
+  vMemzero(param_1->hitbox_guard_array,0x50);
+  vMemzero(param_1->kgtHitboxAttacks,0x50);
   return;
 }
 
 
 
-undefined4 FUN_0040e580(void)
+// WARNING: Unknown calling convention -- yet parameter storage is locked
+
+int iAssignPlayerLookingRight(void)
 
 {
   int iVar1;
-  OBJ_STRUCT *curr_obj;
+  kgtEngineObject *curr_obj;
   int player_buffer;
   
-  curr_obj = PTR_POSS_CURRENT_OBJ;
-  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  if ((PLAYER_KGT_BUFFER[player_buffer].guard_button_flag & 0b00001000U) != 0) {
+  curr_obj = gpkgtCurrentEngineObject;
+  player_buffer = gpkgtCurrentEngineObject->iPlayerIdx;
+  if ((gkgtLoadedCharacter[player_buffer].cIsGuardButtonActive & 8) != 0) {
     return 0;
   }
-  iVar1 = *(int *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf51;
-  if (PTR_POSS_CURRENT_OBJ->pos_player_direction == iVar1) {
+  iVar1 = gkgtLoadedCharacter[player_buffer].iUnkParam3Related;
+  if (gpkgtCurrentEngineObject->iPlayerLookingRight == iVar1) {
     return 0;
   }
-  *(int *)&PLAYER_KGT_BUFFER[player_buffer].player_buff_idx_is_not_0 = iVar1;
-  curr_obj->pos_player_direction = iVar1;
+  *(int *)&gkgtLoadedCharacter[player_buffer].bPlayerIdxIsNotZero = iVar1;
+  curr_obj->iPlayerLookingRight = iVar1;
   return 1;
 }
 
 
 
-void FUN_0040e5c0(void)
+void vUnkXDistanceHandling(void)
 
 {
   int iVar1;
-  int iVar2;
   uint param_3_diff;
   int param_3_diff_again;
   uint param_3_neg_check;
-  OBJ_STRUCT *curr_obj;
-  int iVar3;
-  OBJ_STRUCT_ptr_342_int first_obj_player_idx;
+  kgtEngineObject *curr_obj;
+  int iVar2;
+  kgtEngineObject_ptr_342_int first_obj_player_idx;
   int i;
   int local_4;
   int first_obj_param_3;
   int input_buffer_pos;
+  int iPlayerIdx;
   
-  curr_obj = PTR_POSS_CURRENT_OBJ;
-  iVar1 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  iVar3 = 0x19000000;
-  first_obj_player_idx = &OBJ_ARRAY[0].player_file_buffer;
+  curr_obj = gpkgtCurrentEngineObject;
+  iPlayerIdx = gpkgtCurrentEngineObject->iPlayerIdx;
+  iVar2 = 0x19000000;
+  first_obj_player_idx = &kgtEngineObjects[0].iPlayerIdx;
   i = 1024;
-  PLAYER_KGT_BUFFER[iVar1].poss_opponent_obj_ptr_2_ = (OBJ_STRUCT *)0x0;
+  gkgtLoadedCharacter[iPlayerIdx].poss_opponent_obj_ptr_2_ = (kgtEngineObject *)0x0;
   do {
-    if ((((ADJ(first_obj_player_idx).jmp_idx == 4) && (ADJ(first_obj_player_idx) != curr_obj)) &&
-        (ADJ(first_obj_player_idx)->obj_type == 0)) &&
+    if ((((ADJ(first_obj_player_idx).iJumpIdx == READ_SCRIPT) &&
+         (ADJ(first_obj_player_idx) != curr_obj)) &&
+        (ADJ(first_obj_player_idx)->iObjectType == PLAYER_ENGINE_OBJECT)) &&
        (*(int *)&curr_obj->__or_3 == *(int *)&ADJ(first_obj_player_idx)->__or_3)) {
-      iVar2 = ADJ(first_obj_player_idx)->player_file_buffer;
-      if (((PLAYER_KGT_BUFFER[iVar2].health != 0) &&
-          (PLAYER_KGT_BUFFER[iVar2].script_reading_01_field5 != 0)) &&
-         ((PLAYER_KGT_BUFFER[iVar2].unk_image_wait_flag != 0 &&
-          ((*(uint *)&PLAYER_KGT_BUFFER[iVar1].enemy_bitmask & 1 << ((byte)iVar2 & 0x1f)) != 0)))) {
-        first_obj_param_3 = ADJ(first_obj_player_idx)->param_3;
-        param_3_diff = curr_obj->param_3 - first_obj_param_3;
+      iVar1 = ADJ(first_obj_player_idx)->iPlayerIdx;
+      if (((gkgtLoadedCharacter[iVar1].iHealth != 0) &&
+          (gkgtLoadedCharacter[iVar1].unknown_online_var_a != 0)) &&
+         ((gkgtLoadedCharacter[iVar1].unk_image_wait_flag != 0 &&
+          ((*(uint *)&gkgtLoadedCharacter[iPlayerIdx].enemy_bitmask & 1 << ((byte)iVar1 & 0x1f)) !=
+           0)))) {
+        first_obj_param_3 = ADJ(first_obj_player_idx)->iParam3;
+        param_3_diff = curr_obj->iParam3 - first_obj_param_3;
         param_3_neg_check = (int)param_3_diff >> 0x1f;
         param_3_diff_again = (param_3_diff ^ param_3_neg_check) - param_3_neg_check;
-        curr_obj = PTR_POSS_CURRENT_OBJ;
-        if (param_3_diff_again < iVar3) {
-          PLAYER_KGT_BUFFER[iVar1].poss_opponent_obj_ptr_2_ = ADJ(first_obj_player_idx);
-          curr_obj = PTR_POSS_CURRENT_OBJ;
-          iVar3 = param_3_diff_again;
+        curr_obj = gpkgtCurrentEngineObject;
+        if (param_3_diff_again < iVar2) {
+          gkgtLoadedCharacter[iPlayerIdx].poss_opponent_obj_ptr_2_ = ADJ(first_obj_player_idx);
+          curr_obj = gpkgtCurrentEngineObject;
+          iVar2 = param_3_diff_again;
           local_4 = first_obj_param_3;
         }
       }
     }
-    iVar2 = INPUT_BUFFER_POS;
-    first_obj_player_idx = (OBJ_STRUCT_ptr_342_int)((int)first_obj_player_idx + 0x17e);
+    iVar1 = giInputBufferPos;
+    first_obj_player_idx = (kgtEngineObject_ptr_342_int)((int)first_obj_player_idx + 0x17e);
     i = i + -1;
   } while (i != 0);
-  if ((((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 8U) == 0) && (iVar3 < 0x19000000)) &&
-     (param_3_diff = (uint)(local_4 <= curr_obj->param_3),
-     param_3_diff != *(uint *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf51)) {
-    *(uint *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf51 = param_3_diff;
+  if ((((gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 8) == 0) && (iVar2 < 0x19000000)) &&
+     (param_3_diff = (uint)(local_4 <= curr_obj->iParam3),
+     param_3_diff != gkgtLoadedCharacter[iPlayerIdx].iUnkParam3Related)) {
+    gkgtLoadedCharacter[iPlayerIdx].iUnkParam3Related = param_3_diff;
                     // Remove up or down inputs from input buffer
-    if ((INPUT_BUFFER_A[iVar1][iVar2] & 0b00000011U) != 0) {
-      INPUT_BUFFER_A[iVar1][iVar2] = INPUT_BUFFER_A[iVar1][iVar2] ^ 3;
+    if ((giInputBufferA[iPlayerIdx][iVar1] & 0b00000011U) != 0) {
+      giInputBufferA[iPlayerIdx][iVar1] = giInputBufferA[iPlayerIdx][iVar1] ^ 3;
     }
   }
   return;
@@ -10992,51 +11183,51 @@ void FUN_0040e5c0(void)
 
 
 
-void add_to_special_gauge(int player_idx,int special_increase)
+void vAddToSpecialGauge(int player_idx,int special_increase)
 
 {
   int iVar1;
   int iVar2;
   
-  if (PLAYER_KGT_BUFFER[player_idx].special_stock_max2 != 0) {
-    special_increase = PLAYER_KGT_BUFFER[player_idx].special_gauge + special_increase;
-    PLAYER_KGT_BUFFER[player_idx].special_gauge = special_increase;
+  if (gkgtLoadedCharacter[player_idx].iSpecialStockMax_2 != 0) {
+    special_increase = gkgtLoadedCharacter[player_idx].iSpecialGauge + special_increase;
+    gkgtLoadedCharacter[player_idx].iSpecialGauge = special_increase;
     while (special_increase < 0) {
                     // Subtracting special gauge
-      if (PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens == 0) {
-        PLAYER_KGT_BUFFER[player_idx].special_gauge = 0;
+      if (gkgtLoadedCharacter[player_idx].iSpecialGaugeTokens == 0) {
+        gkgtLoadedCharacter[player_idx].iSpecialGauge = 0;
       }
       else {
-        PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens =
-             PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens + -1;
-        PLAYER_KGT_BUFFER[player_idx].special_gauge =
-             PLAYER_KGT_BUFFER[player_idx].special_gauge +
-             PLAYER_KGT_BUFFER[player_idx].special_stock_gauge_max2;
+        gkgtLoadedCharacter[player_idx].iSpecialGaugeTokens =
+             gkgtLoadedCharacter[player_idx].iSpecialGaugeTokens + -1;
+        gkgtLoadedCharacter[player_idx].iSpecialGauge =
+             gkgtLoadedCharacter[player_idx].iSpecialGauge +
+             gkgtLoadedCharacter[player_idx].iSpecialStockGaugeMax_2;
       }
-      special_increase = PLAYER_KGT_BUFFER[player_idx].special_gauge;
+      special_increase = gkgtLoadedCharacter[player_idx].iSpecialGauge;
     }
-    iVar1 = PLAYER_KGT_BUFFER[player_idx].special_gauge;
-    iVar2 = PLAYER_KGT_BUFFER[player_idx].special_stock_gauge_max2;
+    iVar1 = gkgtLoadedCharacter[player_idx].iSpecialGauge;
+    iVar2 = gkgtLoadedCharacter[player_idx].iSpecialStockGaugeMax_2;
     if (iVar2 <= iVar1) {
       do {
-        if (PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens <
-            PLAYER_KGT_BUFFER[player_idx].special_stock_max2) {
-          PLAYER_KGT_BUFFER[player_idx].special_gauge = iVar1 - iVar2;
-          PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens =
-               PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens + 1;
+        if (gkgtLoadedCharacter[player_idx].iSpecialGaugeTokens <
+            gkgtLoadedCharacter[player_idx].iSpecialStockMax_2) {
+          gkgtLoadedCharacter[player_idx].iSpecialGauge = iVar1 - iVar2;
+          gkgtLoadedCharacter[player_idx].iSpecialGaugeTokens =
+               gkgtLoadedCharacter[player_idx].iSpecialGaugeTokens + 1;
         }
         else {
-          PLAYER_KGT_BUFFER[player_idx].special_gauge = 0;
+          gkgtLoadedCharacter[player_idx].iSpecialGauge = 0;
         }
-        iVar1 = PLAYER_KGT_BUFFER[player_idx].special_gauge;
-        iVar2 = PLAYER_KGT_BUFFER[player_idx].special_stock_gauge_max2;
+        iVar1 = gkgtLoadedCharacter[player_idx].iSpecialGauge;
+        iVar2 = gkgtLoadedCharacter[player_idx].iSpecialStockGaugeMax_2;
       } while (iVar2 <= iVar1);
     }
-    if (PLAYER_KGT_BUFFER[player_idx].special_stock_max2 <=
-        PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens) {
-      PLAYER_KGT_BUFFER[player_idx].special_gauge_tokens =
-           PLAYER_KGT_BUFFER[player_idx].special_stock_max2;
-      PLAYER_KGT_BUFFER[player_idx].special_gauge = 0;
+    if (gkgtLoadedCharacter[player_idx].iSpecialStockMax_2 <=
+        gkgtLoadedCharacter[player_idx].iSpecialGaugeTokens) {
+      gkgtLoadedCharacter[player_idx].iSpecialGaugeTokens =
+           gkgtLoadedCharacter[player_idx].iSpecialStockMax_2;
+      gkgtLoadedCharacter[player_idx].iSpecialGauge = 0;
     }
   }
   return;
@@ -11046,130 +11237,131 @@ void add_to_special_gauge(int player_idx,int special_increase)
 
 // WARNING: Removing unreachable block (ram,0x0040ea44)
 
-void add_to_health(kgt_character_struct *player,int life_add)
+void vAddToHealth(kgt_character_struct *player,int iLifeAdd)
 
 {
   uint *puVar1;
   byte bVar2;
   char cVar3;
-  int iVar4;
-  undefined4 *puVar5;
-  int *piVar6;
-  uint uVar7;
-  OBJ_STRUCT *pOVar8;
-  int iVar9;
-  int iVar10;
-  int iVar11;
-  bool bVar12;
+  int *piVar4;
+  uint uVar5;
+  kgtEngineObject *pkVar6;
+  int iVar7;
+  int iAdjustedLifeAdd;
+  int iVar8;
+  bool bVar9;
+  int iLifeGaugeMax;
   
-  iVar4 = player->life_gauge_max2;
-  if ((player->health <= (int)((uint)(byte)player->life_rev_y_start_pos * iVar4) / 100) &&
-     (life_add < 0)) {
-    iVar10 = (int)((ulonglong)
-                   ((longlong)(int)((uint)(byte)player->life_rev_correction * life_add) *
-                   -0x51eb851f) >> 0x20);
-    iVar10 = (iVar10 >> 5) - (iVar10 >> 0x1f);
-    if (iVar10 == 0) {
-      iVar10 = 1;
+  iLifeGaugeMax = player->iLifeGaugeMax_2;
+  if ((player->iHealth <= (int)((uint)(byte)player->cLifeRevYStartPos * iLifeGaugeMax) / 100) &&
+     (iLifeAdd < 0)) {
+    iAdjustedLifeAdd =
+         (int)((ulonglong)
+               ((longlong)(int)((uint)(byte)player->cLifeRevCorrection * iLifeAdd) * -0x51eb851f) >>
+              0x20);
+    iAdjustedLifeAdd = (iAdjustedLifeAdd >> 5) - (iAdjustedLifeAdd >> 0x1f);
+    if (iAdjustedLifeAdd == 0) {
+      iAdjustedLifeAdd = 1;
     }
-    life_add = -iVar10;
+    iLifeAdd = -iAdjustedLifeAdd;
   }
-  iVar11 = 0;
-  iVar10 = player->health + life_add;
-  if (0 < iVar10) {
-    player->health = iVar10;
-    iVar11 = player->field6367_0xdf25 - life_add;
-    player->field6368_0xdf29 = 0x14;
-    player->field6367_0xdf25 = iVar11;
-    if (iVar11 < 0) {
-      player->field6367_0xdf25 = 0;
+  iVar8 = 0;
+  iAdjustedLifeAdd = player->iHealth + iLifeAdd;
+  if (0 < iAdjustedLifeAdd) {
+    player->iHealth = iAdjustedLifeAdd;
+    iVar8 = player->iLifeAddUnk1 - iLifeAdd;
+    player->field6373_0xdf29 = 0x14;
+    player->iLifeAddUnk1 = iVar8;
+    if (iVar8 < 0) {
+      player->iLifeAddUnk1 = 0;
     }
-    if (iVar10 <= iVar4) {
+    if (iAdjustedLifeAdd <= iLifeGaugeMax) {
       return;
     }
-    player->health = iVar4;
+    player->iHealth = iLifeGaugeMax;
     return;
   }
-  puVar5 = (undefined4 *)player->CPU;
-  player->health = 0;
-  puVar5[0xe] = (uint)(ushort)player->loss_skill_idx;
-  bVar12 = GAME_STATE.GAME_MODE != 1P_story;
-  player->field6367_0xdf25 = 0;
-  player->field6368_0xdf29 = 0;
-  if (bVar12) goto LAB_0040e8b7;
-  iVar4 = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
-  iVar10 = *(int *)((int)puVar5 + 0x156);
-  if (iVar10 == 0) {
-    bVar2 = PLAYER_KGT_BUFFER[0].character_story_entries[iVar4].cpu_winpns;
+  pkVar6 = player->pkgtoSelf;
+  player->iHealth = 0;
+  pkVar6->iHitJunctionIdx = (uint)(ushort)player->shSkillIdxLoss;
+  bVar9 = gkgtGameState.kgtGameMode != 1P_story;
+  player->iLifeAddUnk1 = 0;
+  player->field6373_0xdf29 = 0;
+  if (bVar9) goto LAB_0040e8b7;
+  iLifeGaugeMax = giCurrentStoryStep[giStoryModePlayerIdx_2];
+  iAdjustedLifeAdd = pkVar6->iPlayerIdx;
+  if (iAdjustedLifeAdd == 0) {
+    bVar2 = gkgtLoadedCharacter[0].kgtStoryEntries[iLifeGaugeMax].cCpuWins;
     if (bVar2 == 0) {
-      if (player->poss_opponent_obj_ptr == (OBJ_STRUCT *)0x0) goto LAB_0040e8b7;
-      piVar6 = &PLAYER_KGT_BUFFER[player->poss_opponent_obj_ptr->player_file_buffer].
+      if (player->poss_opponent_obj_ptr == (kgtEngineObject *)0x0) goto LAB_0040e8b7;
+      piVar4 = &gkgtLoadedCharacter[player->poss_opponent_obj_ptr->iPlayerIdx].
                 something_to_do_with_starting_health2;
     }
     else {
       if (8 < bVar2) goto LAB_0040e8b7;
-      piVar6 = (int *)(&DAT_004d1cfc + (uint)bVar2 * 0xe03f);
+      piVar4 = (int *)(&DAT_004d1cfc + (uint)bVar2 * 0xe03f);
     }
-    *piVar6 = *piVar6 + (uint)(byte)PLAYER_KGT_BUFFER[0].character_story_entries[iVar4].
-                                    cpu_winpns_number;
+    *piVar4 = *piVar4 + (uint)(byte)gkgtLoadedCharacter[0].kgtStoryEntries[iLifeGaugeMax].
+                                    cCpuWinsNumber;
     goto LAB_0040e8b7;
   }
-  puVar1 = (uint *)(iVar4 * 0xce + 0x4d9a47 + iVar10 * 0x1a);
-  bVar2 = *(byte *)(iVar4 * 0xce + 0x4d9a59 + iVar10 * 0x1a);
+  puVar1 = (uint *)(iLifeGaugeMax * 0xce + 0x4d9a47 + iAdjustedLifeAdd * 0x1a);
+  bVar2 = *(byte *)(iLifeGaugeMax * 0xce + 0x4d9a59 + iAdjustedLifeAdd * 0x1a);
   if (bVar2 == 0) {
-    if (player->poss_opponent_obj_ptr != (OBJ_STRUCT *)0x0) {
-      piVar6 = &PLAYER_KGT_BUFFER[player->poss_opponent_obj_ptr->player_file_buffer].
+    if (player->poss_opponent_obj_ptr != (kgtEngineObject *)0x0) {
+      piVar4 = &gkgtLoadedCharacter[player->poss_opponent_obj_ptr->iPlayerIdx].
                 something_to_do_with_starting_health2;
       goto LAB_0040e93c;
     }
   }
   else if (bVar2 < 9) {
-    piVar6 = (int *)(&DAT_004d1cfc + (uint)bVar2 * 0xe03f);
+    piVar4 = (int *)(&DAT_004d1cfc + (uint)bVar2 * 0xe03f);
 LAB_0040e93c:
-    *piVar6 = *piVar6 + (uint)*(byte *)((int)puVar1 + 0xf);
+    *piVar4 = *piVar4 + (uint)*(byte *)((int)puVar1 + 0xf);
   }
-  uVar7 = *puVar1 >> 7 & 3;
-  if (uVar7 == 1) {
-    add_to_health(PLAYER_KGT_BUFFER,(int)(char)puVar1[4]);
+  uVar5 = *puVar1 >> 7 & 3;
+  if (uVar5 == 1) {
+    vAddToHealth(gkgtLoadedCharacter,(int)(char)puVar1[4]);
     cVar3 = *(char *)((int)puVar1 + 0x11);
 LAB_0040e998:
-    add_to_special_gauge(iVar11,(int)cVar3);
+    vAddToSpecialGauge(iVar8,(int)cVar3);
   }
-  else if ((uVar7 == 2) && (player->poss_opponent_obj_ptr != (OBJ_STRUCT *)0x0)) {
-    iVar11 = player->poss_opponent_obj_ptr->player_file_buffer;
-    add_to_health(PLAYER_KGT_BUFFER + iVar11,(int)(char)puVar1[4]);
+  else if ((uVar5 == 2) && (player->poss_opponent_obj_ptr != (kgtEngineObject *)0x0)) {
+    iVar8 = player->poss_opponent_obj_ptr->iPlayerIdx;
+    vAddToHealth(gkgtLoadedCharacter + iVar8,(int)(char)puVar1[4]);
     cVar3 = *(char *)((int)puVar1 + 0x11);
     goto LAB_0040e998;
   }
-  iVar4 = STORY_MODE_IDX;
-  uVar7 = *puVar1 >> 5 & 3;
-  if (uVar7 == 1) {
-    *puVar5 = 1;
+  iLifeGaugeMax = giStoryModePlayerIdx_2;
+  uVar5 = *puVar1 >> 5 & 3;
+  if (uVar5 == 1) {
+    pkVar6->iJumpIdx = RESET_IDX;
     return;
   }
-  if (uVar7 == 2) {
-    *puVar5 = 1;
-    iVar11 = *(int *)((int)puVar5 + 0x156);
-    iVar9 = (iVar11 + -1) * 0x1a;
-    iVar10 = iVar9 + 0x4d9a61 + (&POSS_STORY_ARRAY)[iVar4] * 0xce;
-    if (*(char *)(iVar9 + 0x4d9a65 + (&POSS_STORY_ARRAY)[iVar4] * 0xce) == '\0') {
+  if (uVar5 == 2) {
+    pkVar6->iJumpIdx = RESET_IDX;
+    iVar8 = pkVar6->iPlayerIdx;
+    iVar7 = (iVar8 + -1) * 0x1a;
+    iAdjustedLifeAdd = iVar7 + 0x4d9a61 + giCurrentStoryStep[iLifeGaugeMax] * 0xce;
+    if (*(char *)(iVar7 + 0x4d9a65 + giCurrentStoryStep[iLifeGaugeMax] * 0xce) == '\0') {
       return;
     }
-    pOVar8 = FIND_EMPTY_OBJ(4,0x50,(uint)*(ushort *)(iVar10 + 7) << 0x10,0x3980000);
-    pOVar8->player_file_buffer = iVar11;
-    PLAYER_KGT_BUFFER[iVar11].unk_CPU_var_initial_1 = 1;
-    PLAYER_KGT_BUFFER[iVar11].cpu_level = (uint)*(byte *)(iVar10 + 5);
-    if (100 < PLAYER_KGT_BUFFER[iVar11].cpu_level) {
-      PLAYER_KGT_BUFFER[iVar11].cpu_level = 100;
+    pkVar6 = kgtoNewEngineObject(READ_SCRIPT,0x50,(uint)*(ushort *)(iAdjustedLifeAdd + 7) << 0x10,
+                                 0x3980000);
+    pkVar6->iPlayerIdx = iVar8;
+    gkgtLoadedCharacter[iVar8].iNotTestplayPlayerCpu = 1;
+    gkgtLoadedCharacter[iVar8].iCpuLevel = (uint)*(byte *)(iAdjustedLifeAdd + 5);
+    if (100 < gkgtLoadedCharacter[iVar8].iCpuLevel) {
+      gkgtLoadedCharacter[iVar8].iCpuLevel = 100;
     }
-    PLAYER_KGT_BUFFER[iVar11].TESTPLAY_PLAYER_CPU = 1;
+    gkgtLoadedCharacter[iVar8].iTestplayPlayerCpu = 1;
     return;
   }
 LAB_0040e8b7:
-  if (player->field6353_0xdef1 == 0) {
-    player->field6353_0xdef1 = 1;
+  if (player->field6358_0xdef1 == 0) {
+    player->field6358_0xdef1 = 1;
   }
-  puVar5[1] = 0x3c;
+  pkVar6->iParam2 = 0x3c;
   return;
 }
 
@@ -11217,43 +11409,69 @@ void hitbox_calculation(int *out,int x_val,int y_val,int hitbox_width,int hitbox
 void handle_hitboxes(void)
 
 {
-  kgt_obj_type kVar1;
-  kgt_skill_struct *pkVar2;
+  kgtEngineObjectTypes kVar1;
+  kgtSkillHeader *pkVar2;
   int y_val;
   int hitbox_width;
   int opp_hitbox_width;
-  OBJ_STRUCT *iVar7;
+  kgtEngineObject *iVar7;
   int hitbox_height;
   uint uVar3;
   int opp_hitbox_height;
-  OBJ_STRUCT_ptr_8_int pObj_param3;
+  kgtEngineObject_ptr_8_int pObj_param3;
   int opp_y_val;
-  OBJ_STRUCT *opponent_obj;
+  kgtEngineObject *opponent_obj;
   int opp_x_val;
   int adjusted_x_val;
-  kgt_skill_step_struct **pOpp_hitbox;
-  kgt_skill_step_struct *pHitbox;
+  kgtSkill **pOpp_hitbox;
+  kgtSkill *pHitbox;
   int i4;
   int i3;
   int i2;
   int i;
   int local_8 [2];
-  kgt_skill_step_struct *hitbox;
+  kgtSkill *hitbox;
   int x_val;
-  kgt_skill_step_struct *opp_hitbox;
+  kgtSkill *opp_hitbox;
   
-  pObj_param3 = &OBJ_ARRAY[0].param_3;
+  pObj_param3 = &kgtEngineObjects[0].iParam3;
   i = 0;
   do {
-    if (ADJ(pObj_param3).jmp_idx == 4) {
-      pHitbox = (kgt_skill_step_struct *)(ADJ(pObj_param3)->hitbox_attack_array + 0x13);
+                    //                     /* ----------------------------------
+                    //                        - FA - Attack
+                    //                        ----------------------------------
+                    //                        0 - Type
+                    //                        1 - X position (low, SIGNED)
+                    //                        2 - X position (high, SIGNED)
+                    //                        3 - Y position (low, SIGNED)
+                    //                        4 - Y position (high, SIGNED)
+                    //                        5 - Width (low, SIGNED)
+                    //                        6 - Width (high, SIGNED)
+                    //                        7 - Height (low, SIGNED)
+                    //                        8 - Height (high, SIGNED)
+                    //                        9 - M number (UNSIGNED)
+                    //                        A - Flags
+                    //                        B - unk
+                    //                        C - Power (UNSIGNED)
+                    //                        
+                    //                        - Flags -
+                    //                        0 - Cancel
+                    //                        1 - Cont. Hit
+                    //                        2 - Shav
+                    //                        3 - While Guard
+                    //                        4 - No Decision
+                    //                        5 - No Sky Decision
+                    //                        6 - Guard Fail
+                    //                        7 - While Receiving */
+    if (ADJ(pObj_param3).iJumpIdx == READ_SCRIPT) {
+      pHitbox = (kgtSkill *)(ADJ(pObj_param3)->kgtHitboxAttacks + 0x13);
       i2 = 20;
       do {
-        hitbox = *(kgt_skill_step_struct **)pHitbox;
-        if (hitbox != (kgt_skill_step_struct *)0x0) {
+        hitbox = *(kgtSkill **)pHitbox;
+        if (hitbox != (kgtSkill *)0x0) {
                     // Figure out what is going on with the division? here
-          x_val = ADJ(pObj_param3)->param_3;
-          if ((ADJ(pObj_param3)->pos_player_direction & 1) == 0) {
+          x_val = ADJ(pObj_param3)->iParam3;
+          if ((ADJ(pObj_param3)->iPlayerLookingRight & 1) == 0) {
             adjusted_x_val =
                  (int)*(short *)&hitbox->field_0x1 +
                  ((int)(x_val + (x_val >> 31 & 0xffffU)) >> 0x10);
@@ -11263,115 +11481,113 @@ void handle_hitboxes(void)
                  ((int)(x_val + (x_val >> 31 & 0xffffU)) >> 0x10) -
                  (int)*(short *)&hitbox->field_0x1;
           }
-          y_val = ((int)(ADJ(pObj_param3)->param_4 + (ADJ(pObj_param3)->param_4 >> 0x1f & 0xffffU))
+          y_val = ((int)(ADJ(pObj_param3)->iParam4 + (ADJ(pObj_param3)->iParam4 >> 0x1f & 0xffffU))
                   >> 0x10) + (int)*(short *)&hitbox->field_0x3;
           hitbox_width = (int)*(short *)&hitbox->field_0x5;
           hitbox_height = (int)*(short *)&hitbox->field_0x7;
-          opponent_obj = OBJ_ARRAY + i + 1;
+          opponent_obj = kgtEngineObjects + i + 1;
           if (i + 1 < 0x400) {
             i3 = 0x400 - (i + 1);
             do {
-              if ((opponent_obj->jmp_idx == 4) &&
+              if ((opponent_obj->iJumpIdx == READ_SCRIPT) &&
                  (((*(uint *)&ADJ(pObj_param3)->__or_3 ^ *(uint *)&opponent_obj->__or_3) & 1) == 0))
               {
-                if ((ADJ(pObj_param3)->player_file_buffer != opponent_obj->player_file_buffer) &&
+                if ((ADJ(pObj_param3)->iPlayerIdx != opponent_obj->iPlayerIdx) &&
                    ((((uint)opponent_obj->obj_ptr_b & 8) == 0 &&
-                    ((*(uint *)&PLAYER_KGT_BUFFER[ADJ(pObj_param3)->player_file_buffer].
-                                enemy_bitmask & 1 << ((byte)opponent_obj->player_file_buffer & 0x1f)
-                     ) != 0)))) {
-                  pOpp_hitbox = (kgt_skill_step_struct **)(opponent_obj->hitbox_attack_array + 0x13)
-                  ;
+                    ((*(uint *)&gkgtLoadedCharacter[ADJ(pObj_param3)->iPlayerIdx].enemy_bitmask &
+                     1 << ((byte)opponent_obj->iPlayerIdx & 0x1f)) != 0)))) {
+                  pOpp_hitbox = (kgtSkill **)(opponent_obj->kgtHitboxAttacks + 0x13);
                   i4 = 0x14;
                   do {
                     opp_hitbox = *pOpp_hitbox;
-                    if (opp_hitbox != (kgt_skill_step_struct *)0x0) {
-                      if ((opponent_obj->pos_player_direction & 1) == 0) {
+                    if (opp_hitbox != (kgtSkill *)0x0) {
+                      if ((opponent_obj->iPlayerLookingRight & 1) == 0) {
                         opp_x_val = (int)*(short *)&opp_hitbox->field_0x1 +
-                                    ((int)(opponent_obj->param_3 +
-                                          (opponent_obj->param_3 >> 0x1f & 0xffffU)) >> 0x10);
+                                    ((int)(opponent_obj->iParam3 +
+                                          (opponent_obj->iParam3 >> 0x1f & 0xffffU)) >> 0x10);
                       }
                       else {
-                        opp_x_val = ((int)(opponent_obj->param_3 +
-                                          (opponent_obj->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
+                        opp_x_val = ((int)(opponent_obj->iParam3 +
+                                          (opponent_obj->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
                                     (int)*(short *)&opp_hitbox->field_0x1;
                       }
                       opp_hitbox_height = (int)*(short *)&opp_hitbox->field_0x7;
                       opp_y_val = (int)*(short *)&opp_hitbox->field_0x3 +
-                                  ((int)(opponent_obj->param_4 +
-                                        (opponent_obj->param_4 >> 0x1f & 0xffffU)) >> 0x10);
+                                  ((int)(opponent_obj->iParam4 +
+                                        (opponent_obj->iParam4 >> 0x1f & 0xffffU)) >> 0x10);
                       opp_hitbox_width = (int)*(short *)&opp_hitbox->field_0x5;
                       if ((((opp_x_val - opp_hitbox_width < hitbox_width + adjusted_x_val) &&
                            (adjusted_x_val - hitbox_width < opp_hitbox_width + opp_x_val)) &&
                           (opp_y_val - opp_hitbox_height < hitbox_height + y_val)) &&
                          (y_val - hitbox_height < opp_hitbox_height + opp_y_val)) {
-                        if (ADJ(pObj_param3)->player_file_buffer == 0) {
-                          GAME_STATE.hit_player_buffer = opponent_obj->player_file_buffer;
-                          GAME_STATE.jump_15_var_a = 1000;
+                        if (ADJ(pObj_param3)->iPlayerIdx == 0) {
+                          gkgtGameState.iAttackedPlayerBuffer = opponent_obj->iPlayerIdx;
+                          gkgtGameState.jump_15_var_a = 1000;
                         }
                         if ((hitbox->field_0xc == '\0') && (opp_hitbox->field_0xc == '\0')) {
-                          memzero(ADJ(pObj_param3)->hitbox_attack_array,0x50);
-                          memzero(opponent_obj->hitbox_attack_array,0x50);
+                          vMemzero(ADJ(pObj_param3)->kgtHitboxAttacks,0x50);
+                          vMemzero(opponent_obj->kgtHitboxAttacks,0x50);
                         }
                         else {
-                          if (ADJ(pObj_param3)->case2_var_e != 0) {
-                            ADJ(pObj_param3)->hit_junction_idx = ADJ(pObj_param3)->case2_var_e;
-                            ADJ(pObj_param3)->case2_var_e = 0;
-                            memzero(ADJ(pObj_param3)->hitbox_attack_array,0x50);
-                            memzero(opponent_obj->hitbox_attack_array,0x50);
+                          if (ADJ(pObj_param3)->iDsInOffsetSkillIdx != 0) {
+                            ADJ(pObj_param3)->iHitJunctionIdx =
+                                 ADJ(pObj_param3)->iDsInOffsetSkillIdx;
+                            ADJ(pObj_param3)->iDsInOffsetSkillIdx = 0;
+                            vMemzero(ADJ(pObj_param3)->kgtHitboxAttacks,0x50);
+                            vMemzero(opponent_obj->kgtHitboxAttacks,0x50);
                           }
-                          if (opponent_obj->case2_var_e != 0) {
-                            opponent_obj->hit_junction_idx = opponent_obj->case2_var_e;
-                            opponent_obj->case2_var_e = 0;
-                            memzero(ADJ(pObj_param3)->hitbox_attack_array,0x50);
-                            memzero(opponent_obj->hitbox_attack_array,0x50);
+                          if (opponent_obj->iDsInOffsetSkillIdx != 0) {
+                            opponent_obj->iHitJunctionIdx = opponent_obj->iDsInOffsetSkillIdx;
+                            opponent_obj->iDsInOffsetSkillIdx = 0;
+                            vMemzero(ADJ(pObj_param3)->kgtHitboxAttacks,0x50);
+                            vMemzero(opponent_obj->kgtHitboxAttacks,0x50);
                           }
-                          if ((DAT_KGT_FILE_BUFFER_00433240.system_bitmask & 2U) != 0) {
+                          if ((gkgtKgtSystem.cSystemBitmask & 2U) != 0) {
                             if ((hitbox->field_0xc != '\0') || (opp_hitbox->field_0xc != '\0')) {
                               hitbox_calculation(local_8,adjusted_x_val,y_val,hitbox_width,
                                                  hitbox_height,opp_x_val,opp_y_val,opp_hitbox_width,
                                                  opp_hitbox_height);
-                              iVar7 = FIND_EMPTY_OBJ(4,0x5d,local_8[0] + unk_y_position * -0x10000,
-                                                     local_8[1] + unk_x_position * -0x10000);
-                              pkVar2 = DAT_KGT_FILE_BUFFER_00433240.kgt_core.p_actions_alloc;
-                              uVar3 = DAT_KGT_FILE_BUFFER_00433240._73600_4_ & 0xffff;
-                              iVar7->action_idx = uVar3;
-                              iVar7->obj_type = main_kgt_file;
-                              *(uint *)&iVar7->actionscript_idx =
-                                   (uint)(ushort)pkVar2[uVar3].starting_step_idx;
+                              iVar7 = kgtoNewEngineObject(READ_SCRIPT,0x5d,
+                                                          local_8[0] + unk_x_position * -0x10000,
+                                                          local_8[1] + unk_y_pos2 * -0x10000);
+                              pkVar2 = gkgtKgtSystem.kgtCore.pSkillsAlloc;
+                              uVar3 = gkgtKgtSystem._73600_4_ & 0xffff;
+                              iVar7->iSkillIdx = uVar3;
+                              iVar7->iObjectType = SYSTEM_ENGINE_OBJECT;
+                              *(uint *)&iVar7->iSkillScriptIdx =
+                                   (uint)(ushort)pkVar2[uVar3].shStartingStepIdx;
                             }
-                            opp_x_val = opponent_obj->player_file_buffer;
-                            if (*(int *)&PLAYER_KGT_BUFFER[ADJ(pObj_param3)->player_file_buffer].
-                                         currect_action_cancellable_flag != 0) {
-                              *(undefined4 *)
-                               &PLAYER_KGT_BUFFER[ADJ(pObj_param3)->player_file_buffer].
-                                currect_action_cancellable_flag = 2;
+                            opp_x_val = opponent_obj->iPlayerIdx;
+                            if (gkgtLoadedCharacter[ADJ(pObj_param3)->iPlayerIdx].
+                                iCurrentActionCancellableFlag != 0) {
+                              gkgtLoadedCharacter[ADJ(pObj_param3)->iPlayerIdx].
+                              iCurrentActionCancellableFlag = 2;
                             }
-                            if (*(int *)&PLAYER_KGT_BUFFER[opp_x_val].
-                                         currect_action_cancellable_flag != 0) {
-                              *(undefined4 *)
-                               &PLAYER_KGT_BUFFER[opp_x_val].currect_action_cancellable_flag = 2;
+                            if (gkgtLoadedCharacter[opp_x_val].iCurrentActionCancellableFlag != 0) {
+                              gkgtLoadedCharacter[opp_x_val].iCurrentActionCancellableFlag = 2;
                             }
-                            memzero(ADJ(pObj_param3)->hitbox_attack_array,0x50);
-                            memzero(opponent_obj->hitbox_attack_array,0x50);
-                            uVar3 = (uint)(byte)DAT_KGT_FILE_BUFFER_00433240.stiff_time_offset;
-                            *(uint *)&opponent_obj->time_method_number_in_frames = uVar3;
-                            *(uint *)&ADJ(pObj_param3)->time_method_number_in_frames = uVar3;
+                            vMemzero(ADJ(pObj_param3)->kgtHitboxAttacks,0x50);
+                            vMemzero(opponent_obj->kgtHitboxAttacks,0x50);
+                            uVar3 = (uint)(byte)gkgtKgtSystem.stiff_time_offset;
+                            *(uint *)&opponent_obj->iOpponentDowntimeInFrames = uVar3;
+                            *(uint *)&ADJ(pObj_param3)->iOpponentDowntimeInFrames = uVar3;
                           }
                           if (((hitbox->field_0xc == '\0') || (opp_hitbox->field_0xc == '\0')) &&
                              (((hitbox->field_0xb & 0x80) != 0 ||
                               ((opp_hitbox->field_0xb & 0x80) != 0)))) {
-                            opp_hitbox->skill_step_type = 0;
-                            kVar1 = ADJ(pObj_param3)->obj_type;
-                            hitbox->skill_step_type = 0;
-                            if ((kVar1 != 0) && (ADJ(pObj_param3)->stage_skillscript_idx != 0)) {
-                              ADJ(pObj_param3)->hit_junction_idx =
-                                   ADJ(pObj_param3)->stage_skillscript_idx;
-                              ADJ(pObj_param3)->stage_skillscript_idx = 0;
+                            opp_hitbox->cSkillType = '\0';
+                            kVar1 = ADJ(pObj_param3)->iObjectType;
+                            hitbox->cSkillType = '\0';
+                            if ((kVar1 != PLAYER_ENGINE_OBJECT) &&
+                               (ADJ(pObj_param3)->iStageSkillstepIdx != 0)) {
+                              ADJ(pObj_param3)->iHitJunctionIdx =
+                                   ADJ(pObj_param3)->iStageSkillstepIdx;
+                              ADJ(pObj_param3)->iStageSkillstepIdx = 0;
                             }
-                            if ((opponent_obj->obj_type != 0) &&
-                               (opponent_obj->stage_skillscript_idx != 0)) {
-                              opponent_obj->hit_junction_idx = opponent_obj->stage_skillscript_idx;
-                              opponent_obj->stage_skillscript_idx = 0;
+                            if ((opponent_obj->iObjectType != PLAYER_ENGINE_OBJECT) &&
+                               (opponent_obj->iStageSkillstepIdx != 0)) {
+                              opponent_obj->iHitJunctionIdx = opponent_obj->iStageSkillstepIdx;
+                              opponent_obj->iStageSkillstepIdx = 0;
                             }
                           }
                         }
@@ -11388,11 +11604,11 @@ void handle_hitboxes(void)
           }
         }
         i2 = i2 + -1;
-        pHitbox = (kgt_skill_step_struct *)&pHitbox[-1].field_0xc;
+        pHitbox = (kgtSkill *)&pHitbox[-1].field_0xc;
       } while (i2 != 0);
     }
     i = i + 1;
-    pObj_param3 = (OBJ_STRUCT_ptr_8_int)((int)pObj_param3 + 0x17e);
+    pObj_param3 = (kgtEngineObject_ptr_8_int)((int)pObj_param3 + 0x17e);
   } while (i < 1024);
   return;
 }
@@ -11402,25 +11618,25 @@ void handle_hitboxes(void)
 void handle_hitboxes_2(void)
 
 {
-  kgt_character_struct *player;
-  int iVar1;
-  uint uVar2;
-  int iVar3;
-  bool bVar4;
-  kgt_character_struct *pkVar5;
-  undefined3 uVar6;
+  kgt_character_struct *pkVar1;
+  int iVar2;
+  uint uVar3;
+  int iVar4;
+  bool bVar5;
+  kgt_character_struct *pkVar6;
+  undefined3 uVar7;
   int hitbox_height;
   int rand;
-  OBJ_STRUCT *pOVar7;
+  kgtEngineObject *pkVar8;
   int hitbox_y_val;
   int hitbox_width;
-  uint uVar8;
   uint uVar9;
-  int iVar10;
+  uint uVar10;
   int iVar11;
-  OBJ_STRUCT *opp_object;
   int iVar12;
-  OBJ_STRUCT *object;
+  kgtEngineObject *opp_object;
+  int iVar13;
+  kgtEngineObject *object;
   uint local_3c;
   int *local_38;
   int hitbox_x_val;
@@ -11429,23 +11645,23 @@ void handle_hitboxes_2(void)
   int local_10;
   int local_8;
   int local_4;
-  kgt_skill_step_struct *hitbox;
+  kgtSkill *hitbox;
   int new_ivar;
   byte attack_no_decision;
   byte hitbox_flags;
   int player_buffer;
   
   local_10 = 0;
-  object = OBJ_ARRAY;
+  object = kgtEngineObjects;
   do {
-    if ((((object->__or_3 & 2) == 0) && (object->jmp_idx == 4)) &&
+    if ((((object->__or_3 & 2) == 0) && (object->iJumpIdx == READ_SCRIPT)) &&
        (((uint)object->obj_ptr_b & 0x10) == 0)) {
       i = 0;
       do {
-        hitbox = (kgt_skill_step_struct *)object->hitbox_attack_array[i];
-        if (hitbox != (kgt_skill_step_struct *)0x0) {
-          hitbox_y_val = object->param_3;
-          if ((object->pos_player_direction & 1) == 0) {
+        hitbox = (kgtSkill *)object->kgtHitboxAttacks[i];
+        if (hitbox != (kgtSkill *)0x0) {
+          hitbox_y_val = object->iParam3;
+          if ((object->iPlayerLookingRight & 1) == 0) {
             hitbox_x_val = (int)*(short *)&hitbox->field_0x1 +
                            ((int)(hitbox_y_val + (hitbox_y_val >> 0x1f & 0xffffU)) >> 0x10);
           }
@@ -11454,22 +11670,22 @@ void handle_hitboxes_2(void)
                            (int)*(short *)&hitbox->field_0x1;
           }
           local_14 = 0;
-          opp_object = OBJ_ARRAY;
+          opp_object = kgtEngineObjects;
           hitbox_width = (int)*(short *)&hitbox->field_0x5;
           hitbox_y_val = (int)*(short *)&hitbox->field_0x3 +
-                         ((int)(object->param_4 + (object->param_4 >> 0x1f & 0xffffU)) >> 0x10);
+                         ((int)(object->iParam4 + (object->iParam4 >> 0x1f & 0xffffU)) >> 0x10);
           hitbox_height = (int)*(short *)&hitbox->field_0x7;
           do {
-            if (((opp_object->jmp_idx == 4) &&
+            if (((opp_object->iJumpIdx == READ_SCRIPT) &&
                 (((*(uint *)&opp_object->__or_3 ^ *(uint *)&object->__or_3) & 1) == 0)) &&
-               (object->player_file_buffer_2 != opp_object->player_file_buffer_2)) {
-              player_buffer = object->player_file_buffer;
-              if (((*(uint *)&PLAYER_KGT_BUFFER[player_buffer].enemy_bitmask &
-                   1 << ((byte)opp_object->player_file_buffer & 0x1f)) != 0) &&
+               (object->iPlayerBuffer_2 != opp_object->iPlayerBuffer_2)) {
+              player_buffer = object->iPlayerIdx;
+              if (((*(uint *)&gkgtLoadedCharacter[player_buffer].enemy_bitmask &
+                   1 << ((byte)opp_object->iPlayerIdx & 0x1f)) != 0) &&
                  ((*(uint *)&opp_object->__or_3 & 2) == 0)) {
-                if (opp_object->obj_type == 0) {
-                  if ((opp_object->param_4 == opp_object->compare_to_param_4) &&
-                     (opp_object->y_momentum == 0)) {
+                if (opp_object->iObjectType == PLAYER_ENGINE_OBJECT) {
+                  if ((opp_object->iParam4 == opp_object->compare_to_param_4) &&
+                     (opp_object->iYMomentum == 0)) {
                     hitbox_flags = hitbox->field_0xa;
                     attack_no_decision = hitbox_flags & 0x10;
                   }
@@ -11485,270 +11701,279 @@ void handle_hitboxes_2(void)
                 local_38 = opp_object->hitbox_guard_array;
                 local_3c = 0;
                 do {
-                  iVar10 = *local_38;
-                  if ((iVar10 != 0) && ((*(byte *)(iVar10 + 10) & 6) != 0)) {
-                    if ((opp_object->pos_player_direction & 1) == 0) {
-                      iVar11 = (int)*(short *)(iVar10 + 1) +
-                               ((int)(opp_object->param_3 + (opp_object->param_3 >> 0x1f & 0xffffU))
+                  iVar11 = *local_38;
+                  if ((iVar11 != 0) && ((*(byte *)(iVar11 + 10) & 6) != 0)) {
+                    if ((opp_object->iPlayerLookingRight & 1) == 0) {
+                      iVar12 = (int)*(short *)(iVar11 + 1) +
+                               ((int)(opp_object->iParam3 + (opp_object->iParam3 >> 0x1f & 0xffffU))
                                >> 0x10);
                     }
                     else {
-                      iVar11 = ((int)(opp_object->param_3 + (opp_object->param_3 >> 0x1f & 0xffffU))
-                               >> 0x10) - (int)*(short *)(iVar10 + 1);
+                      iVar12 = ((int)(opp_object->iParam3 + (opp_object->iParam3 >> 0x1f & 0xffffU))
+                               >> 0x10) - (int)*(short *)(iVar11 + 1);
                     }
-                    iVar12 = (int)*(short *)(iVar10 + 3) +
-                             ((int)(opp_object->param_4 + (opp_object->param_4 >> 0x1f & 0xffffU))
+                    iVar13 = (int)*(short *)(iVar11 + 3) +
+                             ((int)(opp_object->iParam4 + (opp_object->iParam4 >> 0x1f & 0xffffU))
                              >> 0x10);
-                    if ((((iVar11 - *(short *)(iVar10 + 5) < hitbox_width + hitbox_x_val) &&
-                         (hitbox_x_val - hitbox_width < *(short *)(iVar10 + 5) + iVar11)) &&
-                        (iVar12 - *(short *)(iVar10 + 7) < hitbox_height + hitbox_y_val)) &&
-                       (hitbox_y_val - hitbox_height < *(short *)(iVar10 + 7) + iVar12)) {
-                      iVar1 = opp_object->player_file_buffer;
-                      bVar4 = false;
-                      uVar9 = (uint)(byte)hitbox->field_0xc;
-                      local_3c = INPUT_BUFFER_A[iVar1][INPUT_BUFFER_POS];
-                      player = PLAYER_KGT_BUFFER + iVar1;
-                      if (object->obj_type == 0) {
-                        PLAYER_KGT_BUFFER[player_buffer].poss_opponent_obj_ptr = opp_object;
-                        PLAYER_KGT_BUFFER[iVar1].poss_opponent_obj_ptr = object;
+                    if ((((iVar12 - *(short *)(iVar11 + 5) < hitbox_width + hitbox_x_val) &&
+                         (hitbox_x_val - hitbox_width < *(short *)(iVar11 + 5) + iVar12)) &&
+                        (iVar13 - *(short *)(iVar11 + 7) < hitbox_height + hitbox_y_val)) &&
+                       (hitbox_y_val - hitbox_height < *(short *)(iVar11 + 7) + iVar13)) {
+                      iVar2 = opp_object->iPlayerIdx;
+                      bVar5 = false;
+                      uVar10 = (uint)(byte)hitbox->field_0xc;
+                      local_3c = giInputBufferA[iVar2][giInputBufferPos];
+                      pkVar1 = gkgtLoadedCharacter + iVar2;
+                      if (object->iObjectType == PLAYER_ENGINE_OBJECT) {
+                        gkgtLoadedCharacter[player_buffer].poss_opponent_obj_ptr = opp_object;
+                        gkgtLoadedCharacter[iVar2].poss_opponent_obj_ptr = object;
                       }
-                      if (object->player_file_buffer == 0) {
-                        GAME_STATE.jump_15_var_a = 1000;
-                        GAME_STATE.hit_player_buffer = iVar1;
+                      if (object->iPlayerIdx == 0) {
+                        gkgtGameState.jump_15_var_a = 1000;
+                        gkgtGameState.iAttackedPlayerBuffer = iVar2;
                       }
-                      if (PLAYER_KGT_BUFFER[iVar1].field6465_0xdfff != 0) {
-                        local_3c = *(uint *)&PLAYER_KGT_BUFFER[iVar1].input_storage;
+                      if (gkgtLoadedCharacter[iVar2].field6458_0xdfff != 0) {
+                        local_3c = *(uint *)&gkgtLoadedCharacter[iVar2].input_storage;
                       }
-                      object->obj_ptr_b = (OBJ_STRUCT *)((uint)object->obj_ptr_b | 0x10);
-                      if (object->obj_type == 0) {
-                        object->param2_maybe_50_or_46 =
-                             (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + 1;
+                      object->obj_ptr_b = (kgtEngineObject *)((uint)object->obj_ptr_b | 0x10);
+                      if (object->iObjectType == PLAYER_ENGINE_OBJECT) {
+                        object->iParam2 = (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + 1;
                       }
-                      if (opp_object->obj_type == 0) {
-                        opp_object->param2_maybe_50_or_46 =
-                             (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + -1;
+                      if (opp_object->iObjectType == PLAYER_ENGINE_OBJECT) {
+                        opp_object->iParam2 = (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + -1;
                       }
-                      if (opp_object->obj_type != 0) {
-                        if ((opp_object->obj_type == 1) && (object->case2_var_b != 0)) {
-                          object->hit_junction_idx = object->case2_var_b;
-                          object->case2_var_b = 0;
+                      if (opp_object->iObjectType != PLAYER_ENGINE_OBJECT) {
+                        if ((opp_object->iObjectType == STORY?_ENGINE_OBJECT) &&
+                           (object->iDsAttackHitsSkillIdx != 0)) {
+                          object->iHitJunctionIdx = object->iDsAttackHitsSkillIdx;
+                          object->iDsAttackHitsSkillIdx = 0;
                         }
                         break;
                       }
-                      if (*(int *)&PLAYER_KGT_BUFFER[player_buffer].currect_action_cancellable_flag
-                          != 0) {
-                        *(undefined4 *)
-                         &PLAYER_KGT_BUFFER[player_buffer].currect_action_cancellable_flag = 2;
+                      if (gkgtLoadedCharacter[player_buffer].iCurrentActionCancellableFlag != 0) {
+                        gkgtLoadedCharacter[player_buffer].iCurrentActionCancellableFlag = 2;
                       }
-                      if ((*(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf51 == 0) ||
-                         ((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 8U) == 0)) {
-                        uVar8 = 1;
+                      if ((gkgtLoadedCharacter[iVar2].iUnkParam3Related == 0) ||
+                         ((gkgtLoadedCharacter[iVar2].cIsGuardButtonActive & 8) == 0)) {
+                        uVar9 = 1;
                       }
                       else {
-                        uVar8 = (object->param_3 <= opp_object->param_3) + 1;
+                        uVar9 = (object->iParam3 <= opp_object->iParam3) + 1;
                       }
                       if (((uint)opp_object->obj_ptr_b & 0xc) == 0) {
-                        if (PLAYER_KGT_BUFFER[iVar1].unk_CPU_var_initial_1 == 0) {
-                          pkVar5 = PLAYER_KGT_BUFFER + iVar1;
-                          uVar2._0_1_ = pkVar5->guard_button_flag;
-                          uVar2._1_1_ = pkVar5->field1828_0x7cb7[0];
-                          uVar2._2_1_ = pkVar5->field1828_0x7cb7[1];
-                          uVar2._3_1_ = pkVar5->field1828_0x7cb7[2];
-                          if ((uVar2 & 8) == 0) {
-                            if ((local_3c & uVar8) == 0) {
-                              if ((uVar2 & 1) != 0) {
-                                uVar8 = local_3c & 0xfffffff7;
+                        if (gkgtLoadedCharacter[iVar2].iNotTestplayPlayerCpu == 0) {
+                          uVar3 = gkgtLoadedCharacter[iVar2].cIsGuardButtonActive;
+                          if ((uVar3 & 8) == 0) {
+                            if ((local_3c & uVar9) == 0) {
+                              if ((uVar3 & 1) != 0) {
+                                uVar9 = local_3c & 0xfffffff7;
                                 goto joined_r0x0040f43f;
                               }
                               goto LAB_0040f449;
                             }
                           }
-                          else if ((INPUT_BUFFER_A[opp_object->player_file_buffer][INPUT_BUFFER_POS]
-                                   & 1 << (PLAYER_KGT_BUFFER[iVar1].guard_button + 4U & 0x1f)) == 0)
+                          else if ((giInputBufferA[opp_object->iPlayerIdx][giInputBufferPos] &
+                                   1 << (gkgtLoadedCharacter[iVar2].cGuardButton + 4U & 0x1f)) == 0)
                           {
-                            uVar8 = local_3c;
-                            if ((uVar2 & 1) != 0) {
+                            uVar9 = local_3c;
+                            if ((uVar3 & 1) != 0) {
 joined_r0x0040f43f:
-                              if (uVar8 == 0) goto LAB_0040f441;
+                              if (uVar9 == 0) goto LAB_0040f441;
                             }
                             goto LAB_0040f449;
                           }
                         }
                         else {
                           rand = _rand();
-                          if (PLAYER_KGT_BUFFER[iVar1].cpu_level <= rand % 100) goto LAB_0040f449;
+                          if (gkgtLoadedCharacter[iVar2].iCpuLevel <= rand % 100) goto LAB_0040f449;
                         }
 LAB_0040f441:
-                        bVar4 = true;
+                        bVar5 = true;
                       }
 LAB_0040f449:
                       if (((byte)opp_object->obj_ptr_b & 0xc) == 0xc) {
-                        bVar4 = true;
+                        bVar5 = true;
                       }
                       if ((hitbox->field_0xa & 0x40) != 0) {
-                        bVar4 = false;
+                        bVar5 = false;
                       }
-                      if (((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 2U) == 0) &&
-                         (opp_object->param_4 < opp_object->compare_to_param_4)) {
-                        bVar4 = false;
+                      if (((gkgtLoadedCharacter[iVar2].cIsGuardButtonActive & 2) == 0) &&
+                         (opp_object->iParam4 < opp_object->compare_to_param_4)) {
+                        bVar5 = false;
                       }
                       new_ivar = (int)object->reaction_skillblock;
                       if (new_ivar == 0) {
 LAB_0040f657:
-                        if (uVar9 != 0) {
-                          SET_DEBUG_INFO(s_reaction_error_2_0041f1e4,0xff);
+                        if (uVar10 != 0) {
+                          iSetDebugInfo(s_reaction_error_2_0041f1e4,0xff);
                           break;
                         }
                       }
                       else {
-                        if (opp_object->param_4 < opp_object->compare_to_param_4) {
-                          if (bVar4) {
-                            uVar8 = (uint)*(ushort *)(new_ivar + 0xb);
+                        if (opp_object->iParam4 < opp_object->compare_to_param_4) {
+                          if (bVar5) {
+                            uVar9 = (uint)*(ushort *)(new_ivar + 0xb);
                           }
                           else {
-                            uVar8 = (uint)*(ushort *)(new_ivar + 5);
+                            uVar9 = (uint)*(ushort *)(new_ivar + 5);
                           }
                         }
                         else if ((local_3c & 8) == 0) {
-                          if (bVar4) {
-                            uVar8 = (uint)*(ushort *)(new_ivar + 7);
-                            if ((PLAYER_KGT_BUFFER[iVar1].unk_CPU_var_initial_1 != 0) &&
-                               ((DAT_KGT_FILE_BUFFER_00433240.hit_junctions[uVar8].doing & 1U) != 0)
-                               ) {
-                              uVar8 = (uint)*(ushort *)(new_ivar + 9);
+                          if (bVar5) {
+                            uVar9 = (uint)*(ushort *)(new_ivar + 7);
+                            if ((gkgtLoadedCharacter[iVar2].iNotTestplayPlayerCpu != 0) &&
+                               ((gkgtKgtSystem.hit_junctions[uVar9].cDoing & 1U) != 0)) {
+                              uVar9 = (uint)*(ushort *)(new_ivar + 9);
                             }
                           }
                           else {
-                            uVar8 = (uint)*(ushort *)(new_ivar + 1);
+                            uVar9 = (uint)*(ushort *)(new_ivar + 1);
                           }
                         }
-                        else if (bVar4) {
-                          uVar8 = (uint)*(ushort *)(new_ivar + 9);
-                          if ((PLAYER_KGT_BUFFER[iVar1].unk_CPU_var_initial_1 != 0) &&
-                             ((DAT_KGT_FILE_BUFFER_00433240.hit_junctions[uVar8].doing & 1U) != 0))
-                          {
-                            uVar8 = (uint)*(ushort *)(new_ivar + 7);
+                        else if (bVar5) {
+                          uVar9 = (uint)*(ushort *)(new_ivar + 9);
+                          if ((gkgtLoadedCharacter[iVar2].iNotTestplayPlayerCpu != 0) &&
+                             ((gkgtKgtSystem.hit_junctions[uVar9].cDoing & 1U) != 0)) {
+                            uVar9 = (uint)*(ushort *)(new_ivar + 7);
                           }
                         }
                         else {
-                          uVar8 = (uint)*(ushort *)(new_ivar + 3);
+                          uVar9 = (uint)*(ushort *)(new_ivar + 3);
                         }
-                        if (uVar8 == 0) goto LAB_0040f657;
-                        opp_object->hit_junction_idx =
-                             (uint)(ushort)player->hit_junctions[uVar8].allottment_idx;
-                        if ((DAT_KGT_FILE_BUFFER_00433240.hit_junctions[uVar8].doing & 1U) != 0) {
-                          bVar4 = false;
+                        if (uVar9 == 0) goto LAB_0040f657;
+                        opp_object->iHitJunctionIdx =
+                             (uint)(ushort)pkVar1->kgtHitJunctions[uVar9].shAllottmentIdx;
+                        if ((gkgtKgtSystem.hit_junctions[uVar9].cDoing & 1U) != 0) {
+                          bVar5 = false;
                         }
                         if ((hitbox->field_0xc != '\0') &&
-                           (*(short *)(uVar8 * 4 + 0x4d8b2c + player_buffer * 0xe03f) != 0)) {
-                          rand = object->player_file_buffer;
+                           (*(short *)(uVar9 * 4 + 0x4d8b2c + player_buffer * 0xe03f) != 0)) {
+                          rand = object->iPlayerIdx;
                           hitbox_calculation(&local_8,hitbox_x_val,hitbox_y_val,hitbox_width,
-                                             hitbox_height,iVar11,iVar12,(int)*(short *)(iVar10 + 5)
-                                             ,(int)*(short *)(iVar10 + 7));
-                          pOVar7 = FIND_EMPTY_OBJ(4,0x5d,local_8,local_4);
-                          iVar3 = object->pos_player_direction;
-                          pOVar7->player_file_buffer = object->player_file_buffer;
-                          uVar6 = *(undefined3 *)&object->field_0x15;
-                          pOVar7->__or_3 = object->__or_3;
-                          *(undefined3 *)&pOVar7->field_0x15 = uVar6;
-                          uVar8 = (uint)*(ushort *)(uVar8 * 4 + 0x4d8b2c + player_buffer * 0xe03f);
-                          pOVar7->pos_player_direction = iVar3;
-                          pOVar7->action_idx = uVar8;
-                          pOVar7->obj_type = 1;
-                          *(uint *)&pOVar7->actionscript_idx =
-                               (uint)(ushort)PLAYER_KGT_BUFFER[rand].kgt_core.p_actions_alloc[uVar8]
-                                             .starting_step_idx;
-                          pOVar7->unk_bitmask = pOVar7->unk_bitmask | 0x40000000;
+                                             hitbox_height,iVar12,iVar13,(int)*(short *)(iVar11 + 5)
+                                             ,(int)*(short *)(iVar11 + 7));
+                          pkVar8 = kgtoNewEngineObject(READ_SCRIPT,0x5d,local_8,local_4);
+                          iVar4 = object->iPlayerLookingRight;
+                          pkVar8->iPlayerIdx = object->iPlayerIdx;
+                          uVar7 = *(undefined3 *)&object->field_0x15;
+                          pkVar8->__or_3 = object->__or_3;
+                          *(undefined3 *)&pkVar8->field_0x15 = uVar7;
+                          uVar9 = (uint)*(ushort *)(uVar9 * 4 + 0x4d8b2c + player_buffer * 0xe03f);
+                          pkVar8->iPlayerLookingRight = iVar4;
+                          pkVar8->iSkillIdx = uVar9;
+                          pkVar8->iObjectType = STORY?_ENGINE_OBJECT;
+                          *(uint *)&pkVar8->iSkillScriptIdx =
+                               (uint)(ushort)gkgtLoadedCharacter[rand].kgtCore.pSkillsAlloc[uVar9].
+                                             shStartingStepIdx;
+                          pkVar8->unk_bitmask = pkVar8->unk_bitmask | 0x40000000;
                         }
-                        if ((opp_object->hit_junction_idx == 0) && (uVar9 != 0)) {
-                          SET_DEBUG_INFO(s_reaction_error_1_0041f1d0,0xff);
+                        if ((opp_object->iHitJunctionIdx == 0) && (uVar10 != 0)) {
+                          iSetDebugInfo(s_reaction_error_1_0041f1d0,0xff);
                           break;
                         }
                       }
-                      if (bVar4) {
-                        opp_object->pos_player_direction = object->pos_player_direction ^ 1;
-                        if (uVar9 != 0) {
-                          uVar8 = (uint)(byte)DAT_KGT_FILE_BUFFER_00433240.stiff_time_guard;
-                          *(uint *)&opp_object->time_method_number_in_frames = uVar8;
-                          *(uint *)&object->time_method_number_in_frames = uVar8;
+                      if (bVar5) {
+                        opp_object->iPlayerLookingRight = object->iPlayerLookingRight ^ 1;
+                        if (uVar10 != 0) {
+                          uVar9 = (uint)(byte)gkgtKgtSystem.stiff_time_guard;
+                          *(uint *)&opp_object->iOpponentDowntimeInFrames = uVar9;
+                          *(uint *)&object->iOpponentDowntimeInFrames = uVar9;
                           hitbox_flags = hitbox->field_0xa;
-                          opp_object->obj_ptr_b = (OBJ_STRUCT *)((uint)opp_object->obj_ptr_b | 0xc);
+                          opp_object->obj_ptr_b =
+                               (kgtEngineObject *)((uint)opp_object->obj_ptr_b | 0xc);
                           if ((hitbox_flags & 4) != 0) {
-                            uVar9 = ((byte)PLAYER_KGT_BUFFER[player_buffer].shave_ratio * uVar9) /
-                                    100;
-                            if (uVar9 == 0) {
-                              uVar9 = 1;
+                            uVar10 = ((byte)gkgtLoadedCharacter[player_buffer].cShaveRatio * uVar10)
+                                     / 100;
+                            if (uVar10 == 0) {
+                              uVar10 = 1;
                             }
-                            add_to_health(player,-uVar9);
+                            vAddToHealth(pkVar1,-uVar10);
                           }
                         }
-                        if (object->stage_skillscript_idx != 0) {
-                          object->hit_junction_idx = object->stage_skillscript_idx;
-                          object->stage_skillscript_idx = 0;
+                        if (object->iStageSkillstepIdx != 0) {
+                          object->iHitJunctionIdx = object->iStageSkillstepIdx;
+                          object->iStageSkillstepIdx = 0;
                         }
                       }
                       else {
-                        if ((*(byte *)(iVar10 + 10) & 4) != 0) {
-                          *(uint *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf2d =
-                               *(uint *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf2d | 3;
-                          *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf31 =
-                               *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf31 + 1;
-                          SET_DEBUG_INFO(s_HAN_HIRAGANA__0041f1f8,0x8fffff);
+                        if ((*(byte *)(iVar11 + 10) & 4) != 0) {
+                          pkVar6 = gkgtLoadedCharacter + player_buffer;
+                          uVar9._0_1_ = pkVar6->unkHitboxVarB;
+                          uVar9._1_1_ = pkVar6->field_0xdf2e;
+                          uVar9._2_1_ = pkVar6->poss_direction_related_A;
+                          uVar9._3_1_ = pkVar6->field_0xdf30;
+                          uVar9 = uVar9 | 3;
+                          pkVar6 = gkgtLoadedCharacter + player_buffer;
+                          pkVar6->unkHitboxVarB = (char)uVar9;
+                          pkVar6->field_0xdf2e = (char)(uVar9 >> 8);
+                          pkVar6->poss_direction_related_A = (bool)(char)(uVar9 >> 0x10);
+                          pkVar6->field_0xdf30 = (char)(uVar9 >> 0x18);
+                          *(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA =
+                               *(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA + 1;
+                          iSetDebugInfo(s_HAN_HIRAGANA__0041f1f8,0x8fffff);
                         }
-                        opp_object->pos_player_direction = object->pos_player_direction ^ 1;
-                        if (uVar9 != 0) {
-                          uVar8 = (uint)(byte)DAT_KGT_FILE_BUFFER_00433240.stiff_time_hit;
-                          *(uint *)&opp_object->time_method_number_in_frames = uVar8;
-                          *(uint *)&object->time_method_number_in_frames = uVar8;
-                          add_to_special_gauge
-                                    (object->player_file_buffer,
-                                     (int)PLAYER_KGT_BUFFER[player_buffer].
-                                          special_gauge_increase_on_attack);
-                          add_to_special_gauge
-                                    (opp_object->player_file_buffer,
-                                     (int)PLAYER_KGT_BUFFER[iVar1].special_gauge_increase_on_hit);
-                          hitbox_flags = PLAYER_KGT_BUFFER[player_buffer].character_rev;
-                          rand = PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01;
+                        opp_object->iPlayerLookingRight = object->iPlayerLookingRight ^ 1;
+                        if (uVar10 != 0) {
+                          uVar9 = (uint)(byte)gkgtKgtSystem.stiff_time_hit;
+                          *(uint *)&opp_object->iOpponentDowntimeInFrames = uVar9;
+                          *(uint *)&object->iOpponentDowntimeInFrames = uVar9;
+                          vAddToSpecialGauge(object->iPlayerIdx,
+                                             (int)gkgtLoadedCharacter[player_buffer].
+                                                  shSpecialGuageIncreaseOnAttack);
+                          vAddToSpecialGauge(opp_object->iPlayerIdx,
+                                             (int)gkgtLoadedCharacter[iVar2].
+                                                  shSpecialGuageIncreaseOnHit);
+                          hitbox_flags = gkgtLoadedCharacter[player_buffer].cCharacterRev;
+                          rand = gkgtLoadedCharacter[iVar2].field6362_0xdf01;
                           opp_object->obj_ptr_b =
-                               (OBJ_STRUCT *)((uint)opp_object->obj_ptr_b & 0xfffffffb | 8);
+                               (kgtEngineObject *)((uint)opp_object->obj_ptr_b & 0xfffffffb | 8);
                           rand = (int)((ulonglong)
-                                       ((longlong)(int)((uint)hitbox_flags * rand * uVar9) *
+                                       ((longlong)(int)((uint)hitbox_flags * rand * uVar10) *
                                        -0x51eb851f) >> 0x20);
-                          rand = uVar9 + ((rand >> 5) - (rand >> 0x1f));
+                          rand = uVar10 + ((rand >> 5) - (rand >> 0x1f));
                           if (rand < 1) {
                             rand = 1;
                           }
-                          iVar10 = (int)((uint)*(byte *)(iVar10 + 0xb) * rand) / 100;
-                          if (iVar10 < 1) {
-                            iVar10 = 1;
+                          iVar11 = (int)((uint)*(byte *)(iVar11 + 0xb) * rand) / 100;
+                          if (iVar11 < 1) {
+                            iVar11 = 1;
                           }
-                          add_to_health(player,-iVar10);
-                          PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01 =
-                               PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01 + 1;
+                          vAddToHealth(pkVar1,-iVar11);
+                          gkgtLoadedCharacter[iVar2].field6362_0xdf01 =
+                               gkgtLoadedCharacter[iVar2].field6362_0xdf01 + 1;
                         }
-                        if (1 < PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01) {
-                          pOVar7 = FIND_EMPTY_OBJ(7,0x5e,iVar11 << 0x10,iVar12 * 0x10000);
-                          pOVar7->player_file_buffer = PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01;
-                          pOVar7->obj_ptr_b =
-                               (OBJ_STRUCT *)&PLAYER_KGT_BUFFER[iVar1].field6357_0xdf01;
-                          pOVar7->unk_bitmask = pOVar7->unk_bitmask | 0x40000000;
+                        if (1 < gkgtLoadedCharacter[iVar2].field6362_0xdf01) {
+                          pkVar8 = kgtoNewEngineObject(7,0x5e,iVar12 << 0x10,iVar13 * 0x10000);
+                          pkVar8->iPlayerIdx = gkgtLoadedCharacter[iVar2].field6362_0xdf01;
+                          pkVar8->obj_ptr_b =
+                               (kgtEngineObject *)&gkgtLoadedCharacter[iVar2].field6362_0xdf01;
+                          pkVar8->unk_bitmask = pkVar8->unk_bitmask | 0x40000000;
                         }
-                        if (object->obj_type == 0) {
-                          *(uint *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf2d =
-                               *(uint *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf2d | 1;
-                          *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf31 =
-                               *(int *)&PLAYER_KGT_BUFFER[iVar1].field_0xdf31 + 1;
+                        if (object->iObjectType == PLAYER_ENGINE_OBJECT) {
+                          pkVar1 = gkgtLoadedCharacter + player_buffer;
+                          uVar10._0_1_ = pkVar1->unkHitboxVarB;
+                          uVar10._1_1_ = pkVar1->field_0xdf2e;
+                          uVar10._2_1_ = pkVar1->poss_direction_related_A;
+                          uVar10._3_1_ = pkVar1->field_0xdf30;
+                          uVar10 = uVar10 | 1;
+                          pkVar1 = gkgtLoadedCharacter + player_buffer;
+                          pkVar1->unkHitboxVarB = (char)uVar10;
+                          pkVar1->field_0xdf2e = (char)(uVar10 >> 8);
+                          pkVar1->poss_direction_related_A = (bool)(char)(uVar10 >> 0x10);
+                          pkVar1->field_0xdf30 = (char)(uVar10 >> 0x18);
+                          *(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA =
+                               *(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA + 1;
                         }
-                        else if (object->case2_var_b != 0) {
-                          object->hit_junction_idx = object->case2_var_b;
-                          object->case2_var_b = 0;
+                        else if (object->iDsAttackHitsSkillIdx != 0) {
+                          object->iHitJunctionIdx = object->iDsAttackHitsSkillIdx;
+                          object->iDsAttackHitsSkillIdx = 0;
                         }
                       }
-                      if (object->obj_type == 0) {
-                        PLAYER_KGT_BUFFER[iVar1].field6356_0xdefd = (int)object;
+                      if (object->iObjectType == PLAYER_ENGINE_OBJECT) {
+                        gkgtLoadedCharacter[iVar2].field6361_0xdefd = (int)object;
                       }
                       else if ((object->unk_bitmask & 0x20000000U) != 0) {
-                        PLAYER_KGT_BUFFER[iVar1].field6356_0xdefd = (int)object;
+                        gkgtLoadedCharacter[iVar2].field6361_0xdefd = (int)object;
                       }
                       break;
                     }
@@ -11780,7 +12005,7 @@ void FUN_0040f910(void)
 
 {
   short sVar1;
-  kgt_obj_type kVar2;
+  kgtEngineObjectTypes kVar2;
   bool bVar3;
   bool bVar4;
   int iVar5;
@@ -11788,11 +12013,11 @@ void FUN_0040f910(void)
   int iVar7;
   int iVar8;
   int iVar9;
-  OBJ_STRUCT *pOVar10;
+  kgtEngineObject *pkVar10;
   int iVar11;
   int iVar12;
   bool bVar13;
-  OBJ_STRUCT *local_38;
+  kgtEngineObject *local_38;
   int *local_24;
   int *local_20;
   int local_1c;
@@ -11801,158 +12026,158 @@ void FUN_0040f910(void)
   int local_8;
   
   local_1c = 0;
-  local_38 = OBJ_ARRAY;
+  local_38 = kgtEngineObjects;
   do {
     bVar13 = false;
-    if ((local_38->jmp_idx == 4) &&
-       (((GAME_STATE.pause_flag == 0 || (kVar2 = PTR_POSS_CURRENT_OBJ->obj_type, (int)kVar2 < 0)) ||
-        ((1 < (int)kVar2 && (kVar2 != player_file)))))) {
-      if (*(int *)&local_38->time_method_number_in_frames == 0) {
-        iVar5 = local_38->x_momentum + local_38->x_gravity;
-        local_38->x_momentum = iVar5;
-        local_38->param_3 = local_38->param_3 + iVar5;
-        iVar5 = local_38->y_momentum + local_38->y_gravity;
-        local_38->y_momentum = iVar5;
-        local_38->param_4 = local_38->param_4 + iVar5;
+    if ((local_38->iJumpIdx == READ_SCRIPT) &&
+       (((gkgtGameState.iIsPausedFlag == 0 ||
+         (kVar2 = gpkgtCurrentEngineObject->iObjectType, (int)kVar2 < 0)) ||
+        ((1 < (int)kVar2 && (kVar2 != CHARACTER_ENGINE_OBJECT)))))) {
+      if (*(int *)&local_38->iOpponentDowntimeInFrames == 0) {
+        iVar5 = local_38->iXMomentum + local_38->iXGravity;
+        local_38->iXMomentum = iVar5;
+        local_38->iParam3 = local_38->iParam3 + iVar5;
+        iVar5 = local_38->iYMomentum + local_38->iYGravity;
+        local_38->iYMomentum = iVar5;
+        local_38->iParam4 = local_38->iParam4 + iVar5;
       }
       if ((local_38->unk_bitmask & 0x20000000U) != 0) {
-        pOVar10 = local_38->parent_obj;
-        if ((pOVar10->pos_player_direction & 1) == 0) {
-          local_38->param_3 = *(short *)&local_38->field_0x12d * 0x10000 + pOVar10->param_3;
+        pkVar10 = local_38->parent_obj;
+        if ((pkVar10->iPlayerLookingRight & 1) == 0) {
+          local_38->iParam3 = *(short *)&local_38->field_0x12d * 0x10000 + pkVar10->iParam3;
         }
         else {
-          local_38->param_3 = pOVar10->param_3 + *(short *)&local_38->field_0x12d * -0x10000;
+          local_38->iParam3 = pkVar10->iParam3 + *(short *)&local_38->field_0x12d * -0x10000;
         }
-        local_38->param_4 =
-             *(short *)&local_38->field_0x12f * 0x10000 + local_38->parent_obj->param_4;
+        local_38->iParam4 =
+             *(short *)&local_38->field_0x12f * 0x10000 + local_38->parent_obj->iParam4;
       }
-      if (local_38->obj_type == 0) {
+      if (local_38->iObjectType == PLAYER_ENGINE_OBJECT) {
         bVar3 = false;
-        bVar13 = PLAYER_KGT_BUFFER[local_38->player_file_buffer].health == 0;
-        local_38->param_3 =
-             local_38->param_3 + PLAYER_KGT_BUFFER[local_38->player_file_buffer].field6384_0xdf49;
-        iVar5 = local_38->player_file_buffer;
-        PLAYER_KGT_BUFFER[iVar5].field6384_0xdf49 = 0;
-        if ((((PLAYER_KGT_BUFFER[iVar5].field6455_0xdfef & 0x10) != 0) &&
-            (pOVar10 = PLAYER_KGT_BUFFER[iVar5].poss_opponent_obj_ptr, pOVar10 != (OBJ_STRUCT *)0x0)
-            ) && (pOVar10->obj_type == 0)) {
-          if ((local_38->pos_player_direction & 1) == 0) {
-            iVar8 = *(int *)((int)&PLAYER_KGT_BUFFER[iVar5].script_obj_var_d + 2) +
-                    local_38->param_3;
+        bVar13 = gkgtLoadedCharacter[local_38->iPlayerIdx].iHealth == 0;
+        local_38->iParam3 =
+             local_38->iParam3 + gkgtLoadedCharacter[local_38->iPlayerIdx].field6389_0xdf49;
+        iVar5 = local_38->iPlayerIdx;
+        gkgtLoadedCharacter[iVar5].field6389_0xdf49 = 0;
+        if ((((gkgtLoadedCharacter[iVar5].field6448_0xdfef & 0x10) != 0) &&
+            (pkVar10 = gkgtLoadedCharacter[iVar5].poss_opponent_obj_ptr,
+            pkVar10 != (kgtEngineObject *)0x0)) && (pkVar10->iObjectType == PLAYER_ENGINE_OBJECT)) {
+          if ((local_38->iPlayerLookingRight & 1) == 0) {
+            iVar8 = *(int *)((int)&gkgtLoadedCharacter[iVar5].script_obj_var_d + 2) +
+                    local_38->iParam3;
           }
           else {
-            iVar8 = local_38->param_3 -
-                    *(int *)((int)&PLAYER_KGT_BUFFER[iVar5].script_obj_var_d + 2);
+            iVar8 = local_38->iParam3 -
+                    *(int *)((int)&gkgtLoadedCharacter[iVar5].script_obj_var_d + 2);
           }
-          iVar9 = local_38->param_4;
-          pOVar10->param_3 = iVar8;
-          pOVar10->param_4 = *(int *)&PLAYER_KGT_BUFFER[iVar5].field_0xdffb + iVar9;
+          iVar9 = local_38->iParam4;
+          pkVar10->iParam3 = iVar8;
+          pkVar10->iParam4 = *(int *)&gkgtLoadedCharacter[iVar5].field_0xdffb + iVar9;
         }
-        iVar8 = unk_y_position;
+        iVar8 = unk_x_position;
         bVar4 = false;
-        if (GAME_STATE.GAME_MODE == 1P_story) {
-          if ((PLAYER_KGT_BUFFER[0].character_story_entries[(&POSS_STORY_ARRAY)[STORY_MODE_IDX]].
-               options_bitmask & 4U) != 0) goto LAB_0040faab;
+        if (gkgtGameState.kgtGameMode == 1P_story) {
+          if ((gkgtLoadedCharacter[0].kgtStoryEntries[giCurrentStoryStep[giStoryModePlayerIdx_2]].
+               cOptionsBitmask & 4U) != 0) goto LAB_0040faab;
         }
-        else if ((0 < (int)GAME_STATE.GAME_MODE) && ((int)GAME_STATE.GAME_MODE < 3)) {
+        else if ((0 < (int)gkgtGameState.kgtGameMode) && ((int)gkgtGameState.kgtGameMode < 3)) {
 LAB_0040faab:
           bVar3 = true;
         }
         if (bVar3) {
           if (!bVar3) goto LAB_0040fcbc;
 LAB_0040fba2:
-          if (local_38->param_3 + unk_y_position * -0x10000 < 0x320000) {
+          if (local_38->iParam3 + unk_x_position * -0x10000 < 0x320000) {
             if (((!bVar13) && (((uint)local_38->obj_ptr_b & 8) != 0)) &&
-               ((iVar5 = PLAYER_KGT_BUFFER[iVar5].field6356_0xdefd, iVar5 != 0 &&
+               ((iVar5 = gkgtLoadedCharacter[iVar5].field6361_0xdefd, iVar5 != 0 &&
                 ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
-                 (iVar9 = (0x32 - unk_y_position) * 0x10000 - local_38->param_3, 0 < iVar9)))))) {
-              PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 =
-                   PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 + iVar9;
+                 (iVar9 = (0x32 - unk_x_position) * 0x10000 - local_38->iParam3, 0 < iVar9)))))) {
+              gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 =
+                   gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 + iVar9;
             }
             bVar4 = true;
-            local_38->param_3 = (unk_y_position + 0x32) * 0x10000;
+            local_38->iParam3 = (unk_x_position + 0x32) * 0x10000;
           }
-          if (local_38->param_3 + iVar8 * -0x10000 < 0x24e0001) {
+          if (local_38->iParam3 + iVar8 * -0x10000 < 0x24e0001) {
 LAB_0040fca7:
             if (!bVar4) goto LAB_0040fcbc;
           }
           else {
             if ((((!bVar13) && (((uint)local_38->obj_ptr_b & 8) != 0)) &&
-                (iVar5 = PLAYER_KGT_BUFFER[local_38->player_file_buffer].field6356_0xdefd,
-                iVar5 != 0)) &&
+                (iVar5 = gkgtLoadedCharacter[local_38->iPlayerIdx].field6361_0xdefd, iVar5 != 0)) &&
                ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
-                (iVar8 = local_38->param_3 + (unk_y_position + 0x24e) * -0x10000, 0 < iVar8)))) {
-              PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 =
-                   PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 - iVar8;
+                (iVar8 = local_38->iParam3 + (unk_x_position + 0x24e) * -0x10000, 0 < iVar8)))) {
+              gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 =
+                   gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 - iVar8;
             }
-            local_38->param_3 = (unk_y_position + 0x24e) * 0x10000;
+            local_38->iParam3 = (unk_x_position + 0x24e) * 0x10000;
           }
         }
         else {
-          if (local_38->case2_var_d != 0) goto LAB_0040fba2;
-          if (local_38->param_3 < 0x320000) {
+          if (local_38->iDsHotToWallIdx != 0) goto LAB_0040fba2;
+          if (local_38->iParam3 < 0x320000) {
             if (((!bVar13) && (((uint)local_38->obj_ptr_b & 8) != 0)) &&
-               ((iVar5 = PLAYER_KGT_BUFFER[iVar5].field6356_0xdefd, iVar5 != 0 &&
+               ((iVar5 = gkgtLoadedCharacter[iVar5].field6361_0xdefd, iVar5 != 0 &&
                 ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
-                 (iVar8 = 0x320000 - local_38->param_3, 0 < iVar8)))))) {
-              PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 =
-                   PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 + iVar8;
+                 (iVar8 = 0x320000 - local_38->iParam3, 0 < iVar8)))))) {
+              gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 =
+                   gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 + iVar8;
             }
-            local_38->param_3 = 0x320000;
+            local_38->iParam3 = 0x320000;
             bVar4 = true;
           }
-          if (local_38->param_3 < 0x4ce0001) goto LAB_0040fca7;
+          if (local_38->iParam3 < 0x4ce0001) goto LAB_0040fca7;
           if ((((!bVar13) && (((uint)local_38->obj_ptr_b & 8) != 0)) &&
-              (iVar5 = PLAYER_KGT_BUFFER[local_38->player_file_buffer].field6356_0xdefd, iVar5 != 0)
-              ) && ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
-                    (iVar8 = local_38->param_3 + -0x4ce0000, 0 < iVar8)))) {
-            PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 =
-                 PLAYER_KGT_BUFFER[*(int *)(iVar5 + 0x156)].field6384_0xdf49 - iVar8;
+              (iVar5 = gkgtLoadedCharacter[local_38->iPlayerIdx].field6361_0xdefd, iVar5 != 0)) &&
+             ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
+              (iVar8 = local_38->iParam3 + -0x4ce0000, 0 < iVar8)))) {
+            gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 =
+                 gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 - iVar8;
           }
-          local_38->param_3 = 0x4ce0000;
+          local_38->iParam3 = 0x4ce0000;
         }
-        if (local_38->case2_var_d != 0) {
-          local_38->hit_junction_idx = local_38->case2_var_d;
-          local_38->case2_var_d = 0;
+        if (local_38->iDsHotToWallIdx != 0) {
+          local_38->iHitJunctionIdx = local_38->iDsHotToWallIdx;
+          local_38->iDsHotToWallIdx = 0;
         }
       }
 LAB_0040fcbc:
-      if ((int)local_38->obj_type < 2) {
+      if ((int)local_38->iObjectType < 2) {
         local_20 = local_38->hitbox_guard_array + 0x13;
         local_8 = 0x14;
         do {
           iVar5 = *local_20;
           if ((iVar5 != 0) && ((*(byte *)(iVar5 + 10) & 1) != 0)) {
-            if ((local_38->pos_player_direction & 1) == 0) {
+            if ((local_38->iPlayerLookingRight & 1) == 0) {
               iVar8 = (int)*(short *)(iVar5 + 1) +
-                      ((int)(local_38->param_3 + (local_38->param_3 >> 0x1f & 0xffffU)) >> 0x10);
+                      ((int)(local_38->iParam3 + (local_38->iParam3 >> 0x1f & 0xffffU)) >> 0x10);
             }
             else {
-              iVar8 = ((int)(local_38->param_3 + (local_38->param_3 >> 0x1f & 0xffffU)) >> 0x10) -
+              iVar8 = ((int)(local_38->iParam3 + (local_38->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
                       (int)*(short *)(iVar5 + 1);
             }
             iVar9 = (int)*(short *)(iVar5 + 5);
             iVar11 = (int)*(short *)(iVar5 + 3) +
-                     ((int)(local_38->param_4 + (local_38->param_4 >> 0x1f & 0xffffU)) >> 0x10);
+                     ((int)(local_38->iParam4 + (local_38->iParam4 >> 0x1f & 0xffffU)) >> 0x10);
             sVar1 = *(short *)(iVar5 + 7);
-            pOVar10 = OBJ_ARRAY + local_1c + 1;
+            pkVar10 = kgtEngineObjects + local_1c + 1;
             if (local_1c + 1 < 0x400) {
               local_c = 0x400 - (local_1c + 1);
               do {
                 bVar3 = false;
-                if ((pOVar10->jmp_idx == 4) &&
-                   (((*(uint *)&pOVar10->__or_3 ^ *(uint *)&local_38->__or_3) & 1) == 0)) {
-                  if ((pOVar10->obj_type == 0) &&
-                     (PLAYER_KGT_BUFFER[pOVar10->player_file_buffer].health == 0)) {
+                if ((pkVar10->iJumpIdx == READ_SCRIPT) &&
+                   (((*(uint *)&pkVar10->__or_3 ^ *(uint *)&local_38->__or_3) & 1) == 0)) {
+                  if ((pkVar10->iObjectType == PLAYER_ENGINE_OBJECT) &&
+                     (gkgtLoadedCharacter[pkVar10->iPlayerIdx].iHealth == 0)) {
                     bVar3 = true;
                   }
-                  local_24 = pOVar10->hitbox_guard_array + 0x13;
+                  local_24 = pkVar10->hitbox_guard_array + 0x13;
                   local_10 = 0x14;
                   do {
                     iVar5 = *local_24;
                     if ((iVar5 != 0) && ((*(byte *)(iVar5 + 10) & 1) != 0)) {
-                      iVar7 = pOVar10->param_3;
-                      if ((pOVar10->pos_player_direction & 1) == 0) {
+                      iVar7 = pkVar10->iParam3;
+                      if ((pkVar10->iPlayerLookingRight & 1) == 0) {
                         iVar7 = (int)*(short *)(iVar5 + 1) +
                                 ((int)(iVar7 + (iVar7 >> 0x1f & 0xffffU)) >> 0x10);
                       }
@@ -11961,7 +12186,7 @@ LAB_0040fcbc:
                                 (int)*(short *)(iVar5 + 1);
                       }
                       iVar12 = (int)*(short *)(iVar5 + 3) +
-                               ((int)(pOVar10->param_4 + (pOVar10->param_4 >> 0x1f & 0xffffU)) >>
+                               ((int)(pkVar10->iParam4 + (pkVar10->iParam4 >> 0x1f & 0xffffU)) >>
                                0x10);
                       iVar6 = (int)*(short *)(iVar5 + 5);
                       if ((((iVar7 - iVar6 < iVar9 + iVar8) && (iVar8 - iVar9 < iVar6 + iVar7)) &&
@@ -11975,25 +12200,25 @@ LAB_0040fcbc:
                           iVar7 = (iVar6 - iVar7) + iVar9 + iVar8;
                           iVar5 = -iVar7;
                         }
-                        if (local_38->param_4 < local_38->compare_to_param_4) {
-                          if (pOVar10->param_4 < pOVar10->compare_to_param_4) {
+                        if (local_38->iParam4 < local_38->compare_to_param_4) {
+                          if (pkVar10->iParam4 < pkVar10->compare_to_param_4) {
 joined_r0x0040ff15:
                             if (!bVar3) {
-                              local_38->param_3 = local_38->param_3 + iVar5 * 0x4000;
+                              local_38->iParam3 = local_38->iParam3 + iVar5 * 0x4000;
                             }
                             if (!bVar13) {
-                              pOVar10->param_3 = pOVar10->param_3 + iVar7 * 0x4000;
+                              pkVar10->iParam3 = pkVar10->iParam3 + iVar7 * 0x4000;
                             }
                           }
                           else if (!bVar3) {
-                            local_38->param_3 = local_38->param_3 + iVar5 * 0x4000;
+                            local_38->iParam3 = local_38->iParam3 + iVar5 * 0x4000;
                           }
                         }
                         else {
-                          if (pOVar10->compare_to_param_4 <= pOVar10->param_4)
+                          if (pkVar10->compare_to_param_4 <= pkVar10->iParam4)
                           goto joined_r0x0040ff15;
                           if (!bVar13) {
-                            pOVar10->param_3 = iVar7 * 0x4000 + pOVar10->param_3;
+                            pkVar10->iParam3 = iVar7 * 0x4000 + pkVar10->iParam3;
                           }
                         }
                       }
@@ -12002,7 +12227,7 @@ joined_r0x0040ff15:
                     local_24 = local_24 + -1;
                   } while (local_10 != 0);
                 }
-                pOVar10 = pOVar10 + 1;
+                pkVar10 = pkVar10 + 1;
                 local_c = local_c + -1;
               } while (local_c != 0);
             }
@@ -12022,37 +12247,42 @@ joined_r0x0040ff15:
 
 
 
-void deal_with_hitboxes_and_other_stuff(void)
+void vHitboxHandling(void)
 
 {
   int iVar2;
   uint uVar3;
-  kgt_character_struct_ptr_57137_undefined puVar4;
   int iVar4;
-  kgt_character_struct_ptr_57081_OBJ_STRUCT__ player;
+  kgt_character_struct *pkVar5;
+  kgt_character_struct_ptr_57137_undefined puVar4;
+  int i;
+  kgt_character_struct_ptr_57081_kgtEngineObject__ player;
   def5_offset iVar1;
   
-  puVar4 = &PLAYER_KGT_BUFFER[0].field_0xdf31;
-  iVar4 = 8;
+  puVar4 = &gkgtLoadedCharacter[0].unkHitboxVarA;
+  i = 8;
   do {
-    *(undefined4 *)&ADJ(puVar4)->field_0xdf2d = 0;
+    *(undefined4 *)&ADJ(puVar4)->unkHitboxVarB = 0;
     *(undefined4 *)puVar4 = 0;
     puVar4 = puVar4 + 0xe03f;
-    iVar4 = iVar4 + -1;
-  } while (iVar4 != 0);
+    i = i + -1;
+  } while (i != 0);
   handle_hitboxes();
   handle_hitboxes_2();
   FUN_0040f910();
-  player = &PLAYER_KGT_BUFFER[0].poss_opponent_obj_ptr;
-  iVar4 = 8;
+  player = &gkgtLoadedCharacter[0].poss_opponent_obj_ptr;
+  i = 8;
   do {
-    if (((ADJ(player)->script_reading_01_field5 != 0) &&
-        (iVar1 = (def5_offset)ADJ(player)->CPU, *(int *)(iVar1 + 0x38) == 0)) &&
-       (ADJ(player)->poss_opponent_obj_ptr != (OBJ_STRUCT *)0x0)) {
-      iVar2 = ADJ(player)->poss_opponent_obj_ptr->player_file_buffer;
-      uVar3 = *(uint *)&ADJ(player)->field_0xdf2d;
-      if (((uVar3 != 0) && (*(int *)&PLAYER_KGT_BUFFER[iVar2].field_0xdf2d == 0)) &&
-         (*(int *)&PLAYER_KGT_BUFFER[iVar2].field_0xdf31 != 0)) {
+    if (((ADJ(player)->unknown_online_var_a != 0) &&
+        (iVar1 = (def5_offset)ADJ(player)->pkgtoSelf, *(int *)(iVar1 + 0x38) == 0)) &&
+       (ADJ(player)->poss_opponent_obj_ptr != (kgtEngineObject *)0x0)) {
+      iVar2 = ADJ(player)->poss_opponent_obj_ptr->iPlayerIdx;
+      uVar3 = *(uint *)&ADJ(player)->unkHitboxVarB;
+      if (((uVar3 != 0) &&
+          (pkVar5 = gkgtLoadedCharacter + iVar2, iVar4._0_1_ = pkVar5->unkHitboxVarB,
+          iVar4._1_1_ = pkVar5->field_0xdf2e, iVar4._2_1_ = pkVar5->poss_direction_related_A,
+          iVar4._3_1_ = pkVar5->field_0xdf30, iVar4 == 0)) &&
+         (*(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA != 0)) {
         if (*(int *)(iVar1 + 0x6c) != 0) {
           *(int *)(iVar1 + 0x38) = *(int *)(iVar1 + 0x6c);
                     // Resetting CPU level?
@@ -12064,9 +12294,9 @@ void deal_with_hitboxes_and_other_stuff(void)
         }
       }
     }
-    player = (kgt_character_struct_ptr_57081_OBJ_STRUCT__)((int)player + 0xe03f);
-    iVar4 = iVar4 + -1;
-  } while (iVar4 != 0);
+    player = (kgt_character_struct_ptr_57081_kgtEngineObject__)((int)player + 0xe03f);
+    i = i + -1;
+  } while (i != 0);
   return;
 }
 
@@ -12074,103 +12304,125 @@ void deal_with_hitboxes_and_other_stuff(void)
 
 // WARNING: Type propagation algorithm not settling
 
-short FUN_00410060(uint param_1)
+short sHandlePlayerCommandSequence(uint iCommandIdx)
 
 {
-  int iVar1;
-  byte bVar2;
-  ushort uVar3;
-  short sVar4;
+  short sVar1;
+  bool bVar2;
+  uint iLastReceivedInputDirection;
+  uint uVar3;
+  int iVar4;
   int iVar5;
-  bool bVar6;
-  OBJ_STRUCT *pOVar7;
-  uint uVar8;
-  uint uVar9;
-  uint uVar10;
-  int iVar11;
-  int iVar12;
-  uint uVar13;
-  uint uVar14;
-  int iVar15;
-  uint uVar16;
-  uint uVar17;
-  bool bVar18;
-  uint local_40;
+  uint iReceivedInputChecksPassed;
+  uint uVar6;
+  int iVar7;
+  int iVar8;
+  uint shCurrentCommandInput_2;
+  uint shCurrentInputAttackButtons;
+  bool bInputSatisfiesCommandRequirement;
+  uint iCurrentCommandTiming;
   uint local_3c;
-  uint local_38;
-  int local_34;
-  uint local_2c;
-  int local_24;
+  uint iCurrentCommandTiming_2;
+  int iCommandInputIdx;
+  uint iInputBufferPos;
+  int idx;
   uint local_18;
   short local_14;
-  uint local_c;
+  uint shCommandTimeMilliseconds;
+  kgtCharacterCommand *pkgtCharacterCommand;
+  int iPlayerIdx;
+  uint iReceivedInput;
+  kgtEngineObject *pkgtCurrentEngineObject;
+  ushort shCurrentCommandInput;
+  short *shLastCommandInput;
+  byte shLastInputTiming;
   
-  iVar5 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  if (GAME_STATE.round_start_is0 == 1) {
-    if ((((PTR_POSS_CURRENT_OBJ->compare_to_param_4 <= PTR_POSS_CURRENT_OBJ->param_4) ||
-         (PTR_POSS_CURRENT_OBJ->param_4 + 0x320000 <= PTR_POSS_CURRENT_OBJ->compare_to_param_4)) ||
-        (PTR_POSS_CURRENT_OBJ->y_momentum < 1)) && (local_24 = param_1, (int)param_1 < 100)) {
+  iPlayerIdx = gpkgtCurrentEngineObject->iPlayerIdx;
+  if (gkgtGameState.iRoundMode == 1) {
+    if ((((gpkgtCurrentEngineObject->compare_to_param_4 <= gpkgtCurrentEngineObject->iParam4) ||
+         (gpkgtCurrentEngineObject->iParam4 + 0x320000 <=
+          gpkgtCurrentEngineObject->compare_to_param_4)) ||
+        (gpkgtCurrentEngineObject->iYMomentum < 1)) && (idx = iCommandIdx, (int)iCommandIdx < 100))
+    {
       do {
-        iVar1 = iVar5 * 0xe03f + 0x4d6b22 + local_24 * 0x52;
-        if (*(ushort *)(iVar1 + 0x20) != 0) {
-          local_c = (uint)*(ushort *)(iVar1 + 0x20);
-          local_2c = INPUT_BUFFER_POS;
-          bVar2 = *(byte *)(iVar1 + 0x3d);
-          bVar6 = false;
-          param_1 = 0xffffffff;
+        pkgtCharacterCommand = (kgtCharacterCommand *)(iPlayerIdx * 0xe03f + 0x4d6b22 + idx * 0x52);
+        if (pkgtCharacterCommand->shCommandTimeMilliseconds != 0) {
+          shCommandTimeMilliseconds = (uint)(ushort)pkgtCharacterCommand->shCommandTimeMilliseconds;
+          iInputBufferPos = giInputBufferPos;
+          shLastInputTiming = *(byte *)((int)pkgtCharacterCommand->shCommandInputs + 0x13);
+          bVar2 = false;
+          iCommandIdx = 0xffffffff;
           local_3c = 0xffffffff;
-          iVar11 = iVar1 + 0x3c;
-          local_34 = 9;
-          while ((bVar2 & 0x20) == 0) {
-            if (local_34 == 0) {
+          shLastCommandInput = pkgtCharacterCommand->shCommandInputs + 9;
+          iCommandInputIdx = 9;
+          while ((shLastInputTiming & 0x20) == 0) {
+            if (iCommandInputIdx == 0) {
               return 0;
             }
-            bVar2 = *(byte *)(iVar11 + -1);
-            iVar11 = iVar11 + -2;
-            local_34 = local_34 + -1;
+            shLastInputTiming = *(byte *)((int)shLastCommandInput + -1);
+            shLastCommandInput = shLastCommandInput + -1;
+            iCommandInputIdx = iCommandInputIdx + -1;
           }
-          local_40 = (uint)*(ushort *)(iVar1 + 0x3e + local_34 * 2) << 2;
-          local_38 = local_40;
-          if (local_c != 0) {
+          iCurrentCommandTiming =
+               (uint)(ushort)pkgtCharacterCommand->shCommandInputTimings[iCommandInputIdx] << 2;
+          iCurrentCommandTiming_2 = iCurrentCommandTiming;
+          if (shCommandTimeMilliseconds != 0) {
             do {
-              pOVar7 = PTR_POSS_CURRENT_OBJ;
-              uVar14 = 0;
-              uVar3 = *(ushort *)(iVar1 + 0x2a + local_34 * 2);
-              uVar9 = (uint)uVar3;
-              uVar16 = INPUT_BUFFER_A[iVar5][local_2c];
-              uVar8 = uVar16 & 0xf;
-              switch(uVar3 >> 0xe) {
+              pkgtCurrentEngineObject = gpkgtCurrentEngineObject;
+              iReceivedInputChecksPassed = 0;
+              shCurrentCommandInput = pkgtCharacterCommand->shCommandInputs[iCommandInputIdx];
+              shCurrentCommandInput_2 = (uint)shCurrentCommandInput;
+              iReceivedInput = giInputBufferA[iPlayerIdx][iInputBufferPos];
+              iLastReceivedInputDirection = iReceivedInput & 0xf;
+              switch(shCurrentCommandInput >> 0xe) {
               case 0:
-                if ((PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) &&
-                   ((PLAYER_KGT_BUFFER[iVar5].guard_button_flag & 8U) != 0)) {
-                  switch(uVar9 & 0xf) {
+                if ((gpkgtCurrentEngineObject->iPlayerLookingRight != 0) &&
+                   ((gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 8) != 0)) {
+                    // Following switch statement gets the direction of input
+                  switch(shCurrentCommandInput_2 & 0xf) {
                   case 0:
-                    goto switchD_004101d7_caseD_0;
+                    goto switchD_004101d7_last_input_and_command_input_align;
                   case 1:
                     goto switchD_004101d7_caseD_1;
                   case 2:
-                    if (uVar8 == 1) goto switchD_004101d7_caseD_0;
+                    // Right
+                    if (iLastReceivedInputDirection == 1)
+                    goto switchD_004101d7_last_input_and_command_input_align;
                     break;
                   case 3:
-                    if (uVar8 == 9) goto switchD_004101d7_caseD_0;
+                    // Down-right
+                    if (iLastReceivedInputDirection == 9)
+                    goto switchD_004101d7_last_input_and_command_input_align;
                     break;
                   case 4:
-                    if (uVar8 == 8) goto switchD_004101d7_caseD_0;
+                    // Down
+                    if (iLastReceivedInputDirection == 8)
+                    goto switchD_004101d7_last_input_and_command_input_align;
                     break;
                   case 5:
-                    if (uVar8 == 10) goto switchD_004101d7_caseD_0;
+                    // Down-left
+                    if (iLastReceivedInputDirection == 10)
+                    goto switchD_004101d7_last_input_and_command_input_align;
                     break;
                   case 6:
-                    if (uVar8 == 2) goto switchD_004101d7_caseD_0;
+                    // Left
+                    if (iLastReceivedInputDirection == 2)
+                    goto switchD_004101d7_last_input_and_command_input_align;
                     break;
                   case 7:
-                    if (uVar8 == 6) goto switchD_004101d7_caseD_0;
+                    // Up-left
+                    if (iLastReceivedInputDirection == 6)
+                    goto switchD_004101d7_last_input_and_command_input_align;
                     break;
                   case 8:
-                    if (uVar8 == 4) goto switchD_004101d7_caseD_0;
+                    // Up
+                    if (iLastReceivedInputDirection == 4)
+                    goto switchD_004101d7_last_input_and_command_input_align;
                     break;
                   case 9:
-                    if (uVar8 == 5) goto switchD_004101d7_caseD_0;
+                    // Up-right
+                    if (iLastReceivedInputDirection == 5)
+                    goto switchD_004101d7_last_input_and_command_input_align;
                     break;
                   case 10:
                     goto switchD_004101d7_caseD_a;
@@ -12185,44 +12437,44 @@ short FUN_00410060(uint param_1)
                 }
                 break;
               case 1:
-                if (bVar6) {
-                  if ((uVar16 & 0x3f0) == 0) {
-                    bVar6 = false;
+                if (bVar2) {
+                  if ((iReceivedInput & 0x3f0) == 0) {
+                    bVar2 = false;
                   }
-                  goto switchD_004101a0_default;
+                  goto switchD_004101a0_end_of_shCommandTimeMilliseconds_loop;
                 }
-                uVar14 = 0;
-                uVar17 = uVar9 & 0x3f0;
-                if ((PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) &&
-                   ((PLAYER_KGT_BUFFER[iVar5].guard_button_flag & 8U) != 0)) {
-                  switch(uVar9 & 0xf) {
+                iReceivedInputChecksPassed = 0;
+                shCurrentInputAttackButtons = shCurrentCommandInput_2 & 0x3f0;
+                if ((gpkgtCurrentEngineObject->iPlayerLookingRight != 0) &&
+                   ((gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 8) != 0)) {
+                  switch(shCurrentCommandInput_2 & 0xf) {
                   case 0:
                     goto switchD_00410350_caseD_0;
                   case 1:
                     goto switchD_00410350_caseD_1;
                   case 2:
-                    if (uVar8 == 1) goto switchD_00410350_caseD_0;
+                    if (iLastReceivedInputDirection == 1) goto switchD_00410350_caseD_0;
                     break;
                   case 3:
-                    if (uVar8 == 9) goto switchD_00410350_caseD_0;
+                    if (iLastReceivedInputDirection == 9) goto switchD_00410350_caseD_0;
                     break;
                   case 4:
-                    if (uVar8 == 8) goto switchD_00410350_caseD_0;
+                    if (iLastReceivedInputDirection == 8) goto switchD_00410350_caseD_0;
                     break;
                   case 5:
-                    if (uVar8 == 10) goto switchD_00410350_caseD_0;
+                    if (iLastReceivedInputDirection == 10) goto switchD_00410350_caseD_0;
                     break;
                   case 6:
-                    if (uVar8 == 2) goto switchD_00410350_caseD_0;
+                    if (iLastReceivedInputDirection == 2) goto switchD_00410350_caseD_0;
                     break;
                   case 7:
-                    if (uVar8 == 6) goto switchD_00410350_caseD_0;
+                    if (iLastReceivedInputDirection == 6) goto switchD_00410350_caseD_0;
                     break;
                   case 8:
-                    if (uVar8 == 4) goto switchD_00410350_caseD_0;
+                    if (iLastReceivedInputDirection == 4) goto switchD_00410350_caseD_0;
                     break;
                   case 9:
-                    if (uVar8 == 5) goto switchD_00410350_caseD_0;
+                    if (iLastReceivedInputDirection == 5) goto switchD_00410350_caseD_0;
                     break;
                   case 10:
                     goto switchD_00410350_caseD_a;
@@ -12235,112 +12487,116 @@ short FUN_00410060(uint param_1)
                   }
                   goto switchD_00410350_default;
                 }
-                switch(uVar9 & 0xf) {
+                switch(shCurrentCommandInput_2 & 0xf) {
                 case 0:
                   goto switchD_00410350_caseD_0;
                 case 1:
 switchD_00410350_caseD_1:
-                  bVar18 = uVar8 == 0;
+                  bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 0;
                   break;
                 case 2:
-                  bVar18 = uVar8 == 2;
+                  bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 2;
                   break;
                 case 3:
-                  bVar18 = uVar8 == 10;
+                  bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 10;
                   break;
                 case 4:
-                  bVar18 = uVar8 == 8;
+                  bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 8;
                   break;
                 case 5:
-                  bVar18 = uVar8 == 9;
+                  bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 9;
                   break;
                 case 6:
-                  bVar18 = uVar8 == 1;
+                  bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 1;
                   break;
                 case 7:
-                  bVar18 = uVar8 == 5;
+                  bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 5;
                   break;
                 case 8:
-                  bVar18 = uVar8 == 4;
+                  bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 4;
                   break;
                 case 9:
-                  bVar18 = uVar8 == 6;
+                  bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 6;
                   break;
                 case 10:
 switchD_00410350_caseD_c:
-                  uVar8 = uVar16 & 1;
+                  iLastReceivedInputDirection = iReceivedInput & 1;
                   goto joined_r0x004103d1;
                 case 0xb:
 switchD_00410350_caseD_b:
-                  uVar8 = uVar16 & 4;
+                  iLastReceivedInputDirection = iReceivedInput & 4;
                   goto joined_r0x004103d1;
                 case 0xc:
 switchD_00410350_caseD_a:
-                  uVar8 = uVar16 & 2;
+                  iLastReceivedInputDirection = iReceivedInput & 2;
                   goto joined_r0x004103d1;
                 case 0xd:
 joined_r0x004103d7:
-                  uVar8 = uVar16 & 8;
+                  iLastReceivedInputDirection = iReceivedInput & 8;
 joined_r0x004103d1:
-                  if (uVar8 != 0) goto switchD_00410350_caseD_0;
+                  if (iLastReceivedInputDirection != 0) goto switchD_00410350_caseD_0;
                 default:
                   goto switchD_00410350_default;
                 }
-                if (bVar18) {
+                if (bInputSatisfiesCommandRequirement) {
 switchD_00410350_caseD_0:
-                  uVar14 = 1;
+                  iReceivedInputChecksPassed = 1;
                 }
 switchD_00410350_default:
-                if (((uVar17 & uVar16) == uVar17) || ((short)uVar17 == 0)) {
-                  uVar14 = uVar14 + 1;
+                if (((shCurrentInputAttackButtons & iReceivedInput) == shCurrentInputAttackButtons)
+                   || ((short)shCurrentInputAttackButtons == 0)) {
+                  iReceivedInputChecksPassed = iReceivedInputChecksPassed + 1;
                 }
-                if (1 < uVar14) {
-                  bVar6 = true;
-                  local_40 = local_40 - 4;
-                  if (0 < (int)local_40) goto switchD_004101a0_default;
+                if (1 < iReceivedInputChecksPassed) {
+                  bVar2 = true;
+                  iCurrentCommandTiming = iCurrentCommandTiming - 4;
+                  if (0 < (int)iCurrentCommandTiming)
+                  goto switchD_004101a0_end_of_shCommandTimeMilliseconds_loop;
                   goto LAB_00410728;
                 }
-                goto switchD_004101a0_default;
+                goto switchD_004101a0_end_of_shCommandTimeMilliseconds_loop;
               case 2:
-                uVar16 = uVar9 & 0x3f0;
+                iReceivedInput = shCurrentCommandInput_2 & 0x3f0;
                 local_18 = 0;
-                uVar8 = (uint)*(ushort *)(iVar1 + 0x3e + local_34 * 2);
-                if (uVar8 != 0) {
-                  uVar14 = local_2c;
+                iLastReceivedInputDirection =
+                     (uint)(ushort)pkgtCharacterCommand->shCommandInputTimings[iCommandInputIdx];
+                if (iLastReceivedInputDirection != 0) {
+                  iReceivedInputChecksPassed = iInputBufferPos;
                   do {
-                    uVar13 = 0;
-                    uVar17 = INPUT_BUFFER_A[iVar5][uVar14];
-                    uVar10 = uVar17 & 0xf;
-                    if ((PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) &&
-                       ((PLAYER_KGT_BUFFER[iVar5].guard_button_flag & 8U) != 0)) {
-                      switch(uVar9 & 0xf) {
+                    uVar6 = 0;
+                    shCurrentInputAttackButtons =
+                         giInputBufferA[iPlayerIdx][iReceivedInputChecksPassed];
+                    uVar3 = shCurrentInputAttackButtons & 0xf;
+                    if ((gpkgtCurrentEngineObject->iPlayerLookingRight != 0) &&
+                       ((gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 8) != 0)) {
+                      switch(shCurrentCommandInput_2 & 0xf) {
                       case 0:
                         goto switchD_004104f4_caseD_0;
                       case 1:
                         goto switchD_004104f4_caseD_1;
                       case 2:
-                        if (uVar10 == 1) goto switchD_004104f4_caseD_0;
+                        if (uVar3 == 1) goto switchD_004104f4_caseD_0;
                         break;
                       case 3:
-                        if (uVar10 == 9) goto switchD_004104f4_caseD_0;
+                        if (uVar3 == 9) goto switchD_004104f4_caseD_0;
                         break;
                       case 4:
-                        if (uVar10 == 8) goto switchD_004104f4_caseD_0;
+                        if (uVar3 == 8) goto switchD_004104f4_caseD_0;
                         break;
                       case 5:
-                        if (uVar10 == 10) goto switchD_004104f4_caseD_0;
+                        if (uVar3 == 10) goto switchD_004104f4_caseD_0;
                         break;
                       case 6:
-                        if (uVar10 == 2) goto switchD_004104f4_caseD_0;
+                        if (uVar3 == 2) goto switchD_004104f4_caseD_0;
                         break;
                       case 7:
-                        if (uVar10 == 6) goto switchD_004104f4_caseD_0;
+                        if (uVar3 == 6) goto switchD_004104f4_caseD_0;
                         break;
                       case 8:
-                        if (uVar10 == 4) goto switchD_004104f4_caseD_0;
+                        if (uVar3 == 4) goto switchD_004104f4_caseD_0;
                         break;
                       case 9:
-                        if (uVar10 == 5) goto switchD_004104f4_caseD_0;
+                        if (uVar3 == 5) goto switchD_004104f4_caseD_0;
                         break;
                       case 10:
                         goto switchD_004104f4_caseD_a;
@@ -12353,270 +12609,283 @@ switchD_00410350_default:
                       }
                       goto switchD_004104f4_default;
                     }
-                    switch(uVar9 & 0xf) {
+                    switch(shCurrentCommandInput_2 & 0xf) {
                     case 0:
                       goto switchD_004104f4_caseD_0;
                     case 1:
 switchD_004104f4_caseD_1:
-                      bVar18 = uVar10 == 0;
+                      bInputSatisfiesCommandRequirement = uVar3 == 0;
                       break;
                     case 2:
-                      bVar18 = uVar10 == 2;
+                      bInputSatisfiesCommandRequirement = uVar3 == 2;
                       break;
                     case 3:
-                      bVar18 = uVar10 == 10;
+                      bInputSatisfiesCommandRequirement = uVar3 == 10;
                       break;
                     case 4:
-                      bVar18 = uVar10 == 8;
+                      bInputSatisfiesCommandRequirement = uVar3 == 8;
                       break;
                     case 5:
-                      bVar18 = uVar10 == 9;
+                      bInputSatisfiesCommandRequirement = uVar3 == 9;
                       break;
                     case 6:
-                      bVar18 = uVar10 == 1;
+                      bInputSatisfiesCommandRequirement = uVar3 == 1;
                       break;
                     case 7:
-                      bVar18 = uVar10 == 5;
+                      bInputSatisfiesCommandRequirement = uVar3 == 5;
                       break;
                     case 8:
-                      bVar18 = uVar10 == 4;
+                      bInputSatisfiesCommandRequirement = uVar3 == 4;
                       break;
                     case 9:
-                      bVar18 = uVar10 == 6;
+                      bInputSatisfiesCommandRequirement = uVar3 == 6;
                       break;
                     case 10:
 switchD_004104f4_caseD_c:
-                      uVar10 = uVar17 & 1;
+                      uVar3 = shCurrentInputAttackButtons & 1;
                       goto joined_r0x00410575;
                     case 0xb:
 switchD_004104f4_caseD_b:
-                      uVar10 = uVar17 & 4;
+                      uVar3 = shCurrentInputAttackButtons & 4;
                       goto joined_r0x00410575;
                     case 0xc:
 switchD_004104f4_caseD_a:
-                      uVar10 = uVar17 & 2;
+                      uVar3 = shCurrentInputAttackButtons & 2;
                       goto joined_r0x00410575;
                     case 0xd:
 joined_r0x0041057b:
-                      uVar10 = uVar17 & 8;
+                      uVar3 = shCurrentInputAttackButtons & 8;
 joined_r0x00410575:
-                      if (uVar10 != 0) goto switchD_004104f4_caseD_0;
+                      if (uVar3 != 0) goto switchD_004104f4_caseD_0;
                     default:
                       goto switchD_004104f4_default;
                     }
-                    if (bVar18) {
+                    if (bInputSatisfiesCommandRequirement) {
 switchD_004104f4_caseD_0:
-                      uVar13 = 1;
+                      uVar6 = 1;
                     }
 switchD_004104f4_default:
-                    if (((uVar16 & uVar17) == uVar16) || (local_14 = (short)uVar16, local_14 == 0))
-                    {
-                      uVar13 = uVar13 + 1;
+                    if (((iReceivedInput & shCurrentInputAttackButtons) == iReceivedInput) ||
+                       (local_14 = (short)iReceivedInput, local_14 == 0)) {
+                      uVar6 = uVar6 + 1;
                     }
-                    if (uVar13 < 2) break;
-                    uVar14 = uVar14 - 1 & 0x3ff;
+                    if (uVar6 < 2) break;
+                    iReceivedInputChecksPassed = iReceivedInputChecksPassed - 1 & 0x3ff;
                     local_18 = local_18 + 1;
-                  } while ((int)local_18 < (int)uVar8);
+                  } while ((int)local_18 < (int)iLastReceivedInputDirection);
                 }
-                if (local_18 != uVar8) goto switchD_004101a0_default;
+                if (local_18 != iLastReceivedInputDirection)
+                goto switchD_004101a0_end_of_shCommandTimeMilliseconds_loop;
                 goto LAB_00410728;
               case 3:
-                if (((int)param_1 < 0) && ((int)local_3c < 0)) {
-                  local_40 = (uint)*(ushort *)(iVar1 + 0x3e + local_34 * 2) << 2;
-                  local_38 = local_40;
-                  switch(uVar8) {
+                if (((int)iCommandIdx < 0) && ((int)local_3c < 0)) {
+                  iCurrentCommandTiming =
+                       (uint)(ushort)pkgtCharacterCommand->shCommandInputTimings[iCommandInputIdx]
+                       << 2;
+                  iCurrentCommandTiming_2 = iCurrentCommandTiming;
+                  switch(iLastReceivedInputDirection) {
                   case 1:
                   case 5:
-                    param_1 = 3;
+                    iCommandIdx = 3;
                     local_3c = 3;
                     break;
                   case 2:
                   case 10:
-                    param_1 = 1;
+                    iCommandIdx = 1;
                   default:
-                    local_3c = param_1;
+                    local_3c = iCommandIdx;
                     break;
                   case 4:
                   case 6:
-                    param_1 = 0;
+                    iCommandIdx = 0;
                     local_3c = 0;
                     break;
                   case 8:
                   case 9:
-                    param_1 = 2;
+                    iCommandIdx = 2;
                     local_3c = 2;
                   }
-                  goto switchD_004101a0_default;
+                  goto switchD_004101a0_end_of_shCommandTimeMilliseconds_loop;
                 }
-                switch(param_1 & 3) {
+                switch(iCommandIdx & 3) {
                 case 0:
-                  if (uVar8 == 2) {
+                  if (iLastReceivedInputDirection == 2) {
 LAB_004106c0:
-                    param_1 = param_1 + 1;
-                    local_40 = local_40 - 1;
+                    iCommandIdx = iCommandIdx + 1;
+                    iCurrentCommandTiming = iCurrentCommandTiming - 1;
                   }
                   break;
                 case 1:
-                  if (uVar8 == 8) goto LAB_004106c0;
+                  if (iLastReceivedInputDirection == 8) goto LAB_004106c0;
                   break;
                 case 2:
-                  if (uVar8 == 1) goto LAB_004106c0;
+                  if (iLastReceivedInputDirection == 1) goto LAB_004106c0;
                   break;
                 case 3:
-                  if (uVar8 == 4) goto LAB_004106c0;
+                  if (iLastReceivedInputDirection == 4) goto LAB_004106c0;
                 }
-                if ((int)local_40 < 2) {
-                  uVar14 = 2;
+                if ((int)iCurrentCommandTiming < 2) {
+                  iReceivedInputChecksPassed = 2;
                 }
                 switch(local_3c & 3) {
                 case 0:
-                  if (uVar8 == 1) {
+                  if (iLastReceivedInputDirection == 1) {
 LAB_00410705:
                     local_3c = local_3c + 3;
-                    local_38 = local_38 - 1;
+                    iCurrentCommandTiming_2 = iCurrentCommandTiming_2 - 1;
                   }
                   break;
                 case 1:
-                  if (uVar8 == 4) goto LAB_00410705;
+                  if (iLastReceivedInputDirection == 4) goto LAB_00410705;
                   break;
                 case 2:
-                  if (uVar8 == 2) goto LAB_00410705;
+                  if (iLastReceivedInputDirection == 2) goto LAB_00410705;
                   break;
                 case 3:
-                  if (uVar8 == 8) goto LAB_00410705;
+                  if (iLastReceivedInputDirection == 8) goto LAB_00410705;
                 }
-                if ((int)local_38 < 2) goto LAB_00410728;
+                if ((int)iCurrentCommandTiming_2 < 2) goto LAB_00410728;
                 goto LAB_00410719;
               default:
-                goto switchD_004101a0_default;
+                goto switchD_004101a0_end_of_shCommandTimeMilliseconds_loop;
               }
-              switch(uVar9 & 0xf) {
+              switch(shCurrentCommandInput_2 & 0xf) {
               case 0:
-                goto switchD_004101d7_caseD_0;
+                goto switchD_004101d7_last_input_and_command_input_align;
               case 1:
 switchD_004101d7_caseD_1:
-                bVar18 = uVar8 == 0;
+                bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 0;
                 break;
               case 2:
-                bVar18 = uVar8 == 2;
+                bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 2;
                 break;
               case 3:
-                bVar18 = uVar8 == 10;
+                bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 10;
                 break;
               case 4:
-                bVar18 = uVar8 == 8;
+                bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 8;
                 break;
               case 5:
-                bVar18 = uVar8 == 9;
+                bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 9;
                 break;
               case 6:
-                bVar18 = uVar8 == 1;
+                bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 1;
                 break;
               case 7:
-                bVar18 = uVar8 == 5;
+                bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 5;
                 break;
               case 8:
-                bVar18 = uVar8 == 4;
+                bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 4;
                 break;
               case 9:
-                bVar18 = uVar8 == 6;
+                bInputSatisfiesCommandRequirement = iLastReceivedInputDirection == 6;
                 break;
               case 10:
 switchD_004101d7_caseD_c:
-                uVar8 = uVar16 & 1;
+                iLastReceivedInputDirection = iReceivedInput & 1;
                 goto joined_r0x00410258;
               case 0xb:
 switchD_004101d7_caseD_b:
-                uVar8 = uVar16 & 4;
+                iLastReceivedInputDirection = iReceivedInput & 4;
                 goto joined_r0x00410258;
               case 0xc:
 switchD_004101d7_caseD_a:
-                uVar8 = uVar16 & 2;
+                iLastReceivedInputDirection = iReceivedInput & 2;
                 goto joined_r0x00410258;
               case 0xd:
 joined_r0x0041025e:
-                uVar8 = uVar16 & 8;
+                iLastReceivedInputDirection = iReceivedInput & 8;
 joined_r0x00410258:
-                if (uVar8 != 0) goto switchD_004101d7_caseD_0;
+                if (iLastReceivedInputDirection != 0)
+                goto switchD_004101d7_last_input_and_command_input_align;
               default:
                 goto switchD_004101d7_default;
               }
-              if (bVar18) {
-switchD_004101d7_caseD_0:
-                uVar14 = 1;
+              if (bInputSatisfiesCommandRequirement) {
+switchD_004101d7_last_input_and_command_input_align:
+                iReceivedInputChecksPassed = 1;
               }
 switchD_004101d7_default:
-              uVar9 = uVar9 & 0x3f0;
-              if (((uVar3 & 0x3f0) == 0) ||
-                 (((uVar16 & uVar9) == uVar9 &&
-                  ((INPUT_BUFFER_A[iVar5][local_2c - 1 & 0x3ff] & uVar9) == 0)))) {
-                uVar14 = uVar14 + 1;
+              shCurrentCommandInput_2 = shCurrentCommandInput_2 & 0x3f0;
+              if (((shCurrentCommandInput & 0x3f0) == 0) ||
+                 (((iReceivedInput & shCurrentCommandInput_2) == shCurrentCommandInput_2 &&
+                  ((giInputBufferA[iPlayerIdx][iInputBufferPos - 1 & 0x3ff] &
+                   shCurrentCommandInput_2) == 0)))) {
+                iReceivedInputChecksPassed = iReceivedInputChecksPassed + 1;
               }
 LAB_00410719:
-              if (1 < uVar14) {
+              if (1 < iReceivedInputChecksPassed) {
 LAB_00410728:
-                local_34 = local_34 + -1;
-                if (local_34 == -1) {
-                  if (0x1d < *(ushort *)(iVar1 + 0x20)) {
-                    iVar11 = INPUT_BUFFER_POS + -0x14;
-                    iVar15 = 0x3ec;
+                iVar7 = iCommandInputIdx + -1;
+                if (iVar7 == -1) {
+                  if (0x1d < (ushort)pkgtCharacterCommand->shCommandTimeMilliseconds) {
+                    iVar4 = giInputBufferPos + -0x14;
+                    iVar8 = 0x3ec;
                     do {
-                      iVar12 = iVar11;
-                      if (iVar11 < 0) {
-                        iVar12 = iVar11 + (0x3ffU - iVar11 & 0xfffffc00);
+                      iVar5 = iVar4;
+                      if (iVar4 < 0) {
+                        iVar5 = iVar4 + (0x3ffU - iVar4 & 0xfffffc00);
                       }
-                      iVar11 = iVar12 + -1;
-                      iVar15 = iVar15 + -1;
-                      INPUT_BUFFER_A[iVar5][iVar12] = 0;
-                    } while (iVar15 != 0);
+                      iVar4 = iVar5 + -1;
+                      iVar8 = iVar8 + -1;
+                      giInputBufferA[iPlayerIdx][iVar5] = 0;
+                    } while (iVar8 != 0);
                   }
-                  iVar11 = pOVar7->param_4;
-                  PLAYER_KGT_BUFFER[pOVar7->player_file_buffer].field6392_0xdf55 = local_24 + 1;
-                  iVar15 = INPUT_BUFFER_POS;
-                  if (((iVar11 == pOVar7->compare_to_param_4) && (pOVar7->y_gravity == 0)) &&
-                     (pOVar7->y_momentum == 0)) {
-                    pOVar7->y_gravity = 0;
-                    pOVar7->y_momentum = 0;
-                    if ((INPUT_BUFFER_A[iVar5][iVar15] & 8) == 0) {
-                      iVar11 = pOVar7->player_file_buffer;
-                      if ((PLAYER_KGT_BUFFER[iVar11].poss_opponent_obj_ptr_2_ == (OBJ_STRUCT *)0x0)
-                         || (iVar15 = PLAYER_KGT_BUFFER[iVar11].pos_x_pos -
-                                      PLAYER_KGT_BUFFER
-                                      [(PLAYER_KGT_BUFFER[iVar11].poss_opponent_obj_ptr_2_)->
-                                       player_file_buffer].pos_x_pos,
-                            iVar15 = iVar15 + (iVar15 >> 0x1f & 0xffffU), uVar16 = iVar15 >> 0x1f,
-                            (int)PLAYER_KGT_BUFFER[iVar11].interv <
-                            (int)((iVar15 >> 0x10 ^ uVar16) - uVar16))) {
-                        sVar4 = *(short *)(iVar1 + 0x26);
+                  iVar4 = pkgtCurrentEngineObject->iParam4;
+                  gkgtLoadedCharacter[pkgtCurrentEngineObject->iPlayerIdx].iUnknownCommandInputVar =
+                       idx + 1;
+                  iVar8 = giInputBufferPos;
+                  if (((iVar4 == pkgtCurrentEngineObject->compare_to_param_4) &&
+                      (pkgtCurrentEngineObject->iYGravity == 0)) &&
+                     (pkgtCurrentEngineObject->iYMomentum == 0)) {
+                    pkgtCurrentEngineObject->iYGravity = 0;
+                    pkgtCurrentEngineObject->iYMomentum = 0;
+                    if ((giInputBufferA[iPlayerIdx][iVar8] & 8) == 0) {
+                      iVar4 = pkgtCurrentEngineObject->iPlayerIdx;
+                      if ((gkgtLoadedCharacter[iVar4].poss_opponent_obj_ptr_2_ ==
+                           (kgtEngineObject *)0x0) ||
+                         (iVar8 = gkgtLoadedCharacter[iVar4].iCurrentXPos -
+                                  gkgtLoadedCharacter
+                                  [(gkgtLoadedCharacter[iVar4].poss_opponent_obj_ptr_2_)->iPlayerIdx
+                                  ].iCurrentXPos, iVar8 = iVar8 + (iVar8 >> 0x1f & 0xffffU),
+                         iReceivedInput = iVar8 >> 0x1f,
+                         (int)gkgtLoadedCharacter[iVar4].shInterv <
+                         (int)((iVar8 >> 0x10 ^ iReceivedInput) - iReceivedInput))) {
+                        sVar1 = pkgtCharacterCommand->shStandFarCommandSet;
                       }
                       else {
-                        sVar4 = *(short *)(iVar1 + 0x24);
+                        sVar1 = pkgtCharacterCommand->shStandNearCommandSet;
                       }
                     }
                     else {
-                      sVar4 = *(short *)(iVar1 + 0x28);
+                      sVar1 = pkgtCharacterCommand->shCrouchedCommandSet;
                     }
                   }
                   else {
-                    if (pOVar7->compare_to_param_4 <= iVar11) goto switchD_004101a0_default;
-                    sVar4 = *(short *)(iVar1 + 0x22);
+                    iCommandInputIdx = iVar7;
+                    if (pkgtCurrentEngineObject->compare_to_param_4 <= iVar4)
+                    goto switchD_004101a0_end_of_shCommandTimeMilliseconds_loop;
+                    sVar1 = pkgtCharacterCommand->shAirCommandSet;
                   }
-                  if (sVar4 != 0) {
-                    return sVar4;
+                  iCommandInputIdx = iVar7;
+                  if (sVar1 != 0) {
+                    return sVar1;
                   }
                 }
                 else {
-                  local_40 = (uint)*(ushort *)(iVar1 + 0x3e + local_34 * 2);
+                  iCurrentCommandTiming =
+                       (uint)(ushort)pkgtCharacterCommand->shCommandInputs[iCommandInputIdx + 9];
+                  iCommandInputIdx = iVar7;
                 }
               }
-switchD_004101a0_default:
-              local_2c = local_2c - 1 & 0x3ff;
-              local_c = local_c - 1;
-            } while (0 < (int)local_c);
+switchD_004101a0_end_of_shCommandTimeMilliseconds_loop:
+              iInputBufferPos = iInputBufferPos - 1 & 0x3ff;
+              shCommandTimeMilliseconds = shCommandTimeMilliseconds - 1;
+            } while (0 < (int)shCommandTimeMilliseconds);
           }
         }
-        local_24 = local_24 + 1;
-      } while (local_24 < 100);
+        idx = idx + 1;
+      } while (idx < 100);
     }
   }
   return 0;
@@ -12626,7 +12895,7 @@ switchD_004101a0_default:
 
 // WARNING: Type propagation algorithm not settling
 
-undefined4 process_COM_skillblock(kgt_skill_step_struct *skill)
+undefined4 process_COM_skillblock(kgtSkill *skill)
 
 {
   byte *pbVar1;
@@ -12643,20 +12912,20 @@ undefined4 process_COM_skillblock(kgt_skill_step_struct *skill)
   uint current_player_input;
   undefined1 *final_input;
   int player_buffer;
-  kgt_skill_step_struct *skill_local;
+  kgtSkill *skill_local;
   
   skill_local = skill;
-  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+  player_buffer = gpkgtCurrentEngineObject->iPlayerIdx;
   com_time = skill->field_0x4;
   if (com_time != 0) {
     also_com_time = (uint)com_time;
     final_input = &skill->field_0xe;
-    skill = (kgt_skill_step_struct *)0x4;
+    skill = (kgtSkill *)0x4;
     if ((*final_input & 0x20) == 0) {
       final_input = &skill_local->field_0xd;
       iVar6 = 4;
       do {
-        skill = (kgt_skill_step_struct *)(iVar6 + -1);
+        skill = (kgtSkill *)(iVar6 + -1);
         if (iVar6 == 0) {
           return 0;
         }
@@ -12667,16 +12936,16 @@ undefined4 process_COM_skillblock(kgt_skill_step_struct *skill)
     }
     if (com_time != 0) {
       local_c = (ushort *)(&skill_local->field_0x5 + (int)skill * 2);
-      input_buffer_pos = INPUT_BUFFER_POS;
+      input_buffer_pos = giInputBufferPos;
       do {
-        current_player_input = INPUT_BUFFER_A[player_buffer][input_buffer_pos];
+        current_player_input = giInputBufferA[player_buffer][input_buffer_pos];
         uVar2 = *local_c;
         uVar4 = (uint)uVar2;
         uVar5 = 0;
         uVar3 = current_player_input & 0xf;
         if ((uVar2 & 0xc000) != 0) goto LAB_00410c43;
-        if ((PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) &&
-           ((PLAYER_KGT_BUFFER[player_buffer].guard_button_flag & 8U) != 0)) {
+        if ((gpkgtCurrentEngineObject->iPlayerLookingRight != 0) &&
+           ((gkgtLoadedCharacter[player_buffer].cIsGuardButtonActive & 8) != 0)) {
           switch(uVar4 & 0xf) {
           case 0:
             goto switchD_00410b14_caseD_0;
@@ -12776,13 +13045,13 @@ switchD_00410b14_default:
         uVar4 = uVar4 & 0x3f0;
         if (((uVar2 & 0x3f0) == 0) ||
            (((current_player_input & uVar4) == uVar4 &&
-            ((INPUT_BUFFER_A[player_buffer][input_buffer_pos - 1 & 0x3ff] & uVar4) == 0)))) {
+            ((giInputBufferA[player_buffer][input_buffer_pos - 1 & 0x3ff] & uVar4) == 0)))) {
           uVar5 = uVar5 + 1;
         }
         if (1 < uVar5) {
-          skill = (kgt_skill_step_struct *)&skill[-1].field_0xf;
+          skill = (kgtSkill *)&skill[-1].field_0xf;
           local_c = local_c + -1;
-          if (skill == (kgt_skill_step_struct *)0xffffffff) {
+          if (skill == (kgtSkill *)0xffffffff) {
             return 1;
           }
         }
@@ -12800,20 +13069,20 @@ LAB_00410c43:
 
 
 
-int switch_current_object_action(int action_offset)
+int iSwitchCurrentObjectSkill(int iSkillIdx)
 
 {
   int *piVar1;
-  OBJ_STRUCT *pOVar2;
+  kgtEngineObject *pkVar2;
   
-  memzero_mystery_arrays(PTR_POSS_CURRENT_OBJ);
-  pOVar2 = PTR_POSS_CURRENT_OBJ;
-  if (action_offset != 0) {
-    piVar1 = &PTR_POSS_CURRENT_OBJ->player_file_buffer;
-    PTR_POSS_CURRENT_OBJ->action_idx = action_offset;
-    *(uint *)&pOVar2->actionscript_idx =
-         (uint)(ushort)PLAYER_KGT_BUFFER[*piVar1].kgt_core.p_actions_alloc[action_offset].
-                       starting_step_idx;
+  vMemzeroHitboxArrays(gpkgtCurrentEngineObject);
+  pkVar2 = gpkgtCurrentEngineObject;
+  if (iSkillIdx != 0) {
+    piVar1 = &gpkgtCurrentEngineObject->iPlayerIdx;
+    gpkgtCurrentEngineObject->iSkillIdx = iSkillIdx;
+    *(uint *)&pkVar2->iSkillScriptIdx =
+         (uint)(ushort)gkgtLoadedCharacter[*piVar1].kgtCore.pSkillsAlloc[iSkillIdx].
+                       shStartingStepIdx;
     return 0;
   }
   return 1;
@@ -12821,26 +13090,26 @@ int switch_current_object_action(int action_offset)
 
 
 
-void assign_action_and_reset_some_data(int offset)
+void vAssignSkillAndResetOtherValues(int offset)
 
 {
-  OBJ_STRUCT *pOVar1;
+  kgtEngineObject *pkVar1;
   
-  if (offset != PTR_POSS_CURRENT_OBJ->action_idx) {
-    switch_current_object_action(offset);
-    obj_0x129_to_0(PTR_POSS_CURRENT_OBJ);
-    obj_reset_values();
-    pOVar1 = PTR_POSS_CURRENT_OBJ;
-    PTR_POSS_CURRENT_OBJ->image_wait_frames = 0;
-    if (pOVar1->obj_type == 0) {
-      if ((pOVar1->param_4 == pOVar1->compare_to_param_4) && (pOVar1->y_momentum == 0)) {
-        pOVar1->y_gravity = 0;
-        pOVar1->y_momentum = 0;
-        pOVar1->x_gravity = 0;
-        pOVar1->x_momentum = 0;
+  if (offset != gpkgtCurrentEngineObject->iSkillIdx) {
+    iSwitchCurrentObjectSkill(offset);
+    vResetReactionSkillBlock(gpkgtCurrentEngineObject);
+    iResetDsSkillIndices();
+    pkVar1 = gpkgtCurrentEngineObject;
+    gpkgtCurrentEngineObject->iImageWaitFrames = 0;
+    if (pkVar1->iObjectType == PLAYER_ENGINE_OBJECT) {
+      if ((pkVar1->iParam4 == pkVar1->compare_to_param_4) && (pkVar1->iYMomentum == 0)) {
+        pkVar1->iYGravity = 0;
+        pkVar1->iYMomentum = 0;
+        pkVar1->iXGravity = 0;
+        pkVar1->iXMomentum = 0;
       }
-      pOVar1->return_skill_idx = 0;
-      pOVar1->loop_frequency = 0;
+      pkVar1->iReturnSkillIdx = 0;
+      pkVar1->iLoopFrequency = 0;
     }
   }
   return;
@@ -12848,214 +13117,211 @@ void assign_action_and_reset_some_data(int offset)
 
 
 
-OBJ_STRUCT * FUN_00410dc0(void)
+// WARNING: Unknown calling convention -- yet parameter storage is locked
+
+void vHandleMovementSkills(void)
 
 {
-  int iVar1;
+  kgtEngineObject *pkVar1;
   uint uVar2;
-  uint uVar3;
-  kgt_character_struct *pkVar4;
-  uint uVar5;
-  int iVar6;
-  OBJ_STRUCT *pOVar7;
-  uint uVar8;
-  short sVar9;
+  int iVar3;
+  uint iIsGuardButtonActive;
+  short sVar4;
+  uint iInputBuffer;
+  int iPlayerIdx;
   
-  iVar1 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  uVar2 = INPUT_BUFFER_A[iVar1][INPUT_BUFFER_POS];
-  pkVar4 = PLAYER_KGT_BUFFER + iVar1;
-  uVar3._0_1_ = pkVar4->guard_button_flag;
-  uVar3._1_1_ = pkVar4->field1828_0x7cb7[0];
-  uVar3._2_1_ = pkVar4->field1828_0x7cb7[1];
-  uVar3._3_1_ = pkVar4->field1828_0x7cb7[2];
-  uVar5 = (uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 3;
-  uVar8 = uVar3 & 8;
-  if (uVar5 != 0) {
-    if (uVar5 == 1) {
-      if ((uVar8 == 0) && (iVar6 = FUN_0040e580(), iVar6 != 0)) {
-        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x10);
+  iPlayerIdx = gpkgtCurrentEngineObject->iPlayerIdx;
+  iInputBuffer = giInputBufferA[iPlayerIdx][giInputBufferPos];
+  uVar2 = (uint)gpkgtCurrentEngineObject->obj_ptr_b & 3;
+  iIsGuardButtonActive = gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 8;
+  if (uVar2 != 0) {
+    if (uVar2 == 1) {
+      if ((iIsGuardButtonActive == 0) && (iVar3 = iAssignPlayerLookingRight(), iVar3 != 0)) {
+        vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxTurnCrouching);
       }
-      if (PTR_POSS_CURRENT_OBJ->param_4 < PTR_POSS_CURRENT_OBJ->compare_to_param_4) {
-        PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-             (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffe | 2);
-        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].falling_skill_idx);
-        return (OBJ_STRUCT *)0x0;
+      if (gpkgtCurrentEngineObject->iParam4 < gpkgtCurrentEngineObject->compare_to_param_4) {
+        gpkgtCurrentEngineObject->obj_ptr_b =
+             (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xfffffffe | 2);
+        vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxFalling);
+        return;
       }
-      if ((uVar2 & 8) == 0) {
-        PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-             (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffc);
-        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xc);
-        return (OBJ_STRUCT *)0x0;
+      if ((iInputBuffer & 8) == 0) {
+        gpkgtCurrentEngineObject->obj_ptr_b =
+             (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xfffffffc);
+        vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxStandFromCrouch);
+        return;
       }
-      if (((uVar2 & 2) != 0) && (PLAYER_KGT_BUFFER[iVar1].has_crouch_advance != 0)) {
-        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_advance);
-        if (uVar8 == 0) {
-          return (OBJ_STRUCT *)0x0;
+      if (((iInputBuffer & 2) != 0) && (gkgtLoadedCharacter[iPlayerIdx].iHasCrouchAdvance != 0)) {
+        vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxCrouchAdvance);
+        if (iIsGuardButtonActive == 0) {
+          return;
         }
-        PTR_POSS_CURRENT_OBJ->pos_player_direction = 0;
-        return (OBJ_STRUCT *)0x0;
+        gpkgtCurrentEngineObject->iPlayerLookingRight = 0;
+        return;
       }
-      if (((uVar2 & 1) != 0) && ((PLAYER_KGT_BUFFER[iVar1].has_crouch_retreat != 0 && (uVar8 != 0)))
-         ) {
-        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_advance);
-        PTR_POSS_CURRENT_OBJ->pos_player_direction = 1;
-        return (OBJ_STRUCT *)0x0;
+      if (((iInputBuffer & 1) != 0) &&
+         ((gkgtLoadedCharacter[iPlayerIdx].iHasCrouchRetreat != 0 && (iIsGuardButtonActive != 0))))
+      {
+        vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxCrouchAdvance);
+        gpkgtCurrentEngineObject->iPlayerLookingRight = 1;
+        return;
       }
-      if ((((uVar2 & 1) != 0) && (PLAYER_KGT_BUFFER[iVar1].has_crouch_retreat != 0)) && (uVar8 == 0)
-         ) {
-        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].skill_idx_crouch_retreat);
-        return (OBJ_STRUCT *)0x0;
+      if ((((iInputBuffer & 1) != 0) && (gkgtLoadedCharacter[iPlayerIdx].iHasCrouchRetreat != 0)) &&
+         (iIsGuardButtonActive == 0)) {
+        vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxCrouchRetreat);
+        return;
       }
-      if (PTR_POSS_CURRENT_OBJ->action_idx ==
-          (uint)(ushort)PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xa) {
-        return (OBJ_STRUCT *)0x0;
+      if (gpkgtCurrentEngineObject->iSkillIdx ==
+          (uint)(ushort)gkgtLoadedCharacter[iPlayerIdx].shSkillIdxMidCrouch) {
+        return;
       }
-      if (PTR_POSS_CURRENT_OBJ->action_idx ==
-          (uint)(ushort)PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x10) {
-        return (OBJ_STRUCT *)0x0;
+      if (gpkgtCurrentEngineObject->iSkillIdx ==
+          (uint)(ushort)gkgtLoadedCharacter[iPlayerIdx].shSkillIdxTurnCrouching) {
+        return;
       }
-      if (((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 8U) != 0) &&
-         ((uVar2 & 1 << (PLAYER_KGT_BUFFER[iVar1].guard_button + 4U & 0x1f)) != 0)) {
-        assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x12);
-        return (OBJ_STRUCT *)0x0;
+      if (((gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 8) != 0) &&
+         ((iInputBuffer & 1 << (gkgtLoadedCharacter[iPlayerIdx].cGuardButton + 4U & 0x1f)) != 0)) {
+        vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxButtonGuardCrouch)
+        ;
+        return;
       }
-      assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xb);
-      return (OBJ_STRUCT *)0x0;
+      vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxCrouching);
+      return;
     }
-    if (uVar5 != 2) {
-      return (OBJ_STRUCT *)0x0;
+    if (uVar2 != 2) {
+      return;
     }
-    if ((uVar3 & 2) == 0) {
-      return (OBJ_STRUCT *)0x0;
+    if ((gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 2U) == 0) {
+      return;
     }
-    if (uVar8 == 0) {
-      return (OBJ_STRUCT *)0x0;
+    if (iIsGuardButtonActive == 0) {
+      return;
     }
-    if ((uVar2 & 1 << (PLAYER_KGT_BUFFER[iVar1].guard_button + 4U & 0x1f)) == 0) {
-      return (OBJ_STRUCT *)0x0;
+    if ((iInputBuffer & 1 << (gkgtLoadedCharacter[iPlayerIdx].cGuardButton + 4U & 0x1f)) == 0) {
+      return;
     }
-    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x13);
-    return (OBJ_STRUCT *)0x0;
+    vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxButtonGuardAir);
+    return;
   }
-  iVar6 = PLAYER_KGT_BUFFER[iVar1].w_ko_unk_var;
-  if (0 < iVar6) {
-    if (iVar6 == 1) {
-      PTR_POSS_CURRENT_OBJ->action_idx = -1;
-      sVar9 = PLAYER_KGT_BUFFER[iVar1].victory_skill_idx;
+  iVar3 = gkgtLoadedCharacter[iPlayerIdx].iDoubleKoWinnerDeterminer;
+  if (0 < iVar3) {
+    if (iVar3 == 1) {
+      gpkgtCurrentEngineObject->iSkillIdx = -1;
+      sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxVictory;
 LAB_00411015:
-      assign_action_and_reset_some_data(sVar9);
-      pOVar7 = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-           (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffff7 | 4);
-      return pOVar7;
+      vAssignSkillAndResetOtherValues(sVar4);
+      gpkgtCurrentEngineObject->obj_ptr_b =
+           (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xfffffff7 | 4);
+      return;
     }
-    if (iVar6 == 2) {
-      PTR_POSS_CURRENT_OBJ->action_idx = -1;
-      sVar9 = PLAYER_KGT_BUFFER[iVar1].loss_skill_idx;
+    if (iVar3 == 2) {
+      gpkgtCurrentEngineObject->iSkillIdx = -1;
+      sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxLoss;
       goto LAB_00411015;
     }
-    if (iVar6 == 3) {
-      PTR_POSS_CURRENT_OBJ->action_idx = -1;
-      sVar9 = PLAYER_KGT_BUFFER[iVar1].draw_skill_idx;
+    if (iVar3 == 3) {
+      gpkgtCurrentEngineObject->iSkillIdx = -1;
+      sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxDraw;
       goto LAB_00411015;
     }
   }
-  if ((uVar8 == 0) && (iVar6 = FUN_0040e580(), iVar6 != 0)) {
-    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xf);
+  if ((iIsGuardButtonActive == 0) && (iVar3 = iAssignPlayerLookingRight(), iVar3 != 0)) {
+    vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxTurnStanding);
   }
-  pOVar7 = PTR_POSS_CURRENT_OBJ;
-  if (PTR_POSS_CURRENT_OBJ->param_4 < PTR_POSS_CURRENT_OBJ->compare_to_param_4) {
-    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].falling_skill_idx);
-    PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-         (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffe | 2);
-    return (OBJ_STRUCT *)0x0;
+  pkVar1 = gpkgtCurrentEngineObject;
+  if (gpkgtCurrentEngineObject->iParam4 < gpkgtCurrentEngineObject->compare_to_param_4) {
+    vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxFalling);
+    gpkgtCurrentEngineObject->obj_ptr_b =
+         (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xfffffffe | 2);
+    return;
   }
-  if ((uVar2 & 8) != 0) {
-    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xa);
-    PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-         (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffd | 1);
-    return (OBJ_STRUCT *)0x0;
+  if ((iInputBuffer & 8) != 0) {
+    vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxMidCrouch);
+    gpkgtCurrentEngineObject->obj_ptr_b =
+         (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xfffffffd | 1);
+    return;
   }
-  if ((uVar2 & 4) != 0) {
-    if ((uVar2 & 2) == 0) {
-      if ((uVar2 & 1) == 0) {
-        sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x4;
+  if ((iInputBuffer & 4) != 0) {
+    if ((iInputBuffer & 2) == 0) {
+      if ((iInputBuffer & 1) == 0) {
+        sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxJumpUp;
       }
       else {
-        if (uVar8 != 0) {
-          assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x5);
-          PTR_POSS_CURRENT_OBJ->pos_player_direction = 1;
+        if (iIsGuardButtonActive != 0) {
+          vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxFrontJump);
+          gpkgtCurrentEngineObject->iPlayerLookingRight = 1;
           goto LAB_0041116a;
         }
-        sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x6;
+        sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxBackJump;
       }
-      assign_action_and_reset_some_data(sVar9);
+      vAssignSkillAndResetOtherValues(sVar4);
     }
     else {
-      assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x5);
-      if (uVar8 != 0) {
-        PTR_POSS_CURRENT_OBJ->pos_player_direction = 0;
+      vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxFrontJump);
+      if (iIsGuardButtonActive != 0) {
+        gpkgtCurrentEngineObject->iPlayerLookingRight = 0;
       }
     }
 LAB_0041116a:
-    PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-         (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffffe | 2);
-    return (OBJ_STRUCT *)0x0;
+    gpkgtCurrentEngineObject->obj_ptr_b =
+         (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xfffffffe | 2);
+    return;
   }
-  if (((PLAYER_KGT_BUFFER[iVar1].guard_button_flag & 8U) == 0) ||
-     ((uVar2 & 1 << (PLAYER_KGT_BUFFER[iVar1].guard_button + 4U & 0x1f)) == 0)) {
-    if ((uVar2 & 2) == 0) {
-      if ((uVar2 & 1) == 0) {
-        if ((PTR_POSS_CURRENT_OBJ->action_idx ==
-             (uint)(ushort)PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xc) ||
-           (PTR_POSS_CURRENT_OBJ->action_idx ==
-            (uint)(ushort)PLAYER_KGT_BUFFER[iVar1].SectionE_default_0xf)) goto LAB_00411248;
-        sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x1;
+  if (((gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 8) == 0) ||
+     ((iInputBuffer & 1 << (gkgtLoadedCharacter[iPlayerIdx].cGuardButton + 4U & 0x1f)) == 0)) {
+    if ((iInputBuffer & 2) == 0) {
+      if ((iInputBuffer & 1) == 0) {
+        if ((gpkgtCurrentEngineObject->iSkillIdx ==
+             (uint)(ushort)gkgtLoadedCharacter[iPlayerIdx].shSkillIdxStandFromCrouch) ||
+           (gpkgtCurrentEngineObject->iSkillIdx ==
+            (uint)(ushort)gkgtLoadedCharacter[iPlayerIdx].shSkillIdxTurnStanding))
+        goto LAB_00411248;
+        sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxStanding;
       }
-      else if (uVar8 == 0) {
-        sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x3;
+      else if (iIsGuardButtonActive == 0) {
+        sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxBackward;
       }
       else {
-        if (PTR_POSS_CURRENT_OBJ->pos_player_direction != 1) {
-          PTR_POSS_CURRENT_OBJ->action_idx = -1;
+        if (gpkgtCurrentEngineObject->iPlayerLookingRight != 1) {
+          gpkgtCurrentEngineObject->iSkillIdx = -1;
         }
-        pOVar7->pos_player_direction = 1;
-        sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x2;
+        pkVar1->iPlayerLookingRight = 1;
+        sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxForward;
       }
     }
     else {
-      if (uVar8 != 0) {
-        if (PTR_POSS_CURRENT_OBJ->pos_player_direction != 0) {
-          PTR_POSS_CURRENT_OBJ->action_idx = -1;
+      if (iIsGuardButtonActive != 0) {
+        if (gpkgtCurrentEngineObject->iPlayerLookingRight != 0) {
+          gpkgtCurrentEngineObject->iSkillIdx = -1;
         }
-        pOVar7->pos_player_direction = 0;
+        pkVar1->iPlayerLookingRight = 0;
       }
-      sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x2;
+      sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxForward;
     }
   }
   else {
-    sVar9 = PLAYER_KGT_BUFFER[iVar1].SectionE_default_0x11;
+    sVar4 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxButtonGuardStand;
   }
-  assign_action_and_reset_some_data(sVar9);
+  vAssignSkillAndResetOtherValues(sVar4);
 LAB_00411248:
-  if (((DAT_00424710 != 0) && ((uVar2 & 0x100) != 0)) &&
-     ((*(uint *)&PTR_POSS_CURRENT_OBJ->__or_3 & 2) == 0)) {
-    *(uint *)&PTR_POSS_CURRENT_OBJ->__or_3 = *(uint *)&PTR_POSS_CURRENT_OBJ->__or_3 ^ 1 | 2;
+  if (((DAT_00424710 != 0) && ((iInputBuffer & 0x100) != 0)) &&
+     ((*(uint *)&gpkgtCurrentEngineObject->__or_3 & 2) == 0)) {
+    *(uint *)&gpkgtCurrentEngineObject->__or_3 = *(uint *)&gpkgtCurrentEngineObject->__or_3 ^ 1 | 2;
   }
-  return (OBJ_STRUCT *)0x0;
+  return;
 }
 
 
 
-void handle_cpu_commands(void)
+void vHandleCpuCommands(void)
 
 {
   ushort uVar1;
   int rand;
   uint distance;
   int normalized_distance;
-  int rand2;
   int iVar2;
+  int rand2;
   int iVar3;
   uint direction_;
   short *cpu_interval_empty;
@@ -13070,65 +13336,72 @@ void handle_cpu_commands(void)
   int other_player_new_unk_1;
   int command_idx;
   int input_buffer_pos;
-  uint player_buffer;
+  ushort iCommandInput;
+  short *iCommandTimings;
+  int iOpponentIdx;
+  uint iPlayerIdx;
   
-  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  if (PLAYER_KGT_BUFFER[player_buffer].unk_CPU_var_initial_1 != 0) {
-    if (PLAYER_KGT_BUFFER[player_buffer].poss_opponent_obj_ptr_2_ == (OBJ_STRUCT *)0x0) {
-      memzero(INPUT_BUFFER_A + player_buffer,0x1000);
+  iPlayerIdx = gpkgtCurrentEngineObject->iPlayerIdx;
+  if (gkgtLoadedCharacter[iPlayerIdx].iNotTestplayPlayerCpu != 0) {
+    if (gkgtLoadedCharacter[iPlayerIdx].poss_opponent_obj_ptr_2_ == (kgtEngineObject *)0x0) {
+      vMemzero(giInputBufferA + iPlayerIdx,0x1000);
       return;
     }
-    iVar2 = (PLAYER_KGT_BUFFER[player_buffer].poss_opponent_obj_ptr_2_)->player_file_buffer;
-    switch(PLAYER_KGT_BUFFER[player_buffer].TESTPLAY_PLAYER_CPU) {
+    iOpponentIdx = (gkgtLoadedCharacter[iPlayerIdx].poss_opponent_obj_ptr_2_)->iPlayerIdx;
+    switch(gkgtLoadedCharacter[iPlayerIdx].iTestplayPlayerCpu) {
     case 1:
-      memzero(INPUT_BUFFER_A + player_buffer,0x1000);
-      if (GAME_STATE.round_start_is0 == 1) {
-        if (PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx == 0) {
-          if (PLAYER_KGT_BUFFER[player_buffer].cpu_level == 0) {
+      vMemzero(giInputBufferA + iPlayerIdx,0x1000);
+      if (gkgtGameState.iRoundMode == 1) {
+        if (gkgtLoadedCharacter[iPlayerIdx].iCpuCommandIdx == 0) {
+          if (gkgtLoadedCharacter[iPlayerIdx].iCpuLevel == 0) {
             return;
           }
-          rand = *(int *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf7d + -1;
-          *(int *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf7d = rand;
-          if (0 < rand) {
+          i = gkgtLoadedCharacter[iPlayerIdx].iCpuCommandTimer + -1;
+          gkgtLoadedCharacter[iPlayerIdx].iCpuCommandTimer = i;
+          if (0 < i) {
             return;
           }
-          cpu_level = PLAYER_KGT_BUFFER[player_buffer].cpu_level;
+          cpu_level = gkgtLoadedCharacter[iPlayerIdx].iCpuLevel;
           rand = _rand();
-          cpu_interval_empty = &PLAYER_KGT_BUFFER[player_buffer].CPU_commands[0].interval_empty;
+          cpu_interval_empty =
+               &gkgtLoadedCharacter[iPlayerIdx].kgtCpuCommands[0].kgtCharacterCPUCommandSkill_1.
+                skill_idx;
           i = 0;
-          *(int *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf7d =
+          gkgtLoadedCharacter[iPlayerIdx].iCpuCommandTimer =
                (rand % (101 - cpu_level) - cpu_level) + 50;
           do {
                     // Run through CPU commands and determine if they are in distance and under
                     // random value
-            distance = PLAYER_KGT_BUFFER[player_buffer].pos_x_pos -
-                       PLAYER_KGT_BUFFER[iVar2].pos_x_pos;
+            distance = gkgtLoadedCharacter[iPlayerIdx].iCurrentXPos -
+                       gkgtLoadedCharacter[iOpponentIdx].iCurrentXPos;
                     // TO-DO: Figure out what this math is doing.
             direction_ = (int)distance >> 0x1f;
             normalized_distance = (distance ^ direction_) - direction_;
             final_distance =
                  (int)(normalized_distance + (normalized_distance >> 0x1f & 0xffffU)) >> 0x10;
-            rand = _rand();
-            if (((rand % 100 < (int)(uint)(byte)*(char *)((int)cpu_interval_empty + -1)) &&
+            iVar2 = _rand();
+            if (((iVar2 % 100 < (int)(uint)(byte)*(char *)((int)cpu_interval_empty + -1)) &&
                 ((int)(uint)(ushort)*cpu_interval_empty <= final_distance)) &&
                (final_distance <= (int)(uint)(ushort)cpu_interval_empty[1])) {
-              new_unk_1 = *(int *)(PLAYER_KGT_BUFFER[player_buffer].CPU + 0x58);
-              if ((*(byte *)(cpu_interval_empty + -1) & 1) == 0) {
-                if (new_unk_1 <= PLAYER_KGT_BUFFER[player_buffer].pos_y_pos) goto LAB_004113e4;
+              new_unk_1 = (gkgtLoadedCharacter[iPlayerIdx].pkgtoSelf)->compare_to_param_4;
+              if ((((kgtCharacterCPUCommandSkillFull *)(cpu_interval_empty + -1))->directional & 1U)
+                  == 0) {
+                if (new_unk_1 <= gkgtLoadedCharacter[iPlayerIdx].iCurrentYPos) goto LAB_004113e4;
               }
-              else if (PLAYER_KGT_BUFFER[player_buffer].pos_y_pos != new_unk_1) {
+              else if (gkgtLoadedCharacter[iPlayerIdx].iCurrentYPos != new_unk_1) {
 LAB_004113e4:
-                other_player_new_unk_1 = *(int *)(PLAYER_KGT_BUFFER[iVar2].CPU + 0x58);
-                if ((*(byte *)(cpu_interval_empty + -1) & 2) == 0) {
-                  if (other_player_new_unk_1 <= PLAYER_KGT_BUFFER[iVar2].pos_y_pos)
+                other_player_new_unk_1 =
+                     (gkgtLoadedCharacter[iOpponentIdx].pkgtoSelf)->compare_to_param_4;
+                if ((((kgtCharacterCPUCommandSkillFull *)(cpu_interval_empty + -1))->directional &
+                    2U) == 0) {
+                  if (other_player_new_unk_1 <= gkgtLoadedCharacter[iOpponentIdx].iCurrentYPos)
                   goto LAB_00411405;
                 }
-                else if (PLAYER_KGT_BUFFER[iVar2].pos_y_pos != other_player_new_unk_1) {
+                else if (gkgtLoadedCharacter[iOpponentIdx].iCurrentYPos != other_player_new_unk_1) {
 LAB_00411405:
-                  PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx = i + 1;
-                  PLAYER_KGT_BUFFER[player_buffer].winpoint = 0;
-                  *(undefined4 *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx =
-                       0xffffffff;
+                  gkgtLoadedCharacter[iPlayerIdx].iCpuCommandIdx = i + 1;
+                  gkgtLoadedCharacter[iPlayerIdx].iWinPoint = 0;
+                  *(undefined4 *)&gkgtLoadedCharacter[iPlayerIdx].iUnkCpuOffsetVar = 0xffffffff;
                 }
               }
             }
@@ -13136,101 +13409,101 @@ LAB_00411405:
             cpu_interval_empty = (short *)((int)cpu_interval_empty + 0x6f);
           } while (i < 100);
         }
-        command_idx = PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx;
+        command_idx = gkgtLoadedCharacter[iPlayerIdx].iCpuCommandIdx;
         if ((command_idx != 0) &&
-           (rand = PLAYER_KGT_BUFFER[player_buffer].winpoint + -1,
-           PLAYER_KGT_BUFFER[player_buffer].winpoint = rand, rand < 0)) {
-          rand = *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx + 1;
-          *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx = rand;
-          if (9 < rand) {
-            PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx = 0;
+           (i = gkgtLoadedCharacter[iPlayerIdx].iWinPoint + -1,
+           gkgtLoadedCharacter[iPlayerIdx].iWinPoint = i, i < 0)) {
+          i = *(int *)&gkgtLoadedCharacter[iPlayerIdx].iUnkCpuOffsetVar + 1;
+          *(int *)&gkgtLoadedCharacter[iPlayerIdx].iUnkCpuOffsetVar = i;
+          if (9 < i) {
+            gkgtLoadedCharacter[iPlayerIdx].iCpuCommandIdx = 0;
           }
-          if ((PLAYER_KGT_BUFFER[player_buffer].CPU_commands[command_idx].name
-               [*(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx * 7 + -0x44] & 0x20U
-              ) == 0) {
+          if ((gkgtLoadedCharacter[iPlayerIdx].kgtCpuCommands[command_idx].sName
+               [*(int *)&gkgtLoadedCharacter[iPlayerIdx].iUnkCpuOffsetVar * 7 + -0x3a] & 0x20U) == 0
+             ) {
                     // Testing for END SKILL flag
-            PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx = 0;
+            gkgtLoadedCharacter[iPlayerIdx].iCpuCommandIdx = 0;
           }
           rand2 = _rand();
-          rand = rand2 % (101 - PLAYER_KGT_BUFFER[player_buffer].cpu_level) +
-                 (uint)*(ushort *)
-                        (PLAYER_KGT_BUFFER[player_buffer].CPU_commands[command_idx].name +
-                        *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx * 7 + -0x41)
-          ;
-          PLAYER_KGT_BUFFER[player_buffer].winpoint = rand;
-          if (PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx != 0) {
+          i = rand2 % (101 - gkgtLoadedCharacter[iPlayerIdx].iCpuLevel) +
+              (uint)*(ushort *)
+                     (gkgtLoadedCharacter[iPlayerIdx].kgtCpuCommands[command_idx].sName +
+                     *(int *)&gkgtLoadedCharacter[iPlayerIdx].iUnkCpuOffsetVar * 7 + -0x37);
+          gkgtLoadedCharacter[iPlayerIdx].iWinPoint = i;
+          if (gkgtLoadedCharacter[iPlayerIdx].iCpuCommandIdx != 0) {
             _sprintf(local_100,s__s__d_0041f210,
-                     player_buffer * 0xe03f + 0x4d6ad0 +
+                     iPlayerIdx * 0xe03f + 0x4d6ad0 +
                      (uint)*(ushort *)
-                            (PLAYER_KGT_BUFFER[player_buffer].CPU_commands
-                             [PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx].name +
-                            *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx * 7 +
-                            -0x43) * 0x52,rand);
+                            (gkgtLoadedCharacter[iPlayerIdx].kgtCpuCommands
+                             [gkgtLoadedCharacter[iPlayerIdx].iCpuCommandIdx].sName +
+                            *(int *)&gkgtLoadedCharacter[iPlayerIdx].iUnkCpuOffsetVar * 7 + -0x39) *
+                     0x52,i);
           }
         }
-        rand = PLAYER_KGT_BUFFER[player_buffer].cpu_command_idx;
-        if (rand != 0) {
-          i = *(int *)&PLAYER_KGT_BUFFER[player_buffer].cpu_command_skill_idx * 7;
-          if (((PLAYER_KGT_BUFFER[player_buffer].guard_button_flag & 8U) == 0) ||
+        i = gkgtLoadedCharacter[iPlayerIdx].iCpuCommandIdx;
+        if (i != 0) {
+          iVar2 = *(int *)&gkgtLoadedCharacter[iPlayerIdx].iUnkCpuOffsetVar * 7;
+          if (((gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 8) == 0) ||
              (local_114 = &DAT_0041f178,
-             PLAYER_KGT_BUFFER[player_buffer].pos_x_pos <= PLAYER_KGT_BUFFER[iVar2].pos_x_pos)) {
+             gkgtLoadedCharacter[iPlayerIdx].iCurrentXPos <=
+             gkgtLoadedCharacter[iOpponentIdx].iCurrentXPos)) {
             local_114 = &DAT_0041f138;
           }
-          uVar1 = *(ushort *)(PLAYER_KGT_BUFFER[player_buffer].CPU_commands[rand].name + i + -0x43);
+          uVar1 = *(ushort *)
+                   (gkgtLoadedCharacter[iPlayerIdx].kgtCpuCommands[i].sName + iVar2 + -0x39);
+                    // This looks like it goes thru timings and inputs
           if (uVar1 != 0) {
             local_10c = 10;
-            cpu_interval_empty =
-                 PLAYER_KGT_BUFFER[player_buffer].command_structs[uVar1 - 1].command_input_timings +
-                 9;
-            input_buffer_pos = INPUT_BUFFER_POS;
+            iCommandTimings =
+                 gkgtLoadedCharacter[iPlayerIdx].kgtCommands[uVar1 - 1].shCommandInputTimings + 9;
+            input_buffer_pos = giInputBufferPos;
             do {
-              uVar1 = cpu_interval_empty[-10];
-              local_108 = (uint)(ushort)*cpu_interval_empty;
-              if ((uVar1 & 0x2000) != 0) {
-                distance = *(uint *)(local_114 + (uVar1 & 0xf) * 4);
-                if ((uVar1 & 0x10) != 0) {
+              iCommandInput = iCommandTimings[-10];
+              local_108 = (uint)(ushort)*iCommandTimings;
+              if ((iCommandInput & 0x2000) != 0) {
+                distance = *(uint *)(local_114 + (iCommandInput & 0xf) * 4);
+                if ((iCommandInput & 0x10) != 0) {
                   distance = distance | 0x10;
                 }
-                if ((uVar1 & 0x20) != 0) {
+                if ((iCommandInput & 0x20) != 0) {
                   distance = distance | 0x20;
                 }
-                if ((uVar1 & 0x40) != 0) {
+                if ((iCommandInput & 0x40) != 0) {
                   distance = distance | 0x40;
                 }
-                if ((uVar1 & 0x80) != 0) {
+                if ((iCommandInput & 0x80) != 0) {
                   distance = distance | 0x80;
                 }
-                if ((uVar1 & 0x100) != 0) {
+                if ((iCommandInput & 0x100) != 0) {
                   distance = distance | 0x100;
                 }
-                if ((uVar1 & 0x200) != 0) {
+                if ((iCommandInput & 0x200) != 0) {
                   distance = distance | 0x200;
                 }
                 distance = distance |
                            *(uint *)(local_114 +
-                                    ((byte)PLAYER_KGT_BUFFER[player_buffer].CPU_commands[rand].name
-                                           [i + -0x45] & 0xf) * 4);
-                switch((int)(uint)uVar1 >> 0xe) {
+                                    ((byte)gkgtLoadedCharacter[iPlayerIdx].kgtCpuCommands[i].sName
+                                           [iVar2 + -0x3b] & 0xf) * 4);
+                switch((int)(uint)iCommandInput >> 0xe) {
                 case 0:
-                  iVar2 = input_buffer_pos + -1;
-                  INPUT_BUFFER_A[PTR_POSS_CURRENT_OBJ->player_file_buffer][input_buffer_pos] =
-                       distance;
-                  input_buffer_pos = iVar2;
-                  if (iVar2 < 0) {
+                  iOpponentIdx = input_buffer_pos + -1;
+                  giInputBufferA[gpkgtCurrentEngineObject->iPlayerIdx][input_buffer_pos] = distance;
+                  input_buffer_pos = iOpponentIdx;
+                  if (iOpponentIdx < 0) {
                     input_buffer_pos = 0x3ff;
                   }
                   break;
                 case 1:
                   if (local_108 != 0) {
-                    iVar2 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+                    iOpponentIdx = gpkgtCurrentEngineObject->iPlayerIdx;
                     do {
                       final_distance = input_buffer_pos + -1;
-                      INPUT_BUFFER_A[iVar2][input_buffer_pos] = 0;
+                      giInputBufferA[iOpponentIdx][input_buffer_pos] = 0;
                       if (final_distance < 0) {
                         final_distance = 0x3ff;
                       }
                       input_buffer_pos = final_distance + -1;
-                      INPUT_BUFFER_A[iVar2][final_distance] = distance;
+                      giInputBufferA[iOpponentIdx][final_distance] = distance;
                       if (input_buffer_pos < 0) {
                         input_buffer_pos = 0x3ff;
                       }
@@ -13240,11 +13513,11 @@ LAB_00411405:
                   break;
                 case 2:
                   if (local_108 != 0) {
-                    iVar2 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+                    iOpponentIdx = gpkgtCurrentEngineObject->iPlayerIdx;
                     final_distance = input_buffer_pos;
                     do {
                       input_buffer_pos = final_distance + -1;
-                      INPUT_BUFFER_A[iVar2][final_distance] = distance;
+                      giInputBufferA[iOpponentIdx][final_distance] = distance;
                       if (input_buffer_pos < 0) {
                         input_buffer_pos = 0x3ff;
                       }
@@ -13255,25 +13528,25 @@ LAB_00411405:
                   break;
                 case 3:
                   if (local_108 != 0) {
-                    iVar2 = PTR_POSS_CURRENT_OBJ->player_file_buffer;
+                    iOpponentIdx = gpkgtCurrentEngineObject->iPlayerIdx;
                     do {
                       final_distance = input_buffer_pos + -1;
-                      INPUT_BUFFER_A[iVar2][input_buffer_pos] = distance | 2;
+                      giInputBufferA[iOpponentIdx][input_buffer_pos] = distance | 2;
                       if (final_distance < 0) {
                         final_distance = 0x3ff;
                       }
                       iVar3 = final_distance + -1;
-                      INPUT_BUFFER_A[iVar2][final_distance] = distance | 8;
+                      giInputBufferA[iOpponentIdx][final_distance] = distance | 8;
                       if (iVar3 < 0) {
                         iVar3 = 0x3ff;
                       }
                       final_distance = iVar3 + -1;
-                      INPUT_BUFFER_A[iVar2][iVar3] = distance | 1;
+                      giInputBufferA[iOpponentIdx][iVar3] = distance | 1;
                       if (final_distance < 0) {
                         final_distance = 0x3ff;
                       }
                       input_buffer_pos = final_distance + -1;
-                      INPUT_BUFFER_A[iVar2][final_distance] = distance | 4;
+                      giInputBufferA[iOpponentIdx][final_distance] = distance | 4;
                       if (input_buffer_pos < 0) {
                         input_buffer_pos = 0x3ff;
                       }
@@ -13282,26 +13555,26 @@ LAB_00411405:
                   }
                 }
               }
-              cpu_interval_empty = cpu_interval_empty + -1;
+              iCommandTimings = iCommandTimings + -1;
               local_10c = local_10c + -1;
             } while (local_10c != 0);
             return;
           }
-          INPUT_BUFFER_A[PTR_POSS_CURRENT_OBJ->player_file_buffer][INPUT_BUFFER_POS] =
+          giInputBufferA[gpkgtCurrentEngineObject->iPlayerIdx][giInputBufferPos] =
                *(int *)(local_114 +
-                       ((byte)PLAYER_KGT_BUFFER[player_buffer].CPU_commands[rand].name[i + -0x45] &
-                       0xf) * 4);
+                       ((byte)gkgtLoadedCharacter[iPlayerIdx].kgtCpuCommands[i].sName[iVar2 + -0x3b]
+                       & 0xf) * 4);
           return;
         }
       }
       break;
     case 2:
-      INPUT_BUFFER_A[player_buffer][INPUT_BUFFER_POS] =
-           INPUT_BUFFER_A[player_buffer ^ 1][INPUT_BUFFER_POS];
+      giInputBufferA[iPlayerIdx][giInputBufferPos] =
+           giInputBufferA[iPlayerIdx ^ 1][giInputBufferPos];
       return;
     case 4:
-      if (GAME_STATE.round_start_is0 == 1) {
-        INPUT_BUFFER_A[player_buffer][INPUT_BUFFER_POS] = 0b00000100;
+      if (gkgtGameState.iRoundMode == 1) {
+        giInputBufferA[iPlayerIdx][giInputBufferPos] = 0b00000100;
       }
     }
   }
@@ -13310,95 +13583,100 @@ LAB_00411405:
 
 
 
-void FUN_00411810(void)
+void vProcessInputsIntoSkills(void)
 
 {
-  byte bVar1;
-  uint uVar2;
+  ushort uVar1;
+  byte bVar2;
+  int iCommandIdx;
   uint uVar3;
-  OBJ_STRUCT *curr_obj;
-  int player_buffer;
+  uint uVar4;
+  kgtEngineObject *curr_obj;
+  int iPlayerIdx;
   
-  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  if ((((GAME_STATE.round_start_is0 == 2) && (((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xc) == 0))
-      && (PTR_POSS_CURRENT_OBJ->param_4 == PTR_POSS_CURRENT_OBJ->compare_to_param_4)) &&
-     ((PTR_POSS_CURRENT_OBJ->y_momentum == 0 && (PLAYER_KGT_BUFFER[player_buffer].health != 0)))) {
-    assign_action_and_reset_some_data(PLAYER_KGT_BUFFER[player_buffer].victory_skill_idx);
+  iPlayerIdx = gpkgtCurrentEngineObject->iPlayerIdx;
+  if ((((gkgtGameState.iRoundMode == 2) && (((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xc) == 0))
+      && (gpkgtCurrentEngineObject->iParam4 == gpkgtCurrentEngineObject->compare_to_param_4)) &&
+     ((gpkgtCurrentEngineObject->iYMomentum == 0 && (gkgtLoadedCharacter[iPlayerIdx].iHealth != 0)))
+     ) {
+    vAssignSkillAndResetOtherValues(gkgtLoadedCharacter[iPlayerIdx].shSkillIdxVictory);
     return;
   }
-  handle_cpu_commands();
-  curr_obj = PTR_POSS_CURRENT_OBJ;
-  if ((PTR_POSS_CURRENT_OBJ->compare_to_param_4 <= PTR_POSS_CURRENT_OBJ->param_4) &&
-     (0 < PTR_POSS_CURRENT_OBJ->y_momentum)) {
-    PTR_POSS_CURRENT_OBJ->param_4 = PTR_POSS_CURRENT_OBJ->compare_to_param_4;
-    curr_obj->x_gravity = 0;
-    curr_obj->x_momentum = 0;
-    curr_obj->y_gravity = 0;
-    curr_obj->y_momentum = 0;
-    curr_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)curr_obj->obj_ptr_b & 0xfffffffc);
-    curr_obj->action_idx = -1;
-    if (curr_obj->stage_action_idx == 0) {
-      FUN_0040e580();
-      curr_obj = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-           (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xffffffe3);
+  vHandleCpuCommands();
+  curr_obj = gpkgtCurrentEngineObject;
+  if ((gpkgtCurrentEngineObject->compare_to_param_4 <= gpkgtCurrentEngineObject->iParam4) &&
+     (0 < gpkgtCurrentEngineObject->iYMomentum)) {
+    gpkgtCurrentEngineObject->iParam4 = gpkgtCurrentEngineObject->compare_to_param_4;
+    curr_obj->iXGravity = 0;
+    curr_obj->iXMomentum = 0;
+    curr_obj->iYGravity = 0;
+    curr_obj->iYMomentum = 0;
+    curr_obj->obj_ptr_b = (kgtEngineObject *)((uint)curr_obj->obj_ptr_b & 0xfffffffc);
+    curr_obj->iSkillIdx = -1;
+    if (curr_obj->iDsLandingSkillIdx == 0) {
+      iAssignPlayerLookingRight();
+      curr_obj = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->obj_ptr_b =
+           (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xffffffe3);
     }
     else {
-      uVar2 = curr_obj->stage_action_idx & 0xffff;
-      curr_obj->action_idx = uVar2;
-      *(uint *)&curr_obj->actionscript_idx =
-           (uint)(ushort)PLAYER_KGT_BUFFER[curr_obj->player_file_buffer].kgt_core.p_actions_alloc
-                         [uVar2].starting_step_idx + ((uint)curr_obj->stage_action_idx >> 0x10);
-      curr_obj->stage_action_idx = 0;
-      curr_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)curr_obj->obj_ptr_b & 0xfffffff7 | 4);
-      curr_obj->image_wait_frames = 0;
-      memzero_mystery_arrays(curr_obj);
-      curr_obj = PTR_POSS_CURRENT_OBJ;
+      uVar3 = curr_obj->iDsLandingSkillIdx & 0xffff;
+      curr_obj->iSkillIdx = uVar3;
+      *(uint *)&curr_obj->iSkillScriptIdx =
+           (uint)(ushort)gkgtLoadedCharacter[curr_obj->iPlayerIdx].kgtCore.pSkillsAlloc[uVar3].
+                         shStartingStepIdx + ((uint)curr_obj->iDsLandingSkillIdx >> 0x10);
+      curr_obj->iDsLandingSkillIdx = 0;
+      curr_obj->obj_ptr_b = (kgtEngineObject *)((uint)curr_obj->obj_ptr_b & 0xfffffff7 | 4);
+      curr_obj->iImageWaitFrames = 0;
+      vMemzeroHitboxArrays(curr_obj);
+      curr_obj = gpkgtCurrentEngineObject;
     }
   }
-  uVar2 = (uint)curr_obj->obj_ptr_b & 0xc;
-  if (uVar2 == 0) {
-    player_buffer = FUN_00410060(0);
-    if (player_buffer != 0) {
-      assign_action_and_reset_some_data(player_buffer);
-      curr_obj = PTR_POSS_CURRENT_OBJ;
-      if (((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 3) < 2) {
-        PTR_POSS_CURRENT_OBJ->x_gravity = 0;
-        curr_obj->x_momentum = 0;
+  uVar3 = (uint)curr_obj->obj_ptr_b & 0xc;
+  if (uVar3 == 0) {
+    iCommandIdx = sHandlePlayerCommandSequence(0);
+    if (iCommandIdx != 0) {
+      vAssignSkillAndResetOtherValues(iCommandIdx);
+      curr_obj = gpkgtCurrentEngineObject;
+      if (((uint)gpkgtCurrentEngineObject->obj_ptr_b & 3) < 2) {
+        gpkgtCurrentEngineObject->iXGravity = 0;
+        curr_obj->iXMomentum = 0;
       }
-      curr_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)curr_obj->obj_ptr_b & 0xfffffff7 | 4);
+      curr_obj->obj_ptr_b = (kgtEngineObject *)((uint)curr_obj->obj_ptr_b & 0xfffffff7 | 4);
       return;
     }
-    FUN_00410dc0();
+    vHandleMovementSkills();
   }
-  else if (uVar2 != 8) {
-    bVar1 = PLAYER_KGT_BUFFER[player_buffer].field_0xdf92 & 7;
-    if (bVar1 == 1) {
-      if (*(int *)&PLAYER_KGT_BUFFER[player_buffer].currect_action_cancellable_flag < 2) {
+  else if (uVar3 != 8) {
+    bVar2 = gkgtLoadedCharacter[iPlayerIdx].CancelSkillBlockFlags & 7;
+    if (bVar2 == 1) {
+      if (gkgtLoadedCharacter[iPlayerIdx].iCurrentActionCancellableFlag < 2) {
         return;
       }
     }
-    else if (bVar1 != 2) {
+    else if (bVar2 != 2) {
       return;
     }
-    uVar2 = FUN_00410060(0);
-    if (uVar2 != 0) {
-      uVar3 = ((byte)PLAYER_KGT_BUFFER[player_buffer].field_0xdf92 & 0x38) >> 3;
-      if (uVar3 == 0) {
-        bVar1 = PLAYER_KGT_BUFFER[player_buffer].kgt_core.p_actionscripts_alloc
-                [(ushort)PLAYER_KGT_BUFFER[player_buffer].kgt_core.p_actions_alloc[uVar2].
-                         starting_step_idx]._2;
-        if (((byte)PLAYER_KGT_BUFFER[player_buffer].field_0xdf93 <= bVar1) &&
-           (bVar1 <= (byte)PLAYER_KGT_BUFFER[player_buffer].field_0xdf96)) goto LAB_004119e1;
+    uVar3 = sHandlePlayerCommandSequence(0);
+    if (uVar3 != 0) {
+      uVar4 = ((byte)gkgtLoadedCharacter[iPlayerIdx].CancelSkillBlockFlags & 0x38) >> 3;
+      if (uVar4 == 0) {
+        bVar2 = gkgtLoadedCharacter[iPlayerIdx].kgtCore.pSkillScriptsAlloc
+                [(ushort)gkgtLoadedCharacter[iPlayerIdx].kgtCore.pSkillsAlloc[uVar3].
+                         shStartingStepIdx].field_0x2;
+        if (((byte)gkgtLoadedCharacter[iPlayerIdx].CancelSkillBlockEmpty <= bVar2) &&
+           (bVar2 <= (byte)gkgtLoadedCharacter[iPlayerIdx].CancelSkillBlockLevelWeen))
+        goto LAB_004119e1;
       }
-      else if ((uVar3 == 1) &&
-              ((*(ushort *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf94 != 0 &&
-               (uVar2 == *(ushort *)&PLAYER_KGT_BUFFER[player_buffer].field_0xdf94)))) {
+      else if ((uVar4 == 1) &&
+              ((uVar1._0_1_ = gkgtLoadedCharacter[iPlayerIdx].CancelSkillIdxMod255Remainder,
+               uVar1._1_1_ = gkgtLoadedCharacter[iPlayerIdx].CancelSkillBlock255DivisionAmount,
+               uVar1 != 0 && (uVar3 == uVar1)))) {
 LAB_004119e1:
-        PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-             (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xffffffef);
-        assign_action_and_reset_some_data(uVar2);
-        *(undefined4 *)&PLAYER_KGT_BUFFER[player_buffer].currect_action_cancellable_flag = 0;
+        gpkgtCurrentEngineObject->obj_ptr_b =
+             (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xffffffef);
+        vAssignSkillAndResetOtherValues(uVar3);
+        gkgtLoadedCharacter[iPlayerIdx].iCurrentActionCancellableFlag = 0;
         return;
       }
     }
@@ -13408,72 +13686,74 @@ LAB_004119e1:
 
 
 
-void FUN_00411a80(void)
+void vCheckIfDrawThenMove(void)
 
 {
-  OBJ_STRUCT *pOVar1;
-  OBJ_STRUCT *pOVar2;
+  kgtEngineObject *pkVar1;
+  kgtEngineObject *pkVar2;
   short sVar3;
-  uint input;
-  int player_buffer;
-  int w_ko_unk_var;
+  int iDoubleKoWinnerDeterminer;
+  uint iInput;
+  int iPlayerIdx;
   
-  player_buffer = PTR_POSS_CURRENT_OBJ->player_file_buffer;
-  input = INPUT_BUFFER_A[player_buffer][INPUT_BUFFER_POS];
-  obj_0x129_to_0(PTR_POSS_CURRENT_OBJ);
-  obj_reset_values();
-  PLAYER_KGT_BUFFER[player_buffer].field6356_0xdefd = 0;
-  pOVar2 = PTR_POSS_CURRENT_OBJ;
-  w_ko_unk_var = PLAYER_KGT_BUFFER[player_buffer].w_ko_unk_var;
-  if (w_ko_unk_var == 1) {
-    sVar3 = PLAYER_KGT_BUFFER[player_buffer].victory_skill_idx;
-    PTR_POSS_CURRENT_OBJ->action_idx = -1;
+  iPlayerIdx = gpkgtCurrentEngineObject->iPlayerIdx;
+  iInput = giInputBufferA[iPlayerIdx][giInputBufferPos];
+  vResetReactionSkillBlock(gpkgtCurrentEngineObject);
+  iResetDsSkillIndices();
+  gkgtLoadedCharacter[iPlayerIdx].field6361_0xdefd = 0;
+  pkVar2 = gpkgtCurrentEngineObject;
+  iDoubleKoWinnerDeterminer = gkgtLoadedCharacter[iPlayerIdx].iDoubleKoWinnerDeterminer;
+  if (iDoubleKoWinnerDeterminer == 1) {
+    sVar3 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxVictory;
+    gpkgtCurrentEngineObject->iSkillIdx = -1;
   }
-  else if (w_ko_unk_var == 2) {
-    sVar3 = PLAYER_KGT_BUFFER[player_buffer].loss_skill_idx;
-    PTR_POSS_CURRENT_OBJ->action_idx = -1;
+  else if (iDoubleKoWinnerDeterminer == 2) {
+    sVar3 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxLoss;
+    gpkgtCurrentEngineObject->iSkillIdx = -1;
   }
   else {
-    if (w_ko_unk_var != 3) {
-      pOVar1 = PTR_POSS_CURRENT_OBJ->obj_ptr_b;
-      PTR_POSS_CURRENT_OBJ->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar1 & 0xfffffff3);
-      if ((pOVar2->__or_3 & 2) != 0) {
+    if (iDoubleKoWinnerDeterminer != 3) {
+      pkVar1 = gpkgtCurrentEngineObject->obj_ptr_b;
+      gpkgtCurrentEngineObject->obj_ptr_b = (kgtEngineObject *)((uint)pkVar1 & 0xfffffff3);
+      if ((pkVar2->__or_3 & 2) != 0) {
         return;
       }
-      pOVar2->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar1 & 0xfffffff0);
-      memzero(&PLAYER_KGT_BUFFER[player_buffer].start_of_0x6,6);
-      pOVar2 = PTR_POSS_CURRENT_OBJ;
-      if ((PTR_POSS_CURRENT_OBJ->param_4 == PTR_POSS_CURRENT_OBJ->compare_to_param_4) &&
-         (PTR_POSS_CURRENT_OBJ->y_momentum == 0)) {
-        PTR_POSS_CURRENT_OBJ->x_gravity = 0;
-        pOVar2->x_momentum = 0;
-        FUN_0040e580();
-        if ((input & 8) != 0) {
-          PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-               (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b | 1);
-          FUN_00411810();
+      pkVar2->obj_ptr_b = (kgtEngineObject *)((uint)pkVar1 & 0xfffffff0);
+      vMemzero(&gkgtLoadedCharacter[iPlayerIdx].start_of_0x6,6);
+      pkVar2 = gpkgtCurrentEngineObject;
+      if ((gpkgtCurrentEngineObject->iParam4 == gpkgtCurrentEngineObject->compare_to_param_4) &&
+         (gpkgtCurrentEngineObject->iYMomentum == 0)) {
+        gpkgtCurrentEngineObject->iXGravity = 0;
+        pkVar2->iXMomentum = 0;
+        iAssignPlayerLookingRight();
+        if ((iInput & 8) != 0) {
+          gpkgtCurrentEngineObject->obj_ptr_b =
+               (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b | 1);
+          vProcessInputsIntoSkills();
           return;
         }
       }
       else {
-        PTR_POSS_CURRENT_OBJ->obj_ptr_b = (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b | 2);
-        switch_current_object_action
-                  ((uint)(ushort)PLAYER_KGT_BUFFER[player_buffer].falling_skill_idx);
+        gpkgtCurrentEngineObject->obj_ptr_b =
+             (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b | 2);
+        iSwitchCurrentObjectSkill((uint)(ushort)gkgtLoadedCharacter[iPlayerIdx].shSkillIdxFalling);
       }
-      FUN_00411810();
+      vProcessInputsIntoSkills();
       return;
     }
-    PTR_POSS_CURRENT_OBJ->action_idx = -1;
-    sVar3 = PLAYER_KGT_BUFFER[player_buffer].draw_skill_idx;
+    gpkgtCurrentEngineObject->iSkillIdx = -1;
+    sVar3 = gkgtLoadedCharacter[iPlayerIdx].shSkillIdxDraw;
   }
-  assign_action_and_reset_some_data(sVar3);
-  PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-       (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffff7 | 4);
+  vAssignSkillAndResetOtherValues(sVar3);
+  gpkgtCurrentEngineObject->obj_ptr_b =
+       (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xfffffff7 | 4);
   return;
 }
 
 
 
+// WARNING: Type propagation algorithm not settling
+// WARNING: Unable to use type for symbol cancel_empty
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 
 void script_reading_logic(void)
@@ -13484,15 +13764,14 @@ void script_reading_logic(void)
   short sVar3;
   short sVar4;
   ushort uVar5;
-  kgt_skill_step_struct *pkVar6;
+  kgtSkill *pkVar6;
   undefined3 uVar7;
   undefined1 uVar8;
   undefined1 uVar9;
-  char cVar10;
-  uint uVar11;
+  uint uVar10;
   int time_rand;
-  int *other_player_poss_relating;
-  uint uVar12;
+  int *iColorIntOtherPlayer;
+  uint uVar11;
   int stage_unk_var_b;
   int image_wait_frames;
   int player_x_momentum;
@@ -13500,23 +13779,24 @@ void script_reading_logic(void)
   int add_to_special;
   OBJ_STRUCT_ptr_64_undefined1 PS_obj;
   int rand;
-  byte bVar13;
-  byte is_if_failed;
+  byte bVar12;
+  byte bisIfFailed;
   int _x650_idx;
   int char_idx;
   int _650_size_offset;
-  OBJ_STRUCT *pOVar14;
+  kgtEngineObject *pkVar13;
   int new_special_gauge;
-  kgt_pal_color kVar15;
+  kgtPallette kVar14;
   int i20;
   int player_ignore_flag_flag;
-  kgt_character_struct *object_addy;
+  int iRpUnkParam2Val;
+  kgt_character_struct *kgtTargetStructure;
   int ps_i;
-  OBJ_STRUCT *current_obj;
-  OBJ_STRUCT **ppOVar16;
-  kgt_skill_step_struct *skill;
+  kgtEngineObject *pkgtoCurrentEngineObject;
+  kgtEngineObject **ppkVar15;
+  kgtSkill *skill;
   kgt_character_struct_ptr_57077_int PS_players;
-  bool is_1p_story;
+  bool bIsStory;
   bool missing_x_flags_flag;
   uint local_11c;
   int ps_i3;
@@ -13525,21 +13805,23 @@ void script_reading_logic(void)
   int local_108;
   void *local_104;
   char local_100 [256];
-  int player_file_buff_idx2;
-  int player_file_buff_idx3;
+  int iPlayerBuffer_2;
+  int iPlayerBuffer_3;
   int temp_5f04860c28;
   uint game_round;
   int stage_unk_poss_action_idx;
   int unk_actionscript_final_0x10;
   int mystery_val_sub_bool;
   int stage_unk_poss_action;
-  OBJ_STRUCT *piVar16;
-  character_story_entry_cpu *puVar1;
-  int current_player_poss_relating;
+  kgtEngineObject *piVar16;
+  int itemp_specialGauge;
+  int itemp_SpecialGaugeTokens;
+  kgtStoryEntryCpu *puVar1;
+  int iColorInt;
   bool match_found;
-  int current_time;
+  int iOpponentDownTime;
   int initial_y_val;
-  kgt_skill_step_struct *hitbox;
+  kgtSkill *hitbox;
   int current_skill_idx;
   byte mvmt_flags;
   byte m_val;
@@ -13558,9 +13840,9 @@ void script_reading_logic(void)
   ushort GS_skill_idx;
   int GS_player_buffer;
   ushort GL_skill_idx;
-  OBJ_STRUCT *opp_obj_ptr;
-  byte RP_flags;
-  int RP_player_direction;
+  kgtEngineObject *opp_obj_ptr;
+  byte iRpFlags;
+  int iRpPlayerLookingRight;
   int GC_player_buffer;
   short GC_life_opp;
   int random_skillcommand;
@@ -13573,608 +13855,631 @@ void script_reading_logic(void)
   int PS_player_buffer;
   byte PS_opponent_down_time;
   int PS_player_cpu;
-  char cancel_empty;
+  undefined1 cancel_empty;
   byte var_LHS_long;
   byte var_lhs;
   byte var_flags;
   ushort COM_skill_idx;
   int COM_new_skillscript_idx;
+  char bCarryOver;
+  byte cLifeRecovery;
   undefined1 cancel_flags;
   undefined1 cancel_skill_idx;
-  kgt_obj_type curr_obj_type;
+  kgtEngineObjectTypes curr_obj_type;
   GAME_MODES game_mode;
-  byte life_recover_number;
-  kgt_skill_struct *pActionAlloc;
-  int player_file_buff_idx;
-  int special_stock_gauge_max;
+  int iCurrentStoryStep;
+  int iPlayerIdx;
+  kgtSkillHeader *pSkillsAlloc;
   
-  current_obj = PTR_POSS_CURRENT_OBJ;
-  object_addy = local_104;
-  switch(PTR_POSS_CURRENT_OBJ->obj_type) {
-  case 0:
-  case 1:
-  case player_file:
-    object_addy = PLAYER_KGT_BUFFER + PTR_POSS_CURRENT_OBJ->player_file_buffer;
+  pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+  kgtTargetStructure = local_104;
+  switch(gpkgtCurrentEngineObject->iObjectType) {
+  case PLAYER_ENGINE_OBJECT:
+  case STORY?_ENGINE_OBJECT:
+  case CHARACTER_ENGINE_OBJECT:
+    kgtTargetStructure = gkgtLoadedCharacter + gpkgtCurrentEngineObject->iPlayerIdx;
     break;
-  case main_kgt_file:
-                    // DON'T FORGET TO CHANGE THIS BACK TO PROPER FILE TYPE
-    object_addy = (kgt_character_struct *)&DAT_KGT_FILE_BUFFER_00433240;
+  case SYSTEM_ENGINE_OBJECT:
+                    // DON'T FORGET TO CHANGE THIS BACK TO PROPER VARIABLE TYPE
+    kgtTargetStructure = (kgt_character_struct *)&gkgtKgtSystem;
     break;
-  case demo_file:
-    object_addy = (kgt_character_struct *)&UNK_DEMO_FILE_BUFFER_00425a60;
+  case DEMO_ENGINE_OBJECT:
+    kgtTargetStructure = (kgt_character_struct *)&gkgtLoadedDemo;
     break;
-  case stage_file:
-    object_addy = (kgt_character_struct *)&UNK_STAGE_FILES_00445740;
+  case STAGE_ENGINE_OBJECT:
+    kgtTargetStructure = (kgt_character_struct *)&gkgtLoadedStage;
   }
-  if (PTR_POSS_CURRENT_OBJ->object_process_step == 0) {
-    PTR_POSS_CURRENT_OBJ->object_process_step = 1;
-    game_mode = GAME_STATE.GAME_MODE;
-    switch(current_obj->obj_type) {
-    case 0:
-      is_1p_story = GAME_STATE.GAME_MODE == 1P_story;
-      current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1];
-      if (is_1p_story) {
-        special_stock_gauge_max = (&POSS_STORY_ARRAY)[STORY_MODE_IDX];
-        player_file_buff_idx = current_obj->player_file_buffer;
-        if (player_file_buff_idx == 0) {
-          cVar10 = PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].field_0x3;
-          if (GAME_STATE.poss_current_round_count == 1) {
-            if (cVar10 == '\0') {
+  if (gpkgtCurrentEngineObject->iProcessStep == 0) {
+    gpkgtCurrentEngineObject->iProcessStep = 1;
+    game_mode = gkgtGameState.kgtGameMode;
+    switch(pkgtoCurrentEngineObject->iObjectType) {
+    case PLAYER_ENGINE_OBJECT:
+      bIsStory = gkgtGameState.kgtGameMode == 1P_story;
+      pkgtoCurrentEngineObject->iParam2 =
+           (&INT_0041f130)[*(uint *)&pkgtoCurrentEngineObject->__or_3 & 1];
+      if (bIsStory) {
+        iCurrentStoryStep = giCurrentStoryStep[giStoryModePlayerIdx_2];
+        iPlayerIdx = pkgtoCurrentEngineObject->iPlayerIdx;
+        if (iPlayerIdx == 0) {
+          bCarryOver = gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].bFirstLifeCarryOver
+          ;
+          if (gkgtGameState.iCurrentRound == 1) {
+            if (bCarryOver == '\0') {
                     // Probably_health assigned starting_health?
-              *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
-                   *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
+              *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) =
+                   *(int *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x4e);
             }
           }
-          else if (cVar10 == '\0') {
-            *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
-                 *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
+          else if (bCarryOver == '\0') {
+            *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) =
+                 *(int *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x4e);
           }
           else {
-            life_recover_number =
-                 PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
-                 life_recover_number;
-            if (life_recover_number == 100) {
-              *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
-                   *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
+            cLifeRecovery = gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].cLifeRecovery;
+            if (cLifeRecovery == 100) {
+              *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) =
+                   *(int *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x4e);
             }
-            else if (life_recover_number != 0) {
-              uVar11 = *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) +
-                       ((uint)life_recover_number *
-                       *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e)) / 100;
-              *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) = uVar11;
-              uVar12 = *(uint *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
-              if (uVar12 < uVar11) {
-                *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) = uVar12;
+            else if (cLifeRecovery != 0) {
+              uVar10 = *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) +
+                       ((uint)cLifeRecovery *
+                       *(int *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x4e)) / 100;
+              *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) = uVar10;
+                    // Typecasting short to an int?
+              uVar11 = *(uint *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x4e);
+              if (uVar11 < uVar10) {
+                *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) = uVar11;
               }
             }
           }
                     // Checking the player ignore bit on each cpu enemy
-          ((kgt_mainKGT *)object_addy)->empty_e[0xb5b] = 0xfe;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xb5c] = 0xff;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xb5d] = 0xff;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xb5e] = 0xff;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xb5b] = 0xfe;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xb5c] = 0xff;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xb5d] = 0xff;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xb5e] = 0xff;
           if (((undefined1  [26])
-               PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
-               character_story_entry_cpu_array[0] & (undefined1  [26])0x200) !=
-              (undefined1  [26])0x0) {
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb5b] = 0xfc;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb5c] = 0xff;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb5d] = 0xff;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb5e] = 0xff;
+               gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].kgtStoryEntryCPUs[0] &
+              (undefined1  [26])0x200) != (undefined1  [26])0x0) {
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb5b] = 0xfc;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb5c] = 0xff;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb5d] = 0xff;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb5e] = 0xff;
           }
           if (((undefined1  [26])
-               PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
-               character_story_entry_cpu_array[1] & (undefined1  [26])0x200) !=
-              (undefined1  [26])0x0) {
-            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
-                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xfffffffb;
+               gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].kgtStoryEntryCPUs[1] &
+              (undefined1  [26])0x200) != (undefined1  [26])0x0) {
+            *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) =
+                 *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) & 0xfffffffb;
           }
           if (((undefined1  [26])
-               PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
-               character_story_entry_cpu_array[2] & (undefined1  [26])0x200) !=
-              (undefined1  [26])0x0) {
-            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
-                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xfffffff7;
+               gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].kgtStoryEntryCPUs[2] &
+              (undefined1  [26])0x200) != (undefined1  [26])0x0) {
+            *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) =
+                 *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) & 0xfffffff7;
           }
           if (((undefined1  [26])
-               PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
-               character_story_entry_cpu_array[3] & (undefined1  [26])0x200) !=
-              (undefined1  [26])0x0) {
-            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
-                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xffffffef;
+               gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].kgtStoryEntryCPUs[3] &
+              (undefined1  [26])0x200) != (undefined1  [26])0x0) {
+            *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) =
+                 *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) & 0xffffffef;
           }
           if (((undefined1  [26])
-               PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
-               character_story_entry_cpu_array[4] & (undefined1  [26])0x200) !=
-              (undefined1  [26])0x0) {
-            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
-                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xffffffdf;
+               gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].kgtStoryEntryCPUs[4] &
+              (undefined1  [26])0x200) != (undefined1  [26])0x0) {
+            *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) =
+                 *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) & 0xffffffdf;
           }
           if (((undefined1  [26])
-               PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
-               character_story_entry_cpu_array[5] & (undefined1  [26])0x200) !=
-              (undefined1  [26])0x0) {
-            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
-                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xffffffbf;
+               gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].kgtStoryEntryCPUs[5] &
+              (undefined1  [26])0x200) != (undefined1  [26])0x0) {
+            *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) =
+                 *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) & 0xffffffbf;
           }
           if (((undefined1  [26])
-               PLAYER_KGT_BUFFER[0].character_story_entries[special_stock_gauge_max].
-               character_story_entry_cpu_array[6] & (undefined1  [26])0x200) !=
-              (undefined1  [26])0x0) {
-            *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
-                 *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) & 0xffffff7f;
+               gkgtLoadedCharacter[0].kgtStoryEntries[iCurrentStoryStep].kgtStoryEntryCPUs[6] &
+              (undefined1  [26])0x200) != (undefined1  [26])0x0) {
+            *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) =
+                 *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) & 0xffffff7f;
           }
-          ((kgt_mainKGT *)object_addy)->empty_e[0xab1] = 1;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xab2] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xab3] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xab4] = 0;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xab1] = 1;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xab2] = 0;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xab3] = 0;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xab4] = 0;
         }
         else {
-          *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
-               *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
-          puVar1 = (character_story_entry_cpu *)
-                   (special_stock_gauge_max * 0xce + 0x4d9a47 + player_file_buff_idx * 0x1a);
+          *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) =
+               *(int *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x4e);
+          puVar1 = (kgtStoryEntryCpu *)(iCurrentStoryStep * 0xce + 0x4d9a47 + iPlayerIdx * 0x1a);
                     // I might have the left and right digits mixed up for
                     // story_character_entry_info_bitmask
-          *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab1) = *(uint *)puVar1 & 1;
-          *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
-               (uint)(byte)puVar1->enemy_bitmask;
-          uVar12 = *(uint *)puVar1 >> 1 & 3;
+          *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xab1) = *(uint *)puVar1 & 1;
+          *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) =
+               (uint)(byte)puVar1->cEnemyBitmask;
+          uVar11 = *(uint *)puVar1 >> 1 & 3;
                     // If character entry info bitmask has the time bit set
-          if (uVar12 == 1) {
-            *(uint *)&current_obj->time_method_number_in_frames =
-                 (uint)(byte)puVar1->time_method_number * 100;
-            if (puVar1->time_method_number_random != '\0') {
+          if (uVar11 == 1) {
+            *(uint *)&pkgtoCurrentEngineObject->iOpponentDowntimeInFrames =
+                 (uint)(byte)puVar1->cTimeMethodNumber * 100;
+            if (puVar1->cTimeMethodNumberRandom != '\0') {
               time_rand = _rand();
-              *(int *)&current_obj->time_method_number_in_frames =
-                   *(int *)&current_obj->time_method_number_in_frames +
-                   (time_rand % (int)(uint)(byte)puVar1->time_method_number_random) * 100;
-              current_obj = PTR_POSS_CURRENT_OBJ;
+              *(int *)&pkgtoCurrentEngineObject->iOpponentDowntimeInFrames =
+                   *(int *)&pkgtoCurrentEngineObject->iOpponentDowntimeInFrames +
+                   (time_rand % (int)(uint)(byte)puVar1->cTimeMethodNumberRandom) * 100;
+              pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
             }
           }
           else {
                     // If it has the life bit set
-            if ((uVar12 == 2) &&
-               ((int)(uint)(byte)puVar1->life_method_life_amount <=
-                PLAYER_KGT_BUFFER[(byte)puVar1->life_method_target].health)) {
-              current_obj->object_process_step = 0;
+            if ((uVar11 == 2) &&
+               ((int)(uint)(byte)puVar1->cLifeMethodAmount <=
+                gkgtLoadedCharacter[(byte)puVar1->cLifeMethodTarget].iHealth)) {
+              pkgtoCurrentEngineObject->iProcessStep = 0;
               return;
             }
           }
-          ((kgt_mainKGT *)object_addy)->empty_e[0xbaf] = 0xff;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xbb0] = 0xff;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xbb1] = 0xff;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xbb2] = 0xff;
-                    // Currently do not have recorded use for this variable. Likely a 0
-          *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab9) =
-               (int)((kgt_mainKGT *)object_addy)->stage_names[0xc].str[0x66];
-          ((kgt_mainKGT *)object_addy)->empty_e[0xac1] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xac2] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xac3] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xac4] = 0;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xbaf] = 0xff;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb0] = 0xff;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb1] = 0xff;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb2] = 0xff;
+          *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xab9) =
+               (int)((kgtSystem *)kgtTargetStructure)->sStageNames[0xc][0x66];
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xac1] = 0;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xac2] = 0;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xac3] = 0;
+          ((kgtSystem *)kgtTargetStructure)->empty_e[0xac4] = 0;
           if (((undefined1  [26])*puVar1 & (undefined1  [26])0x200) == (undefined1  [26])0x0) {
-            current_obj->pos_player_direction = 1;
+            pkgtoCurrentEngineObject->iPlayerLookingRight = 1;
           }
         }
-        current_obj->player_file_buffer_2 = current_obj->player_file_buffer;
+        pkgtoCurrentEngineObject->iPlayerBuffer_2 = pkgtoCurrentEngineObject->iPlayerIdx;
       }
-      else if ((0 < (int)game_mode) && ((int)game_mode < 3)) {
-        player_file_buff_idx2 = current_obj->player_file_buffer;
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) =
-             *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
-        current_obj->player_file_buffer_2 = player_file_buff_idx2;
-        player_file_buff_idx3 = current_obj->player_file_buffer;
+      else {
+                    // STORY MODE PROCESSING END
+        if ((0 < (int)game_mode) && ((int)game_mode < 3)) {
+          iPlayerBuffer_2 = pkgtoCurrentEngineObject->iPlayerIdx;
+          *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) =
+               *(int *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x4e);
+          pkgtoCurrentEngineObject->iPlayerBuffer_2 = iPlayerBuffer_2;
+          iPlayerBuffer_3 = pkgtoCurrentEngineObject->iPlayerIdx;
                     // player_file_buff_idx3 -> ceiling 31 -> multiply by two?
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb5b) =
-             -1 - (1 << ((byte)player_file_buff_idx3 & 0x1f));
-        if (player_file_buff_idx3 != 0) {
-          ((kgt_mainKGT *)object_addy)->empty_e[0xaf1] = 1;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xaf2] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xaf3] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xaf4] = 0;
-          current_obj->pos_player_direction = 1;
-        }
-        if (current_obj->player_file_buffer == 0) {
-          current_obj->param_3 = 0x1860000;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xae5] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xae6] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xae7] = 0x86;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xae8] = 1;
-        }
-        else {
-          current_obj->param_3 = 0x37a0000;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xae5] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xae6] = 0;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xae7] = 0x7a;
-          ((kgt_mainKGT *)object_addy)->empty_e[0xae8] = 3;
+          *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb5b) =
+               -1 - (1 << ((byte)iPlayerBuffer_3 & 0x1f));
+          if (iPlayerBuffer_3 != 0) {
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xaf1] = 1;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xaf2] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xaf3] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xaf4] = 0;
+            pkgtoCurrentEngineObject->iPlayerLookingRight = 1;
+          }
+          if (pkgtoCurrentEngineObject->iPlayerIdx == 0) {
+            pkgtoCurrentEngineObject->iParam3 = 0x1860000;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xae5] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xae6] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xae7] = 0x86;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xae8] = 1;
+          }
+          else {
+            pkgtoCurrentEngineObject->iParam3 = 0x37a0000;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xae5] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xae6] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xae7] = 0x7a;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xae8] = 3;
+          }
         }
       }
-      temp_5f04860c28 = current_obj->param_4;
-      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xae5) = current_obj->param_3;
-      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xae9) = temp_5f04860c28;
-      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab5) =
-           *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x4e);
-      game_round = GAME_STATE.poss_current_round_count;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaa5] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaa6] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaa7] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaa8] = 0;
+      temp_5f04860c28 = pkgtoCurrentEngineObject->iParam4;
+      *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xae5) =
+           pkgtoCurrentEngineObject->iParam3;
+      *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xae9) = temp_5f04860c28;
+      *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xab5) =
+           *(int *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x4e);
+      game_round = gkgtGameState.iCurrentRound;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa5] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa6] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa7] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa8] = 0;
       if ((int)game_round < 2) {
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab9) =
-             (int)((kgt_mainKGT *)object_addy)->stage_names[0xc].str[0x66];
-        ((kgt_mainKGT *)object_addy)->empty_e[0xac1] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xac2] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xac3] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xac4] = 0;
+        *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xab9) =
+             (int)((kgtSystem *)kgtTargetStructure)->sStageNames[0xc][0x66];
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xac1] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xac2] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xac3] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xac4] = 0;
       }
-      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xabd) =
-           *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x56);
-      *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac5) =
-           *(int *)(((kgt_mainKGT *)object_addy)->stage_names[0xc].str + 0x52);
-      ((kgt_mainKGT *)object_addy)->empty_e[0xac9] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaca] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xacb] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xacc] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xacd] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xace] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xacf] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xad0] = 0;
-      *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa99) = current_obj;
-      *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d) = (OBJ_STRUCT *)0x0;
-      *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xb0d) = (OBJ_STRUCT *)0x0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb11] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb12] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb13] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb14] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb15] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb16] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb17] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb18] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb19] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb1a] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb1b] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb1c] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb1d] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb1e] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb1f] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb20] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb21] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb22] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb23] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb24] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xad9] = 0x14;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xada] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xadb] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xadc] = 0;
-      *(int *)(((kgt_mainKGT *)object_addy)->character_names[0] + 4) = 1;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaf9] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xafa] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xafb] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xafc] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb93] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb94] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb95] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb96] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xbab] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xbac] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xbad] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xbae] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaed] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaee] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaef] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaf0] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaa1] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaa2] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaa3] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xaa4] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xbb3] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xbb4] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xbb5] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xbb6] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb5f] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb60] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb61] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb62] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb8b] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb8c] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb8d] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb8e] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb8f] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb90] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb91] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb92] = 0;
-      uVar5 = *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x32);
-      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-      if ((ushort)pActionAlloc[uVar5].starting_step_idx + 1 <
-          (uint)(ushort)pActionAlloc[uVar5 + 1].starting_step_idx) {
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb8b] = 1;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb8c] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb8d] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb8e] = 0;
+      *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xabd) =
+           *(int *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x56);
+      *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xac5) =
+           *(int *)(((kgtSystem *)kgtTargetStructure)->sStageNames[0xc] + 0x52);
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xac9] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaca] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xacb] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xacc] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xacd] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xace] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xacf] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xad0] = 0;
+      *(kgtEngineObject **)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xa99) =
+           pkgtoCurrentEngineObject;
+      *(kgtEngineObject **)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xa9d) =
+           (kgtEngineObject *)0x0;
+      *(kgtEngineObject **)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb0d) =
+           (kgtEngineObject *)0x0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb11] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb12] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb13] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb14] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb15] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb16] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb17] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb18] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb19] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb1a] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb1b] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb1c] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb1d] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb1e] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb1f] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb20] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb21] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb22] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb23] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb24] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xad9] = 0x14;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xada] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xadb] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xadc] = 0;
+      *(int *)(((kgtSystem *)kgtTargetStructure)->gsCharacterName[0] + 4) = 1;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaf9] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xafa] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xafb] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xafc] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb93] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb94] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb95] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb96] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xbab] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xbac] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xbad] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xbae] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaed] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaee] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaef] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaf0] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa1] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa2] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa3] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa4] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb3] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb4] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb5] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb6] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb5f] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb60] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb61] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb62] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8b] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8c] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8d] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8e] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8f] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb90] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb91] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb92] = 0;
+      pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+      if ((ushort)pSkillsAlloc
+                  [(ushort)*(short *)((int)((kgtCommonImage *)
+                                            (((kgtSystem *)kgtTargetStructure)->sStageNames + 5) + 8
+                                           ) + 2)].shStartingStepIdx + 1 <
+          (uint)(ushort)pSkillsAlloc
+                        [(ushort)*(short *)((int)((kgtCommonImage *)
+                                                  (((kgtSystem *)kgtTargetStructure)->sStageNames +
+                                                  5) + 8) + 2) + 1].shStartingStepIdx) {
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8b] = 1;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8c] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8d] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8e] = 0;
       }
-      uVar5 = *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x34);
-      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+      pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
                     // Checking for crouch retreat vs turn standing
-      if ((ushort)pActionAlloc[uVar5].starting_step_idx + 1 <
-          (uint)(ushort)pActionAlloc[uVar5 + 1].starting_step_idx) {
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb8f] = 1;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb90] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb91] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb92] = 0;
+      if ((ushort)pSkillsAlloc
+                  [(ushort)*(short *)((int)((kgtCommonImage *)
+                                            (((kgtSystem *)kgtTargetStructure)->sStageNames + 5) + 8
+                                           ) + 4)].shStartingStepIdx + 1 <
+          (uint)(ushort)pSkillsAlloc
+                        [(ushort)*(short *)((int)((kgtCommonImage *)
+                                                  (((kgtSystem *)kgtTargetStructure)->sStageNames +
+                                                  5) + 8) + 4) + 1].shStartingStepIdx) {
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb8f] = 1;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb90] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb91] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb92] = 0;
       }
-      current_player_poss_relating =
-           PLAYER_KGT_BUFFER[current_obj->player_file_buffer].poss_relating_to_player_idx;
-      if (current_player_poss_relating == -1) {
-        current_player_poss_relating = 0;
+                    // Decide on player colors
+      iColorInt = gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].iColorInt;
+      if (iColorInt == -1) {
+        iColorInt = 0;
       }
       char_i = (byte *)0x0;
       do {
         match_found = false;
         char_idx = 0;
-        other_player_poss_relating = &PLAYER_KGT_BUFFER[0].poss_relating_to_player_idx;
+        iColorIntOtherPlayer = &gkgtLoadedCharacter[0].iColorInt;
         do {
-          if ((current_obj->player_file_buffer != char_idx) &&
-             (current_player_poss_relating == *other_player_poss_relating)) {
+          if ((pkgtoCurrentEngineObject->iPlayerIdx != char_idx) &&
+             (iColorInt == *iColorIntOtherPlayer)) {
             match_found = true;
           }
-          other_player_poss_relating = (int *)((int)other_player_poss_relating + 0xe03f);
+          iColorIntOtherPlayer = (int *)((int)iColorIntOtherPlayer + 0xe03f);
           char_idx = char_idx + 1;
-        } while ((int)other_player_poss_relating < 0x54ff83);
+        } while ((int)iColorIntOtherPlayer < 0x54ff83);
         if (!match_found) {
-          PLAYER_KGT_BUFFER[current_obj->player_file_buffer].poss_relating_to_player_idx =
-               current_player_poss_relating;
+          gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].iColorInt = iColorInt;
           break;
         }
-        current_player_poss_relating = current_player_poss_relating + 1U & 0x80000007;
-        if (current_player_poss_relating < 0) {
-          current_player_poss_relating = (current_player_poss_relating - 1U | 0xfffffff8) + 1;
+        iColorInt = iColorInt + 1U & 0x80000007;
+        if (iColorInt < 0) {
+          iColorInt = (iColorInt - 1U | 0xfffffff8) + 1;
         }
         char_i = char_i + 1;
       } while ((int)char_i < 8);
-      player_file_buff_idx = GAME_STATE.field166_0xf8;
-      special_stock_gauge_max = GAME_STATE.field165_0xf4;
-      if ((GAME_STATE.GAME_MODE == VS_team) &&
-         (GAME_STATE.field163_0xec == current_obj->player_file_buffer)) {
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) = GAME_STATE.field164_0xf0;
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xab9) = special_stock_gauge_max;
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac1) = player_file_buff_idx;
+      itemp_specialGauge = gkgtGameState.iTempSpecialGauge;
+      itemp_SpecialGaugeTokens = gkgtGameState.iTempSpecialGaugeTokens;
+      if ((gkgtGameState.kgtGameMode == VS_team) &&
+         (gkgtGameState.unk_player_buffer_a == pkgtoCurrentEngineObject->iPlayerIdx)) {
+        *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) = gkgtGameState.iTempHealth;
+        *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xab9) = itemp_SpecialGaugeTokens;
+        *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xac1) = itemp_specialGauge;
       }
-      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-      uVar5 = *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x4c);
-      if ((ushort)pActionAlloc[uVar5].starting_step_idx + 1 <
-          (uint)(ushort)pActionAlloc[uVar5 + 1].starting_step_idx) {
-        pOVar14 = FIND_EMPTY_OBJ(current_obj->jmp_idx,0xd,0,0);
-        current_obj = PTR_POSS_CURRENT_OBJ;
-        pOVar14->obj_type = player_file;
-        uVar12 = (uint)*(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x4c);
-        pOVar14->player_file_buffer = current_obj->player_file_buffer;
-        pOVar14->action_idx = uVar12;
-        *(uint *)&pOVar14->actionscript_idx =
-             (uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar12].
-                           starting_step_idx;
+      pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+      if ((ushort)pSkillsAlloc
+                  [(ushort)*(short *)((int)((kgtCommonImage *)
+                                            (((kgtSystem *)kgtTargetStructure)->sStageNames + 5) +
+                                           0xc) + 4)].shStartingStepIdx + 1 <
+          (uint)(ushort)pSkillsAlloc
+                        [(ushort)*(short *)((int)((kgtCommonImage *)
+                                                  (((kgtSystem *)kgtTargetStructure)->sStageNames +
+                                                  5) + 0xc) + 4) + 1].shStartingStepIdx) {
+        pkVar13 = kgtoNewEngineObject(pkgtoCurrentEngineObject->iJumpIdx,0xd,0,0);
+        pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+        pkVar13->iObjectType = CHARACTER_ENGINE_OBJECT;
+        uVar5 = *(short *)((int)((kgtCommonImage *)
+                                 (((kgtSystem *)kgtTargetStructure)->sStageNames + 5) + 0xc) + 4);
+        pkVar13->iPlayerIdx = pkgtoCurrentEngineObject->iPlayerIdx;
+        pkVar13->iSkillIdx = (uint)uVar5;
+        *(uint *)&pkVar13->iSkillScriptIdx =
+             (uint)(ushort)(((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc[uVar5].
+                           shStartingStepIdx;
       }
       else {
-        current_obj->unk_bitmask = current_obj->unk_bitmask | 0x80000000;
+        pkgtoCurrentEngineObject->unk_bitmask = pkgtoCurrentEngineObject->unk_bitmask | 0x80000000;
       }
-      switch_current_object_action
-                ((uint)*(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x40));
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-           (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xfffffff7 | 4);
-      memzero(INPUT_BUFFER_A + current_obj->player_file_buffer,0x1000);
-      memzero(((kgt_mainKGT *)object_addy)->empty_e + 0xb35,6);
-      memzero(((kgt_mainKGT *)object_addy)->empty_e + 0xb3b,0x20);
-      memzero(((kgt_mainKGT *)object_addy)->empty_e + 2999,0x2c);
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->unk_bitmask = PTR_POSS_CURRENT_OBJ->unk_bitmask | 0x40000000;
-      ppOVar16 = (OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xb63);
-      for (special_stock_gauge_max = 10; special_stock_gauge_max != 0;
-          special_stock_gauge_max = special_stock_gauge_max + -1) {
-        *ppOVar16 = (OBJ_STRUCT *)0x0;
-        ppOVar16 = ppOVar16 + 1;
+      iSwitchCurrentObjectSkill
+                ((uint)(ushort)*(short *)((int)((kgtCommonImage *)
+                                                (((kgtSystem *)kgtTargetStructure)->sStageNames + 5)
+                                               + 10) + 4));
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->obj_ptr_b =
+           (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xfffffff7 | 4);
+      vMemzero(giInputBufferA + pkgtoCurrentEngineObject->iPlayerIdx,0x1000);
+      vMemzero(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb35,6);
+      vMemzero(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb3b,0x20);
+      vMemzero(((kgtSystem *)kgtTargetStructure)->empty_e + 2999,0x2c);
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->unk_bitmask = gpkgtCurrentEngineObject->unk_bitmask | 0x40000000;
+      ppkVar15 = (kgtEngineObject **)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb63);
+      for (iCurrentStoryStep = 10; iCurrentStoryStep != 0;
+          iCurrentStoryStep = iCurrentStoryStep + -1) {
+        *ppkVar15 = (kgtEngineObject *)0x0;
+        ppkVar15 = ppkVar15 + 1;
       }
       break;
-    case 1:
-      current_obj->player_file_buffer_2 = current_obj->player_file_buffer;
+    case STORY?_ENGINE_OBJECT:
+      pkgtoCurrentEngineObject->iPlayerBuffer_2 = pkgtoCurrentEngineObject->iPlayerIdx;
       break;
-    case stage_file:
-      current_obj->stage_action_idx = current_obj->action_idx;
-      current_obj->stage_skillscript_idx = *(int *)&current_obj->actionscript_idx;
+    case STAGE_ENGINE_OBJECT:
+      pkgtoCurrentEngineObject->iDsLandingSkillIdx = pkgtoCurrentEngineObject->iSkillIdx;
+      pkgtoCurrentEngineObject->iStageSkillstepIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx;
       break;
-    case player_file:
-      current_obj->unk_bitmask = current_obj->unk_bitmask | 0x40000000;
+    case CHARACTER_ENGINE_OBJECT:
+      pkgtoCurrentEngineObject->unk_bitmask = pkgtoCurrentEngineObject->unk_bitmask | 0x40000000;
     }
-    current_obj->skill_idx_2 = current_obj->action_idx;
+    pkgtoCurrentEngineObject->iSkillIdx_2 = pkgtoCurrentEngineObject->iSkillIdx;
   }
-  else if (PTR_POSS_CURRENT_OBJ->object_process_step != 1) {
+  else if (gpkgtCurrentEngineObject->iProcessStep != 1) {
     return;
   }
                     // Everything after this is after the initial frame
-  if ((current_obj->__or_3 & 1) == 0) {
-    current_obj->compare_to_param_4 = 0x3980000;
+  if ((pkgtoCurrentEngineObject->__or_3 & 1) == 0) {
+    pkgtoCurrentEngineObject->compare_to_param_4 = 0x3980000;
   }
   else {
-    current_obj->compare_to_param_4 = 0x3520000;
+    pkgtoCurrentEngineObject->compare_to_param_4 = 0x3520000;
   }
-  if ((GAME_STATE.pause_flag != 0) &&
-     (curr_obj_type = current_obj->obj_type, -1 < (int)curr_obj_type)) {
+  if ((gkgtGameState.iIsPausedFlag != 0) &&
+     (curr_obj_type = pkgtoCurrentEngineObject->iObjectType, -1 < (int)curr_obj_type)) {
     if ((int)curr_obj_type < 2) {
       return;
     }
-    if (curr_obj_type == player_file) {
+    if (curr_obj_type == CHARACTER_ENGINE_OBJECT) {
       return;
     }
   }
-                    // I can't find anywhere where this variable is assigned to something other than
-                    // 0
-  if (current_obj->_x650_index != 0) {
-    uVar12 = (uint)(byte)current_obj->_x650_index;
-    _650_size_offset = uVar12 * 0x650;
-    if (*(char *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x37]
-                 + 4) != '\0') {
+  if (pkgtoCurrentEngineObject->_x650_index != 0) {
+    uVar11 = (uint)(byte)pkgtoCurrentEngineObject->_x650_index;
+    _650_size_offset = uVar11 * 0x650;
+    if (*(char *)((int)gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar11 * 0x194 + 0x37] + 4) !=
+        '\0') {
       stage_unk_poss_action_idx =
-           *(int *)(UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes + uVar12 * 0x194 + 0x36);
+           *(int *)(gkgtLoadedStage.kgt_core.pallette_extra_bytes + uVar11 * 0x194 + 0x36);
       unk_actionscript_final_0x10 =
-           (int)((((kgt_mainKGT *)object_addy)->kgt_core).p_actionscripts_alloc +
-                *(int *)&current_obj->actionscript_idx + -1);
+           (int)((((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillScriptsAlloc +
+                *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + -1);
       stage_unk_var_b =
-           (int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x38] + -1;
-      UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x38] =
-           (kgt_pal_color)stage_unk_var_b;
+           (int)gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar11 * 0x194 + 0x38] + -1;
+      gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar11 * 0x194 + 0x38] =
+           (kgtPallette)stage_unk_var_b;
       if (stage_unk_var_b < 0) {
-        kVar15.g = '\0';
-        kVar15.r = '\0';
-        kVar15.field3_0x3 = '\0';
-        kVar15.b = *(byte *)((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes
-                                  [uVar12 * 0x194 + 0x37] + 4);
-        UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x38] = kVar15;
+        kVar14.g = '\0';
+        kVar14.r = '\0';
+        kVar14.field3_0x3 = '\0';
+        kVar14.b = *(byte *)((int)gkgtLoadedStage.kgt_core.pallette_extra_bytes
+                                  [uVar11 * 0x194 + 0x37] + 4);
+        gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar11 * 0x194 + 0x38] = kVar14;
         *(int *)((stage_unk_poss_action_idx + 1) * 0x10 + 0x447930 + _650_size_offset) =
-             current_obj->param_3;
+             pkgtoCurrentEngineObject->iParam3;
         stage_unk_poss_action = stage_unk_poss_action_idx * 0x10 + 0x447930 + _650_size_offset;
-        mystery_val_sub_bool = current_obj->pos_player_direction;
-        *(int *)(stage_unk_poss_action + 0x14) = current_obj->param_4;
+        mystery_val_sub_bool = pkgtoCurrentEngineObject->iPlayerLookingRight;
+        *(int *)(stage_unk_poss_action + 0x14) = pkgtoCurrentEngineObject->iParam4;
         *(uint *)(stage_unk_poss_action + 0x18) =
              ((*(ushort *)(unk_actionscript_final_0x10 + 3) & 0x4000) >> 0xe) +
              mystery_val_sub_bool * 4;
         *(int *)(stage_unk_poss_action + 0x1c) = unk_actionscript_final_0x10;
-        UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x36] =
-             (kgt_pal_color)
-             (((int)UNK_STAGE_FILES_00445740.kgt_core.pallette_extra_bytes[uVar12 * 0x194 + 0x36] +
-              1) % 100);
+        gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar11 * 0x194 + 0x36] =
+             (kgtPallette)
+             (((int)gkgtLoadedStage.kgt_core.pallette_extra_bytes[uVar11 * 0x194 + 0x36] + 1) % 100)
+        ;
       }
     }
   }
-  if (current_obj->hit_junction_idx != 0) {
-    current_obj->action_idx = -1;
-    assign_action_and_reset_some_data(current_obj->hit_junction_idx & 0xffff);
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    *(uint *)&PTR_POSS_CURRENT_OBJ->actionscript_idx =
-         *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx +
-         ((uint)PTR_POSS_CURRENT_OBJ->hit_junction_idx >> 0x10);
-    current_obj->hit_junction_idx = 0;
-    current_obj->loop_frequency = 0;
-    obj_reset_values();
-    obj_0x129_to_0(PTR_POSS_CURRENT_OBJ);
-    memzero_mystery_arrays(PTR_POSS_CURRENT_OBJ);
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    goto LAB_00412564;
+  if (pkgtoCurrentEngineObject->iHitJunctionIdx != 0) {
+    pkgtoCurrentEngineObject->iSkillIdx = -1;
+    vAssignSkillAndResetOtherValues(pkgtoCurrentEngineObject->iHitJunctionIdx & 0xffff);
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+    *(uint *)&gpkgtCurrentEngineObject->iSkillScriptIdx =
+         *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx +
+         ((uint)gpkgtCurrentEngineObject->iHitJunctionIdx >> 0x10);
+    pkgtoCurrentEngineObject->iHitJunctionIdx = 0;
+    pkgtoCurrentEngineObject->iLoopFrequency = 0;
+    iResetDsSkillIndices();
+    vResetReactionSkillBlock(gpkgtCurrentEngineObject);
+    vMemzeroHitboxArrays(gpkgtCurrentEngineObject);
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+    goto check_image_wait_frames;
   }
-                    // Countdown the clock
-  current_time = *(int *)&current_obj->time_method_number_in_frames;
-  if (current_time != 0) {
-    if (current_time == -1) {
+  iOpponentDownTime = *(int *)&pkgtoCurrentEngineObject->iOpponentDowntimeInFrames;
+  if (iOpponentDownTime != 0) {
+    if (iOpponentDownTime == -1) {
       return;
     }
-    *(int *)&current_obj->time_method_number_in_frames = current_time + -1;
+    *(int *)&pkgtoCurrentEngineObject->iOpponentDowntimeInFrames = iOpponentDownTime + -1;
     return;
   }
-  curr_obj_type = current_obj->obj_type;
-  if (curr_obj_type == 0) {
-    PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6465_0xdfff = 0;
-    FUN_0040e5c0();
-    FUN_00411810();
-    if (*(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac9) != 0) {
-      if (*(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xacd) == 0) {
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac9) =
-             *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xac9) + -1;
+  curr_obj_type = pkgtoCurrentEngineObject->iObjectType;
+  if (curr_obj_type == PLAYER_ENGINE_OBJECT) {
+    gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].field6458_0xdfff = 0;
+    vUnkXDistanceHandling();
+    vProcessInputsIntoSkills();
+    if (*(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xac9) != 0) {
+      if (*(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xacd) == 0) {
+        *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xac9) =
+             *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xac9) + -1;
       }
       else {
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xacd) =
-             *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xacd) + -1;
+        *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xacd) =
+             *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xacd) + -1;
       }
     }
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    initial_y_val = PTR_POSS_CURRENT_OBJ->param_4;
-    *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xae5) = PTR_POSS_CURRENT_OBJ->param_3;
-    *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xae9) = initial_y_val;
-    goto LAB_00412564;
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+    initial_y_val = gpkgtCurrentEngineObject->iParam4;
+    *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xae5) = gpkgtCurrentEngineObject->iParam3
+    ;
+    *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xae9) = initial_y_val;
+    goto check_image_wait_frames;
   }
-  if (curr_obj_type != 1) {
-    if (curr_obj_type == player_file) {
-      piVar16 = current_obj->parent_obj;
-      if (piVar16->jmp_idx == reset_index) {
+  if (curr_obj_type != STORY?_ENGINE_OBJECT) {
+    if (curr_obj_type == CHARACTER_ENGINE_OBJECT) {
+      piVar16 = pkgtoCurrentEngineObject->parent_obj;
+      if (piVar16->iJumpIdx == RESET_IDX) {
 switchD_0041270c_default:
-        FUN_0040e4a0();
+        vStoryHitboxCheck();
         return;
       }
-      if (piVar16->drawing_flag != -1) {
+      if (piVar16->iDrawFlag != -1) {
         return;
       }
-      current_obj->param_3 = piVar16->param_3;
-      current_obj->param_4 = current_obj->parent_obj->compare_to_param_4;
-      current_obj->pos_player_direction = current_obj->parent_obj->pos_player_direction;
+      pkgtoCurrentEngineObject->iParam3 = piVar16->iParam3;
+      pkgtoCurrentEngineObject->iParam4 = pkgtoCurrentEngineObject->parent_obj->compare_to_param_4;
+      pkgtoCurrentEngineObject->iPlayerLookingRight =
+           pkgtoCurrentEngineObject->parent_obj->iPlayerLookingRight;
     }
-    goto LAB_00412564;
+    goto check_image_wait_frames;
   }
-  if ((current_obj->compare_to_param_4 <= current_obj->param_4) && (0 < current_obj->y_momentum)) {
-    current_obj->param_4 = current_obj->compare_to_param_4;
-    current_obj->x_gravity = 0;
-    current_obj->x_momentum = 0;
-    current_obj->y_gravity = 0;
-    current_obj->y_momentum = 0;
-    current_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj->obj_ptr_b & 0xfffffffc);
-    current_obj->action_idx = -1;
-    if (current_obj->stage_action_idx == 0) {
-      FUN_0040e580();
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-           (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xffffffe3);
+  if ((pkgtoCurrentEngineObject->compare_to_param_4 <= pkgtoCurrentEngineObject->iParam4) &&
+     (0 < pkgtoCurrentEngineObject->iYMomentum)) {
+    pkgtoCurrentEngineObject->iParam4 = pkgtoCurrentEngineObject->compare_to_param_4;
+    pkgtoCurrentEngineObject->iXGravity = 0;
+    pkgtoCurrentEngineObject->iXMomentum = 0;
+    pkgtoCurrentEngineObject->iYGravity = 0;
+    pkgtoCurrentEngineObject->iYMomentum = 0;
+    pkgtoCurrentEngineObject->obj_ptr_b =
+         (kgtEngineObject *)((uint)pkgtoCurrentEngineObject->obj_ptr_b & 0xfffffffc);
+    pkgtoCurrentEngineObject->iSkillIdx = -1;
+    if (pkgtoCurrentEngineObject->iDsLandingSkillIdx == 0) {
+      iAssignPlayerLookingRight();
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      gpkgtCurrentEngineObject->obj_ptr_b =
+           (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xffffffe3);
     }
     else {
-      uVar12 = current_obj->stage_action_idx & 0xffff;
-      current_obj->action_idx = uVar12;
-      *(uint *)&current_obj->actionscript_idx =
-           (uint)(ushort)PLAYER_KGT_BUFFER[current_obj->player_file_buffer].kgt_core.p_actions_alloc
-                         [uVar12].starting_step_idx + ((uint)current_obj->stage_action_idx >> 0x10);
-      current_obj->stage_action_idx = 0;
-      current_obj->image_wait_frames = 0;
-      memzero_mystery_arrays(current_obj);
-      current_obj = PTR_POSS_CURRENT_OBJ;
+      uVar11 = pkgtoCurrentEngineObject->iDsLandingSkillIdx & 0xffff;
+      pkgtoCurrentEngineObject->iSkillIdx = uVar11;
+      *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           (uint)(ushort)gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].kgtCore.
+                         pSkillsAlloc[uVar11].shStartingStepIdx +
+           ((uint)pkgtoCurrentEngineObject->iDsLandingSkillIdx >> 0x10);
+      pkgtoCurrentEngineObject->iDsLandingSkillIdx = 0;
+      pkgtoCurrentEngineObject->iImageWaitFrames = 0;
+      vMemzeroHitboxArrays(pkgtoCurrentEngineObject);
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
     }
   }
-  if ((((current_obj->param_3 < -0x320000) || (0x5320000 < current_obj->param_3)) ||
-      (current_obj->param_4 < -0x320000)) || (0x3f20000 < current_obj->param_4)) {
-    if ((current_obj->unk_bitmask & 0x20000000U) == 0) {
-      FUN_0040e4a0();
-      current_obj = PTR_POSS_CURRENT_OBJ;
+  if ((((pkgtoCurrentEngineObject->iParam3 < -0x320000) ||
+       (0x5320000 < pkgtoCurrentEngineObject->iParam3)) ||
+      (pkgtoCurrentEngineObject->iParam4 < -0x320000)) ||
+     (0x3f20000 < pkgtoCurrentEngineObject->iParam4)) {
+    if ((pkgtoCurrentEngineObject->unk_bitmask & 0x20000000U) == 0) {
+      vStoryHitboxCheck();
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
       goto LAB_004124fb;
     }
   }
   else {
 LAB_004124fb:
-    if ((current_obj->unk_bitmask & 0x20000000U) == 0) goto LAB_00412564;
+    if ((pkgtoCurrentEngineObject->unk_bitmask & 0x20000000U) == 0) goto check_image_wait_frames;
   }
-  if (current_obj->parent_obj->jmp_idx == reset_index) {
-    FUN_0040e4a0();
-    current_obj = PTR_POSS_CURRENT_OBJ;
+  if (pkgtoCurrentEngineObject->parent_obj->iJumpIdx == RESET_IDX) {
+    vStoryHitboxCheck();
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
   }
-LAB_00412564:
-  if ((current_obj->image_wait_frames < 0) ||
-     (special_stock_gauge_max = current_obj->image_wait_frames + -100,
-     current_obj->image_wait_frames = special_stock_gauge_max, -1 < special_stock_gauge_max)) {
+check_image_wait_frames:
+  if ((pkgtoCurrentEngineObject->iImageWaitFrames < 0) ||
+     (iCurrentStoryStep = pkgtoCurrentEngineObject->iImageWaitFrames + -100,
+     pkgtoCurrentEngineObject->iImageWaitFrames = iCurrentStoryStep, -1 < iCurrentStoryStep)) {
     return;
   }
   local_108 = 1;
-  hitbox = (kgt_skill_step_struct *)(current_obj->hitbox_attack_array + 0x13);
+  hitbox = (kgtSkill *)(pkgtoCurrentEngineObject->kgtHitboxAttacks + 0x13);
   i20 = 20;
   do {
     if ((*(int *)hitbox != 0) && ((*(byte *)(*(int *)hitbox + 10) & 2) != 0)) {
-      current_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj->obj_ptr_b & 0xffffffef);
+      pkgtoCurrentEngineObject->obj_ptr_b =
+           (kgtEngineObject *)((uint)pkgtoCurrentEngineObject->obj_ptr_b & 0xffffffef);
     }
     i20 = i20 + -1;
-    hitbox = (kgt_skill_step_struct *)&hitbox[-1].field_0xc;
+    hitbox = (kgtSkill *)&hitbox[-1].field_0xc;
   } while (i20 != 0);
 Pre_Script_reading_switch_statement:
                     // *** WHERE READING THE ACTIONSCRIPT SEEMS TO BEGIN ***
-  current_skill_idx = current_obj->action_idx;
+  current_skill_idx = pkgtoCurrentEngineObject->iSkillIdx;
   local_108 = local_108 + 1;
   if (local_108 < 301) {
-    if ((int)(uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc
-                           [current_skill_idx + 1].starting_step_idx <=
-        *(int *)&current_obj->actionscript_idx) goto script_switch_statement_case_0x29;
+    if ((int)(uint)(ushort)(((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc
+                           [current_skill_idx + 1].shStartingStepIdx <=
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx) goto script_switch_statement_case_0x29;
 Script_reading_switch_statement:
-    skill = (((kgt_mainKGT *)object_addy)->kgt_core).p_actionscripts_alloc +
-            *(int *)&current_obj->actionscript_idx;
+    skill = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillScriptsAlloc +
+            *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx;
                     // First byte is type of script
                     // 
                     // 01 - M
@@ -14203,10 +14508,10 @@ Script_reading_switch_statement:
                     // 23 COL OBJ
                     // 24 - COMMAND DIVERGENCE
                     // 25 - AI
-    switch(skill->skill_step_type) {
-    case 1:
+    switch(skill->cSkillType) {
+    case '\x01':
       goto switchD_00412610_compute_momentum;
-    case 2:
+    case '\x02':
                     // ----------------------------------
                     // - DS - Conditional Branch -
                     // ----------------------------------
@@ -14225,38 +14530,44 @@ Script_reading_switch_statement:
                     // 5 - in offset
                     // 6 - while throw do
       if (skill->field_0x1 == '\0') goto switchD_00412610_advance_skillscript;
-      special_stock_gauge_max = (uint)(byte)skill->field_0x4 * 0x10000 + (uint)*(ushort *)&skill->_2
-      ;
+      iCurrentStoryStep =
+           (uint)(byte)skill->field_0x4 * 0x10000 + (uint)*(ushort *)&skill->field_0x2;
       switch(skill->field_0x1) {
       case 1:
-        current_obj->stage_action_idx = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        pkgtoCurrentEngineObject->iDsLandingSkillIdx = iCurrentStoryStep;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
         break;
       case 2:
-        current_obj->case2_var_b = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        pkgtoCurrentEngineObject->iDsAttackHitsSkillIdx = iCurrentStoryStep;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
         break;
       case 3:
-        current_obj->stage_skillscript_idx = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        pkgtoCurrentEngineObject->iStageSkillstepIdx = iCurrentStoryStep;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
         break;
       case 4:
-        current_obj->case2_var_d = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        pkgtoCurrentEngineObject->iDsHotToWallIdx = iCurrentStoryStep;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
         break;
       case 5:
-        current_obj->case2_var_e = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        pkgtoCurrentEngineObject->iDsInOffsetSkillIdx = iCurrentStoryStep;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
         break;
       case 6:
-        current_obj->case2_var_f = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        pkgtoCurrentEngineObject->iDsWhileThrowDo = iCurrentStoryStep;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
         break;
       default:
         goto switchD_00412610_advance_skillscript;
       }
       goto LAB_004125ae;
-    case 3:
+    case '\x03':
                     // ----------------------------------
                     // - S - Sound -
                     // ----------------------------------
@@ -14264,13 +14575,13 @@ Script_reading_switch_statement:
                     // 1 - unk
                     // 2 - Sound ID (low)
                     // 3 - Sound ID (high)
-      Handle_Sound_Skillscript_block
-                ((((kgt_mainKGT *)object_addy)->kgt_core).p_sound_structs + *(ushort *)&skill->_2);
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx =
-           *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx + 1;
+      vHandleLoadingSound((((kgtSystem *)kgtTargetStructure)->kgtCore).pkgtSounds +
+                          *(ushort *)&skill->field_0x2);
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 4:
+    case '\x04':
                     // ----------------------------------
                     // - O - Object -
                     // ----------------------------------
@@ -14302,114 +14613,121 @@ Script_reading_switch_statement:
                     // 0 - IN
                     // 1 - Fore
                     // 2 - P()
-      if ((1 < (int)current_obj->obj_type) || ((skill->field_0x1 & 4) != 0)) goto LAB_00412b0a;
+      if ((1 < (int)pkgtoCurrentEngineObject->iObjectType) || ((skill->field_0x1 & 4) != 0))
+      goto LAB_00412b0a;
       m_val = skill->field_0xc;
-      pbVar1 = ((kgt_mainKGT *)object_addy)->empty_e + (uint)m_val * 4 + 0xb63;
-      if (*(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + (uint)m_val * 4 + 0xb63) ==
-          (OBJ_STRUCT *)0x0) goto LAB_00412b0a;
-      special_stock_gauge_max = 0;
-      pOVar14 = OBJ_ARRAY;
+      pbVar1 = ((kgtSystem *)kgtTargetStructure)->empty_e + (uint)m_val * 4 + 0xb63;
+      if (*(kgtEngineObject **)
+           (((kgtSystem *)kgtTargetStructure)->empty_e + (uint)m_val * 4 + 0xb63) ==
+          (kgtEngineObject *)0x0) goto LAB_00412b0a;
+      iCurrentStoryStep = 0;
+      pkVar13 = kgtEngineObjects;
       goto OBJECT_BLOCK_LOOP;
-    case 5:
-    case 0x29:
+    case '\x05':
+    case ')':
                     // 05 is END
                     // 29 in editor is SB (Super background) which seems unused. Code is interpreted
                     // as END?
-      if (current_obj->obj_type != 0) goto switchD_0041270c_default;
+      if (pkgtoCurrentEngineObject->iObjectType != PLAYER_ENGINE_OBJECT)
+      goto switchD_0041270c_default;
 script_switch_statement_case_0x29:
-      if (current_obj->return_skill_idx == 0) {
-        if (current_obj->loop_frequency == '\0') {
-          current_obj->image_wait_frames = 0;
-          obj_reset_values();
-          current_obj = PTR_POSS_CURRENT_OBJ;
-          PTR_POSS_CURRENT_OBJ->obj_ptr_b =
-               (OBJ_STRUCT *)((uint)PTR_POSS_CURRENT_OBJ->obj_ptr_b & 0xffffffef);
-          switch(current_obj->obj_type) {
-          case 0:
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb29] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb2a] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb2b] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb2c] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xaa5] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xaa6] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xaa7] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xaa8] = 0;
-            current_obj->action_idx = -1;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb93] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb94] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb95] = 0;
-            ((kgt_mainKGT *)object_addy)->empty_e[0xb96] = 0;
-            FUN_00411a80();
-            current_obj = PTR_POSS_CURRENT_OBJ;
+      if (pkgtoCurrentEngineObject->iReturnSkillIdx == 0) {
+        if (pkgtoCurrentEngineObject->iLoopFrequency == '\0') {
+          pkgtoCurrentEngineObject->iImageWaitFrames = 0;
+          iResetDsSkillIndices();
+          pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+          gpkgtCurrentEngineObject->obj_ptr_b =
+               (kgtEngineObject *)((uint)gpkgtCurrentEngineObject->obj_ptr_b & 0xffffffef);
+          switch(pkgtoCurrentEngineObject->iObjectType) {
+          case PLAYER_ENGINE_OBJECT:
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb29] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb2a] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb2b] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb2c] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa5] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa6] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa7] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xaa8] = 0;
+            pkgtoCurrentEngineObject->iSkillIdx = -1;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb93] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb94] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb95] = 0;
+            ((kgtSystem *)kgtTargetStructure)->empty_e[0xb96] = 0;
+            vCheckIfDrawThenMove();
+            pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
             break;
-          case 1:
-            uVar12 = current_obj->skill_idx_2;
-            if (uVar12 == *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x48))
-            {
-              if (current_obj->drawing_flag == 0) {
-                FUN_0040e4a0();
+          case STORY?_ENGINE_OBJECT:
+            uVar11 = pkgtoCurrentEngineObject->iSkillIdx_2;
+            if (uVar11 == *(ushort *)
+                           ((kgtCommonImage *)(((kgtSystem *)kgtTargetStructure)->sStageNames + 5) +
+                           0xc)) {
+              if (pkgtoCurrentEngineObject->iDrawFlag == 0) {
+                vStoryHitboxCheck();
                 return;
               }
               goto LAB_004127c3;
             }
-            if ((uVar12 != *(ushort *)((int)((kgt_mainKGT *)object_addy)->stage_names[5].str + 0x4a)
-                ) || (current_obj->drawing_flag == 0)) goto switchD_0041270c_default;
-            current_obj->action_idx = uVar12;
-            *(uint *)&current_obj->actionscript_idx =
-                 (uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar12].
-                               starting_step_idx;
+            if ((uVar11 != (ushort)*(short *)((int)((kgtCommonImage *)
+                                                    (((kgtSystem *)kgtTargetStructure)->sStageNames
+                                                    + 5) + 0xc) + 2)) ||
+               (pkgtoCurrentEngineObject->iDrawFlag == 0)) goto switchD_0041270c_default;
+            pkgtoCurrentEngineObject->iSkillIdx = uVar11;
+            *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+                 (uint)(ushort)(((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc[uVar11].
+                               shStartingStepIdx;
             break;
-          case main_kgt_file:
-            if (((((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[current_obj->skill_idx_2].
-                 field_0x23 & 0x20) != 0) goto switchD_0041270c_default;
-          case demo_file:
-          case stage_file:
-          case player_file:
-            if (current_obj->drawing_flag == 0) goto switchD_0041270c_default;
-            uVar12 = current_obj->skill_idx_2;
+          case SYSTEM_ENGINE_OBJECT:
+            if (((((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc
+                 [pkgtoCurrentEngineObject->iSkillIdx_2].cDemoDefaultScriptGroup & 0x20U) != 0)
+            goto switchD_0041270c_default;
+          case DEMO_ENGINE_OBJECT:
+          case STAGE_ENGINE_OBJECT:
+          case CHARACTER_ENGINE_OBJECT:
+            if (pkgtoCurrentEngineObject->iDrawFlag == 0) goto switchD_0041270c_default;
+            uVar11 = pkgtoCurrentEngineObject->iSkillIdx_2;
 LAB_004127c3:
-            pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-            current_obj->action_idx = uVar12;
-            *(uint *)&current_obj->actionscript_idx =
-                 (uint)(ushort)pActionAlloc[uVar12].starting_step_idx;
+            pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+            pkgtoCurrentEngineObject->iSkillIdx = uVar11;
+            *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+                 (uint)(ushort)pSkillsAlloc[uVar11].shStartingStepIdx;
             break;
           default:
             goto switchD_0041270c_default;
           }
         }
         else {
-          cVar10 = current_obj->loop_frequency + -1;
-          current_obj->loop_frequency = cVar10;
-          if (cVar10 == '\0') {
-            pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-            uVar12 = *(uint *)&current_obj->loop_skillscript_idx & 0xffff;
-            current_obj->action_idx = uVar12;
-            *(uint *)&current_obj->actionscript_idx =
-                 (ushort)pActionAlloc[uVar12].starting_step_idx + 1 +
-                 (*(int *)&current_obj->loop_skillscript_idx >> 0x10);
+          bCarryOver = pkgtoCurrentEngineObject->iLoopFrequency + -1;
+          pkgtoCurrentEngineObject->iLoopFrequency = bCarryOver;
+          if (bCarryOver == '\0') {
+            pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+            uVar11 = *(uint *)&pkgtoCurrentEngineObject->loop_skillscript_idx & 0xffff;
+            pkgtoCurrentEngineObject->iSkillIdx = uVar11;
+            *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+                 (ushort)pSkillsAlloc[uVar11].shStartingStepIdx + 1 +
+                 (*(int *)&pkgtoCurrentEngineObject->loop_skillscript_idx >> 0x10);
           }
           else {
-            pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-            uVar12 = *(uint *)&current_obj->field_0x7d & 0xffff;
-            current_obj->action_idx = uVar12;
-            *(uint *)&current_obj->actionscript_idx =
-                 (uint)(ushort)pActionAlloc[uVar12].starting_step_idx +
-                 (*(int *)&current_obj->field_0x7d >> 0x10);
+            pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+            uVar11 = *(uint *)&pkgtoCurrentEngineObject->field_0x7d & 0xffff;
+            pkgtoCurrentEngineObject->iSkillIdx = uVar11;
+            *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+                 (uint)(ushort)pSkillsAlloc[uVar11].shStartingStepIdx +
+                 (*(int *)&pkgtoCurrentEngineObject->field_0x7d >> 0x10);
           }
         }
       }
       else {
-        uVar12 = current_obj->return_skill_idx & 0xffff;
-        current_obj->action_idx = uVar12;
-        *(uint *)&current_obj->actionscript_idx =
-             (ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar12].
-                     starting_step_idx + 1 + (current_obj->return_skill_idx >> 0x10);
-        current_obj->return_skill_idx = 0;
+        uVar11 = pkgtoCurrentEngineObject->iReturnSkillIdx & 0xffff;
+        pkgtoCurrentEngineObject->iSkillIdx = uVar11;
+        *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             (ushort)(((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc[uVar11].
+                     shStartingStepIdx + 1 + (pkgtoCurrentEngineObject->iReturnSkillIdx >> 0x10);
+        pkgtoCurrentEngineObject->iReturnSkillIdx = 0;
       }
       goto Script_reading_switch_statement;
     default:
       goto switchD_00412610_advance_skillscript;
-    case 7:
+    case '\a':
                     // ----------------------------------
                     // - RC - Coor.*picture -
                     // ----------------------------------
@@ -14428,77 +14746,83 @@ LAB_004127c3:
                     // 2 - X turn
                     // 3 - Y turn
                     // 4 - same
-      if (((current_obj->obj_type != 0) || (*(short *)&skill->_2 == 0)) ||
-         (pOVar14 = *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d),
-         pOVar14 == (OBJ_STRUCT *)0x0)) goto switchD_00412610_advance_skillscript;
+      if (((pkgtoCurrentEngineObject->iObjectType != PLAYER_ENGINE_OBJECT) ||
+          (*(short *)&skill->field_0x2 == 0)) ||
+         (pkVar13 = *(kgtEngineObject **)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xa9d),
+         pkVar13 == (kgtEngineObject *)0x0)) goto switchD_00412610_advance_skillscript;
       RC_flags = skill->field_0x1;
       if ((RC_flags & 1) == 0) {
                     // If not depth add
-        uVar12 = *(uint *)&pOVar14->__or_3;
-        current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + -1
-        ;
-        special_stock_gauge_max = (&INT_0041f130)[uVar12 & 1] + 1;
+        uVar11 = *(uint *)&pkVar13->__or_3;
+        pkgtoCurrentEngineObject->iParam2 =
+             (&INT_0041f130)[*(uint *)&pkgtoCurrentEngineObject->__or_3 & 1] + -1;
+        iCurrentStoryStep = (&INT_0041f130)[uVar11 & 1] + 1;
       }
       else {
-        uVar12 = *(uint *)&pOVar14->__or_3;
-        current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + 1;
-        special_stock_gauge_max = (&INT_0041f130)[uVar12 & 1] + -1;
+        uVar11 = *(uint *)&pkVar13->__or_3;
+        pkgtoCurrentEngineObject->iParam2 =
+             (&INT_0041f130)[*(uint *)&pkgtoCurrentEngineObject->__or_3 & 1] + 1;
+        iCurrentStoryStep = (&INT_0041f130)[uVar11 & 1] + -1;
       }
-      player_file_buff_idx = current_obj->pos_player_direction;
-      pOVar14->param2_maybe_50_or_46 = special_stock_gauge_max;
-      if ((player_file_buff_idx & 1) == 0) {
+      iPlayerIdx = pkgtoCurrentEngineObject->iPlayerLookingRight;
+      pkVar13->iParam2 = iCurrentStoryStep;
+      if ((iPlayerIdx & 1) == 0) {
                     // Y turn flag?
-        pOVar14->param_3 = *(short *)&skill->field_0x4 * 0x10000 + current_obj->param_3;
+        pkVar13->iParam3 = *(short *)&skill->field_0x4 * 0x10000 + pkgtoCurrentEngineObject->iParam3
+        ;
         if ((RC_flags & 4) == 0) goto LAB_00412f3d;
-        pOVar14->pos_player_direction = 0;
+        pkVar13->iPlayerLookingRight = 0;
       }
       else {
-        pOVar14->param_3 = current_obj->param_3 + *(short *)&skill->field_0x4 * -0x10000;
+        pkVar13->iParam3 =
+             pkgtoCurrentEngineObject->iParam3 + *(short *)&skill->field_0x4 * -0x10000;
         if ((RC_flags & 4) == 0) {
-          pOVar14->pos_player_direction = 0;
+          pkVar13->iPlayerLookingRight = 0;
         }
         else {
 LAB_00412f3d:
-          pOVar14->pos_player_direction = 1;
+          pkVar13->iPlayerLookingRight = 1;
         }
       }
-      pOVar14->param_4 = *(short *)&skill->field_0x6 * 0x10000 + current_obj->param_4;
-      memzero_mystery_arrays(current_obj);
-      pOVar14->x_momentum = 0;
-      pOVar14->y_momentum = 0;
-      pOVar14->x_gravity = 0;
-      pOVar14->y_gravity = 0;
-      if (pOVar14->obj_type == 0) {
-        special_stock_gauge_max = pOVar14->player_file_buffer;
-        uVar5 = *(ushort *)&skill->_2;
-        pkVar6 = PLAYER_KGT_BUFFER[special_stock_gauge_max].kgt_core.p_actionscripts_alloc;
-        pOVar14->drawing_flag = -1;
+      pkVar13->iParam4 = *(short *)&skill->field_0x6 * 0x10000 + pkgtoCurrentEngineObject->iParam4;
+      vMemzeroHitboxArrays(pkgtoCurrentEngineObject);
+      pkVar13->iXMomentum = 0;
+      pkVar13->iYMomentum = 0;
+      pkVar13->iXGravity = 0;
+      pkVar13->iYGravity = 0;
+      if (pkVar13->iObjectType == PLAYER_ENGINE_OBJECT) {
+        iCurrentStoryStep = pkVar13->iPlayerIdx;
+        uVar5 = *(ushort *)&skill->field_0x2;
+        pkVar6 = gkgtLoadedCharacter[iCurrentStoryStep].kgtCore.pSkillScriptsAlloc;
+        pkVar13->iDrawFlag = -1;
         *(ushort *)&pkVar6->field_0x3 =
-             *(ushort *)(special_stock_gauge_max * 0xe03f + 0x4d8e4a + (uint)uVar5 * 6) & 0x1fff |
+             *(ushort *)(iCurrentStoryStep * 0xe03f + 0x4d8e4a + (uint)uVar5 * 6) & 0x1fff |
              (ushort)(skill->field_0x1 & 0xc) << 0xc;
-        uVar5 = *(ushort *)&skill->_2;
-        pkVar6->skill_step_type = 0xc;
-        pOVar14->action_idx = 0;
-        *(undefined4 *)&pOVar14->actionscript_idx = 1;
-        sVar3 = PLAYER_KGT_BUFFER[special_stock_gauge_max].common_images[uVar5].y_movement;
+        uVar5 = *(ushort *)&skill->field_0x2;
+        pkVar6->cSkillType = '\f';
+        pkVar13->iSkillIdx = 0;
+        *(undefined4 *)&pkVar13->iSkillScriptIdx = 1;
+        sVar3 = gkgtLoadedCharacter[iCurrentStoryStep].kgtCommonImages[uVar5].shY_Movement;
         *(short *)&pkVar6->field_0x5 =
-             PLAYER_KGT_BUFFER[special_stock_gauge_max].common_images[uVar5].x_movement;
+             gkgtLoadedCharacter[iCurrentStoryStep].kgtCommonImages[uVar5].shX_Movement;
         *(short *)&pkVar6->field_0x7 = sVar3;
-        memzero_mystery_arrays(pOVar14);
-        obj_0x129_to_0(pOVar14);
+        vMemzeroHitboxArrays(pkVar13);
+        vResetReactionSkillBlock(pkVar13);
         sVar3 = *(short *)&skill->field_0x4;
         sVar4 = *(short *)&skill->field_0x6;
-        *(uint *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb93) = (byte)skill->field_0x1 | 0x20;
-        current_obj = pOVar14->obj_ptr_b;
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb9b) = (int)sVar3 << 0x10;
-        *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xb9f) = (int)sVar4 << 0x10;
-        pOVar14->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj & 0xfffffffa | 10);
+        *(uint *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb93) =
+             (byte)skill->field_0x1 | 0x20;
+        pkgtoCurrentEngineObject = pkVar13->obj_ptr_b;
+        *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb9b) = (int)sVar3 << 0x10;
+        *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xb9f) = (int)sVar4 << 0x10;
+        pkVar13->obj_ptr_b = (kgtEngineObject *)((uint)pkgtoCurrentEngineObject & 0xfffffffa | 10);
       }
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      *(undefined4 *)&pOVar14->time_method_number_in_frames = 0xffffffff;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      *(undefined4 *)&pkVar13->iOpponentDowntimeInFrames = 0xffffffff;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 9:
+    case '\t':
                     // ----------------------------------
                     // - SF - Loop -
                     // ----------------------------------
@@ -14507,24 +14831,24 @@ LAB_00412f3d:
                     // 2 - Skill ID (low)
                     // 3 - Skill ID (high)
                     // 4 - Command ID
-      if ((skill->field_0x1 == '\0') || (skill_id = *(ushort *)&skill->_2, skill_id == 0))
+      if ((skill->field_0x1 == '\0') || (skill_id = *(ushort *)&skill->field_0x2, skill_id == 0))
       goto switchD_00412610_advance_skillscript;
-      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
+      pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
       command_id = skill->field_0x4;
-      *(uint *)&current_obj->loop_skillscript_idx =
-           (*(int *)&current_obj->actionscript_idx -
-           (uint)(ushort)pActionAlloc[current_obj->action_idx].starting_step_idx) * 0x10000 +
-           current_obj->action_idx;
-      current_obj->loop_frequency = skill->field_0x1;
+      *(uint *)&pkgtoCurrentEngineObject->loop_skillscript_idx =
+           (*(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx -
+           (uint)(ushort)pSkillsAlloc[pkgtoCurrentEngineObject->iSkillIdx].shStartingStepIdx) *
+           0x10000 + pkgtoCurrentEngineObject->iSkillIdx;
+      pkgtoCurrentEngineObject->iLoopFrequency = skill->field_0x1;
       skill_id_2 = (uint)skill_id;
-      *(uint *)&current_obj->field_0x7d = (uint)command_id * 0x10000 + skill_id_2;
-      current_obj->action_idx = skill_id_2;
-      actionscript_idx = ((ushort)pActionAlloc[skill_id_2].starting_step_idx - 1) + (uint)command_id
+      *(uint *)&pkgtoCurrentEngineObject->field_0x7d = (uint)command_id * 0x10000 + skill_id_2;
+      pkgtoCurrentEngineObject->iSkillIdx = skill_id_2;
+      actionscript_idx = ((ushort)pSkillsAlloc[skill_id_2].shStartingStepIdx - 1) + (uint)command_id
       ;
-      *(int *)&current_obj->actionscript_idx = actionscript_idx;
-      *(int *)&current_obj->actionscript_idx = actionscript_idx + 1;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = actionscript_idx;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = actionscript_idx + 1;
       goto LAB_004125ae;
-    case 10:
+    case '\n':
                     // ----------------------------------
                     // - SG - GoTo -
                     // ----------------------------------
@@ -14533,13 +14857,13 @@ LAB_00412f3d:
                     // 2 - Skill ID (high)
                     // 3 - Command ID
       if (*(ushort *)&skill->field_0x1 != 0) {
-        pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-        uVar12 = (uint)*(ushort *)&skill->field_0x1;
-        current_obj->action_idx = uVar12;
+        pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+        uVar11 = (uint)*(ushort *)&skill->field_0x1;
+        pkgtoCurrentEngineObject->iSkillIdx = uVar11;
         goto LAB_0041298b;
       }
       goto switchD_00412610_advance_skillscript;
-    case 0xb:
+    case '\v':
                     // ----------------------------------
                     // - SC - Call -
                     // ----------------------------------
@@ -14548,20 +14872,20 @@ LAB_00412f3d:
                     // 2 - Skill ID (high)
                     // 3 - Command ID
       if (*(short *)&skill->field_0x1 == 0) goto switchD_00412610_advance_skillscript;
-      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-      current_obj->return_skill_idx =
-           (*(int *)&current_obj->actionscript_idx -
-           (uint)(ushort)pActionAlloc[current_obj->action_idx].starting_step_idx) * 0x10000 +
-           current_obj->action_idx;
-      uVar12 = (uint)*(ushort *)&skill->field_0x1;
-      current_obj->action_idx = uVar12;
+      pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+      pkgtoCurrentEngineObject->iReturnSkillIdx =
+           (*(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx -
+           (uint)(ushort)pSkillsAlloc[pkgtoCurrentEngineObject->iSkillIdx].shStartingStepIdx) *
+           0x10000 + pkgtoCurrentEngineObject->iSkillIdx;
+      uVar11 = (uint)*(ushort *)&skill->field_0x1;
+      pkgtoCurrentEngineObject->iSkillIdx = uVar11;
 LAB_0041298b:
       sc_command_id =
-           ((ushort)pActionAlloc[uVar12].starting_step_idx - 1) + (uint)(byte)skill->field_0x3;
-      *(int *)&current_obj->actionscript_idx = sc_command_id;
-      *(int *)&current_obj->actionscript_idx = sc_command_id + 1;
+           ((ushort)pSkillsAlloc[uVar11].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x3;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = sc_command_id;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = sc_command_id + 1;
       goto LAB_004125ae;
-    case 0xc:
+    case '\f':
                     // ----------------------------------
                     // - I - Image -
                     // ----------------------------------
@@ -14586,23 +14910,25 @@ LAB_0041298b:
                     // 6 - X flip
                     // 7 - Y flip
                     // 
-      if (current_obj->obj_type == 0) {
-        ((kgt_mainKGT *)object_addy)->empty_e[0xbb3] = 1;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xbb4] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xbb5] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xbb6] = 0;
+      if (pkgtoCurrentEngineObject->iObjectType == PLAYER_ENGINE_OBJECT) {
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb3] = 1;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb4] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb5] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xbb6] = 0;
       }
       image_wait = *(ushort *)&skill->field_0x1;
       image_wait_frames = -1;
-      current_obj->drawing_flag = -1;
+      pkgtoCurrentEngineObject->iDrawFlag = -1;
       if (image_wait != 0) {
-        image_wait_frames = current_obj->image_wait_frames + (uint)image_wait * DAT_LIKELY_FPS;
+        image_wait_frames =
+             pkgtoCurrentEngineObject->iImageWaitFrames + (uint)image_wait * giGamespeedFrames;
       }
-      current_obj->image_wait_frames = image_wait_frames;
+      pkgtoCurrentEngineObject->iImageWaitFrames = image_wait_frames;
       local_108 = 0;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 0xe:
+    case '\x0e':
                     // ----------------------------------
                     // - EB - Pallet Animation*sway -
                     // ----------------------------------
@@ -14645,64 +14971,74 @@ LAB_0041298b:
       if (pallette_flash != 0) {
         if ((skill->field_0x8 & 1) != 0) {
                     // OWNSIDE flag
-          flash_player_buffer = current_obj->player_file_buffer;
-          *(uint *)&PLAYER_KGT_BUFFER[flash_player_buffer].start_of_0x2c = (uint)pallette_flash;
-          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_red = (int)skill->_2;
-          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_green = (int)(char)skill->field_0x3;
-          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_blue = (int)(char)skill->field_0x4;
-          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_alpha = (int)(char)skill->field_0x5;
-          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_var_a = current_obj->color_red;
-          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_var_b = current_obj->color_green;
-          *(int *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_var_c = current_obj->color_blue;
-          uVar7 = *(undefined3 *)&current_obj->field_0x51;
-          PLAYER_KGT_BUFFER[flash_player_buffer].flash_var_d = current_obj->color_alpha;
-          *(undefined3 *)&PLAYER_KGT_BUFFER[flash_player_buffer].field_0xe038 = uVar7;
+          flash_player_buffer = pkgtoCurrentEngineObject->iPlayerIdx;
+          *(uint *)&gkgtLoadedCharacter[flash_player_buffer].start_of_0x2c = (uint)pallette_flash;
+          *(int *)&gkgtLoadedCharacter[flash_player_buffer].flash_red = (int)(char)skill->field_0x2;
+          *(int *)&gkgtLoadedCharacter[flash_player_buffer].flash_green =
+               (int)(char)skill->field_0x3;
+          *(int *)&gkgtLoadedCharacter[flash_player_buffer].flash_blue = (int)(char)skill->field_0x4
+          ;
+          *(int *)&gkgtLoadedCharacter[flash_player_buffer].flash_alpha =
+               (int)(char)skill->field_0x5;
+          *(int *)&gkgtLoadedCharacter[flash_player_buffer].flash_var_a =
+               pkgtoCurrentEngineObject->iColorRed;
+          *(int *)&gkgtLoadedCharacter[flash_player_buffer].flash_var_b =
+               pkgtoCurrentEngineObject->iColorGreen;
+          *(int *)&gkgtLoadedCharacter[flash_player_buffer].flash_var_c =
+               pkgtoCurrentEngineObject->iColorBlue;
+          uVar7 = *(undefined3 *)&pkgtoCurrentEngineObject->field_0x51;
+          gkgtLoadedCharacter[flash_player_buffer].flash_var_d =
+               pkgtoCurrentEngineObject->color_alpha;
+          *(undefined3 *)&gkgtLoadedCharacter[flash_player_buffer].field_0xe038 = uVar7;
           flash_duration = *(ushort *)&skill->field_0x6;
-          *(uint *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_duration_a = (uint)flash_duration;
-          *(uint *)&PLAYER_KGT_BUFFER[flash_player_buffer].flash_duration_b = (uint)flash_duration;
+          *(uint *)&gkgtLoadedCharacter[flash_player_buffer].flash_duration_a = (uint)flash_duration
+          ;
+          *(uint *)&gkgtLoadedCharacter[flash_player_buffer].flash_duration_b = (uint)flash_duration
+          ;
         }
         if (((skill->field_0x8 & 2) != 0) &&
-           (*(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d) != (OBJ_STRUCT *)0x0)) {
+           (*(kgtEngineObject **)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xa9d) !=
+            (kgtEngineObject *)0x0)) {
                     // OPPSIDE flag
           flash_opponent_buffer =
-               (*(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d))->player_file_buffer
-          ;
-          *(uint *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].start_of_0x2c = (uint)pallette_flash;
-          *(int *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_red = (int)skill->_2;
-          *(int *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_green =
+               (*(kgtEngineObject **)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xa9d))->
+               iPlayerIdx;
+          *(uint *)&gkgtLoadedCharacter[flash_opponent_buffer].start_of_0x2c = (uint)pallette_flash;
+          *(int *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_red =
+               (int)(char)skill->field_0x2;
+          *(int *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_green =
                (int)(char)skill->field_0x3;
-          *(int *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_blue = (int)(char)skill->field_0x4
-          ;
-          *(int *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_alpha =
+          *(int *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_blue =
+               (int)(char)skill->field_0x4;
+          *(int *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_alpha =
                (int)(char)skill->field_0x5;
-          *(undefined4 *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_var_a = 0;
-          *(undefined4 *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_var_b = 0;
-          *(undefined4 *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_var_c = 0;
-          *(undefined4 *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_var_d = 0;
+          *(undefined4 *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_var_a = 0;
+          *(undefined4 *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_var_b = 0;
+          *(undefined4 *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_var_c = 0;
+          *(undefined4 *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_var_d = 0;
           opp_flash_duration = *(ushort *)&skill->field_0x6;
-          *(uint *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_duration_a =
+          *(uint *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_duration_a =
                (uint)opp_flash_duration;
-          *(uint *)&PLAYER_KGT_BUFFER[flash_opponent_buffer].flash_duration_b =
+          *(uint *)&gkgtLoadedCharacter[flash_opponent_buffer].flash_duration_b =
                (uint)opp_flash_duration;
         }
         if ((skill->field_0x8 & 4) != 0) {
                     // BG flag
-          UNK_STAGE_FILES_00445740.pallette_flash = (int)pallette_flash;
-          UNK_STAGE_FILES_00445740.script_read_var_a = 0;
-          UNK_STAGE_FILES_00445740.script_read_var_b = 0;
-          UNK_STAGE_FILES_00445740.pallette_flash_red = (int)skill->_2;
-          UNK_STAGE_FILES_00445740.script_read_var_c = 0;
-          UNK_STAGE_FILES_00445740.pallette_flash_green = (int)(char)skill->field_0x3;
-          UNK_STAGE_FILES_00445740.script_read_var_d = 0;
-          UNK_STAGE_FILES_00445740.pallette_flash_blue = (int)(char)skill->field_0x4;
-          UNK_STAGE_FILES_00445740.pallette_flash_alpha = (int)(char)skill->field_0x5;
-          UNK_STAGE_FILES_00445740.pallette_flash_duration = (int)*(ushort *)&skill->field_0x6;
-          UNK_STAGE_FILES_00445740.pallette_flash_duration_b =
-               UNK_STAGE_FILES_00445740.pallette_flash_duration;
+          giPalletteFlash = (int)pallette_flash;
+          INT_00447d95 = 0;
+          INT_00447d99 = 0;
+          giPalletteFlashRed = (int)(char)skill->field_0x2;
+          INT_00447d9d = 0;
+          giPalletteFlashGreen = (int)(char)skill->field_0x3;
+          INT_00447da1 = 0;
+          giPalletteFlashBlue = (int)(char)skill->field_0x4;
+          giPalletteFlashAlpha = (int)(char)skill->field_0x5;
+          giPalletteFlashDuration = (int)*(ushort *)&skill->field_0x6;
+          giPalletteFlashDuration_B = giPalletteFlashDuration;
         }
         if ((skill->field_0x8 & 8) != 0) {
                     // SYSTEM flag
-          _system_flash_red = (int)skill->_2;
+          _system_flash_red = (int)(char)skill->field_0x2;
           _system_flash_blue = (int)(char)skill->field_0x4;
           _system_flash = (uint)pallette_flash;
           _system_flash_alpha = (int)(char)skill->field_0x5;
@@ -14717,23 +15053,23 @@ LAB_0041298b:
       }
       if (skill->field_0x9 != 0) {
                     // Pic sway X
-        UNK_STAGE_FILES_00445740.pic_sway_x = (int)(byte)skill->field_0x9;
-        UNK_STAGE_FILES_00445740.x_shake = (int)(byte)skill->field_0xa;
-        UNK_STAGE_FILES_00445740.field1046_0x266d = 0;
-        UNK_STAGE_FILES_00445740.pic_sway_x_duration = (int)(byte)skill->field_0xb;
-        UNK_STAGE_FILES_00445740.pic_sway_x_duration_2 =
-             UNK_STAGE_FILES_00445740.pic_sway_x_duration;
+        giPicSwayX = (int)(byte)skill->field_0x9;
+        giPicShakeX = (int)(byte)skill->field_0xa;
+        giShakeX = 0;
+        giPicSwayXDuration = (int)(byte)skill->field_0xb;
+        giPicSwayXDuration_2 = giPicSwayXDuration;
       }
       if (skill->field_0xc == 0) goto switchD_00412610_advance_skillscript;
                     // Pic sway Y
-      UNK_STAGE_FILES_00445740.pic_sway_y = (int)(byte)skill->field_0xc;
-      UNK_STAGE_FILES_00445740.field1051_0x2681 = 0;
-      UNK_STAGE_FILES_00445740.y_shake = (int)(byte)skill->field_0xd;
-      UNK_STAGE_FILES_00445740.pic_sway_y_duration = (int)(byte)skill->field_0xe;
-      UNK_STAGE_FILES_00445740.pic_sway_y_duration_2 = UNK_STAGE_FILES_00445740.pic_sway_y_duration;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      giPicSwayY = (int)(byte)skill->field_0xc;
+      giShakeY = 0;
+      giPicShakeY = (int)(byte)skill->field_0xd;
+      giPicSwayYDuration = (int)(byte)skill->field_0xe;
+      giPicSwayYDuration_2 = giPicSwayYDuration;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 0x10:
+    case '\x10':
                     // ----------------------------------
                     // - GS - Special life gauge check -
                     // ----------------------------------
@@ -14747,59 +15083,60 @@ LAB_0041298b:
                     // 7 - add to advance
       if ((skill->field_0x5 & 1) == 0) {
                     // When little?
-        if ((PLAYER_KGT_BUFFER[current_obj->player_file_buffer].special_gauge_tokens <
+        if ((gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].iSpecialGaugeTokens <
              (int)(uint)(byte)skill->field_0x6) ||
-           (GS_skill_idx = *(ushort *)&skill->_2, GS_skill_idx == 0))
+           (GS_skill_idx = *(ushort *)&skill->field_0x2, GS_skill_idx == 0))
         goto switchD_00412610_advance_skillscript;
-        current_obj->action_idx = (uint)GS_skill_idx;
+        pkgtoCurrentEngineObject->iSkillIdx = (uint)GS_skill_idx;
         if (GS_skill_idx == 0) {
-          special_stock_gauge_max =
-               PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6392_0xdf55;
+          iCurrentStoryStep =
+               gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].iUnknownCommandInputVar;
 LAB_004135a7:
-          special_stock_gauge_max = FUN_00410060(special_stock_gauge_max);
-          current_obj = PTR_POSS_CURRENT_OBJ;
-          if (special_stock_gauge_max != 0) {
-            PTR_POSS_CURRENT_OBJ->action_idx = special_stock_gauge_max;
+          iCurrentStoryStep = sHandlePlayerCommandSequence(iCurrentStoryStep);
+          pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+          if (iCurrentStoryStep != 0) {
+            gpkgtCurrentEngineObject->iSkillIdx = iCurrentStoryStep;
           }
         }
       }
       else {
                     // When alot
         if ((int)(uint)(byte)skill->field_0x6 <
-            PLAYER_KGT_BUFFER[current_obj->player_file_buffer].special_gauge_tokens) {
-          GS_player_buffer = current_obj->player_file_buffer;
+            gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].iSpecialGaugeTokens) {
+          GS_player_buffer = pkgtoCurrentEngineObject->iPlayerIdx;
           add_to_special =
-               FUN_00414860(CONCAT31((int3)(skill->skill_step_type - 1 >> 8),skill->field_0x7));
+               iSubtractTwoFiftySixIfAboveOneTwentySeven
+                         (CONCAT31((int3)((byte)skill->cSkillType - 1 >> 8),skill->field_0x7));
           new_special_gauge =
-               PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens + add_to_special;
-          PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens = new_special_gauge;
+               gkgtLoadedCharacter[GS_player_buffer].iSpecialGaugeTokens + add_to_special;
+          gkgtLoadedCharacter[GS_player_buffer].iSpecialGaugeTokens = new_special_gauge;
           if (new_special_gauge < 0) {
-            PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens = 0;
+            gkgtLoadedCharacter[GS_player_buffer].iSpecialGaugeTokens = 0;
           }
-          current_obj = PTR_POSS_CURRENT_OBJ;
-          if ((uint)PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens <
-              (uint)PLAYER_KGT_BUFFER[GS_player_buffer].special_stock_max)
+          pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+          if ((uint)gkgtLoadedCharacter[GS_player_buffer].iSpecialGaugeTokens <
+              (uint)gkgtLoadedCharacter[GS_player_buffer].iSpecialStockMax)
           goto switchD_00412610_advance_skillscript;
                     // Enforce special gauge max
-          PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge_tokens =
-               PLAYER_KGT_BUFFER[GS_player_buffer].special_stock_max;
-          PLAYER_KGT_BUFFER[GS_player_buffer].special_gauge = 0;
-          current_obj = PTR_POSS_CURRENT_OBJ;
-          *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx =
-               *(int *)&PTR_POSS_CURRENT_OBJ->actionscript_idx + 1;
+          gkgtLoadedCharacter[GS_player_buffer].iSpecialGaugeTokens =
+               gkgtLoadedCharacter[GS_player_buffer].iSpecialStockMax;
+          gkgtLoadedCharacter[GS_player_buffer].iSpecialGauge = 0;
+          pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+          *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx =
+               *(int *)&gpkgtCurrentEngineObject->iSkillScriptIdx + 1;
           goto LAB_004125ae;
         }
-        uVar5 = *(ushort *)&skill->_2;
-        current_obj->action_idx = (uint)uVar5;
+        uVar5 = *(ushort *)&skill->field_0x2;
+        pkgtoCurrentEngineObject->iSkillIdx = (uint)uVar5;
         if (uVar5 == 0) {
-          special_stock_gauge_max =
-               PLAYER_KGT_BUFFER[current_obj->player_file_buffer].field6392_0xdf55;
+          iCurrentStoryStep =
+               gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].iUnknownCommandInputVar;
           goto LAB_004135a7;
         }
       }
-      uVar12 = current_obj->action_idx;
+      uVar11 = pkgtoCurrentEngineObject->iSkillIdx;
       goto LAB_004135bf;
-    case 0x11:
+    case '\x11':
                     // ----------------------------------
                     // - GL - Life Gauge Check -
                     // ----------------------------------
@@ -14812,31 +15149,32 @@ LAB_004135a7:
                     // 6 - from (low, UNSIGNED)
                     // 7 - from (high, UNSIGNED)
       if ((skill->field_0x5 & 1) == 0) {
-        if ((*(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9) <
-             (int)(uint)*(ushort *)&skill->field_0x6) || (*(short *)&skill->_2 == 0))
+        if ((*(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9) <
+             (int)(uint)*(ushort *)&skill->field_0x6) || (*(short *)&skill->field_0x2 == 0))
         goto switchD_00412610_advance_skillscript;
       }
       else if ((int)(uint)*(ushort *)&skill->field_0x6 <
-               *(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaa9))
+               *(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaa9))
       goto switchD_00412610_advance_skillscript;
-      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-      GL_skill_idx = *(ushort *)&skill->_2;
-      current_obj->action_idx = (uint)GL_skill_idx;
-      *(uint *)&current_obj->actionscript_idx =
-           ((ushort)pActionAlloc[GL_skill_idx].starting_step_idx - 1) + (uint)(byte)skill->field_0x4
+      pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+      GL_skill_idx = *(ushort *)&skill->field_0x2;
+      pkgtoCurrentEngineObject->iSkillIdx = (uint)GL_skill_idx;
+      *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           ((ushort)pSkillsAlloc[GL_skill_idx].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x4
       ;
-      if ((current_obj->action_idx != 0) ||
-         (special_stock_gauge_max =
-               FUN_00410060(*(int *)(((kgt_mainKGT *)object_addy)->empty_e + 0xaf9)),
-         current_obj = PTR_POSS_CURRENT_OBJ, special_stock_gauge_max == 0))
+      if ((pkgtoCurrentEngineObject->iSkillIdx != 0) ||
+         (iCurrentStoryStep =
+               sHandlePlayerCommandSequence
+                         (*(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xaf9)),
+         pkgtoCurrentEngineObject = gpkgtCurrentEngineObject, iCurrentStoryStep == 0))
       goto switchD_00412610_advance_skillscript;
-      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-      PTR_POSS_CURRENT_OBJ->action_idx = special_stock_gauge_max;
-      uVar12 = (uint)(ushort)pActionAlloc[special_stock_gauge_max].starting_step_idx;
-      *(uint *)&current_obj->actionscript_idx = uVar12 - 1;
-      *(uint *)&current_obj->actionscript_idx = uVar12;
+      pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+      gpkgtCurrentEngineObject->iSkillIdx = iCurrentStoryStep;
+      uVar11 = (uint)(ushort)pSkillsAlloc[iCurrentStoryStep].shStartingStepIdx;
+      *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx = uVar11 - 1;
+      *(uint *)&pkgtoCurrentEngineObject->iSkillScriptIdx = uVar11;
       goto LAB_004125ae;
-    case 0x14:
+    case '\x14':
                     // ----------------------------------
                     // - RP - Partner:script mod.
                     // ----------------------------------
@@ -14850,66 +15188,70 @@ LAB_004135a7:
                     // 7 - Y (high, SIGNED)
                     // 
                     // - Flags -
-                    // 0 - In (if unset, depth is Forw)
-                    // 1 - unk
-                    // 2 - L.R reverse
-                    // 
-      if ((current_obj->obj_type != 0) ||
-         (opp_obj_ptr = *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + 0xa9d),
-         opp_obj_ptr == (OBJ_STRUCT *)0x0)) goto switchD_00412610_advance_skillscript;
-      RP_flags = skill->field_0x1;
-      if ((RP_flags & 1) == 0) {
-        uVar12 = *(uint *)&opp_obj_ptr->__or_3;
-        current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + -1
-        ;
-        special_stock_gauge_max = (&INT_0041f130)[uVar12 & 1] + 1;
+                    // +0x1 = 'In' (unset is 'Out')
+                    // +0x4 = 'Turn X'
+      if ((pkgtoCurrentEngineObject->iObjectType != PLAYER_ENGINE_OBJECT) ||
+         (opp_obj_ptr = *(kgtEngineObject **)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xa9d),
+         opp_obj_ptr == (kgtEngineObject *)0x0)) goto switchD_00412610_advance_skillscript;
+      iRpFlags = skill->field_0x1;
+      if ((iRpFlags & 1) == 0) {
+        uVar11 = *(uint *)&opp_obj_ptr->__or_3;
+        pkgtoCurrentEngineObject->iParam2 =
+             (&INT_0041f130)[*(uint *)&pkgtoCurrentEngineObject->__or_3 & 1] + -1;
+        iRpUnkParam2Val = (&INT_0041f130)[uVar11 & 1] + 1;
       }
       else {
-        uVar12 = *(uint *)&opp_obj_ptr->__or_3;
-        current_obj->param2_maybe_50_or_46 = (&INT_0041f130)[*(uint *)&current_obj->__or_3 & 1] + 1;
-        special_stock_gauge_max = (&INT_0041f130)[uVar12 & 1] + -1;
+        uVar11 = *(uint *)&opp_obj_ptr->__or_3;
+        pkgtoCurrentEngineObject->iParam2 =
+             (&INT_0041f130)[*(uint *)&pkgtoCurrentEngineObject->__or_3 & 1] + 1;
+        iRpUnkParam2Val = (&INT_0041f130)[uVar11 & 1] + -1;
       }
-      RP_player_direction = current_obj->pos_player_direction;
-      opp_obj_ptr->param2_maybe_50_or_46 = special_stock_gauge_max;
-      if ((RP_player_direction & 1) == 0) {
+      iRpPlayerLookingRight = pkgtoCurrentEngineObject->iPlayerLookingRight;
+      opp_obj_ptr->iParam2 = iRpUnkParam2Val;
+      if ((iRpPlayerLookingRight & 1) == 0) {
                     // Move X value
-        opp_obj_ptr->param_3 = *(short *)&skill->field_0x4 * 0x10000 + current_obj->param_3;
-        if ((RP_flags & 4) == 0) goto LAB_004130e8;
-        opp_obj_ptr->pos_player_direction = 0;
+        opp_obj_ptr->iParam3 =
+             *(short *)&skill->field_0x4 * 0x10000 + pkgtoCurrentEngineObject->iParam3;
+        if ((iRpFlags & 4) == 0) goto LAB_004130e8;
+        opp_obj_ptr->iPlayerLookingRight = 0;
       }
       else {
-        opp_obj_ptr->param_3 = current_obj->param_3 + *(short *)&skill->field_0x4 * -0x10000;
-        if ((RP_flags & 4) == 0) {
-          opp_obj_ptr->pos_player_direction = 0;
+        opp_obj_ptr->iParam3 =
+             pkgtoCurrentEngineObject->iParam3 + *(short *)&skill->field_0x4 * -0x10000;
+        if ((iRpFlags & 4) == 0) {
+          opp_obj_ptr->iPlayerLookingRight = 0;
         }
         else {
 LAB_004130e8:
-          opp_obj_ptr->pos_player_direction = 1;
+          opp_obj_ptr->iPlayerLookingRight = 1;
         }
       }
                     // Move Y pos
-      opp_obj_ptr->param_4 = *(short *)&skill->field_0x6 * 0x10000 + current_obj->param_4;
-      memzero_mystery_arrays(current_obj);
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      if (opp_obj_ptr->obj_type != 0) goto switchD_00412610_advance_skillscript;
-      if ((byte)skill->_2 != 0) {
+      opp_obj_ptr->iParam4 =
+           *(short *)&skill->field_0x6 * 0x10000 + pkgtoCurrentEngineObject->iParam4;
+      vMemzeroHitboxArrays(pkgtoCurrentEngineObject);
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      if (opp_obj_ptr->iObjectType != PLAYER_ENGINE_OBJECT)
+      goto switchD_00412610_advance_skillscript;
+      if ((byte)skill->field_0x2 != 0) {
                     // Lands at start of hit_junction_info
-        opp_obj_ptr->hit_junction_idx =
+        opp_obj_ptr->iHitJunctionIdx =
              (uint)*(ushort *)
-                    (opp_obj_ptr->player_file_buffer * 0xe03f + 0x4d8b2a + (uint)(byte)skill->_2 * 4
-                    );
+                    (opp_obj_ptr->iPlayerIdx * 0xe03f + 0x4d8b2a + (uint)(byte)skill->field_0x2 * 4)
+        ;
       }
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      pOVar14 = opp_obj_ptr->obj_ptr_b;
-      *(undefined4 *)&opp_obj_ptr->time_method_number_in_frames = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb93] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb94] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb95] = 0;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb96] = 0;
-      opp_obj_ptr->obj_ptr_b = (OBJ_STRUCT *)((uint)pOVar14 & 0xfffffffa | 10);
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      pkVar13 = opp_obj_ptr->obj_ptr_b;
+      *(undefined4 *)&opp_obj_ptr->iOpponentDowntimeInFrames = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb93] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb94] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb95] = 0;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb96] = 0;
+      opp_obj_ptr->obj_ptr_b = (kgtEngineObject *)((uint)pkVar13 & 0xfffffffa | 10);
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 0x15:
+    case '\x15':
                     // ----------------------------------
                     // - GC - Gauge MOD.
                     // ----------------------------------
@@ -14923,35 +15265,34 @@ LAB_004130e8:
                     // 7 - Life, part (high, SIGNED)
                     // 8 - Special, part (low, SIGNED)
                     // 9 - Special, part (high, SIGNED)
-      GC_player_buffer = current_obj->player_file_buffer;
+      GC_player_buffer = pkgtoCurrentEngineObject->iPlayerIdx;
       GC_life_opp = *(short *)&skill->field_0x6;
-      if (*(short *)&skill->_2 != 0) {
-        add_to_health(PLAYER_KGT_BUFFER + GC_player_buffer,(int)*(short *)&skill->_2);
-        current_obj = PTR_POSS_CURRENT_OBJ;
+      if (*(short *)&skill->field_0x2 != 0) {
+        vAddToHealth(gkgtLoadedCharacter + GC_player_buffer,(int)*(short *)&skill->field_0x2);
+        pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
       }
-      add_to_special_gauge(current_obj->player_file_buffer,(int)*(short *)&skill->field_0x4);
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      if (PLAYER_KGT_BUFFER[GC_player_buffer].poss_opponent_obj_ptr == (OBJ_STRUCT *)0x0) {
-        if (PLAYER_KGT_BUFFER[GC_player_buffer].poss_opponent_obj_ptr_2_ == (OBJ_STRUCT *)0x0)
-        goto switchD_00412610_advance_skillscript;
-        special_stock_gauge_max =
-             (PLAYER_KGT_BUFFER[GC_player_buffer].poss_opponent_obj_ptr_2_)->player_file_buffer;
+      vAddToSpecialGauge(pkgtoCurrentEngineObject->iPlayerIdx,(int)*(short *)&skill->field_0x4);
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      if (gkgtLoadedCharacter[GC_player_buffer].poss_opponent_obj_ptr == (kgtEngineObject *)0x0) {
+        if (gkgtLoadedCharacter[GC_player_buffer].poss_opponent_obj_ptr_2_ == (kgtEngineObject *)0x0
+           ) goto switchD_00412610_advance_skillscript;
+        iCurrentStoryStep =
+             (gkgtLoadedCharacter[GC_player_buffer].poss_opponent_obj_ptr_2_)->iPlayerIdx;
       }
       else {
-        special_stock_gauge_max =
-             (PLAYER_KGT_BUFFER[GC_player_buffer].poss_opponent_obj_ptr)->player_file_buffer;
+        iCurrentStoryStep =
+             (gkgtLoadedCharacter[GC_player_buffer].poss_opponent_obj_ptr)->iPlayerIdx;
       }
-      if (PLAYER_KGT_BUFFER + special_stock_gauge_max != (kgt_character_struct *)0x0) {
+      if (gkgtLoadedCharacter + iCurrentStoryStep != (kgt_character_struct *)0x0) {
         if (GC_life_opp != 0) {
-          add_to_health(PLAYER_KGT_BUFFER + special_stock_gauge_max,(int)GC_life_opp);
+          vAddToHealth(gkgtLoadedCharacter + iCurrentStoryStep,(int)GC_life_opp);
         }
-        add_to_special_gauge
-                  (*(undefined4 *)(PLAYER_KGT_BUFFER[special_stock_gauge_max].CPU + 0x156),
-                   (int)*(short *)&skill->field_0x8);
-        current_obj = PTR_POSS_CURRENT_OBJ;
+        vAddToSpecialGauge((gkgtLoadedCharacter[iCurrentStoryStep].pkgtoSelf)->iPlayerIdx,
+                           (int)*(short *)&skill->field_0x8);
+        pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
       }
       goto switchD_00412610_advance_skillscript;
-    case 0x16:
+    case '\x16':
                     // ----------------------------------
                     // - DB - Cond. Branching
                     // ----------------------------------
@@ -14959,83 +15300,84 @@ LAB_004130e8:
                     // 1 - If fail (otherwise, Formed)
                     // 2 - Skill ID (low, UNSIGNED)
                     // 3 - Skill ID (high, UNSIGNED)
-                    // 4 - Command ID (UNSIGNED)
+                    // 4 - Skill Step
                     // 5 - unk
                     // 6 - unk
-                    // 7 - Condition
+                    // 7 - Setting
                     // 
                     // - Conditions -
                     // 0 - "its not"
-                    // 1 - On the ground
+                    // 1 - Guarding
                     // 2 - Standing
-                    // 3 - Squating.
-                    // 4 - Front surface.
-                    // 5 - Rear surface.
-                    // 6 - Upper Part Surface.
-                    // 7 - Lower Part Surfae
-      is_if_failed = skill->field_0x1 & 1;
+                    // 3 - Crouching
+                    // 4 - If Forward is tapped
+                    // 5 - If Back is tapped
+                    // 6 - If Up is tapped
+                    // 7 - IF Down is tapped
+      bisIfFailed = skill->field_0x1 & 1;
       if ((skill->field_0x1 & 2) != 0) goto switchD_00412de4_default;
-      db_player_buffer = current_obj->player_file_buffer;
-      DB_input = INPUT_BUFFER_A[db_player_buffer][INPUT_BUFFER_POS];
+      db_player_buffer = pkgtoCurrentEngineObject->iPlayerIdx;
+      DB_input = giInputBufferA[db_player_buffer][giInputBufferPos];
       switch(skill->field_0x7) {
       case 1:
-        if (current_obj->param_4 < current_obj->compare_to_param_4) break;
+        if (pkgtoCurrentEngineObject->iParam4 < pkgtoCurrentEngineObject->compare_to_param_4) break;
         goto LAB_00412e5f;
       case 2:
-        if (current_obj->compare_to_param_4 <= current_obj->param_4) {
-          uVar12 = DB_input & 8;
+        if (pkgtoCurrentEngineObject->compare_to_param_4 <= pkgtoCurrentEngineObject->iParam4) {
+          uVar11 = DB_input & 8;
           goto joined_r0x00412e5d;
         }
         break;
       case 3:
-        if (current_obj->compare_to_param_4 <= current_obj->param_4) goto switchD_00412de4_caseD_7;
+        if (pkgtoCurrentEngineObject->compare_to_param_4 <= pkgtoCurrentEngineObject->iParam4)
+        goto switchD_00412de4_caseD_7;
         break;
       case 4:
-        if (((PLAYER_KGT_BUFFER[db_player_buffer].guard_button_flag & 8U) == 0) ||
-           (current_obj->pos_player_direction == 0)) {
+        if (((gkgtLoadedCharacter[db_player_buffer].cIsGuardButtonActive & 8) == 0) ||
+           (pkgtoCurrentEngineObject->iPlayerLookingRight == 0)) {
 LAB_00412e4c:
-          uVar12 = DB_input & 2;
+          uVar11 = DB_input & 2;
           goto joined_r0x00412e56;
         }
         goto LAB_00412e2f;
       case 5:
-        if (((PLAYER_KGT_BUFFER[db_player_buffer].guard_button_flag & 8U) != 0) &&
-           (current_obj->pos_player_direction != 0)) goto LAB_00412e4c;
+        if (((gkgtLoadedCharacter[db_player_buffer].cIsGuardButtonActive & 8) != 0) &&
+           (pkgtoCurrentEngineObject->iPlayerLookingRight != 0)) goto LAB_00412e4c;
 LAB_00412e2f:
-        uVar12 = DB_input & 1;
+        uVar11 = DB_input & 1;
 joined_r0x00412e32:
-        if (uVar12 == 0) break;
+        if (uVar11 == 0) break;
 LAB_00412e5f:
-        if (is_if_failed == 0) goto LAB_00412e79;
+        if (bisIfFailed == 0) goto LAB_00412e79;
         goto switchD_00412610_advance_skillscript;
       case 6:
-        uVar12 = DB_input & 4;
+        uVar11 = DB_input & 4;
 joined_r0x00412e56:
-        if (uVar12 != 0) goto LAB_00412e5f;
+        if (uVar11 != 0) goto LAB_00412e5f;
         break;
       case 7:
 switchD_00412de4_caseD_7:
-        uVar12 = DB_input & 8;
+        uVar11 = DB_input & 8;
         goto joined_r0x00412e32;
       case 8:
-        uVar12 = DB_input & 0xf;
+        uVar11 = DB_input & 0xf;
 joined_r0x00412e5d:
-        if (uVar12 == 0) goto LAB_00412e5f;
+        if (uVar11 == 0) goto LAB_00412e5f;
       }
 switchD_00412de4_default:
-      if (is_if_failed == 0) goto switchD_00412610_advance_skillscript;
+      if (bisIfFailed == 0) goto switchD_00412610_advance_skillscript;
 LAB_00412e79:
-      if (*(ushort *)&skill->_2 == 0) goto switchD_00412610_advance_skillscript;
-      uVar12 = (uint)*(ushort *)&skill->_2;
-      current_obj->action_idx = uVar12;
+      if (*(ushort *)&skill->field_0x2 == 0) goto switchD_00412610_advance_skillscript;
+      uVar11 = (uint)*(ushort *)&skill->field_0x2;
+      pkgtoCurrentEngineObject->iSkillIdx = uVar11;
 LAB_004135bf:
-      special_stock_gauge_max =
-           ((ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar12].
-                    starting_step_idx - 1) + (uint)(byte)skill->field_0x4;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      iCurrentStoryStep =
+           ((ushort)(((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc[uVar11].
+                    shStartingStepIdx - 1) + (uint)(byte)skill->field_0x4;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = iCurrentStoryStep;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = iCurrentStoryStep + 1;
       goto LAB_004125ae;
-    case 0x17:
+    case '\x17':
                     // ----------------------------------
                     // - R - Reaction
                     // ----------------------------------
@@ -15052,10 +15394,11 @@ LAB_004135bf:
                     // A - Guard, Crouched (high, UNSIGNED)
                     // B - Guard, Sky (low, UNSIGNED)
                     // C - Guard, Sky (high, UNSIGNED)
-      current_obj->reaction_skillblock = skill;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      pkgtoCurrentEngineObject->reaction_skillblock = skill;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 0x18:
+    case '\x18':
                     // ----------------------------------
                     // - FA - Attack
                     // ----------------------------------
@@ -15083,28 +15426,31 @@ LAB_004135bf:
                     // 6 - Guard Fail
                     // 7 - While Receiving
       FA_width = *(short *)&skill->field_0x5;
-      FA_m_number = current_obj->hitbox_attack_array + (byte)skill->field_0x9;
+      FA_m_number = pkgtoCurrentEngineObject->kgtHitboxAttacks + (byte)skill->field_0x9;
       *FA_m_number = (int)skill;
       if ((FA_width == 0) || (*(short *)&skill->field_0x7 == 0)) goto LAB_00412d83;
-      if (current_obj->obj_type != 0) goto switchD_00412610_advance_skillscript;
+      if (pkgtoCurrentEngineObject->iObjectType != PLAYER_ENGINE_OBJECT)
+      goto switchD_00412610_advance_skillscript;
       FA_flags = skill->field_0xa;
       if ((FA_flags & 1) == 0) {
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb29] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb2a] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb2b] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb2c] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb29] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb2a] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb2b] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb2c] = 0;
       }
       else {
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb29] = 1;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb2a] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb2b] = 0;
-        ((kgt_mainKGT *)object_addy)->empty_e[0xb2c] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb29] = 1;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb2a] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb2b] = 0;
+        ((kgtSystem *)kgtTargetStructure)->empty_e[0xb2c] = 0;
       }
       if ((FA_flags & 2) == 0) goto switchD_00412610_advance_skillscript;
-      current_obj->obj_ptr_b = (OBJ_STRUCT *)((uint)current_obj->obj_ptr_b & 0xffffffef);
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      pkgtoCurrentEngineObject->obj_ptr_b =
+           (kgtEngineObject *)((uint)pkgtoCurrentEngineObject->obj_ptr_b & 0xffffffef);
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 0x19:
+    case '\x19':
                     // ----------------------------------
                     // - FD - Defense
                     // ----------------------------------
@@ -15126,87 +15472,92 @@ LAB_004135bf:
                     // 1 - Doing
                     // 2 - Throwing
       sVar3 = *(short *)&skill->field_0x5;
-      FA_m_number = current_obj->hitbox_guard_array + (byte)skill->field_0x9;
+      FA_m_number = pkgtoCurrentEngineObject->hitbox_guard_array + (byte)skill->field_0x9;
       *FA_m_number = (int)skill;
       if ((sVar3 != 0) && (*(short *)&skill->field_0x7 != 0))
       goto switchD_00412610_advance_skillscript;
 LAB_00412d83:
       *FA_m_number = 0;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 0x1a:
+    case '\x1a':
                     // ----------------------------------
                     // - PS - Player: Stop
                     // ----------------------------------
                     // 0 - Type
                     // 1 - Your Down Time (UNSIGNED)
                     // 2 - Part Down Time (UNSIGNED)
-      if ((current_obj->obj_type == 0) &&
+      if ((pkgtoCurrentEngineObject->iObjectType == PLAYER_ENGINE_OBJECT) &&
          (player_down_time = skill->field_0x1, player_down_time != 0)) {
-        *(uint *)&current_obj->time_method_number_in_frames =
-             *(int *)&current_obj->time_method_number_in_frames + (uint)player_down_time;
-        PS_player_buffer = current_obj->player_file_buffer;
-        *(int *)&PLAYER_KGT_BUFFER[PS_player_buffer].input_storage =
-             INPUT_BUFFER_A[PS_player_buffer][INPUT_BUFFER_POS];
-        PLAYER_KGT_BUFFER[PS_player_buffer].field6465_0xdfff = 1;
-        PS_obj = &OBJ_ARRAY[0].time_method_number_in_frames;
+        *(uint *)&pkgtoCurrentEngineObject->iOpponentDowntimeInFrames =
+             *(int *)&pkgtoCurrentEngineObject->iOpponentDowntimeInFrames + (uint)player_down_time;
+        PS_player_buffer = pkgtoCurrentEngineObject->iPlayerIdx;
+        *(int *)&gkgtLoadedCharacter[PS_player_buffer].input_storage =
+             giInputBufferA[PS_player_buffer][giInputBufferPos];
+        gkgtLoadedCharacter[PS_player_buffer].field6458_0xdfff = 1;
+        PS_obj = &kgtEngineObjects[0].iOpponentDowntimeInFrames;
         ps_i = 0x400;
         do {
-          if (((ADJ(PS_obj).jmp_idx == 4) && (ADJ(PS_obj)->player_file_buffer == PS_player_buffer))
-             && ((ADJ(PS_obj)->unk_bitmask & 0x20000000) != 0)) {
+          if (((ADJ(PS_obj).iJumpIdx == READ_SCRIPT) &&
+              (ADJ(PS_obj)->iPlayerIdx == PS_player_buffer)) &&
+             ((ADJ(PS_obj)->unk_bitmask & 0x20000000) != 0)) {
             *(uint *)PS_obj = *(int *)PS_obj + (uint)player_down_time;
           }
           PS_obj = PS_obj + 0x17e;
           ps_i = ps_i + -1;
         } while (ps_i != 0);
       }
-      PS_opponent_down_time = skill->_2;
+      PS_opponent_down_time = skill->field_0x2;
       if (PS_opponent_down_time == 0) goto switchD_00412610_advance_skillscript;
       ps_i2 = 0;
-      PS_players = &PLAYER_KGT_BUFFER[0].CPU;
+      PS_players = &gkgtLoadedCharacter[0].pkgtoSelf;
       do {
-        if ((ps_i2 != current_obj->player_file_buffer) &&
-           (ADJ(PS_players)->script_reading_01_field5 != 0)) {
-          PS_player_cpu = ADJ(PS_players)->CPU;
+        if ((ps_i2 != pkgtoCurrentEngineObject->iPlayerIdx) &&
+           (ADJ(PS_players)->unknown_online_var_a != 0)) {
+          PS_player_cpu = (int)ADJ(PS_players)->pkgtoSelf;
           ps_i3 = 0x400;
           *(uint *)(PS_player_cpu + 0x40) =
                *(int *)(PS_player_cpu + 0x40) + (uint)PS_opponent_down_time;
           *(int *)&ADJ(PS_players)->input_storage =
-               INPUT_BUFFER_A[*(int *)(PS_player_cpu + 0x156)][INPUT_BUFFER_POS];
-          ADJ(PS_players)->field6465_0xdfff = 1;
-          other_player_poss_relating = (int *)&OBJ_ARRAY[0].time_method_number_in_frames;
+               giInputBufferA[*(int *)(PS_player_cpu + 0x156)][giInputBufferPos];
+          ADJ(PS_players)->field6458_0xdfff = 1;
+          iColorIntOtherPlayer = (int *)&kgtEngineObjects[0].iOpponentDowntimeInFrames;
           do {
-            if (((other_player_poss_relating[-0x10] == 4) &&
-                (*(int *)((int)other_player_poss_relating + 0x116) ==
-                 *(int *)(ADJ(PS_players)->CPU + 0x156))) &&
-               ((other_player_poss_relating[-6] & 0x20000000U) != 0)) {
-              *other_player_poss_relating =
-                   *other_player_poss_relating + (uint)PS_opponent_down_time;
+            if (((iColorIntOtherPlayer[-0x10] == 4) &&
+                (*(int *)((int)iColorIntOtherPlayer + 0x116) ==
+                 ADJ(PS_players)->pkgtoSelf->iPlayerIdx)) &&
+               ((iColorIntOtherPlayer[-6] & 0x20000000U) != 0)) {
+              *iColorIntOtherPlayer = *iColorIntOtherPlayer + (uint)PS_opponent_down_time;
             }
-            other_player_poss_relating = (int *)((int)other_player_poss_relating + 0x17e);
+            iColorIntOtherPlayer = (int *)((int)iColorIntOtherPlayer + 0x17e);
             ps_i3 = ps_i3 + -1;
           } while (ps_i3 != 0);
         }
         PS_players = (kgt_character_struct_ptr_57077_int)((int)PS_players + 0xe03f);
         ps_i2 = ps_i2 + 1;
       } while ((int)PS_players < 0x54fe6d);
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 0x1e:
+    case '\x1e':
                     // ----------------------------------
                     // - C - Cancel Cond. -
                     // ----------------------------------
                     // 0 - Type
                     // 1 - Cancel, flags
-                    // 2 - mpty (UNSIGNED)
-                    // 3 - Skill ID (low, UNSIGNED)
-                    // 4 - Skill ID (high, UNSIGNED)
-                    // 5 - ween (UNSIGNED)
+                    // 2 - Level empty (UNSIGNED)
+                    // 3 - Skill ID mod 255 (remainder, UNSIGNED)
+                    // 4 - Skill ID mod 255 (division amount, UNSIGNED)
+                    // 5 - Level ween (UNSIGNED)
+                    // 
+                    // Skill ID mod 255 remainder + Skill ID mod 255 * 255 = Actual Skill ID
                     // 
                     // - Cancels -
-                    // 0 - Fail
-                    // 1 - Hit
-                    // 2 - UnCond
+                    // +0x00 - Fail
+                    // +0x01 - Hit
+                    // +0x02 - UnCond
+                    // +0x08 - Cancel condition is skill (otherwise is level)
                     // 
                     // - Flags -
                     // 0 - CANCEL_MASK 
@@ -15214,19 +15565,20 @@ LAB_00412d83:
                     // 2 - CANCEL_MASK
                     // 3 - Skill
       cancel_flags = skill->field_0x1;
-      cancel_empty = skill->_2;
+      cancel_empty = skill->field_0x2;
       cancel_skill_idx = skill->field_0x3;
       uVar8 = skill->field_0x4;
       uVar9 = skill->field_0x5;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb35] = skill->skill_step_type;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb36] = cancel_flags;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb37] = cancel_empty;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb38] = cancel_skill_idx;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb39] = uVar8;
-      ((kgt_mainKGT *)object_addy)->empty_e[0xb3a] = uVar9;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb35] = skill->cSkillType;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb36] = cancel_flags;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb37] = cancel_empty;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb38] = cancel_skill_idx;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb39] = uVar8;
+      ((kgtSystem *)kgtTargetStructure)->empty_e[0xb3a] = uVar9;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
-    case 0x1f:
+    case '\x1f':
                     // ----------------------------------
                     // - V - Variable -
                     // ----------------------------------
@@ -15270,64 +15622,62 @@ LAB_00412d83:
       var_LHS_long = skill->field_0x4;
       var_lhs = var_LHS_long >> 6;
       if (var_lhs == 0) {
-        char_i = (byte *)((int)current_obj->hitbox_guard_array + (var_LHS_long & 0x3f) * 2 + 0x58);
+        char_i = (byte *)((int)pkgtoCurrentEngineObject->hitbox_guard_array +
+                         (var_LHS_long & 0x3f) * 2 + 0x58);
       }
       else if (var_lhs == 1) {
-        char_i = ((kgt_mainKGT *)object_addy)->empty_e + (var_LHS_long & 0x3f) * 2 + 0xb3b;
+        char_i = ((kgtSystem *)kgtTargetStructure)->empty_e + (var_LHS_long & 0x3f) * 2 + 0xb3b;
       }
       else if (var_lhs == 2) {
-        char_i = &DAT_KGT_FILE_BUFFER_00433240.field_0x12470 + (var_LHS_long & 0x3f) * 2;
+        char_i = &SYSTEM_VARIABLES + (var_LHS_long & 0x3f) * 2;
       }
       var_flags = skill->field_0x5;
       if ((var_flags & 0x80) == 0) {
         local_11c = (uint)*(ushort *)&skill->field_0x7;
         goto switchD_0041380c_default;
       }
-      life_recover_number = skill->field_0x6;
-      switch(life_recover_number >> 6) {
+      cLifeRecovery = skill->field_0x6;
+      switch(cLifeRecovery >> 6) {
       case 0:
         local_11c = (uint)*(ushort *)
-                           ((int)current_obj->hitbox_guard_array +
-                           (life_recover_number & 0x3f) * 2 + 0x58);
+                           ((int)pkgtoCurrentEngineObject->hitbox_guard_array +
+                           (cLifeRecovery & 0x3f) * 2 + 0x58);
         break;
       case 1:
         local_11c = (uint)*(ushort *)
-                           (((kgt_mainKGT *)object_addy)->empty_e +
-                           (life_recover_number & 0x3f) * 2 + 0xb3b);
+                           (((kgtSystem *)kgtTargetStructure)->empty_e +
+                           (cLifeRecovery & 0x3f) * 2 + 0xb3b);
         break;
       case 2:
-        local_11c = (uint)*(ushort *)
-                           (&DAT_KGT_FILE_BUFFER_00433240.field_0x12470 +
-                           (life_recover_number & 0x3f) * 2);
+        local_11c = (uint)*(ushort *)(&SYSTEM_VARIABLES + (cLifeRecovery & 0x3f) * 2);
         break;
       case 3:
-        switch(life_recover_number & 0x3f) {
+        switch(cLifeRecovery & 0x3f) {
         case 0:
-          special_stock_gauge_max = current_obj->param_3;
+          iCurrentStoryStep = pkgtoCurrentEngineObject->iParam3;
           goto LAB_00413865;
         case 1:
-          special_stock_gauge_max = current_obj->param_4;
+          iCurrentStoryStep = pkgtoCurrentEngineObject->iParam4;
           goto LAB_00413865;
         case 2:
-          local_11c = unk_y_position;
-          break;
-        case 3:
           local_11c = unk_x_position;
           break;
+        case 3:
+          local_11c = unk_y_pos2;
+          break;
         case 4:
-          special_stock_gauge_max = current_obj->parent_obj->param_3;
+          iCurrentStoryStep = pkgtoCurrentEngineObject->parent_obj->iParam3;
           goto LAB_00413865;
         case 5:
-          special_stock_gauge_max = current_obj->parent_obj->param_4;
+          iCurrentStoryStep = pkgtoCurrentEngineObject->parent_obj->iParam4;
 LAB_00413865:
-          local_11c = (int)((special_stock_gauge_max >> 0x1f & 0xffffU) + special_stock_gauge_max)
-                      >> 0x10;
+          local_11c = (int)((iCurrentStoryStep >> 0x1f & 0xffffU) + iCurrentStoryStep) >> 0x10;
           break;
         case 6:
-          local_11c = GAME_STATE.gameTimerInFrames / 100;
+          local_11c = gkgtGameState.iGameTimerInFrames / 100;
           break;
         case 7:
-          local_11c = GAME_STATE.poss_current_round_count;
+          local_11c = gkgtGameState.iCurrentRound;
         }
       }
 switchD_0041380c_default:
@@ -15335,39 +15685,39 @@ switchD_0041380c_default:
         *(short *)char_i = (short)local_11c;
       }
       else if ((var_flags & 3) == 2) {
-        special_stock_gauge_max = (int)*(short *)char_i + (int)(short)local_11c;
-        if (special_stock_gauge_max < -30000) {
+        iCurrentStoryStep = (int)*(short *)char_i + (int)(short)local_11c;
+        if (iCurrentStoryStep < -30000) {
           char_i[0] = 0xd0;
           char_i[1] = 0x8a;
         }
         else {
-          if (30000 < special_stock_gauge_max) {
-            special_stock_gauge_max = 30000;
+          if (30000 < iCurrentStoryStep) {
+            iCurrentStoryStep = 30000;
           }
-          *(short *)char_i = (short)special_stock_gauge_max;
+          *(short *)char_i = (short)iCurrentStoryStep;
         }
       }
-      life_recover_number = var_flags >> 2 & 3;
-      if (life_recover_number == 1) {
+      cLifeRecovery = var_flags >> 2 & 3;
+      if (cLifeRecovery == 1) {
         if (*(short *)char_i != *(short *)&skill->field_0x9)
         goto switchD_00412610_advance_skillscript;
       }
-      else if (life_recover_number == 2) {
+      else if (cLifeRecovery == 2) {
         if (*(short *)char_i <= *(short *)&skill->field_0x9)
         goto switchD_00412610_advance_skillscript;
       }
-      else if ((life_recover_number != 3) || (*(short *)&skill->field_0x9 <= *(short *)char_i))
+      else if ((cLifeRecovery != 3) || (*(short *)&skill->field_0x9 <= *(short *)char_i))
       goto switchD_00412610_advance_skillscript;
       uVar5 = *(ushort *)&skill->field_0x1;
       if (uVar5 == 0) goto switchD_00412610_advance_skillscript;
-      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-      current_obj->action_idx = (uint)uVar5;
-      special_stock_gauge_max =
-           ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x3;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+      pkgtoCurrentEngineObject->iSkillIdx = (uint)uVar5;
+      iCurrentStoryStep =
+           ((ushort)pSkillsAlloc[uVar5].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x3;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = iCurrentStoryStep;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = iCurrentStoryStep + 1;
       goto LAB_004125ae;
-    case 0x20:
+    case ' ':
                     // ----------------------------------
                     // - R - Random -
                     // ----------------------------------
@@ -15382,18 +15732,18 @@ switchD_0041380c_default:
                     // 8 - Command ID
                     // 
       rand = _rand();
-      current_obj = PTR_POSS_CURRENT_OBJ;
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
       if ((rand % (int)(*(ushort *)&skill->field_0x1 + 1) <= (int)(uint)*(ushort *)&skill->field_0x3
           ) || (uVar5 = *(ushort *)&skill->field_0x6, uVar5 == 0))
       goto switchD_00412610_advance_skillscript;
-      pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-      PTR_POSS_CURRENT_OBJ->action_idx = (uint)uVar5;
+      pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+      gpkgtCurrentEngineObject->iSkillIdx = (uint)uVar5;
       random_skillcommand =
-           ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x8;
-      *(int *)&current_obj->actionscript_idx = random_skillcommand;
-      *(int *)&current_obj->actionscript_idx = random_skillcommand + 1;
+           ((ushort)pSkillsAlloc[uVar5].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x8;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = random_skillcommand;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = random_skillcommand + 1;
       goto LAB_004125ae;
-    case 0x23:
+    case '#':
                     // ----------------------------------
                     // - COLOR - Color -
                     // ----------------------------------
@@ -15410,30 +15760,32 @@ switchD_0041380c_default:
                     // 2 - Additive
                     // 3 - Subtractive
                     // 4 - Transparent (with custom alpha this time)
-      cVar10 = skill->_2;
+      bCarryOver = skill->field_0x2;
       cVar2 = skill->field_0x3;
-      *(uint *)&current_obj->color_blendtype = (uint)(byte)skill->field_0x1;
-      current_obj->color_red = (int)cVar10;
-      cVar10 = skill->field_0x4;
-      current_obj->color_green = (int)cVar2;
-      current_obj->color_blue = (int)cVar10;
-      if (*(int *)&current_obj->color_blendtype == 4) {
-        *(int *)&current_obj->color_alpha = (int)(char)skill->field_0x5;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(uint *)&pkgtoCurrentEngineObject->iColorBlendtype = (uint)(byte)skill->field_0x1;
+      pkgtoCurrentEngineObject->iColorRed = (int)bCarryOver;
+      bCarryOver = skill->field_0x4;
+      pkgtoCurrentEngineObject->iColorGreen = (int)cVar2;
+      pkgtoCurrentEngineObject->iColorBlue = (int)bCarryOver;
+      if (*(int *)&pkgtoCurrentEngineObject->iColorBlendtype == 4) {
+        *(int *)&pkgtoCurrentEngineObject->color_alpha = (int)(char)skill->field_0x5;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       }
       else {
-        *(undefined4 *)&current_obj->color_alpha = 0;
-        *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+        *(undefined4 *)&pkgtoCurrentEngineObject->color_alpha = 0;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+             *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       }
       goto LAB_004125ae;
-    case 0x24:
+    case '$':
                     // ----------------------------------
                     // - COM - Command input -
                     // ----------------------------------
-                    // 0 - Type
+                    // 0 - Type (0x24)
                     // 1 - Skill ID (low, UNSIGNED)
                     // 2 - Skill ID (low, UNSIGNED)
-                    // 3 - Command ID (UNSIGNED)
+                    // 3 - Skill Step ID (UNSIGNED)
                     // 4 - Command Time (UNSIGNED)
                     // 5 - Input 1 Data (low)
                     // 6 - Input 1 Data (high)
@@ -15446,57 +15798,45 @@ switchD_0041380c_default:
                     // D - Input 5 Data (low)
                     // E - Input 5 Data (high)
                     // 
-                    // - Motions -
-                    // 0 - Free
-                    // 1 - 5
-                    // 2 - 6
-                    // 3 - 3
-                    // 4 - 2
-                    // 5 - 1
-                    // 6 - 4
-                    // 7 - 7
-                    // 8 - 8
-                    // 9 - 9
-                    // A - 1 | 4 | 7
-                    // B - 7 | 8 | 9
-                    // C - 3 | 6 | 9
-                    // D - 1 | 2 | 3
+                    // - Inputs -
+                    // No input - +0x0
+                    // Numpad 5 - +0x1 
+                    // Numpad 6 - +0x2
+                    // Numpad 3 - +0x3
+                    // Numpad 2 - +0x4
+                    // Numpad 1 - +0x5
+                    // Numpad 4 - +0x6
+                    // Numpad 7 - +0x7
+                    // Numpad 8 - +0x8
+                    // Numpad 9 - +0x9
+                    // Numpad 7/4/1 - +0xA
+                    // Numpad 7/8/9 - +0xB
+                    // Numpad 9/6/3 - +0xC
+                    // Numpad 1/2/3 - +0xD
+                    // A - +0x10
+                    // B - +0x20
+                    // C - +0x40
+                    // D - +0x80
+                    // E - +0x1 (high bit)
+                    // F - +0x2 (high bit)
                     // 
-                    // - Types -
-                    // 0 - Standard
-                    // 1 - Repeat (?)
-                    // 2 - Hold (?)
-                    // 3 - 360 (?)
-                    // 
-                    // - COMMAND DATA -
-                    // 0 - MOTION_MASK
-                    // 1 - MOTION_MASK
-                    // 2 - MOTION_MASK
-                    // 3 - MOTION_MASK
-                    // 4 - A button
-                    // 5 - B button
-                    // 6 - C button
-                    // 7 - D button
-                    // 8 - E button
-                    // 9 - F button
-                    // A - unk
-                    // B - unk
-                    // C - Continue flag (if unset, this is the end of the input step)
-                    // D - Editable flag (if unset, this input step is greyed out in editor...)
-                    // E - TYPE_MASK (not used by skills)
-                    // F - TYPE_MASK (not used by skills)
-      special_stock_gauge_max = process_COM_skillblock(skill);
-      current_obj = PTR_POSS_CURRENT_OBJ;
-      if (special_stock_gauge_max == 0) goto switchD_00412610_advance_skillscript;
+                    // End flags
+                    // -------
+                    // Inactive - +0x10 (high bit)
+                    // End command - +0x20 (high bit)
+                    // Continue past this command - +0x30 (high bit)
+      iCurrentStoryStep = process_COM_skillblock(skill);
+      pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+      if (iCurrentStoryStep == 0) goto switchD_00412610_advance_skillscript;
       COM_skill_idx = *(ushort *)&skill->field_0x1;
-      PTR_POSS_CURRENT_OBJ->action_idx = (uint)COM_skill_idx;
+      gpkgtCurrentEngineObject->iSkillIdx = (uint)COM_skill_idx;
       COM_new_skillscript_idx =
-           ((ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[COM_skill_idx].
-                    starting_step_idx - 1) + (uint)(byte)skill->field_0x3;
-      *(int *)&current_obj->actionscript_idx = COM_new_skillscript_idx;
-      *(int *)&current_obj->actionscript_idx = COM_new_skillscript_idx + 1;
+           ((ushort)(((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc[COM_skill_idx].
+                    shStartingStepIdx - 1) + (uint)(byte)skill->field_0x3;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = COM_new_skillscript_idx;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = COM_new_skillscript_idx + 1;
       goto LAB_004125ae;
-    case 0x25:
+    case '%':
                     // ----------------------------------
                     // - AI - AfterI -
                     // ----------------------------------
@@ -15518,36 +15858,37 @@ switchD_0041380c_default:
                     // 2 - Smooth fadng
                     // 3 - Chika Chika fading
                     // 4 - Random
-      if (current_obj->_x650_index == 0) {
+      if (pkgtoCurrentEngineObject->_x650_index == 0) {
         _x650_idx = 0;
-        other_player_poss_relating = &DAT_00447f80;
+        iColorIntOtherPlayer = &DAT_00447f80;
         goto AI_0x650_is_0;
       }
-      _x650_idx = (byte)current_obj->_x650_index - 1;
+      _x650_idx = (byte)pkgtoCurrentEngineObject->_x650_index - 1;
       if ((skill->field_0x3 != '\0') && (skill->field_0x4 != '\0')) goto AI_quantity_interval_not_0;
-      current_obj->_x650_index = 0;
-      special_stock_gauge_max = *(int *)&current_obj->actionscript_idx;
+      pkgtoCurrentEngineObject->_x650_index = 0;
+      iCurrentStoryStep = *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx;
       (&DAT_00447f80)[_x650_idx * 0x194] = 0;
-      *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = iCurrentStoryStep + 1;
       goto LAB_004125ae;
     }
   }
-  _sprintf(local_100,s_ScriptMainLoopError__d__d___nd___0041f230,current_obj->player_file_buffer,
-           current_obj->obj_type,current_skill_idx,
-           *(int *)&current_obj->actionscript_idx -
-           (uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc
-                         [current_skill_idx + 1].starting_step_idx);
-  SET_DEBUG_INFO(local_100,0x8080ff);
+  _sprintf(local_100,s_ScriptMainLoopError__d__d___nd___0041f230,
+           pkgtoCurrentEngineObject->iPlayerIdx,pkgtoCurrentEngineObject->iObjectType,
+           current_skill_idx,
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx -
+           (uint)(ushort)(((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc
+                         [current_skill_idx + 1].shStartingStepIdx);
+  iSetDebugInfo(local_100,0x8080ff);
   goto switchD_0041270c_default;
   while( true ) {
-    other_player_poss_relating = other_player_poss_relating + 0x194;
+    iColorIntOtherPlayer = iColorIntOtherPlayer + 0x194;
     _x650_idx = _x650_idx + 1;
                     // AI 0x650_index is 0
-    if (0x46f6bf < (int)other_player_poss_relating) break;
+    if (0x46f6bf < (int)iColorIntOtherPlayer) break;
 AI_0x650_is_0:
-    if (*other_player_poss_relating == 0) {
+    if (*iColorIntOtherPlayer == 0) {
       (&DAT_00447f80)[_x650_idx * 0x194] = 1;
-      current_obj->_x650_index = (char)_x650_idx + '\x01';
+      pkgtoCurrentEngineObject->_x650_index = (char)_x650_idx + '\x01';
       break;
     }
   }
@@ -15557,36 +15898,38 @@ AI_quantity_interval_not_0:
     (&INT_00447f84)[_x650_idx * 0x194] = 0;
     (&INT_00447f88)[_x650_idx * 0x194] = (int)skill;
     (&INT_00447f8c)[_x650_idx * 0x194] = 0;
-    other_player_poss_relating = &INT_00447f90 + _x650_idx * 0x194;
-    for (special_stock_gauge_max = 400; special_stock_gauge_max != 0;
-        special_stock_gauge_max = special_stock_gauge_max + -1) {
-      *other_player_poss_relating = 0;
-      other_player_poss_relating = other_player_poss_relating + 1;
+    iColorIntOtherPlayer = &INT_00447f90 + _x650_idx * 0x194;
+    for (iCurrentStoryStep = 400; iCurrentStoryStep != 0; iCurrentStoryStep = iCurrentStoryStep + -1
+        ) {
+      *iColorIntOtherPlayer = 0;
+      iColorIntOtherPlayer = iColorIntOtherPlayer + 1;
     }
-    *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+    *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+         *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
     goto LAB_004125ae;
   }
-  SET_DEBUG_INFO(s_HAN_KATAKANA__0041f274,0x4444ff);
-  current_obj = PTR_POSS_CURRENT_OBJ;
+  iSetDebugInfo(s_HAN_KATAKANA__0041f274,0x4444ff);
+  pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
   goto switchD_00412610_advance_skillscript;
   while( true ) {
-    special_stock_gauge_max = special_stock_gauge_max + 1;
-    pOVar14 = pOVar14 + 1;
-    if (0x3ff < special_stock_gauge_max) break;
+    iCurrentStoryStep = iCurrentStoryStep + 1;
+    pkVar13 = pkVar13 + 1;
+    if (0x3ff < iCurrentStoryStep) break;
 OBJECT_BLOCK_LOOP:
-    if (pOVar14 == *(OBJ_STRUCT **)(((kgt_mainKGT *)object_addy)->empty_e + (uint)m_val * 4 + 0xb63)
-       ) {
+    if (pkVar13 ==
+        *(kgtEngineObject **)(((kgtSystem *)kgtTargetStructure)->empty_e + (uint)m_val * 4 + 0xb63))
+    {
       uVar5 = *(ushort *)&skill->field_0x5;
       if (uVar5 != 0) {
-        pActionAlloc = (((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc;
-        current_obj->action_idx = (uint)uVar5;
-        special_stock_gauge_max =
-             ((ushort)pActionAlloc[uVar5].starting_step_idx - 1) + (uint)(byte)skill->field_0x7;
-        *(int *)&current_obj->actionscript_idx = special_stock_gauge_max;
-        *(int *)&current_obj->actionscript_idx = special_stock_gauge_max + 1;
+        pSkillsAlloc = (((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc;
+        pkgtoCurrentEngineObject->iSkillIdx = (uint)uVar5;
+        iCurrentStoryStep =
+             ((ushort)pSkillsAlloc[uVar5].shStartingStepIdx - 1) + (uint)(byte)skill->field_0x7;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = iCurrentStoryStep;
+        *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx = iCurrentStoryStep + 1;
         goto LAB_004125ae;
       }
-      pOVar14->jmp_idx = reset_index;
+      pkVar13->iJumpIdx = RESET_IDX;
       pbVar1[0] = 0;
       pbVar1[1] = 0;
       pbVar1[2] = 0;
@@ -15595,109 +15938,113 @@ OBJECT_BLOCK_LOOP:
     }
   }
 LAB_00412b0a:
-  if (*(ushort *)&skill->_2 != 0) {
-    curr_obj_type = current_obj->obj_type;
-    life_recover_number = skill->field_0x1;
-    bVar13 = life_recover_number & 0x40;
-    if (curr_obj_type == main_kgt_file) {
-      if (((((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[*(ushort *)&skill->_2].
-           field_0x23 & 9) != 0) {
-        bVar13 = 0;
+  if (*(ushort *)&skill->field_0x2 != 0) {
+    curr_obj_type = pkgtoCurrentEngineObject->iObjectType;
+    cLifeRecovery = skill->field_0x1;
+    bVar12 = cLifeRecovery & 0x40;
+    if (curr_obj_type == SYSTEM_ENGINE_OBJECT) {
+      if (((((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc[*(ushort *)&skill->field_0x2].
+           cDemoDefaultScriptGroup & 9U) != 0) {
+        bVar12 = 0;
         goto LAB_00412b9c;
       }
 LAB_00412b66:
-      bVar13 = 1;
+      bVar12 = 1;
 LAB_00412b6e:
-      special_stock_gauge_max = (int)*(short *)&skill->field_0x8 << 0x10;
-      player_file_buff_idx = (int)*(short *)&skill->field_0xa << 0x10;
+      iCurrentStoryStep = (int)*(short *)&skill->field_0x8 << 0x10;
+      iPlayerIdx = (int)*(short *)&skill->field_0xa << 0x10;
     }
     else {
-      if (curr_obj_type == demo_file) goto LAB_00412b66;
-      if (curr_obj_type != stage_file) {
-        if ((life_recover_number & 0x40) == 0) goto LAB_00412b9c;
+      if (curr_obj_type == DEMO_ENGINE_OBJECT) goto LAB_00412b66;
+      if (curr_obj_type != STAGE_ENGINE_OBJECT) {
+        if ((cLifeRecovery & 0x40) == 0) goto LAB_00412b9c;
         goto LAB_00412b6e;
       }
-      bVar13 = 0;
+      bVar12 = 0;
 LAB_00412b9c:
-      if ((current_obj->pos_player_direction & 1) == 0) {
-        special_stock_gauge_max = *(short *)&skill->field_0x8 * 0x10000 + current_obj->param_3;
-        player_file_buff_idx = *(short *)&skill->field_0xa * 0x10000 + current_obj->param_4;
+      if ((pkgtoCurrentEngineObject->iPlayerLookingRight & 1) == 0) {
+        iCurrentStoryStep =
+             *(short *)&skill->field_0x8 * 0x10000 + pkgtoCurrentEngineObject->iParam3;
+        iPlayerIdx = *(short *)&skill->field_0xa * 0x10000 + pkgtoCurrentEngineObject->iParam4;
       }
       else {
-        special_stock_gauge_max = current_obj->param_3 + *(short *)&skill->field_0x8 * -0x10000;
-        player_file_buff_idx = *(short *)&skill->field_0xa * 0x10000 + current_obj->param_4;
+        iCurrentStoryStep =
+             pkgtoCurrentEngineObject->iParam3 + *(short *)&skill->field_0x8 * -0x10000;
+        iPlayerIdx = *(short *)&skill->field_0xa * 0x10000 + pkgtoCurrentEngineObject->iParam4;
       }
     }
-    uVar12 = current_obj->param2_maybe_50_or_46;
-    if ((life_recover_number & 3) == 0) {
-      uVar12 = uVar12 - 1;
-      if ((int)uVar12 < 10) {
-        uVar12 = 10;
+    uVar11 = pkgtoCurrentEngineObject->iParam2;
+    if ((cLifeRecovery & 3) == 0) {
+      uVar11 = uVar11 - 1;
+      if ((int)uVar11 < 10) {
+        uVar11 = 10;
       }
     }
-    else if ((life_recover_number & 3) == 1) {
-      uVar12 = uVar12 + 1;
-      if (0x7f < (int)uVar12) {
-        uVar12 = 0x7f;
+    else if ((cLifeRecovery & 3) == 1) {
+      uVar11 = uVar11 + 1;
+      if (0x7f < (int)uVar11) {
+        uVar11 = 0x7f;
       }
     }
-    else if ((life_recover_number & 3) == 2) {
-      uVar12 = (uint)(byte)skill->field_0xd;
+    else if ((cLifeRecovery & 3) == 2) {
+      uVar11 = (uint)(byte)skill->field_0xd;
     }
-    pOVar14 = FIND_EMPTY_OBJ(current_obj->jmp_idx,uVar12,special_stock_gauge_max,
-                             player_file_buff_idx);
-    current_obj = PTR_POSS_CURRENT_OBJ;
-    pOVar14->obj_type = 1;
-    pOVar14->player_file_buffer = current_obj->player_file_buffer;
-    switch(current_obj->obj_type) {
-    case 0:
-    case 1:
-    case player_file:
-      pOVar14->obj_type = 1;
+    pkVar13 = kgtoNewEngineObject(pkgtoCurrentEngineObject->iJumpIdx,uVar11,iCurrentStoryStep,
+                                  iPlayerIdx);
+    pkgtoCurrentEngineObject = gpkgtCurrentEngineObject;
+    pkVar13->iObjectType = STORY?_ENGINE_OBJECT;
+    pkVar13->iPlayerIdx = pkgtoCurrentEngineObject->iPlayerIdx;
+    switch(pkgtoCurrentEngineObject->iObjectType) {
+    case PLAYER_ENGINE_OBJECT:
+    case STORY?_ENGINE_OBJECT:
+    case CHARACTER_ENGINE_OBJECT:
+      pkVar13->iObjectType = STORY?_ENGINE_OBJECT;
       break;
-    case main_kgt_file:
-      pOVar14->obj_type = main_kgt_file;
+    case SYSTEM_ENGINE_OBJECT:
+      pkVar13->iObjectType = SYSTEM_ENGINE_OBJECT;
       break;
-    case demo_file:
-      pOVar14->obj_type = demo_file;
+    case DEMO_ENGINE_OBJECT:
+      pkVar13->iObjectType = DEMO_ENGINE_OBJECT;
       break;
-    case stage_file:
-      pOVar14->obj_type = stage_file;
+    case STAGE_ENGINE_OBJECT:
+      pkVar13->iObjectType = STAGE_ENGINE_OBJECT;
     }
-    uVar7 = *(undefined3 *)&current_obj->field_0x15;
-    special_stock_gauge_max = current_obj->pos_player_direction;
-    pOVar14->__or_3 = current_obj->__or_3;
-    *(undefined3 *)&pOVar14->field_0x15 = uVar7;
-    uVar5 = *(ushort *)&skill->_2;
-    pOVar14->pos_player_direction = special_stock_gauge_max;
-    pOVar14->action_idx = (uint)uVar5;
-    *(uint *)&pOVar14->actionscript_idx =
-         (uint)(ushort)(((kgt_mainKGT *)object_addy)->kgt_core).p_actions_alloc[uVar5].
-                       starting_step_idx + (uint)(byte)skill->field_0x4;
-    if (bVar13 == 0) {
-      pOVar14->unk_bitmask = pOVar14->unk_bitmask | 0x40000000;
+    uVar7 = *(undefined3 *)&pkgtoCurrentEngineObject->field_0x15;
+    iCurrentStoryStep = pkgtoCurrentEngineObject->iPlayerLookingRight;
+    pkVar13->__or_3 = pkgtoCurrentEngineObject->__or_3;
+    *(undefined3 *)&pkVar13->field_0x15 = uVar7;
+    uVar5 = *(ushort *)&skill->field_0x2;
+    pkVar13->iPlayerLookingRight = iCurrentStoryStep;
+    pkVar13->iSkillIdx = (uint)uVar5;
+    *(uint *)&pkVar13->iSkillScriptIdx =
+         (uint)(ushort)(((kgtSystem *)kgtTargetStructure)->kgtCore).pSkillsAlloc[uVar5].
+                       shStartingStepIdx + (uint)(byte)skill->field_0x4;
+    if (bVar12 == 0) {
+      pkVar13->unk_bitmask = pkVar13->unk_bitmask | 0x40000000;
     }
-    if ((int)current_obj->obj_type < 2) {
-      life_recover_number = skill->field_0x1;
-      if ((life_recover_number & 4) == 0) {
-        *(OBJ_STRUCT **)
-         (((kgt_mainKGT *)object_addy)->empty_e + (uint)(byte)skill->field_0xc * 4 + 0xb63) =
-             pOVar14;
+    if ((int)pkgtoCurrentEngineObject->iObjectType < 2) {
+      cLifeRecovery = skill->field_0x1;
+      if ((cLifeRecovery & 4) == 0) {
+        *(kgtEngineObject **)
+         (((kgtSystem *)kgtTargetStructure)->empty_e + (uint)(byte)skill->field_0xc * 4 + 0xb63) =
+             pkVar13;
       }
-      if ((life_recover_number & 8) != 0) {
-        pOVar14->unk_bitmask = pOVar14->unk_bitmask | 0x80000000;
+      if ((cLifeRecovery & 8) != 0) {
+        pkVar13->unk_bitmask = pkVar13->unk_bitmask | 0x80000000;
       }
     }
     if ((skill->field_0x1 & 0x20) != 0) {
-      *(undefined2 *)&pOVar14->field_0x12f = *(undefined2 *)&skill->field_0xa;
-      pOVar14->unk_bitmask = pOVar14->unk_bitmask | 0x20000000;
-      *(undefined2 *)&pOVar14->field_0x12d = *(undefined2 *)&skill->field_0x8;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      *(undefined2 *)&pkVar13->field_0x12f = *(undefined2 *)&skill->field_0xa;
+      pkVar13->unk_bitmask = pkVar13->unk_bitmask | 0x20000000;
+      *(undefined2 *)&pkVar13->field_0x12d = *(undefined2 *)&skill->field_0x8;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
       goto LAB_004125ae;
     }
   }
 switchD_00412610_advance_skillscript:
-  *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+  *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+       *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
 LAB_004125ae:
   if (local_108 == 0) {
     return;
@@ -15727,51 +16074,55 @@ switchD_00412610_compute_momentum:
                     // 
                     // Double check the flag values for movement skill blocks.
   player_ignore_flag_flag = 1;
-  if (current_obj->pos_player_direction != 0) {
+  if (pkgtoCurrentEngineObject->iPlayerLookingRight != 0) {
                     // Possibly direction player is facing
     player_ignore_flag_flag = -1;
   }
   mvmt_flags = skill->field_0x9;
   missing_x_flags_flag = (mvmt_flags & 1) == 0;
-  player_x_momentum = *(short *)&skill->field_0x3 * player_momentum_scalar * player_ignore_flag_flag
+  player_x_momentum = *(short *)&skill->field_0x3 * giPlayerMomentumScalar * player_ignore_flag_flag
   ;
   if ((mvmt_flags & 2) == 0) {
                     // Does not have Y momentum stop flag or X gravity stop flag
     if (missing_x_flags_flag) {
-      current_obj->x_momentum = player_x_momentum;
+      pkgtoCurrentEngineObject->iXMomentum = player_x_momentum;
     }
     else {
-      current_obj->x_momentum = current_obj->x_momentum + player_x_momentum;
+      pkgtoCurrentEngineObject->iXMomentum =
+           pkgtoCurrentEngineObject->iXMomentum + player_x_momentum;
     }
   }
-  player_y_momentum = *(short *)&skill->field_0x5 * player_momentum_scalar;
+  player_y_momentum = *(short *)&skill->field_0x5 * giPlayerMomentumScalar;
   if ((mvmt_flags & 4) == 0) {
                     // Y gravity stop flag
     if (missing_x_flags_flag) {
-      current_obj->y_momentum = player_y_momentum;
+      pkgtoCurrentEngineObject->iYMomentum = player_y_momentum;
     }
     else {
-      current_obj->y_momentum = current_obj->y_momentum + player_y_momentum;
+      pkgtoCurrentEngineObject->iYMomentum =
+           pkgtoCurrentEngineObject->iYMomentum + player_y_momentum;
     }
   }
-  special_stock_gauge_max = *(short *)&skill->field_0x1 * gravity_scalar * player_ignore_flag_flag;
+  iCurrentStoryStep = *(short *)&skill->field_0x1 * giGravityScalar * player_ignore_flag_flag;
   if ((mvmt_flags & 8) == 0) {
     if (missing_x_flags_flag) {
-      current_obj->x_gravity = special_stock_gauge_max;
+      pkgtoCurrentEngineObject->iXGravity = iCurrentStoryStep;
     }
     else {
-      current_obj->x_gravity = current_obj->x_gravity + special_stock_gauge_max;
+      pkgtoCurrentEngineObject->iXGravity = pkgtoCurrentEngineObject->iXGravity + iCurrentStoryStep;
     }
   }
-  special_stock_gauge_max = *(short *)&skill->field_0x7 * gravity_scalar;
+  iCurrentStoryStep = *(short *)&skill->field_0x7 * giGravityScalar;
   if ((mvmt_flags & 0x10) == 0) {
     if (missing_x_flags_flag) {
-      current_obj->y_gravity = special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      pkgtoCurrentEngineObject->iYGravity = iCurrentStoryStep;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
     }
     else {
-      current_obj->y_gravity = current_obj->y_gravity + special_stock_gauge_max;
-      *(int *)&current_obj->actionscript_idx = *(int *)&current_obj->actionscript_idx + 1;
+      pkgtoCurrentEngineObject->iYGravity = pkgtoCurrentEngineObject->iYGravity + iCurrentStoryStep;
+      *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx =
+           *(int *)&pkgtoCurrentEngineObject->iSkillScriptIdx + 1;
     }
     goto LAB_004125ae;
   }
@@ -15948,7 +16299,7 @@ int FUN_00413f30(int param_1,int param_2,int *param_3,int param_4)
 
 
 
-int GetJoystickPos(void)
+int iGetJoystickOnePos(void)
 
 {
   MMRESULT MVar1;
@@ -15960,23 +16311,23 @@ int GetJoystickPos(void)
   if (MVar1 != 0) {
     return 0;
   }
-  DWORD_Joystick_X_POS_00424e20 = local_34.dwXpos;
-  DWORD_Joystick_Y_POS_00424e24 = local_34.dwYpos;
+  gdwJoystickX = local_34.dwXpos;
+  gdwJoystickY = local_34.dwYpos;
   return 1;
 }
 
 
 
-int Check_Joystick_Capabilities_00414230(void)
+int iCheckJoystickOne(void)
 
 {
-  int iVar1;
+  int iJoystickPos;
   
-  iVar1 = GetJoystickPos();
-  if (iVar1 == 0) {
+  iJoystickPos = iGetJoystickOnePos();
+  if (iJoystickPos == 0) {
     return 0;
   }
-  joyGetDevCapsA(0,&pjc_004249e0,0x194);
+  joyGetDevCapsA(0,&gpjcJoystick,0x194);
   return 1;
 }
 
@@ -15984,7 +16335,7 @@ int Check_Joystick_Capabilities_00414230(void)
 
 // WARNING: Unknown calling convention -- yet parameter storage is locked
 
-int GetJoystickPos_2(void)
+int iGetJoystickTwoPos(void)
 
 {
   MMRESULT MVar1;
@@ -15996,8 +16347,8 @@ int GetJoystickPos_2(void)
   if (MVar1 != 0) {
     return 0;
   }
-  DWORD_JOYSTICK_XPOS_2_00424e28 = local_34.dwXpos;
-  DWORD_JOYSTICK_YPOS_2_00424e2c = local_34.dwYpos;
+  gdJoystickTwoX = local_34.dwXpos;
+  gdJoystickTwoY = local_34.dwYpos;
   return 1;
 }
 
@@ -16005,260 +16356,263 @@ int GetJoystickPos_2(void)
 
 // WARNING: Unknown calling convention -- yet parameter storage is locked
 
-int Check_Joystick_Capabilities_2_004142e0(void)
+int iCheckJoystickTwo(void)
 
 {
   int iVar1;
   
-  iVar1 = GetJoystickPos_2();
+  iVar1 = iGetJoystickTwoPos();
   if (iVar1 == 0) {
     return 0;
   }
-  joyGetDevCapsA(0,&pjc_00424b80,0x194);
+  joyGetDevCapsA(0,&gpjcJoystickTwo,0x194);
   return 1;
 }
 
 
 
-uint GET_KEY_PRESS(int param_1,int target_buffer)
+// |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |
+// |     |     |     |     |     |     |     |     |     |     |
+// |  F  |  E  |  D  |  C  |  B  |  A  | DWN | JMP | BCK | FWD |
+
+uint iTranslateKeyPress(int iControllerIdx,int iPlayerIdx)
 
 {
-  MMRESULT MVar1;
-  int iVar2;
-  uint uVar3;
-  UINT UVar4;
-  uint uVar5;
-  UINT UVar6;
-  uint res_keys_pressed;
-  joyinfoex_tag joystick_info;
-  bool b_poss_facing_left;
+  int iJoyYPos_2;
+  MMRESULT err;
+  uint iJoyXPos;
+  UINT iJoyYMin;
+  uint iJoyYPos;
+  UINT UVar1;
+  uint iResultKeysPressed;
+  joyinfoex_tag joystickInfo;
+  bool bFacingLeft;
   
-  res_keys_pressed = 0;
-  b_poss_facing_left = false;
-  if ((((GAME_STATE.over3kunder4kcheck < 3000) || (3999 < GAME_STATE.over3kunder4kcheck)) ||
-      (*(int *)&PLAYER_KGT_BUFFER[target_buffer].field_0xdf51 == 0)) ||
-     ((PLAYER_KGT_BUFFER[target_buffer].guard_button_flag & 8U) != 0)) {
-    b_poss_facing_left = true;
+  iResultKeysPressed = 0;
+  bFacingLeft = false;
+  if ((((gkgtGameState.iGameStateNumber < 3000) || (3999 < gkgtGameState.iGameStateNumber)) ||
+      (gkgtLoadedCharacter[iPlayerIdx].iUnkParam3Related == 0)) ||
+     ((gkgtLoadedCharacter[iPlayerIdx].cIsGuardButtonActive & 8) != 0)) {
+    bFacingLeft = true;
   }
-  if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].DOWN] & 0x80) != 0) {
-    res_keys_pressed = 8;
+  if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].DOWN] & 0x80) != 0) {
+    iResultKeysPressed = 8;
   }
-  if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].UP] & 0x80) != 0) {
-    res_keys_pressed = res_keys_pressed | 4;
+  if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].UP] & 0x80) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 4;
   }
-  if (b_poss_facing_left) {
-    if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].LEFT] & 0x80) != 0)
-    {
-      res_keys_pressed = res_keys_pressed | 1;
+  if (bFacingLeft) {
+    if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].LEFT] & 0x80) != 0) {
+      iResultKeysPressed = iResultKeysPressed | 1;
     }
-    if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].RIGHT] & 0x80) != 0
-       ) {
-      res_keys_pressed = res_keys_pressed | 2;
+    if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].RIGHT] & 0x80) != 0) {
+      iResultKeysPressed = iResultKeysPressed | 2;
     }
   }
   else {
-    if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].LEFT] & 0x80) != 0)
-    {
-      res_keys_pressed = res_keys_pressed | 2;
+    if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].LEFT] & 0x80) != 0) {
+      iResultKeysPressed = iResultKeysPressed | 2;
     }
-    if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].RIGHT] & 0x80) != 0
-       ) {
-      res_keys_pressed = res_keys_pressed | 1;
+    if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].RIGHT] & 0x80) != 0) {
+      iResultKeysPressed = iResultKeysPressed | 1;
     }
   }
-  if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].A] & 0x80) != 0) {
-    res_keys_pressed = res_keys_pressed | 0b00010000;
+  if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].A] & 0x80) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0b00010000;
   }
-  if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].B] & 0x80) != 0) {
-    res_keys_pressed = res_keys_pressed | 0b00100000;
+  if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].B] & 0x80) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0b00100000;
   }
-  if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].C] & 0x80) != 0) {
-    res_keys_pressed = res_keys_pressed | 0b01000000;
+  if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].C] & 0x80) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0b01000000;
   }
-  if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].D] & 0x80) != 0) {
-    res_keys_pressed = res_keys_pressed | 0b10000000;
+  if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].D] & 0x80) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0b10000000;
   }
-  if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].E] & 0x80) != 0) {
-    res_keys_pressed = res_keys_pressed | 0b0000000100000000;
+  if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].E] & 0x80) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0b0000000100000000;
   }
-  if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].F] & 0x80) != 0) {
-    res_keys_pressed = res_keys_pressed | 0b0000001000000000;
+  if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].F] & 0x80) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0b0000001000000000;
   }
-  if ((lpKeyState_00424d20[(byte)(&DAT_P1_KEYBOARD_CONTROLS_00425980)[param_1].ESC] & 0x80) != 0) {
-    res_keys_pressed = res_keys_pressed | 0b0000010000000000;
+  if ((glpKeyState[(byte)gcKeyboardControlsSets[iControllerIdx].ESC] & 0x80) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0b0000010000000000;
   }
-  if (UINT_TESTPLAY_JOYSTICK == 0) {
-    return res_keys_pressed;
+  if (giConfigTestplayJoystick == 0) {
+    return iResultKeysPressed;
   }
-  joystick_info.dwSize = 0x34;
-  joystick_info.dwFlags = 0x8ff;
-  if (param_1 == 0) {
-    MVar1 = joyGetPosEx(0,&joystick_info);
-    if (MVar1 != 0) {
-      return res_keys_pressed;
+                    // To-do: Replace flags with readable equivalent
+  joystickInfo.dwSize = 0x34;
+  joystickInfo.dwFlags = 0x8ff;
+  if (iControllerIdx == 0) {
+    err = joyGetPosEx(0,&joystickInfo);
+    if (err != 0) {
+      return iResultKeysPressed;
     }
-    if (pjc_004249e0.wXmax - pjc_004249e0.wXmin == 0) {
-      uVar3 = joystick_info.dwXpos / 0xccc;
-      uVar5 = joystick_info.dwYpos / 0xccc;
+    if (gpjcJoystick.wXmax - gpjcJoystick.wXmin == 0) {
+      iJoyXPos = joystickInfo.dwXpos / 0xccc;
+      iJoyYPos = joystickInfo.dwYpos / 0xccc;
       goto LAB_004145dd;
     }
-    uVar3 = (int)((joystick_info.dwXpos - DWORD_Joystick_X_POS_00424e20) * 0x14) /
-            (int)(pjc_004249e0.wXmax - pjc_004249e0.wXmin);
-    iVar2 = joystick_info.dwYpos - DWORD_Joystick_Y_POS_00424e24;
-    UVar4 = pjc_004249e0.wYmin;
-    UVar6 = pjc_004249e0.wYmax;
+    iJoyXPos = (int)((joystickInfo.dwXpos - gdwJoystickX) * 0x14) /
+               (int)(gpjcJoystick.wXmax - gpjcJoystick.wXmin);
+    iJoyYPos_2 = joystickInfo.dwYpos - gdwJoystickY;
+    iJoyYMin = gpjcJoystick.wYmin;
+    UVar1 = gpjcJoystick.wYmax;
   }
   else {
-    if (param_1 != 1) {
-      return res_keys_pressed;
+    if (iControllerIdx != 1) {
+      return iResultKeysPressed;
     }
-    MVar1 = joyGetPosEx(1,&joystick_info);
-    if (MVar1 != 0) {
-      return res_keys_pressed;
+    err = joyGetPosEx(1,&joystickInfo);
+    if (err != 0) {
+      return iResultKeysPressed;
     }
-    if (pjc_00424b80.wXmax - pjc_00424b80.wXmin == 0) {
-      uVar3 = joystick_info.dwXpos / 0xccc;
-      uVar5 = joystick_info.dwYpos / 0xccc;
+    if (gpjcJoystickTwo.wXmax - gpjcJoystickTwo.wXmin == 0) {
+      iJoyXPos = joystickInfo.dwXpos / 0xccc;
+      iJoyYPos = joystickInfo.dwYpos / 0xccc;
       goto LAB_004145dd;
     }
-    uVar3 = (int)((joystick_info.dwXpos - DWORD_JOYSTICK_XPOS_2_00424e28) * 0x14) /
-            (int)(pjc_00424b80.wXmax - pjc_00424b80.wXmin);
-    iVar2 = joystick_info.dwYpos - DWORD_JOYSTICK_YPOS_2_00424e2c;
-    UVar4 = pjc_00424b80.wYmin;
-    UVar6 = pjc_00424b80.wYmax;
+    iJoyXPos = (int)((joystickInfo.dwXpos - gdJoystickTwoX) * 0x14) /
+               (int)(gpjcJoystickTwo.wXmax - gpjcJoystickTwo.wXmin);
+    iJoyYPos_2 = joystickInfo.dwYpos - gdJoystickTwoY;
+    iJoyYMin = gpjcJoystickTwo.wYmin;
+    UVar1 = gpjcJoystickTwo.wYmax;
   }
-  uVar5 = (iVar2 * 0x14) / (int)(UVar6 - UVar4);
+  iJoyYPos = (iJoyYPos_2 * 0x14) / (int)(UVar1 - iJoyYMin);
 LAB_004145dd:
-  if (b_poss_facing_left) {
-    if ((int)uVar3 < -3) {
-      res_keys_pressed = res_keys_pressed | 1;
+  if (bFacingLeft) {
+    if ((int)iJoyXPos < -3) {
+      iResultKeysPressed = iResultKeysPressed | 1;
     }
-    if (3 < (int)uVar3) {
-      res_keys_pressed = res_keys_pressed | 2;
+    if (3 < (int)iJoyXPos) {
+      iResultKeysPressed = iResultKeysPressed | 2;
     }
   }
   else {
-    if ((int)uVar3 < -3) {
-      res_keys_pressed = res_keys_pressed | 2;
+    if ((int)iJoyXPos < -3) {
+      iResultKeysPressed = iResultKeysPressed | 2;
     }
-    if (3 < (int)uVar3) {
-      res_keys_pressed = res_keys_pressed | 1;
+    if (3 < (int)iJoyXPos) {
+      iResultKeysPressed = iResultKeysPressed | 1;
     }
   }
-  if ((int)uVar5 < -3) {
-    res_keys_pressed = res_keys_pressed | 4;
+  if ((int)iJoyYPos < -3) {
+    iResultKeysPressed = iResultKeysPressed | 4;
   }
-  if (3 < (int)uVar5) {
-    res_keys_pressed = res_keys_pressed | 8;
+  if (3 < (int)iJoyYPos) {
+    iResultKeysPressed = iResultKeysPressed | 8;
   }
-  param_1 = param_1 * 7;
-  if ((joystick_info.dwButtons & 1 << (JOYSTICK_INPUTS[param_1] & 0x1fU)) != 0) {
-    res_keys_pressed = res_keys_pressed | 0x10;
+  iControllerIdx = iControllerIdx * 7;
+  if ((joystickInfo.dwButtons & 1 << (JOYSTICK_INPUTS[iControllerIdx] & 0x1fU)) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0x10;
   }
-  if ((joystick_info.dwButtons & 1 << (JOYSTICK_INPUTS[param_1 + 1] & 0x1fU)) != 0) {
-    res_keys_pressed = res_keys_pressed | 0x20;
+  if ((joystickInfo.dwButtons & 1 << (JOYSTICK_INPUTS[iControllerIdx + 1] & 0x1fU)) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0x20;
   }
-  if ((joystick_info.dwButtons & 1 << (JOYSTICK_INPUTS[param_1 + 2] & 0x1fU)) != 0) {
-    res_keys_pressed = res_keys_pressed | 0x40;
+  if ((joystickInfo.dwButtons & 1 << (JOYSTICK_INPUTS[iControllerIdx + 2] & 0x1fU)) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0x40;
   }
-  if ((joystick_info.dwButtons & 1 << (JOYSTICK_INPUTS[param_1 + 3] & 0x1fU)) != 0) {
-    res_keys_pressed = res_keys_pressed | 0x80;
+  if ((joystickInfo.dwButtons & 1 << (JOYSTICK_INPUTS[iControllerIdx + 3] & 0x1fU)) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0x80;
   }
-  if ((joystick_info.dwButtons & 1 << (JOYSTICK_INPUTS[param_1 + 4] & 0x1fU)) != 0) {
-    res_keys_pressed = res_keys_pressed | 0x100;
+  if ((joystickInfo.dwButtons & 1 << (JOYSTICK_INPUTS[iControllerIdx + 4] & 0x1fU)) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0x100;
   }
-  if ((joystick_info.dwButtons & 1 << (JOYSTICK_INPUTS[param_1 + 5] & 0x1fU)) != 0) {
-    res_keys_pressed = res_keys_pressed | 0x200;
+  if ((joystickInfo.dwButtons & 1 << (JOYSTICK_INPUTS[iControllerIdx + 5] & 0x1fU)) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0x200;
   }
-  if ((joystick_info.dwButtons & 1 << (JOYSTICK_INPUTS[param_1 + 6] & 0x1fU)) != 0) {
-    res_keys_pressed = res_keys_pressed | 0x400;
+  if ((joystickInfo.dwButtons & 1 << (JOYSTICK_INPUTS[iControllerIdx + 6] & 0x1fU)) != 0) {
+    iResultKeysPressed = iResultKeysPressed | 0x400;
   }
-  return res_keys_pressed;
+  return iResultKeysPressed;
 }
 
 
 
-void GET_INPUTS(void)
+void vGetPlayerInputs(void)
 
 {
   uint *puVar1;
   uint *puVar2;
-  int iVar3;
   int i;
-  int iVar4;
-  int *piVar5;
-  int LAST_INPUTS;
-  int _ND_LAST_INPUTS;
-  int uVar3;
+  int iCounter;
+  int *piVar3;
+  int iInput;
+  int iLastInput;
+  int iThirtyTwo;
+  int iFive;
   
-  GetKeyboardState(lpKeyState_00424d20);
-  INPUT_BUFFER_POS = INPUT_BUFFER_POS + 1U & 1023;
-  piVar5 = user_keys_pressed_ARRAY_004259c0;
+  GetKeyboardState(glpKeyState);
+                    // Move current position up by one, looping at 1023 (starting at idx 0)
+  giInputBufferPos = giInputBufferPos + 1U & 1023;
+  piVar3 = giUserKeydowns;
   for (i = 8; i != 0; i = i + -1) {
-    *piVar5 = 0;
-    piVar5 = piVar5 + 1;
+    *piVar3 = 0;
+    piVar3 = piVar3 + 1;
   }
-  if ((GAME_STATE.over3kunder4kcheck < 3000) || (GAME_STATE.GAME_MODE != 1P_story)) {
-    user_keys_pressed_ARRAY_004259c0[0] = GET_KEY_PRESS(0,0);
-    INPUT_BUFFER_A[0][INPUT_BUFFER_POS] = user_keys_pressed_ARRAY_004259c0[0];
-    user_keys_pressed_ARRAY_004259c0[1] = GET_KEY_PRESS(1,1);
-    INPUT_BUFFER_A[1][INPUT_BUFFER_POS] = user_keys_pressed_ARRAY_004259c0[1];
+  if ((gkgtGameState.iGameStateNumber < 3000) || (gkgtGameState.kgtGameMode != 1P_story)) {
+    giUserKeydowns[0] = iTranslateKeyPress(0,0);
+    giInputBufferA[0][giInputBufferPos] = giUserKeydowns[0];
+    giUserKeydowns[1] = iTranslateKeyPress(1,1);
+    giInputBufferA[1][giInputBufferPos] = giUserKeydowns[1];
   }
   else {
-    user_keys_pressed_ARRAY_004259c0[0] = GET_KEY_PRESS(UNK_KGT_PLAYER_BUFFER_IDX,0);
-    INPUT_BUFFER_A[0][INPUT_BUFFER_POS] = user_keys_pressed_ARRAY_004259c0[0];
+    giUserKeydowns[0] = iTranslateKeyPress(giStoryModePlayerIdx,0);
+    giInputBufferA[0][giInputBufferPos] = giUserKeydowns[0];
   }
-  LAST_INPUT_OR_VALUE_EVERY_FRAME = 0;
-  LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME = 0;
-  LAST_INPUT_BITWISE_OR_VALUE_EVERY_FRAME = 0;
+  giLastInput_2 = 0;
+  giLastInputXor_2 = 0;
+  giLastInput_3 = 0;
   i = 0;
   do {
-    LAST_INPUTS = *(int *)((int)user_keys_pressed_ARRAY_004259c0 + i);
-    _ND_LAST_INPUTS = *(int *)((int)LAST_INPUTS_RAW + i);
-    *(int *)((int)LAST_INPUTS_RAW + i) = LAST_INPUTS;
-    *(int *)((int)LAST_INPUT_DIFFERENCE + i) = (LAST_INPUTS ^ _ND_LAST_INPUTS) & LAST_INPUTS;
-    uVar3 = INT_0041e3fc;
-    if ((LAST_INPUTS == 0) || (LAST_INPUTS != *(int *)((int)LAST_INPUT_BITWISE_TESTS + i))) {
-      *(int *)((int)LAST_INPUT_BITWISE_TESTED + i) = LAST_INPUTS;
-      *(int *)((int)INT_ARRAY_004d1c40 + i) = uVar3;
-      if ((*(uint *)((int)LAST_INPUT_BITWISE_TESTS + i) & 3) != 0) {
-        *(uint *)((int)LAST_INPUT_BITWISE_TESTED + i) = LAST_INPUTS & 0xfffffffc;
+    iInput = *(int *)((int)giUserKeydowns + i);
+    iLastInput = *(int *)((int)giLastInput + i);
+    *(int *)((int)giLastInput + i) = iInput;
+    *(int *)((int)giLastInputXor + i) = (iInput ^ iLastInput) & iInput;
+    iThirtyTwo = giThirtyTwo;
+    if ((iInput == 0) || (iInput != *(int *)((int)giLastInputBitwiseTester + i))) {
+      *(int *)((int)giLastInputCleaned + i) = iInput;
+      *(int *)((int)iInputCountdowns + i) = iThirtyTwo;
+                    // Forward/Back testing
+      if ((*(uint *)((int)giLastInputBitwiseTester + i) & 3) != 0) {
+        *(uint *)((int)giLastInputCleaned + i) = iInput & 0xfffffffc;
       }
-      if ((*(uint *)((int)LAST_INPUT_BITWISE_TESTS + i) & 0xc) != 0) {
-        *(uint *)((int)LAST_INPUT_BITWISE_TESTED + i) =
-             *(uint *)((int)LAST_INPUT_BITWISE_TESTED + i) & 0xfffffff3;
+                    // Up/Down testing
+      if ((*(uint *)((int)giLastInputBitwiseTester + i) & 0xc) != 0) {
+        *(uint *)((int)giLastInputCleaned + i) = *(uint *)((int)giLastInputCleaned + i) & 0xfffffff3
+        ;
       }
-      *(int *)((int)LAST_INPUT_BITWISE_TESTS + i) = LAST_INPUTS;
+      *(int *)((int)giLastInputBitwiseTester + i) = iInput;
     }
     else {
-      iVar4 = *(int *)((int)INT_ARRAY_004d1c40 + i) + -1;
-      *(int *)((int)INT_ARRAY_004d1c40 + i) = iVar4;
-      iVar3 = INT_0041e400;
-      if (iVar4 == 0) {
-                    // Might be a glitch - If you hold down the same inputs until the corresponding
-                    // 004d1c40 array value goes to zero (Looks like it counts down once per
-                    // frame??), you could hold simultaneous left/right or up/down buttons
-        *(int *)((int)LAST_INPUT_BITWISE_TESTED + i) = LAST_INPUTS;
-        *(int *)((int)INT_ARRAY_004d1c40 + i) = iVar3;
+      iCounter = *(int *)((int)iInputCountdowns + i) + -1;
+      *(int *)((int)iInputCountdowns + i) = iCounter;
+      iFive = giFive;
+      if (iCounter == 0) {
+                    // BUG: Might be a glitch - If you hold down the same inputs until the
+                    // corresponding 004d1c40 array value goes to zero (Looks like it counts down
+                    // once per frame??), you could hold simultaneous left/right or up/down buttons
+        *(int *)((int)giLastInputCleaned + i) = iInput;
+        *(int *)((int)iInputCountdowns + i) = iFive;
       }
       else {
-        *(undefined4 *)((int)LAST_INPUT_BITWISE_TESTED + i) = 0;
+        *(undefined4 *)((int)giLastInputCleaned + i) = 0;
       }
     }
-    puVar1 = (uint *)((int)LAST_INPUT_BITWISE_TESTED + i);
-    LAST_INPUT_OR_VALUE_EVERY_FRAME = LAST_INPUT_OR_VALUE_EVERY_FRAME | LAST_INPUTS;
-    puVar2 = (uint *)((int)LAST_INPUT_DIFFERENCE + i);
+    puVar1 = (uint *)((int)giLastInputCleaned + i);
+    giLastInput_2 = giLastInput_2 | iInput;
+    puVar2 = (uint *)((int)giLastInputXor + i);
     i = i + 4;
-    LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME =
-         LAST_INPUT_DIFFERENCE_OR_VALUE_EVERY_FRAME | *puVar2;
-    LAST_INPUT_BITWISE_OR_VALUE_EVERY_FRAME = LAST_INPUT_BITWISE_OR_VALUE_EVERY_FRAME | *puVar1;
+    giLastInputXor_2 = giLastInputXor_2 | *puVar2;
+    giLastInput_3 = giLastInput_3 | *puVar1;
   } while (i < 32);
   return;
 }
 
 
 
-int FUN_00414860(char param_1)
+int iSubtractTwoFiftySixIfAboveOneTwentySeven(char param_1)
 
 {
   int iVar1;
@@ -16272,10 +16626,10 @@ int FUN_00414860(char param_1)
 
 
 
-void DISPLAY_MESSAGE_BOX_00414880(LPCSTR text)
+void vSpawnTaskModalWithWarning(LPCSTR text)
 
 {
-  MessageBoxA(HWND_004246f8,text,PTR_s_HAN__0041e2f4,0x2030);
+  MessageBoxA(gHwnd,text,gsContact,0x2030);
   return;
 }
 
@@ -16285,158 +16639,144 @@ void SAVE_PLAYERNAME_SESSIONNAME(void)
 
 {
   WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_PlayerName_0041f290,
-             (LPCSTR)&PTR_playername_config_kgt2kini,PTR_s_kgt2k_INI_0041f28c);
+            (gpsLpAppName,gpsPlayerNameKey,(LPCSTR)&gpsPlayerNameOut,gpsKgt2kConfigFilename);
   WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_SessionName_0041f294,
-             (LPCSTR)&PTR_s_session_name_config_kgt2kini,PTR_s_kgt2k_INI_0041f28c);
+            (gpsLpAppName,gpsSessionNameKey,(LPCSTR)&gpsSessionNameOut,gpsKgt2kConfigFilename);
   return;
 }
 
 
 
-void read_kgt2k_ini(void)
+// Loads Player and Session name from KGT2K.ini specifically.
+
+void vLoadKgt2kConfig(void)
 
 {
   GetPrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_PlayerName_0041f290,s_Player_1_0041f62c,
-             (LPSTR)&PTR_playername_config_kgt2kini,32,PTR_s_kgt2k_INI_0041f28c);
+            (gpsLpAppName,gpsPlayerNameKey,gsPlayer1,(LPSTR)&gpsPlayerNameOut,32,
+             gpsKgt2kConfigFilename);
   GetPrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_SessionName_0041f294,s_Session_1_0041f638,
-             (LPSTR)&PTR_s_session_name_config_kgt2kini,32,PTR_s_kgt2k_INI_0041f28c);
+            (gpsLpAppName,gpsSessionNameKey,gsSession1,(LPSTR)&gpsSessionNameOut,32,
+             gpsKgt2kConfigFilename);
   return;
 }
 
 
 
-void Load_Config_00414930(void)
+void vLoadGameConfig(void)
 
 {
-  UINT key_result;
-  char **charpp_keyboard_input_pointers;
-  char **papuVar3;
-  int i_player_number;
-  int i_keyboard_iter;
-  char *formatted_msg;
-  undefined *puVar1;
-  int iStack_208;
-  int i_joystick_iter;
-  char config_file [256];
-  char acStack_100 [256];
-  bool b_both_players_controls_set;
+  UINT iKeyResult;
+  char **psKeyboardInput;
+  char **psJoystickInput;
+  int iPlayerNumber;
+  int iKeyboardIter;
+  int iMemoryOffset;
+  int iJoystickIter;
+  char sConfigFilename [256];
+  char sInputConfigKeyname [256];
+  bool bAreBothPlayersControlsSet;
+  char *sFormattedMsg;
+  undefined *sTempFilename;
   
-  if (APPMODE == NORMAL) {
-    formatted_msg = s__s__s_0041f644;
-    puVar1 = PTR_s_game_ini_0041f29c;
+  if (giAppmode == NORMAL) {
+    sFormattedMsg = s__s__s_0041f644;
+    sTempFilename = gpsGameConfigFilename;
   }
   else {
-    formatted_msg = s__s__s_0041f64c;
-    puVar1 = PTR_s_2D_Fighter_Maker_2002_ini_0041f298;
+    sFormattedMsg = s__s__s_0041f64c;
+    sTempFilename = gpsTestmodeGameConfigFilename;
   }
-  _sprintf(config_file,formatted_msg,s_another_game_exe_address_,puVar1);
-  UINT_TESTPLAY_PLAYER0_NB =
+  _sprintf(sConfigFilename,sFormattedMsg,gsCurrentDirectory,sTempFilename);
+  giConfigTestplayPlayer0Nb =
        GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_Player0_nb_0041f2a8,0,config_file)
+                 (gpsLpAppName,PTR_s_Editor_TestPlay_Player0_nb_0041f2a8,0,sConfigFilename);
+  giConfigTestplayerPlayer0Cpu =
+       GetPrivateProfileIntA
+                 (gpsLpAppName,PTR_s_Editor_TestPlay_Player0_cpu_0041f2ac,0,sConfigFilename);
+  giConfigTestplayPlayer1Nb =
+       GetPrivateProfileIntA
+                 (gpsLpAppName,PTR_s_Editor_TestPlay_Player1_nb_0041f2b0,0,sConfigFilename);
+  giConfigTestplayPlayer1Cpu =
+       GetPrivateProfileIntA
+                 (gpsLpAppName,PTR_s_Editor_TestPlay_Player1_cpu_0041f2b4,0,sConfigFilename);
+  giConfigTestplayGamespeed =
+       GetPrivateProfileIntA
+                 (gpsLpAppName,PTR_s_Editor_TestPlay_GameSpeed_0041f2b8,10,sConfigFilename);
+  giConfigTestplayHitjudge =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_Editor_TestPlay_HitJudge_0041f2bc,0,sConfigFilename)
   ;
-  UINT_TESTPLAY_PLAYER0_CPU =
+  giConfigTestplayGameinfo =
        GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_Player0_cpu_0041f2ac,0,config_file
-                 );
-  UINT_TESTPLAY_PLAYER1_NB =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_Player1_nb_0041f2b0,0,config_file)
+                 (gpsLpAppName,PTR_s_Editor_TestPlay_GameInformation_0041f2c0,0,sConfigFilename);
+  giConfigTestplayStageNb =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_Editor_TestPlay_StageNb_0041f2c4,0,sConfigFilename);
+  giConfigTestplayJoystick =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_Editor_TestPlay_JoyStick_0041f2cc,1,sConfigFilename)
   ;
-  UINT_TESTPLAY_PLAYER1_CPU =
+  giConfigTestplayTime =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_Editor_TestPlay_time_0041f2d0,0x3c,sConfigFilename);
+  giConfigTestplayExit =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_Editor_TestPlay_exit_0041f2d4,0,sConfigFilename);
+  giConfigTestplayVsMode =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_Editor_TestPlay_VSMode_0041f2d8,0,sConfigFilename);
+  giConfigNumberOfRoundsTeamVs =
        GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_Player1_cpu_0041f2b4,0,config_file
-                 );
-  UINT_TESTPLAY_GAMESPEED =
+                 (gpsLpAppName,PTR_s_Editor_TestPlay_VSTeamPlay_0041f2e0,3,sConfigFilename);
+  giConfigNumberOfRounds =
        GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_GameSpeed_0041f2b8,10,config_file)
-  ;
-  UINT_TESTPLAY_HITJUDGE =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_HitJudge_0041f2bc,0,config_file);
-  UINT_TESTPLAY_GAMEINFO =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_GameInformation_0041f2c0,0,
-                  config_file);
-  UINT_TESTPLAY_STAGENB =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_StageNb_0041f2c4,0,config_file);
-  UINT_TESTPLAY_JOYSTICK =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_JoyStick_0041f2cc,1,config_file);
-  UINT_TESTPLAY_TIME =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_time_0041f2d0,0x3c,config_file);
-  UINT_TESTPLAY_EXIT =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_exit_0041f2d4,0,config_file);
-  UINT_TESTPLAY_VSMODE =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_VSMode_0041f2d8,0,config_file);
-  UINT___OF_ROUNDS_TEAM_VS_00430128 =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_VSTeamPlay_0041f2e0,3,config_file)
-  ;
-  UINT___OF_ROUNDS_00430124 =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_VSSinglePlay_0041f2dc,3,
-                  config_file);
+                 (gpsLpAppName,PTR_s_Editor_TestPlay_VSSinglePlay_0041f2dc,3,sConfigFilename);
+                    // Unsure what this final line is meant to do. Associated variables do not seem
+                    // to be called in other places.
   GetPrivateProfileStringA
             (LPCSTR_UNK_LPAPPNAME_0041f2a0,LPCSTR_S_FILENAME_0041f2a4,(LPCSTR)&lpDefault_0042478c,
-             &lpReturnedString_0043012c,0x104,config_file);
-  i_joystick_iter = 0;
-  iStack_208 = 0;
-  i_player_number = 1;
+             &gsConfigReturnedFilename,0x104,sConfigFilename);
+  iJoystickIter = 0;
+  iMemoryOffset = 0;
+  iPlayerNumber = 1;
   do {
-    charpp_keyboard_input_pointers = PTR_s_UP_0041f2e8[0];
-    i_keyboard_iter = iStack_208;
+                    // Loop for setting player controls
+    psKeyboardInput = gpsKeyboardKeyNames;
+    iKeyboardIter = iMemoryOffset;
     do {
-                    // button setting input loop
-      _sprintf(acStack_100,s_Player_d_KEY__s_0041f654,i_player_number,
-               *charpp_keyboard_input_pointers);
-      key_result = GetPrivateProfileIntA
-                             (LPCSTR_lpAppName_00541f7c,acStack_100,
-                              (uint)*(byte *)((int)PTR_s_UP_0041f2e8[0] + i_keyboard_iter + 0x2c),
-                              config_file);
-      (&DAT_P1_KEYBOARD_CONTROLS_00425980.UP)[i_keyboard_iter] = (char)key_result;
-      charpp_keyboard_input_pointers = charpp_keyboard_input_pointers + 1;
-      i_keyboard_iter = i_keyboard_iter + 1;
-    } while ((int)charpp_keyboard_input_pointers < 0x41f314);
-    papuVar3 = PTR_JOYSTICK_BUTTONS[0];
+                    // Keyboard controls loops
+      _sprintf(sInputConfigKeyname,gpsPlayerKeyFormat,iPlayerNumber,*psKeyboardInput);
+      iKeyResult = GetPrivateProfileIntA
+                             (gpsLpAppName,sInputConfigKeyname,
+                              (uint)(byte)gsKeyboardControlsForDialogBoxPlayer1[iKeyboardIter],
+                              sConfigFilename);
+      (&gcKeyboardControlsSets[0].UP)[iKeyboardIter] = (char)iKeyResult;
+      psKeyboardInput = psKeyboardInput + 1;
+      iKeyboardIter = iKeyboardIter + 1;
+    } while ((int)psKeyboardInput < 0x41f314);
+    psJoystickInput = gpsJoystickKeyNames;
     do {
-      _sprintf(acStack_100,s_Player_d_JOY__s_0041f664,i_player_number,*papuVar3);
-      key_result = GetPrivateProfileIntA
-                             (LPCSTR_lpAppName_00541f7c,acStack_100,
-                              (uint)*(byte *)((int)PTR_JOYSTICK_BUTTONS[0] + i_joystick_iter + 0x1c)
-                              ,config_file);
-      JOYSTICK_INPUTS[i_joystick_iter] = (char)key_result;
-      papuVar3 = papuVar3 + 1;
-      i_joystick_iter = i_joystick_iter + 1;
-    } while ((int)papuVar3 < 0x41f354);
-    iStack_208 = iStack_208 + 17;
-    b_both_players_controls_set = i_player_number < 2;
-    i_player_number = i_player_number + 1;
-  } while (b_both_players_controls_set);
-  UINT_EDITER_DEMO_NB =
-       GetPrivateProfileIntA(LPCSTR_lpAppName_00541f7c,PTR_s_Editer_DemoNb_0041f2e4,0,config_file);
-  UINT_GAME_WINDOW_POINT_X =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_GameWindowPoint_x_0041f36c,0,config_file);
-  UINT_GAME_WINDOW_PAOINT_Y =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_GameWindowPoint_y_0041f370,0,config_file);
-  UINT_GAME_WINDOW_SIZE_X =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_GameWindowSize_x_0041f364,0,config_file);
-  UINT_GAME_WINDOW_SIZE_Y =
-       GetPrivateProfileIntA
-                 (LPCSTR_lpAppName_00541f7c,PTR_s_GameWindowSize_y_0041f368,0,config_file);
-  UINT_GAME_SCREEN_MODE =
-       GetPrivateProfileIntA(LPCSTR_lpAppName_00541f7c,PTR_s_GameScreenMode_0041f374,0,config_file);
-  UINT_TESTPLAY_HITJUDGE_2_0042470c = UINT_TESTPLAY_HITJUDGE;
+      _sprintf(sInputConfigKeyname,gpsPlayerJosytickKeyFormat,iPlayerNumber,*psJoystickInput);
+      iKeyResult = GetPrivateProfileIntA
+                             (gpsLpAppName,sInputConfigKeyname,
+                              (uint)(byte)gpsJoystickControlsForDialogBoxPlayer1[iJoystickIter],
+                              sConfigFilename);
+      JOYSTICK_INPUTS[iJoystickIter] = (char)iKeyResult;
+      psJoystickInput = psJoystickInput + 1;
+      iJoystickIter = iJoystickIter + 1;
+    } while ((int)psJoystickInput < 0x41f354);
+    iMemoryOffset = iMemoryOffset + 17;
+    bAreBothPlayersControlsSet = iPlayerNumber < 2;
+    iPlayerNumber = iPlayerNumber + 1;
+  } while (bAreBothPlayersControlsSet);
+  giConfigEditorDemoNb =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_Editer_DemoNb_0041f2e4,0,sConfigFilename);
+  gConfigiGameWindowPointX =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_GameWindowPoint_x_0041f36c,0,sConfigFilename);
+  giConfigGameWindowPointY =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_GameWindowPoint_y_0041f370,0,sConfigFilename);
+  giConfigGameWindowSizeX =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_GameWindowSize_x_0041f364,0,sConfigFilename);
+  giConfigGameWindowSizeY =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_GameWindowSize_y_0041f368,0,sConfigFilename);
+  giConfigGameScreenMode =
+       GetPrivateProfileIntA(gpsLpAppName,PTR_s_GameScreenMode_0041f374,0,sConfigFilename);
+  giConfigTestplayHitjudge_2 = giConfigTestplayHitjudge;
   return;
 }
 
@@ -16446,11 +16786,10 @@ void __cdecl FUN_SAVE_INI_FILE_00414ca0(void)
 
 {
   bool bVar1;
-  undefined *(*papuVar2) [12];
-  undefined *(*papuVar3) [8];
-  CONTROL_LAYOUT *pCVar4;
+  char **ppcVar2;
+  CONTROL_LAYOUT *pCVar3;
   char *formatted_msg;
-  undefined *puVar5;
+  undefined *puVar4;
   int local_30c;
   CONTROL_LAYOUT *local_308;
   byte *local_304;
@@ -16458,130 +16797,117 @@ void __cdecl FUN_SAVE_INI_FILE_00414ca0(void)
   char local_200 [256];
   char local_100 [256];
   
-  UINT_TESTPLAY_GAMEINFO = GAME_STATE.status_display;
-  if (APPMODE == NORMAL) {
+  giConfigTestplayGameinfo = gkgtGameState.iStatusDisplay;
+  if (giAppmode == NORMAL) {
     formatted_msg = s__s__s_0041f674;
-    puVar5 = PTR_s_game_ini_0041f29c;
+    puVar4 = gpsGameConfigFilename;
   }
   else {
     formatted_msg = s__s__s_0041f67c;
-    puVar5 = PTR_s_2D_Fighter_Maker_2002_ini_0041f298;
+    puVar4 = gpsTestmodeGameConfigFilename;
   }
-  _sprintf(local_200,formatted_msg,s_another_game_exe_address_,puVar5);
-  UINT_TESTPLAY_HITJUDGE = UINT_TESTPLAY_HITJUDGE_2_0042470c;
-  wsprintfA(local_300,s__u_0041f684,UINT_TESTPLAY_PLAYER0_CPU);
+  _sprintf(local_200,formatted_msg,gsCurrentDirectory,puVar4);
+  giConfigTestplayHitjudge = giConfigTestplayHitjudge_2;
+  wsprintfA(local_300,s__u_0041f684,giConfigTestplayerPlayer0Cpu);
   WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_Player0_cpu_0041f2ac,local_300,
-             local_200);
-  wsprintfA(local_300,s__u_0041f688,UINT_TESTPLAY_PLAYER1_CPU);
+            (gpsLpAppName,PTR_s_Editor_TestPlay_Player0_cpu_0041f2ac,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f688,giConfigTestplayPlayer1Cpu);
   WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_Player1_cpu_0041f2b4,local_300,
-             local_200);
-  wsprintfA(local_300,s__u_0041f68c,UINT_TESTPLAY_GAMESPEED);
+            (gpsLpAppName,PTR_s_Editor_TestPlay_Player1_cpu_0041f2b4,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f68c,giConfigTestplayGamespeed);
   WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_GameSpeed_0041f2b8,local_300,local_200)
+            (gpsLpAppName,PTR_s_Editor_TestPlay_GameSpeed_0041f2b8,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f690,giConfigTestplayHitjudge);
+  WritePrivateProfileStringA
+            (gpsLpAppName,PTR_s_Editor_TestPlay_HitJudge_0041f2bc,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f694,giConfigTestplayGameinfo);
+  WritePrivateProfileStringA
+            (gpsLpAppName,PTR_s_Editor_TestPlay_GameInformation_0041f2c0,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f698,giConfigTestplayStageNb);
+  WritePrivateProfileStringA
+            (gpsLpAppName,PTR_s_Editor_TestPlay_StageNb_0041f2c4,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f69c,giConfigTestplayJoystick);
+  WritePrivateProfileStringA
+            (gpsLpAppName,PTR_s_Editor_TestPlay_JoyStick_0041f2cc,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f6a0,giConfigTestplayTime);
+  WritePrivateProfileStringA(gpsLpAppName,PTR_s_Editor_TestPlay_time_0041f2d0,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f6a4,giConfigTestplayExit);
+  WritePrivateProfileStringA(gpsLpAppName,PTR_s_Editor_TestPlay_exit_0041f2d4,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f6a8,giConfigTestplayVsMode);
+  WritePrivateProfileStringA(gpsLpAppName,PTR_s_Editor_TestPlay_VSMode_0041f2d8,local_300,local_200)
   ;
-  wsprintfA(local_300,s__u_0041f690,UINT_TESTPLAY_HITJUDGE);
+  wsprintfA(local_300,s__u_0041f6ac,giConfigNumberOfRounds);
   WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_HitJudge_0041f2bc,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f694,UINT_TESTPLAY_GAMEINFO);
+            (gpsLpAppName,PTR_s_Editor_TestPlay_VSSinglePlay_0041f2dc,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f6b0,giConfigNumberOfRoundsTeamVs);
   WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_GameInformation_0041f2c0,local_300,
-             local_200);
-  wsprintfA(local_300,s__u_0041f698,UINT_TESTPLAY_STAGENB);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_StageNb_0041f2c4,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f69c,UINT_TESTPLAY_JOYSTICK);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_JoyStick_0041f2cc,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f6a0,UINT_TESTPLAY_TIME);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_time_0041f2d0,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f6a4,UINT_TESTPLAY_EXIT);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_exit_0041f2d4,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f6a8,UINT_TESTPLAY_VSMODE);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_VSMode_0041f2d8,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f6ac,UINT___OF_ROUNDS_00430124);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_VSSinglePlay_0041f2dc,local_300,
-             local_200);
-  wsprintfA(local_300,s__u_0041f6b0,UINT___OF_ROUNDS_TEAM_VS_00430128);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_Editor_TestPlay_VSTeamPlay_0041f2e0,local_300,local_200
-            );
+            (gpsLpAppName,PTR_s_Editor_TestPlay_VSTeamPlay_0041f2e0,local_300,local_200);
   local_30c = 1;
   local_304 = (byte *)JOYSTICK_INPUTS;
-  local_308 = &DAT_P1_KEYBOARD_CONTROLS_00425980;
+  local_308 = gcKeyboardControlsSets;
   do {
-    papuVar2 = PTR_s_UP_0041f2e8;
-    pCVar4 = local_308;
+    ppcVar2 = gpsKeyboardKeyNames;
+    pCVar3 = local_308;
     do {
-      _sprintf(local_100,s_Player_d_KEY__s_0041f6b4,local_30c,(*papuVar2)[0]);
-      wsprintfA(local_300,(LPCSTR)&param_2_0041f6c4,(uint)(byte)pCVar4->UP);
-      WritePrivateProfileStringA(LPCSTR_lpAppName_00541f7c,local_100,local_300,local_200);
-      papuVar2 = (undefined *(*) [12])((int)papuVar2 + 4);
-      pCVar4 = (CONTROL_LAYOUT *)&pCVar4->LEFT;
-    } while ((int)papuVar2 < 0x41f314);
-    papuVar3 = PTR_JOYSTICK_BUTTONS;
+      _sprintf(local_100,s_Player_d_KEY__s_0041f6b4,local_30c,*ppcVar2);
+      wsprintfA(local_300,(LPCSTR)&param_2_0041f6c4,(uint)(byte)pCVar3->UP);
+      WritePrivateProfileStringA(gpsLpAppName,local_100,local_300,local_200);
+      ppcVar2 = ppcVar2 + 1;
+      pCVar3 = (CONTROL_LAYOUT *)&pCVar3->LEFT;
+    } while ((int)ppcVar2 < 0x41f314);
+    ppcVar2 = gpsJoystickKeyNames;
     do {
-      _sprintf(local_100,s_Player_d_JOY__s_0041f6c8,local_30c,(*papuVar3)[0]);
+      _sprintf(local_100,s_Player_d_JOY__s_0041f6c8,local_30c,*ppcVar2);
       wsprintfA(local_300,s__u_0041f6d8,(uint)*local_304);
-      WritePrivateProfileStringA(LPCSTR_lpAppName_00541f7c,local_100,local_300,local_200);
-      papuVar3 = (undefined *(*) [8])((int)papuVar3 + 4);
+      WritePrivateProfileStringA(gpsLpAppName,local_100,local_300,local_200);
+      ppcVar2 = ppcVar2 + 1;
       local_304 = local_304 + 1;
-    } while ((int)papuVar3 < 0x41f354);
+    } while ((int)ppcVar2 < 0x41f354);
     local_308 = local_308 + 1;
     bVar1 = local_30c < 2;
     local_30c = local_30c + 1;
   } while (bVar1);
-  wsprintfA(local_300,s__u_0041f6dc,UINT_GAME_WINDOW_POINT_X);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_GameWindowPoint_x_0041f36c,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f6e0,UINT_GAME_WINDOW_PAOINT_Y);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_GameWindowPoint_y_0041f370,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f6e4,UINT_GAME_WINDOW_SIZE_X);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_GameWindowSize_x_0041f364,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f6e8,UINT_GAME_WINDOW_SIZE_Y);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_GameWindowSize_y_0041f368,local_300,local_200);
-  wsprintfA(local_300,s__u_0041f6ec,UINT_GAME_SCREEN_MODE);
-  WritePrivateProfileStringA
-            (LPCSTR_lpAppName_00541f7c,PTR_s_GameScreenMode_0041f374,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f6dc,gConfigiGameWindowPointX);
+  WritePrivateProfileStringA(gpsLpAppName,PTR_s_GameWindowPoint_x_0041f36c,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f6e0,giConfigGameWindowPointY);
+  WritePrivateProfileStringA(gpsLpAppName,PTR_s_GameWindowPoint_y_0041f370,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f6e4,giConfigGameWindowSizeX);
+  WritePrivateProfileStringA(gpsLpAppName,PTR_s_GameWindowSize_x_0041f364,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f6e8,giConfigGameWindowSizeY);
+  WritePrivateProfileStringA(gpsLpAppName,PTR_s_GameWindowSize_y_0041f368,local_300,local_200);
+  wsprintfA(local_300,s__u_0041f6ec,giConfigGameScreenMode);
+  WritePrivateProfileStringA(gpsLpAppName,PTR_s_GameScreenMode_0041f374,local_300,local_200);
   return;
 }
 
 
 
-void FUN_ZERO_OUT_DEBUG_STRUCTS_00415170(void)
+void vMemzeroDebugStructs(void)
 
 {
-  memzero(&UNK_STRUCT_DEBUG_A,0x870);
-  memzero(&UNK_STRUCT_G_DEBUG_B__00425a00,0x44);
+  vMemzero(&UNK_STRUCT_DEBUG_A,0x870);
+  vMemzero(&UNK_STRUCT_G_DEBUG_B__00425a00,0x44);
   return;
 }
 
 
 
-int SET_DEBUG_INFO(char *debug_str,void *param_2)
+int iSetDebugInfo(char *debug_str,void *param_2)
 
 {
-  UNK_0x48_struct_ptr_8_undefined debug_event;
+  UNK_0x48_struct_ptr_8_char_64_ debug_event;
   int prev_event;
   
-  if (APPMODE == NORMAL) {
+  if (giAppmode == NORMAL) {
     return 0;
   }
-  debug_event = (UNK_0x48_struct_ptr_8_undefined)UNK_STRUCT_DEBUG_A.debug_events[28].str;
+  debug_event = (UNK_0x48_struct_ptr_8_char_64_)UNK_STRUCT_DEBUG_A.debug_events[28].str;
   do {
     prev_event = (int)(debug_event + -2) + 0x38;
     _sprintf(ADJ(debug_event)->str,s__s_0041f6f0,prev_event);
     ADJ(debug_event)->color = *(COLORREF *)((int)(debug_event + -2) + 0x34);
     *(int *)(debug_event + 1) = ADJ(debug_event).A;
-    debug_event = (UNK_0x48_struct_ptr_8_undefined)prev_event;
+    debug_event = (UNK_0x48_struct_ptr_8_char_64_)prev_event;
   } while (0x46f70b < prev_event);
   _sprintf(UNK_STRUCT_DEBUG_A.str,s__s_0041f6f4,debug_str);
   UNK_STRUCT_DEBUG_A.ptr = param_2;
@@ -16591,7 +16917,7 @@ int SET_DEBUG_INFO(char *debug_str,void *param_2)
 
 
 
-void sub_1_debug_event(void)
+void vDebugEventASubOne(void)
 
 {
   UNK_0x48_struct *debug_event;
@@ -16619,7 +16945,7 @@ void DISP_DEBUG_INFO(void)
   UNK_0x48_struct_ptr_8_undefined debug_event;
   char acStack_100 [256];
   
-  hdc = HDC_DIP_A;
+  hdc = ghHdcDip_1;
   hfont = CreateFontA(0xe,6,0,0,0,0,0,0,0x80,0,0,0,0x30,s_KATAKANA__0041f6f8);
   hObj = SelectObject(hdc,hfont);
   SetBkMode(hdc,1);
@@ -16659,21 +16985,22 @@ void DISP_DEBUG_INFO(void)
 
 
 
-bool FUN_004153b0(char param_1)
+bool bCheckIfDiscDrive(char param_1)
 
 {
   UINT UVar1;
   char local_4;
   undefined3 uStack_3;
   
-  _local_4 = CONCAT31((int3)((uint)PTR_DAT_0041f70c >> 8),param_1 + 'A');
+                    // To-Do: Fix this ghidra-ism
+  _local_4 = CONCAT31(s_A___0041f70c._1_3_,param_1 + 'A');
   UVar1 = GetDriveTypeA(&local_4);
   return UVar1 == 5;
 }
 
 
 
-void CLOSE_MCIDEVICE(void)
+void vCloseMciDevice(void)
 
 {
   if (MCI_OPEN_FLAG != 0) {
@@ -16689,8 +17016,9 @@ void CLOSE_MCIDEVICE(void)
 
 
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
+// WARNING: Unknown calling convention -- yet parameter storage is locked
 
-undefined4 FUN_00415440(void)
+int iUnkHandleMci_2(void)
 
 {
   char cVar1;
@@ -16706,15 +17034,15 @@ undefined4 FUN_00415440(void)
   char *local_c;
   undefined *local_8;
   
-  uVar2 = DAT_0041e404;
-  cVar1 = (char)DAT_0041e404;
+  uVar2 = giMciFlags;
+  cVar1 = (char)giMciFlags;
   if (MCI_OPEN_FLAG != 0) {
-    CLOSE_MCIDEVICE();
+    vCloseMciDevice();
     MCI_OPEN_FLAG = 0;
   }
-  if (DAT_0041e404 != 0xffffffff) {
+  if (giMciFlags != 0xffffffff) {
     local_c = s_cdaudio_0041f710;
-    local_8 = &DAT_DIR_BUFFER_0041e408;
+    local_8 = &gsCurrentDirectory_2;
     MVar3 = mciSendCommandA(0,0x803,0x2200,(DWORD_PTR)local_14);
     MCIDEVICEID_00424720 = local_10;
     if (MVar3 != 0) {
@@ -16730,7 +17058,7 @@ undefined4 FUN_00415440(void)
     }
     local_28 = uVar2 & 0xff;
     local_24 = (uint)(byte)(cVar1 + 1);
-    local_2c = HWND_004246f8;
+    local_2c = gHwnd;
     MVar3 = mciSendCommandA(MCIDEVICEID_00424720,0x806,0xd,(DWORD_PTR)&local_2c);
     if (MVar3 != 0) {
       mciSendCommandA(MCIDEVICEID_00424720,0x804,0,0);
@@ -16746,33 +17074,32 @@ undefined4 FUN_00415440(void)
 
 // WARNING: Globals starting with '_' overlap smaller symbols at the same address
 
-void FUN_00415570(undefined4 param_1,undefined4 param_2)
+void vLoadsoundFromDisc(int iMciFlags,int loopFlag)
 
 {
   int iVar1;
-  int iVar2;
+  int iAlphabetOffset;
   
-  iVar2 = 0;
-  DAT_00424728 = param_2;
-  DAT_0041e404 = param_1;
+  iAlphabetOffset = 0;
+  giDiscLoopFlag = loopFlag;
+  giMciFlags = iMciFlags;
   _DAT_00424734 = 1;
   DAT_0041e409 = 0x3a;
   DAT_0041e40a = 0;
-  iVar1 = FUN_00415440();
+  iVar1 = iUnkHandleMci_2();
   if (iVar1 != 0) {
     do {
-      iVar1 = FUN_004153b0(iVar2);
+      iVar1 = bCheckIfDiscDrive(iAlphabetOffset);
       if (iVar1 != 0) {
-        DAT_DIR_BUFFER_0041e408 = (char)iVar2 + 'A';
-        iVar1 = FUN_00415440();
+        gsCurrentDirectory_2 = (char)iAlphabetOffset + 'A';
+        iVar1 = iUnkHandleMci_2();
         if (iVar1 == 0) {
           return;
         }
       }
-      iVar2 = iVar2 + 1;
-    } while (iVar2 < 0x1a);
-    MessageBoxA(HWND_004246f8,s_Plese_insert_Audio_CD_rom_0041f720,(LPCSTR)&lpCaption_0041f718,0x30)
-    ;
+      iAlphabetOffset = iAlphabetOffset + 1;
+    } while (iAlphabetOffset < 0x1a);
+    MessageBoxA(gHwnd,gsPleaseInsertAudioCDRom,(LPCSTR)&lpCaption_0041f718,0x30);
   }
   return;
 }
@@ -16792,7 +17119,7 @@ void ___vdecl_acos2(void)
 
 
 
-void FUN_00415600(void)
+void vUnkHandleMci(void)
 
 {
   if (MCI_FLAG_00424738 != 0) {
@@ -16813,14 +17140,14 @@ void del_mid_file(void)
   CHAR local_108 [264];
   
   GetWindowsDirectoryA(local_108,0x105);
-  _sprintf(local_108,&DAT_0041f7b4,local_108,s__2dfightermaker2nd20022_mid_0041f798);
+  _sprintf(local_108,&DAT_0041f7b4,local_108,gsGlobalMidFile);
   DeleteFileA(local_108);
   return;
 }
 
 
 
-undefined4 play_then_close_mid_file(void)
+int iPlayAndCloseMidFile(void)
 
 {
   MCIERROR MVar1;
@@ -16836,11 +17163,11 @@ undefined4 play_then_close_mid_file(void)
   pcVar3 = mciSendCommandA_exref;
   if (MCI_FLAG_00424738 == 0) {
     GetWindowsDirectoryA(local_108,0x105);
-    _sprintf(local_108,&DAT_0041f7bc,local_108,s__2dfightermaker2nd20022_mid_0041f798);
+    _sprintf(local_108,&DAT_0041f7bc,local_108,gsGlobalMidFile);
     pcVar3 = mciSendCommandA_exref;
                     // MCI_OPEN command
     pCStack_11c = local_108;
-    pHStack_128 = HWND_004246f8;
+    pHStack_128 = gHwnd;
     pcStack_120 = s_sequencer_0041f7c4;
     MVar1 = mciSendCommandA(0,0x803,0x2200,(DWORD_PTR)&pHStack_128);
     if (MVar1 != 0) {
@@ -16853,7 +17180,7 @@ undefined4 play_then_close_mid_file(void)
     mciSendCommandA(MCIDEVICEID_0042473c,0x807,0x100,0);
   }
                     // MCI_PLAY
-  local_114[0] = HWND_004246f8;
+  local_114[0] = gHwnd;
   iVar2 = (*pcVar3)(MCIDEVICEID_0042473c,0x806,1,local_114);
   if (iVar2 != 0) {
                     // MCI_STOP, CLOSE
@@ -16867,155 +17194,160 @@ undefined4 play_then_close_mid_file(void)
 
 
 
-void write_mid_file(HGLOBAL *param_1)
+void vWriteAndPlayMidFile(kgtSound *kgtsound)
 
 {
   HGLOBAL hMem;
   LPVOID lpBuffer;
   HANDLE hFile;
   DWORD local_10c;
-  CHAR local_108 [264];
+  CHAR sDirectory [264];
   
-  DAT_00424740 = (*(byte *)(param_1 + 10) & 0x10) >> 4;
+  DAT_00424740 = ((byte)kgtsound->cFlags & 0x10) >> 4;
   del_mid_file();
-  FUN_00415600();
+  vUnkHandleMci();
   local_10c = 0;
-  GetWindowsDirectoryA(local_108,0x105);
-  _sprintf(local_108,s__s_s_0041f7d0,local_108,s__2dfightermaker2nd20022_mid_0041f798);
-  hMem = *param_1;
+  GetWindowsDirectoryA(sDirectory,0x105);
+  _sprintf(sDirectory,s__s_s_0041f7d0,sDirectory,gsGlobalMidFile);
+  hMem = kgtsound->pAlloc;
   lpBuffer = GlobalLock(hMem);
-  hFile = CreateFileA(local_108,0x40000000,0,(LPSECURITY_ATTRIBUTES)0x0,2,0x80,(HANDLE)0x0);
-  WriteFile(hFile,lpBuffer,(DWORD)param_1[9],&local_10c,(LPOVERLAPPED)0x0);
+  hFile = CreateFileA(sDirectory,0x40000000,0,(LPSECURITY_ATTRIBUTES)0x0,2,0x80,(HANDLE)0x0);
+  WriteFile(hFile,lpBuffer,kgtsound->iSizeOrWavPtr,&local_10c,(LPOVERLAPPED)0x0);
   CloseHandle(hFile);
   GlobalUnlock(hMem);
-  play_then_close_mid_file();
+  iPlayAndCloseMidFile();
   return;
 }
 
 
 
-bool FUN_00415bf0(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
-                 undefined4 param_5)
+bool bGetWavInformation(int zero,void *alloc,int *pWavFmtBloc,int *pWavDataBloc,int *iDataBlocSize)
 
 {
-  int iVar1;
+  int err;
   
-  iVar1 = FUN_00416000(param_2,param_3,param_4,param_5);
-  return iVar1 != 0;
+  err = iWalkWavFile(alloc,pWavFmtBloc,pWavDataBloc,iDataBlocSize);
+  return err != 0;
 }
 
 
 
-int * FUN_00415c20(int *param_1,undefined4 param_2)
+IDirectSoundBuffer8 ** dxGetSoundBufferInterface(IDirectSound8 **pDsoundInterface,void *alloc)
 
 {
-  int iVar1;
-  undefined4 uVar2;
-  int *local_18;
-  undefined4 local_14;
-  undefined4 local_10;
-  undefined4 local_c;
-  undefined4 local_8;
-  undefined4 local_4;
+  int err;
+  IDirectSoundBuffer8 **sound_buffer;
+  int **buffer_desc;
+  int local_10;
+  int iDataSize;
+  undefined4 uStack_8;
+  int iStack_4;
   
   local_10 = 0;
-  local_c = 0;
-  local_8 = 0;
-  local_4 = 0;
-  local_18 = (int *)0x0;
-  local_14 = 0;
-  iVar1 = FUN_00415bf0(0,param_2,&local_4,&param_2,&local_c);
-  if (iVar1 == 0) {
-    return local_18;
+  iDataSize = 0;
+  uStack_8 = 0;
+  iStack_4 = 0;
+  sound_buffer = (IDirectSoundBuffer8 **)0x0;
+  buffer_desc = (int **)0x0;
+  err = bGetWavInformation(0,alloc,&iStack_4,(int *)&alloc,&iDataSize);
+  if (err == 0) {
+    return sound_buffer;
   }
-  uVar2 = 0;
-  local_14 = 0x14;
+  buffer_desc = (int **)0x14;
   local_10 = 0xe2;
-  iVar1 = (**(code **)(*param_1 + 0xc))(param_1,&local_14,&local_18,0);
-  if (-1 < iVar1) {
-    iVar1 = FUN_00415f40(param_1,local_8,uVar2);
-    if (iVar1 != 0) {
-      return param_1;
+                    // CreateSoundBuffer
+  err = (*(*pDsoundInterface)->CreateSoundBuffer)
+                  (pDsoundInterface,&buffer_desc,&sound_buffer,(IUnknown *)0x0);
+  if (-1 < err) {
+    err = iWriteFromSoundAlloc(sound_buffer,alloc,(int *)iDataSize);
+    if (err != 0) {
+      return sound_buffer;
     }
-    (**(code **)(*param_1 + 8))(param_1);
+                    // Release
+    (*(*sound_buffer)->Release)(sound_buffer);
   }
-  return (int *)0x0;
+  return (IDirectSoundBuffer8 **)0x0;
 }
 
 
 
-player_file_hlocal_struct * FUN_00415cd0(int *param_1,undefined4 param_2,int param_3)
+kgtWav * kgtwBuildWav(IDirectSound8 **iDirectSoundInterface,void *alloc,int one)
 
 {
+  int err;
+  kgtWav *ppLocalAlloc;
+  IDirectSoundBuffer8 **dxSoundBufferInterface;
   int iVar1;
-  player_file_hlocal_struct *ppVar2;
-  player_file_hlocal_internal *ppVar3;
-  int iVar4;
-  HLOCAL pvVar5;
-  player_file_hlocal_struct *ppVar6;
-  HLOCAL local_c;
-  undefined4 local_8;
-  undefined1 local_4 [4];
+  IDirectSoundBuffer8 **ppIVar2;
+  IDirectSoundBuffer8 ***lplpDsbDuplicate;
+  void *pdataBloc;
+  int iDataBlocSize;
+  int *pFmtBloc;
   
-  iVar1 = FUN_00415bf0(0,param_2,local_4,&local_c,&local_8);
-  if (iVar1 == 0) {
-    return (player_file_hlocal_struct *)0x0;
+  err = bGetWavInformation(0,alloc,(int *)&pFmtBloc,(int *)&pdataBloc,&iDataBlocSize);
+  if (err == 0) {
+    return (kgtWav *)0x0;
   }
-  if (param_3 < 1) {
-    param_3 = 1;
+  if (one < 1) {
+    one = 1;
   }
-  ppVar2 = LocalAlloc(0x40,param_3 * 4 + 0x10);
-  if (ppVar2 != (player_file_hlocal_struct *)0x0) {
-    ppVar2->hlocal_intern_objects_amount = param_3;
-    ppVar2->hlocal = local_c;
-    *(undefined4 *)&ppVar2->field_0x4 = local_8;
-    ppVar3 = (player_file_hlocal_internal *)FUN_00415c20(param_1,param_2);
-    iVar1 = 1;
-    ppVar2->pp = ppVar3;
-    if (1 < param_3) {
-      ppVar6 = ppVar2 + 1;
+  ppLocalAlloc = LocalAlloc(0x40,one * 4 + 0x10);
+  if (ppLocalAlloc != (kgtWav *)0x0) {
+    ppLocalAlloc->one = one;
+    ppLocalAlloc->pDataBloc = pdataBloc;
+    ppLocalAlloc->iDataBlocSize = iDataBlocSize;
+    dxSoundBufferInterface =
+         (IDirectSoundBuffer8 **)dxGetSoundBufferInterface(iDirectSoundInterface,alloc);
+    err = 1;
+    ppLocalAlloc->IDirectSoundBuffer8Interface = dxSoundBufferInterface;
+    if (1 < one) {
+                    // This IF clause should never run
+      lplpDsbDuplicate = &ppLocalAlloc->IDirectSoundBuffer8Interface_duplicate;
       do {
-        iVar4 = (**(code **)(*param_1 + 0x14))(param_1,ppVar2->pp,ppVar6);
-        if (iVar4 < 0) {
-          pvVar5 = (HLOCAL)FUN_00415c20(param_1,param_2);
-          ppVar6->hlocal = pvVar5;
-          if (pvVar5 == (HLOCAL)0x0) {
-            clear_player_file_hlocal_objects(ppVar2);
-            ppVar2 = (player_file_hlocal_struct *)0x0;
+        iVar1 = (*(*iDirectSoundInterface)->DuplicateSoundBuffer)
+                          (iDirectSoundInterface,ppLocalAlloc->IDirectSoundBuffer8Interface,
+                           lplpDsbDuplicate);
+        if (iVar1 < 0) {
+          ppIVar2 = (IDirectSoundBuffer8 **)dxGetSoundBufferInterface(iDirectSoundInterface,alloc);
+          *lplpDsbDuplicate = ppIVar2;
+          if (ppIVar2 == (IDirectSoundBuffer8 **)0x0) {
+            vFreeKgtWav(ppLocalAlloc);
+            ppLocalAlloc = (kgtWav *)0x0;
             break;
           }
         }
-        iVar1 = iVar1 + 1;
-        ppVar6 = (player_file_hlocal_struct *)&ppVar6->field_0x4;
-      } while (iVar1 < ppVar2->hlocal_intern_objects_amount);
+        err = err + 1;
+        lplpDsbDuplicate = lplpDsbDuplicate + 1;
+      } while (err < ppLocalAlloc->one);
     }
   }
   GlobalFree(DAT_00424790);
-  return ppVar2;
+  return ppLocalAlloc;
 }
 
 
 
-void clear_player_file_hlocal_objects(player_file_hlocal_struct *param_1)
+void vFreeKgtWav(kgtWav *param_1)
 
 {
-  player_file_hlocal_internal *ppVar1;
-  player_file_hlocal_internal **offset_16bytes;
+  IDirectSoundBuffer8 **this;
+  void *offset_16bytes;
   int i;
+  void *ppVar1;
   
-  if (param_1 != (player_file_hlocal_struct *)0x0) {
+  if (param_1 != (kgtWav *)0x0) {
     i = 0;
-    if (0 < param_1->hlocal_intern_objects_amount) {
-      offset_16bytes = &param_1->pp;
+    if (0 < param_1->one) {
+      offset_16bytes = &param_1->IDirectSoundBuffer8Interface;
       do {
-        ppVar1 = *offset_16bytes;
-        if (ppVar1 != (player_file_hlocal_internal *)0x0) {
-          (*(code *)ppVar1->field0_0x0[2])(ppVar1);
-          *offset_16bytes = (player_file_hlocal_internal *)0x0;
+        this = *(IDirectSoundBuffer8 ***)offset_16bytes;
+        if (this != (IDirectSoundBuffer8 **)0x0) {
+          (*(*this)->Release)(this);
+          *(IDirectSoundBuffer8 ***)offset_16bytes = (IDirectSoundBuffer8 **)0x0;
         }
         i = i + 1;
-        offset_16bytes = offset_16bytes + 1;
-      } while (i < param_1->hlocal_intern_objects_amount);
+        offset_16bytes = (void *)((int)offset_16bytes + 4);
+      } while (i < param_1->one);
     }
     LocalFree(param_1);
   }
@@ -17024,60 +17356,66 @@ void clear_player_file_hlocal_objects(player_file_hlocal_struct *param_1)
 
 
 
-int * FUN_00415df0(undefined4 *param_1)
+IDirectSoundBuffer8 ** kgtdxReturnSoundBuffer(kgtWav *Wav)
 
 {
-  undefined4 *puVar1;
-  int iVar2;
-  int iVar3;
-  int *piVar4;
+  kgtWav *pkVar1;
+  int err;
+  int err_2;
+  int err_3;
+  IDirectSoundBuffer8 **SOUNDBUFFER;
   byte unaff_DI;
+  int idx;
   
-  puVar1 = param_1;
-  if (param_1 == (undefined4 *)0x0) {
-    return (int *)0x0;
+  pkVar1 = Wav;
+  if (Wav == (kgtWav *)0x0) {
+    return (IDirectSoundBuffer8 **)0x0;
   }
-  iVar3 = param_1[3];
-  piVar4 = (int *)param_1[iVar3 + 4];
-  if (piVar4 == (int *)0x0) {
-    return (int *)0x0;
+  idx = Wav->iCurrentBufferIdx;
+  SOUNDBUFFER = (&Wav->IDirectSoundBuffer8Interface)[idx];
+  if (SOUNDBUFFER == (IDirectSoundBuffer8 **)0x0) {
+    return (IDirectSoundBuffer8 **)0x0;
   }
-  iVar2 = (**(code **)(*piVar4 + 0x24))(piVar4,&param_1);
-  if (iVar2 < 0) {
+  err = (*(*SOUNDBUFFER)->GetStatus)(SOUNDBUFFER,(int *)&Wav);
+  if (err < 0) {
     unaff_DI = 0;
   }
+                    // BUG: This seems like it may break easily
   if ((unaff_DI & 1) == 1) {
-    if ((int)puVar1[2] < 2) {
-      return (int *)0x0;
+                    // Looks like this might not ever run
+    if (pkVar1->one < 2) {
+      return (IDirectSoundBuffer8 **)0x0;
     }
-    iVar3 = iVar3 + 1;
-    puVar1[3] = iVar3;
-    if ((int)puVar1[2] <= iVar3) {
-      puVar1[3] = 0;
+    idx = idx + 1;
+    pkVar1->iCurrentBufferIdx = idx;
+    if (pkVar1->one <= idx) {
+      pkVar1->iCurrentBufferIdx = 0;
     }
-    piVar4 = (int *)puVar1[puVar1[3] + 4];
-    iVar3 = (**(code **)(*piVar4 + 0x24))(piVar4,&stack0xfffffffc);
-    if ((-1 < iVar3) && ((unaff_DI & 1) == 1)) {
-      (**(code **)(*piVar4 + 0x48))(piVar4);
-      (**(code **)(*piVar4 + 0x34))(piVar4,0);
+    SOUNDBUFFER = (&pkVar1->IDirectSoundBuffer8Interface)[pkVar1->iCurrentBufferIdx];
+    idx = (*(*SOUNDBUFFER)->GetStatus)(SOUNDBUFFER,(int *)&stack0xfffffffc);
+    if ((-1 < idx) && ((unaff_DI & 1) == 1)) {
+      (*(*SOUNDBUFFER)->Stop)(SOUNDBUFFER);
+      (*(*SOUNDBUFFER)->SetCurrentPosition)(SOUNDBUFFER,0);
     }
   }
-  if (piVar4 != (int *)0x0) {
+  if (SOUNDBUFFER != (IDirectSoundBuffer8 **)0x0) {
     if ((unaff_DI & 2) == 0) {
-      return piVar4;
+      return SOUNDBUFFER;
     }
-    iVar3 = (**(code **)(*piVar4 + 0x50))(piVar4);
-    if ((-1 < iVar3) && (iVar3 = FUN_00415f40(piVar4,*puVar1,puVar1[1]), iVar3 != 0)) {
-      return piVar4;
+    err_2 = (*(*SOUNDBUFFER)->Restore)(SOUNDBUFFER);
+    if ((-1 < err_2) &&
+       (err_3 = iWriteFromSoundAlloc(SOUNDBUFFER,pkVar1->pDataBloc,(int *)pkVar1->iDataBlocSize),
+       err_3 != 0)) {
+      return SOUNDBUFFER;
     }
-    return (int *)0x0;
+    return (IDirectSoundBuffer8 **)0x0;
   }
-  return (int *)0x0;
+  return (IDirectSoundBuffer8 **)0x0;
 }
 
 
 
-bool FUN_00415eb0(int param_1,uint param_2)
+bool FUN_00415eb0(kgtWav *param_1,uint param_2)
 
 {
   int *piVar1;
@@ -17085,11 +17423,11 @@ bool FUN_00415eb0(int param_1,uint param_2)
   bool bVar3;
   
   bVar3 = false;
-  if (param_1 == 0) {
+  if (param_1 == (kgtWav *)0x0) {
     return false;
   }
-  if (((param_2 & 1) == 0) || (*(int *)(param_1 + 8) == 1)) {
-    piVar1 = (int *)FUN_00415df0(param_1);
+  if (((param_2 & 1) == 0) || (param_1->one == 1)) {
+    piVar1 = (int *)kgtdxReturnSoundBuffer(param_1);
     if (piVar1 != (int *)0x0) {
       iVar2 = (**(code **)(*piVar1 + 0x30))(piVar1,0,0,param_2);
       bVar3 = -1 < iVar2;
@@ -17100,24 +17438,24 @@ bool FUN_00415eb0(int param_1,uint param_2)
 
 
 
-undefined4 FUN_00415f00(int param_1)
+int iStopAndResetWav(kgtWav *param_1)
 
 {
-  int *piVar1;
-  int iVar2;
-  undefined4 *puVar3;
+  int one;
+  IDirectSoundBuffer8 ***pppSoundInterface;
+  IDirectSoundBuffer8 **ppSoundInterface;
   
-  if (param_1 != 0) {
-    iVar2 = *(int *)(param_1 + 8);
-    if (0 < iVar2) {
-      puVar3 = (undefined4 *)(param_1 + 0x10);
+  if (param_1 != (kgtWav *)0x0) {
+    one = param_1->one;
+    if (0 < one) {
+      pppSoundInterface = &param_1->IDirectSoundBuffer8Interface;
       do {
-        piVar1 = (int *)*puVar3;
-        (**(code **)(*piVar1 + 0x48))(piVar1);
-        (**(code **)(*piVar1 + 0x34))(piVar1,0);
-        puVar3 = puVar3 + 1;
-        iVar2 = iVar2 + -1;
-      } while (iVar2 != 0);
+        ppSoundInterface = *pppSoundInterface;
+        (*(*ppSoundInterface)->Stop)(ppSoundInterface);
+        (*(*ppSoundInterface)->SetCurrentPosition)(ppSoundInterface,0);
+        pppSoundInterface = pppSoundInterface + 1;
+        one = one + -1;
+      } while (one != 0);
     }
     return 1;
   }
@@ -17126,118 +17464,123 @@ undefined4 FUN_00415f00(int param_1)
 
 
 
-undefined4 FUN_00415f40(int *param_1,undefined4 *param_2,undefined4 *param_3)
+int iWriteFromSoundAlloc(IDirectSoundBuffer8 **SOUNDBUFFER,void *alloc,int *iStorage)
 
 {
-  int *piVar1;
-  int iVar2;
-  uint uVar3;
-  undefined4 *puVar4;
-  undefined4 *puVar5;
-  undefined4 *puVar6;
-  undefined4 *puVar7;
-  undefined1 local_4 [4];
+  IDirectSoundBuffer8 **this;
+  int iVar1;
+  uint uVar2;
+  undefined4 *pAlloc_2;
+  int *piVar3;
+  undefined4 *pdwAudioBytes1_2;
+  int *piVar4;
+  undefined4 *pdwAudioBytes1;
+  void *pAlloc;
   
-  puVar5 = param_2;
-  piVar1 = param_1;
-  if (((param_1 != (int *)0x0) && (param_2 != (undefined4 *)0x0)) && (param_3 != (undefined4 *)0x0))
-  {
-    puVar7 = param_3;
-    iVar2 = (**(code **)(*param_1 + 0x2c))(param_1,0,param_3,local_4);
-    if (-1 < iVar2) {
-      puVar4 = puVar5;
-      puVar6 = puVar7;
-      for (uVar3 = (uint)&param_1 >> 2; uVar3 != 0; uVar3 = uVar3 - 1) {
-        *puVar6 = *puVar4;
-        puVar4 = puVar4 + 1;
-        puVar6 = puVar6 + 1;
-      }
-      for (iVar2 = 0; iVar2 != 0; iVar2 = iVar2 + -1) {
-        *(undefined1 *)puVar6 = *(undefined1 *)puVar4;
-        puVar4 = (undefined4 *)((int)puVar4 + 1);
-        puVar6 = (undefined4 *)((int)puVar6 + 1);
-      }
-      if (&param_3 != (undefined4 **)0x0) {
-        puVar5 = (undefined4 *)((int)&param_1 + (int)puVar5);
-        puVar4 = &param_2;
-        for (uVar3 = (uint)&param_3 >> 2; uVar3 != 0; uVar3 = uVar3 - 1) {
-          *puVar4 = *puVar5;
-          puVar5 = puVar5 + 1;
-          puVar4 = puVar4 + 1;
-        }
-        for (iVar2 = 0; iVar2 != 0; iVar2 = iVar2 + -1) {
-          *(undefined1 *)puVar4 = *(undefined1 *)puVar5;
-          puVar5 = (undefined4 *)((int)puVar5 + 1);
-          puVar4 = (undefined4 *)((int)puVar4 + 1);
-        }
-      }
-      (**(code **)(*piVar1 + 0x4c))(piVar1,puVar7,&param_1,&param_2,&param_3);
-      return 1;
+  pAlloc = alloc;
+  this = SOUNDBUFFER;
+  if ((((SOUNDBUFFER != (IDirectSoundBuffer8 **)0x0) && (alloc != (void *)0x0)) &&
+      (iStorage != (int *)0x0)) &&
+     (iVar1 = (*(*SOUNDBUFFER)->Lock)
+                        (SOUNDBUFFER,0,(int)iStorage,&pdwAudioBytes1,(int *)&SOUNDBUFFER,
+                         (int *)&iStorage,(int *)&alloc,0), -1 < iVar1)) {
+    pAlloc_2 = pAlloc;
+    pdwAudioBytes1_2 = pdwAudioBytes1;
+    for (uVar2 = (uint)SOUNDBUFFER >> 2; uVar2 != 0; uVar2 = uVar2 - 1) {
+      *pdwAudioBytes1_2 = *pAlloc_2;
+      pAlloc_2 = pAlloc_2 + 1;
+      pdwAudioBytes1_2 = pdwAudioBytes1_2 + 1;
     }
+    for (uVar2 = (uint)SOUNDBUFFER & 3; uVar2 != 0; uVar2 = uVar2 - 1) {
+      *(undefined1 *)pdwAudioBytes1_2 = *(undefined1 *)pAlloc_2;
+      pAlloc_2 = (undefined4 *)((int)pAlloc_2 + 1);
+      pdwAudioBytes1_2 = (undefined4 *)((int)pdwAudioBytes1_2 + 1);
+    }
+    if (alloc != (void *)0x0) {
+      piVar3 = (int *)((int)SOUNDBUFFER + (int)pAlloc);
+      piVar4 = iStorage;
+      for (uVar2 = (uint)alloc >> 2; uVar2 != 0; uVar2 = uVar2 - 1) {
+        *piVar4 = *piVar3;
+        piVar3 = piVar3 + 1;
+        piVar4 = piVar4 + 1;
+      }
+      for (uVar2 = (uint)alloc & 3; uVar2 != 0; uVar2 = uVar2 - 1) {
+        *(char *)piVar4 = (char)*piVar3;
+        piVar3 = (int *)((int)piVar3 + 1);
+        piVar4 = (int *)((int)piVar4 + 1);
+      }
+    }
+    (*(*this)->Unlock)(this,pdwAudioBytes1,(int)SOUNDBUFFER,iStorage,(int)alloc);
+    return 1;
   }
   return 0;
 }
 
 
 
-undefined4 FUN_00416000(int *param_1,uint *param_2,int *param_3,uint *param_4)
+int iWalkWavFile(wavSoundFile *alloc,int *fmtBloc,int *dataBloc,int *piDataSize)
 
 {
-  int *piVar1;
-  uint uVar2;
-  uint uVar3;
-  int *piVar4;
-  int *piVar5;
+  int iVar1;
+  int *pFormatBlocID;
+  short *pBlocData;
+  int pBlocSize;
+  int *fileEnd;
   
-  if (param_2 != (uint *)0x0) {
-    *param_2 = 0;
+  if (fmtBloc != (int *)0x0) {
+    *fmtBloc = 0;
   }
-  if (param_3 != (int *)0x0) {
-    *param_3 = 0;
+  if (dataBloc != (int *)0x0) {
+    *dataBloc = 0;
   }
-  if (param_4 != (uint *)0x0) {
-    *param_4 = 0;
+  if (piDataSize != (int *)0x0) {
+    *piDataSize = 0;
   }
-  piVar5 = param_1 + 3;
-  if ((*param_1 == 0x46464952) && (param_1[2] == 0x45564157)) {
-    piVar1 = (int *)(param_1[1] + -4 + (int)piVar5);
-    while (piVar5 < piVar1) {
-      uVar2 = piVar5[1];
-      piVar4 = piVar5 + 2;
-      if (*piVar5 == 0x20746d66) {
-        if ((param_2 != (uint *)0x0) && (*param_2 == 0)) {
-          if (uVar2 < 0xe) {
+  pFormatBlocID = &alloc->FormatBlocID;
+                    // .WAV file header check
+  if ((alloc->FileTypeBlocID == 0x46464952) && (alloc->FileFormatID == 0x45564157)) {
+    fileEnd = (int *)(alloc->FileSize + -4 + (int)pFormatBlocID);
+    while (pFormatBlocID < fileEnd) {
+      pBlocSize = pFormatBlocID[1];
+      pBlocData = (short *)(pFormatBlocID + 2);
+                    // Looking for Format Block header
+      if (*pFormatBlocID == 0x20746d66) {
+        if ((fmtBloc != (int *)0x0) && (*fmtBloc == 0)) {
+          if ((uint)pBlocSize < 0xe) {
             return 0;
           }
-          *param_2 = (uint)piVar4;
-          if ((param_3 == (int *)0x0) || (*param_3 != 0)) {
-            if (param_4 == (uint *)0x0) {
+          *fmtBloc = (int)pBlocData;
+          if ((dataBloc == (int *)0x0) || (*dataBloc != 0)) {
+            if (piDataSize == (int *)0x0) {
               return 1;
             }
-            uVar3 = *param_4;
+            iVar1 = *piDataSize;
             goto joined_r0x004160c6;
           }
         }
       }
-      else if ((*piVar5 == 0x61746164) &&
-              (((param_3 != (int *)0x0 && (*param_3 == 0)) ||
-               ((param_4 != (uint *)0x0 && (*param_4 == 0)))))) {
-        if (param_3 != (int *)0x0) {
-          *param_3 = (int)piVar4;
-        }
-        if (param_4 != (uint *)0x0) {
-          *param_4 = uVar2;
-        }
-        if (param_2 == (uint *)0x0) {
-          return 1;
-        }
-        uVar3 = *param_2;
+      else {
+                    // 'Data' block
+        if ((*pFormatBlocID == 0x61746164) &&
+           (((dataBloc != (int *)0x0 && (*dataBloc == 0)) ||
+            ((piDataSize != (int *)0x0 && (*piDataSize == 0)))))) {
+          if (dataBloc != (int *)0x0) {
+            *dataBloc = (int)pBlocData;
+          }
+          if (piDataSize != (int *)0x0) {
+            *piDataSize = pBlocSize;
+          }
+          if (fmtBloc == (int *)0x0) {
+            return 1;
+          }
+          iVar1 = *fmtBloc;
 joined_r0x004160c6:
-        if (uVar3 != 0) {
-          return 1;
+          if (iVar1 != 0) {
+            return 1;
+          }
         }
       }
-      piVar5 = (int *)((int)piVar4 + (uVar2 + 1 & 0xfffffffe));
+      pFormatBlocID = (int *)((int)pBlocData + (pBlocSize + 1U & 0xfffffffe));
     }
   }
   return 0;
@@ -17252,24 +17595,24 @@ INT_PTR set_variables_from_options_menu(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM
 
 {
   HWND pHVar1;
-  c_256_buffer *lParam_00;
+  char (*lParam_00) [256];
   
   if (uMsg < 0x112) {
     if (uMsg == 0x111) {
       if (wParam == 0x7da) {
-        if (APPMODE != NORMAL) {
+        if (giAppmode != NORMAL) {
           pHVar1 = GetDlgItem(hWnd,0x3f1);
-          UINT_TESTPLAY_PLAYER0_CPU = SendMessageA(pHVar1,0x147,0,0);
+          giConfigTestplayerPlayer0Cpu = SendMessageA(pHVar1,0x147,0,0);
           pHVar1 = GetDlgItem(hWnd,0x3f2);
-          UINT_TESTPLAY_PLAYER1_CPU = SendMessageA(pHVar1,0x147,0,0);
+          giConfigTestplayPlayer1Cpu = SendMessageA(pHVar1,0x147,0,0);
         }
         pHVar1 = GetDlgItem(hWnd,0x36b1);
-        UINT_TESTPLAY_STAGENB = SendMessageA(pHVar1,0x147,0,0);
-        UINT_TESTPLAY_JOYSTICK = IsDlgButtonChecked(hWnd,0x32cb);
-        UINT_TESTPLAY_GAMESPEED = LRESULT_SPEED_004247bc;
-        UINT_TESTPLAY_TIME = LRESULT_POSS_TIME_SETTING_004247b0;
-        UINT___OF_ROUNDS_TEAM_VS_00430128 = LRESULT___OF_ROUNDS_TEAM_VS_004247f8;
-        UINT___OF_ROUNDS_00430124 = LRESULT___OF_ROUNDS_004247c0;
+        giConfigTestplayStageNb = SendMessageA(pHVar1,0x147,0,0);
+        giConfigTestplayJoystick = IsDlgButtonChecked(hWnd,0x32cb);
+        giConfigTestplayGamespeed = LRESULT_SPEED_004247bc;
+        giConfigTestplayTime = LRESULT_POSS_TIME_SETTING_004247b0;
+        giConfigNumberOfRoundsTeamVs = LRESULT___OF_ROUNDS_TEAM_VS_004247f8;
+        giConfigNumberOfRounds = LRESULT___OF_ROUNDS_004247c0;
         EndDialog(hWnd,1);
       }
       else if (wParam == 0x7dd) {
@@ -17283,40 +17626,40 @@ INT_PTR set_variables_from_options_menu(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM
     }
     else if (uMsg == 0x110) {
       pHVar1 = GetDlgItem(hWnd,0x36b1);
-      lParam_00 = DAT_KGT_FILE_BUFFER_00433240.stage_names;
+      lParam_00 = gkgtKgtSystem.sStageNames;
       do {
-        if (lParam_00->str[0] != '\0') {
+        if ((*lParam_00)[0] != '\0') {
                     // CB_INSERTSTRING 
           SendMessageA(pHVar1,0x14a,0xffffffff,(LPARAM)lParam_00);
         }
         lParam_00 = lParam_00 + 1;
       } while ((int)lParam_00 < 0x43d49c);
                     // CB_SETCURSEL  
-      SendMessageA(pHVar1,0x14e,UINT_TESTPLAY_STAGENB,0);
-      CheckDlgButton(hWnd,0x32c9,UINT_TESTPLAY_HITJUDGE);
-      CheckDlgButton(hWnd,0x32ca,UINT_TESTPLAY_GAMEINFO);
-      CheckDlgButton(hWnd,0x32cb,UINT_TESTPLAY_JOYSTICK);
-      CheckDlgButton(hWnd,0x32cb,UINT_TESTPLAY_JOYSTICK);
+      SendMessageA(pHVar1,0x14e,giConfigTestplayStageNb,0);
+      CheckDlgButton(hWnd,0x32c9,giConfigTestplayHitjudge);
+      CheckDlgButton(hWnd,0x32ca,giConfigTestplayGameinfo);
+      CheckDlgButton(hWnd,0x32cb,giConfigTestplayJoystick);
+      CheckDlgButton(hWnd,0x32cb,giConfigTestplayJoystick);
       HWND_004247fc = GetDlgItem(hWnd,0x7de);
       SendMessageA(HWND_004247fc,0x406,1,0x140001);
-      SendMessageA(HWND_004247fc,0x405,1,UINT_TESTPLAY_GAMESPEED);
-      LRESULT_SPEED_004247bc = UINT_TESTPLAY_GAMESPEED;
-      SetDlgItemInt(hWnd,0x7df,UINT_TESTPLAY_GAMESPEED,1);
+      SendMessageA(HWND_004247fc,0x405,1,giConfigTestplayGamespeed);
+      LRESULT_SPEED_004247bc = giConfigTestplayGamespeed;
+      SetDlgItemInt(hWnd,0x7df,giConfigTestplayGamespeed,1);
       HWND_00424798 = GetDlgItem(hWnd,0x7e0);
       SendMessageA(HWND_00424798,0x406,1,0x630000);
-      SendMessageA(HWND_00424798,0x405,1,UINT_TESTPLAY_TIME);
-      LRESULT_POSS_TIME_SETTING_004247b0 = UINT_TESTPLAY_TIME;
-      SetDlgItemInt(hWnd,0x7e1,UINT_TESTPLAY_TIME,1);
+      SendMessageA(HWND_00424798,0x405,1,giConfigTestplayTime);
+      LRESULT_POSS_TIME_SETTING_004247b0 = giConfigTestplayTime;
+      SetDlgItemInt(hWnd,0x7e1,giConfigTestplayTime,1);
       HWND_004247b8 = GetDlgItem(hWnd,0x7e2);
       SendMessageA(HWND_004247b8,0x406,1,0x40001);
-      SendMessageA(HWND_004247b8,0x405,1,UINT___OF_ROUNDS_TEAM_VS_00430128);
-      LRESULT___OF_ROUNDS_TEAM_VS_004247f8 = UINT___OF_ROUNDS_TEAM_VS_00430128;
-      SetDlgItemInt(hWnd,0x7e3,UINT___OF_ROUNDS_TEAM_VS_00430128,1);
+      SendMessageA(HWND_004247b8,0x405,1,giConfigNumberOfRoundsTeamVs);
+      LRESULT___OF_ROUNDS_TEAM_VS_004247f8 = giConfigNumberOfRoundsTeamVs;
+      SetDlgItemInt(hWnd,0x7e3,giConfigNumberOfRoundsTeamVs,1);
       HWND_004247b4 = GetDlgItem(hWnd,0x7e4);
       SendMessageA(HWND_004247b4,0x406,1,0x90001);
-      SendMessageA(HWND_004247b4,0x405,1,UINT___OF_ROUNDS_00430124);
-      LRESULT___OF_ROUNDS_004247c0 = UINT___OF_ROUNDS_00430124;
-      SetDlgItemInt(hWnd,0x7e5,UINT___OF_ROUNDS_00430124,1);
+      SendMessageA(HWND_004247b4,0x405,1,giConfigNumberOfRounds);
+      LRESULT___OF_ROUNDS_004247c0 = giConfigNumberOfRounds;
+      SetDlgItemInt(hWnd,0x7e5,giConfigNumberOfRounds,1);
       return 1;
     }
   }
@@ -17347,34 +17690,36 @@ INT_PTR set_variables_from_options_menu(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM
 
 
 
-void FUN_register_input_window_classes_00416530(void)
+// Registers the window classes used for customizing(?) player input
+
+void vRegisterInputWindowClasses(void)
 
 {
-  ATOM AVar1;
+  ATOM err;
   WNDCLASSA wndclass;
   
   wndclass.style = 3;
-  wndclass.lpfnWndProc = FUN_Keyboard_Input_WndProc_00416cc0;
+  wndclass.lpfnWndProc = iKeyboardInputWndProc;
   wndclass.cbClsExtra = 0;
   wndclass.cbWndExtra = 0;
-  wndclass.hInstance = HINSTANCE_004701cc;
+  wndclass.hInstance = ghInstance;
   wndclass.hIcon = (HICON)0x0;
   wndclass.hCursor = (HCURSOR)0x0;
   wndclass.hbrBackground = (HBRUSH)0x6;
   wndclass.lpszMenuName = (LPCSTR)0x0;
-  wndclass.lpszClassName = PTR_s_KeyInput_0041f838;
-  AVar1 = RegisterClassA(&wndclass);
-  if (AVar1 != 0) {
+  wndclass.lpszClassName = gpsKeyInput;
+  err = RegisterClassA(&wndclass);
+  if (err != 0) {
     wndclass.style = 3;
-    wndclass.lpfnWndProc = FUN_Joystick_Input_WndProc_00416ef0;
+    wndclass.lpfnWndProc = iJoyInputWndProc;
     wndclass.cbClsExtra = 0;
     wndclass.cbWndExtra = 0;
-    wndclass.hInstance = HINSTANCE_004701cc;
+    wndclass.hInstance = ghInstance;
     wndclass.hIcon = (HICON)0x0;
     wndclass.hCursor = (HCURSOR)0x0;
     wndclass.hbrBackground = (HBRUSH)0x6;
     wndclass.lpszMenuName = (LPCSTR)0x0;
-    wndclass.lpszClassName = PTR_s_JoyInput_0041f83c;
+    wndclass.lpszClassName = gpsJoyInput;
     RegisterClassA(&wndclass);
   }
   return;
@@ -17382,259 +17727,266 @@ void FUN_register_input_window_classes_00416530(void)
 
 
 
-void FUN_004165e0(HWND param_1)
+void vFindWindowPos(HWND hWnd)
 
 {
-  int iVar1;
-  int iVar2;
+  int iScreenY;
+  int iScreenX;
   LONG nWidth;
   LONG nHeight;
   BOOL bRepaint;
-  tagRECT local_10;
+  tagRECT rWindowRect;
   
-  GetWindowRect(param_1,&local_10);
-  OffsetRect(&local_10,-local_10.left,-local_10.top);
+  GetWindowRect(hWnd,&rWindowRect);
+  OffsetRect(&rWindowRect,-rWindowRect.left,-rWindowRect.top);
   bRepaint = 0;
-  nWidth = local_10.right;
-  nHeight = local_10.bottom;
-  iVar1 = GetSystemMetrics(1);
-  iVar1 = (iVar1 - local_10.bottom) / 2;
-  iVar2 = GetSystemMetrics(0);
-  MoveWindow(param_1,(iVar2 - local_10.right) / 2 + 4U & 0xfffffff8,iVar1,nWidth,nHeight,bRepaint);
+  nWidth = rWindowRect.right;
+  nHeight = rWindowRect.bottom;
+  iScreenY = GetSystemMetrics(1);
+  iScreenY = (iScreenY - rWindowRect.bottom) / 2;
+  iScreenX = GetSystemMetrics(0);
+  MoveWindow(hWnd,(iScreenX - rWindowRect.right) / 2 + 4U & 0xfffffff8,iScreenY,nWidth,nHeight,
+             bRepaint);
   return;
 }
 
 
 
-undefined4 FUN_00416650(byte *param_1,byte param_2)
+int iGetInputKey(byte *cOutCharacter,byte wParam)
 
 {
-  if ((0x2f < param_2) && (param_2 < 0x3a)) {
-    _sprintf((char *)param_1,s__d_0041f858,param_2 - 0x30);
+  if ((0x2f < wParam) && (wParam < 0x3a)) {
+                    // If input key is a digit
+    _sprintf((char *)cOutCharacter,s__d_0041f858,wParam - 0x30);
     return 0;
   }
-  if ((0x40 < param_2) && (param_2 < 0x5b)) {
-    *param_1 = param_2;
-    param_1[1] = 0;
+  if ((0x40 < wParam) && (wParam < 0x5b)) {
+                    // If input key is a letter
+    *cOutCharacter = wParam;
+    cOutCharacter[1] = 0;
     return 0;
   }
-  if ((0x5f < param_2) && (param_2 < 0x6a)) {
-    _sprintf((char *)param_1,s__Pad__d_0041f85c,param_2 - 0x60);
+  if ((0x5f < wParam) && (wParam < 0x6a)) {
+                    // This may ALSO be processing for input digits, unsure
+    _sprintf((char *)cOutCharacter,gsPadFormatted,wParam - 0x60);
     return 0;
   }
-  if ((0x6f < param_2) && (param_2 < 0x88)) {
-    _sprintf((char *)param_1,s_F__d_0041f868,param_2 - 0x6f);
+  if ((0x6f < wParam) && (wParam < 0x88)) {
+    _sprintf((char *)cOutCharacter,gsFFormatted,wParam - 0x6f);
     return 0;
   }
-  switch(param_2) {
+  switch(wParam) {
   case 1:
-    _sprintf((char *)param_1,s_HAN_HIRAGANA_KATAKANA__0041f870);
+    _sprintf((char *)cOutCharacter,gsLeftMouseButton);
     return 0;
   case 2:
-    _sprintf((char *)param_1,s_HAN_HIRAGANA_KATAKANA__0041f87c);
+    _sprintf((char *)cOutCharacter,gsRightMouseButton);
     return 0;
   case 3:
-    _sprintf((char *)param_1,s_KATAKANA__0041f888);
+    _sprintf((char *)cOutCharacter,gsControlBreak);
     return 0;
   case 4:
-    _sprintf((char *)param_1,s_HAN_HIRAGANA_KATAKANA__0041f894);
+    _sprintf((char *)cOutCharacter,gsMouseMiddleButton);
     return 0;
   default:
     return 1;
   case 8:
-    _sprintf((char *)param_1,s_BackSpace_0041f8a4);
+    _sprintf((char *)cOutCharacter,gsBackspace);
     return 0;
   case 9:
-    _sprintf((char *)param_1,(char *)&PTR_DAT_0041f8b0);
+    _sprintf((char *)cOutCharacter,gsTab);
     return 0;
   case 0xc:
-    _sprintf((char *)param_1,s_Clear_0041f8b4);
+    _sprintf((char *)cOutCharacter,gsClear);
     return 0;
   case 0xd:
-    _sprintf((char *)param_1,s_Enter_0041f8bc);
+    _sprintf((char *)cOutCharacter,gsEnter);
     return 0;
   case 0x10:
-    _sprintf((char *)param_1,s_Shift_0041f8c4);
+    _sprintf((char *)cOutCharacter,gsShift);
     return 0;
   case 0x11:
-    _sprintf((char *)param_1,&DAT_0041f8cc);
+    _sprintf((char *)cOutCharacter,&gsCtrl);
     return 0;
   case 0x12:
-    _sprintf((char *)param_1,&DAT_0041f8d4);
+    _sprintf((char *)cOutCharacter,&gsAlt);
     return 0;
   case 0x13:
-    _sprintf((char *)param_1,s_Pause_0041f8d8);
+    _sprintf((char *)cOutCharacter,gsPause);
     return 0;
   case 0x1b:
-    _sprintf((char *)param_1,(char *)&PTR_DAT_0041f8e0);
+    _sprintf((char *)cOutCharacter,gsEsc);
     return 0;
   case 0x20:
-    _sprintf((char *)param_1,s_Space_0041f8e4);
+    _sprintf((char *)cOutCharacter,gsSpace);
     return 0;
   case 0x21:
-    _sprintf((char *)param_1,s_PageUp_0041f8ec);
+    _sprintf((char *)cOutCharacter,gsPageUp);
     return 0;
   case 0x22:
-    _sprintf((char *)param_1,s_PageDown_0041f8f4);
+    _sprintf((char *)cOutCharacter,gsPageDown);
     return 0;
   case 0x23:
-    _sprintf((char *)param_1,s_End_0041f900);
+    _sprintf((char *)cOutCharacter,gsEnd);
     return 0;
   case 0x24:
-    _sprintf((char *)param_1,s_Home_0041f904);
+    _sprintf((char *)cOutCharacter,gsHome);
     return 0;
   case 0x25:
-    _sprintf((char *)param_1,s_<__0041f90c);
+    _sprintf((char *)cOutCharacter,gs<_);
     return 0;
   case 0x26:
-    _sprintf((char *)param_1,s_Up_0041f910);
+    _sprintf((char *)cOutCharacter,gsUp);
     return 0;
   case 0x27:
-    _sprintf((char *)param_1,s__>_0041f914);
+    _sprintf((char *)cOutCharacter,gs_>);
     return 0;
   case 0x28:
-    _sprintf((char *)param_1,s_Dw_0041f918);
+    _sprintf((char *)cOutCharacter,gsDw);
     return 0;
   case 0x29:
-    _sprintf((char *)param_1,s_Select_0041f91c);
+    _sprintf((char *)cOutCharacter,gsSelect);
     return 0;
   case 0x2b:
-    _sprintf((char *)param_1,s_Execute_0041f924);
+    _sprintf((char *)cOutCharacter,gsExecute);
     return 0;
   case 0x2d:
-    _sprintf((char *)param_1,s_Ins_0041f92c);
+    _sprintf((char *)cOutCharacter,gsIns);
     return 0;
   case 0x2e:
-    _sprintf((char *)param_1,s_Del_0041f930);
+    _sprintf((char *)cOutCharacter,gsDel);
     return 0;
   case 0x2f:
-    _sprintf((char *)param_1,s_Help_0041f934);
+    _sprintf((char *)cOutCharacter,gsHelp);
     return 0;
   case 0x6a:
-    _sprintf((char *)param_1,s__Pad___0041f93c);
+    _sprintf((char *)cOutCharacter,gsNumPadAsterisk);
     return 0;
   case 0x6b:
-    _sprintf((char *)param_1,s__Pad___0041f948);
+    _sprintf((char *)cOutCharacter,gsNumPadPlus);
     return 0;
   case 0x6c:
-    _sprintf((char *)param_1,s_KATAKANA__0041f954);
+    _sprintf((char *)cOutCharacter,gsSeperateKey);
     return 0;
   case 0x6d:
-    _sprintf((char *)param_1,s__Pad___0041f960);
+    _sprintf((char *)cOutCharacter,gsNumPadMinus);
     return 0;
   case 0x6e:
-    _sprintf((char *)param_1,s__Pad___0041f96c);
+    _sprintf((char *)cOutCharacter,gsNumPadPeriod);
     return 0;
   case 0x6f:
-    _sprintf((char *)param_1,s__Pad___0041f978);
+    _sprintf((char *)cOutCharacter,gsNumPadSlash);
     return 0;
   case 0x92:
-    _sprintf((char *)param_1,s__Pad___0041f9b0);
+    _sprintf((char *)cOutCharacter,gsNumPadEquals);
     return 0;
   case 0xba:
-    _sprintf((char *)param_1,s___0041f99c);
+    _sprintf((char *)cOutCharacter,gsSemicolon);
     return 0;
   case 0xbb:
-    _sprintf((char *)param_1,s___0041f98c);
+    _sprintf((char *)cOutCharacter,gsEquals);
     return 0;
   case 0xbc:
-    _sprintf((char *)param_1,s_<_0041f9a4);
+    _sprintf((char *)cOutCharacter,gsLessThan);
     return 0;
   case 0xbd:
-    _sprintf((char *)param_1,s___0041f988);
+    _sprintf((char *)cOutCharacter,gsMinus);
     return 0;
   case 0xbe:
-    _sprintf((char *)param_1,s_>_0041f9a8);
+    _sprintf((char *)cOutCharacter,gsMoreThan);
     return 0;
   case 0xbf:
-    _sprintf((char *)param_1,s___0041f9ac);
+    _sprintf((char *)cOutCharacter,gsSlash);
     return 0;
   case 0xc0:
-    _sprintf((char *)param_1,s___0041f984);
+    _sprintf((char *)cOutCharacter,gsTilde);
     return 0;
   case 0xdb:
-    _sprintf((char *)param_1,s___0041f994);
+    _sprintf((char *)cOutCharacter,gsLeftBracket);
     return 0;
   case 0xdc:
-    _sprintf((char *)param_1,s___0041f990);
+    _sprintf((char *)cOutCharacter,gsForwardSlash);
     return 0;
   case 0xdd:
-    _sprintf((char *)param_1,s___0041f998);
+    _sprintf((char *)cOutCharacter,gsRightBracket);
     return 0;
   case 0xde:
-    _sprintf((char *)param_1,s___0041f9a0);
+    _sprintf((char *)cOutCharacter,gsApostrophe);
     return 0;
   case 0xdf:
-    _sprintf((char *)param_1,&DAT_0041f9bc);
+    _sprintf((char *)cOutCharacter,&gsUnderscore);
     return 0;
   case 0xe2:
-    _sprintf((char *)param_1,&DAT_0041f9c0);
+    _sprintf((char *)cOutCharacter,&gsUnderscoreShort);
     return 0;
   }
 }
 
 
 
-LRESULT FUN_Keyboard_Input_WndProc_00416cc0(HWND param_1,uint param_2,WPARAM param_3,LPARAM param_4)
+LRESULT iKeyboardInputWndProc(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam)
 
 {
   HDC hdc;
   HFONT h;
-  HGDIOBJ h_00;
+  HGDIOBJ handle;
   DWORD color;
-  int iVar1;
-  LRESULT LVar2;
-  HWND hWnd;
+  int iLen;
+  LRESULT result;
+  HWND hwndParent;
   UINT Msg;
-  WPARAM wParam;
-  tagPAINTSTRUCT local_140;
-  char local_100 [256];
+  PAINTSTRUCT *lpPaint;
+  byte sOutMessage [256];
+  WPARAM wParamNew;
   
-  if (param_2 < 0x10) {
-    if (param_2 == 0xf) {
-      BeginPaint(param_1,&local_140);
-      EndPaint(param_1,&local_140);
-      hdc = GetDC(param_1);
-      h = CreateFontA(0x10,8,0,0,400,0,0,0,0x80,0,0,0,0x30,s_KATAKANA__0041f9c4);
+  if (uMsg < 0x10) {
+    if (uMsg == 0xf) {
+                    // WM_PAINT
+      BeginPaint(hWnd,(LPPAINTSTRUCT)&lpPaint);
+      EndPaint(hWnd,(PAINTSTRUCT *)&lpPaint);
+      hdc = GetDC(hWnd);
+      h = CreateFontA(0x10,8,0,0,400,0,0,0,0x80,0,0,0,0x30,gsMsGothic);
       if (h == (HFONT)0x0) {
-        MessageBoxA((HWND)0x0,s_HAN_HIRAGANA_KATAKANA_____0041f9dc,s_HAN__0041f9d4,0x2000);
+        MessageBoxA((HWND)0x0,gsErrorMsGothicNotFound,gsConfirm,0x2000);
       }
-      h_00 = SelectObject(hdc,h);
+      handle = SelectObject(hdc,h);
       SetBkMode(hdc,1);
       color = GetSysColor(0xd);
       SetTextColor(hdc,color);
-      _sprintf(local_100,s_Press_a_button_a_your_keyboard_0041fa0c);
-      iVar1 = lstrlenA(local_100);
-      TextOutA(hdc,8,8,local_100,iVar1);
-      SelectObject(hdc,h_00);
+      _sprintf((char *)sOutMessage,gsPressAButtonOnYourKeyboard);
+      iLen = lstrlenA((LPCSTR)sOutMessage);
+      TextOutA(hdc,8,8,(LPCSTR)sOutMessage,iLen);
+      SelectObject(hdc,handle);
       DeleteObject(h);
-      ReleaseDC(param_1,hdc);
+      ReleaseDC(hWnd,hdc);
       return 0;
     }
-    if (param_2 == 1) {
-      FUN_004165e0(param_1);
+    if (uMsg == 1) {
+                    // WM_CREATE
+      vFindWindowPos(hWnd);
       return 0;
     }
-    if (param_2 != 6) {
+    if (uMsg != 6) {
 LAB_00416e1f:
-      LVar2 = DefWindowProcA(param_1,param_2,param_3,param_4);
-      return LVar2;
+      result = DefWindowProcA(hWnd,uMsg,wParam,lParam);
+      return result;
     }
-    if (param_3 == 0) {
-      DestroyWindow(param_1);
+    if (wParam == 0) {
+      DestroyWindow(hWnd);
       return 0;
     }
   }
   else {
-    if (param_2 != 0x100) goto LAB_00416e1f;
-    iVar1 = FUN_00416650(local_100,param_3);
-    if (iVar1 == 0) {
-      wParam = 10;
+    if (uMsg != 0x100) goto LAB_00416e1f;
+                    // WM_KEYDOWN
+    iLen = iGetInputKey(sOutMessage,(byte)wParam);
+    if (iLen == 0) {
+      wParamNew = 10;
       Msg = 0x111;
-      *DAT_004249b8 = (char)param_3;
-      hWnd = GetParent(param_1);
-      SendMessageA(hWnd,Msg,wParam,iVar1);
-      DestroyWindow(param_1);
+      *gcInputCharacter = (byte)wParam;
+      hwndParent = GetParent(hWnd);
+      SendMessageA(hwndParent,Msg,wParamNew,iLen);
+      DestroyWindow(hWnd);
     }
   }
   return 0;
@@ -17642,116 +17994,119 @@ LAB_00416e1f:
 
 
 
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
-
-void FUN_00416ea0(HWND param_1)
+void vSpawnKeyInputWindow(HWND hwndParent)
 
 {
-  _DAT_004249c0 =
-       CreateWindowExA(0,PTR_s_KeyInput_0041f838,s_KeyInput_0041fa2c,0x80000000,0,0,0x100,0x20,
-                       param_1,(HMENU)0x0,HINSTANCE_004701cc,(LPVOID)0x0);
-  ShowWindow(_DAT_004249c0,5);
+  ghKeyInputWindow =
+       CreateWindowExA(0,gpsKeyInput,gsKeyInput,0x80000000,0,0,0x100,0x20,hwndParent,(HMENU)0x0,
+                       ghInstance,(LPVOID)0x0);
+  ShowWindow(ghKeyInputWindow,5);
   return;
 }
 
 
 
-LRESULT FUN_Joystick_Input_WndProc_00416ef0(HWND param_1,uint param_2,WPARAM param_3,LPARAM param_4)
+LRESULT iJoyInputWndProc(HWND hWnd,uint uMsg,WPARAM wParam,LPARAM lParam)
 
 {
   char cVar1;
-  LRESULT LVar2;
-  UINT_PTR UVar3;
-  MMRESULT MVar4;
-  HWND hWnd;
+  LRESULT result;
+  UINT_PTR sTimer;
+  MMRESULT mJoystickPos;
+  HWND hWnd_00;
   HDC hdc;
   HFONT h;
-  HGDIOBJ h_00;
+  HGDIOBJ hOjbect;
   DWORD color;
   int c;
   UINT Msg;
-  WPARAM wParam;
-  LPARAM lParam;
-  tagPAINTSTRUCT local_140;
+  WPARAM wParam_00;
+  LPARAM lParam_00;
+  tagPAINTSTRUCT paintInstruct;
   char acStack_100 [256];
   
-  if (param_2 < 7) {
-    if (param_2 != 6) {
-      if (param_2 == 1) {
-        FUN_004165e0(param_1);
-        UVar3 = SetTimer(param_1,1,10,(TIMERPROC)0x0);
-        DAT_00424800 = CONCAT22(DAT_00424800._2_2_,(short)UVar3);
+  if (uMsg < 7) {
+    if (uMsg != 6) {
+      if (uMsg == 1) {
+                    // WM_CREATE
+        vFindWindowPos(hWnd);
+        sTimer = SetTimer(hWnd,1,10,(TIMERPROC)0x0);
+                    // To-do: Casting a short to an int
+        giJoystickInputTimer = CONCAT22(giJoystickInputTimer._2_2_,(short)sTimer);
         return 0;
       }
-      if (param_2 == 2) {
-        if ((short)DAT_00424800 != 0) {
-          KillTimer(param_1,DAT_00424800 & 0xffff);
+      if (uMsg == 2) {
+                    // WM_DESTROY
+        if ((short)giJoystickInputTimer != 0) {
+          KillTimer(hWnd,giJoystickInputTimer & 0xffff);
         }
-        DAT_00424800 = DAT_00424800 & 0xffff0000;
-        LVar2 = DefWindowProcA(param_1,2,param_3,param_4);
-        return LVar2;
+        giJoystickInputTimer = giJoystickInputTimer & 0xffff0000;
+        result = DefWindowProcA(hWnd,2,wParam,lParam);
+        return result;
       }
 LAB_00416fcd:
-      LVar2 = DefWindowProcA(param_1,param_2,param_3,param_4);
-      return LVar2;
+      result = DefWindowProcA(hWnd,uMsg,wParam,lParam);
+      return result;
     }
-    if (param_3 == 0) {
-      DestroyWindow(param_1);
+    if (wParam == 0) {
+      DestroyWindow(hWnd);
       return 0;
     }
   }
-  else if (param_2 == 0xf) {
-    BeginPaint(param_1,&local_140);
-    EndPaint(param_1,&local_140);
-    hdc = GetDC(param_1);
-    h = CreateFontA(0x10,8,0,0,400,0,0,0,0x80,0,0,0,0x30,s_KATAKANA__0041fa38);
+  else if (uMsg == 0xf) {
+                    // WM_PAINT
+    BeginPaint(hWnd,&paintInstruct);
+    EndPaint(hWnd,&paintInstruct);
+    hdc = GetDC(hWnd);
+    h = CreateFontA(0x10,8,0,0,400,0,0,0,0x80,0,0,0,0x30,gsMsGothic_2);
     if (h == (HFONT)0x0) {
-      MessageBoxA((HWND)0x0,s_HAN_HIRAGANA_KATAKANA_____0041fa50,s_HAN__0041fa48,0x2000);
+      MessageBoxA((HWND)0x0,gsErrorMsGothicNotFound_2,gsConfirm_2,0x2000);
     }
-    h_00 = SelectObject(hdc,h);
+    hOjbect = SelectObject(hdc,h);
     SetBkMode(hdc,1);
     color = GetSysColor(0xd);
     SetTextColor(hdc,color);
-    _sprintf(acStack_100,s_Press_a_Button_on_your_JoyStick_0041fa80,DAT_004249bc + 1);
+    _sprintf(acStack_100,gsPressAButtonOnYourJoystick,DAT_004249bc + 1);
     c = lstrlenA(acStack_100);
     TextOutA(hdc,8,8,acStack_100,c);
-    SelectObject(hdc,h_00);
+    SelectObject(hdc,hOjbect);
     DeleteObject(h);
-    ReleaseDC(param_1,hdc);
+    ReleaseDC(hWnd,hdc);
   }
   else {
-    if (param_2 != 0x113) goto LAB_00416fcd;
-    if ((short)DAT_00424800 != 0) {
-      KillTimer(param_1,DAT_00424800 & 0xffff);
+    if (uMsg != 0x113) goto LAB_00416fcd;
+                    // WM_TIMER
+    if ((short)giJoystickInputTimer != 0) {
+      KillTimer(hWnd,giJoystickInputTimer & 0xffff);
     }
-    DAT_00424800 = DAT_00424800 & 0xffff0000;
-    UVar3 = SetTimer(param_1,1,10,(TIMERPROC)0x0);
-    DAT_00424800 = CONCAT22(DAT_00424800._2_2_,(short)UVar3);
-    if ((short)UVar3 != 0) {
-      local_140.hdc = (HDC)0x34;
-      local_140.fErase = 0x8ff;
+    giJoystickInputTimer = giJoystickInputTimer & 0xffff0000;
+    sTimer = SetTimer(hWnd,1,10,(TIMERPROC)0x0);
+    giJoystickInputTimer = CONCAT22(giJoystickInputTimer._2_2_,(short)sTimer);
+    if ((short)sTimer != 0) {
+      paintInstruct.hdc = (HDC)0x34;
+      paintInstruct.fErase = 0x8ff;
       if (DAT_004249bc == 0) {
-        MVar4 = joyGetPosEx(0,(LPJOYINFOEX)&local_140);
+        mJoystickPos = joyGetPosEx(0,(LPJOYINFOEX)&paintInstruct);
       }
       else {
         if (DAT_004249bc != 1) {
           return 0;
         }
-        MVar4 = joyGetPosEx(1,(LPJOYINFOEX)&local_140);
+        mJoystickPos = joyGetPosEx(1,(LPJOYINFOEX)&paintInstruct);
       }
-      if ((MVar4 == 0) && (local_140.rgbReserved._0_4_ != 0)) {
+      if ((mJoystickPos == 0) && (paintInstruct.rgbReserved._0_4_ != 0)) {
         cVar1 = '\0';
-        for (; 1 < (uint)local_140.rgbReserved._0_4_;
-            local_140.rgbReserved._0_4_ = (uint)local_140.rgbReserved._0_4_ >> 1) {
+        for (; 1 < (uint)paintInstruct.rgbReserved._0_4_;
+            paintInstruct.rgbReserved._0_4_ = (uint)paintInstruct.rgbReserved._0_4_ >> 1) {
           cVar1 = cVar1 + '\x01';
         }
-        lParam = 0;
-        wParam = 10;
+        lParam_00 = 0;
+        wParam_00 = 10;
         Msg = 0x111;
         *DAT_004249b0 = cVar1;
-        hWnd = GetParent(param_1);
-        SendMessageA(hWnd,Msg,wParam,lParam);
-        PostMessageA(param_1,0x10,0,0);
+        hWnd_00 = GetParent(hWnd);
+        SendMessageA(hWnd_00,Msg,wParam_00,lParam_00);
+        PostMessageA(hWnd,0x10,0,0);
         return 0;
       }
     }
@@ -17761,15 +18116,12 @@ LAB_00416fcd:
 
 
 
-// WARNING: Globals starting with '_' overlap smaller symbols at the same address
-
-void FUN_004171e0(HWND param_1)
+void vSpawnJoyInputWindow(HWND hwndParent)
 
 {
-  _DAT_004249b4 =
-       CreateWindowExA(0,PTR_s_JoyInput_0041f83c,s_JoyInput_0041fab4,0x80000000,0,0,400,0x20,param_1
-                       ,(HMENU)0x0,HINSTANCE_004701cc,(LPVOID)0x0);
-  ShowWindow(_DAT_004249b4,5);
+  ghJoyWindow = CreateWindowExA(0,gpsJoyInput,gsJoyInput,0x80000000,0,0,400,0x20,hwndParent,
+                                (HMENU)0x0,ghInstance,(LPVOID)0x0);
+  ShowWindow(ghJoyWindow,5);
   return;
 }
 
@@ -17778,7 +18130,7 @@ void FUN_004171e0(HWND param_1)
 // lpDialogFunc parameter of DialogBoxParamA
 // 
 
-undefined4 lpDialogFunc_00417230(HWND param_1,int param_2,uint param_3)
+undefined4 vSetupKeyboardDialog(HWND param_1,int param_2,uint param_3)
 
 {
   int iVar1;
@@ -17786,16 +18138,16 @@ undefined4 lpDialogFunc_00417230(HWND param_1,int param_2,uint param_3)
   undefined4 uVar3;
   int iVar4;
   undefined4 *puVar5;
-  undefined **ppuVar6;
+  char *pcVar6;
   CONTROL_LAYOUT *pCVar7;
-  CHAR local_100 [256];
+  byte local_100 [256];
   
   if (param_2 == 0x10) {
     EndDialog(param_1,-1);
   }
   else {
     if (param_2 == 0x110) {
-      pCVar7 = &DAT_P1_KEYBOARD_CONTROLS_00425980;
+      pCVar7 = gcKeyboardControlsSets;
       puVar5 = &DAT_P1_UP_IN_DIALOG_004247c4;
       for (iVar4 = 8; iVar4 != 0; iVar4 = iVar4 + -1) {
         *puVar5 = *(undefined4 *)pCVar7;
@@ -17808,28 +18160,28 @@ undefined4 lpDialogFunc_00417230(HWND param_1,int param_2,uint param_3)
     }
     if (param_2 == 0x111) {
       if ((1000 < param_3) && (param_3 < 0x3f4)) {
-        DAT_004249b8 = &DAT_004243db + param_3;
-        FUN_00416ea0(param_1);
+        gcInputCharacter = &DAT_004243db + param_3;
+        vSpawnKeyInputWindow(param_1);
         return 1;
       }
       if ((0x3fc < param_3) && (param_3 < 0x408)) {
-        DAT_004249b8 = &DAT_004243d8 + param_3;
-        FUN_00416ea0(param_1);
+        gcInputCharacter = &DAT_004243d8 + param_3;
+        vSpawnKeyInputWindow(param_1);
         return 1;
       }
       if (param_3 < 0xb) {
         if (param_3 == 10) {
           iVar4 = 0x3e9;
           do {
-            FUN_00416650(local_100,(&DAT_004243db)[iVar4]);
-            SetDlgItemTextA(param_1,iVar4,local_100);
+            iGetInputKey(local_100,(&DAT_004243db)[iVar4]);
+            SetDlgItemTextA(param_1,iVar4,(LPCSTR)local_100);
             iVar1 = iVar4 + -1000;
             iVar4 = iVar4 + 1;
           } while (iVar1 < 0xb);
           iVar4 = 0x3fd;
           do {
-            FUN_00416650(local_100,(&DAT_004243d8)[iVar4]);
-            SetDlgItemTextA(param_1,iVar4,local_100);
+            iGetInputKey(local_100,(&DAT_004243d8)[iVar4]);
+            SetDlgItemTextA(param_1,iVar4,(LPCSTR)local_100);
             iVar1 = iVar4 + -0x3fc;
             iVar4 = iVar4 + 1;
           } while (iVar1 < 0xb);
@@ -17837,7 +18189,7 @@ undefined4 lpDialogFunc_00417230(HWND param_1,int param_2,uint param_3)
         }
         if (param_3 == 1) {
           puVar5 = &DAT_P1_UP_IN_DIALOG_004247c4;
-          pCVar7 = &DAT_P1_KEYBOARD_CONTROLS_00425980;
+          pCVar7 = gcKeyboardControlsSets;
           for (iVar4 = 8; iVar4 != 0; iVar4 = iVar4 + -1) {
             uVar3 = *puVar5;
             pCVar7->UP = (char)uVar3;
@@ -17859,14 +18211,14 @@ undefined4 lpDialogFunc_00417230(HWND param_1,int param_2,uint param_3)
         }
       }
       else if (param_3 == 0x7db) {
-        ppuVar6 = PTR_s_UP_0041f2e8[0] + 0xb;
+        pcVar6 = gsKeyboardControlsForDialogBoxPlayer1;
         puVar5 = &DAT_P1_UP_IN_DIALOG_004247c4;
         for (iVar4 = 8; iVar4 != 0; iVar4 = iVar4 + -1) {
-          *puVar5 = *ppuVar6;
-          ppuVar6 = ppuVar6 + 1;
+          *puVar5 = *(undefined4 *)pcVar6;
+          pcVar6 = pcVar6 + 4;
           puVar5 = puVar5 + 1;
         }
-        *(undefined2 *)puVar5 = *(undefined2 *)ppuVar6;
+        *(undefined2 *)puVar5 = *(undefined2 *)pcVar6;
         SendMessageA(param_1,0x111,10,0);
       }
       return 1;
@@ -17881,7 +18233,7 @@ undefined4 lpDialogFunc_00417230(HWND param_1,int param_2,uint param_3)
 // lpDialogFunc parameter of DialogBoxParamA
 // 
 
-undefined4 lpDialogFunc_00417460(HWND param_1,int param_2,uint param_3)
+undefined4 vSetupJoystickDialog(HWND param_1,int param_2,uint param_3)
 
 {
   int iVar1;
@@ -17894,7 +18246,7 @@ undefined4 lpDialogFunc_00417460(HWND param_1,int param_2,uint param_3)
   else {
     if (param_2 == 0x110) {
       DAT_004247ec = JOYSTICK_INPUTS._4_4_;
-      _DAT_004247e8 = (undefined *)JOYSTICK_INPUTS._0_4_;
+      _DAT_004247e8 = JOYSTICK_INPUTS._0_4_;
       _DAT_004247f0 = DAT_00445718;
       DAT_004247f4 = DAT_0044571c;
       SendMessageA(param_1,0x111,10,0);
@@ -17904,13 +18256,13 @@ undefined4 lpDialogFunc_00417460(HWND param_1,int param_2,uint param_3)
       if ((0x3ec < param_3) && (param_3 < 0x3f4)) {
         DAT_004249b0 = &DAT_004243fb + param_3;
         DAT_004249bc = 0;
-        FUN_004171e0(param_1);
+        vSpawnJoyInputWindow(param_1);
         return 1;
       }
       if ((0x400 < param_3) && (param_3 < 0x408)) {
         DAT_004249b0 = &DAT_004243ee + param_3;
         DAT_004249bc = 1;
-        FUN_004171e0(param_1);
+        vSpawnJoyInputWindow(param_1);
         return 1;
       }
       if (param_3 < 0xb) {
@@ -17945,10 +18297,10 @@ undefined4 lpDialogFunc_00417460(HWND param_1,int param_2,uint param_3)
         }
       }
       else if (param_3 == 0x7db) {
-        DAT_004247ec = DAT_0041f358;
-        _DAT_004247e8 = PTR_JOYSTICK_BUTTONS[0][7];
-        _DAT_004247f0 = DAT_0041f35c;
-        DAT_004247f4 = DAT_0041f360;
+        DAT_004247ec = gpsJoystickControlsForDialogBoxPlayer1._4_4_;
+        _DAT_004247e8 = gpsJoystickControlsForDialogBoxPlayer1._0_4_;
+        _DAT_004247f0 = gpsJoystickControlsForDialogBoxPlayer2._0_4_;
+        DAT_004247f4 = gpsJoystickControlsForDialogBoxPlayer2._4_2_;
         SendMessageA(param_1,0x111,10,0);
       }
       return 1;
@@ -17962,14 +18314,16 @@ undefined4 lpDialogFunc_00417460(HWND param_1,int param_2,uint param_3)
 // lpDialogFunc parameter of DialogBoxParamA
 // 
 
-undefined4 lpDialogFunc_00417700(HWND param_1,int param_2,int param_3)
+int iLpDialogFunc(HWND param_1,int uMsg,int wParam)
 
 {
-  if (param_2 == 0x10) {
+  if (uMsg == 0x10) {
+                    // WM_CLOSE
     EndDialog(param_1,0);
   }
-  else if (param_2 != 0x110) {
-    if ((param_2 == 0x111) && (param_3 == 0x7da)) {
+  else if (uMsg != 0x110) {
+    if ((uMsg == 0x111) && (wParam == 0x7da)) {
+                    // WM_COMMAND
       EndDialog(param_1,1);
       return 1;
     }
@@ -17980,16 +18334,16 @@ undefined4 lpDialogFunc_00417700(HWND param_1,int param_2,int param_3)
 
 
 
-void spawn_dialog_box_prob_about_box(HWND hWnd)
+void vSpawnAboutDlgBox(HWND hWnd)
 
 {
-  DialogBoxParamA(HINSTANCE_004701cc,s_about_dlg_0041fac8,hWnd,lpDialogFunc_00417700,0);
+  DialogBoxParamA(ghInstance,gsAboutDlg,hWnd,iLpDialogFunc,0);
   return;
 }
 
 
 
-void Handle_dialog_boxes_and_window_moving_prob(HWND hWnd,int param_2)
+void vHandleWmCommand(HWND hWnd,WPARAM wParam)
 
 {
   int iVar1;
@@ -17997,27 +18351,26 @@ void Handle_dialog_boxes_and_window_moving_prob(HWND hWnd,int param_2)
   int iVar3;
   BOOL bRepaint;
   
-  if (param_2 < 0x920) {
-    if (param_2 == 0x91f) {
-      DialogBoxParamA(HINSTANCE_004701cc,s_DIALOG_GAMESPEEDSETUP_0041fad4,hWnd,
-                      set_variables_from_options_menu,0);
+  if ((int)wParam < 0x920) {
+    if (wParam == 0x91f) {
+      DialogBoxParamA(ghInstance,gsDialogGameSpeedSetup,hWnd,set_variables_from_options_menu,0);
       return;
     }
-    switch(param_2) {
+    switch(wParam) {
     case 0x836:
       PostQuitMessage(0);
       return;
     case 0x839:
-      spawn_dialog_box_prob_about_box(hWnd);
+      vSpawnAboutDlgBox(hWnd);
       return;
     case 0x910:
-      UINT_GAME_SCREEN_MODE_2 = UINT_GAME_SCREEN_MODE_2 - 1 & 1;
-      SETUP_DDRAW_PRIMARY_SURFACE();
-      DWORD_TIME_00447dd4 = timeGetTime();
+      giGameScreenMode_2 = giGameScreenMode_2 - 1 & 1;
+      vSetupDdrawPrimarySurface();
+      gdSystemTime = timeGetTime();
       return;
     case 0x911:
-      UINT_GAME_WINDOW_SIZE_X = 0x280;
-      UINT_GAME_WINDOW_SIZE_Y = 0x1e0;
+      giConfigGameWindowSizeX = 0x280;
+      giConfigGameWindowSizeY = 0x1e0;
       GetWindowRect(hWnd,(LPRECT)&lpRect_004247a0);
       bRepaint = 1;
       iVar1 = GetSystemMetrics(0x20);
@@ -18026,22 +18379,20 @@ void Handle_dialog_boxes_and_window_moving_prob(HWND hWnd,int param_2)
       iVar3 = iVar2 + 0x1e0 + iVar1 * 2 + iVar3;
       iVar1 = GetSystemMetrics(0x20);
       MoveWindow(hWnd,lpRect_004247a0,INT_lprect_y_coord_004247a4,iVar1 * 2 + 0x280,iVar3,bRepaint);
-      check_window_bounding_area(hWnd);
+      vCheckWindowBounds(hWnd);
       return;
     }
   }
-  else if (param_2 == 0x9c5) {
-    DialogBoxParamA(HINSTANCE_004701cc,s_DIALOG_Setup_KeyBoard_0041faec,hWnd,lpDialogFunc_00417230,0
-                   );
+  else if (wParam == 0x9c5) {
+    DialogBoxParamA(ghInstance,gsDialogSetupKeyboard,hWnd,vSetupKeyboardDialog,0);
   }
   else {
-    if (param_2 == 0x9c6) {
-      DialogBoxParamA(HINSTANCE_004701cc,s_DIALOG_Setup_JoyStick_0041fb04,hWnd,lpDialogFunc_00417460
-                      ,0);
+    if (wParam == 0x9c6) {
+      DialogBoxParamA(ghInstance,gsDialogSetupJoystick,hWnd,vSetupJoystickDialog,0);
       return;
     }
-    if (param_2 == 0xa29) {
-      setupOnlineDialog(HINSTANCE_004701cc,HWND_004246f8);
+    if (wParam == 0xa29) {
+      vSpawnOnlineDialog(ghInstance,gHwnd);
       return;
     }
   }
@@ -18058,8 +18409,8 @@ void switchD_0041779d::caseD_911(HWND hWnd)
   int i_SM_CYCAPTION;
   BOOL bRepaint;
   
-  UINT_GAME_WINDOW_SIZE_X = 0x280;
-  UINT_GAME_WINDOW_SIZE_Y = 0x1e0;
+  giConfigGameWindowSizeX = 0x280;
+  giConfigGameWindowSizeY = 0x1e0;
   GetWindowRect(hWnd,(LPRECT)&lpRect_004247a0);
   bRepaint = 1;
   i_SM_CXFRAME = GetSystemMetrics(32);
@@ -18069,7 +18420,7 @@ void switchD_0041779d::caseD_911(HWND hWnd)
   i_SM_CXFRAME = GetSystemMetrics(32);
   MoveWindow(hWnd,lpRect_004247a0,INT_lprect_y_coord_004247a4,i_SM_CXFRAME * 2 + 0x280,
              i_SM_CYCAPTION,bRepaint);
-  check_window_bounding_area(hWnd);
+  vCheckWindowBounds(hWnd);
   return;
 }
 
