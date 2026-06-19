@@ -128,9 +128,10 @@ Important Functions
 | 0x00415c20 | dxGetSoundBufferInterface |
 | 0x00415f40 | iWriteFromSoundAlloc |
 | 0x0040ffc0 | vHitboxHandling |
-| 0x0040eb60 | | 
-| 0x0040f010 | |
-| 0x0040f910 | |
+| 0x0040eb60 | vAdjustHitboxes | 
+| 0x0040eab0 | vHitboxCalc |
+| 0x0040f010 | vHandleHitboxEffects |
+| 0x0040f910 | vHandleHitMovements |
 | 0x004146d0 | vGetPlayerInputs |
 | 0x00414340 | iTranslateKeyPress |
 | 0x00404dd0 | vHandleDrawing |
@@ -168,6 +169,23 @@ Important Functions
 | 0x00409d00 | vjmpHandleBattleInterface |
 | 0x0040a620 | vjmpUpdateTimerAndUi |
 | 0x004084f0 | vjmpGameOverScreen |
+| | script_reading_logic |
+| 0x00410cf0 | iSwitchCurrentObjectSkill | 
+| 0x0040e550 | vMemzeroHitboxArrays |
+| 0x00410d50 | vAssignSkillAndResetOtherValues |
+| 0x0040e540 | vResetReactionSkillBlock |
+| 0x0040e510 | iResetDsSkillIndices |
+| 0x0040e4a0 | vStoryHitboxCheck |
+| 0x0040e580 | iAssignPlayerLookingRight |
+| 0x00411a80 | vCheckIfDrawThenMove |
+| 0x00411810 | vProcessInputsIntoSkills |
+| 0x00411270 | vHandleCpuCommands |
+| 0x00410060 | sHandlePlayerCommandSequence |
+| 0x00410dc0 | vHandleMovementSkills |
+| 0x0040e7c0 | vAddToHealth |
+| 0x0040e6f0 | vAddToSpecialGauge | 
+| 0x00414860 | iSubtractTwoFiftySixIfAboveOneTwentySeven |
+| 0x0040e5c0 | vUnkXDistanceHandling |
 
 
 
@@ -204,6 +222,7 @@ Other Functions for Parity
 | 0x00404c10 | vWindowBltFuncs | 
 | 0x004025a0 | Unused_online_E |
 | 0x00402600 | Unused_online_A |
+| 0x0040e5c0 | vAssignOpponentPtr |
 
  
 

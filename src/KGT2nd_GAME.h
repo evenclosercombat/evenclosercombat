@@ -6772,49 +6772,43 @@ struct kgt_character_struct {
     int iSpecialStockGaugeMax_2;
     int iLifeAddUnk1;
     int field6373_0xdf29;
-    undefined1 unkHitboxVarB; // Created by Rename Structure Field action
-    undefined field6375_0xdf2e;
-    bool poss_direction_related_A;
-    undefined field6377_0xdf30;
-    undefined1 unkHitboxVarA; // Created by Rename Structure Field action
-    undefined field6379_0xdf32;
-    undefined field6380_0xdf33;
-    undefined field6381_0xdf34;
+    int unkHitboxVarB; // Created by Rename Structure Field action
+    int unkHitboxVarA; // Created by Rename Structure Field action
     int script_reading_0x14;
-    undefined field6383_0xdf39;
-    int field6384_0xdf3a;
-    undefined field6385_0xdf3e;
-    short field6386_0xdf3f;
+    undefined field6377_0xdf39;
+    int field6378_0xdf3a;
+    undefined field6379_0xdf3e;
+    short field6380_0xdf3f;
     int iCurrentXPos; // Created by Rename Structure Field action
     int iCurrentYPos;
-    int field6389_0xdf49;
+    int field6383_0xdf49;
     short bPlayerIdxIsNotZero;
-    undefined field6391_0xdf4f;
-    undefined field6392_0xdf50;
+    undefined field6385_0xdf4f;
+    undefined field6386_0xdf50;
     int iUnkParam3Related;
     int iUnknownCommandInputVar;
-    undefined field6395_0xdf59;
-    undefined field6396_0xdf5a;
-    undefined field6397_0xdf5b;
-    undefined field6398_0xdf5c;
+    undefined field6389_0xdf59;
+    undefined field6390_0xdf5a;
+    undefined field6391_0xdf5b;
+    undefined field6392_0xdf5c;
     int iNotTestplayPlayerCpu;
     int iCpuLevel;
     int iTestplayPlayerCpu;
     struct kgtEngineObject *poss_opponent_obj_ptr_2?;
-    int field6403_0xdf6d;
-    int field6404_0xdf71;
+    int field6397_0xdf6d;
+    int field6398_0xdf71;
     int iCpuCommandIdx;
     int iWinPoint;
     int iCpuCommandTimer;
     undefined1 iUnkCpuOffsetVar; // Created by Rename Structure Field action
-    undefined field6409_0xdf82;
-    undefined field6410_0xdf83;
-    undefined field6411_0xdf84;
+    undefined field6403_0xdf82;
+    undefined field6404_0xdf83;
+    undefined field6405_0xdf84;
     int iCurrentActionCancellableFlag; // Created by Rename Structure Field action
-    undefined field6413_0xdf89;
-    undefined field6414_0xdf8a;
-    undefined field6415_0xdf8b;
-    undefined field6416_0xdf8c;
+    undefined field6407_0xdf89;
+    undefined field6408_0xdf8a;
+    undefined field6409_0xdf8b;
+    undefined field6410_0xdf8c;
     int iInputBufferPos; // Created by Rename Structure Field action
     undefined1 start_of_0x6; // Created by Rename Structure Field action
     undefined1 CancelSkillBlockFlags; // Created by Rename Structure Field action
@@ -6838,76 +6832,76 @@ struct kgt_character_struct {
     short variable_N;
     short variable_O;
     short variable_P;
-    char enemy_bitmask; // Created by Rename Structure Field action
-    undefined field6441_0xdfb8;
-    undefined field6442_0xdfb9;
-    undefined field6443_0xdfba;
+    char cEnemyBitmask; // Created by Rename Structure Field action
+    undefined field6435_0xdfb8;
+    undefined field6436_0xdfb9;
+    undefined field6437_0xdfba;
     int something_to_do_with_starting_health2; // Created by Rename Structure Field action
     struct kgtEngineObject *object_mNumbers[10]; // Created by Rename Structure Field action
     int iHasCrouchAdvance; // Created by Rename Structure Field action
     int iHasCrouchRetreat; // Created by Rename Structure Field action
-    int field6448_0xdfef;
-    undefined field6449_0xdff3;
-    undefined field6450_0xdff4;
+    int field6442_0xdfef;
+    undefined field6443_0xdff3;
+    undefined field6444_0xdff4;
     int script_obj_var_d;
     undefined1 script_byte_7_a; // Created by Rename Structure Field action
-    undefined field6453_0xdffa;
-    undefined field6454_0xdffb;
-    undefined field6455_0xdffc;
-    undefined field6456_0xdffd;
-    undefined field6457_0xdffe;
-    int field6458_0xdfff;
+    undefined field6447_0xdffa;
+    undefined field6448_0xdffb;
+    undefined field6449_0xdffc;
+    undefined field6450_0xdffd;
+    undefined field6451_0xdffe;
+    int field6452_0xdfff;
     undefined1 input_storage; // Created by Rename Structure Field action
-    undefined field6460_0xe004;
-    undefined field6461_0xe005;
-    undefined field6462_0xe006;
+    undefined field6454_0xe004;
+    undefined field6455_0xe005;
+    undefined field6456_0xe006;
     int iDoubleKoWinnerDeterminer;
     int iColorInt;
     int unk_image_wait_flag;
     undefined1 start_of_0x2c; // Created by Rename Structure Field action
-    undefined field6467_0xe014;
-    undefined field6468_0xe015;
-    undefined field6469_0xe016;
+    undefined field6461_0xe014;
+    undefined field6462_0xe015;
+    undefined field6463_0xe016;
     undefined1 flash_red; // Created by Rename Structure Field action
-    undefined field6471_0xe018;
-    undefined field6472_0xe019;
-    undefined field6473_0xe01a;
+    undefined field6465_0xe018;
+    undefined field6466_0xe019;
+    undefined field6467_0xe01a;
     undefined1 flash_green; // Created by Rename Structure Field action
-    undefined field6475_0xe01c;
-    undefined field6476_0xe01d;
-    undefined field6477_0xe01e;
+    undefined field6469_0xe01c;
+    undefined field6470_0xe01d;
+    undefined field6471_0xe01e;
     undefined1 flash_blue; // Created by Rename Structure Field action
-    undefined field6479_0xe020;
-    undefined field6480_0xe021;
-    undefined field6481_0xe022;
+    undefined field6473_0xe020;
+    undefined field6474_0xe021;
+    undefined field6475_0xe022;
     undefined1 flash_alpha; // Created by Rename Structure Field action
-    undefined field6483_0xe024;
-    undefined field6484_0xe025;
-    undefined field6485_0xe026;
+    undefined field6477_0xe024;
+    undefined field6478_0xe025;
+    undefined field6479_0xe026;
     undefined1 flash_duration_b; // Created by Rename Structure Field action
-    undefined field6487_0xe028;
-    undefined field6488_0xe029;
-    undefined field6489_0xe02a;
+    undefined field6481_0xe028;
+    undefined field6482_0xe029;
+    undefined field6483_0xe02a;
     undefined1 flash_var_a; // Created by Rename Structure Field action
-    undefined field6491_0xe02c;
-    undefined field6492_0xe02d;
-    undefined field6493_0xe02e;
+    undefined field6485_0xe02c;
+    undefined field6486_0xe02d;
+    undefined field6487_0xe02e;
     undefined1 flash_var_b; // Created by Rename Structure Field action
-    undefined field6495_0xe030;
-    undefined field6496_0xe031;
-    undefined field6497_0xe032;
+    undefined field6489_0xe030;
+    undefined field6490_0xe031;
+    undefined field6491_0xe032;
     undefined1 flash_var_c; // Created by Rename Structure Field action
-    undefined field6499_0xe034;
-    undefined field6500_0xe035;
-    undefined field6501_0xe036;
+    undefined field6493_0xe034;
+    undefined field6494_0xe035;
+    undefined field6495_0xe036;
     undefined1 flash_var_d; // Created by Rename Structure Field action
-    undefined field6503_0xe038;
-    undefined field6504_0xe039;
-    undefined field6505_0xe03a;
+    undefined field6497_0xe038;
+    undefined field6498_0xe039;
+    undefined field6499_0xe03a;
     undefined1 flash_duration_a; // Created by Rename Structure Field action
-    undefined field6507_0xe03c;
-    undefined field6508_0xe03d;
-    undefined field6509_0xe03e;
+    undefined field6501_0xe03c;
+    undefined field6502_0xe03d;
+    undefined field6503_0xe03e;
 };
 
 struct kgtEngineObject {
@@ -489231,10 +489225,10 @@ int iAssignPlayerLookingRight(void);
 void vUnkXDistanceHandling(void);
 void vAddToSpecialGauge(int player_idx,int special_increase);
 void vAddToHealth(kgt_character_struct *player,int iLifeAdd);
-void hitbox_calculation(int *out,int x_val,int y_val,int hitbox_width,int hitbox_height,int opp_x_val,int opp_y_val,int opp_hitbox_width,int opp_hitbox_height);
-void handle_hitboxes(void);
-void handle_hitboxes_2(void);
-void FUN_0040f910(void);
+void vHitboxCalc(int *out,int x_val,int y_val,int hitbox_width,int hitbox_height,int opp_x_val,int opp_y_val,int opp_hitbox_width,int opp_hitbox_height);
+void vAdjustHitboxes(void);
+void vHandleHitboxEffects(void);
+void vHandleHitMovements(void);
 void vHitboxHandling(void);
 short sHandlePlayerCommandSequence(uint iCommandIdx);
 undefined4 process_COM_skillblock(kgtSkill *skill);

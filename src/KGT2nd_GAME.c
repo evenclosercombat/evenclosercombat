@@ -11150,7 +11150,7 @@ void vUnkXDistanceHandling(void)
       if (((gkgtLoadedCharacter[iVar1].iHealth != 0) &&
           (gkgtLoadedCharacter[iVar1].unknown_online_var_a != 0)) &&
          ((gkgtLoadedCharacter[iVar1].unk_image_wait_flag != 0 &&
-          ((*(uint *)&gkgtLoadedCharacter[iPlayerIdx].enemy_bitmask & 1 << ((byte)iVar1 & 0x1f)) !=
+          ((*(uint *)&gkgtLoadedCharacter[iPlayerIdx].cEnemyBitmask & 1 << ((byte)iVar1 & 0x1f)) !=
            0)))) {
         first_obj_param_3 = ADJ(first_obj_player_idx)->iParam3;
         param_3_diff = curr_obj->iParam3 - first_obj_param_3;
@@ -11367,8 +11367,8 @@ LAB_0040e8b7:
 
 
 
-void hitbox_calculation(int *out,int x_val,int y_val,int hitbox_width,int hitbox_height,
-                       int opp_x_val,int opp_y_val,int opp_hitbox_width,int opp_hitbox_height)
+void vHitboxCalc(int *out,int x_val,int y_val,int hitbox_width,int hitbox_height,int opp_x_val,
+                int opp_y_val,int opp_hitbox_width,int opp_hitbox_height)
 
 {
   int iVar1;
@@ -11406,23 +11406,23 @@ void hitbox_calculation(int *out,int x_val,int y_val,int hitbox_width,int hitbox
 
 
 
-void handle_hitboxes(void)
+void vAdjustHitboxes(void)
 
 {
   kgtEngineObjectTypes kVar1;
   kgtSkillHeader *pkVar2;
-  int y_val;
-  int hitbox_width;
+  int iYVal;
+  int iHitboxWidth;
   int opp_hitbox_width;
-  kgtEngineObject *iVar7;
-  int hitbox_height;
-  uint uVar3;
+  kgtEngineObject *pkgtoNewObject;
+  int iHitboxHeight;
+  uint shSkillIdxOffset;
   int opp_hitbox_height;
-  kgtEngineObject_ptr_8_int pObj_param3;
+  kgtEngineObject_ptr_8_int pObjParam3;
   int opp_y_val;
-  kgtEngineObject *opponent_obj;
+  kgtEngineObject *pkgtoOtherPlayer;
   int opp_x_val;
-  int adjusted_x_val;
+  int iAdjustedXVal;
   kgtSkill **pOpp_hitbox;
   kgtSkill *pHitbox;
   int i4;
@@ -11430,11 +11430,12 @@ void handle_hitboxes(void)
   int i2;
   int i;
   int local_8 [2];
+  int iOppIdx;
   kgtSkill *hitbox;
-  int x_val;
+  int iXVal;
   kgtSkill *opp_hitbox;
   
-  pObj_param3 = &kgtEngineObjects[0].iParam3;
+  pObjParam3 = &kgtEngineObjects[0].iParam3;
   i = 0;
   do {
                     //                     /* ----------------------------------
@@ -11463,131 +11464,133 @@ void handle_hitboxes(void)
                     //                        5 - No Sky Decision
                     //                        6 - Guard Fail
                     //                        7 - While Receiving */
-    if (ADJ(pObj_param3).iJumpIdx == READ_SCRIPT) {
-      pHitbox = (kgtSkill *)(ADJ(pObj_param3)->kgtHitboxAttacks + 0x13);
+    if (ADJ(pObjParam3).iJumpIdx == READ_SCRIPT) {
+      pHitbox = (kgtSkill *)(ADJ(pObjParam3)->kgtHitboxAttacks + 0x13);
       i2 = 20;
       do {
         hitbox = *(kgtSkill **)pHitbox;
         if (hitbox != (kgtSkill *)0x0) {
                     // Figure out what is going on with the division? here
-          x_val = ADJ(pObj_param3)->iParam3;
-          if ((ADJ(pObj_param3)->iPlayerLookingRight & 1) == 0) {
-            adjusted_x_val =
+          iXVal = ADJ(pObjParam3)->iParam3;
+          if ((ADJ(pObjParam3)->iPlayerLookingRight & 1) == 0) {
+            iAdjustedXVal =
                  (int)*(short *)&hitbox->field_0x1 +
-                 ((int)(x_val + (x_val >> 31 & 0xffffU)) >> 0x10);
+                 ((int)(iXVal + (iXVal >> 31 & 0xffffU)) >> 0x10);
           }
           else {
-            adjusted_x_val =
-                 ((int)(x_val + (x_val >> 31 & 0xffffU)) >> 0x10) -
+            iAdjustedXVal =
+                 ((int)(iXVal + (iXVal >> 31 & 0xffffU)) >> 0x10) -
                  (int)*(short *)&hitbox->field_0x1;
           }
-          y_val = ((int)(ADJ(pObj_param3)->iParam4 + (ADJ(pObj_param3)->iParam4 >> 0x1f & 0xffffU))
-                  >> 0x10) + (int)*(short *)&hitbox->field_0x3;
-          hitbox_width = (int)*(short *)&hitbox->field_0x5;
-          hitbox_height = (int)*(short *)&hitbox->field_0x7;
-          opponent_obj = kgtEngineObjects + i + 1;
+          iYVal = ((int)(ADJ(pObjParam3)->iParam4 + (ADJ(pObjParam3)->iParam4 >> 0x1f & 0xffffU)) >>
+                  0x10) + (int)*(short *)&hitbox->field_0x3;
+          iHitboxWidth = (int)*(short *)&hitbox->field_0x5;
+          iHitboxHeight = (int)*(short *)&hitbox->field_0x7;
+          pkgtoOtherPlayer = kgtEngineObjects + i + 1;
           if (i + 1 < 0x400) {
             i3 = 0x400 - (i + 1);
             do {
-              if ((opponent_obj->iJumpIdx == READ_SCRIPT) &&
-                 (((*(uint *)&ADJ(pObj_param3)->__or_3 ^ *(uint *)&opponent_obj->__or_3) & 1) == 0))
-              {
-                if ((ADJ(pObj_param3)->iPlayerIdx != opponent_obj->iPlayerIdx) &&
-                   ((((uint)opponent_obj->obj_ptr_b & 8) == 0 &&
-                    ((*(uint *)&gkgtLoadedCharacter[ADJ(pObj_param3)->iPlayerIdx].enemy_bitmask &
-                     1 << ((byte)opponent_obj->iPlayerIdx & 0x1f)) != 0)))) {
-                  pOpp_hitbox = (kgtSkill **)(opponent_obj->kgtHitboxAttacks + 0x13);
+              if ((pkgtoOtherPlayer->iJumpIdx == READ_SCRIPT) &&
+                 (((*(uint *)&ADJ(pObjParam3)->__or_3 ^ *(uint *)&pkgtoOtherPlayer->__or_3) & 1) ==
+                  0)) {
+                if ((ADJ(pObjParam3)->iPlayerIdx != pkgtoOtherPlayer->iPlayerIdx) &&
+                   ((((uint)pkgtoOtherPlayer->obj_ptr_b & 8) == 0 &&
+                    ((*(uint *)&gkgtLoadedCharacter[ADJ(pObjParam3)->iPlayerIdx].cEnemyBitmask &
+                     1 << ((byte)pkgtoOtherPlayer->iPlayerIdx & 0x1f)) != 0)))) {
+                  pOpp_hitbox = (kgtSkill **)(pkgtoOtherPlayer->kgtHitboxAttacks + 0x13);
                   i4 = 0x14;
                   do {
                     opp_hitbox = *pOpp_hitbox;
                     if (opp_hitbox != (kgtSkill *)0x0) {
-                      if ((opponent_obj->iPlayerLookingRight & 1) == 0) {
+                      if ((pkgtoOtherPlayer->iPlayerLookingRight & 1) == 0) {
                         opp_x_val = (int)*(short *)&opp_hitbox->field_0x1 +
-                                    ((int)(opponent_obj->iParam3 +
-                                          (opponent_obj->iParam3 >> 0x1f & 0xffffU)) >> 0x10);
+                                    ((int)(pkgtoOtherPlayer->iParam3 +
+                                          (pkgtoOtherPlayer->iParam3 >> 0x1f & 0xffffU)) >> 0x10);
                       }
                       else {
-                        opp_x_val = ((int)(opponent_obj->iParam3 +
-                                          (opponent_obj->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
+                        opp_x_val = ((int)(pkgtoOtherPlayer->iParam3 +
+                                          (pkgtoOtherPlayer->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
                                     (int)*(short *)&opp_hitbox->field_0x1;
                       }
                       opp_hitbox_height = (int)*(short *)&opp_hitbox->field_0x7;
                       opp_y_val = (int)*(short *)&opp_hitbox->field_0x3 +
-                                  ((int)(opponent_obj->iParam4 +
-                                        (opponent_obj->iParam4 >> 0x1f & 0xffffU)) >> 0x10);
+                                  ((int)(pkgtoOtherPlayer->iParam4 +
+                                        (pkgtoOtherPlayer->iParam4 >> 0x1f & 0xffffU)) >> 0x10);
                       opp_hitbox_width = (int)*(short *)&opp_hitbox->field_0x5;
-                      if ((((opp_x_val - opp_hitbox_width < hitbox_width + adjusted_x_val) &&
-                           (adjusted_x_val - hitbox_width < opp_hitbox_width + opp_x_val)) &&
-                          (opp_y_val - opp_hitbox_height < hitbox_height + y_val)) &&
-                         (y_val - hitbox_height < opp_hitbox_height + opp_y_val)) {
-                        if (ADJ(pObj_param3)->iPlayerIdx == 0) {
-                          gkgtGameState.iAttackedPlayerBuffer = opponent_obj->iPlayerIdx;
+                      if ((((opp_x_val - opp_hitbox_width < iHitboxWidth + iAdjustedXVal) &&
+                           (iAdjustedXVal - iHitboxWidth < opp_hitbox_width + opp_x_val)) &&
+                          (opp_y_val - opp_hitbox_height < iHitboxHeight + iYVal)) &&
+                         (iYVal - iHitboxHeight < opp_hitbox_height + opp_y_val)) {
+                        if (ADJ(pObjParam3)->iPlayerIdx == 0) {
+                          gkgtGameState.iAttackedPlayerBuffer = pkgtoOtherPlayer->iPlayerIdx;
                           gkgtGameState.jump_15_var_a = 1000;
                         }
                         if ((hitbox->field_0xc == '\0') && (opp_hitbox->field_0xc == '\0')) {
-                          vMemzero(ADJ(pObj_param3)->kgtHitboxAttacks,0x50);
-                          vMemzero(opponent_obj->kgtHitboxAttacks,0x50);
+                          vMemzero(ADJ(pObjParam3)->kgtHitboxAttacks,0x50);
+                          vMemzero(pkgtoOtherPlayer->kgtHitboxAttacks,0x50);
                         }
                         else {
-                          if (ADJ(pObj_param3)->iDsInOffsetSkillIdx != 0) {
-                            ADJ(pObj_param3)->iHitJunctionIdx =
-                                 ADJ(pObj_param3)->iDsInOffsetSkillIdx;
-                            ADJ(pObj_param3)->iDsInOffsetSkillIdx = 0;
-                            vMemzero(ADJ(pObj_param3)->kgtHitboxAttacks,0x50);
-                            vMemzero(opponent_obj->kgtHitboxAttacks,0x50);
+                          if (ADJ(pObjParam3)->iDsInOffsetSkillIdx != 0) {
+                            ADJ(pObjParam3)->iHitJunctionIdx = ADJ(pObjParam3)->iDsInOffsetSkillIdx;
+                            ADJ(pObjParam3)->iDsInOffsetSkillIdx = 0;
+                            vMemzero(ADJ(pObjParam3)->kgtHitboxAttacks,0x50);
+                            vMemzero(pkgtoOtherPlayer->kgtHitboxAttacks,0x50);
                           }
-                          if (opponent_obj->iDsInOffsetSkillIdx != 0) {
-                            opponent_obj->iHitJunctionIdx = opponent_obj->iDsInOffsetSkillIdx;
-                            opponent_obj->iDsInOffsetSkillIdx = 0;
-                            vMemzero(ADJ(pObj_param3)->kgtHitboxAttacks,0x50);
-                            vMemzero(opponent_obj->kgtHitboxAttacks,0x50);
+                          if (pkgtoOtherPlayer->iDsInOffsetSkillIdx != 0) {
+                            pkgtoOtherPlayer->iHitJunctionIdx =
+                                 pkgtoOtherPlayer->iDsInOffsetSkillIdx;
+                            pkgtoOtherPlayer->iDsInOffsetSkillIdx = 0;
+                            vMemzero(ADJ(pObjParam3)->kgtHitboxAttacks,0x50);
+                            vMemzero(pkgtoOtherPlayer->kgtHitboxAttacks,0x50);
                           }
                           if ((gkgtKgtSystem.cSystemBitmask & 2U) != 0) {
                             if ((hitbox->field_0xc != '\0') || (opp_hitbox->field_0xc != '\0')) {
-                              hitbox_calculation(local_8,adjusted_x_val,y_val,hitbox_width,
-                                                 hitbox_height,opp_x_val,opp_y_val,opp_hitbox_width,
-                                                 opp_hitbox_height);
-                              iVar7 = kgtoNewEngineObject(READ_SCRIPT,0x5d,
-                                                          local_8[0] + unk_x_position * -0x10000,
-                                                          local_8[1] + unk_y_pos2 * -0x10000);
+                              vHitboxCalc(local_8,iAdjustedXVal,iYVal,iHitboxWidth,iHitboxHeight,
+                                          opp_x_val,opp_y_val,opp_hitbox_width,opp_hitbox_height);
+                              pkgtoNewObject =
+                                   kgtoNewEngineObject(READ_SCRIPT,0x5d,
+                                                       local_8[0] + unk_x_position * -0x10000,
+                                                       local_8[1] + unk_y_pos2 * -0x10000);
                               pkVar2 = gkgtKgtSystem.kgtCore.pSkillsAlloc;
-                              uVar3 = gkgtKgtSystem._73600_4_ & 0xffff;
-                              iVar7->iSkillIdx = uVar3;
-                              iVar7->iObjectType = SYSTEM_ENGINE_OBJECT;
-                              *(uint *)&iVar7->iSkillScriptIdx =
-                                   (uint)(ushort)pkVar2[uVar3].shStartingStepIdx;
+                              shSkillIdxOffset = gkgtKgtSystem._73600_4_ & 0xffff;
+                              pkgtoNewObject->iSkillIdx = shSkillIdxOffset;
+                              pkgtoNewObject->iObjectType = SYSTEM_ENGINE_OBJECT;
+                              *(uint *)&pkgtoNewObject->iSkillScriptIdx =
+                                   (uint)(ushort)pkVar2[shSkillIdxOffset].shStartingStepIdx;
                             }
-                            opp_x_val = opponent_obj->iPlayerIdx;
-                            if (gkgtLoadedCharacter[ADJ(pObj_param3)->iPlayerIdx].
+                            iOppIdx = pkgtoOtherPlayer->iPlayerIdx;
+                            if (gkgtLoadedCharacter[ADJ(pObjParam3)->iPlayerIdx].
                                 iCurrentActionCancellableFlag != 0) {
-                              gkgtLoadedCharacter[ADJ(pObj_param3)->iPlayerIdx].
+                              gkgtLoadedCharacter[ADJ(pObjParam3)->iPlayerIdx].
                               iCurrentActionCancellableFlag = 2;
                             }
-                            if (gkgtLoadedCharacter[opp_x_val].iCurrentActionCancellableFlag != 0) {
-                              gkgtLoadedCharacter[opp_x_val].iCurrentActionCancellableFlag = 2;
+                            if (gkgtLoadedCharacter[iOppIdx].iCurrentActionCancellableFlag != 0) {
+                              gkgtLoadedCharacter[iOppIdx].iCurrentActionCancellableFlag = 2;
                             }
-                            vMemzero(ADJ(pObj_param3)->kgtHitboxAttacks,0x50);
-                            vMemzero(opponent_obj->kgtHitboxAttacks,0x50);
-                            uVar3 = (uint)(byte)gkgtKgtSystem.stiff_time_offset;
-                            *(uint *)&opponent_obj->iOpponentDowntimeInFrames = uVar3;
-                            *(uint *)&ADJ(pObj_param3)->iOpponentDowntimeInFrames = uVar3;
+                            vMemzero(ADJ(pObjParam3)->kgtHitboxAttacks,0x50);
+                            vMemzero(pkgtoOtherPlayer->kgtHitboxAttacks,0x50);
+                            shSkillIdxOffset = (uint)(byte)gkgtKgtSystem.stiff_time_offset;
+                            *(uint *)&pkgtoOtherPlayer->iOpponentDowntimeInFrames = shSkillIdxOffset
+                            ;
+                            *(uint *)&ADJ(pObjParam3)->iOpponentDowntimeInFrames = shSkillIdxOffset;
                           }
                           if (((hitbox->field_0xc == '\0') || (opp_hitbox->field_0xc == '\0')) &&
                              (((hitbox->field_0xb & 0x80) != 0 ||
                               ((opp_hitbox->field_0xb & 0x80) != 0)))) {
                             opp_hitbox->cSkillType = '\0';
-                            kVar1 = ADJ(pObj_param3)->iObjectType;
+                            kVar1 = ADJ(pObjParam3)->iObjectType;
                             hitbox->cSkillType = '\0';
                             if ((kVar1 != PLAYER_ENGINE_OBJECT) &&
-                               (ADJ(pObj_param3)->iStageSkillstepIdx != 0)) {
-                              ADJ(pObj_param3)->iHitJunctionIdx =
-                                   ADJ(pObj_param3)->iStageSkillstepIdx;
-                              ADJ(pObj_param3)->iStageSkillstepIdx = 0;
+                               (ADJ(pObjParam3)->iStageSkillstepIdx != 0)) {
+                              ADJ(pObjParam3)->iHitJunctionIdx = ADJ(pObjParam3)->iStageSkillstepIdx
+                              ;
+                              ADJ(pObjParam3)->iStageSkillstepIdx = 0;
                             }
-                            if ((opponent_obj->iObjectType != PLAYER_ENGINE_OBJECT) &&
-                               (opponent_obj->iStageSkillstepIdx != 0)) {
-                              opponent_obj->iHitJunctionIdx = opponent_obj->iStageSkillstepIdx;
-                              opponent_obj->iStageSkillstepIdx = 0;
+                            if ((pkgtoOtherPlayer->iObjectType != PLAYER_ENGINE_OBJECT) &&
+                               (pkgtoOtherPlayer->iStageSkillstepIdx != 0)) {
+                              pkgtoOtherPlayer->iHitJunctionIdx =
+                                   pkgtoOtherPlayer->iStageSkillstepIdx;
+                              pkgtoOtherPlayer->iStageSkillstepIdx = 0;
                             }
                           }
                         }
@@ -11598,7 +11601,7 @@ void handle_hitboxes(void)
                   } while (i4 != 0);
                 }
               }
-              opponent_obj = opponent_obj + 1;
+              pkgtoOtherPlayer = pkgtoOtherPlayer + 1;
               i3 = i3 + -1;
             } while (i3 != 0);
           }
@@ -11608,38 +11611,37 @@ void handle_hitboxes(void)
       } while (i2 != 0);
     }
     i = i + 1;
-    pObj_param3 = (kgtEngineObject_ptr_8_int)((int)pObj_param3 + 0x17e);
+    pObjParam3 = (kgtEngineObject_ptr_8_int)((int)pObjParam3 + 0x17e);
   } while (i < 1024);
   return;
 }
 
 
 
-void handle_hitboxes_2(void)
+void vHandleHitboxEffects(void)
 
 {
-  kgt_character_struct *pkVar1;
-  int iVar2;
-  uint uVar3;
-  int iVar4;
-  bool bVar5;
-  kgt_character_struct *pkVar6;
-  undefined3 uVar7;
-  int hitbox_height;
+  kgt_character_struct *player;
+  int iVar1;
+  uint uVar2;
+  int iVar3;
+  bool bVar4;
+  undefined3 uVar5;
+  int iHitboxHeight;
   int rand;
-  kgtEngineObject *pkVar8;
-  int hitbox_y_val;
-  int hitbox_width;
-  uint uVar9;
-  uint uVar10;
+  kgtEngineObject *pkVar6;
+  int iXVal;
+  int iHitboxWidth;
+  uint uVar7;
+  uint uVar8;
+  int iVar9;
+  int iVar10;
+  kgtEngineObject *pkgtoOtherPlayer;
   int iVar11;
-  int iVar12;
-  kgtEngineObject *opp_object;
-  int iVar13;
   kgtEngineObject *object;
   uint local_3c;
   int *local_38;
-  int hitbox_x_val;
+  int iAdjustedXVal;
   int i;
   int local_14;
   int local_10;
@@ -11647,11 +11649,38 @@ void handle_hitboxes_2(void)
   int local_4;
   kgtSkill *hitbox;
   int new_ivar;
-  byte attack_no_decision;
-  byte hitbox_flags;
+  byte bAttackNoDecision;
+  byte cHitboxFlags;
   int player_buffer;
   
   local_10 = 0;
+                    //  ----------------------------------
+                    //                                               - FA - Attack
+                    //                                               
+                    // ----------------------------------
+                    //                                               0 - Type
+                    //                                               1 - X position (low, SIGNED)
+                    //                                               2 - X position (high, SIGNED)
+                    //                                               3 - Y position (low, SIGNED)
+                    //                                               4 - Y position (high, SIGNED)
+                    //                                               5 - Width (low, SIGNED)
+                    //                                               6 - Width (high, SIGNED)
+                    //                                               7 - Height (low, SIGNED)
+                    //                                               8 - Height (high, SIGNED)
+                    //                                               9 - M number (UNSIGNED)
+                    //                                               A - Flags
+                    //                                               B - unk
+                    //                                               C - Power (UNSIGNED)
+                    //                                               
+                    //                                               - Flags -
+                    //                                               0 - Cancel
+                    //                                               1 - Cont. Hit
+                    //                                               2 - Shav
+                    //                                               3 - While Guard
+                    //                                               4 - No Decision
+                    //                                               5 - No Sky Decision
+                    //                                               6 - Guard Fail
+                    //                                               7 - While Receiving
   object = kgtEngineObjects;
   do {
     if ((((object->__or_3 & 2) == 0) && (object->iJumpIdx == READ_SCRIPT)) &&
@@ -11660,90 +11689,95 @@ void handle_hitboxes_2(void)
       do {
         hitbox = (kgtSkill *)object->kgtHitboxAttacks[i];
         if (hitbox != (kgtSkill *)0x0) {
-          hitbox_y_val = object->iParam3;
+          iXVal = object->iParam3;
           if ((object->iPlayerLookingRight & 1) == 0) {
-            hitbox_x_val = (int)*(short *)&hitbox->field_0x1 +
-                           ((int)(hitbox_y_val + (hitbox_y_val >> 0x1f & 0xffffU)) >> 0x10);
+            iAdjustedXVal =
+                 (int)*(short *)&hitbox->field_0x1 +
+                 ((int)(iXVal + (iXVal >> 0x1f & 0xffffU)) >> 0x10);
           }
           else {
-            hitbox_x_val = ((int)(hitbox_y_val + (hitbox_y_val >> 0x1f & 0xffffU)) >> 0x10) -
-                           (int)*(short *)&hitbox->field_0x1;
+            iAdjustedXVal =
+                 ((int)(iXVal + (iXVal >> 0x1f & 0xffffU)) >> 0x10) -
+                 (int)*(short *)&hitbox->field_0x1;
           }
           local_14 = 0;
-          opp_object = kgtEngineObjects;
-          hitbox_width = (int)*(short *)&hitbox->field_0x5;
-          hitbox_y_val = (int)*(short *)&hitbox->field_0x3 +
-                         ((int)(object->iParam4 + (object->iParam4 >> 0x1f & 0xffffU)) >> 0x10);
-          hitbox_height = (int)*(short *)&hitbox->field_0x7;
+          pkgtoOtherPlayer = kgtEngineObjects;
+          iHitboxWidth = (int)*(short *)&hitbox->field_0x5;
+          iXVal = (int)*(short *)&hitbox->field_0x3 +
+                  ((int)(object->iParam4 + (object->iParam4 >> 0x1f & 0xffffU)) >> 0x10);
+          iHitboxHeight = (int)*(short *)&hitbox->field_0x7;
           do {
-            if (((opp_object->iJumpIdx == READ_SCRIPT) &&
-                (((*(uint *)&opp_object->__or_3 ^ *(uint *)&object->__or_3) & 1) == 0)) &&
-               (object->iPlayerBuffer_2 != opp_object->iPlayerBuffer_2)) {
+            if (((pkgtoOtherPlayer->iJumpIdx == READ_SCRIPT) &&
+                (((*(uint *)&pkgtoOtherPlayer->__or_3 ^ *(uint *)&object->__or_3) & 1) == 0)) &&
+               (object->iPlayerBuffer_2 != pkgtoOtherPlayer->iPlayerBuffer_2)) {
               player_buffer = object->iPlayerIdx;
-              if (((*(uint *)&gkgtLoadedCharacter[player_buffer].enemy_bitmask &
-                   1 << ((byte)opp_object->iPlayerIdx & 0x1f)) != 0) &&
-                 ((*(uint *)&opp_object->__or_3 & 2) == 0)) {
-                if (opp_object->iObjectType == PLAYER_ENGINE_OBJECT) {
-                  if ((opp_object->iParam4 == opp_object->compare_to_param_4) &&
-                     (opp_object->iYMomentum == 0)) {
-                    hitbox_flags = hitbox->field_0xa;
-                    attack_no_decision = hitbox_flags & 0x10;
+              if (((*(uint *)&gkgtLoadedCharacter[player_buffer].cEnemyBitmask &
+                   1 << ((byte)pkgtoOtherPlayer->iPlayerIdx & 0x1f)) != 0) &&
+                 ((*(uint *)&pkgtoOtherPlayer->__or_3 & 2) == 0)) {
+                if (pkgtoOtherPlayer->iObjectType == PLAYER_ENGINE_OBJECT) {
+                  if ((pkgtoOtherPlayer->iParam4 == pkgtoOtherPlayer->compare_to_param_4) &&
+                     (pkgtoOtherPlayer->iYMomentum == 0)) {
+                    cHitboxFlags = hitbox->field_0xa;
+                    bAttackNoDecision = cHitboxFlags & 0x10;
                   }
                   else {
-                    hitbox_flags = hitbox->field_0xa;
-                    attack_no_decision = hitbox_flags & 0x20;
+                    cHitboxFlags = hitbox->field_0xa;
+                    bAttackNoDecision = cHitboxFlags & 0x20;
                   }
-                  if (((attack_no_decision != 0) ||
-                      (((hitbox_flags & 8) != 0 && (((byte)opp_object->obj_ptr_b & 0xc) == 0xc))))
-                     || (((hitbox_flags & 0x80) != 0 && (((byte)opp_object->obj_ptr_b & 0xc) == 8)))
-                     ) goto LAB_0040f8bf;
+                  if (((bAttackNoDecision != 0) ||
+                      (((cHitboxFlags & 8) != 0 &&
+                       (((byte)pkgtoOtherPlayer->obj_ptr_b & 0xc) == 0xc)))) ||
+                     (((cHitboxFlags & 0x80) != 0 &&
+                      (((byte)pkgtoOtherPlayer->obj_ptr_b & 0xc) == 8)))) goto LAB_0040f8bf;
                 }
-                local_38 = opp_object->hitbox_guard_array;
+                local_38 = pkgtoOtherPlayer->hitbox_guard_array;
                 local_3c = 0;
                 do {
-                  iVar11 = *local_38;
-                  if ((iVar11 != 0) && ((*(byte *)(iVar11 + 10) & 6) != 0)) {
-                    if ((opp_object->iPlayerLookingRight & 1) == 0) {
-                      iVar12 = (int)*(short *)(iVar11 + 1) +
-                               ((int)(opp_object->iParam3 + (opp_object->iParam3 >> 0x1f & 0xffffU))
-                               >> 0x10);
+                  iVar9 = *local_38;
+                  if ((iVar9 != 0) && ((*(byte *)(iVar9 + 10) & 6) != 0)) {
+                    if ((pkgtoOtherPlayer->iPlayerLookingRight & 1) == 0) {
+                      iVar10 = (int)*(short *)(iVar9 + 1) +
+                               ((int)(pkgtoOtherPlayer->iParam3 +
+                                     (pkgtoOtherPlayer->iParam3 >> 0x1f & 0xffffU)) >> 0x10);
                     }
                     else {
-                      iVar12 = ((int)(opp_object->iParam3 + (opp_object->iParam3 >> 0x1f & 0xffffU))
-                               >> 0x10) - (int)*(short *)(iVar11 + 1);
+                      iVar10 = ((int)(pkgtoOtherPlayer->iParam3 +
+                                     (pkgtoOtherPlayer->iParam3 >> 0x1f & 0xffffU)) >> 0x10) -
+                               (int)*(short *)(iVar9 + 1);
                     }
-                    iVar13 = (int)*(short *)(iVar11 + 3) +
-                             ((int)(opp_object->iParam4 + (opp_object->iParam4 >> 0x1f & 0xffffU))
-                             >> 0x10);
-                    if ((((iVar12 - *(short *)(iVar11 + 5) < hitbox_width + hitbox_x_val) &&
-                         (hitbox_x_val - hitbox_width < *(short *)(iVar11 + 5) + iVar12)) &&
-                        (iVar13 - *(short *)(iVar11 + 7) < hitbox_height + hitbox_y_val)) &&
-                       (hitbox_y_val - hitbox_height < *(short *)(iVar11 + 7) + iVar13)) {
-                      iVar2 = opp_object->iPlayerIdx;
-                      bVar5 = false;
-                      uVar10 = (uint)(byte)hitbox->field_0xc;
-                      local_3c = giInputBufferA[iVar2][giInputBufferPos];
-                      pkVar1 = gkgtLoadedCharacter + iVar2;
+                    iVar11 = (int)*(short *)(iVar9 + 3) +
+                             ((int)(pkgtoOtherPlayer->iParam4 +
+                                   (pkgtoOtherPlayer->iParam4 >> 0x1f & 0xffffU)) >> 0x10);
+                    if ((((iVar10 - *(short *)(iVar9 + 5) < iHitboxWidth + iAdjustedXVal) &&
+                         (iAdjustedXVal - iHitboxWidth < *(short *)(iVar9 + 5) + iVar10)) &&
+                        (iVar11 - *(short *)(iVar9 + 7) < iHitboxHeight + iXVal)) &&
+                       (iXVal - iHitboxHeight < *(short *)(iVar9 + 7) + iVar11)) {
+                      iVar1 = pkgtoOtherPlayer->iPlayerIdx;
+                      bVar4 = false;
+                      uVar8 = (uint)(byte)hitbox->field_0xc;
+                      local_3c = giInputBufferA[iVar1][giInputBufferPos];
+                      player = gkgtLoadedCharacter + iVar1;
                       if (object->iObjectType == PLAYER_ENGINE_OBJECT) {
-                        gkgtLoadedCharacter[player_buffer].poss_opponent_obj_ptr = opp_object;
-                        gkgtLoadedCharacter[iVar2].poss_opponent_obj_ptr = object;
+                        gkgtLoadedCharacter[player_buffer].poss_opponent_obj_ptr = pkgtoOtherPlayer;
+                        gkgtLoadedCharacter[iVar1].poss_opponent_obj_ptr = object;
                       }
                       if (object->iPlayerIdx == 0) {
                         gkgtGameState.jump_15_var_a = 1000;
-                        gkgtGameState.iAttackedPlayerBuffer = iVar2;
+                        gkgtGameState.iAttackedPlayerBuffer = iVar1;
                       }
-                      if (gkgtLoadedCharacter[iVar2].field6458_0xdfff != 0) {
-                        local_3c = *(uint *)&gkgtLoadedCharacter[iVar2].input_storage;
+                      if (gkgtLoadedCharacter[iVar1].field6452_0xdfff != 0) {
+                        local_3c = *(uint *)&gkgtLoadedCharacter[iVar1].input_storage;
                       }
                       object->obj_ptr_b = (kgtEngineObject *)((uint)object->obj_ptr_b | 0x10);
                       if (object->iObjectType == PLAYER_ENGINE_OBJECT) {
                         object->iParam2 = (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + 1;
                       }
-                      if (opp_object->iObjectType == PLAYER_ENGINE_OBJECT) {
-                        opp_object->iParam2 = (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + -1;
+                      if (pkgtoOtherPlayer->iObjectType == PLAYER_ENGINE_OBJECT) {
+                        pkgtoOtherPlayer->iParam2 =
+                             (&INT_0041f130)[*(uint *)&object->__or_3 & 1] + -1;
                       }
-                      if (opp_object->iObjectType != PLAYER_ENGINE_OBJECT) {
-                        if ((opp_object->iObjectType == STORY?_ENGINE_OBJECT) &&
+                      if (pkgtoOtherPlayer->iObjectType != PLAYER_ENGINE_OBJECT) {
+                        if ((pkgtoOtherPlayer->iObjectType == STORY?_ENGINE_OBJECT) &&
                            (object->iDsAttackHitsSkillIdx != 0)) {
                           object->iHitJunctionIdx = object->iDsAttackHitsSkillIdx;
                           object->iDsAttackHitsSkillIdx = 0;
@@ -11753,141 +11787,141 @@ void handle_hitboxes_2(void)
                       if (gkgtLoadedCharacter[player_buffer].iCurrentActionCancellableFlag != 0) {
                         gkgtLoadedCharacter[player_buffer].iCurrentActionCancellableFlag = 2;
                       }
-                      if ((gkgtLoadedCharacter[iVar2].iUnkParam3Related == 0) ||
-                         ((gkgtLoadedCharacter[iVar2].cIsGuardButtonActive & 8) == 0)) {
-                        uVar9 = 1;
+                      if ((gkgtLoadedCharacter[iVar1].iUnkParam3Related == 0) ||
+                         ((gkgtLoadedCharacter[iVar1].cIsGuardButtonActive & 8) == 0)) {
+                        uVar7 = 1;
                       }
                       else {
-                        uVar9 = (object->iParam3 <= opp_object->iParam3) + 1;
+                        uVar7 = (object->iParam3 <= pkgtoOtherPlayer->iParam3) + 1;
                       }
-                      if (((uint)opp_object->obj_ptr_b & 0xc) == 0) {
-                        if (gkgtLoadedCharacter[iVar2].iNotTestplayPlayerCpu == 0) {
-                          uVar3 = gkgtLoadedCharacter[iVar2].cIsGuardButtonActive;
-                          if ((uVar3 & 8) == 0) {
-                            if ((local_3c & uVar9) == 0) {
-                              if ((uVar3 & 1) != 0) {
-                                uVar9 = local_3c & 0xfffffff7;
+                      if (((uint)pkgtoOtherPlayer->obj_ptr_b & 0xc) == 0) {
+                        if (gkgtLoadedCharacter[iVar1].iNotTestplayPlayerCpu == 0) {
+                          uVar2 = gkgtLoadedCharacter[iVar1].cIsGuardButtonActive;
+                          if ((uVar2 & 8) == 0) {
+                            if ((local_3c & uVar7) == 0) {
+                              if ((uVar2 & 1) != 0) {
+                                uVar7 = local_3c & 0xfffffff7;
                                 goto joined_r0x0040f43f;
                               }
                               goto LAB_0040f449;
                             }
                           }
-                          else if ((giInputBufferA[opp_object->iPlayerIdx][giInputBufferPos] &
-                                   1 << (gkgtLoadedCharacter[iVar2].cGuardButton + 4U & 0x1f)) == 0)
+                          else if ((giInputBufferA[pkgtoOtherPlayer->iPlayerIdx][giInputBufferPos] &
+                                   1 << (gkgtLoadedCharacter[iVar1].cGuardButton + 4U & 0x1f)) == 0)
                           {
-                            uVar9 = local_3c;
-                            if ((uVar3 & 1) != 0) {
+                            uVar7 = local_3c;
+                            if ((uVar2 & 1) != 0) {
 joined_r0x0040f43f:
-                              if (uVar9 == 0) goto LAB_0040f441;
+                              if (uVar7 == 0) goto LAB_0040f441;
                             }
                             goto LAB_0040f449;
                           }
                         }
                         else {
                           rand = _rand();
-                          if (gkgtLoadedCharacter[iVar2].iCpuLevel <= rand % 100) goto LAB_0040f449;
+                          if (gkgtLoadedCharacter[iVar1].iCpuLevel <= rand % 100) goto LAB_0040f449;
                         }
 LAB_0040f441:
-                        bVar5 = true;
+                        bVar4 = true;
                       }
 LAB_0040f449:
-                      if (((byte)opp_object->obj_ptr_b & 0xc) == 0xc) {
-                        bVar5 = true;
+                      if (((byte)pkgtoOtherPlayer->obj_ptr_b & 0xc) == 0xc) {
+                        bVar4 = true;
                       }
                       if ((hitbox->field_0xa & 0x40) != 0) {
-                        bVar5 = false;
+                        bVar4 = false;
                       }
-                      if (((gkgtLoadedCharacter[iVar2].cIsGuardButtonActive & 2) == 0) &&
-                         (opp_object->iParam4 < opp_object->compare_to_param_4)) {
-                        bVar5 = false;
+                      if (((gkgtLoadedCharacter[iVar1].cIsGuardButtonActive & 2) == 0) &&
+                         (pkgtoOtherPlayer->iParam4 < pkgtoOtherPlayer->compare_to_param_4)) {
+                        bVar4 = false;
                       }
                       new_ivar = (int)object->reaction_skillblock;
                       if (new_ivar == 0) {
 LAB_0040f657:
-                        if (uVar10 != 0) {
+                        if (uVar8 != 0) {
                           iSetDebugInfo(s_reaction_error_2_0041f1e4,0xff);
                           break;
                         }
                       }
                       else {
-                        if (opp_object->iParam4 < opp_object->compare_to_param_4) {
-                          if (bVar5) {
-                            uVar9 = (uint)*(ushort *)(new_ivar + 0xb);
+                        if (pkgtoOtherPlayer->iParam4 < pkgtoOtherPlayer->compare_to_param_4) {
+                          if (bVar4) {
+                            uVar7 = (uint)*(ushort *)(new_ivar + 0xb);
                           }
                           else {
-                            uVar9 = (uint)*(ushort *)(new_ivar + 5);
+                            uVar7 = (uint)*(ushort *)(new_ivar + 5);
                           }
                         }
                         else if ((local_3c & 8) == 0) {
-                          if (bVar5) {
-                            uVar9 = (uint)*(ushort *)(new_ivar + 7);
-                            if ((gkgtLoadedCharacter[iVar2].iNotTestplayPlayerCpu != 0) &&
-                               ((gkgtKgtSystem.hit_junctions[uVar9].cDoing & 1U) != 0)) {
-                              uVar9 = (uint)*(ushort *)(new_ivar + 9);
+                          if (bVar4) {
+                            uVar7 = (uint)*(ushort *)(new_ivar + 7);
+                            if ((gkgtLoadedCharacter[iVar1].iNotTestplayPlayerCpu != 0) &&
+                               ((gkgtKgtSystem.hit_junctions[uVar7].cDoing & 1U) != 0)) {
+                              uVar7 = (uint)*(ushort *)(new_ivar + 9);
                             }
                           }
                           else {
-                            uVar9 = (uint)*(ushort *)(new_ivar + 1);
+                            uVar7 = (uint)*(ushort *)(new_ivar + 1);
                           }
                         }
-                        else if (bVar5) {
-                          uVar9 = (uint)*(ushort *)(new_ivar + 9);
-                          if ((gkgtLoadedCharacter[iVar2].iNotTestplayPlayerCpu != 0) &&
-                             ((gkgtKgtSystem.hit_junctions[uVar9].cDoing & 1U) != 0)) {
-                            uVar9 = (uint)*(ushort *)(new_ivar + 7);
+                        else if (bVar4) {
+                          uVar7 = (uint)*(ushort *)(new_ivar + 9);
+                          if ((gkgtLoadedCharacter[iVar1].iNotTestplayPlayerCpu != 0) &&
+                             ((gkgtKgtSystem.hit_junctions[uVar7].cDoing & 1U) != 0)) {
+                            uVar7 = (uint)*(ushort *)(new_ivar + 7);
                           }
                         }
                         else {
-                          uVar9 = (uint)*(ushort *)(new_ivar + 3);
+                          uVar7 = (uint)*(ushort *)(new_ivar + 3);
                         }
-                        if (uVar9 == 0) goto LAB_0040f657;
-                        opp_object->iHitJunctionIdx =
-                             (uint)(ushort)pkVar1->kgtHitJunctions[uVar9].shAllottmentIdx;
-                        if ((gkgtKgtSystem.hit_junctions[uVar9].cDoing & 1U) != 0) {
-                          bVar5 = false;
+                        if (uVar7 == 0) goto LAB_0040f657;
+                        pkgtoOtherPlayer->iHitJunctionIdx =
+                             (uint)(ushort)player->kgtHitJunctions[uVar7].shAllottmentIdx;
+                        if ((gkgtKgtSystem.hit_junctions[uVar7].cDoing & 1U) != 0) {
+                          bVar4 = false;
                         }
                         if ((hitbox->field_0xc != '\0') &&
-                           (*(short *)(uVar9 * 4 + 0x4d8b2c + player_buffer * 0xe03f) != 0)) {
+                           (*(short *)(uVar7 * 4 + 0x4d8b2c + player_buffer * 0xe03f) != 0)) {
                           rand = object->iPlayerIdx;
-                          hitbox_calculation(&local_8,hitbox_x_val,hitbox_y_val,hitbox_width,
-                                             hitbox_height,iVar12,iVar13,(int)*(short *)(iVar11 + 5)
-                                             ,(int)*(short *)(iVar11 + 7));
-                          pkVar8 = kgtoNewEngineObject(READ_SCRIPT,0x5d,local_8,local_4);
-                          iVar4 = object->iPlayerLookingRight;
-                          pkVar8->iPlayerIdx = object->iPlayerIdx;
-                          uVar7 = *(undefined3 *)&object->field_0x15;
-                          pkVar8->__or_3 = object->__or_3;
-                          *(undefined3 *)&pkVar8->field_0x15 = uVar7;
-                          uVar9 = (uint)*(ushort *)(uVar9 * 4 + 0x4d8b2c + player_buffer * 0xe03f);
-                          pkVar8->iPlayerLookingRight = iVar4;
-                          pkVar8->iSkillIdx = uVar9;
-                          pkVar8->iObjectType = STORY?_ENGINE_OBJECT;
-                          *(uint *)&pkVar8->iSkillScriptIdx =
-                               (uint)(ushort)gkgtLoadedCharacter[rand].kgtCore.pSkillsAlloc[uVar9].
+                          vHitboxCalc(&local_8,iAdjustedXVal,iXVal,iHitboxWidth,iHitboxHeight,iVar10
+                                      ,iVar11,(int)*(short *)(iVar9 + 5),(int)*(short *)(iVar9 + 7))
+                          ;
+                          pkVar6 = kgtoNewEngineObject(READ_SCRIPT,0x5d,local_8,local_4);
+                          iVar3 = object->iPlayerLookingRight;
+                          pkVar6->iPlayerIdx = object->iPlayerIdx;
+                          uVar5 = *(undefined3 *)&object->field_0x15;
+                          pkVar6->__or_3 = object->__or_3;
+                          *(undefined3 *)&pkVar6->field_0x15 = uVar5;
+                          uVar7 = (uint)*(ushort *)(uVar7 * 4 + 0x4d8b2c + player_buffer * 0xe03f);
+                          pkVar6->iPlayerLookingRight = iVar3;
+                          pkVar6->iSkillIdx = uVar7;
+                          pkVar6->iObjectType = STORY?_ENGINE_OBJECT;
+                          *(uint *)&pkVar6->iSkillScriptIdx =
+                               (uint)(ushort)gkgtLoadedCharacter[rand].kgtCore.pSkillsAlloc[uVar7].
                                              shStartingStepIdx;
-                          pkVar8->unk_bitmask = pkVar8->unk_bitmask | 0x40000000;
+                          pkVar6->unk_bitmask = pkVar6->unk_bitmask | 0x40000000;
                         }
-                        if ((opp_object->iHitJunctionIdx == 0) && (uVar10 != 0)) {
+                        if ((pkgtoOtherPlayer->iHitJunctionIdx == 0) && (uVar8 != 0)) {
                           iSetDebugInfo(s_reaction_error_1_0041f1d0,0xff);
                           break;
                         }
                       }
-                      if (bVar5) {
-                        opp_object->iPlayerLookingRight = object->iPlayerLookingRight ^ 1;
-                        if (uVar10 != 0) {
-                          uVar9 = (uint)(byte)gkgtKgtSystem.stiff_time_guard;
-                          *(uint *)&opp_object->iOpponentDowntimeInFrames = uVar9;
-                          *(uint *)&object->iOpponentDowntimeInFrames = uVar9;
-                          hitbox_flags = hitbox->field_0xa;
-                          opp_object->obj_ptr_b =
-                               (kgtEngineObject *)((uint)opp_object->obj_ptr_b | 0xc);
-                          if ((hitbox_flags & 4) != 0) {
-                            uVar10 = ((byte)gkgtLoadedCharacter[player_buffer].cShaveRatio * uVar10)
-                                     / 100;
-                            if (uVar10 == 0) {
-                              uVar10 = 1;
+                      if (bVar4) {
+                        pkgtoOtherPlayer->iPlayerLookingRight = object->iPlayerLookingRight ^ 1;
+                        if (uVar8 != 0) {
+                          uVar7 = (uint)(byte)gkgtKgtSystem.stiff_time_guard;
+                          *(uint *)&pkgtoOtherPlayer->iOpponentDowntimeInFrames = uVar7;
+                          *(uint *)&object->iOpponentDowntimeInFrames = uVar7;
+                          cHitboxFlags = hitbox->field_0xa;
+                          pkgtoOtherPlayer->obj_ptr_b =
+                               (kgtEngineObject *)((uint)pkgtoOtherPlayer->obj_ptr_b | 0xc);
+                          if ((cHitboxFlags & 4) != 0) {
+                            uVar8 = ((byte)gkgtLoadedCharacter[player_buffer].cShaveRatio * uVar8) /
+                                    100;
+                            if (uVar8 == 0) {
+                              uVar8 = 1;
                             }
-                            vAddToHealth(pkVar1,-uVar10);
+                            vAddToHealth(player,-uVar8);
                           }
                         }
                         if (object->iStageSkillstepIdx != 0) {
@@ -11896,73 +11930,56 @@ LAB_0040f657:
                         }
                       }
                       else {
-                        if ((*(byte *)(iVar11 + 10) & 4) != 0) {
-                          pkVar6 = gkgtLoadedCharacter + player_buffer;
-                          uVar9._0_1_ = pkVar6->unkHitboxVarB;
-                          uVar9._1_1_ = pkVar6->field_0xdf2e;
-                          uVar9._2_1_ = pkVar6->poss_direction_related_A;
-                          uVar9._3_1_ = pkVar6->field_0xdf30;
-                          uVar9 = uVar9 | 3;
-                          pkVar6 = gkgtLoadedCharacter + player_buffer;
-                          pkVar6->unkHitboxVarB = (char)uVar9;
-                          pkVar6->field_0xdf2e = (char)(uVar9 >> 8);
-                          pkVar6->poss_direction_related_A = (bool)(char)(uVar9 >> 0x10);
-                          pkVar6->field_0xdf30 = (char)(uVar9 >> 0x18);
-                          *(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA =
-                               *(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA + 1;
+                        if ((*(byte *)(iVar9 + 10) & 4) != 0) {
+                          gkgtLoadedCharacter[player_buffer].unkHitboxVarB =
+                               gkgtLoadedCharacter[player_buffer].unkHitboxVarB | 3;
+                          gkgtLoadedCharacter[iVar1].unkHitboxVarA =
+                               gkgtLoadedCharacter[iVar1].unkHitboxVarA + 1;
                           iSetDebugInfo(s_HAN_HIRAGANA__0041f1f8,0x8fffff);
                         }
-                        opp_object->iPlayerLookingRight = object->iPlayerLookingRight ^ 1;
-                        if (uVar10 != 0) {
-                          uVar9 = (uint)(byte)gkgtKgtSystem.stiff_time_hit;
-                          *(uint *)&opp_object->iOpponentDowntimeInFrames = uVar9;
-                          *(uint *)&object->iOpponentDowntimeInFrames = uVar9;
+                        pkgtoOtherPlayer->iPlayerLookingRight = object->iPlayerLookingRight ^ 1;
+                        if (uVar8 != 0) {
+                          uVar7 = (uint)(byte)gkgtKgtSystem.stiff_time_hit;
+                          *(uint *)&pkgtoOtherPlayer->iOpponentDowntimeInFrames = uVar7;
+                          *(uint *)&object->iOpponentDowntimeInFrames = uVar7;
                           vAddToSpecialGauge(object->iPlayerIdx,
                                              (int)gkgtLoadedCharacter[player_buffer].
                                                   shSpecialGuageIncreaseOnAttack);
-                          vAddToSpecialGauge(opp_object->iPlayerIdx,
-                                             (int)gkgtLoadedCharacter[iVar2].
+                          vAddToSpecialGauge(pkgtoOtherPlayer->iPlayerIdx,
+                                             (int)gkgtLoadedCharacter[iVar1].
                                                   shSpecialGuageIncreaseOnHit);
-                          hitbox_flags = gkgtLoadedCharacter[player_buffer].cCharacterRev;
-                          rand = gkgtLoadedCharacter[iVar2].field6362_0xdf01;
-                          opp_object->obj_ptr_b =
-                               (kgtEngineObject *)((uint)opp_object->obj_ptr_b & 0xfffffffb | 8);
+                          cHitboxFlags = gkgtLoadedCharacter[player_buffer].cCharacterRev;
+                          rand = gkgtLoadedCharacter[iVar1].field6362_0xdf01;
+                          pkgtoOtherPlayer->obj_ptr_b =
+                               (kgtEngineObject *)
+                               ((uint)pkgtoOtherPlayer->obj_ptr_b & 0xfffffffb | 8);
                           rand = (int)((ulonglong)
-                                       ((longlong)(int)((uint)hitbox_flags * rand * uVar10) *
+                                       ((longlong)(int)((uint)cHitboxFlags * rand * uVar8) *
                                        -0x51eb851f) >> 0x20);
-                          rand = uVar10 + ((rand >> 5) - (rand >> 0x1f));
+                          rand = uVar8 + ((rand >> 5) - (rand >> 0x1f));
                           if (rand < 1) {
                             rand = 1;
                           }
-                          iVar11 = (int)((uint)*(byte *)(iVar11 + 0xb) * rand) / 100;
-                          if (iVar11 < 1) {
-                            iVar11 = 1;
+                          iVar9 = (int)((uint)*(byte *)(iVar9 + 0xb) * rand) / 100;
+                          if (iVar9 < 1) {
+                            iVar9 = 1;
                           }
-                          vAddToHealth(pkVar1,-iVar11);
-                          gkgtLoadedCharacter[iVar2].field6362_0xdf01 =
-                               gkgtLoadedCharacter[iVar2].field6362_0xdf01 + 1;
+                          vAddToHealth(player,-iVar9);
+                          gkgtLoadedCharacter[iVar1].field6362_0xdf01 =
+                               gkgtLoadedCharacter[iVar1].field6362_0xdf01 + 1;
                         }
-                        if (1 < gkgtLoadedCharacter[iVar2].field6362_0xdf01) {
-                          pkVar8 = kgtoNewEngineObject(7,0x5e,iVar12 << 0x10,iVar13 * 0x10000);
-                          pkVar8->iPlayerIdx = gkgtLoadedCharacter[iVar2].field6362_0xdf01;
-                          pkVar8->obj_ptr_b =
-                               (kgtEngineObject *)&gkgtLoadedCharacter[iVar2].field6362_0xdf01;
-                          pkVar8->unk_bitmask = pkVar8->unk_bitmask | 0x40000000;
+                        if (1 < gkgtLoadedCharacter[iVar1].field6362_0xdf01) {
+                          pkVar6 = kgtoNewEngineObject(7,0x5e,iVar10 << 0x10,iVar11 * 0x10000);
+                          pkVar6->iPlayerIdx = gkgtLoadedCharacter[iVar1].field6362_0xdf01;
+                          pkVar6->obj_ptr_b =
+                               (kgtEngineObject *)&gkgtLoadedCharacter[iVar1].field6362_0xdf01;
+                          pkVar6->unk_bitmask = pkVar6->unk_bitmask | 0x40000000;
                         }
                         if (object->iObjectType == PLAYER_ENGINE_OBJECT) {
-                          pkVar1 = gkgtLoadedCharacter + player_buffer;
-                          uVar10._0_1_ = pkVar1->unkHitboxVarB;
-                          uVar10._1_1_ = pkVar1->field_0xdf2e;
-                          uVar10._2_1_ = pkVar1->poss_direction_related_A;
-                          uVar10._3_1_ = pkVar1->field_0xdf30;
-                          uVar10 = uVar10 | 1;
-                          pkVar1 = gkgtLoadedCharacter + player_buffer;
-                          pkVar1->unkHitboxVarB = (char)uVar10;
-                          pkVar1->field_0xdf2e = (char)(uVar10 >> 8);
-                          pkVar1->poss_direction_related_A = (bool)(char)(uVar10 >> 0x10);
-                          pkVar1->field_0xdf30 = (char)(uVar10 >> 0x18);
-                          *(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA =
-                               *(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA + 1;
+                          gkgtLoadedCharacter[player_buffer].unkHitboxVarB =
+                               gkgtLoadedCharacter[player_buffer].unkHitboxVarB | 1;
+                          gkgtLoadedCharacter[iVar1].unkHitboxVarA =
+                               gkgtLoadedCharacter[iVar1].unkHitboxVarA + 1;
                         }
                         else if (object->iDsAttackHitsSkillIdx != 0) {
                           object->iHitJunctionIdx = object->iDsAttackHitsSkillIdx;
@@ -11970,10 +11987,10 @@ LAB_0040f657:
                         }
                       }
                       if (object->iObjectType == PLAYER_ENGINE_OBJECT) {
-                        gkgtLoadedCharacter[iVar2].field6361_0xdefd = (int)object;
+                        gkgtLoadedCharacter[iVar1].field6361_0xdefd = (int)object;
                       }
                       else if ((object->unk_bitmask & 0x20000000U) != 0) {
-                        gkgtLoadedCharacter[iVar2].field6361_0xdefd = (int)object;
+                        gkgtLoadedCharacter[iVar1].field6361_0xdefd = (int)object;
                       }
                       break;
                     }
@@ -11984,7 +12001,7 @@ LAB_0040f657:
               }
             }
 LAB_0040f8bf:
-            opp_object = opp_object + 1;
+            pkgtoOtherPlayer = pkgtoOtherPlayer + 1;
             local_14 = local_14 + 1;
           } while (local_14 < 0x400);
         }
@@ -12001,7 +12018,7 @@ LAB_0040f8bf:
 
 
 
-void FUN_0040f910(void)
+void vHandleHitMovements(void)
 
 {
   short sVar1;
@@ -12055,11 +12072,12 @@ void FUN_0040f910(void)
       if (local_38->iObjectType == PLAYER_ENGINE_OBJECT) {
         bVar3 = false;
         bVar13 = gkgtLoadedCharacter[local_38->iPlayerIdx].iHealth == 0;
+                    // This character variable not used in any other functions
         local_38->iParam3 =
-             local_38->iParam3 + gkgtLoadedCharacter[local_38->iPlayerIdx].field6389_0xdf49;
+             local_38->iParam3 + gkgtLoadedCharacter[local_38->iPlayerIdx].field6383_0xdf49;
         iVar5 = local_38->iPlayerIdx;
-        gkgtLoadedCharacter[iVar5].field6389_0xdf49 = 0;
-        if ((((gkgtLoadedCharacter[iVar5].field6448_0xdfef & 0x10) != 0) &&
+        gkgtLoadedCharacter[iVar5].field6383_0xdf49 = 0;
+        if ((((gkgtLoadedCharacter[iVar5].field6442_0xdfef & 0x10) != 0) &&
             (pkVar10 = gkgtLoadedCharacter[iVar5].poss_opponent_obj_ptr,
             pkVar10 != (kgtEngineObject *)0x0)) && (pkVar10->iObjectType == PLAYER_ENGINE_OBJECT)) {
           if ((local_38->iPlayerLookingRight & 1) == 0) {
@@ -12072,6 +12090,7 @@ void FUN_0040f910(void)
           }
           iVar9 = local_38->iParam4;
           pkVar10->iParam3 = iVar8;
+                    // This character variable not referenced again?
           pkVar10->iParam4 = *(int *)&gkgtLoadedCharacter[iVar5].field_0xdffb + iVar9;
         }
         iVar8 = unk_x_position;
@@ -12092,8 +12111,8 @@ LAB_0040fba2:
                ((iVar5 = gkgtLoadedCharacter[iVar5].field6361_0xdefd, iVar5 != 0 &&
                 ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
                  (iVar9 = (0x32 - unk_x_position) * 0x10000 - local_38->iParam3, 0 < iVar9)))))) {
-              gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 =
-                   gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 + iVar9;
+              gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6383_0xdf49 =
+                   gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6383_0xdf49 + iVar9;
             }
             bVar4 = true;
             local_38->iParam3 = (unk_x_position + 0x32) * 0x10000;
@@ -12107,8 +12126,8 @@ LAB_0040fca7:
                 (iVar5 = gkgtLoadedCharacter[local_38->iPlayerIdx].field6361_0xdefd, iVar5 != 0)) &&
                ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
                 (iVar8 = local_38->iParam3 + (unk_x_position + 0x24e) * -0x10000, 0 < iVar8)))) {
-              gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 =
-                   gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 - iVar8;
+              gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6383_0xdf49 =
+                   gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6383_0xdf49 - iVar8;
             }
             local_38->iParam3 = (unk_x_position + 0x24e) * 0x10000;
           }
@@ -12120,8 +12139,8 @@ LAB_0040fca7:
                ((iVar5 = gkgtLoadedCharacter[iVar5].field6361_0xdefd, iVar5 != 0 &&
                 ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
                  (iVar8 = 0x320000 - local_38->iParam3, 0 < iVar8)))))) {
-              gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 =
-                   gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 + iVar8;
+              gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6383_0xdf49 =
+                   gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6383_0xdf49 + iVar8;
             }
             local_38->iParam3 = 0x320000;
             bVar4 = true;
@@ -12131,8 +12150,8 @@ LAB_0040fca7:
               (iVar5 = gkgtLoadedCharacter[local_38->iPlayerIdx].field6361_0xdefd, iVar5 != 0)) &&
              ((((byte)*(undefined4 *)(iVar5 + 0x15e) & 0xc) != 8 &&
               (iVar8 = local_38->iParam3 + -0x4ce0000, 0 < iVar8)))) {
-            gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 =
-                 gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6389_0xdf49 - iVar8;
+            gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6383_0xdf49 =
+                 gkgtLoadedCharacter[*(int *)(iVar5 + 0x156)].field6383_0xdf49 - iVar8;
           }
           local_38->iParam3 = 0x4ce0000;
         }
@@ -12250,51 +12269,46 @@ joined_r0x0040ff15:
 void vHitboxHandling(void)
 
 {
-  int iVar2;
-  uint uVar3;
-  int iVar4;
-  kgt_character_struct *pkVar5;
-  kgt_character_struct_ptr_57137_undefined puVar4;
+  kgt_character_struct_ptr_57137_undefined pUnkHitboxVarA;
   int i;
-  kgt_character_struct_ptr_57081_kgtEngineObject__ player;
-  def5_offset iVar1;
+  kgt_character_struct_ptr_57081_kgtEngineObject__ pkgtoOpponent;
+  kgtEngineObject *pkgtoCurrentPlayer;
+  int iOpponentIdx;
+  uint unkOpponentHitboxB;
   
-  puVar4 = &gkgtLoadedCharacter[0].unkHitboxVarA;
+  pUnkHitboxVarA = &gkgtLoadedCharacter[0].unkHitboxVarA;
   i = 8;
   do {
-    *(undefined4 *)&ADJ(puVar4)->unkHitboxVarB = 0;
-    *(undefined4 *)puVar4 = 0;
-    puVar4 = puVar4 + 0xe03f;
+    ADJ(pUnkHitboxVarA)->unkHitboxVarB = 0;
+    ADJ(pUnkHitboxVarA)->unkHitboxVarA = 0;
+    pUnkHitboxVarA = (kgt_character_struct_ptr_57137_undefined)((int)pUnkHitboxVarA + 0xe03f);
     i = i + -1;
   } while (i != 0);
-  handle_hitboxes();
-  handle_hitboxes_2();
-  FUN_0040f910();
-  player = &gkgtLoadedCharacter[0].poss_opponent_obj_ptr;
+  vAdjustHitboxes();
+  vHandleHitboxEffects();
+  vHandleHitMovements();
+  pkgtoOpponent = &gkgtLoadedCharacter[0].poss_opponent_obj_ptr;
   i = 8;
   do {
-    if (((ADJ(player)->unknown_online_var_a != 0) &&
-        (iVar1 = (def5_offset)ADJ(player)->pkgtoSelf, *(int *)(iVar1 + 0x38) == 0)) &&
-       (ADJ(player)->poss_opponent_obj_ptr != (kgtEngineObject *)0x0)) {
-      iVar2 = ADJ(player)->poss_opponent_obj_ptr->iPlayerIdx;
-      uVar3 = *(uint *)&ADJ(player)->unkHitboxVarB;
-      if (((uVar3 != 0) &&
-          (pkVar5 = gkgtLoadedCharacter + iVar2, iVar4._0_1_ = pkVar5->unkHitboxVarB,
-          iVar4._1_1_ = pkVar5->field_0xdf2e, iVar4._2_1_ = pkVar5->poss_direction_related_A,
-          iVar4._3_1_ = pkVar5->field_0xdf30, iVar4 == 0)) &&
-         (*(int *)&gkgtLoadedCharacter[iVar2].unkHitboxVarA != 0)) {
-        if (*(int *)(iVar1 + 0x6c) != 0) {
-          *(int *)(iVar1 + 0x38) = *(int *)(iVar1 + 0x6c);
-                    // Resetting CPU level?
-          *(undefined4 *)(iVar1 + 0x6c) = 0;
+    if (((ADJ(pkgtoOpponent)->unknown_online_var_a != 0) &&
+        (pkgtoCurrentPlayer = ADJ(pkgtoOpponent)->pkgtoSelf,
+        pkgtoCurrentPlayer->iHitJunctionIdx == 0)) &&
+       (ADJ(pkgtoOpponent)->poss_opponent_obj_ptr != (kgtEngineObject *)0x0)) {
+      iOpponentIdx = ADJ(pkgtoOpponent)->poss_opponent_obj_ptr->iPlayerIdx;
+      unkOpponentHitboxB = ADJ(pkgtoOpponent)->unkHitboxVarB;
+      if (((unkOpponentHitboxB != 0) && (gkgtLoadedCharacter[iOpponentIdx].unkHitboxVarB == 0)) &&
+         (gkgtLoadedCharacter[iOpponentIdx].unkHitboxVarA != 0)) {
+        if (pkgtoCurrentPlayer->iDsAttackHitsSkillIdx != 0) {
+          pkgtoCurrentPlayer->iHitJunctionIdx = pkgtoCurrentPlayer->iDsAttackHitsSkillIdx;
+          pkgtoCurrentPlayer->iDsAttackHitsSkillIdx = 0;
         }
-        if (((uVar3 & 2) != 0) && (*(int *)(iVar1 + 0x78) != 0)) {
-          *(int *)(iVar1 + 0x38) = *(int *)(iVar1 + 0x78);
-          *(undefined4 *)(iVar1 + 0x78) = 0;
+        if (((unkOpponentHitboxB & 2) != 0) && (pkgtoCurrentPlayer->iDsWhileThrowDo != 0)) {
+          pkgtoCurrentPlayer->iHitJunctionIdx = pkgtoCurrentPlayer->iDsWhileThrowDo;
+          pkgtoCurrentPlayer->iDsWhileThrowDo = 0;
         }
       }
     }
-    player = (kgt_character_struct_ptr_57081_kgtEngineObject__)((int)player + 0xe03f);
+    pkgtoOpponent = (kgt_character_struct_ptr_57081_kgtEngineObject__)((int)pkgtoOpponent + 0xe03f);
     i = i + -1;
   } while (i != 0);
   return;
@@ -14367,7 +14381,7 @@ void script_reading_logic(void)
   }
   curr_obj_type = pkgtoCurrentEngineObject->iObjectType;
   if (curr_obj_type == PLAYER_ENGINE_OBJECT) {
-    gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].field6458_0xdfff = 0;
+    gkgtLoadedCharacter[pkgtoCurrentEngineObject->iPlayerIdx].field6452_0xdfff = 0;
     vUnkXDistanceHandling();
     vProcessInputsIntoSkills();
     if (*(int *)(((kgtSystem *)kgtTargetStructure)->empty_e + 0xac9) != 0) {
@@ -15495,7 +15509,7 @@ LAB_00412d83:
         PS_player_buffer = pkgtoCurrentEngineObject->iPlayerIdx;
         *(int *)&gkgtLoadedCharacter[PS_player_buffer].input_storage =
              giInputBufferA[PS_player_buffer][giInputBufferPos];
-        gkgtLoadedCharacter[PS_player_buffer].field6458_0xdfff = 1;
+        gkgtLoadedCharacter[PS_player_buffer].field6452_0xdfff = 1;
         PS_obj = &kgtEngineObjects[0].iOpponentDowntimeInFrames;
         ps_i = 0x400;
         do {
@@ -15521,7 +15535,7 @@ LAB_00412d83:
                *(int *)(PS_player_cpu + 0x40) + (uint)PS_opponent_down_time;
           *(int *)&ADJ(PS_players)->input_storage =
                giInputBufferA[*(int *)(PS_player_cpu + 0x156)][giInputBufferPos];
-          ADJ(PS_players)->field6458_0xdfff = 1;
+          ADJ(PS_players)->field6452_0xdfff = 1;
           iColorIntOtherPlayer = (int *)&kgtEngineObjects[0].iOpponentDowntimeInFrames;
           do {
             if (((iColorIntOtherPlayer[-0x10] == 4) &&
